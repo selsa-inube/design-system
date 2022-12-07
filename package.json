@@ -53,17 +53,5 @@
     "prettier": "2.8.0",
     "prop-types": "^15.8.1",
     "webpack": "^5.75.0"
-  },
-  "eslintConfig": {
-    "overrides": [
-      {
-        "files": [
-          "**/*.stories.*"
-        ],
-        "rules": {
-          "import/no-anonymous-default-export": "off"
-        }
-      }
-    ]
   }
 }
