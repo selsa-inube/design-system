@@ -2,9 +2,9 @@ import styled from "styled-components";
 
 const StyledButton = styled.button`
   box-sizing: border-box;
-  border: 1px solid #2684ff;
+  border: 2px solid #57d9a3;
   background-color: white;
-  color: #2684ff;
+  color: #57d9a3;
   padding: 10px 16px;
 `;
 
