@@ -1,9 +1,10 @@
 {
   "presets": [
     [
-      "react-app",
+      "@babel/preset-react",
       {
-        "absoluteRuntime": false
+        "absoluteRuntime": false,
+        "production": "process.env.BABEL_ENV === production"
       }
     ]
   ]
