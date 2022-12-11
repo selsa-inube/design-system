@@ -1,17 +1,24 @@
 {
-  "name": "design-system",
+  "name": "@inube/design-system",
+  "homepage": "https://github.com/selsa-inube/design-system#readme",
   "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "styled-components": "^5.3.6",
-    "web-vitals": "^2.1.4"
+  "license": "ISC",
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "author": "Fernando Cañas <fcanas@sistemasenlinea.com.co>",
+  "main": "dist/index.js",
+  "keywords": [
+    "inube",
+    "design",
+    "system"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/selsa-inube/design-system.git"
   },
+  "bugs": {
+    "url": "https://github.com/selsa-inube/design-system/issues"
+  },
+  "private": true,
   "scripts": {
     "start": "react-scripts start",
     "build": "cross-env BABEL_ENV=production babel src -d dist",
@@ -23,21 +30,15 @@
     "test-storybook": "test-storybook --watch",
     "chromatic": "npx chromatic"
   },
-  "lint-staged": {
-    "**/*": "prettier --write --ignore-unknown",
-    "*.{js,jsx}": "eslint"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "styled-components": "^5.3.6",
+    "web-vitals": "^2.1.4"
   },
   "devDependencies": {
     "@babel/cli": "^7.19.3",
@@ -66,5 +67,21 @@
     "prettier": "2.8.0",
     "prop-types": "^15.8.1",
     "webpack": "^5.75.0"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown",
+    "*.{js,jsx}": "eslint"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
