@@ -1,0 +1,11 @@
+{
+  "presets": [
+    [
+      "@babel/preset-react",
+      {
+        "absoluteRuntime": false,
+        "production": "process.env.BABEL_ENV === production"
+      }
+    ]
+  ]
+}
