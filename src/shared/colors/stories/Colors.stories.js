@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Colors } from ".";
-import { colors } from "../../shared/colors";
+import { colors } from "../colors";
 
 const story = {
   title: "Design System/Colors",

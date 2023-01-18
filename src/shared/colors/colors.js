@@ -25,7 +25,7 @@ const ref = {
       mn600: "#505F79",
       mn700: "#404C61",
     },
-    ligthNeutral: {
+    lightNeutral: {
       ln50: "#FFFFF",
       ln75: "#FAFBFC",
       ln100: "#F4F5F7",
@@ -80,7 +80,7 @@ const ref = {
       b600: "#052E6A",
       b700: "#082145",
     },
-    ligthBlue: {
+    lightBlue: {
       lb50: "#B3E5FC",
       lb75: "#81D4FA",
       lb100: "#4FC3F7",
@@ -125,7 +125,7 @@ const ref = {
 const sys = {
   actions: {
     primary: ref.palette.blue.b400,
-    secondary: ref.palette.ligthNeutral.ln200,
+    secondary: ref.palette.lightNeutral.ln200,
     confirm: ref.palette.green.g400,
     warning: ref.palette.yellow.y400,
     remove: ref.palette.red.r400,
@@ -138,14 +138,14 @@ const sys = {
     error: ref.palette.red.r400,
   },
   connectivity: {
-    unavailable: ref.palette.ligthNeutral.ln200,
+    unavailable: ref.palette.lightNeutral.ln200,
     available: ref.palette.green.g400,
     busy: ref.palette.red.r400,
     focus: ref.palette.purple.p400,
   },
   status: {
     inProgress: ref.palette.blue.b400,
-    pending: ref.palette.ligthNeutral.ln200,
+    pending: ref.palette.lightNeutral.ln200,
     complete: ref.palette.green.g400,
     moved: ref.palette.yellow.y400,
     failed: ref.palette.red.r400,
@@ -153,13 +153,13 @@ const sys = {
   },
   priority: {
     normal: ref.palette.blue.b400,
-    low: ref.palette.ligthNeutral.ln200,
+    low: ref.palette.lightNeutral.ln200,
     high: ref.palette.yellow.y400,
     urgent: ref.palette.red.r400,
   },
   team: {
     me: ref.palette.blue.b400,
-    others: ref.palette.ligthNeutral.ln200,
+    others: ref.palette.lightNeutral.ln200,
   },
   text: {
     primary: ref.palette.darkNeutral.dn500,
