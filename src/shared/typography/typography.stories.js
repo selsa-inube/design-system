@@ -1,4 +1,5 @@
-import { addParameters } from "@storybook/react";
+import React from "react";
+
 import { typography } from "./typography";
 
 const story = {
@@ -6,4 +7,10 @@ const story = {
   components: [typography],
 };
 
+const Font = (args) => <typography {...args} />;
+Font.args = {
+  typography,
+};
+
 export default story;
+export { Font };
