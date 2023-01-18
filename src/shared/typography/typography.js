@@ -5,8 +5,8 @@ const ref = {
   typeface: {
     brand: "Roboto",
     weight: {
-      regular: "400px",
-      medium: "500px",
+      regular: 400,
+      medium: 500,
     },
   },
 };
