@@ -5,8 +5,8 @@ const ref = {
   typeface: {
     brand: "Roboto",
     weight: {
-      regular: "400px",
-      medium: "500px",
+      regular: 400,
+      medium: 500,
     },
   },
 };
@@ -16,7 +16,7 @@ const ref = {
  */
 const sys = {
   typescale: {
-    displauLarge: {
+    displayLarge: {
       font: ref.typeface.brand,
       lineHeight: "64px",
       size: "57px",
