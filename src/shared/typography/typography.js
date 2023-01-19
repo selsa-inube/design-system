@@ -1,5 +1,5 @@
 /**
- * This is the reference tokens for the typography.
+ * Thee are the reference tokens for the typography.
  */
 const ref = {
   typeface: {
@@ -12,7 +12,7 @@ const ref = {
 };
 
 /**
- * This is the system tokens for the typography.
+ * These are the system tokens for the typography.
  */
 const sys = {
   typescale: {

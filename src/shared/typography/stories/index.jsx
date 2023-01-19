@@ -1,6 +1,6 @@
 import React from "react";
 import { typography } from "../typography";
-import { Container, Div, P } from "./styles";
+import { StyledContainer, StyledDiv, StyledP } from "./styles";
 
 /**
  * The TypographyRef function is a React component that is responsible for displaying a list of all the properties and values of the typography object.
@@ -14,16 +14,15 @@ const Typography = () => {
         return createList(value, currentKey);
       }
       return (
-        <Container>
-          <Div>
-            <P key={currentKey}>{`${currentKey}: ${value}`}</P>
-          </Div>
-        </Container>
+        <StyledContainer>
+          <StyledDiv>
+            <StyledP key={currentKey}>{`${currentKey}: ${value}`}</StyledP>
+          </StyledDiv>
+        </StyledContainer>
       );
     });
   };
-
-  return <Container>{createList(typography)}</Container>;
+  return <StyledContainer>{createList(typography)}</StyledContainer>;
 };
 
 export { Typography };
