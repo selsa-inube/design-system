@@ -1,17 +1,23 @@
 import React from "react";
 
-import { Colors } from ".";
 import { colors } from "../colors";
+import { ColorReference } from "../components/color-reference";
+import { SystemReference } from "../components/sytem-table-color";
 
 const story = {
-  title: "Design System/Colors",
-  components: [Colors],
+  title: "Shared/Colors",
+  components: [ColorReference, SystemReference],
 };
 
-const Primary = (args) => <Colors {...args} />;
-Primary.args = {
+const Reference = (args) => <ColorReference {...args} />;
+Reference.args = {
+  colors,
+};
+
+const System = (args) => <SystemReference {...args} />;
+System.args = {
   colors,
 };
 
 export default story;
-export { Primary };
+export { Reference, System };
