@@ -28,4 +28,12 @@ const StyledP = styled.p`
   text-overflow: ellipsis;
 `;
 
-export { StyledContainer, StyledDiv, StyledP };
+const StyledRole = styled.p`
+  font-family: ${typography.ref.typeface.brand}, sans-serif;
+  line-height: ${(props) => typography.sys.typescale[props.role].lineHeight};
+  font-size: ${(props) => typography.sys.typescale[props.role].size};
+  letter-spacing: ${(props) => typography.sys.typescale[props.role].tracking};
+  font-weight: ${(props) => typography.sys.typescale[props.role].weight};
+`;
+
+export { StyledContainer, StyledDiv, StyledP, StyledRole };
