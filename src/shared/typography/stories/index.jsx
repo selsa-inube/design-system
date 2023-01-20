@@ -3,7 +3,7 @@ import { typography } from "../typography";
 import { StyledContainer, StyledDiv, StyledP } from "./styles";
 
 /**
- * The TypographyRef function is a React component that is responsible for displaying a list of all the properties and values of the typography object.
+ * The Typography function is a React component that is responsible for displaying a list of all the properties and values of the typography object.
  * @returns cards with token information
  */
 const Typography = () => {

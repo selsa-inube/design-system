@@ -6,7 +6,7 @@ import { Typography } from ".";
  * history of typography tokens (system and reference)
  */
 const story = {
-  title: "shared/typography",
+  title: "shared/Typography",
   components: [typography],
 };
 
@@ -14,7 +14,7 @@ const story = {
  * renders a <typography> component.
  * @returns the <typography> element, the component calls and renders another component called Typography()
  */
-const TokensTypography = () => <typography>{Typography()}</typography>;
+const TokensTypography = () => <Typography />;
 
 export default story;
 export { TokensTypography };
