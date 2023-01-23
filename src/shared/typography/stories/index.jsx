@@ -20,18 +20,15 @@ const RoleLorem = (props) => {
 
   return (
     <StyledContainer>
-      <div>
-        {Object.entries(typographyStory).map(([key, value]) => (
-          <StyledRole role={role}>{`${key}: ${value}`}</StyledRole>
-        ))}
-      </div>
-      <div>
-        <StyledRole role={role}>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis
-          minus neque doloremque accusamus odit id, animi hic beatae minima,
-          quidem! Cupiditate.
-        </StyledRole>
-      </div>
+      {Object.entries(typographyStory).map(([key, value]) => (
+        <StyledRole role={role}>{`${key}: ${value}`}</StyledRole>
+      ))}
+
+      <StyledRole role={role}>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis minus
+        neque doloremque accusamus odit id, animi hic beatae minima, quidem!
+        Cupiditate.
+      </StyledRole>
     </StyledContainer>
   );
 };
