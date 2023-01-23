@@ -8,24 +8,8 @@ import { typography } from "../typography";
 const StyledContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
-`;
-
-/**
- * <div> card created with styled-components
- */
-const StyledDiv = styled.div`
-  border: 2px solid;
-  margin: 9px;
-  padding-left: 10px;
-`;
-
-/**
- * element <p> created with styled-components to display the tokens
- */
-const StyledP = styled.p`
-  font-family: "${typography.ref.typeface.brand}", sans-serif;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  border: 2px solid #0052cc;
+  padding-left: 15px;
 `;
 
 const StyledRole = styled.p`
@@ -36,4 +20,8 @@ const StyledRole = styled.p`
   font-weight: ${(props) => typography.sys.typescale[props.role].weight};
 `;
 
-export { StyledContainer, StyledDiv, StyledP, StyledRole };
+const StyledList = styled.li`
+  list-style: none;
+`;
+
+export { StyledContainer, StyledRole, StyledList };
