@@ -10,12 +10,19 @@ import { StyledRole, StyledList, StyledContainer } from "./styles";
 const RoleLorem = (props) => {
   const { role } = props;
 
+  const typographyStory = {
+    "font-family": `${typography.ref.typeface.brand}, sans-serif`,
+    "line-height": `${typography.sys.typescale[role].lineHeight}`,
+    "font-size": `${typography.sys.typescale[role].size}`,
+    "letter-spacing": `${typography.sys.typescale[role].tracking}`,
+    "font-weight": `${typography.sys.typescale[role].weight}`,
+  };
+
   return (
     <StyledContainer>
-      <StyledRole role={role}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut nostrum
-        assumenda dolor deleniti beatae rerum consequuntur
-      </StyledRole>
+      {Object.entries(typographyStory).map(([key, value]) => (
+        <StyledRole role={role}>{`${key}: ${value}`}</StyledRole>
+      ))}
     </StyledContainer>
   );
 };
