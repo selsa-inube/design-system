@@ -7,7 +7,7 @@ import { typography } from "../typography";
  */
 const StyledContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
   border: 2px solid #0052cc;
   padding-left: 15px;
 `;
