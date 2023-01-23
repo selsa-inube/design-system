@@ -12,6 +12,9 @@ const StyledContainer = styled.div`
   padding-left: 15px;
 `;
 
+/**
+ * <p> paragraph element that with token styles
+ */
 const StyledRole = styled.p`
   font-family: ${typography.ref.typeface.brand}, sans-serif;
   line-height: ${(props) => typography.sys.typescale[props.role].lineHeight};
@@ -20,6 +23,9 @@ const StyledRole = styled.p`
   font-weight: ${(props) => typography.sys.typescale[props.role].weight};
 `;
 
+/**
+ * <lu> list element without list decoration
+ */
 const StyledList = styled.li`
   list-style: none;
 `;
