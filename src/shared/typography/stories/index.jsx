@@ -2,12 +2,12 @@ import { typography } from "../typography";
 import { StyledRole, StyledItems, StyledContainer } from "./styles";
 
 /**
- * RoleLorem component is used to display a stylized typography with a role and a text
+ * RoleExample component is used to display a stylized typography with a role and a text
  * @param {*} props
  * @param {string} props.role - The role to be displayed
  * @returns
  */
-const RoleLorem = (props) => {
+const RoleExample = (props) => {
   const { role } = props;
 
   const typographyStory = {
@@ -38,7 +38,7 @@ const Role = (props) => {
   return (
     <>
       <StyledRole role={role}>{role}</StyledRole>
-      <RoleLorem role={role} key={role} />
+      <RoleExample role={role} key={role} />
     </>
   );
 };
