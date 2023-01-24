@@ -1,5 +1,5 @@
 import { typography } from "../typography";
-import { StyledRole, StyledList, StyledContainer } from "./styles";
+import { StyledRole, StyledItems, StyledContainer } from "./styles";
 
 /**
  * RoleLorem component is used to display a stylized typography with a role and a text
@@ -23,12 +23,6 @@ const RoleLorem = (props) => {
       {Object.entries(typographyStory).map(([key, value]) => (
         <StyledRole role={role}>{`${key}: ${value}`}</StyledRole>
       ))}
-
-      <StyledRole role={role}>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis minus
-        neque doloremque accusamus odit id, animi hic beatae minima, quidem!
-        Cupiditate.
-      </StyledRole>
     </StyledContainer>
   );
 };
@@ -44,7 +38,7 @@ const Role = (props) => {
   return (
     <>
       <StyledRole role={role}>{role}</StyledRole>
-      <RoleLorem role={role} />
+      <RoleLorem role={role} key={role} />
     </>
   );
 };
@@ -55,14 +49,12 @@ const Role = (props) => {
  */
 const RoleList = () => {
   const roleNames = Object.keys(typography.sys.typescale);
-
   return (
     <ul>
       {roleNames.map((roleName) => (
-        <StyledList aria-label={roleName}>
-          <Role role={roleName} />
-          <hr />
-        </StyledList>
+        <StyledItems key={roleName}>
+          <Role role={roleName} key={typography.sys.typescale[roleName]} />
+        </StyledItems>
       ))}
     </ul>
   );

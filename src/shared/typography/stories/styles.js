@@ -24,10 +24,10 @@ const StyledRole = styled.p`
 `;
 
 /**
- * <lu> list element without list decoration
+ * <li> itmens element list without list decoration
  */
-const StyledList = styled.li`
+const StyledItems = styled.li`
   list-style: none;
 `;
 
-export { StyledContainer, StyledRole, StyledList };
+export { StyledContainer, StyledRole, StyledItems };
