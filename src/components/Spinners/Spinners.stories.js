@@ -9,7 +9,7 @@ const story = {
 const Primary = (args) => <Spinner {...args} />;
 Primary.args = {
   color: "#0052CC",
-  thickness: "3",
+  thickness: "4",
   size: "20",
 };
 
