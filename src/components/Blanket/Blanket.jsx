@@ -1,7 +1,7 @@
 import React, { useCallback, useState, useEffect } from "react";
 import { StyledBlanket } from "./Blanketstyles";
 
-const BlanketComponent = (props) => {
+const BlanketComponent = (props, child) => {
   const { AllowClickOut } = props;
   const [usBlanketVisible, setUsBlanketVisible] = useState(false);
   const [usAllowClickOut, setUsAllowClickOut] = useState(AllowClickOut);
@@ -32,7 +32,7 @@ const BlanketComponent = (props) => {
           display: usBlanketVisible ? "block" : "none",
           pointerEvents: usAllowClickOut ? "none" : "auto",
         }}
-        onClick={usBlanketVisible ? onClickBlanket : null}
+        onClick={AllowClickOut ? onClickBlanket : null}
       />
     </>
   );

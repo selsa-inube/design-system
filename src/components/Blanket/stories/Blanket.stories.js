@@ -6,6 +6,9 @@ const story = {
 };
 
 const blanket = (args) => <BlanketComponent {...args} />;
+blanket.args = {
+  AllowClickOut: false,
+};
 
 export default story;
 
