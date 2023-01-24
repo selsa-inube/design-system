@@ -1,13 +1,24 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useState, useEffect } from "react";
 import { StyledBlanket } from "./Blanketstyles";
 
-const BlanketComponent = ({ props, child }) => {
-  //[allowClickBelow,] = props
+const BlanketComponent = (props) => {
+  const { AllowClickOut } = props;
   const [usBlanketVisible, setUsBlanketVisible] = useState(false);
+  const [usAllowClickOut, setUsAllowClickOut] = useState(AllowClickOut);
+
+  useEffect(() => {
+    setUsBlanketVisible(AllowClickOut);
+  }, [AllowClickOut]);
 
   const showBlanketComponent = useCallback(() => {
-    setUsBlanketVisible((usBlanketVisible) => !usBlanketVisible);
-  }, [setUsBlanketVisible]);
+    setUsBlanketVisible(true);
+    setUsAllowClickOut(false);
+  }, []);
+
+  const onClickBlanket = useCallback(() => {
+    setUsBlanketVisible(false);
+    setUsAllowClickOut(true);
+  }, []);
 
   return (
     <>
@@ -16,11 +27,13 @@ const BlanketComponent = ({ props, child }) => {
       </button>
       <StyledBlanket
         as="button"
-        onClick={showBlanketComponent}
-        style={{ display: usBlanketVisible ? "block" : "none" }}
-      >
-        {child}
-      </StyledBlanket>
+        AllowClickOut={false}
+        style={{
+          display: usBlanketVisible ? "block" : "none",
+          pointerEvents: usAllowClickOut ? "none" : "auto",
+        }}
+        onClick={usBlanketVisible ? onClickBlanket : null}
+      />
     </>
   );
 };
