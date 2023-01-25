@@ -2,7 +2,7 @@ import React, { useCallback, useState, useEffect } from "react";
 import { StyledBlanket } from "./Blanketstyles";
 
 /**
- * componente de "Blanket" que se utiliza para ocultar o mostrar una capa oscura en la pantalla
+ * Blanket" component used to hide or display a dark layer on the screen
  * @param {*} props  {AllowClickOut} boolean enables clicks underneath the blanket
  * @param {*} child son component shown with him on top of the blanket
  * @returns
