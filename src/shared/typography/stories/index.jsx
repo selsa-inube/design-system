@@ -21,7 +21,7 @@ const RoleExample = (props) => {
   return (
     <StyledContainer>
       {Object.entries(typographyStory).map(([key, value]) => (
-        <StyledRole role={role}>{`${key}: ${value}`}</StyledRole>
+        <StyledRole key={key} role={role}>{`${key}: ${value}`}</StyledRole>
       ))}
     </StyledContainer>
   );
