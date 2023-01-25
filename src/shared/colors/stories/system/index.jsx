@@ -1,56 +1,56 @@
 import React from "react";
 import {
+  StyledFlexField,
+  StyledTitleCard,
+  StyledContainer,
   StyledColor,
-  StyledTable,
-  StyledTableHead,
-  StyledTableTh,
-  StyledTableTd,
-  StyledTableSubTd,
 } from "./styles";
+import { colors } from "../../colors";
 
+/*
+ * This is a functional component that takes in a prop called "props"
+ * which contains two properties, "tokens" and "name".
+ * It returns an array of styled flex fields that contain three spans,
+ * the first containing the string "sys.actions.",
+ * the second containing the token name followed by a 1,
+ * and the third containing a styled color with the name and token passed in as props.
+ */
+const Field = (props) => {
+  const { tokens, name } = props;
+  return Object.entries(tokens).map(([token]) => (
+    <StyledFlexField key={token}>
+      <span>sys.actions.{token}</span>
+      <span>sys.actions.{token}</span>
+      <span>
+        <StyledColor name={name} token={token}>
+          {colors.sys[name][token]}
+        </StyledColor>
+      </span>
+    </StyledFlexField>
+  ));
+};
+
+/**
+ * This is a function called SystemReference which takes in an argument of dataColors.
+ * It returns an array of objects that are mapped from the dataColors.colors.sys object.
+ * The objects contain a StyledFlexBox, with a h1 tag inside,
+ * containing the name of the object from the dataColors.colors.sys object, as well as
+ * another StyledFlexBox and StyledContainer with a Field component inside, containing the name
+ * and tokens from the dataColors.colors.sys object.
+ * @param {*} dataColors
+ * @returns
+ */
 const SystemReference = (dataColors) => {
-  return (
-    <StyledTable>
-      <StyledTableHead>
-        <tr>
-          <StyledTableTh>Role</StyledTableTh>
-          <StyledTableTh>System token</StyledTableTh>
-          <StyledTableTh>Reference token</StyledTableTh>
-          <StyledTableTh>Default value</StyledTableTh>
-        </tr>
-      </StyledTableHead>
-      {Object.entries(dataColors.colors.sys).map(([name, colors]) => (
-        <tbody>
-          <tr>
-            <StyledTableTd>
-              <h1>{name}</h1>
-            </StyledTableTd>
-            <StyledTableTd>
-              {Object.entries(colors).map(([colorName]) => (
-                <StyledTableSubTd>
-                  sys.{name}.{colorName}
-                </StyledTableSubTd>
-              ))}
-            </StyledTableTd>
-            <StyledTableTd>
-              {Object.entries(colors).map(([colorName]) => (
-                <StyledTableSubTd>
-                  sys.{name}.{colorName}
-                </StyledTableSubTd>
-              ))}
-            </StyledTableTd>
-            <StyledTableTd>
-              {Object.entries(colors).map(([colorName, colorValue]) => (
-                <StyledTableSubTd>
-                  <StyledColor color={colorValue}>{colorValue}</StyledColor>
-                </StyledTableSubTd>
-              ))}
-            </StyledTableTd>
-          </tr>
-        </tbody>
-      ))}
-    </StyledTable>
-  );
+  return Object.entries(dataColors.colors.sys).map(([name, systemTokens]) => (
+    <div key={name}>
+      <StyledTitleCard>
+        <h1>{name}</h1>
+      </StyledTitleCard>
+      <StyledContainer>
+        <Field name={name} tokens={systemTokens}></Field>
+      </StyledContainer>
+    </div>
+  ));
 };
 
 export { SystemReference };
