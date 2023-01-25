@@ -46,7 +46,9 @@ const Field = (props) => {
   const { tokens, name } = props;
   return Object.entries(tokens).map(([token]) => (
     <StyledFlexField key={token}>
-      <span>sys.actions.{token}</span>
+      <span>
+        sys.{name}.{token}
+      </span>
       <span>ref.{getKeyByValue(colors.ref, colors.sys[name][token])}</span>
       <span>
         <StyledColor name={name} token={token}>
