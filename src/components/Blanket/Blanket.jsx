@@ -1,6 +1,12 @@
 import React, { useCallback, useState, useEffect } from "react";
 import { StyledBlanket } from "./Blanketstyles";
 
+/**
+ * componente de "Blanket" que se utiliza para ocultar o mostrar una capa oscura en la pantalla
+ * @param {*} props  {AllowClickOut} boolean enables clicks underneath the blanket
+ * @param {*} child son component shown with him on top of the blanket
+ * @returns
+ */
 const BlanketComponent = (props, child) => {
   const { AllowClickOut } = props;
   const [usBlanketVisible, setUsBlanketVisible] = useState(false);
@@ -32,7 +38,7 @@ const BlanketComponent = (props, child) => {
           display: usBlanketVisible ? "block" : "none",
           pointerEvents: usAllowClickOut ? "none" : "auto",
         }}
-        onClick={AllowClickOut ? onClickBlanket : null}
+        onClick={usAllowClickOut ? onClickBlanket : null}
       />
     </>
   );
