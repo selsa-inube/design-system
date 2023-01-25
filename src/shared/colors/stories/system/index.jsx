@@ -7,20 +7,47 @@ import {
 } from "./styles";
 import { colors } from "../../colors";
 
-/*
+/**
+ * This function takes in two parameters, an object and a value,
+ * and returns the key associated with the value.
+ * If the value is an object, it will recursively search for the key within that object.
+ * If no key is found, it will return null.
+ * @param {*} obj
+ * @param {*} value
+ * @returns
+ */
+function getKeyByValue(obj, value) {
+  for (const key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      if (typeof obj[key] === "object") {
+        const result = getKeyByValue(obj[key], value);
+        if (result) {
+          return `${key}.${result}`;
+        }
+      } else if (obj[key] === value) {
+        return key;
+      }
+    }
+  }
+  return null;
+}
+
+/**
  * This is a functional component that takes in a prop called "props"
  * which contains two properties, "tokens" and "name".
  * It returns an array of styled flex fields that contain three spans,
  * the first containing the string "sys.actions.",
  * the second containing the token name followed by a 1,
  * and the third containing a styled color with the name and token passed in as props.
+ * @param {*} props
+ * @returns
  */
 const Field = (props) => {
   const { tokens, name } = props;
   return Object.entries(tokens).map(([token]) => (
     <StyledFlexField key={token}>
       <span>sys.actions.{token}</span>
-      <span>sys.actions.{token}</span>
+      <span>ref.{getKeyByValue(colors.ref, colors.sys[name][token])}</span>
       <span>
         <StyledColor name={name} token={token}>
           {colors.sys[name][token]}
