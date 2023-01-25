@@ -1,18 +1,61 @@
 import React from "react";
 import { Spinner } from ".";
-import { colors } from "../../shared/colors/colors";
+
+const sizes = ["large", "medium", "small"];
+const tokensSpinner = [
+  "primary",
+  "secondary",
+  "confirm",
+  "warning",
+  "remove",
+  "help",
+];
 
 const story = {
   title: "Spinners",
   components: [Spinner],
+  decorators: [
+    (Story) => (
+      <div style={{ margin: "1em" }}>
+        <Story />
+      </div>
+    ),
+  ],
 };
 
-const Primary = (args) => <Spinner {...args} />;
-Primary.args = {
-  colorToken: "primary",
-  thickness: "4",
-  size: "20",
-};
+export const Sizes = () => (
+  <div
+    style={{
+      display: "flex",
+      justifyContent: "space-evenly",
+      border: "1px dotted",
+    }}
+  >
+    {tokensSpinner.map((token) => (
+      <div
+        key={token}
+        style={{
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
+        <h3 style={{ color: "#556580" }}>{token}</h3>
+        {sizes.map((size) => (
+          <div
+            key={size}
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              marginTop: "10px",
+              marginBottom: "57px",
+            }}
+          >
+            <Spinner colorToken={token} size={size} />
+          </div>
+        ))}
+      </div>
+    ))}
+  </div>
+);
 
 export default story;
-export { Primary };
