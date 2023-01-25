@@ -1,95 +1,46 @@
 import styled from "styled-components";
 
-const StyledColor = styled.div`
-  background-color: ${(props) => props.color};
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  color: #ffffff;
-`;
+import { colors } from "../../colors";
 
-const StyledTable = styled.table`
-  width: 100%;
-  background-color: #ffffff;
-  overflow-x: auto;
-  border-collapse: collapse;
-  border-width: 1px;
-  border-color: #b3bac5;
-  border-style: solid;
-  color: #000000;
-  border-radius: 10px;
-`;
-const StyledHeader = styled.header`
-  background-color: #deebff;
-  margin: -1rem -1rem 1rem -1rem;
+const StyledTitleCard = styled.div`
   display: flex;
-  flex-direction: column;
-  h1,
-  p {
-    padding: 2px 2px 2px 20px;
-  }
-  @media (max-width: 768px) {
-    margin: -1rem -3.2rem 1rem -1rem;
-  }
-  @media (max-width: 425px) {
-    margin: -1rem -25rem 1rem -1rem;
-  }
-  @media (max-width: 375px) {
-    margin: -1rem -28rem 1rem -1rem;
-  }
-  @media (max-width: 320px) {
-    margin: -1rem -31.5rem 1rem -1rem;
-  }
-`;
-const StyledTableHead = styled.thead`
-  background-color: #deebff;
-  border-radius: 1em;
-`;
-const StyledTableTh = styled.th`
-  border-width: 1px;
-  border-color: #b3bac5;
-  border-style: solid;
-  padding: 5px;
-  color: #42526e;
-`;
-const StyledTableTd = styled.td`
-  border-width: 1px;
-  border-color: #b3bac5;
-  border-style: solid;
-  padding: 5px;
-  h1 {
-    display: flex;
-    justify-content: center;
-  }
-`;
-
-const StyledTableSubTd = styled.div`
-  display: flex;
-  flex-direction: column;
-  border-width: 1px;
-  border-color: #b3bac5;
-  border-bottom: 0.5px solid #b3bac5;
-  padding: 5px;
-  height: 8rem;
   align-items: center;
   justify-content: center;
+  max-width: 170px;
+  border-radius: 8px;
+  border: 1px solid #b3bac5;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-bottom: none;
+  background-color: #deebff;
+  color: #556580;
+`;
+
+const StyledFlexField = styled.div`
+  display: flex;
+  padding: 5px;
+  margin: 5px;
+  border-bottom: 1px solid #b3bac5;
+  justify-content: space-around;
   &: last-child {
     border-bottom: none;
   }
-  @media (min-width: 2560px) {
-    width: 405px;
-    height: 52px;
-  }
+`;
+const StyledContainer = styled.div`
+  width: -webkit-fill-available;
+  border: 1px solid #b3bac5;
+  margin: 0.5px 0 20px 0;
+  border-radius: 4px;
 `;
 
-export {
-  StyledColor,
-  StyledTable,
-  StyledTableHead,
-  StyledTableTh,
-  StyledTableTd,
-  StyledTableSubTd,
-  StyledHeader,
-};
+const StyledColor = styled.div`
+  background-color: ${(props) => colors.sys[props.name][props.token]};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  width: 93px;
+  border-radius: 4px;
+`;
+
+export { StyledTitleCard, StyledFlexField, StyledColor, StyledContainer };

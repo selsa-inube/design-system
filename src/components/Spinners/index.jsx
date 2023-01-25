@@ -2,14 +2,15 @@ import React from "react";
 import { StyledSpinner, StyledCircle } from "./styles";
 
 const Spinner = (props) => {
+  const { colorToken, thickness, size } = props;
   return (
-    <StyledSpinner color={props.color} viewBox="0 0 50 50">
+    <StyledSpinner colorToken={colorToken} viewBox="0 0 50 50">
       <StyledCircle
         cx="25"
         cy="25"
-        r={props.size}
+        r={size}
         fill="none"
-        thickness={props.thickness ? props.thickness : "4"}
+        thickness={thickness ? thickness : "4"}
       ></StyledCircle>
     </StyledSpinner>
   );

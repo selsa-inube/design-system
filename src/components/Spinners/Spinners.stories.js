@@ -1,5 +1,6 @@
 import React from "react";
 import { Spinner } from ".";
+import { colors } from "../../shared/colors/colors";
 
 const story = {
   title: "Spinners",
@@ -8,7 +9,7 @@ const story = {
 
 const Primary = (args) => <Spinner {...args} />;
 Primary.args = {
-  color: "#0052CC",
+  colorToken: "primary",
   thickness: "4",
   size: "20",
 };

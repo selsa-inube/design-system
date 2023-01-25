@@ -1,5 +1,7 @@
 import styled, { keyframes } from "styled-components";
 
+import { colors } from "../../shared/colors/colors";
+
 const rotate = keyframes`
   100% {
     transform: rotate(360deg);
@@ -27,7 +29,7 @@ const StyledSpinner = styled.svg`
   position: absolute;
   width: 50px;
   height: 50px;
-  stroke: ${(props) => props.color};
+  stroke: ${(props) => colors.sys.actions[props.colorToken]};
 `;
 
 const StyledCircle = styled.circle`
