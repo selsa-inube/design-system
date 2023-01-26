@@ -11,7 +11,7 @@ const RoleExample = (props) => {
   const { role } = props;
 
   const typographyStory = {
-    "font-family": `${typography.ref.typeface.brand}, sans-serif`,
+    "font-family": `${typography.ref.typeface.brand}`,
     "line-height": `${typography.sys.typescale[role].lineHeight}`,
     "font-size": `${typography.sys.typescale[role].size}`,
     "letter-spacing": `${typography.sys.typescale[role].tracking}`,
@@ -21,7 +21,9 @@ const RoleExample = (props) => {
   return (
     <StyledContainer>
       {Object.entries(typographyStory).map(([key, value]) => (
-        <StyledRole key={key} role={role}>{`${key}: ${value}`}</StyledRole>
+        <StyledRole key={key} role={"BodyLarge"}>
+          {`${key}: ${value}`}
+        </StyledRole>
       ))}
     </StyledContainer>
   );
@@ -38,7 +40,7 @@ const Role = (props) => {
   return (
     <>
       <StyledRole role={role}>{role}</StyledRole>
-      <RoleExample role={role} key={role} />
+      <RoleExample role={role} />
     </>
   );
 };
@@ -53,7 +55,7 @@ const RoleList = () => {
     <ul>
       {roleNames.map((roleName) => (
         <StyledItems key={roleName}>
-          <Role role={roleName} key={typography.sys.typescale[roleName]} />
+          <Role role={roleName} />
         </StyledItems>
       ))}
     </ul>
