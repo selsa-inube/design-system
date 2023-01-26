@@ -16,46 +16,44 @@ const story = {
   components: [Spinner],
   decorators: [
     (Story) => (
-      <div style={{ margin: "1em" }}>
+      <div
+        style={{
+          margin: "1em",
+          display: "flex",
+          justifyContent: "space-evenly",
+          border: "1px dotted",
+        }}
+      >
         <Story />
       </div>
     ),
   ],
 };
 
-export const Sizes = () => (
-  <div
-    style={{
-      display: "flex",
-      justifyContent: "space-evenly",
-      border: "1px dotted",
-    }}
-  >
-    {tokensSpinner.map((token) => (
-      <div
-        key={token}
-        style={{
-          display: "flex",
-          flexDirection: "column",
-        }}
-      >
-        <h3 style={{ color: "#556580" }}>{token}</h3>
-        {sizes.map((size) => (
-          <div
-            key={size}
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              marginTop: "10px",
-              marginBottom: "57px",
-            }}
-          >
-            <Spinner colorToken={token} size={size} />
-          </div>
-        ))}
-      </div>
-    ))}
-  </div>
-);
+export const Sizes = () =>
+  tokensSpinner.map((token) => (
+    <div
+      key={token}
+      style={{
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
+      <h3 style={{ color: "#556580" }}>{token}</h3>
+      {sizes.map((size) => (
+        <div
+          key={size}
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            marginTop: "10px",
+            marginBottom: "57px",
+          }}
+        >
+          <Spinner colorToken={token} size={size} />
+        </div>
+      ))}
+    </div>
+  ));
 
 export default story;
