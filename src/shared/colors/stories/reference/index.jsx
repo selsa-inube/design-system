@@ -33,7 +33,7 @@ const CardColor = (props) => {
           <span>
             <strong>Hex</strong>
           </span>
-          <span>{colors.ref.palette[props.color][props.token]}</span>
+          <span>{colors.ref.palette[color][token]}</span>
         </StyledDivInfoCard>
       </StyledDivGridBottom>
     </StyledCard>
