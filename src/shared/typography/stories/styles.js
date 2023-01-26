@@ -7,9 +7,14 @@ import { typography } from "../typography";
  */
 const StyledContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
   border: 2px solid #0052cc;
   padding-left: 15px;
+  margin-top: 10px;
+`;
+
+const StyledSection = styled.section`
+  overflow: hidden;
 `;
 
 /**
@@ -30,4 +35,4 @@ const StyledItems = styled.li`
   list-style: none;
 `;
 
-export { StyledContainer, StyledRole, StyledItems };
+export { StyledContainer, StyledRole, StyledItems, StyledSection };

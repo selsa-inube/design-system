@@ -1,5 +1,10 @@
 import { typography } from "../typography";
-import { StyledRole, StyledItems, StyledContainer } from "./styles";
+import {
+  StyledRole,
+  StyledItems,
+  StyledContainer,
+  StyledSection,
+} from "./styles";
 
 /**
  * RoleExample component is used to display a stylized typography with a role and a text
@@ -19,13 +24,13 @@ const RoleExample = (props) => {
   };
 
   return (
-    <StyledContainer>
+    <>
       {Object.entries(typographyStory).map(([key, value]) => (
         <StyledRole key={key} role={"BodyLarge"}>
           {`${key}: ${value}`}
         </StyledRole>
       ))}
-    </StyledContainer>
+    </>
   );
 };
 
@@ -38,10 +43,20 @@ const RoleExample = (props) => {
 const Role = (props) => {
   const { role } = props;
   return (
-    <>
-      <StyledRole role={role}>{role}</StyledRole>
-      <RoleExample role={role} />
-    </>
+    <StyledContainer>
+      <StyledSection
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <StyledRole role={role}>{role}</StyledRole>
+      </StyledSection>
+      <StyledSection style={{}}>
+        <RoleExample role={role} />
+      </StyledSection>
+    </StyledContainer>
   );
 };
 
