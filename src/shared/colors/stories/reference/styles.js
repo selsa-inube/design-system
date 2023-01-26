@@ -17,7 +17,7 @@ const StyledCard = styled.div`
   border: 1px solid #000000;
   border-radius: 4px;
   width: 160px;
-  margin: 0 0 10px 0;
+  overflow: hidden;
 `;
 
 /* This is a styled component that takes in two props, color and token. It sets the background color of the div to the color specified in the colors.ref.palette object using the props passed in. The display, justify-content, and align-items are all set to flex, center respectively. The text color is set to white (#ffffff). */
@@ -49,6 +49,7 @@ const StyledGrid = styled.div`
   grid-template-columns: repeat(3, auto);
   column-gap: 10px;
   align-items: center;
+  row-gap: 10px;
 `;
 export {
   StyledGlobalFlex,

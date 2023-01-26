@@ -24,12 +24,16 @@ const CardColor = (props) => {
       </StyledColor>
       <StyledDivGridBottom>
         <StyledDivInfoCard>
-          <label htmlFor="name">Name</label>
-          <span id="name">{token}</span>
+          <span>
+            <strong>Name</strong>
+          </span>
+          <span>{token}</span>
         </StyledDivInfoCard>
         <StyledDivInfoCard>
-          <label htmlFor="hex">Hex</label>
-          <span id="hex">{colors.ref.palette[props.color][props.token]}</span>
+          <span>
+            <strong>Hex</strong>
+          </span>
+          <span>{colors.ref.palette[props.color][props.token]}</span>
         </StyledDivInfoCard>
       </StyledDivGridBottom>
     </StyledCard>
