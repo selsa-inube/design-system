@@ -19,9 +19,7 @@ const story = {
       <div
         style={{
           margin: "1em",
-          display: "flex",
-          justifyContent: "space-evenly",
-          border: "1px dotted",
+          padding: "0.5em",
         }}
       >
         <Story />
@@ -30,30 +28,49 @@ const story = {
   ],
 };
 
-export const Sizes = () =>
-  tokensSpinner.map((token) => (
-    <div
-      key={token}
-      style={{
-        display: "flex",
-        flexDirection: "column",
-      }}
-    >
-      <h3 style={{ color: "#556580" }}>{token}</h3>
-      {sizes.map((size) => (
-        <div
-          key={size}
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            marginTop: "10px",
-            marginBottom: "57px",
-          }}
-        >
-          <Spinner colorToken={token} size={size} />
-        </div>
-      ))}
-    </div>
-  ));
+export const Standard = (args) => <Spinner {...args} />;
+Standard.args = {
+  size: "large",
+  colorToken: "primary",
+  thickness: "4",
+  classes: {
+    animation: "rotate 1s linear infinite",
+  },
+};
+
+export const Sizes = () => (
+  <div
+    style={{
+      display: "flex",
+      justifyContent: "space-evenly",
+      border: "1px dotted",
+    }}
+  >
+    {tokensSpinner.map((token) => (
+      <div
+        key={token}
+        style={{
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
+        <h3 style={{ color: "#556580" }}>{token}</h3>
+        {sizes.map((size) => (
+          <div
+            key={size}
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              marginTop: "10px",
+              marginBottom: "57px",
+            }}
+          >
+            <Spinner colorToken={token} size={size} />
+          </div>
+        ))}
+      </div>
+    ))}
+  </div>
+);
 
 export default story;
