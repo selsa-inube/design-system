@@ -39,7 +39,7 @@ const StyledTitle = styled.h3`
 
 /**
  * This button is in use for now, it'll be changed as soon as the button-component
- * be refactored in order to receive the the necessary properties
+ * be refactored in order to receive the necessary properties
  */
 const StyledButton = styled.button`
   max-width: 120px;

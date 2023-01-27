@@ -10,63 +10,59 @@ import {
 
 import { colors } from "../../colors";
 
-/**
- * It returns a styled div with a styled div inside of it
- * @returns A styled component that is a card with a color and a token.
- */
 const CardColor = (props) => {
-  const { token, color } = props;
+  const { colorGroupWrap, colorName } = props;
+  const colorCodeHex = colors.ref.palette[colorGroupWrap][colorName];
 
   return (
-    <StyledCard key={token}>
-      <StyledColor color={color} token={token}>
+    <StyledCard>
+      <StyledColor colorGroupWrap={colorGroupWrap} colorName={colorName}>
         Lorem Ipsum
       </StyledColor>
       <StyledDivGridBottom>
         <StyledDivInfoCard>
-          <label htmlFor="name">Name</label>
-          <span id="name">{token}</span>
+          <span>
+            <strong>Name</strong>
+          </span>
+          <span>{colorName}</span>
         </StyledDivInfoCard>
         <StyledDivInfoCard>
-          <label htmlFor="hex">Hex</label>
-          <span id="hex">{colors.ref.palette[props.color][props.token]}</span>
+          <span>
+            <strong>Hex</strong>
+          </span>
+          <span>{colorCodeHex}</span>
         </StyledDivInfoCard>
       </StyledDivGridBottom>
     </StyledCard>
   );
 };
 
-/**
- * It takes a color as a prop, and returns a grid of cards with the color and token as props
- * @returns A styled grid with a card color
- */
 const GridColor = (props) => {
-  const { color } = props;
-
-  const colorPalette = {
-    [color]: colors.ref.palette[color],
-  };
+  const { colorGroup } = props;
+  const colorGroupWrap = colorGroup[0];
+  const colorListNames = Object.keys(colorGroup[1]);
 
   return (
     <StyledGrid>
-      {Object.entries(colorPalette).map(([key, value]) =>
-        Object.keys(value).map((token) => (
-          <CardColor key={token} color={key} token={token}></CardColor>
-        ))
-      )}
+      {colorListNames.map((colorName) => (
+        <CardColor
+          key={colorName}
+          colorGroupWrap={colorGroupWrap}
+          colorName={colorName}
+        />
+      ))}
     </StyledGrid>
   );
 };
 
-/**
- * It takes in a data object, and returns a styled flexbox with a grid of colors
- * @returns A styled component that is a flexbox with a grid of colors.
- */
-const ColorReference = (dataColors) => {
+const ColorReference = (props) => {
+  const { colors } = props;
+  const colorPalette = Object.entries(colors.ref.palette);
+
   return (
     <StyledGlobalFlex>
-      {Object.keys(dataColors.colors.ref.palette).map((color) => (
-        <GridColor key={color} color={color}></GridColor>
+      {colorPalette.map((colorGroup) => (
+        <GridColor key={colorGroup} colorGroup={colorGroup} />
       ))}
     </StyledGlobalFlex>
   );
