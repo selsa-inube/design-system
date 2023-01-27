@@ -1,19 +1,19 @@
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes, css } from "styled-components";
 
 import { colors } from "../../shared/colors/colors";
 
 const sizes = {
   large: {
-    width: "40px",
-    height: "40px",
+    width: "60px",
+    height: "60px",
   },
   medium: {
-    width: "32px",
-    height: "32px",
+    width: "52px",
+    height: "52px",
   },
   small: {
-    width: "24px",
-    height: "24px",
+    width: "44px",
+    height: "44px",
   },
 };
 
@@ -39,19 +39,41 @@ const dash = keyframes`
 `;
 
 const StyledSpinner = styled.svg`
-  animation: ${rotate} 1.4s linear infinite;
-  z-index: 2;
   position: absolute;
   width: 50px;
   height: 50px;
   stroke: ${(props) => colors.sys.actions[props.colorToken]};
   ${(props) => sizes[props.size]}
+  ${(props) => props.classes}
+  ${(props) =>
+    props.progressValue !== undefined
+      ? css`
+          animation: dash 5s linear forwards;
+          transform: rotate(270deg);
+        `
+      : css`
+          animation: ${rotate} 1.4s linear infinite;
+        `};
 `;
 
 const StyledCircle = styled.circle`
   stroke: hsl(210, 70, 75);
   stroke-linecap: round;
-  animation: ${dash} 1.5s ease-in-out infinite;
   stroke-width: ${(props) => props.thickness};
+  ${(props) =>
+    props.progressValue !== undefined
+      ? css`
+          stroke-dasharray: ${props.progressValue}, 100;
+          animation: "none";
+        `
+      : css`
+          animation: ${dash} 1.5s ease-in-out infinite;
+        `};
 `;
-export { StyledSpinner, StyledCircle };
+
+const StyledText = styled.text`
+  transform: rotate(90deg);
+  font-size: 0.6em;
+`;
+
+export { StyledSpinner, StyledCircle, StyledText };

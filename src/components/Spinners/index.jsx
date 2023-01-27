@@ -1,5 +1,5 @@
 import React from "react";
-import { StyledSpinner, StyledCircle } from "./styles";
+import { StyledSpinner, StyledCircle, StyledText } from "./styles";
 
 /**
  * This is a functional component that renders a spinner.
@@ -13,21 +13,29 @@ import { StyledSpinner, StyledCircle } from "./styles";
  * @returns
  */
 const Spinner = (props) => {
-  const { colorToken, thickness, classes, size } = props;
+  const { colorToken, thickness, classes, size, progressValue } = props;
+
   return (
     <StyledSpinner
       colorToken={colorToken}
-      style={classes}
+      classes={classes}
       size={size}
+      progressValue={progressValue}
       viewBox="0 0 50 50"
     >
       <StyledCircle
         cx="25"
         cy="25"
-        r="20"
+        r="16"
         fill="none"
-        thickness={thickness ? thickness : "4"}
-      ></StyledCircle>
+        thickness={thickness || "3"}
+        progressValue={progressValue}
+      />
+      {progressValue ? (
+        <StyledText x="50%" y="-50%" textAnchor="middle" dy=".3em">
+          {progressValue}%
+        </StyledText>
+      ) : null}
     </StyledSpinner>
   );
 };
