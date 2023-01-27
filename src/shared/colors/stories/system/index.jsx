@@ -37,7 +37,7 @@ const Field = (props) => {
       <span>
         ref.{getKeyByValue(colorReference, systemTokens[role][systemToken])}
       </span>
-      <StyledColor name={role} token={systemToken}>
+      <StyledColor role={role} systemToken={systemToken}>
         {systemTokens[role][systemToken]}
       </StyledColor>
     </StyledFlexField>
