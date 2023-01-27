@@ -3,7 +3,6 @@ import { Spinner } from ".";
 
 import styled from "styled-components";
 
-// data to use in the stories
 const sizes = ["large", "medium", "small"];
 const tokensSpinner = [
   "primary",
@@ -13,8 +12,6 @@ const tokensSpinner = [
   "remove",
   "help",
 ];
-
-// styles to use in the stories
 
 const StyledFlexDirection = styled.div`
   display: flex;
