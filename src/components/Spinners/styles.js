@@ -49,7 +49,7 @@ const StyledSpinner = styled.svg`
     props.progressValue !== undefined
       ? css`
           animation: dash 5s linear forwards;
-          transform: rotate(270deg);
+          transform: rotate(-90deg);
         `
       : css`
           animation: ${rotate} 1.4s linear infinite;
@@ -74,6 +74,9 @@ const StyledCircle = styled.circle`
 const StyledText = styled.text`
   transform: rotate(90deg);
   font-size: 0.6em;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  stroke: #666666;
+  stroke-opacity: 0.6;
 `;
 
 export { StyledSpinner, StyledCircle, StyledText };

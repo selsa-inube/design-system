@@ -140,6 +140,7 @@ export const ProgressIndicator = () => {
       <Spinner
         colorToken={progressValue === 100 ? "confirm" : "primary"}
         size="large"
+        thickness="2"
         progressValue={progressValue}
       />
       <StyledButton
