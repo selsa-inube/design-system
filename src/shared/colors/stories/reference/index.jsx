@@ -38,9 +38,8 @@ const CardColor = (props) => {
 };
 
 const GridColor = (props) => {
-  const { colorGroup } = props;
-  const colorGroupWrap = colorGroup[0];
-  const colorListNames = Object.keys(colorGroup[1]);
+  const { colorGroupWrap } = props;
+  const colorListNames = Object.keys(colors.ref.palette[colorGroupWrap]);
 
   return (
     <StyledGrid>
@@ -57,12 +56,12 @@ const GridColor = (props) => {
 
 const ColorReference = (props) => {
   const { colors } = props;
-  const colorPalette = Object.entries(colors.ref.palette);
+  const colorPalette = Object.keys(colors.ref.palette);
 
   return (
     <StyledGlobalFlex>
-      {colorPalette.map((colorGroup) => (
-        <GridColor key={colorGroup} colorGroup={colorGroup} />
+      {colorPalette.map((colorGroupWrap) => (
+        <GridColor key={colorGroupWrap} colorGroupWrap={colorGroupWrap} />
       ))}
     </StyledGlobalFlex>
   );
