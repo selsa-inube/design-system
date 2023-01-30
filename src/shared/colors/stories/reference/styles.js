@@ -12,7 +12,7 @@ const StyledGlobalFlex = styled.div`
 const StyledCard = styled.div`
   display: grid;
   grid-template-rows: repeat(2, 1fr);
-  border: 1px solid #000000;
+  border: 1px solid ${colors.ref.palette.black.black};
   border-radius: 4px;
   width: 160px;
   overflow: hidden;
@@ -24,7 +24,7 @@ const StyledColor = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #ffffff;
+  color: ${colors.ref.palette.lightNeutral.ln50};
 `;
 
 const StyledDivGridBottom = styled.div`

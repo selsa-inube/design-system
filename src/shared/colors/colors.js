@@ -1,6 +1,3 @@
-/**
- * This is the reference tokens for the colors.
- */
 const ref = {
   palette: {
     darkNeutral: {
@@ -26,7 +23,7 @@ const ref = {
       mn700: "#404C61",
     },
     lightNeutral: {
-      ln50: "#FFFFF",
+      ln50: "#FFFFFF",
       ln75: "#FAFBFC",
       ln100: "#F4F5F7",
       ln200: "#EBECF0",
@@ -119,9 +116,6 @@ const ref = {
   },
 };
 
-/**
- * This is the system tokens (by defect that uses the references tokens previous created).
- */
 const sys = {
   actions: {
     primary: ref.palette.blue.b400,
@@ -169,9 +163,6 @@ const sys = {
   },
 };
 
-/**
- * Groups the tokens that are exported
- */
 const colors = {
   ref,
   sys,
