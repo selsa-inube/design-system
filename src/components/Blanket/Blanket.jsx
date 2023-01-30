@@ -1,22 +1,22 @@
 import React, { useState, useEffect } from "react";
-import { StyledBlanket } from "./Blanketstyles";
+import { StyledBlanket, StyledButton } from "./Blanketstyles";
 
 /**
  * componente de "Blanket" que se utiliza para ocultar o mostrar una capa oscura en la pantalla
  * @param {*} props  {AllowClickOut} boolean enables clicks underneath the blanket
- * @param {*} child son component shown with him on top of the blanket
  * @returns
  */
-const BlanketComponent = (props, child) => {
-  const { AllowClickOut } = props;
-  const [usBlanketVisible, setUsBlanketVisible] = useState(false);
-  const [usAllowClickOut, setUsAllowClickOut] = useState(AllowClickOut);
+const BlanketComponent = (props, { children }) => {
+  const { allowClickOut, onVisible } = props;
+  const [usBlanketVisible, setUsBlanketVisible] = useState(onVisible);
+  const [usAllowClickOut, setUsAllowClickOut] = useState(allowClickOut);
 
   const getPointerEvents = (value) => (value ? "auto" : "none");
 
   useEffect(() => {
-    setUsAllowClickOut(AllowClickOut);
-  }, [AllowClickOut]);
+    setUsAllowClickOut(allowClickOut);
+    setUsBlanketVisible(onVisible);
+  }, [allowClickOut, onVisible]);
 
   const showBlanketComponent = () => {
     setUsBlanketVisible(true);
@@ -27,18 +27,24 @@ const BlanketComponent = (props, child) => {
     setUsAllowClickOut(true);
   };
 
+  const stylesOnClick = {
+    display: usBlanketVisible ? "block" : "none",
+    pointerEvents: getPointerEvents(usAllowClickOut),
+  };
   return (
     <>
-      <button onClick={showBlanketComponent}>
+      <StyledButton
+        onVisible={showBlanketComponent}
+        onClick={showBlanketComponent}
+      >
         {!usBlanketVisible ? "Show Blanket" : "Hide Blanket"}
-      </button>
+      </StyledButton>
       <StyledBlanket
-        style={{
-          display: usBlanketVisible ? "block" : "none",
-          pointerEvents: getPointerEvents(usAllowClickOut),
-        }}
+        style={stylesOnClick}
         onClick={usAllowClickOut ? onClickBlanket : null}
-      />
+      >
+        <div>{children}</div>
+      </StyledBlanket>
     </>
   );
 };
