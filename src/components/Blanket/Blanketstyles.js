@@ -1,5 +1,4 @@
 import styled from "styled-components";
-//import BlanketComponent from "./Blanket";
 
 const StyledBlanket = styled.div`
   position: absolute;
@@ -11,4 +10,8 @@ const StyledBlanket = styled.div`
   border: none;
 `;
 
-export { StyledBlanket };
+const StyledButton = styled.button`
+  display: ${(props) => props.showBlanketComponent};
+`;
+
+export { StyledBlanket, StyledButton };
