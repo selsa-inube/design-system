@@ -3,16 +3,12 @@ import {
   StyledRole,
   StyledItems,
   StyledContainer,
-  StyledSection,
+  StyledTextP,
 } from "./styles";
 
-/**
- * RoleExample component is used to display a stylized typography with a role and a text
- * @param {*} props
- * @param {string} props.role - The role to be displayed
- * @returns
- */
-const RoleExample = (props) => {
+const roleNames = Object.keys(typography.sys.typescale);
+
+const RoleProperties = (props) => {
   const { role } = props;
 
   const typographyStory = {
@@ -23,54 +19,34 @@ const RoleExample = (props) => {
     "font-weight": `${typography.sys.typescale[role].weight}`,
   };
 
+  const assignationRole = Object.entries(typographyStory);
   return (
-    <>
-      {Object.entries(typographyStory).map(([key, value]) => (
-        <StyledRole key={key} role={"BodyLarge"}>
+    <section>
+      {assignationRole.map(([key, value]) => (
+        <StyledRole key={key} role={"bodyLarge"}>
           {`${key}: ${value}`}
         </StyledRole>
       ))}
-    </>
+    </section>
   );
 };
 
-/**
- * The component is used to display typography, in a stylized form
- * @param {*} props {Role}
- * @param {string} props.role - The role to be displayed
- * @returns
- */
-const Role = (props) => {
-  const { role } = props;
+const RoleExample = (props) => {
+  const { roleNames } = props;
   return (
     <StyledContainer>
-      <StyledSection
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <StyledRole role={role}>{role}</StyledRole>
-      </StyledSection>
-      <StyledSection style={{}}>
-        <RoleExample role={role} />
-      </StyledSection>
+      <StyledTextP role={roleNames}>{roleNames}</StyledTextP>
+      <RoleProperties role={roleNames} />
     </StyledContainer>
   );
 };
 
-/**
- * The RoleList component is used to display a list of roles with type tokens.
- * @returns
- */
 const RoleList = () => {
-  const roleNames = Object.keys(typography.sys.typescale);
   return (
     <ul>
       {roleNames.map((roleName) => (
         <StyledItems key={roleName}>
-          <Role role={roleName} />
+          <RoleExample roleNames={roleName} />
         </StyledItems>
       ))}
     </ul>

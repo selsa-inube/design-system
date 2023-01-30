@@ -16,105 +16,105 @@ const ref = {
  */
 const sys = {
   typescale: {
-    DisplayLarge: {
+    displayLarge: {
       font: ref.typeface.brand,
       lineHeight: "64px",
       size: "57px",
       tracking: "0px",
       weight: ref.typeface.weight.regular,
     },
-    DisplayMedium: {
+    displayMedium: {
       font: ref.typeface.brand,
       lineHeight: "52px",
       size: "45px",
       tracking: "0px",
       weight: ref.typeface.weight.regular,
     },
-    DisplaySmall: {
+    displaySmall: {
       font: ref.typeface.brand,
       lineHeight: "44px",
       size: "36px",
       tracking: "0px",
       weight: ref.typeface.weight.regular,
     },
-    HeadlineLarge: {
+    headlineLarge: {
       font: ref.typeface.brand,
       lineHeight: "40px",
       size: "32px",
       tracking: "0px",
       weight: ref.typeface.weight.regular,
     },
-    HeadlineMedium: {
+    headlineMedium: {
       font: ref.typeface.brand,
       lineHeight: "36px",
       size: "28px",
       tracking: "0px",
       weight: ref.typeface.weight.regular,
     },
-    HeadlineSmall: {
+    headlineSmall: {
       font: ref.typeface.brand,
       lineHeight: "32px",
       size: "24px",
       tracking: "0px",
       weight: ref.typeface.weight.regular,
     },
-    TitleLarge: {
+    titleLarge: {
       font: ref.typeface.brand,
       lineHeight: "28px",
       size: "22px",
       tracking: "0px",
       weight: ref.typeface.weight.regular,
     },
-    TitleMedium: {
+    titleMedium: {
       font: ref.typeface.brand,
       lineHeight: "24px",
       size: "16px",
       tracking: "0.15px",
       weight: ref.typeface.weight.medium,
     },
-    TitleSmall: {
+    titleSmall: {
       font: ref.typeface.brand,
       lineHeight: "20px",
       size: "14px",
       tracking: "0.1px",
       weight: ref.typeface.weight.medium,
     },
-    LabelLarge: {
+    labelLarge: {
       font: ref.typeface.brand,
       lineHeight: "20px",
       size: "14px",
       tracking: "0.1px",
       weight: ref.typeface.weight.medium,
     },
-    LabelMedium: {
+    labelMedium: {
       font: ref.typeface.brand,
       lineHeight: "16px",
       size: "12px",
       tracking: "0.5px",
       weight: ref.typeface.weight.medium,
     },
-    LabelSmall: {
+    labelSmall: {
       font: ref.typeface.brand,
       lineHeight: "16px",
       size: "11px",
       tracking: "0.5px",
       weight: ref.typeface.weight.medium,
     },
-    BodyLarge: {
+    bodyLarge: {
       font: ref.typeface.brand,
       lineHeight: "24px",
       size: "16px",
       tracking: "0.5px",
       weight: ref.typeface.weight.medium,
     },
-    BodyMedium: {
+    bodyMedium: {
       font: ref.typeface.brand,
       lineHeight: "20px",
       size: "14px",
       tracking: "0.25px",
       weight: ref.typeface.weight.regular,
     },
-    BodySmall: {
+    bodySmall: {
       font: ref.typeface.brand,
       lineHeight: "16px",
       size: "12px",
