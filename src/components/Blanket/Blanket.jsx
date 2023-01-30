@@ -33,10 +33,7 @@ const BlanketComponent = (props, { children }) => {
   };
   return (
     <>
-      <StyledButton
-        onVisible={showBlanketComponent}
-        onClick={showBlanketComponent}
-      >
+      <StyledButton onClick={showBlanketComponent}>
         {!usBlanketVisible ? "Show Blanket" : "Hide Blanket"}
       </StyledButton>
       <StyledBlanket
