@@ -75,7 +75,7 @@ const StyledText = styled.text`
   transform: rotate(90deg);
   font-size: 0.6em;
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  stroke: #666666;
+  stroke: ${colors.ref.palette.midNeutral.mn400};
   stroke-opacity: 0.6;
 `;
 
