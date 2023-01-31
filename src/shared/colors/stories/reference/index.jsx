@@ -54,8 +54,7 @@ const GridColor = (props) => {
   );
 };
 
-const ColorReference = (props) => {
-  const { colors } = props;
+const ColorReference = () => {
   const colorPalette = Object.keys(colors.ref.palette);
 
   return (

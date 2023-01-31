@@ -1,7 +1,5 @@
 import React from "react";
 
-import { colors } from "../../colors";
-
 import { SystemReference } from ".";
 
 const story = {
@@ -10,9 +8,6 @@ const story = {
 };
 
 const System = (args) => <SystemReference {...args} />;
-System.args = {
-  colors,
-};
 
 export default story;
 export { System };

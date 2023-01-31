@@ -1,7 +1,5 @@
 import React from "react";
 
-import { colors } from "../../colors";
-
 import { ColorReference } from "../reference";
 
 const story = {
@@ -10,9 +8,6 @@ const story = {
 };
 
 const Reference = (args) => <ColorReference {...args} />;
-Reference.args = {
-  colors,
-};
 
 export default story;
 export { Reference };

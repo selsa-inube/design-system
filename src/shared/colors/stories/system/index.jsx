@@ -44,8 +44,7 @@ const Field = (props) => {
   ));
 };
 
-const SystemReference = (props) => {
-  const { colors } = props;
+const SystemReference = () => {
   const systemTokensList = Object.entries(colors.sys);
 
   return systemTokensList.map(([role, systemTokensGroup]) => (
