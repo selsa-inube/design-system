@@ -22,7 +22,7 @@ const StyledFlexField = styled.div`
   margin: 5px;
   border-bottom: 1px solid ${colors.ref.palette.midNeutral.mn50};
   justify-content: space-around;
-  &: last-child {
+  &:last-child {
     border-bottom: none;
   }
 `;
