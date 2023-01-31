@@ -5,8 +5,8 @@ const story = {
   components: [BlanketComponent],
 };
 
-const Blanket = (args) => <BlanketComponent {...args} />;
-Blanket.args = {
+const OnClickBlanket = (args) => <BlanketComponent {...args} />;
+OnClickBlanket.args = {
   allowClickOut: true,
 };
 
@@ -16,4 +16,4 @@ VisibleBlankent.args = {
 };
 
 export default story;
-export { Blanket, VisibleBlankent };
+export { OnClickBlanket, VisibleBlankent };
