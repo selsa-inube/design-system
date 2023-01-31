@@ -16,21 +16,33 @@ const StyledTitleCard = styled.div`
   color: ${colors.ref.palette.midNeutral.mn300};
 `;
 
-const StyledFlexField = styled.div`
-  display: flex;
-  padding: 5px;
-  margin: 5px;
+const StyledGridField = styled.span`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  padding: 8px 5px 8px 5px;
+  margin: 2px;
   border-bottom: 1px solid ${colors.ref.palette.midNeutral.mn50};
-  justify-content: space-around;
   &:last-child {
     border-bottom: none;
   }
 `;
+
 const StyledContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(1, auto);
+  column-gap: 10px;
+  align-items: center;
   width: -webkit-fill-available;
   border: 1px solid ${colors.ref.palette.midNeutral.mn50};
   margin: 0.5px 0 20px 0;
   border-radius: 4px;
+`;
+
+const StyledSpan = styled.span`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const StyledColor = styled.div`
@@ -43,4 +55,10 @@ const StyledColor = styled.div`
   border-radius: 4px;
 `;
 
-export { StyledTitleCard, StyledFlexField, StyledColor, StyledContainer };
+export {
+  StyledTitleCard,
+  StyledGridField,
+  StyledColor,
+  StyledContainer,
+  StyledSpan,
+};
