@@ -1,6 +1,3 @@
-/**
- * Thee are the reference tokens for the typography.
- */
 const ref = {
   typeface: {
     brand: "Roboto",
@@ -11,9 +8,6 @@ const ref = {
   },
 };
 
-/**
- * These are the system tokens for the typography.
- */
 const sys = {
   typescale: {
     displayLarge: {
@@ -124,9 +118,6 @@ const sys = {
   },
 };
 
-/**
- * object exporting the typeface token group
- */
 const typography = {
   ref,
   sys,

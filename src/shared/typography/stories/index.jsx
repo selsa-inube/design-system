@@ -24,7 +24,7 @@ const RoleProperties = (props) => {
     <section>
       {assignationRole.map(([key, value]) => (
         <StyledRole key={key} role={"bodyLarge"}>
-          {`${key}: ${value}`}
+          {key}: {value}
         </StyledRole>
       ))}
     </section>
@@ -32,11 +32,11 @@ const RoleProperties = (props) => {
 };
 
 const RoleExample = (props) => {
-  const { roleNames } = props;
+  const { roleName } = props;
   return (
     <StyledContainer>
-      <StyledTextP role={roleNames}>{roleNames}</StyledTextP>
-      <RoleProperties role={roleNames} />
+      <StyledTextP role={roleName}>{roleName}</StyledTextP>
+      <RoleProperties role={roleName} />
     </StyledContainer>
   );
 };
@@ -46,7 +46,7 @@ const RoleList = () => {
     <ul>
       {roleNames.map((roleName) => (
         <StyledItems key={roleName}>
-          <RoleExample roleNames={roleName} />
+          <RoleExample roleName={roleName} />
         </StyledItems>
       ))}
     </ul>
