@@ -8,10 +8,10 @@ import {
 } from "./styles";
 import { colors } from "../../colors";
 
-function getRefTokenFromHex(obj = colors.ref, value) {
+function getRefTokenFromHex(value, obj = colors.ref) {
   for (const [key, val] of Object.entries(obj)) {
     if (typeof val === "object") {
-      const result = getRefTokenFromHex(val, value);
+      const result = getRefTokenFromHex(value, val);
       if (result) return `${key}.${result}`;
     } else if (val === value) {
       return key;
@@ -23,7 +23,6 @@ function getRefTokenFromHex(obj = colors.ref, value) {
 const Field = (props) => {
   const { role, systemToken } = props;
   const systemTokens = colors.sys;
-  const colorReference = colors.ref;
 
   return (
     <StyledGridField>
@@ -32,7 +31,7 @@ const Field = (props) => {
       </StyledSpan>
       <StyledSpan>
         ref.
-        {getRefTokenFromHex(colorReference, systemTokens[role][systemToken])}
+        {getRefTokenFromHex(systemTokens[role][systemToken])}
       </StyledSpan>
       <StyledSpan>
         <StyledColor role={role} systemToken={systemToken}>
