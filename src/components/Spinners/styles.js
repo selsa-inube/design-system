@@ -44,39 +44,13 @@ const StyledSpinner = styled.svg`
   height: 50px;
   stroke: ${(props) => colors.sys.actions[props.colorToken]};
   ${(props) => sizes[props.size]}
-  ${(props) => props.classes}
-  ${(props) =>
-    props.progressValue !== undefined
-      ? css`
-          animation: dash 5s linear forwards;
-          transform: rotate(-90deg);
-        `
-      : css`
-          animation: ${rotate} 1.4s linear infinite;
-        `};
 `;
 
 const StyledCircle = styled.circle`
   stroke: hsl(210, 70, 75);
   stroke-linecap: round;
-  stroke-width: ${(props) => props.thickness};
-  ${(props) =>
-    props.progressValue !== undefined
-      ? css`
-          stroke-dasharray: ${props.progressValue}, 100;
-          animation: "none";
-        `
-      : css`
-          animation: ${dash} 1.5s ease-in-out infinite;
-        `};
+  stroke-width: 3;
+  animation: ${dash} 1.5s ease-in-out infinite;
 `;
 
-const StyledText = styled.text`
-  transform: rotate(90deg);
-  font-size: 0.6em;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  stroke: ${colors.ref.palette.midNeutral.mn400};
-  stroke-opacity: 0.6;
-`;
-
-export { StyledSpinner, StyledCircle, StyledText };
+export { StyledSpinner, StyledCircle };
