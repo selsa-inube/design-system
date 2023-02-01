@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
+
 import { StyledBlanket, StyledButton } from "./Blanketstyles";
 
 const BlanketComponent = (props, { children }) => {
@@ -39,6 +41,12 @@ const BlanketComponent = (props, { children }) => {
       </StyledBlanket>
     </>
   );
+};
+
+BlanketComponent.propTypes = {
+  allowClickOut: PropTypes.bool,
+  onVisible: PropTypes.bool,
+  children: PropTypes.element,
 };
 
 export default BlanketComponent;
