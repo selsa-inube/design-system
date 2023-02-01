@@ -53,11 +53,7 @@ const GridSystemToken = (props) => {
       </StyledTitleCard>
       <StyledContainer>
         {systemTokensGroup.map((systemToken) => (
-          <Field
-            key={systemToken}
-            role={role}
-            systemToken={systemToken}
-          ></Field>
+          <Field key={systemToken} role={role} systemToken={systemToken} />
         ))}
       </StyledContainer>
     </>
