@@ -8,35 +8,31 @@ import {
 } from "./styles";
 import { colors } from "../../colors";
 
-function getKeyByValue(obj, value) {
-  for (const key in obj) {
-    if (obj.hasOwnProperty(key)) {
-      if (typeof obj[key] === "object") {
-        const result = getKeyByValue(obj[key], value);
-        if (result) {
-          return `${key}.${result}`;
-        }
-      } else if (obj[key] === value) {
-        return key;
-      }
+function getRefTokenFromHex(obj = colors.ref, value) {
+  for (const [key, val] of Object.entries(obj)) {
+    if (typeof val === "object") {
+      const result = getRefTokenFromHex(val, value);
+      if (result) return `${key}.${result}`;
+    } else if (val === value) {
+      return key;
     }
   }
   return null;
 }
 
 const Field = (props) => {
-  const { role, systemTokensGroup } = props;
+  const { role, systemToken } = props;
   const systemTokens = colors.sys;
   const colorReference = colors.ref;
-  const systemTokensList = Object.values(systemTokensGroup);
 
-  return systemTokensList.map((systemToken) => (
-    <StyledGridField key={systemToken}>
+  return (
+    <StyledGridField>
       <StyledSpan>
         sys.{role}.{systemToken}
       </StyledSpan>
       <StyledSpan>
-        ref.{getKeyByValue(colorReference, systemTokens[role][systemToken])}
+        ref.
+        {getRefTokenFromHex(colorReference, systemTokens[role][systemToken])}
       </StyledSpan>
       <StyledSpan>
         <StyledColor role={role} systemToken={systemToken}>
@@ -44,7 +40,7 @@ const Field = (props) => {
         </StyledColor>
       </StyledSpan>
     </StyledGridField>
-  ));
+  );
 };
 
 const GridSystemToken = (props) => {
@@ -57,7 +53,13 @@ const GridSystemToken = (props) => {
         <h1>{role}</h1>
       </StyledTitleCard>
       <StyledContainer>
-        <Field role={role} systemTokensGroup={systemTokensGroup}></Field>
+        {systemTokensGroup.map((systemToken) => (
+          <Field
+            key={systemToken}
+            role={role}
+            systemToken={systemToken}
+          ></Field>
+        ))}
       </StyledContainer>
     </>
   );
