@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
-import { StyledBlanket, StyledButton } from "./Blanketstyles";
+import { StyledBlanket } from "./Blanketstyles";
 
 const BlanketComponent = (props, { children }) => {
   const { allowClickOut, onVisible } = props;
@@ -30,9 +30,6 @@ const BlanketComponent = (props, { children }) => {
   };
   return (
     <>
-      <StyledButton onClick={showBlanketComponent}>
-        {!usBlanketVisible ? "Show Blanket" : "Hide Blanket"}
-      </StyledButton>
       <StyledBlanket
         style={stylesOnClick}
         onClick={usAllowClickOut ? onClickBlanket : null}
