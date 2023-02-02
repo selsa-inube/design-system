@@ -4,54 +4,41 @@ import { colors } from "../../../shared/colors/colors";
 
 const sizes = {
   large: {
-    width: "60px",
-    height: "60px",
+    width: "40px",
+    height: "40px",
   },
   medium: {
-    width: "52px",
-    height: "52px",
+    width: "32px",
+    height: "32px",
   },
   small: {
-    width: "44px",
-    height: "44px",
+    width: "24px",
+    height: "24px",
   },
 };
 
-const rotate = keyframes`
-  100% {
-    transform: rotate(360deg);
-  }
-`;
-
-const dash = keyframes`
+const spinner = keyframes`
   0% {
-    stroke-dasharray: 1, 150;
-    stroke-dashoffset: 0;
-  }
-  50% {
-    stroke-dasharray: 90, 150;
-    stroke-dashoffset: -35;
+    transform: translate3d(-50%, -50%, 0) rotate(0deg);
   }
   100% {
-    stroke-dasharray: 90, 150;
-    stroke-dashoffset: -124;
+    transform: translate3d(-50%, -50%, 0) rotate(360deg);
   }
 `;
 
-const StyledSpinner = styled.svg`
-  animation: ${rotate} 2s linear infinite;
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  stroke: ${(props) => colors.sys.actions[props.appearance]};
+const StyledSpinner = styled.div`
+  animation: 1.2s linear infinite ${spinner};
+  animation-play-state: inherit;
+  border: solid 5px
+    ${(props) =>
+      props.isTransparent === true
+        ? colors.ref.palette.lightNeutral.ln50
+        : colors.ref.palette.lightNeutral.ln500};
+  border-bottom-color: ${(props) => colors.sys.actions[props.appearance]};
+  border-radius: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  will-change: transform;
   ${(props) => sizes[props.size]}
 `;
 
-const StyledCircle = styled.circle`
-  stroke: hsl(210, 70, 75);
-  stroke-linecap: round;
-  stroke-width: 3;
-  animation: ${dash} 1.5s ease-in-out infinite;
-`;
-
-export { StyledSpinner, StyledCircle };
+export { StyledSpinner };

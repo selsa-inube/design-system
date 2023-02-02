@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Spinner } from ".";
 
 import styled from "styled-components";
@@ -6,15 +6,15 @@ import styled from "styled-components";
 const sizes = ["large", "medium", "small"];
 const tokensSpinner = [
   "primary",
-  "secondary",
   "confirm",
   "warning",
   "remove",
   "help",
+  "secondary",
 ];
-const transparent = [true, false];
+const transparent = [false, true];
 
-const StyledFlexDirection = styled.div`
+const StyledFlex = styled.div`
   display: flex;
   justify-content: space-evenly;
   // border: 1px dotted;
@@ -33,9 +33,24 @@ const StyledFlexSizesAsRow = styled.div`
   max-width: 148px;
 `;
 
+const StyledGrid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+`;
+
 const story = {
   title: "feedback/Spinner",
   components: [Spinner],
+  decorators: [
+    (Story) => (
+      <div style={{ margin: "3em" }}>
+        <Story />
+      </div>
+    ),
+  ],
 };
 
 export const Default = (args) => <Spinner {...args} />;
@@ -85,13 +100,13 @@ Sizes.argTypes = {
 };
 
 const ColorsTemplate = ({ ...args }) => (
-  <StyledFlexDirection>
+  <StyledFlex>
     {tokensSpinner.map((token) => (
       <div key={token}>
         <Spinner {...args} appearance={token} />
       </div>
     ))}
-  </StyledFlexDirection>
+  </StyledFlex>
 );
 export const Colors = ColorsTemplate.bind({});
 Colors.args = {
@@ -110,13 +125,13 @@ Colors.argTypes = {
 };
 
 const TransparencyTemplate = ({ ...args }) => (
-  <StyledFlexDirection>
-    {tokensSpinner.map((token) => (
-      <div key={token}>
-        <Spinner {...args} />
+  <StyledFlex>
+    {transparent.map((state) => (
+      <div key={state}>
+        <Spinner {...args} isTransparent={state} />
       </div>
     ))}
-  </StyledFlexDirection>
+  </StyledFlex>
 );
 export const Transparency = TransparencyTemplate.bind({});
 Transparency.args = {
@@ -135,17 +150,31 @@ Transparency.argTypes = {
 };
 
 export const All = () => (
-  <StyledFlexDirection>
+  <StyledFlex>
     {tokensSpinner.map((token) => (
-      <div key={token}>
-        {sizes.map((size) => (
-          <StyledFlexSizes key={size}>
-            <Spinner appearance={token} size={size} />
-          </StyledFlexSizes>
-        ))}
-      </div>
+      <StyledGrid>
+        <div>
+          {sizes.map((size) => (
+            <StyledFlexSizes>
+              <Spinner key={size} appearance={token} size={size} />
+            </StyledFlexSizes>
+          ))}
+        </div>
+        <div>
+          {sizes.map((size) => (
+            <StyledFlexSizes>
+              <Spinner
+                key={size}
+                appearance={token}
+                size={size}
+                isTransparent={true}
+              />
+            </StyledFlexSizes>
+          ))}
+        </div>
+      </StyledGrid>
     ))}
-  </StyledFlexDirection>
+  </StyledFlex>
 );
 
 export default story;

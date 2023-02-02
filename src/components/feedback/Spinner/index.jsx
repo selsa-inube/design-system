@@ -1,13 +1,22 @@
 import React from "react";
-import { StyledSpinner, StyledCircle } from "./styles";
+import PropTypes from "prop-types";
+import { StyledSpinner } from "./styles";
 
 const Spinner = (props) => {
   const { size, appearance, isTransparent } = props;
 
+  Spinner.propTypes = {
+    size: PropTypes.string,
+    appearance: PropTypes.string,
+    isTransparent: PropTypes.bool,
+  };
+
   return (
-    <StyledSpinner appearance={appearance} size={size} viewBox="0 0 50 50">
-      <StyledCircle cx="25" cy="25" r="16" fill="none" />
-    </StyledSpinner>
+    <StyledSpinner
+      appearance={appearance}
+      size={size}
+      isTransparent={isTransparent}
+    ></StyledSpinner>
   );
 };
 
