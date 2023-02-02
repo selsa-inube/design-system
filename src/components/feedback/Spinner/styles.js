@@ -1,6 +1,6 @@
-import styled, { keyframes, css } from "styled-components";
+import styled, { keyframes } from "styled-components";
 
-import { colors } from "../../shared/colors/colors";
+import { colors } from "../../../shared/colors/colors";
 
 const sizes = {
   large: {
@@ -39,10 +39,11 @@ const dash = keyframes`
 `;
 
 const StyledSpinner = styled.svg`
+  animation: ${rotate} 2s linear infinite;
   position: absolute;
   width: 50px;
   height: 50px;
-  stroke: ${(props) => colors.sys.actions[props.colorToken]};
+  stroke: ${(props) => colors.sys.actions[props.appearance]};
   ${(props) => sizes[props.size]}
 `;
 
