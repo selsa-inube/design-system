@@ -20,6 +20,14 @@ const StyledFlex = styled.div`
   // border: 1px dotted;
 `;
 
+const StyledFlexColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+  margin-left: 3rem;
+`;
+
 const StyledFlexSizes = styled.div`
   display: flex;
   justify-content: center;
@@ -27,7 +35,7 @@ const StyledFlexSizes = styled.div`
   margin-bottom: 57px;
 `;
 
-const StyledFlexSizesAsRow = styled.div`
+const StyledFlexBetween = styled.div`
   display: flex;
   justify-content: space-between;
   max-width: 148px;
@@ -37,8 +45,10 @@ const StyledGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(2, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
+  box-sizing: border-box;
+  &:last-child {
+    background-color: #505f79;
+  }
 `;
 
 const story = {
@@ -75,13 +85,13 @@ Default.argTypes = {
 };
 
 const SizesTemplate = ({ ...args }) => (
-  <StyledFlexSizesAsRow>
+  <StyledFlexBetween>
     {sizes.map((size) => (
       <div key={size}>
         <Spinner {...args} size={size} />
       </div>
     ))}
-  </StyledFlexSizesAsRow>
+  </StyledFlexBetween>
 );
 export const Sizes = SizesTemplate.bind({});
 Sizes.args = {
@@ -153,25 +163,21 @@ export const All = () => (
   <StyledFlex>
     {tokensSpinner.map((token) => (
       <StyledGrid>
-        <div>
+        <StyledFlexColumn>
           {sizes.map((size) => (
-            <StyledFlexSizes>
-              <Spinner key={size} appearance={token} size={size} />
-            </StyledFlexSizes>
+            <Spinner key={size} appearance={token} size={size} />
           ))}
-        </div>
-        <div>
+        </StyledFlexColumn>
+        <StyledFlexColumn>
           {sizes.map((size) => (
-            <StyledFlexSizes>
-              <Spinner
-                key={size}
-                appearance={token}
-                size={size}
-                isTransparent={true}
-              />
-            </StyledFlexSizes>
+            <Spinner
+              key={size}
+              appearance={token}
+              size={size}
+              isTransparent={true}
+            />
           ))}
-        </div>
+        </StyledFlexColumn>
       </StyledGrid>
     ))}
   </StyledFlex>

@@ -27,12 +27,12 @@ const spinner = keyframes`
 `;
 
 const StyledSpinner = styled.div`
-  animation: 1.2s linear infinite ${spinner};
+  animation: 0.8s linear infinite ${spinner};
   animation-play-state: inherit;
   border: solid 5px
     ${(props) =>
       props.isTransparent === true
-        ? colors.ref.palette.lightNeutral.ln50
+        ? colors.ref.palette.lightNeutral.ln50 + "00"
         : colors.ref.palette.lightNeutral.ln500};
   border-bottom-color: ${(props) => colors.sys.actions[props.appearance]};
   border-radius: 50%;
