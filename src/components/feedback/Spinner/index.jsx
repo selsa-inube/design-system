@@ -5,12 +5,6 @@ import { StyledSpinner } from "./styles";
 const Spinner = (props) => {
   const { size, appearance, isTransparent } = props;
 
-  Spinner.propTypes = {
-    size: PropTypes.string,
-    appearance: PropTypes.string,
-    isTransparent: PropTypes.bool,
-  };
-
   return (
     <StyledSpinner
       appearance={appearance}
@@ -18,6 +12,12 @@ const Spinner = (props) => {
       isTransparent={isTransparent}
     ></StyledSpinner>
   );
+};
+
+Spinner.propTypes = {
+  size: PropTypes.string,
+  appearance: PropTypes.string,
+  isTransparent: PropTypes.bool,
 };
 
 export { Spinner };
