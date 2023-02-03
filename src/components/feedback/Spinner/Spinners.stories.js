@@ -17,8 +17,9 @@ const StyledFlexColumn = styled.div`
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  margin-top: 3rem;
-  margin-left: 3rem;
+  align-items: center;
+  height: 8rem;
+  justify-content: space-between;
 `;
 
 const StyledFlexBetween = styled.div`
@@ -31,6 +32,7 @@ const StyledGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(2, 1fr);
+  row-gap: 25px;
   box-sizing: border-box;
   &:last-child {
     background-color: #505f79;
