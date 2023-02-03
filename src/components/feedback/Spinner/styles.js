@@ -30,26 +30,26 @@ const sizes = {
 
 const spinner = keyframes`
   0% {
-    transform: translate3d(-50%, -50%, 0) rotate(0deg);
+    transform: rotate(0deg);
   }
   100% {
-    transform: translate3d(-50%, -50%, 0) rotate(360deg);
+    transform: rotate(360deg);
   }
 `;
 
 const StyledSpinner = styled.div`
+  display: inline-block;
   animation: 0.8s linear infinite ${spinner};
-  animation-play-state: inherit;
   border: solid 5px
     ${(props) =>
       props.isTransparent === true
-        ? colors.ref.palette.lightNeutral.ln50 + "00"
+        ? colors.ref.palette.lightNeutral.ln200 + "00"
         : colors.ref.palette.lightNeutral.ln200};
   border-bottom-color: ${(props) =>
     colors.ref.palette[getParent(props.appearance)][props.appearance]};
   border-radius: 50%;
-  transform: translate3d(-50%, -50%, 0);
   ${(props) => sizes[props.size]}
+  box-sizing: border-box;
 `;
 
 export { StyledSpinner };
