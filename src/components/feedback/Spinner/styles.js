@@ -49,7 +49,6 @@ const StyledSpinner = styled.div`
     colors.ref.palette[getParent(props.appearance)][props.appearance]};
   border-radius: 50%;
   transform: translate3d(-50%, -50%, 0);
-  will-change: transform;
   ${(props) => sizes[props.size]}
 `;
 
