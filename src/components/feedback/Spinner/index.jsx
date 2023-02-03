@@ -10,7 +10,7 @@ const Spinner = (props) => {
       appearance={appearance}
       size={size}
       isTransparent={isTransparent}
-    ></StyledSpinner>
+    />
   );
 };
 
