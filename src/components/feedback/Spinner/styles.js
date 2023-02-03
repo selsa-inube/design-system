@@ -2,6 +2,17 @@ import styled, { keyframes } from "styled-components";
 
 import { colors } from "../../../shared/colors/colors";
 
+const getParent = (colorKey) => {
+  let parentKey = "";
+  const colorsReference = colors.ref.palette;
+  Object.keys(colorsReference).forEach((key) => {
+    if (colorsReference[key][colorKey]) {
+      parentKey = key;
+    }
+  });
+  return parentKey;
+};
+
 const sizes = {
   large: {
     width: "40px",
@@ -33,8 +44,9 @@ const StyledSpinner = styled.div`
     ${(props) =>
       props.isTransparent === true
         ? colors.ref.palette.lightNeutral.ln50 + "00"
-        : colors.ref.palette.lightNeutral.ln500};
-  border-bottom-color: ${(props) => colors.sys.actions[props.appearance]};
+        : colors.ref.palette.lightNeutral.ln200};
+  border-bottom-color: ${(props) =>
+    colors.ref.palette[getParent(props.appearance)][props.appearance]};
   border-radius: 50%;
   transform: translate3d(-50%, -50%, 0);
   will-change: transform;

@@ -4,14 +4,7 @@ import { Spinner } from ".";
 import styled from "styled-components";
 
 const sizes = ["large", "medium", "small"];
-const tokensSpinner = [
-  "primary",
-  "confirm",
-  "warning",
-  "remove",
-  "help",
-  "secondary",
-];
+const tokensSpinner = ["b400", "g400", "y400", "r400", "p400", "black", "ln50"];
 const transparent = [false, true];
 
 const StyledFlex = styled.div`
@@ -26,13 +19,6 @@ const StyledFlexColumn = styled.div`
   flex-wrap: wrap;
   margin-top: 3rem;
   margin-left: 3rem;
-`;
-
-const StyledFlexSizes = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;
-  margin-bottom: 57px;
 `;
 
 const StyledFlexBetween = styled.div`
@@ -66,7 +52,7 @@ const story = {
 export const Default = (args) => <Spinner {...args} />;
 Default.args = {
   size: "medium",
-  appearance: "primary",
+  appearance: "b400",
   isTransparent: false,
 };
 Default.argTypes = {
@@ -95,7 +81,7 @@ const SizesTemplate = ({ ...args }) => (
 );
 export const Sizes = SizesTemplate.bind({});
 Sizes.args = {
-  appearance: "primary",
+  appearance: "b400",
   isTransparent: false,
 };
 Sizes.argTypes = {
@@ -146,7 +132,7 @@ const TransparencyTemplate = ({ ...args }) => (
 export const Transparency = TransparencyTemplate.bind({});
 Transparency.args = {
   size: "medium",
-  appearance: "primary",
+  appearance: "b400",
 };
 Transparency.argTypes = {
   size: {
@@ -162,16 +148,16 @@ Transparency.argTypes = {
 export const All = () => (
   <StyledFlex>
     {tokensSpinner.map((token) => (
-      <StyledGrid>
+      <StyledGrid key={token}>
         <StyledFlexColumn>
           {sizes.map((size) => (
-            <Spinner key={size} appearance={token} size={size} />
+            <Spinner key={token + size} appearance={token} size={size} />
           ))}
         </StyledFlexColumn>
         <StyledFlexColumn>
           {sizes.map((size) => (
             <Spinner
-              key={size}
+              key={size + token}
               appearance={token}
               size={size}
               isTransparent={true}
