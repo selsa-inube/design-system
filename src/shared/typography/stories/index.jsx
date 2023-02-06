@@ -1,28 +1,56 @@
-import React from "react";
 import { typography } from "../typography";
-import { StyledContainer, StyledDiv, StyledP } from "./styles";
+import {
+  StyledRole,
+  StyledItems,
+  StyledContainer,
+  StyledTextP,
+} from "./styles";
 
-/**
- * The TypographyRef function is a React component that is responsible for displaying a list of all the properties and values of the typography object.
- * @returns cards with token information
- */
-const Typography = () => {
-  const createList = (obj, parentKey) => {
-    return Object.entries(obj).map(([key, value]) => {
-      const currentKey = parentKey ? `${parentKey}.${key}` : key;
-      if (typeof value === "object") {
-        return createList(value, currentKey);
-      }
-      return (
-        <StyledContainer>
-          <StyledDiv>
-            <StyledP key={currentKey}>{`${currentKey}: ${value}`}</StyledP>
-          </StyledDiv>
-        </StyledContainer>
-      );
-    });
+const roleNames = Object.keys(typography.sys.typescale);
+
+const RoleProperties = (props) => {
+  const { role } = props;
+
+  const typographyStory = {
+    "font-family": `${typography.ref.typeface.brand}`,
+    "line-height": `${typography.sys.typescale[role].lineHeight}`,
+    "font-size": `${typography.sys.typescale[role].size}`,
+    "letter-spacing": `${typography.sys.typescale[role].tracking}`,
+    "font-weight": `${typography.sys.typescale[role].weight}`,
   };
-  return <StyledContainer>{createList(typography)}</StyledContainer>;
+
+  const assignationRole = Object.entries(typographyStory);
+  return (
+    <section>
+      {assignationRole.map(([key, value]) => (
+        <StyledRole key={key} role={"bodyLarge"}>
+          {key}: {value}
+        </StyledRole>
+      ))}
+    </section>
+  );
 };
 
-export { Typography };
+const RoleExample = (props) => {
+  const { roleName } = props;
+  return (
+    <StyledContainer>
+      <StyledTextP role={roleName}>{roleName}</StyledTextP>
+      <RoleProperties role={roleName} />
+    </StyledContainer>
+  );
+};
+
+const RoleList = () => {
+  return (
+    <ul>
+      {roleNames.map((roleName) => (
+        <StyledItems key={roleName}>
+          <RoleExample roleName={roleName} />
+        </StyledItems>
+      ))}
+    </ul>
+  );
+};
+
+export { RoleList };

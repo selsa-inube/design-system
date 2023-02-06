@@ -1,20 +1,11 @@
-import { typography } from "../typography";
+import { RoleList } from ".";
 
-import { Typography } from ".";
-
-/**
- * history of typography tokens (system and reference)
- */
 const story = {
-  title: "shared/typography",
-  components: [typography],
+  title: "shared/Typography",
+  components: [RoleList],
 };
 
-/**
- * renders a <typography> component.
- * @returns the <typography> element, the component calls and renders another component called Typography()
- */
-const TokensTypography = () => <typography>{Typography()}</typography>;
+const Roles = () => <RoleList />;
 
 export default story;
-export { TokensTypography };
+export { Roles };
