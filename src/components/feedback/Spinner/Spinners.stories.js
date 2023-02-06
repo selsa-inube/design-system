@@ -4,7 +4,15 @@ import { Spinner } from ".";
 import styled from "styled-components";
 
 const sizes = ["large", "medium", "small"];
-const tokensSpinner = ["b400", "g400", "y400", "r400", "p400", "black", "ln50"];
+const tokensSpinner = [
+  "blue",
+  "green",
+  "yellow",
+  "red",
+  "purple",
+  "darkNeutral",
+  "white",
+];
 const transparent = [false, true];
 
 const StyledFlex = styled.div`
@@ -54,7 +62,7 @@ const story = {
 export const Default = (args) => <Spinner {...args} />;
 Default.args = {
   size: "medium",
-  appearance: "b400",
+  appearance: "blue",
   isTransparent: false,
 };
 Default.argTypes = {
@@ -83,7 +91,7 @@ const SizesTemplate = ({ ...args }) => (
 );
 export const Sizes = SizesTemplate.bind({});
 Sizes.args = {
-  appearance: "b400",
+  appearance: "blue",
   isTransparent: false,
 };
 Sizes.argTypes = {
@@ -134,7 +142,7 @@ const TransparencyTemplate = ({ ...args }) => (
 export const Transparency = TransparencyTemplate.bind({});
 Transparency.args = {
   size: "medium",
-  appearance: "b400",
+  appearance: "blue",
 };
 Transparency.argTypes = {
   size: {
