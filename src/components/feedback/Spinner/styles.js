@@ -8,8 +8,8 @@ const colorHomologation = {
   yellow: colors.ref.palette.yellow.y400,
   red: colors.ref.palette.red.r400,
   purple: colors.ref.palette.purple.p400,
-  white: colors.ref.palette.lightNeutral.ln50,
-  darkNeutral: colors.ref.palette.darkNeutral.dn500,
+  white: colors.ref.palette.neutral.n0,
+  dark: colors.ref.palette.neutral.n900,
 };
 
 const sizes = {
@@ -42,8 +42,8 @@ const StyledSpinner = styled.div`
   border: solid 4px
     ${(props) =>
       props.isTransparent === true
-        ? colors.ref.palette.lightNeutral.ln200 + "00"
-        : colors.ref.palette.lightNeutral.ln200};
+        ? colors.ref.palette.neutralAlpha.n0A
+        : colors.ref.palette.neutral.n30};
   border-bottom-color: ${(props) => colorHomologation[props.appearance]};
   border-radius: 50%;
   ${(props) => sizes[props.size]}

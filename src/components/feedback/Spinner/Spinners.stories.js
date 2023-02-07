@@ -10,7 +10,7 @@ const tokensSpinner = [
   "yellow",
   "red",
   "purple",
-  "darkNeutral",
+  "dark",
   "white",
 ];
 const transparent = [false, true];
