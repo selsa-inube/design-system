@@ -45,10 +45,19 @@ Sizes.argTypes = {
   appearance: {
     options: tokensSpinner,
     control: { type: "select" },
+    description: "colors used to identify the state of the component",
+    table: {
+      defaultValue: { summary: "blue" },
+    },
   },
   isTransparent: {
     options: transparent,
     control: { type: "boolean" },
+    description:
+      "indicates when the background of the spinner should have color",
+    table: {
+      defaultValue: { summary: false },
+    },
   },
 };
 

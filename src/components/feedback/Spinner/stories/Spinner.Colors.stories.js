@@ -44,10 +44,21 @@ Colors.argTypes = {
   size: {
     options: sizes,
     control: { type: "select" },
+    description:
+      "different sizes that the component can have, according to the need",
+    table: {
+      defaultValue: { summary: "medium" },
+    },
   },
+
   isTransparent: {
     options: transparent,
     control: { type: "boolean" },
+    description:
+      "indicates when the background of the spinner should have color",
+    table: {
+      defaultValue: { summary: false },
+    },
   },
 };
 

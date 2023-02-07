@@ -45,10 +45,19 @@ Transparency.argTypes = {
   size: {
     options: sizes,
     control: { type: "select" },
+    description:
+      "different sizes that the component can have, according to the need",
+    table: {
+      defaultValue: { summary: "medium" },
+    },
   },
   appearance: {
     options: tokensSpinner,
     control: { type: "select" },
+    description: "colors used to identify the state of the component",
+    table: {
+      defaultValue: { summary: "blue" },
+    },
   },
 };
 
