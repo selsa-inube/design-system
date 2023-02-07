@@ -18,7 +18,6 @@ const transparent = [false, true];
 const StyledFlex = styled.div`
   display: flex;
   justify-content: space-evenly;
-  // border: 1px dotted;
 `;
 
 const StyledFlexColumn = styled.div`
