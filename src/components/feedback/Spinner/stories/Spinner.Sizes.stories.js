@@ -1,5 +1,5 @@
 import React from "react";
-import { Spinner } from "./../index";
+import { Spinner, sizes, appearances } from "./../index";
 
 import { StyledFlexBetween } from "./styles";
 
@@ -14,18 +14,6 @@ const story = {
     ),
   ],
 };
-
-const tokensSpinner = [
-  "blue",
-  "green",
-  "yellow",
-  "red",
-  "purple",
-  "dark",
-  "white",
-];
-const transparent = [false, true];
-const sizes = ["large", "medium", "small"];
 
 const SizesTemplate = ({ ...args }) => (
   <StyledFlexBetween>
@@ -43,7 +31,7 @@ Sizes.args = {
 };
 Sizes.argTypes = {
   appearance: {
-    options: tokensSpinner,
+    options: appearances,
     control: { type: "select" },
     description: "colors used to identify the state of the component",
     table: {
@@ -51,7 +39,7 @@ Sizes.argTypes = {
     },
   },
   isTransparent: {
-    options: transparent,
+    options: [true, false],
     control: { type: "boolean" },
     description:
       "indicates when the background of the spinner should have color",

@@ -1,5 +1,5 @@
 import React from "react";
-import { Spinner } from "./../index";
+import { Spinner, sizes, appearances } from "./../index";
 
 const story = {
   title: "feedback/Spinner/Default",
@@ -12,18 +12,6 @@ const story = {
     ),
   ],
 };
-
-const sizes = ["large", "medium", "small"];
-const tokensSpinner = [
-  "blue",
-  "green",
-  "yellow",
-  "red",
-  "purple",
-  "dark",
-  "white",
-];
-const transparent = [false, true];
 
 export const Default = (args) => <Spinner {...args} />;
 Default.args = {
@@ -42,7 +30,7 @@ Default.argTypes = {
     },
   },
   appearance: {
-    options: tokensSpinner,
+    options: appearances,
     control: { type: "select" },
     description: "colors used to identify the state of the component",
     table: {
@@ -50,7 +38,7 @@ Default.argTypes = {
     },
   },
   isTransparent: {
-    options: transparent,
+    options: [true, false],
     control: { type: "boolean" },
     description:
       "indicates when the background of the spinner should have color",

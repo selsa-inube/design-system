@@ -1,5 +1,5 @@
 import React from "react";
-import { Spinner } from "./../index";
+import { Spinner, sizes, appearances } from "./../index";
 
 import { StyledFlex } from "./styles";
 
@@ -15,20 +15,9 @@ const story = {
   ],
 };
 
-const sizes = ["large", "medium", "small"];
-const transparent = [false, true];
-const tokensSpinner = [
-  "blue",
-  "green",
-  "yellow",
-  "red",
-  "purple",
-  "dark",
-  "white",
-];
 const ColorsTemplate = ({ ...args }) => (
   <StyledFlex>
-    {tokensSpinner.map((token) => (
+    {appearances.map((token) => (
       <div key={token}>
         <Spinner {...args} appearance={token} />
       </div>
@@ -52,7 +41,7 @@ Colors.argTypes = {
   },
 
   isTransparent: {
-    options: transparent,
+    options: [true, false],
     control: { type: "boolean" },
     description:
       "indicates when the background of the spinner should have color",

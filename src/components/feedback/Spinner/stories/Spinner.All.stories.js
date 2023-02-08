@@ -1,5 +1,5 @@
 import React from "react";
-import { Spinner } from "./../index";
+import { Spinner, sizes, appearances } from "./../index";
 
 import { StyledFlex, StyledFlexColumn, StyledGrid } from "./styles";
 
@@ -15,20 +15,9 @@ const story = {
   ],
 };
 
-const sizes = ["large", "medium", "small"];
-const tokensSpinner = [
-  "blue",
-  "green",
-  "yellow",
-  "red",
-  "purple",
-  "dark",
-  "white",
-];
-
 export const All = () => (
   <StyledFlex>
-    {tokensSpinner.map((token) => (
+    {appearances.map((token) => (
       <StyledGrid key={token}>
         <StyledFlexColumn>
           {sizes.map((size) => (
