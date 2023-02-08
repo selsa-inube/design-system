@@ -6,6 +6,7 @@ import {
   StyledDivInfoCard,
   StyledColor,
   StyledGrid,
+  StyledSpanColorName,
 } from "./styles";
 
 import { colors } from "../../colors";
@@ -13,6 +14,9 @@ import { colors } from "../../colors";
 const CardColor = (props) => {
   const { colorGroupWrap, colorName } = props;
   const colorCodeHex = colors.ref.palette[colorGroupWrap][colorName];
+  const colorType = colorName.at(-1) === "A" ? "Rgba" : "Hex";
+  const colorNameTransformed =
+    colorName.at(-1) === "A" ? colorCodeHex.slice(4) : colorCodeHex;
 
   return (
     <StyledCard>
@@ -28,9 +32,11 @@ const CardColor = (props) => {
         </StyledDivInfoCard>
         <StyledDivInfoCard>
           <span>
-            <strong>Hex</strong>
+            <strong>{colorType}</strong>
           </span>
-          <span>{colorCodeHex}</span>
+          <StyledSpanColorName colorName={colorName}>
+            {colorNameTransformed}
+          </StyledSpanColorName>
         </StyledDivInfoCard>
       </StyledDivGridBottom>
     </StyledCard>
