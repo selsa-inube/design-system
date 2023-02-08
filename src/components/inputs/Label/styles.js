@@ -3,8 +3,8 @@ import { typography } from "../../../shared/typography/typography";
 import { colors } from "../../../shared/colors/colors";
 
 const stateColor = {
-  default: `${colors.ref.palette.darkNeutral.dn500}`,
-  disabled: `${colors.ref.palette.midNeutral.mn50}`,
+  default: `${colors.ref.palette.neutral.n900}`,
+  disabled: `${colors.ref.palette.neutral.n60}`,
   focus: `${colors.ref.palette.blue.b300}`,
   invalid: `${colors.ref.palette.red.r500}`,
 };
