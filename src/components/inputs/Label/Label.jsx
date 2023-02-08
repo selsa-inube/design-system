@@ -7,7 +7,7 @@ const Label = (props) => {
   const { htmlFor, state = "default", children } = props;
 
   return (
-    <StyledLabel as="label" htmlFor={htmlFor} state={state}>
+    <StyledLabel htmlFor={htmlFor} state={state}>
       {children}
     </StyledLabel>
   );

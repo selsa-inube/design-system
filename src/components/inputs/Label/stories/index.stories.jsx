@@ -12,6 +12,9 @@ const story = {
     },
   },
   argTypes: {
+    htmlFor: {
+      description: "useful to match this label with the id of a specific entry",
+    },
     state: {
       options: ["default", "disabled", "focus", "invalid"],
       control: {
@@ -25,6 +28,7 @@ const story = {
 const label = (args) => <Label {...args}>Label (Help text)</Label>;
 label.args = {
   ...label.args,
+  htmlFor: "",
   state: "",
 };
 
