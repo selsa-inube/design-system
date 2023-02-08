@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { colors } from "../../../shared/colors/colors";
 
 const StyledBlanket = styled.div`
   display: flex;
@@ -9,7 +10,7 @@ const StyledBlanket = styled.div`
   height: 100%;
   top: 0%;
   left: 0%;
-  background-color: rgba(9, 30, 66, 0.54);
+  background-color: ${colors.ref.palette.neutralAlpha.n100A};
   border: none;
   pointer-events: none;
 `;
