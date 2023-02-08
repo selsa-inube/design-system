@@ -2,8 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import { StyledSpinner } from "./styles";
 
-const sizes = ["large", "medium", "small"];
-const appearances = [
+export const sizes = ["large", "medium", "small"];
+export const appearances = [
   "blue",
   "green",
   "yellow",
@@ -12,26 +12,30 @@ const appearances = [
   "dark",
   "white",
 ];
-const transparentOptions = [true, false];
 
 const defaultAppearance = "blue";
 const defaultSize = "medium";
 const defaultTransparent = "false";
 
 const Spinner = (props) => {
-  const { size, appearance, isTransparent } = props;
+  let {
+    size = defaultSize,
+    appearance = defaultAppearance,
+    isTransparent = defaultTransparent,
+  } = props;
+  size = sizes.includes(size) ? size : defaultSize;
+  appearance = appearances.includes(appearance)
+    ? appearance
+    : defaultAppearance;
+  isTransparent = [true, false].includes(isTransparent)
+    ? isTransparent
+    : defaultTransparent;
 
   return (
     <StyledSpinner
-      appearance={
-        appearances.includes(appearance) ? appearance : defaultAppearance
-      }
-      size={sizes.includes(size) ? size : defaultSize}
-      isTransparent={
-        transparentOptions.includes(isTransparent)
-          ? isTransparent
-          : defaultTransparent
-      }
+      appearance={appearance}
+      size={size}
+      isTransparent={isTransparent}
     />
   );
 };

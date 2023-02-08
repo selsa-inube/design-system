@@ -1,7 +1,9 @@
 import React from "react";
-import { Spinner } from "./../index";
+import { Spinner, sizes } from "./../index";
 
 import { StyledFlexBetween } from "./styles";
+
+import { appearance, isTransparent } from "./props";
 
 const story = {
   title: "feedback/Spinner/Sizes",
@@ -14,18 +16,6 @@ const story = {
     ),
   ],
 };
-
-const tokensSpinner = [
-  "blue",
-  "green",
-  "yellow",
-  "red",
-  "purple",
-  "dark",
-  "white",
-];
-const transparent = [false, true];
-const sizes = ["large", "medium", "small"];
 
 const SizesTemplate = ({ ...args }) => (
   <StyledFlexBetween>
@@ -42,23 +32,8 @@ Sizes.args = {
   isTransparent: false,
 };
 Sizes.argTypes = {
-  appearance: {
-    options: tokensSpinner,
-    control: { type: "select" },
-    description: "colors used to identify the state of the component",
-    table: {
-      defaultValue: { summary: "blue" },
-    },
-  },
-  isTransparent: {
-    options: transparent,
-    control: { type: "boolean" },
-    description:
-      "indicates when the background of the spinner should have color",
-    table: {
-      defaultValue: { summary: false },
-    },
-  },
+  appearance,
+  isTransparent,
 };
 
 export default story;
