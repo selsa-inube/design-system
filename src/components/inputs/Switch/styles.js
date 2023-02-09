@@ -90,5 +90,26 @@ const StyledInput = styled.input`
         : "transform: translateX(20px);"};
   }
 `;
+const iconProps = {
+  position: "absolute",
+  color: "white",
+};
 
-export { StyledContainer, StyledInput, StyledSpan };
+const sizeProps = (transformedSize) =>
+  transformedSize === "small"
+    ? { width: "10px", height: "10px", top: "3px" }
+    : { width: "14px", height: "14px", top: "3px" };
+
+const toggleProps = (transformedSize, isToggled) =>
+  transformedSize === "small"
+    ? { left: isToggled ? "5px" : "17px" }
+    : { left: isToggled ? "5px" : "22px" };
+
+export {
+  StyledContainer,
+  StyledInput,
+  StyledSpan,
+  iconProps,
+  sizeProps,
+  toggleProps,
+};
