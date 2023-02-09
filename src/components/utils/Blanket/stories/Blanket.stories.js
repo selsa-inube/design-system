@@ -1,8 +1,8 @@
-import BlanketComponent from "../Blanket";
+import Blanket from "../index";
 
 const story = {
-  title: "components/BlanketComponent",
-  components: BlanketComponent,
+  title: "components/utils/Blanket",
+  components: Blanket,
   parameters: {
     docs: {
       description: {
@@ -19,7 +19,7 @@ const story = {
   },
 };
 
-const Blanket = (args) => <BlanketComponent {...args} />;
+const BlanketS = (args) => <Blanket {...args} />;
 
 export default story;
-export { Blanket };
+export { BlanketS };

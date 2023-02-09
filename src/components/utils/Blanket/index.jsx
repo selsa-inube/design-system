@@ -1,15 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { StyledBlanket } from "./Blanketstyles";
+import { StyledBlanket } from "./styles";
 
-const BlanketComponent = (props) => {
+const Blanket = (props) => {
   const { children } = props;
   return <StyledBlanket>{children}</StyledBlanket>;
 };
 
-BlanketComponent.propTypes = {
+Blanket.propTypes = {
   children: PropTypes.element,
 };
 
-export default BlanketComponent;
+export default Blanket;
