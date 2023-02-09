@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { StyledLabel } from "./styles";
 
 const Label = (props) => {
-  const { htmlFor, state = "default", children } = props;
+  const { htmlFor, state, children } = props;
 
   return (
     <StyledLabel htmlFor={htmlFor} state={state}>
@@ -19,4 +19,7 @@ Label.propTypes = {
   children: PropTypes.string,
 };
 
+Label.defaultProps = {
+  state: "default",
+};
 export default Label;
