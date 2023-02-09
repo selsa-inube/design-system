@@ -6,6 +6,7 @@ module.exports = {
     "@storybook/addon-interactions",
     "@storybook/preset-create-react-app",
     "@storybook/addon-a11y",
+    "storybook-addon-pseudo-states",
   ],
   framework: "@storybook/react",
   core: {

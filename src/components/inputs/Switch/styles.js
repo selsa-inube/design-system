@@ -13,27 +13,6 @@ const sizes = {
   },
 };
 
-const StyledContainer = styled.label`
-  position: relative;
-  display: inline-block;
-  ${(props) => sizes[props.size]}
-`;
-
-const StyledInput = styled.input`
-  opacity: 0;
-  width: 0;
-  height: 0;
-  &:checked + span {
-    background-color: ${colors.ref.palette.green.g400};
-  }
-  &:checked + span:before {
-    ${(props) =>
-      props.size === "small"
-        ? "transform: translateX(16px);"
-        : "transform: translateX(20px);"};
-  }
-`;
-
 const StyledSpan = styled.span`
   position: absolute;
   cursor: pointer;
@@ -41,9 +20,18 @@ const StyledSpan = styled.span`
   left: 0;
   right: 0;
   bottom: 0;
-  background: ${colors.ref.palette.neutral.n200};
+  background: ${(props) =>
+    props.disabled
+      ? colors.ref.palette.neutral.n20
+      : colors.ref.palette.neutral.n200};
   transition: 0.3s;
   border-radius: 30px;
+  &:hover {
+    background-color: ${(props) =>
+      props.disabled
+        ? colors.ref.palette.neutral.n20
+        : colors.ref.palette.neutral.n70};
+  }
   &:before {
     position: absolute;
     content: "";
@@ -60,9 +48,46 @@ const StyledSpan = styled.span`
             bottom: 1.9px;
           `};
     left: 2px;
-    background-color: #fff;
+    background-color: ${colors.ref.palette.neutral.n0};
     border-radius: 50%;
     transition: 0.3s;
+  }
+`;
+
+const StyledContainer = styled.label`
+  position: relative;
+  display: inline-block;
+  ${(props) => sizes[props.size]}
+  &:focus {
+    box-shadow: 0 0 0 2px ${colors.ref.palette.blue.b300};
+    border-radius: 30px;
+    ${StyledSpan} {
+      box-shadow: 0 0 0 1px ${colors.ref.palette.neutral.n0};
+    }
+  }
+`;
+
+const StyledInput = styled.input`
+  opacity: 0;
+  width: 0;
+  height: 0;
+  &:checked + span {
+    background-color: ${(props) =>
+      props.disabled
+        ? colors.ref.palette.neutral.n20
+        : colors.ref.palette.green.g400};
+    &:hover {
+      background-color: ${(props) =>
+        props.disabled
+          ? colors.ref.palette.neutral.n20
+          : colors.ref.palette.green.g300};
+    }
+  }
+  &:checked + span:before {
+    ${(props) =>
+      props.size === "small"
+        ? "transform: translateX(16px);"
+        : "transform: translateX(20px);"};
   }
 `;
 

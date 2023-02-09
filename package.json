@@ -70,6 +70,7 @@
     "lint-staged": "^13.1.0",
     "prettier": "2.8.0",
     "prop-types": "^15.8.1",
+    "storybook-addon-pseudo-states": "^1.15.2",
     "webpack": "^5.75.0"
   },
   "lint-staged": {
