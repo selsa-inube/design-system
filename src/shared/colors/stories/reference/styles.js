@@ -24,7 +24,7 @@ const StyledColor = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  color: ${colors.ref.palette.lightNeutral.ln50};
+  color: ${colors.ref.palette.neutral.n0};
 `;
 
 const StyledDivGridBottom = styled.div`
@@ -46,6 +46,10 @@ const StyledGrid = styled.div`
   align-items: center;
   row-gap: 10px;
 `;
+
+const StyledSpanColorName = styled.span`
+  font-size: ${(props) => (props.colorName.at(-1) === "A" ? "11.5px" : "14px")};
+`;
 export {
   StyledGlobalFlex,
   StyledCard,
@@ -53,4 +57,5 @@ export {
   StyledDivInfoCard,
   StyledColor,
   StyledGrid,
+  StyledSpanColorName,
 };
