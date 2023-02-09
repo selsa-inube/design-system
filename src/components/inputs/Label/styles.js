@@ -3,7 +3,7 @@ import { typography } from "../../../shared/typography/typography";
 import { colors } from "../../../shared/colors/colors";
 
 const stateColor = {
-  default: `${colors.ref.palette.neutral.n900}`,
+  default: `${colors.sys.text.primary}`,
   disabled: `${colors.ref.palette.neutral.n60}`,
   focus: `${colors.ref.palette.blue.b300}`,
   invalid: `${colors.ref.palette.red.r500}`,
@@ -11,7 +11,7 @@ const stateColor = {
 
 const StyledLabel = styled.label`
   color: ${(props) => stateColor[props.state]};
-  font-family: ${typography.ref.typeface.brand};
+  font-family: ${typography.sys.typescale.labelLarge.font};
 `;
 
 export { StyledLabel };
