@@ -18,24 +18,19 @@ const defaultSize = "medium";
 const defaultTransparent = "false";
 
 const Spinner = (props) => {
-  let {
+  const {
     size = defaultSize,
     appearance = defaultAppearance,
     isTransparent = defaultTransparent,
   } = props;
-  size = sizes.includes(size) ? size : defaultSize;
-  appearance = appearances.includes(appearance)
-    ? appearance
-    : defaultAppearance;
-  isTransparent = [true, false].includes(isTransparent)
-    ? isTransparent
-    : defaultTransparent;
 
   return (
     <StyledSpinner
-      appearance={appearance}
-      size={size}
-      isTransparent={isTransparent}
+      appearance={
+        appearances.includes(appearance) ? appearance : defaultAppearance
+      }
+      size={sizes.includes(size) ? size : defaultSize}
+      isTransparent={Boolean(isTransparent)}
     />
   );
 };
