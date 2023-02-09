@@ -1,4 +1,4 @@
-import Label from "../Label";
+import Label from "../index";
 
 const story = {
   title: "components/inputs/Label",
