@@ -15,8 +15,9 @@ const Label = (props) => {
 
 Label.propTypes = {
   htmlFor: PropTypes.string.isRequired,
-  state: PropTypes.oneOf(["default", "disabled", "focus", "invalid"]),
-  children: PropTypes.string,
+  state: PropTypes.oneOf(["default", "disabled", "focus", "invalid"])
+    .isRequired,
+  children: PropTypes.node,
 };
 
 Label.defaultProps = {

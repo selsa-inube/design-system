@@ -1,5 +1,7 @@
 import Label from "../index";
 
+import { StyledContentAll, StyledContentStates } from "./styles";
+
 const story = {
   title: "components/inputs/Label",
   components: Label,
@@ -11,27 +13,48 @@ const story = {
       },
     },
   },
-  argTypes: {
-    htmlFor: {
-      description: "useful to match this label with the id of a specific entry",
-    },
-    state: {
-      options: ["default", "disabled", "focus", "invalid"],
-      control: {
-        type: "radio",
-      },
-      description: "indicates the possible states in whichj the label could be",
-    },
-  },
 };
 
-const label = (args) => <Label {...args}>Label (Help text)</Label>;
-label.args = {
-  ...label.args,
-  htmlFor: "",
-  state: "",
+const stetes = ["default", "disabled", "focus", "invalid"];
+
+const Default = (args) => <Label {...args} />;
+Default.args = {
+  children: "Label (Help text)",
+  htmlFor: "input",
+  state: "default",
 };
+
+const States = () => {
+  return (
+    <StyledContentStates>
+      {stetes.map((state, index) => (
+        <Label state={state} key={index} htmlFor="input">
+          Label (Help text)
+        </Label>
+      ))}
+    </StyledContentStates>
+  );
+};
+
+const All = () => {
+  return (
+    <StyledContentAll>
+      {stetes.map((state, index) => (
+        <Label state={state} key={index} htmlFor="input">
+          Label (Help text)
+        </Label>
+      ))}
+    </StyledContentAll>
+  );
+};
+All.decorators = [
+  (Story) => (
+    <div style={{ margin: "10em" }}>
+      <Story />
+    </div>
+  ),
+];
 
 export default story;
 
-export { label };
+export { Default, States, All };
