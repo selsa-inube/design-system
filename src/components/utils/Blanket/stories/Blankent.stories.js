@@ -1,7 +1,7 @@
 import Blanket from "../index";
 
 const story = {
-  title: "components/utils/Blanket",
+  title: "utils/Blanket",
   components: Blanket,
   parameters: {
     docs: {
@@ -19,7 +19,7 @@ const story = {
   },
 };
 
-const BlanketS = (args) => <Blanket {...args} />;
+const Default = (args) => <Blanket {...args} />;
 
 export default story;
-export { BlanketS };
+export { Default };
