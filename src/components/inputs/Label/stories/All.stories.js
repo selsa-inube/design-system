@@ -4,7 +4,7 @@ import Label from "..";
 
 import { StyledContentAll } from "./styles";
 
-import { parameters, htmlFor, children } from "./args";
+import { parameters, htmlFor, children, state } from "./args";
 
 const story = {
   title: "components/inputs/All",
@@ -12,12 +12,10 @@ const story = {
   parameters,
 };
 
-const stetes = ["default", "disabled", "focus", "invalid"];
-
 const All = ({ htmlFor, children }) => {
   return (
     <StyledContentAll>
-      {stetes.map((state, index) => (
+      {state.options.map((state, index) => (
         <Label state={state} key={index} htmlFor={htmlFor}>
           {children}
         </Label>

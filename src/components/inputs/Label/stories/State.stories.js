@@ -1,7 +1,7 @@
 import Label from "../index";
 import { StyledContentStates } from "./styles";
 
-import { parameters, htmlFor, children } from "./args";
+import { parameters, htmlFor, children, state } from "./args";
 
 const story = {
   title: "components/inputs/States",
@@ -9,12 +9,10 @@ const story = {
   parameters,
 };
 
-const stetes = ["default", "disabled", "focus", "invalid"];
-
 const States = ({ children, htmlFor }) => {
   return (
     <StyledContentStates>
-      {stetes.map((state, index) => (
+      {state.options.map((state, index) => (
         <Label state={state} key={index} htmlFor={htmlFor}>
           {children}
         </Label>
