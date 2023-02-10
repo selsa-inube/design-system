@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { MdDone } from "@react-icons/all-files/md/MdDone";
-import { MdClose } from "@react-icons/all-files/md/MdClose";
+import { MdDone, MdClose } from "react-icons/md/index";
 
 import {
   StyledContainer,
