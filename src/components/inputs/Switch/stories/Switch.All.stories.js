@@ -7,7 +7,7 @@ import {
   StyledGrid,
   StyledFlexBetween,
   StyledBoxSize,
-} from "./styles";
+} from "./stories.styles";
 
 import { withPseudoState } from "storybook-addon-pseudo-states/dist/esm/withPseudoState";
 

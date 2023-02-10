@@ -1,7 +1,7 @@
 import React from "react";
 import { Switch } from "../index";
 
-import { StyledFlexBetween } from "./styles";
+import { StyledFlexBetween } from "./stories.styles";
 
 import { id, isDisabled, name, handleChange } from "./props";
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { Switch } from "../index";
 import { withPseudoState } from "storybook-addon-pseudo-states/dist/esm/withPseudoState";
-import { StyledFlexBetween } from "./styles";
+import { StyledFlexBetween } from "./stories.styles";
 
 import { id, isDisabled, name, handleChange } from "./props";
 
