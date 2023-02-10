@@ -77,7 +77,6 @@ All.parameters = {
 };
 All.args = {
   id: "idStates",
-  isDisabled: false,
   name: "nameState",
   handleChange: logStateAll,
 };
