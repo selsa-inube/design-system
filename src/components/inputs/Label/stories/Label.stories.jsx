@@ -1,6 +1,5 @@
+import { All, States } from ".";
 import Label from "../index";
-
-import { StyledContentAll, StyledContentStates } from "./styles";
 
 const story = {
   title: "components/inputs/Label",
@@ -15,8 +14,6 @@ const story = {
   },
 };
 
-const stetes = ["default", "disabled", "focus", "invalid"];
-
 const Default = (args) => <Label {...args} />;
 Default.args = {
   children: "Label (Help text)",
@@ -24,30 +21,10 @@ Default.args = {
   state: "default",
 };
 
-const States = () => {
-  return (
-    <StyledContentStates>
-      {stetes.map((state, index) => (
-        <Label state={state} key={index} htmlFor="input">
-          Label (Help text)
-        </Label>
-      ))}
-    </StyledContentStates>
-  );
-};
+const states = (args) => <States {...args} />;
 
-const All = () => {
-  return (
-    <StyledContentAll>
-      {stetes.map((state, index) => (
-        <Label state={state} key={index} htmlFor="input">
-          Label (Help text)
-        </Label>
-      ))}
-    </StyledContentAll>
-  );
-};
-All.decorators = [
+const all = (args) => <All {...args} />;
+all.decorators = [
   (Story) => (
     <div style={{ margin: "10em" }}>
       <Story />
@@ -57,4 +34,4 @@ All.decorators = [
 
 export default story;
 
-export { Default, States, All };
+export { Default, states, all };
