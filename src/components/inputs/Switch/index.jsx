@@ -65,7 +65,7 @@ Switch.propTypes = {
   name: PropTypes.string,
   value: PropTypes.bool,
   handleChange: PropTypes.func.isRequired,
-  size: PropTypes.string,
+  size: PropTypes.oneOf(sizes),
 };
 
 export { Switch };
