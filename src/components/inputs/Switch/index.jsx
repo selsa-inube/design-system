@@ -15,7 +15,14 @@ export const sizes = ["small", "large"];
 const defaultSize = "small";
 
 const Switch = (props) => {
-  const { id, isDisabled, name, value, handleChange, size } = props;
+  const {
+    id,
+    isDisabled,
+    name,
+    value,
+    handleChange,
+    size = defaultSize,
+  } = props;
   const [isToggled, setToggled] = useState(value);
   const transformedSize = sizes.includes(size) ? size : defaultSize;
 
