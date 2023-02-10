@@ -64,7 +64,7 @@ Switch.propTypes = {
   isDisabled: PropTypes.bool,
   name: PropTypes.string,
   value: PropTypes.bool,
-  handleChange: PropTypes.func,
+  handleChange: PropTypes.func.isRequired,
   size: PropTypes.string,
 };
 
