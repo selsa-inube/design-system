@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Switch, sizes } from "../index";
 
 import { StyledFlexBetween } from "./stories.styles";
@@ -16,27 +16,47 @@ const story = {
     ),
   ],
 };
-const logStateSize = (state) => {
-  console.log("ToggledSize:", state);
-  return state;
+
+const SwitchComponent = ({ id, isDisabled, name, value, handleChange }) => {
+  const [switchValue, setSwitchValue] = useState(value);
+  const [switchValueSmall, setSwitchValueSmall] = useState(value);
+  const handleToggleSmall = () => {
+    setSwitchValueSmall(!switchValueSmall);
+    handleChange(!switchValueSmall);
+  };
+
+  const handleToggleLarge = () => {
+    setSwitchValue(!switchValue);
+    handleChange(!switchValue);
+  };
+
+  return (
+    <StyledFlexBetween>
+      {sizes.map((size) => (
+        <div key={size}>
+          <Switch
+            id={id}
+            isDisabled={isDisabled}
+            name={name}
+            value={size === "small" ? switchValueSmall : switchValue}
+            size={size}
+            handleChange={
+              size === "small" ? handleToggleSmall : handleToggleLarge
+            }
+          />
+        </div>
+      ))}
+    </StyledFlexBetween>
+  );
 };
 
-const SizesTemplate = ({ ...args }) => (
-  <StyledFlexBetween>
-    {sizes.map((size) => (
-      <div key={size}>
-        <Switch {...args} size={size} />
-      </div>
-    ))}
-  </StyledFlexBetween>
-);
-export const Sizes = SizesTemplate.bind({});
+export const Sizes = SwitchComponent.bind({});
 Sizes.args = {
   id: "idSize",
   isDisabled: false,
   name: "nameSize",
   value: false,
-  handleChange: logStateSize,
+  handleChange: () => {},
 };
 Sizes.argTypes = {
   id,

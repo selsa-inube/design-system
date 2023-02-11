@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { MdDone, MdClose } from "react-icons/md/index";
 
@@ -23,13 +23,8 @@ const Switch = (props) => {
     handleChange,
     size = defaultSize,
   } = props;
-  const [isToggled, setToggled] = useState(value);
-  const transformedSize = sizes.includes(size) ? size : defaultSize;
 
-  const handleToggle = () => {
-    setToggled(!isToggled);
-    handleChange(!isToggled);
-  };
+  const transformedSize = sizes.includes(size) ? size : defaultSize;
 
   return (
     <StyledContainer size={transformedSize}>
@@ -37,18 +32,18 @@ const Switch = (props) => {
         id={id}
         type="checkbox"
         size={transformedSize}
-        defaultChecked={value}
-        onChange={handleToggle}
+        checked={value}
+        onChange={handleChange}
         disabled={isDisabled}
         name={name}
       />
       <StyledSpan size={transformedSize} disabled={isDisabled}>
-        {isToggled ? (
+        {value ? (
           <MdDone
             style={{
               ...iconProps,
               ...sizeProps(transformedSize),
-              ...toggleProps(transformedSize, isToggled),
+              ...toggleProps(transformedSize, value),
             }}
           />
         ) : (
@@ -56,7 +51,7 @@ const Switch = (props) => {
             style={{
               ...iconProps,
               ...sizeProps(transformedSize),
-              ...toggleProps(transformedSize, isToggled),
+              ...toggleProps(transformedSize, value),
             }}
           />
         )}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Switch } from "../index";
 
 import { StyledFlexBetween } from "./stories.styles";
@@ -16,26 +16,55 @@ const story = {
     ),
   ],
 };
-const logStateValue = (state) => {
-  console.log("ToggledValue:", state);
-  return state;
+
+const SwitchComponent = ({
+  id,
+  isDisabled,
+  name,
+  value,
+  size,
+  handleChange,
+}) => {
+  const [switchValue, setSwitchValue] = useState(value);
+  const [switchValueInactive, setSwitchValueInactive] = useState(value);
+  const handleToggleInactive = () => {
+    setSwitchValueInactive(!switchValueInactive);
+    handleChange(!switchValueInactive);
+  };
+
+  const handleToggleActive = () => {
+    setSwitchValue(!switchValue);
+    handleChange(!switchValue);
+  };
+
+  return (
+    <StyledFlexBetween>
+      <Switch
+        id={id}
+        isDisabled={isDisabled}
+        name={name}
+        size={size}
+        handleChange={handleToggleInactive}
+        value={switchValueInactive || false}
+      />
+      <Switch
+        id={id}
+        isDisabled={isDisabled}
+        name={name}
+        size={size}
+        handleChange={handleToggleActive}
+        value={!switchValue || false}
+      />
+    </StyledFlexBetween>
+  );
 };
 
-const ValuesTemplate = ({ ...args }) => (
-  <StyledFlexBetween>
-    {[false, true].map((value) => (
-      <div key={value}>
-        <Switch {...args} value={value} />
-      </div>
-    ))}
-  </StyledFlexBetween>
-);
-export const Values = ValuesTemplate.bind({});
+export const Values = SwitchComponent.bind({});
 Values.args = {
   id: "idValue",
   isDisabled: false,
   name: "nameValue",
-  handleChange: logStateValue,
+  handleChange: () => {},
 };
 Values.argTypes = {
   id,

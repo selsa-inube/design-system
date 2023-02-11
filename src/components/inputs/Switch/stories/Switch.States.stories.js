@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Switch } from "../index";
 import { withPseudoState } from "storybook-addon-pseudo-states/dist/esm/withPseudoState";
 import { StyledFlexBetween } from "./stories.styles";
@@ -16,28 +16,80 @@ const story = {
     ),
   ],
 };
-const logStates = (state) => {
-  console.log("ToggledState:", state);
-  return state;
+const SwitchComponent = ({
+  id,
+  isDisabled,
+  name,
+  value,
+  size,
+  handleChange,
+}) => {
+  const [switchValueNormal, setSwitchValueNormal] = useState(value);
+  const [switchValueHover, setSwitchValueHover] = useState(value);
+  const [switchValueFocus, setSwitchValueFocus] = useState(value);
+
+  const handleToggleNormal = () => {
+    setSwitchValueNormal(!switchValueNormal);
+    handleChange(!switchValueNormal);
+  };
+
+  const handleToggleHover = () => {
+    setSwitchValueHover(!switchValueHover);
+    handleChange(!switchValueHover);
+  };
+
+  const handleToggleFocus = () => {
+    setSwitchValueFocus(!switchValueFocus);
+    handleChange(!switchValueFocus);
+  };
+
+  return (
+    <StyledFlexBetween>
+      <div id="one">
+        <Switch
+          id={id}
+          isDisabled={isDisabled}
+          name={name}
+          value={switchValueNormal || false}
+          size={size}
+          handleChange={handleToggleNormal}
+        />
+      </div>
+      <div id="two">
+        <Switch
+          id={id}
+          isDisabled={isDisabled}
+          name={name}
+          value={switchValueHover || false}
+          size={size}
+          handleChange={handleToggleHover}
+        />
+      </div>
+      <div id="three">
+        <Switch
+          id={id}
+          name={name}
+          value={false}
+          size={size}
+          isDisabled={true}
+          handleChange={() => {}}
+        />
+      </div>
+      <div id="four">
+        <Switch
+          id={id}
+          isDisabled={isDisabled}
+          name={name}
+          value={switchValueFocus || false}
+          size={size}
+          handleChange={handleToggleFocus}
+        />
+      </div>
+    </StyledFlexBetween>
+  );
 };
 
-const StatesTemplate = ({ ...args }) => (
-  <StyledFlexBetween>
-    <div id="one">
-      <Switch {...args} />
-    </div>
-    <div id="two">
-      <Switch {...args} />
-    </div>
-    <div id="three">
-      <Switch {...args} isDisabled={true} />
-    </div>
-    <div id="four">
-      <Switch {...args} />
-    </div>
-  </StyledFlexBetween>
-);
-export const States = StatesTemplate.bind({});
+export const States = SwitchComponent.bind({});
 States.decorators = [withPseudoState];
 States.parameters = {
   pseudo: {
@@ -49,7 +101,7 @@ States.args = {
   id: "idStates",
   isDisabled: false,
   name: "nameState",
-  handleChange: logStates,
+  handleChange: () => {},
 };
 States.argTypes = {
   id,

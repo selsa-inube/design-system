@@ -22,10 +22,6 @@ const story = {
     ),
   ],
 };
-const logStateAll = (state) => {
-  console.log("ToggledValue:", state);
-  return state;
-};
 
 const AllTemplate = ({ ...args }) => (
   <StyledFlex>
@@ -78,7 +74,7 @@ All.parameters = {
 All.args = {
   id: "idStates",
   name: "nameState",
-  handleChange: logStateAll,
+  handleChange: () => {},
 };
 
 export default story;
