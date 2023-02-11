@@ -2,14 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { MdDone, MdClose } from "react-icons/md/index";
 
-import {
-  StyledContainer,
-  StyledInput,
-  StyledSpan,
-  iconProps,
-  sizeProps,
-  toggleProps,
-} from "./styles";
+import { StyledContainer, StyledInput, StyledSpan, StyledIcon } from "./styles";
 
 export const sizes = ["small", "large"];
 const defaultSize = "small";
@@ -39,21 +32,13 @@ const Switch = (props) => {
       />
       <StyledSpan size={transformedSize} disabled={isDisabled}>
         {value ? (
-          <MdDone
-            style={{
-              ...iconProps,
-              ...sizeProps(transformedSize),
-              ...toggleProps(transformedSize, value),
-            }}
-          />
+          <StyledIcon checked={value} size={transformedSize}>
+            <MdDone id="mdIcon" />
+          </StyledIcon>
         ) : (
-          <MdClose
-            style={{
-              ...iconProps,
-              ...sizeProps(transformedSize),
-              ...toggleProps(transformedSize, value),
-            }}
-          />
+          <StyledIcon checked={value} size={transformedSize}>
+            <MdClose id="mdIcon" />
+          </StyledIcon>
         )}
       </StyledSpan>
     </StyledContainer>

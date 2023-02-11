@@ -90,26 +90,26 @@ const StyledInput = styled.input`
         : "transform: translateX(20px);"};
   }
 `;
-const iconProps = {
-  position: "absolute",
-  color: "white",
-};
 
-const sizeProps = (transformedSize) =>
-  transformedSize === "small"
-    ? { width: "10px", height: "10px", top: "3px" }
-    : { width: "14px", height: "14px", top: "3px" };
+const StyledIcon = styled.div`
+  & > #mdIcon {
+    position: absolute;
+    color: ${colors.ref.palette.neutral.n0};
+    ${(props) =>
+      props.size === "small"
+        ? css`
+            width: 10px;
+            height: 10px;
+            top: 3px;
+            left: ${(props) => (props.checked ? "5px" : "17px")};
+          `
+        : css`
+            width: 14px;
+            height: 14px;
+            top: 3px;
+            left: ${(props) => (props.checked ? "5px" : "22px")};
+          `};
+  }
+`;
 
-const toggleProps = (transformedSize, isToggled) =>
-  transformedSize === "small"
-    ? { left: isToggled ? "5px" : "17px" }
-    : { left: isToggled ? "5px" : "22px" };
-
-export {
-  StyledContainer,
-  StyledInput,
-  StyledSpan,
-  iconProps,
-  sizeProps,
-  toggleProps,
-};
+export { StyledContainer, StyledInput, StyledSpan, StyledIcon };
