@@ -1,0 +1,52 @@
+import React from "react";
+import PropTypes from "prop-types";
+import { StyledFlex } from "./styles";
+
+export const directionAligments = ["row", "column"];
+export const flexAligments = [
+  "flex-start",
+  "flex-end",
+  "center",
+  "space-around",
+  "space-evenly",
+  "space-between",
+];
+
+const defaultAligmentItems = "flex-start";
+const defaultAligmentContent = "flex-start";
+const defaultDirection = "row";
+const defaultGap = "0px";
+
+const Stack = (props) => {
+  const {
+    children,
+    wrap = false,
+    direction = defaultDirection,
+    justifyContent = defaultAligmentContent,
+    alignItems = defaultAligmentItems,
+    gap = defaultGap,
+  } = props;
+
+  return (
+    <StyledFlex
+      direction={direction}
+      justifyContent={justifyContent}
+      alignItems={alignItems}
+      wrap={wrap}
+      gap={gap}
+    >
+      {children}
+    </StyledFlex>
+  );
+};
+
+Stack.propTypes = {
+  children: PropTypes.element,
+  wrap: PropTypes.bool,
+  direction: PropTypes.oneOf(directionAligments),
+  justifyContent: PropTypes.oneOf(flexAligments),
+  alignItems: PropTypes.oneOf(flexAligments),
+  gap: PropTypes.string,
+};
+
+export { Stack };
