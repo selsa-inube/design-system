@@ -1,7 +1,7 @@
 import Label from "../index";
-import { StyledContentStates } from "./styles";
+import { StyledContentStates } from "./stories.styles";
 
-import { parameters, htmlFor, children, state } from "./args";
+import { parameters, htmlFor, children, state } from "./stories.args";
 
 const story = {
   title: "components/inputs/States",

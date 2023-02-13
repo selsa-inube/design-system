@@ -1,6 +1,6 @@
 import Label from "../index";
 
-import { parameters, htmlFor, state, children } from "./args";
+import { parameters, htmlFor, state, children } from "./stories.args";
 
 const story = {
   title: "components/inputs/Default",

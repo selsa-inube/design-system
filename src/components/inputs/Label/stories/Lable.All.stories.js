@@ -2,9 +2,9 @@ import React from "react";
 
 import Label from "..";
 
-import { StyledContentAll } from "./styles";
+import { StyledContentAll } from "./stories.styles";
 
-import { parameters, htmlFor, children, state } from "./args";
+import { parameters, htmlFor, children, state } from "./stories.args";
 
 const story = {
   title: "components/inputs/All",
