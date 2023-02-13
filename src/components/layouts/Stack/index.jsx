@@ -20,7 +20,7 @@ const defaultGap = "0px";
 const Stack = (props) => {
   const {
     children,
-    wrap = false,
+    wrap,
     direction = defaultDirection,
     justifyContent = defaultAligmentContent,
     alignItems = defaultAligmentItems,
@@ -32,7 +32,7 @@ const Stack = (props) => {
       direction={direction}
       justifyContent={justifyContent}
       alignItems={alignItems}
-      wrap={wrap}
+      wrap={wrap | false}
       gap={gap}
     >
       {children}
@@ -41,7 +41,10 @@ const Stack = (props) => {
 };
 
 Stack.propTypes = {
-  children: PropTypes.element,
+  children: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.arrayOf(PropTypes.element),
+  ]),
   wrap: PropTypes.bool,
   direction: PropTypes.oneOf(directionAligments),
   justifyContent: PropTypes.oneOf(flexAligments),
