@@ -46,9 +46,9 @@ Stack.propTypes = {
     PropTypes.arrayOf(PropTypes.element),
   ]),
   wrap: PropTypes.bool,
-  direction: PropTypes.oneOf(directionAligments),
-  justifyContent: PropTypes.oneOf(flexAligments),
-  alignItems: PropTypes.oneOf(flexAligments),
+  direction: PropTypes.oneOf(directionAligments).isRequired,
+  justifyContent: PropTypes.oneOf(flexAligments).isRequired,
+  alignItems: PropTypes.oneOf(flexAligments).isRequired,
   gap: PropTypes.string,
 };
 
