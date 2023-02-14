@@ -12,19 +12,14 @@ export const flexAligments = [
   "space-between",
 ];
 
-const defaultAligmentItems = "flex-start";
-const defaultAligmentContent = "flex-start";
-const defaultDirection = "row";
-const defaultGap = "0px";
-
 const Stack = (props) => {
   const {
     children,
-    wrap,
-    direction = defaultDirection,
-    justifyContent = defaultAligmentContent,
-    alignItems = defaultAligmentItems,
-    gap = defaultGap,
+    wrap = false,
+    direction = "row",
+    justifyContent = "flex-start",
+    alignItems = "flex-start",
+    gap = "0px",
   } = props;
 
   return (
@@ -32,7 +27,7 @@ const Stack = (props) => {
       direction={direction}
       justifyContent={justifyContent}
       alignItems={alignItems}
-      wrap={wrap | false}
+      wrap={wrap}
       gap={gap}
     >
       {children}
