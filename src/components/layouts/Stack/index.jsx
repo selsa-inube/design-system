@@ -27,7 +27,7 @@ const Stack = (props) => {
       direction={direction}
       justifyContent={justifyContent}
       alignItems={alignItems}
-      wrap={wrap}
+      wrap={+wrap}
       gap={gap}
     >
       {children}
