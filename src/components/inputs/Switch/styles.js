@@ -22,14 +22,14 @@ const StyledSpan = styled.span`
   bottom: 0;
   background: ${(props) =>
     props.disabled
-      ? colors.ref.palette.neutral.n20
+      ? colors.ref.palette.neutral.n40
       : colors.ref.palette.neutral.n200};
   transition: 0.3s;
   border-radius: 30px;
   &:hover {
     background-color: ${(props) =>
       props.disabled
-        ? colors.ref.palette.neutral.n20
+        ? colors.ref.palette.neutral.n40
         : colors.ref.palette.neutral.n70};
   }
   &:before {
@@ -74,12 +74,12 @@ const StyledInput = styled.input`
   &:checked + span {
     background-color: ${(props) =>
       props.disabled
-        ? colors.ref.palette.neutral.n20
+        ? colors.ref.palette.green.g75
         : colors.ref.palette.green.g400};
     &:hover {
       background-color: ${(props) =>
         props.disabled
-          ? colors.ref.palette.neutral.n20
+          ? colors.ref.palette.green.g75
           : colors.ref.palette.green.g300};
     }
   }

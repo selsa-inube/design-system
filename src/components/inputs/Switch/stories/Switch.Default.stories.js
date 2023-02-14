@@ -1,7 +1,15 @@
 import React, { useState } from "react";
 import { Switch } from "../index";
 
-import { id, isDisabled, name, value, handleChange, size } from "./props";
+import {
+  id,
+  isDisabled,
+  name,
+  value,
+  checked,
+  handleChange,
+  size,
+} from "./props";
 
 const story = {
   title: "inputs/Switch/Default",
@@ -21,13 +29,14 @@ const SwitchComponent = ({
   name,
   value,
   size,
+  checked,
   handleChange,
 }) => {
-  const [switchValue, setSwitchValue] = useState(value);
+  const [switchChecked, setSwitchChecked] = useState(checked);
 
   const handleToggle = () => {
-    setSwitchValue(!switchValue);
-    handleChange(!switchValue);
+    setSwitchChecked(!switchChecked);
+    handleChange(!switchChecked);
   };
 
   return (
@@ -35,7 +44,8 @@ const SwitchComponent = ({
       id={id}
       isDisabled={isDisabled}
       name={name}
-      value={switchValue}
+      checked={switchChecked}
+      value={"as"}
       size={size}
       handleChange={handleToggle}
     />
@@ -47,7 +57,8 @@ Default.args = {
   id: "thisIsAnId",
   isDisabled: false,
   name: "thisIsAName",
-  value: false,
+  value: "as",
+  checked: false,
   size: "small",
   handleChange: () => {},
 };
@@ -56,6 +67,7 @@ Default.argTypes = {
   isDisabled,
   name,
   value,
+  checked,
   handleChange,
   size,
 };

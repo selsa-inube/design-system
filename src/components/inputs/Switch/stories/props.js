@@ -15,18 +15,23 @@ const isDisabled = {
     defaultValue: { summary: "false" },
   },
 };
+const checked = {
+  options: [true, false],
+  control: { type: "boolean" },
+  description: "",
+  table: {
+    defaultValue: { summary: "false" },
+  },
+};
 const name = {
   options: ["name"],
   control: { type: "select" },
   description: "descriptive name for value property to be submitted in a form",
 };
 const value = {
-  options: [false, true],
-  control: { type: "boolean" },
+  options: ["switchTest1", "switchTest2", "switchTest3", "switchTest4"],
+  control: { type: "select" },
   description: "value to be submitted in a form",
-  table: {
-    defaultValue: { summary: false },
-  },
 };
 const handleChange = {
   options: ["logState"],
@@ -43,4 +48,4 @@ const size = {
   },
 };
 
-export { id, isDisabled, name, value, handleChange, size };
+export { id, isDisabled, name, value, checked, handleChange, size };

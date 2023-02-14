@@ -3,7 +3,7 @@ import { Switch, sizes } from "../index";
 
 import { StyledFlexBetween } from "./stories.styles";
 
-import { id, isDisabled, name, value, handleChange } from "./props";
+import { id, isDisabled, name, value, checked, handleChange } from "./props";
 
 const story = {
   title: "inputs/Switch/Sizes",
@@ -17,17 +17,24 @@ const story = {
   ],
 };
 
-const SwitchComponent = ({ id, isDisabled, name, value, handleChange }) => {
-  const [switchValue, setSwitchValue] = useState(value);
-  const [switchValueSmall, setSwitchValueSmall] = useState(value);
+const SwitchComponent = ({
+  id,
+  isDisabled,
+  name,
+  checked,
+  value,
+  handleChange,
+}) => {
+  const [switchChecked, setSwitchValue] = useState(checked);
+  const [switchCheckedSmall, setswitchCheckedSmall] = useState(checked);
   const handleToggleSmall = () => {
-    setSwitchValueSmall(!switchValueSmall);
-    handleChange(!switchValueSmall);
+    setswitchCheckedSmall(!switchCheckedSmall);
+    handleChange(!switchCheckedSmall);
   };
 
   const handleToggleLarge = () => {
-    setSwitchValue(!switchValue);
-    handleChange(!switchValue);
+    setSwitchValue(!switchChecked);
+    handleChange(!switchChecked);
   };
 
   return (
@@ -38,7 +45,7 @@ const SwitchComponent = ({ id, isDisabled, name, value, handleChange }) => {
             id={id}
             isDisabled={isDisabled}
             name={name}
-            value={size === "small" ? switchValueSmall : switchValue}
+            checked={size === "small" ? switchCheckedSmall : !switchChecked}
             size={size}
             handleChange={
               size === "small" ? handleToggleSmall : handleToggleLarge
@@ -63,6 +70,7 @@ Sizes.argTypes = {
   isDisabled,
   name,
   value,
+  checked,
   handleChange,
 };
 

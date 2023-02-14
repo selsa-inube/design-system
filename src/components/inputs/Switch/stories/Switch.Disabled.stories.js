@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Switch } from "../index";
-
+import { withPseudoState } from "storybook-addon-pseudo-states/dist/esm/withPseudoState";
 import { StyledFlexBetween } from "./stories.styles";
 
 import { id, isDisabled, name, handleChange } from "./props";
 
 const story = {
-  title: "inputs/Switch/Values",
+  title: "inputs/Switch/Disabled",
   components: [Switch],
   decorators: [
     (Story) => (
@@ -16,57 +16,64 @@ const story = {
     ),
   ],
 };
-
 const SwitchComponent = ({
   id,
   isDisabled,
   name,
   value,
   size,
+  checked,
   handleChange,
 }) => {
-  const [switchValue, setSwitchValue] = useState(value);
-  const [switchValueInactive, setSwitchValueInactive] = useState(value);
+  const [switchChecked, setSwitchChecked] = useState(checked);
+  const [switchCheckedInactive, setSwitchCheckedInactive] = useState(checked);
   const handleToggleInactive = () => {
-    setSwitchValueInactive(!switchValueInactive);
-    handleChange(!switchValueInactive);
+    setSwitchCheckedInactive(!switchCheckedInactive);
+    handleChange(!switchCheckedInactive);
   };
 
   const handleToggleActive = () => {
-    setSwitchValue(!switchValue);
-    handleChange(!switchValue);
+    setSwitchChecked(!switchChecked);
+    handleChange(!switchChecked);
   };
 
   return (
     <StyledFlexBetween>
       <Switch
         id={id}
-        isDisabled={isDisabled}
+        isDisabled={true}
         name={name}
         size={size}
         handleChange={handleToggleInactive}
-        value={switchValueInactive || false}
+        checked={switchCheckedInactive || false}
       />
       <Switch
         id={id}
-        isDisabled={isDisabled}
+        isDisabled={true}
         name={name}
         size={size}
         handleChange={handleToggleActive}
-        value={!switchValue || false}
+        checked={!switchChecked || false}
       />
     </StyledFlexBetween>
   );
 };
 
-export const Values = SwitchComponent.bind({});
-Values.args = {
-  id: "idValue",
+export const Disabled = SwitchComponent.bind({});
+Disabled.decorators = [withPseudoState];
+Disabled.parameters = {
+  pseudo: {
+    hover: ["#two"],
+    focus: ["#four"],
+  },
+};
+Disabled.args = {
+  id: "idStates",
   isDisabled: false,
-  name: "nameValue",
+  name: "nameState",
   handleChange: () => {},
 };
-Values.argTypes = {
+Disabled.argTypes = {
   id,
   isDisabled,
   name,

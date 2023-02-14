@@ -9,12 +9,13 @@ const defaultSize = "small";
 
 const Switch = (props) => {
   const {
+    isDisabled = false,
     id,
-    isDisabled,
     name,
     value,
-    handleChange,
     size = defaultSize,
+    checked = false,
+    handleChange,
   } = props;
 
   const transformedSize = sizes.includes(size) ? size : defaultSize;
@@ -25,18 +26,18 @@ const Switch = (props) => {
         id={id}
         type="checkbox"
         size={transformedSize}
-        checked={value}
+        checked={checked}
         onChange={handleChange}
         disabled={isDisabled}
         name={name}
       />
       <StyledSpan size={transformedSize} disabled={isDisabled}>
-        {value ? (
-          <StyledIcon checked={value} size={transformedSize}>
+        {checked ? (
+          <StyledIcon checked={checked} size={transformedSize}>
             <MdDone id="mdIcon" />
           </StyledIcon>
         ) : (
-          <StyledIcon checked={value} size={transformedSize}>
+          <StyledIcon checked={checked} size={transformedSize}>
             <MdClose id="mdIcon" />
           </StyledIcon>
         )}
@@ -46,12 +47,13 @@ const Switch = (props) => {
 };
 
 Switch.propTypes = {
-  id: PropTypes.string,
   isDisabled: PropTypes.bool,
+  id: PropTypes.string,
   name: PropTypes.string,
-  value: PropTypes.bool,
-  handleChange: PropTypes.func.isRequired,
+  value: PropTypes.string,
   size: PropTypes.oneOf(sizes),
+  checked: PropTypes.bool,
+  handleChange: PropTypes.func.isRequired,
 };
 
 export { Switch };
