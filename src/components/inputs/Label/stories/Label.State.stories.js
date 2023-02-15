@@ -1,14 +1,7 @@
-/* import Label, { states } from "../index";
+import Label, { states } from "../index";
 import { StyledContentStates } from "./stories.styles";
 
-import {
-  parameters,
-  isDisabled,
-  isFocused,
-  htmlFor,
-  children,
-  state,
-} from "./props";
+import { parameters, isDisabled, isFocused, htmlFor, children } from "./props";
 
 const story = {
   title: "components/inputs/States",
@@ -16,7 +9,7 @@ const story = {
   parameters,
 };
 
-const States = ({ isDisabled, isFocused, children, htmlFor, state }) => {
+const States = ({ isDisabled, isFocused, children, htmlFor }) => {
   return (
     <StyledContentStates>
       {states.map((state, index) => (
@@ -37,7 +30,7 @@ const States = ({ isDisabled, isFocused, children, htmlFor, state }) => {
 States.args = {
   isDisabled: false,
   isFocused: false,
-  htmlFor: "idComponent",
+  htmlFor: "id",
   children: "Label (Help text)",
 };
 
@@ -46,10 +39,8 @@ States.argTypes = {
   isFocused,
   htmlFor,
   children,
-  state,
 };
 
 export default story;
 
 export { States };
- */

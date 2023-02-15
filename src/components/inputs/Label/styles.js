@@ -8,8 +8,8 @@ const stateColor = {
 };
 
 const sysTokensColor = {
-  isFocused: `${colors.sys.text.link}`,
-  default: `${colors.sys.text.primary}`,
+  isFocused: `${colors.sys.text.primary}`,
+  default: `${colors.sys.text.dark}`,
 };
 
 const StyledLabel = styled.label`
