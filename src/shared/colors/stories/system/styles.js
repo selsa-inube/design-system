@@ -53,6 +53,8 @@ const StyledColor = styled.div`
   color: ${colors.ref.palette.neutral.n0};
   width: 93px;
   border-radius: 4px;
+  border: ${(props) =>
+    props.systemToken === "light" ? "1px solid black" : "0px"};
 `;
 
 export {
