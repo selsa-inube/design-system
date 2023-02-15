@@ -46,12 +46,12 @@ const StyledSpan = styled.span`
         ? css`
             width: 12px;
             height: 12px;
-            bottom: 2.2px;
+            bottom: calc((16px - 12px) / 2);
           `
         : css`
             width: 16px;
             height: 16px;
-            bottom: 1.9px;
+            bottom: calc((20px - 16px) / 2);
           `};
   }
 `;
