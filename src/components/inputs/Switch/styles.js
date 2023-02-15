@@ -24,7 +24,7 @@ const StyledSpan = styled.span`
     props.disabled
       ? colors.ref.palette.neutral.n40
       : colors.ref.palette.neutral.n200};
-  transition: 0.3s;
+  transition: 0.1s;
   border-radius: 30px;
   &:hover {
     background-color: ${(props) =>
