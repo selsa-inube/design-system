@@ -58,13 +58,6 @@ const StyledContainer = styled.label`
   position: relative;
   display: inline-block;
   ${(props) => sizes[props.size]}
-  &:focus {
-    box-shadow: 0 0 0 2px ${colors.ref.palette.blue.b300};
-    border-radius: 30px;
-    ${StyledSpan} {
-      box-shadow: 0 0 0 1px ${colors.ref.palette.neutral.n0};
-    }
-  }
 `;
 
 const StyledInput = styled.input`

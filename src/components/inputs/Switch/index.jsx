@@ -26,6 +26,7 @@ const Switch = (props) => {
         id={id}
         type="checkbox"
         size={transformedSize}
+        value={value}
         checked={checked}
         onChange={handleChange}
         disabled={isDisabled}
