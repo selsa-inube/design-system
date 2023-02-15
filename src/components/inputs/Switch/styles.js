@@ -15,7 +15,7 @@ const sizes = {
 
 const StyledSpan = styled.span`
   position: absolute;
-  cursor: pointer;
+  cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
   top: 0;
   left: 0;
   right: 0;
