@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+import PropTypes, { bool } from "prop-types";
 import { MdDone, MdClose } from "react-icons/md/index";
 
 import { StyledContainer, StyledInput, StyledSpan, StyledIcon } from "./styles";
@@ -18,7 +18,39 @@ const Switch = (props) => {
     handleChange,
   } = props;
 
+  if (!sizes.includes(size)) {
+    console.warn(
+      `Invalid prop value for 'size': ${size}. Allowed values are ${sizes.join(
+        ", "
+      )}.`
+    );
+  }
+
+  if (typeof isDisabled !== "boolean") {
+    console.warn(
+      `Invalid prop value for 'isDisabled': ${isDisabled}. Allowed values are true or false.`
+    );
+  }
+
+  if (typeof checked !== "boolean") {
+    console.warn(
+      `Invalid prop value for 'checked': ${checked}. Allowed values are true or false.`
+    );
+  }
+
+  if (typeof handleChange !== "function") {
+    console.warn(`Invalid prop value for 'handleChange': ${handleChange}.`);
+  }
+
   const transformedSize = sizes.includes(size) ? size : defaultSize;
+
+  if (!sizes.includes(size)) {
+    console.warn(
+      `Invalid prop value for 'size': ${size}. Allowed values are ${sizes.join(
+        ", "
+      )}.`
+    );
+  }
 
   return (
     <StyledContainer size={transformedSize}>
