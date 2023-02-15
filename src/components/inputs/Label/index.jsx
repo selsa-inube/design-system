@@ -3,24 +3,36 @@ import PropTypes from "prop-types";
 
 import { StyledLabel } from "./styles";
 
+const states = ["default", "invalid"];
+
 const Label = (props) => {
-  const { htmlFor, state, children } = props;
+  const {
+    isDisabled = false,
+    isFocused = false,
+    htmlFor,
+    state = "default",
+    children,
+  } = props;
 
   return (
-    <StyledLabel htmlFor={htmlFor} state={state}>
+    <StyledLabel
+      isDisabled={isDisabled}
+      isFocused={isFocused}
+      htmlFor={htmlFor}
+      state={state}
+    >
       {children}
     </StyledLabel>
   );
 };
 
 Label.propTypes = {
-  htmlFor: PropTypes.string,
-  state: PropTypes.oneOf(["default", "disabled", "focus", "invalid"])
-    .isRequired,
+  isDisabled: PropTypes.bool,
+  isFocused: PropTypes.bool,
+  htmlFor: PropTypes.string.isRequired,
+  state: PropTypes.oneOf(states).isRequired,
   children: PropTypes.node,
 };
 
-Label.defaultProps = {
-  state: "default",
-};
 export default Label;
+export { states };

@@ -7,6 +7,20 @@ const parameters = {
   },
 };
 
+const isDisabled = {
+  description: "indicates wheter the text is in its disabled state",
+  table: {
+    defaultValue: { summary: false },
+  },
+};
+
+const isFocused = {
+  description: "indicates wheter the text is in its focused state",
+  table: {
+    defaultValue: { summary: false },
+  },
+};
+
 const htmlFor = {
   options: ["id"],
   control: { type: "select" },
@@ -14,7 +28,7 @@ const htmlFor = {
 };
 
 const state = {
-  options: ["default", "disabled", "focus", "invalid"],
+  options: ["default", "invalid"],
   control: {
     type: "radio",
   },
@@ -28,4 +42,4 @@ const children = {
   description: "component text content",
 };
 
-export { parameters, htmlFor, state, children };
+export { parameters, isDisabled, isFocused, htmlFor, state, children };
