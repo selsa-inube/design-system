@@ -31,11 +31,13 @@ const SwitchComponent = ({
   const handleToggleInactive = () => {
     setSwitchCheckedInactive(!switchCheckedInactive);
     handleChange(!switchCheckedInactive);
+    console.log("handleChecksToggleInactive: ", !switchCheckedInactive);
   };
 
   const handleToggleActive = () => {
     setSwitchChecked(!switchChecked);
     handleChange(!switchChecked);
+    console.log("handleChecksToggleActive: ", switchChecked);
   };
 
   return (

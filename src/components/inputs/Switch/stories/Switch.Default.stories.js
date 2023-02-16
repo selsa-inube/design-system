@@ -37,6 +37,7 @@ const SwitchComponent = ({
   const handleToggle = () => {
     setSwitchChecked(!switchChecked);
     handleChange(!switchChecked);
+    console.log("handleToggle: ", !switchChecked);
   };
 
   return (
@@ -45,7 +46,7 @@ const SwitchComponent = ({
       isDisabled={isDisabled}
       name={name}
       checked={switchChecked}
-      value={"as"}
+      value={value}
       size={size}
       handleChange={handleToggle}
     />

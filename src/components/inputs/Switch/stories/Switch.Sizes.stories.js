@@ -30,11 +30,13 @@ const SwitchComponent = ({
   const handleToggleSmall = () => {
     setswitchCheckedSmall(!switchCheckedSmall);
     handleChange(!switchCheckedSmall);
+    console.log("handleSizesToggleSmall: ", !switchCheckedSmall);
   };
 
   const handleToggleLarge = () => {
     setSwitchValue(!switchChecked);
     handleChange(!switchChecked);
+    console.log("handleSizesToggleLarge: ", switchChecked);
   };
 
   return (
