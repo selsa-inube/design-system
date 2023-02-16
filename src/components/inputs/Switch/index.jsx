@@ -18,6 +18,8 @@ const Switch = (props) => {
     handleChange,
   } = props;
 
+  const transformedSize = sizes.includes(size) ? size : defaultSize;
+
   if (!sizes.includes(size)) {
     console.warn(
       `Invalid prop value for 'size': ${size}. Allowed values are ${sizes.join(
@@ -41,8 +43,6 @@ const Switch = (props) => {
   if (typeof handleChange !== "function") {
     console.warn(`Invalid prop value for 'handleChange': ${handleChange}.`);
   }
-
-  const transformedSize = sizes.includes(size) ? size : defaultSize;
 
   if (!sizes.includes(size)) {
     console.warn(
