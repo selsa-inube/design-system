@@ -2,7 +2,7 @@ const parameters = {
   docs: {
     description: {
       component:
-        "Represent a label for an elemenent in a user interface. This can be associated with a control either by using the for attribute, or by placing the control inside the label element",
+        "Represent a label for an elemenent in a user interface. This can be associated with a control either by using the for attribute",
     },
   },
 };

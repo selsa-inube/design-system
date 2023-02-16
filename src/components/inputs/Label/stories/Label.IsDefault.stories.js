@@ -10,7 +10,7 @@ import {
 } from "./props";
 
 const story = {
-  title: "components/inputs/Default",
+  title: "inputs/Default",
   components: [Label],
   parameters,
 };

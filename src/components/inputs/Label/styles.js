@@ -19,7 +19,7 @@ const StyledLabel = styled.label`
       ? sysTokensColor.isFocused
       : props.isDisabled
       ? stateColor.isDisabled
-      : stateColor[props.state] || sysTokensColor.default};
+      : stateColor[props.state]};
   letter-spacing: ${typography.sys.typescale.labelLarge.tracking};
 `;
 
