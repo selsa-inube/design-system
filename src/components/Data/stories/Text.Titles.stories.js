@@ -3,8 +3,8 @@ import { typos, appearances } from "../index";
 
 import { typography } from "../../../shared/typography/typography";
 import { colors } from "../../../shared/colors/colors";
-import { parameters, children, id, as, align, appearance, typo } from "./props";
 import { StyledContainer } from "./styles";
+import { parameters, children, id, as, align, appearance, typo } from "./props";
 
 const story = {
   title: "components/Data/Title",
