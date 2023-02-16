@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes, { bool } from "prop-types";
+import PropTypes from "prop-types";
 import { MdDone, MdClose } from "react-icons/md/index";
 
 import { StyledContainer, StyledInput, StyledSpan, StyledIcon } from "./styles";
