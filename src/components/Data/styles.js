@@ -8,6 +8,7 @@ const StylesText = styled.p`
   text-align: ${(props) => props.align};
   font-size: ${(props) => typography.sys.typescale[props.typo].size};
   letter-spacing: ${(props) => typography.sys.typescale[props.typo].tracking};
+  line-height: ${(props) => typography.sys.typescale[props.typo].lineHeight};
   font-weight: ${(props) => typography.sys.typescale[props.typo].weight};
 `;
 

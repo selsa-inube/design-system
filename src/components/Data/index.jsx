@@ -3,8 +3,60 @@ import PropsType from "prop-types";
 
 import { StylesText } from "./styles";
 
+const aligns = ["start", "center", "end", "justify"];
+
+const elementsHtml = [
+  "h1",
+  "h2",
+  "h3",
+  "h4",
+  "h5",
+  "h6",
+  "p",
+  "span",
+  "legend",
+  "figcaption",
+  "blockquote",
+];
+
+const appearances = [
+  "primary",
+  "secondary",
+  "link",
+  "warning",
+  "error",
+  "help",
+  "dark",
+  "light",
+];
+
+const typos = [
+  "displayLarge",
+  "displayMedium",
+  "displaySmall",
+  "headlineLarge",
+  "headlineMedium",
+  "headlineSmall",
+  "titleLarge",
+  "titleMedium",
+  "titleSmall",
+  "labelLarge",
+  "labelMedium",
+  "labelSmall",
+  "bodyLarge",
+  "bodyMedium",
+  "bodySmall",
+];
+
 const Text = (props) => {
-  const { children, align, as, id, appearance, typo } = props;
+  const {
+    children,
+    align = "start",
+    as = "p",
+    id,
+    appearance = "dark",
+    typo = "bodyLarge",
+  } = props;
 
   return (
     <StylesText
@@ -21,55 +73,13 @@ const Text = (props) => {
 
 Text.propsType = {
   children: PropsType.TextNode,
-  align: PropsType.oneOf(["start", "center", "end", "justify"]).isRequired,
-  as: PropsType.oneOf([
-    "h1",
-    "h2",
-    "h3",
-    "h4",
-    "h5",
-    "h6",
-    "p",
-    "span",
-    "legend",
-    "figcaption",
-    "blockquote",
-  ]).isRequired,
+  align: PropsType.oneOf(aligns).isRequired,
+  as: PropsType.oneOf(elementsHtml).isRequired,
   id: PropsType.string,
-  appearance: PropsType.oneOf([
-    "primary",
-    "secondary",
-    "link",
-    "warning",
-    "error",
-    "help",
-    "dark",
-    "light",
-  ]),
-  typo: PropsType.oneOf([
-    "displayLarge",
-    "displayMedium",
-    "displaySmall",
-    "headlineLarge",
-    "headlineMedium",
-    "headlineSmall",
-    "titleLarge",
-    "titleMedium",
-    "titleSmall",
-    "labelLarge",
-    "labelMedium",
-    "labelSmall",
-    "bodyLarge",
-    "bodyMedium",
-    "bodySmall",
-  ]),
-};
-
-Text.defaultProps = {
-  align: "start",
-  as: "p",
-  appearance: "dark",
-  typo: "bodyLarge",
+  appearance: PropsType.oneOf(appearances),
+  typo: PropsType.oneOf(typos),
 };
 
 export default Text;
+
+export { elementsHtml, appearances, typos };
