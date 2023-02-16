@@ -48,6 +48,11 @@ const typos = [
   "bodySmall",
 ];
 
+const defaultalign = "start";
+const defaultElementsHtml = "p";
+const defaultAppearance = "dark";
+const defaultTypo = "bodyLarge";
+
 const Text = (props) => {
   const {
     children,
@@ -58,13 +63,55 @@ const Text = (props) => {
     typo = "bodyLarge",
   } = props;
 
+  const transformedalign = aligns.includes(align) ? align : defaultalign;
+
+  const transformedAs = elementsHtml.includes(as) ? as : defaultElementsHtml;
+
+  const transformedAppearance = appearances.includes(appearance)
+    ? appearance
+    : defaultAppearance;
+
+  const transformedTypo = typos.includes(typo) ? typo : defaultTypo;
+
+  if (!aligns.includes(align)) {
+    console.warn(
+      `Invalid prop value for 'align': ${align}. Allowed values are: ${aligns.join(
+        ", "
+      )} `
+    );
+  }
+
+  if (!elementsHtml.includes(as)) {
+    console.warn(
+      `Invalid prop value for 'as': ${as}. Allowed values are: ${elementsHtml.join(
+        ", "
+      )} `
+    );
+  }
+
+  if (!appearances.includes(appearance)) {
+    console.warn(
+      `Invalid prop value for 'appearance': ${appearance}. Allowed values are: ${appearances.join(
+        ", "
+      )} `
+    );
+  }
+
+  if (!typos.includes(typo)) {
+    console.warn(
+      `Invalid prop value for 'typo': ${typo}. Allowed values are: ${typos.join(
+        ", "
+      )} `
+    );
+  }
+
   return (
     <StylesText
-      as={as}
-      align={align}
+      as={transformedAs}
+      align={transformedalign}
       id={id}
-      appearance={appearance}
-      typo={typo}
+      appearance={transformedAppearance}
+      typo={transformedTypo}
     >
       {children}
     </StylesText>

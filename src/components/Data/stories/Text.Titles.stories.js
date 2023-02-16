@@ -60,7 +60,7 @@ const Title = ({ ...args }) => {
 
 Title.args = {
   children: "Title with the Text component",
-  as: "h6",
+  as: "h1",
   align: "start",
   appearance: propsRandom[1],
   typo: propsRandom[0],
