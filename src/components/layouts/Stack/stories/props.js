@@ -1,15 +1,8 @@
 import { directionAligments, flexAligments } from "../index";
 
 const children = {
-  options: [
-    [...Array(6 + 1).keys()].slice(1),
-    [...Array(5 + 1).keys()].slice(1),
-    [...Array(4 + 1).keys()].slice(1),
-    [...Array(3 + 1).keys()].slice(1),
-    [...Array(2 + 1).keys()].slice(1),
-    [...Array(1 + 1).keys()].slice(1),
-  ],
-  control: { type: "select" },
+  options: "",
+  control: { type: "string" },
   description:
     "This prop enables the component to receive React nodes which in turn are the ones that the Stack will organize in a layout.",
 };
@@ -55,17 +48,7 @@ const alignItems = {
 };
 
 const gap = {
-  options: [
-    "10px",
-    "20px",
-    "30px",
-    "40px",
-    "50px",
-    "10px 20px",
-    "20px 30px",
-    "30px 40px",
-  ],
-  control: { type: "select" },
+  type: { name: "string", required: false },
   description:
     "Defines a space between elements in the same row or between two rows (if wrap is activate). in order to define one value for row-gaps and another to receive column-gaps, we can get through this prop a string with two different measures (e.g. “16px 8px”, which means a row-gap of 16px and a column-gap of 8px) ",
   table: {
