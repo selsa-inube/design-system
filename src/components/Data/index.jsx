@@ -73,38 +73,6 @@ const Text = (props) => {
 
   const transformedTypo = typos.includes(typo) ? typo : defaultTypo;
 
-  if (!aligns.includes(align)) {
-    console.warn(
-      `Invalid prop value for 'align': ${align}. Allowed values are: ${aligns.join(
-        ", "
-      )} `
-    );
-  }
-
-  if (!elementsHtml.includes(as)) {
-    console.warn(
-      `Invalid prop value for 'as': ${as}. Allowed values are: ${elementsHtml.join(
-        ", "
-      )} `
-    );
-  }
-
-  if (!appearances.includes(appearance)) {
-    console.warn(
-      `Invalid prop value for 'appearance': ${appearance}. Allowed values are: ${appearances.join(
-        ", "
-      )} `
-    );
-  }
-
-  if (!typos.includes(typo)) {
-    console.warn(
-      `Invalid prop value for 'typo': ${typo}. Allowed values are: ${typos.join(
-        ", "
-      )} `
-    );
-  }
-
   return (
     <StylesText
       as={transformedAs}
