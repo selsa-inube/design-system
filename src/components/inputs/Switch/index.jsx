@@ -20,38 +20,6 @@ const Switch = (props) => {
 
   const transformedSize = sizes.includes(size) ? size : defaultSize;
 
-  if (!sizes.includes(size)) {
-    console.warn(
-      `Invalid prop value for 'size': ${size}. Allowed values are ${sizes.join(
-        ", "
-      )}.`
-    );
-  }
-
-  if (typeof isDisabled !== "boolean") {
-    console.warn(
-      `Invalid prop value for 'isDisabled': ${isDisabled}. Allowed values are true or false.`
-    );
-  }
-
-  if (typeof checked !== "boolean") {
-    console.warn(
-      `Invalid prop value for 'checked': ${checked}. Allowed values are true or false.`
-    );
-  }
-
-  if (typeof handleChange !== "function") {
-    console.warn(`Invalid prop value for 'handleChange': ${handleChange}.`);
-  }
-
-  if (!sizes.includes(size)) {
-    console.warn(
-      `Invalid prop value for 'size': ${size}. Allowed values are ${sizes.join(
-        ", "
-      )}.`
-    );
-  }
-
   return (
     <StyledContainer size={transformedSize}>
       <StyledInput
