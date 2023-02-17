@@ -21,7 +21,7 @@ const IsDisabled = ({ isFocused, htmlFor, state, children }) => {
   );
 };
 IsDisabled.args = {
-  children: "Label (Help text)",
+  children: "Help text",
   isFocused: false,
   htmlFor: "id",
   state: "default",

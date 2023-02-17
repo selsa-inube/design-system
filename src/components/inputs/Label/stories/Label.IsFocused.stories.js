@@ -20,7 +20,7 @@ const IsFocused = ({ children, state, htmlFor, isDisabled }) => {
   );
 };
 IsFocused.args = {
-  children: "Label (Help text andres)",
+  children: "Help text",
   isDisabled: false,
   htmlFor: "id",
   state: "default",

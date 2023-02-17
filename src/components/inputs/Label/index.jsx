@@ -5,6 +5,10 @@ import { StyledLabel } from "./styles";
 
 const states = ["default", "invalid"];
 
+const defaultIsDisabled = false;
+const defaultIsFocused = false;
+const defaulState = "default";
+
 const Label = (props) => {
   const {
     isDisabled = false,
@@ -14,17 +18,18 @@ const Label = (props) => {
     children,
   } = props;
 
-  const defaultIsDisabled =
-    typeof isDisabled === "boolean" ? isDisabled : false;
-  const defaultIsFocused = typeof isFocused === "boolean" ? isFocused : false;
-  const defaultState = states.includes(state) ? state : "default";
+  const transformedIsDisabled =
+    typeof isDisabled === "boolean" ? isDisabled : defaultIsDisabled;
+  const transformedIsFocused =
+    typeof isFocused === "boolean" ? isFocused : defaultIsFocused;
+  const transformedState = states.includes(state) ? state : defaulState;
 
   return (
     <StyledLabel
-      isDisabled={defaultIsDisabled}
-      isFocused={defaultIsFocused}
+      isDisabled={transformedIsDisabled}
+      isFocused={transformedIsFocused}
       htmlFor={htmlFor}
-      state={defaultState}
+      state={transformedState}
     >
       {children}
     </StyledLabel>
