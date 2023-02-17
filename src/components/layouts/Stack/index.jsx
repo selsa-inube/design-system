@@ -11,14 +11,17 @@ export const flexAligments = [
   "space-evenly",
   "space-between",
 ];
+export const wrapControl = ["wrap", "nowrap"];
+
 const defaultDirection = "row";
 const defaultJustifyContent = "flex-start";
 const defaultAlignItems = "flex-start";
+const defaultWrapControl = "nowrap";
 
 const Stack = (props) => {
   const {
     children,
-    wrap = false,
+    wrap = defaultWrapControl,
     direction = defaultDirection,
     justifyContent = defaultJustifyContent,
     alignItems = defaultAlignItems,
@@ -34,13 +37,16 @@ const Stack = (props) => {
   const transformedJustifyContent = flexAligments.includes(justifyContent)
     ? justifyContent
     : defaultJustifyContent;
+  const transformedWrap = wrapControl.includes(wrap)
+    ? wrap
+    : defaultWrapControl;
 
   return (
     <StyledFlex
       direction={transformedDirection}
       justifyContent={transformedJustifyContent}
       alignItems={transformedAlignItems}
-      wrap={+wrap}
+      wrap={transformedWrap}
       gap={gap}
     >
       {children}
@@ -53,7 +59,7 @@ Stack.propTypes = {
     PropTypes.element,
     PropTypes.arrayOf(PropTypes.element),
   ]),
-  wrap: PropTypes.bool,
+  wrap: PropTypes.oneOf(wrapControl),
   direction: PropTypes.oneOf(directionAligments).isRequired,
   justifyContent: PropTypes.oneOf(flexAligments).isRequired,
   alignItems: PropTypes.oneOf(flexAligments).isRequired,

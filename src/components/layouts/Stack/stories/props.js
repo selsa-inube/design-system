@@ -1,4 +1,4 @@
-import { directionAligments, flexAligments } from "../index";
+import { directionAligments, flexAligments, wrapControl } from "../index";
 
 const children = {
   options: "",
@@ -8,12 +8,12 @@ const children = {
 };
 
 const wrap = {
-  options: [true, false],
+  options: wrapControl,
   control: { type: "select" },
   description:
     "Indicates whether the container should use more than one row/column to organize its children.",
   table: {
-    defaultValue: { summary: false },
+    defaultValue: { summary: "nowrap" },
   },
 };
 

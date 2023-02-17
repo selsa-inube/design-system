@@ -16,7 +16,7 @@ const story = {
   components: [Stack],
   decorators: [
     (Story) => (
-      <div style={{ margin: "3em" }}>
+      <div style={{ margin: "3em", width: "430px" }}>
         <Story />
       </div>
     ),
@@ -34,7 +34,7 @@ export const Default = StackTemplate.bind({});
 
 Default.args = {
   children: [...Array(6 + 1).keys()].slice(1),
-  wrap: false,
+  wrap: "nowrap",
   direction: "row",
   justifyContent: "flex-start",
   alignItems: "flex-start",

@@ -5,7 +5,7 @@ const StyledFlex = styled.div`
   justify-content: ${({ justifyContent }) => justifyContent};
   align-items: ${({ alignItems }) => alignItems};
   flex-direction: ${({ direction }) => direction};
-  flex-wrap: ${({ wrap }) => (wrap ? "wrap" : "nowrap")};
+  flex-wrap: ${({ wrap }) => wrap};
   gap: ${({ gap }) => gap};
 `;
 
