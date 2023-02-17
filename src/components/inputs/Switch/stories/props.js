@@ -20,7 +20,7 @@ const checked = {
   control: { type: "boolean" },
   description: "",
   table: {
-    defaultValue: { summary: "false" },
+    defaultValue: { summary: false },
   },
 };
 const name = {

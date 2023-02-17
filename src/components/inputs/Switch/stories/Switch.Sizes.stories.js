@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { Switch, sizes } from "../index";
+
+import { SwitchController } from "./SwitchController";
 
 import { StyledFlexBetween } from "./stories.styles";
 
@@ -17,41 +19,16 @@ const story = {
   ],
 };
 
-const SwitchComponent = ({
-  id,
-  isDisabled,
-  name,
-  checked,
-  value,
-  handleChange,
-}) => {
-  const [switchChecked, setSwitchValue] = useState(checked);
-  const [switchCheckedSmall, setswitchCheckedSmall] = useState(checked);
-  const handleToggleSmall = () => {
-    setswitchCheckedSmall(!switchCheckedSmall);
-    handleChange(!switchCheckedSmall);
-    console.log("handleSizesToggleSmall: ", !switchCheckedSmall);
-  };
-
-  const handleToggleLarge = () => {
-    setSwitchValue(!switchChecked);
-    handleChange(!switchChecked);
-    console.log("handleSizesToggleLarge: ", switchChecked);
-  };
-
+const SwitchComponent = (props) => {
+  const { checked } = props;
   return (
     <StyledFlexBetween>
       {sizes.map((size) => (
         <div key={size}>
-          <Switch
-            id={id}
-            isDisabled={isDisabled}
-            name={name}
-            checked={size === "small" ? switchCheckedSmall : !switchChecked}
+          <SwitchController
+            {...props}
+            checked={size === "small" ? checked : !checked}
             size={size}
-            handleChange={
-              size === "small" ? handleToggleSmall : handleToggleLarge
-            }
           />
         </div>
       ))}
@@ -64,7 +41,8 @@ Sizes.args = {
   id: "idSize",
   isDisabled: false,
   name: "nameSize",
-  value: false,
+  value: "as",
+  checked: false,
   handleChange: () => {},
 };
 Sizes.argTypes = {

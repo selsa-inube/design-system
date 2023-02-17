@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { Switch } from "../index";
+import { SwitchController } from "./SwitchController";
 
 import {
   id,
@@ -23,37 +24,7 @@ const story = {
   ],
 };
 
-const SwitchComponent = ({
-  id,
-  isDisabled,
-  name,
-  value,
-  size,
-  checked,
-  handleChange,
-}) => {
-  const [switchChecked, setSwitchChecked] = useState(checked);
-
-  const handleToggle = () => {
-    setSwitchChecked(!switchChecked);
-    handleChange(!switchChecked);
-    console.log("handleToggle: ", !switchChecked);
-  };
-
-  return (
-    <Switch
-      id={id}
-      isDisabled={isDisabled}
-      name={name}
-      checked={switchChecked}
-      value={value}
-      size={size}
-      handleChange={handleToggle}
-    />
-  );
-};
-
-export const Default = (args) => <SwitchComponent {...args} />;
+export const Default = (args) => <SwitchController {...args} />;
 Default.args = {
   id: "thisIsAnId",
   isDisabled: false,

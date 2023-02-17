@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { Switch } from "../index";
 
 import { StyledFlexBetween } from "./stories.styles";
+
+import { SwitchController } from "./SwitchController";
 
 import { id, isDisabled, name, handleChange } from "./props";
 
@@ -17,47 +19,18 @@ const story = {
   ],
 };
 
-const SwitchComponent = ({
-  id,
-  isDisabled,
-  name,
-  value,
-  size,
-  checked,
-  handleChange,
-}) => {
-  const [switchChecked, setSwitchChecked] = useState(checked);
-  const [switchCheckedInactive, setSwitchCheckedInactive] = useState(checked);
-  const handleToggleInactive = () => {
-    setSwitchCheckedInactive(!switchCheckedInactive);
-    handleChange(!switchCheckedInactive);
-    console.log("handleChecksToggleInactive: ", !switchCheckedInactive);
-  };
-
-  const handleToggleActive = () => {
-    setSwitchChecked(!switchChecked);
-    handleChange(!switchChecked);
-    console.log("handleChecksToggleActive: ", switchChecked);
-  };
-
+const SwitchComponent = (props) => {
+  const { checked } = props;
   return (
     <StyledFlexBetween>
-      <Switch
-        id={id}
-        isDisabled={isDisabled}
-        name={name}
-        size={size}
-        handleChange={handleToggleInactive}
-        checked={switchCheckedInactive || false}
-      />
-      <Switch
-        id={id}
-        isDisabled={isDisabled}
-        name={name}
-        size={size}
-        handleChange={handleToggleActive}
-        checked={!switchChecked || false}
-      />
+      {[0, 1].map((item) => (
+        <div key={item}>
+          <SwitchController
+            {...props}
+            checked={item > 0 ? !checked : checked}
+          />
+        </div>
+      ))}
     </StyledFlexBetween>
   );
 };
@@ -67,6 +40,7 @@ Checks.args = {
   id: "idValue",
   isDisabled: false,
   name: "nameValue",
+  checked: false,
   handleChange: () => {},
 };
 Checks.argTypes = {

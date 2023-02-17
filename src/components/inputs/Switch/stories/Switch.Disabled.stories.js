@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import { Switch } from "../index";
-import { withPseudoState } from "storybook-addon-pseudo-states/dist/esm/withPseudoState";
 import { StyledFlexBetween } from "./stories.styles";
 
 import { id, isDisabled, name, handleChange } from "./props";
@@ -16,60 +15,20 @@ const story = {
     ),
   ],
 };
-const SwitchComponent = ({
-  id,
-  isDisabled,
-  name,
-  value,
-  size,
-  checked,
-  handleChange,
-}) => {
-  const [switchChecked, setSwitchChecked] = useState(checked);
-  const [switchCheckedInactive, setSwitchCheckedInactive] = useState(checked);
-  const handleToggleInactive = () => {
-    setSwitchCheckedInactive(!switchCheckedInactive);
-    handleChange(!switchCheckedInactive);
-  };
-
-  const handleToggleActive = () => {
-    setSwitchChecked(!switchChecked);
-    handleChange(!switchChecked);
-  };
-
+const SwitchComponent = (props) => {
   return (
     <StyledFlexBetween>
-      <Switch
-        id={id}
-        isDisabled={true}
-        name={name}
-        size={size}
-        handleChange={handleToggleInactive}
-        checked={switchCheckedInactive || false}
-      />
-      <Switch
-        id={id}
-        isDisabled={true}
-        name={name}
-        size={size}
-        handleChange={handleToggleActive}
-        checked={!switchChecked || false}
-      />
+      {[0, 1].map((item) => (
+        <Switch key={item} {...props} checked={item > 0 ? true : false} />
+      ))}
     </StyledFlexBetween>
   );
 };
 
 export const Disabled = SwitchComponent.bind({});
-Disabled.decorators = [withPseudoState];
-Disabled.parameters = {
-  pseudo: {
-    hover: ["#two"],
-    focus: ["#four"],
-  },
-};
 Disabled.args = {
   id: "idStates",
-  isDisabled: false,
+  isDisabled: true,
   name: "nameState",
   handleChange: () => {},
 };
