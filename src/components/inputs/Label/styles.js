@@ -12,14 +12,23 @@ const sysTokensColor = {
   default: `${colors.sys.text.dark}`,
 };
 
+const getColorByState = (isDisabled, isFocused, state) => {
+  const color =
+    state === "default" ? sysTokensColor.default : stateColor.invalid;
+
+  if (isFocused) {
+    return sysTokensColor.isFocused;
+  }
+  if (isDisabled) {
+    return stateColor.isDisabled;
+  }
+  return color;
+};
+
 const StyledLabel = styled.label`
   font-family: ${typography.sys.typescale.labelLarge.font};
-  color: ${(props) =>
-    props.isFocused
-      ? sysTokensColor.isFocused
-      : props.isDisabled
-      ? stateColor.isDisabled
-      : stateColor[props.state]};
+  color: ${({ isDisabled, isFocused, state }) =>
+    getColorByState(isDisabled, isFocused, state)};
   letter-spacing: ${typography.sys.typescale.labelLarge.tracking};
 `;
 

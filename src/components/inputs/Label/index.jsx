@@ -14,12 +14,16 @@ const Label = (props) => {
     children,
   } = props;
 
+  const defaultIsDisabled =
+    typeof isDisabled === "boolean" ? isDisabled : false;
+  const defaultIsFocused = typeof isFocused === "boolean" ? isFocused : false;
+  const defaultState = states.includes(state) ? state : "default";
   return (
     <StyledLabel
-      isDisabled={isDisabled}
-      isFocused={isFocused}
+      isDisabled={defaultIsDisabled}
+      isFocused={defaultIsFocused}
       htmlFor={htmlFor}
-      state={state}
+      state={defaultState}
     >
       {children}
     </StyledLabel>
