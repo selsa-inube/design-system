@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { MdDone, MdClose } from "react-icons/md/index";
+import { MdDone, MdClose } from "react-icons/md";
 
 import { StyledContainer, StyledInput, StyledSpan, StyledIcon } from "./styles";
 
