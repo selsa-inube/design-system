@@ -149,6 +149,7 @@ const sys = {
     warning: ref.palette.yellow.y400,
     error: ref.palette.red.r400,
     help: ref.palette.purple.p400,
+    disabled: ref.palette.neutral.n80,
     dark: ref.palette.neutral.n900,
     light: ref.palette.neutral.n0,
     link: ref.palette.blue.b500,
