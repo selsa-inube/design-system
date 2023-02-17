@@ -35,48 +35,6 @@ const Stack = (props) => {
     ? justifyContent
     : defaultJustifyContent;
 
-  if (!flexAligments.includes(alignItems)) {
-    console.warn(
-      `Invalid prop value for 'alignItems': ${alignItems}. Allowed values are ${flexAligments.join(
-        ", "
-      )}.`
-    );
-  }
-
-  if (!flexAligments.includes(justifyContent)) {
-    console.warn(
-      `Invalid prop value for 'justifyContent': ${justifyContent}. Allowed values are ${flexAligments.join(
-        ", "
-      )}.`
-    );
-  }
-
-  if (!directionAligments.includes(direction)) {
-    console.warn(
-      `Invalid prop value for 'direction': ${direction}. Allowed values are ${directionAligments.join(
-        ", "
-      )}.`
-    );
-  }
-
-  if (typeof wrap !== "boolean") {
-    console.warn(
-      `Invalid prop value for 'wrap': ${wrap}. Allowed values are true or false.`
-    );
-  }
-
-  if (typeof gap !== "string") {
-    console.warn(
-      `Invalid prop value for 'wrap': ${gap}. Allowed values are a string(with a default value that must include the measure e.g 10px).`
-    );
-  }
-
-  if (typeof children !== "object") {
-    console.warn(
-      `Invalid prop value for 'children': ${children}. Allowed values are a children(React.ReactNode).`
-    );
-  }
-
   return (
     <StyledFlex
       direction={transformedDirection}
