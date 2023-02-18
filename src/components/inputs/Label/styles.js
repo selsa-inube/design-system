@@ -2,25 +2,21 @@ import styled from "styled-components";
 import { typography } from "../../../shared/typography/typography";
 import { colors } from "../../../shared/colors/colors";
 
-const stateColor = {
-  isDisabled: `${colors.ref.palette.neutral.n60}`,
-  invalid: `${colors.ref.palette.red.r500}`,
-};
-
-const sysTokensColor = {
-  isFocused: `${colors.sys.text.primary}`,
-  default: `${colors.sys.text.dark}`,
-};
-
 const getColorByState = (isDisabled, isFocused, state) => {
-  const color =
-    state === "default" ? sysTokensColor.default : stateColor.invalid;
+  let color = colors.sys.text.dark;
 
   if (isFocused) {
-    return sysTokensColor.isFocused;
+    color = colors.sys.text.primary;
+    return color;
   }
   if (isDisabled) {
-    return stateColor.isDisabled;
+    color = colors.sys.text.help; // actualizar a eñ token disabled cuando se intregue con main
+    return color;
+  }
+
+  if (state === "invalid") {
+    color = colors.sys.text.error;
+    return color;
   }
   return color;
 };
