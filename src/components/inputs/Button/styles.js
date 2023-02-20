@@ -10,6 +10,12 @@ const colorActionsSysHover = {
   removeHover: colors.ref.palette.red.r300,
   helpHover: colors.ref.palette.purple.p300,
 };
+const StyledSpan = styled.span`
+  color: ${(props) =>
+    props.variant !== "filled"
+      ? colors.sys.actions[props.appearance]
+      : colors.ref.palette.neutral.n0};
+`;
 
 const StyledButton = styled.button`
   padding: 0px 16px;
@@ -21,6 +27,7 @@ const StyledButton = styled.button`
   font-weight: 500;
   transition: all 0.3s ease;
   border: none;
+  cursor: pointer;
 
   background-color: ${(props) => colors.sys.actions[props.appearance]};
   &:hover {
@@ -92,4 +99,4 @@ ${(props) =>
     `}
 `;
 
-export { StyledButton };
+export { StyledButton, StyledSpan };
