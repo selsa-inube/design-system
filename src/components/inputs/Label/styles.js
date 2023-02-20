@@ -5,12 +5,12 @@ import { colors } from "../../../shared/colors/colors";
 const getColorByState = (isDisabled, isFocused, state) => {
   let color = colors.sys.text.dark;
 
-  if (isFocused) {
-    color = colors.sys.text.primary;
-    return color;
-  }
   if (isDisabled) {
     color = colors.sys.text.disabled;
+    return color;
+  }
+  if (isFocused) {
+    color = colors.sys.text.primary;
     return color;
   }
 

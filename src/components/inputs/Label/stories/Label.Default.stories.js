@@ -29,7 +29,6 @@ const Default = ({ isDisabled, isFocused, htmlFor, state, children }) => {
 };
 Default.args = {
   children: "Help text",
-  htmlFor: "input",
 };
 Default.argTypes = {
   isDisabled,
