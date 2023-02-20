@@ -1,11 +1,30 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { StyledButton } from "./styles";
+import { Spinner } from "./../../feedback/Spinner";
+import { colors } from "../../../shared/colors/colors";
+
+export const appearances = Object.keys(colors.sys.actions);
+const colorHomologation = {
+  primary: "blue",
+  secondary: "white",
+  confirm: "green",
+  warning: "yellow",
+  remove: "red",
+  help: "purple",
+};
+export const types = ["text", "submit", "reset"];
+export const spacings = ["wide", "compact"];
+export const variants = ["filled", "outlined", "none"];
+const defaultAppearance = "primary";
+const defaultType = "text";
+const defaultSpacing = "wide";
+const defaultVariant = "filled";
 
 const Button = (props) => {
   const {
     children,
-    appearance = "primary",
+    appearance = defaultAppearance,
     isLoading = false,
     isDisabled = false,
     iconBefore,
@@ -19,39 +38,44 @@ const Button = (props) => {
 
   return (
     <StyledButton
-      appearance={appearance}
+      appearance={
+        appearances.includes(appearance) ? appearance : defaultAppearance
+      }
       isLoading={isLoading}
       isDisabled={isDisabled}
       iconBefore={iconBefore}
       iconAfter={iconAfter}
-      type={type}
-      spacing={spacing}
-      variant={variant}
+      type={types.includes(type) ? type : defaultType}
+      spacing={spacings.includes(spacing) ? spacing : defaultSpacing}
+      variant={variants.includes(variant) ? variant : defaultVariant}
       isFullWidth={isFullWidth}
       onClick={handleClick}
     >
-      {children}
+      {isLoading ? (
+        <Spinner
+          appearance={
+            variant !== "filled" ? colorHomologation[appearance] : "white"
+          }
+          isTransparent={variant !== "filled" ? false : true}
+          size={"medium"}
+        />
+      ) : (
+        children
+      )}
     </StyledButton>
   );
 };
 
 Button.propTypes = {
   children: PropTypes.node,
-  appearance: PropTypes.oneOf(["primary", "secondary"]),
+  appearance: PropTypes.oneOf(appearances),
   isLoading: PropTypes.bool,
   isDisabled: PropTypes.bool,
   iconBefore: PropTypes.node,
   iconAfter: PropTypes.node,
-  type: PropTypes.oneOf(["text", "submit", "reset"]),
-  spacing: PropTypes.oneOf([
-    "wide",
-    "compact",
-    "none",
-    "small",
-    "medium",
-    "large",
-  ]),
-  variant: PropTypes.oneOf(["filled", "outlined", "none"]),
+  type: PropTypes.oneOf(types),
+  spacing: PropTypes.oneOf(spacings),
+  variant: PropTypes.oneOf(variants),
   isFullWidth: PropTypes.bool,
   handleClick: PropTypes.func,
 };

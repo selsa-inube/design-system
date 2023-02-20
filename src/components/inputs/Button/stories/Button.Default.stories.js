@@ -1,7 +1,18 @@
 import React from "react";
 import { Button } from "../index";
 
-import { size, appearance, isTransparent } from "./props";
+import {
+  isLoading,
+  appearance,
+  isDisabled,
+  iconBefore,
+  iconAfter,
+  type,
+  spacing,
+  variant,
+  isFullWidth,
+  handleClick,
+} from "./props";
 
 const story = {
   title: "inputs/Button/Default",
@@ -17,7 +28,7 @@ const story = {
 
 export const Default = (args) => <Button {...args} />;
 Default.args = {
-  // children,
+  children: "Button",
   appearance: "primary",
   isLoading: false,
   isDisabled: false,
@@ -30,9 +41,16 @@ Default.args = {
   handleClick: () => {},
 };
 Default.argTypes = {
-  size,
+  isLoading,
   appearance,
-  isTransparent,
+  isDisabled,
+  iconBefore,
+  iconAfter,
+  type,
+  spacing,
+  variant,
+  isFullWidth,
+  handleClick,
 };
 
 export default story;
