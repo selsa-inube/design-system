@@ -11,10 +11,21 @@ const colorActionsSysHover = {
   helpHover: colors.ref.palette.purple.p300,
 };
 const StyledSpan = styled.span`
-  color: ${(props) =>
-    props.variant !== "filled"
-      ? colors.sys.actions[props.appearance]
-      : colors.ref.palette.neutral.n0};
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+
+  ${(props) =>
+    props.isDisabled
+      ? css`
+          color: ${colors.ref.palette.neutral.n60};
+        `
+      : css`
+          color: ${(props) =>
+            props.variant !== "filled"
+              ? colors.sys.actions[props.appearance]
+              : colors.ref.palette.neutral.n0};
+        `}
 `;
 
 const StyledButton = styled.button`
@@ -35,11 +46,22 @@ const StyledButton = styled.button`
       colorActionsSysHover[props.appearance + "Hover"]};
   }
   ${(props) =>
+    props.isDisabled &&
+    css`
+      background-color: ${colors.ref.palette.neutral.n30};
+      pointer-events: none;
+    `}
+  ${(props) =>
     props.variant === "outlined" &&
     css`
       background-color: transparent;
       color: ${(props) => colors.sys.actions[props.appearance]};
       border: 1px solid ${(props) => colors.sys.actions[props.appearance]};
+      ${(props) =>
+        props.isDisabled &&
+        css`
+          border: 1px solid ${colors.ref.palette.neutral.n30};
+        `}
       &:hover {
         background-color: transparent;
         color: ${(props) => colorActionsSysHover[props.appearance + "Hover"]};
@@ -62,24 +84,6 @@ const StyledButton = styled.button`
     `}
 
 ${(props) =>
-    props.spacing === "small" &&
-    css`
-      margin: 4px;
-    `}
-
-${(props) =>
-    props.spacing === "medium" &&
-    css`
-      margin: 8px;
-    `}
-
-${(props) =>
-    props.spacing === "large" &&
-    css`
-      margin: 16px;
-    `}
-
-${(props) =>
     props.isFullWidth &&
     css`
       width: 100%;
@@ -90,13 +94,11 @@ ${(props) =>
     css`
       pointer-events: none;
     `}
-
-${(props) =>
-    props.isDisabled &&
-    css`
-      opacity: 0.5;
-      pointer-events: none;
-    `}
 `;
-
-export { StyledButton, StyledSpan };
+const StyledIcon = styled.div`
+  color: ${(props) =>
+    props.variant !== "filled"
+      ? colors.sys.actions[props.appearance]
+      : colors.ref.palette.neutral.n0};
+`;
+export { StyledButton, StyledSpan, StyledIcon };

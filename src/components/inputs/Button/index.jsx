@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { StyledButton, StyledSpan } from "./styles";
+import { StyledButton, StyledSpan, StyledIcon } from "./styles";
 import { Spinner } from "./../../feedback/Spinner";
 import { colors } from "../../../shared/colors/colors";
 
@@ -54,7 +54,9 @@ const Button = (props) => {
       {isLoading ? (
         <Spinner
           appearance={
-            variant !== "filled"
+            isDisabled
+              ? colorHomologation.secondary
+              : variant !== "filled"
               ? colorHomologation[appearance]
               : colorHomologation.secondary
           }
@@ -63,9 +65,12 @@ const Button = (props) => {
         />
       ) : (
         <StyledSpan
+          isDisabled={isDisabled}
           variant={variants.includes(variant) ? variant : defaultVariant}
         >
+          <StyledIcon id="mdIcon">{iconBefore}</StyledIcon>
           {children}
+          <StyledIcon id="mdIcon">{iconAfter}</StyledIcon>
         </StyledSpan>
       )}
     </StyledButton>
