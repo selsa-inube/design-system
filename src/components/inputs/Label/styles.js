@@ -10,7 +10,7 @@ const getColorByState = (isDisabled, isFocused, state) => {
     return color;
   }
   if (isDisabled) {
-    color = colors.sys.text.help; // actualizar a eñ token disabled cuando se intregue con main
+    color = colors.sys.text.disabled;
     return color;
   }
 

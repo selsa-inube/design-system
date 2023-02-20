@@ -7,7 +7,7 @@ const states = ["default", "invalid"];
 
 const defaultIsDisabled = false;
 const defaultIsFocused = false;
-const defaulState = "default";
+const defaultState = "default";
 
 const Label = (props) => {
   const {
@@ -22,7 +22,7 @@ const Label = (props) => {
     typeof isDisabled === "boolean" ? isDisabled : defaultIsDisabled;
   const transformedIsFocused =
     typeof isFocused === "boolean" ? isFocused : defaultIsFocused;
-  const transformedState = states.includes(state) ? state : defaulState;
+  const transformedState = states.includes(state) ? state : defaultState;
 
   return (
     <StyledLabel
