@@ -31,7 +31,7 @@ States.args = {
   isDisabled: false,
   isFocused: false,
   htmlFor: "id",
-  children: "Help text",
+  children: "Label Text",
 };
 
 States.argTypes = {
