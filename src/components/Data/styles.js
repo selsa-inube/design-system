@@ -4,12 +4,14 @@ import { colors } from "../../shared/colors/colors";
 
 const StylesText = styled.p`
   font-family: ${typography.ref.typeface.brand};
-  color: ${(props) => colors.sys.text[props.appearance]};
-  text-align: ${(props) => props.align};
-  font-size: ${(props) => typography.sys.typescale[props.typo].size};
-  letter-spacing: ${(props) => typography.sys.typescale[props.typo].tracking};
-  line-height: ${(props) => typography.sys.typescale[props.typo].lineHeight};
-  font-weight: ${(props) => typography.sys.typescale[props.typo].weight};
+  color: ${({ appearance }) => colors.sys.text[appearance]};
+  margin: ${({ margin }) => margin};
+  padding: ${({ padding }) => padding};
+  text-align: ${({ align }) => align};
+  font-size: ${({ typo }) => typography.sys.typescale[typo].size};
+  letter-spacing: ${({ typo }) => typography.sys.typescale[typo].tracking};
+  line-height: ${({ typo }) => typography.sys.typescale[typo].lineHeight};
+  font-weight: ${({ typo }) => typography.sys.typescale[typo].weight};
 `;
 
 export { StylesText };

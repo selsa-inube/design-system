@@ -1,3 +1,4 @@
+import { aligns, htmlElements, appearances, typos } from "../index";
 const parameters = {
   docs: {
     description: {
@@ -8,7 +9,7 @@ const parameters = {
 };
 
 const align = {
-  options: ["start", "center", "end", "justify"],
+  options: aligns,
   control: { type: "select" },
   description: "This prop controls the text-align style property.",
   table: {
@@ -16,20 +17,24 @@ const align = {
   },
 };
 
+const margin = {
+  description:
+    "Sets the margin in px or global values for all four sides of the component.",
+  table: {
+    defaultValue: { summary: "0px" },
+  },
+};
+
+const padding = {
+  description:
+    "Sets the padding in px p global values for all four sides of the component",
+  table: {
+    defaultValue: { summary: "0px" },
+  },
+};
+
 const as = {
-  options: [
-    "h1",
-    "h2",
-    "h3",
-    "h4",
-    "h5",
-    "h6",
-    "p",
-    "span",
-    "legend",
-    "figcaption",
-    "blockquote",
-  ],
+  options: htmlElements,
   control: { type: "select" },
   description:
     "This prop allows us to control the tag that we will inject in the DOM.",
@@ -44,16 +49,7 @@ const id = {
 };
 
 const appearance = {
-  options: [
-    "primary",
-    "secondary",
-    "link",
-    "warning",
-    "error",
-    "help",
-    "dark",
-    "light",
-  ],
+  options: appearances,
   control: { type: "select" },
   description:
     "This prop is used to select one of the color system tokens of the role Text as defined in the Foundations.",
@@ -63,23 +59,7 @@ const appearance = {
 };
 
 const typo = {
-  options: [
-    "displayLarge",
-    "displayMedium",
-    "displaySmall",
-    "headlineLarge",
-    "headlineMedium",
-    "headlineSmall",
-    "titleLarge",
-    "titleMedium",
-    "titleSmall",
-    "labelLarge",
-    "labelMedium",
-    "labelSmall",
-    "bodyLarge",
-    "bodyMedium",
-    "bodySmall",
-  ],
+  options: typos,
   control: { type: "select" },
   description:
     "This prop is used to select one of the typography roles defined in the Foundations.",
@@ -93,4 +73,14 @@ const children = {
     "This prop allows the component to get and print text in the screen.",
 };
 
-export { parameters, align, as, id, appearance, typo, children };
+export {
+  parameters,
+  align,
+  margin,
+  padding,
+  as,
+  id,
+  appearance,
+  typo,
+  children,
+};

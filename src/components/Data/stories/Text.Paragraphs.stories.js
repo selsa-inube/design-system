@@ -9,7 +9,7 @@ const story = {
 };
 
 const loremIpsum = `
- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam et eros risus. Vestibulum enim neque, rhoncus et tempus eu, malesuada nec metus. Cras tincidunt eu tortor non scelerisque. Suspendisse ac augue orci. Etiam volutpat libero sit amet libero volutpat, quis iaculis est aliquam. Suspendisse laoreet, mauris vel placerat tristique, lorem enim dignissim nibh, quis luctus est mauris vitae ex. Nulla sed dapibus nisl. Maecenas rutrum tortor lorem, ac elementum odio vehicula sed. Integer laoreet lorem nisi, vel porta dui molestie sed. Sed vel blandit nisl, sed aliquet justo. Suspendisse vel blandit arcu. Sed a nisi in metus imperdiet congue aliquet in ante. Sed blandit, elit ac tristique mollis, nisi odio Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer consectetur dolor a interdum ullamcorper. Cras sit amet augue tortor. Quisque bibendum augue nec lacus varius, lacinia tincidunt purus tristique. Fusce consequat ipsum eget velit laoreet, ut commodo purus pharetra. Donec neque purus, laoreet aliquam vulputate vel, interdum euismod dolor. Vestibulum facilisis dictum enim, vel auctor tortor finibus vel. Quisque a metus neque. Suspendisse sed nisi varius, luctus neque et, sollicitudin neque. Nunc dictum felis metus, feugiat sollicitudin mi hendrerit vel. Integer sed urna eu ante suscipit iaculis. Aenean in egestas massa. Praesent sed libero efficitur, condimentum nisl ac, mollis enim. Aliquam placerat velit risus, a consequat sapien lobortis quis. Nam ut pulvinar augue, eget commodo tortor.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam et eros risus. Vestibulum enim neque, rhoncus et tempus eu, malesuada nec metus. Cras tincidunt eu tortor non scelerisque. Suspendisse ac augue orci. Etiam volutpat libero sit amet libero volutpat, quis iaculis est aliquam. Suspendisse laoreet, mauris vel placerat tristique, lorem enim dignissim nibh, quis luctus est mauris vitae ex. Nulla sed dapibus nisl. Maecenas rutrum tortor lorem, ac elementum odio vehicula sed. Integer laoreet lorem nisi, vel porta dui molestie sed. Sed vel blandit nisl, sed aliquet justo. Suspendisse vel blandit arcu. Sed a nisi in metus imperdiet congue aliquet in ante. Sed blandit, elit ac tristique mollis, nisi odio Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer consectetur dolor a interdum ullamcorper. Cras sit amet augue tortor. Quisque bibendum augue nec lacus varius, lacinia tincidunt purus tristique. Fusce consequat ipsum eget velit laoreet, ut commodo purus pharetra. Donec neque purus, laoreet aliquam vulputate vel, interdum euismod dolor. Vestibulum facilisis dictum enim, vel auctor tortor finibus vel. Quisque a metus neque. Suspendisse sed nisi varius, luctus neque et, sollicitudin neque. Nunc dictum felis metus, feugiat sollicitudin mi hendrerit vel. Integer sed urna eu ante suscipit iaculis. Aenean in egestas massa. Praesent sed libero efficitur, condimentum nisl ac, mollis enim. Aliquam placerat velit risus, a consequat sapien lobortis quis. Nam ut pulvinar augue, eget commodo tortor.
 
 Curabitur ac nisi at ex maximus dignissim. Integer eget elit eget tortor efficitur condimentum ac eu sapien. Integer fermentum sapien lectus. Donec quis pulvinar tortor, ut semper sapien. Cras aliquam cursus gravida. Fusce in ligula id mauris ornare luctus. Quisque auctor ligula eget justo iaculis fermentum eu a mauris. Praesent ullamcorper enim eget elit convallis molestie.
 
@@ -20,10 +20,14 @@ Donec quis enim mi. Suspendisse convallis commodo odio, at auctor augue auctor s
 
 `;
 
+const filteredParagraphs = loremIpsum
+  .split("\n")
+  .filter((paragraph) => paragraph.trim() !== "");
+
 const Paragraphs = ({ ...args }) => {
   return (
     <>
-      {loremIpsum.split("\n").map((paragraph, index) => (
+      {filteredParagraphs.map((paragraph, index) => (
         <Text key={index} {...args}>
           {paragraph}
         </Text>
