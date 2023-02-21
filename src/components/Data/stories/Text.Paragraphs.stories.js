@@ -1,6 +1,16 @@
 import Text from "../index";
 
-import { parameters, children, id, as, align, appearance, typo } from "./props";
+import {
+  parameters,
+  children,
+  id,
+  as,
+  align,
+  margin,
+  padding,
+  appearance,
+  typo,
+} from "./props";
 
 const story = {
   title: "components/data/Paragraphs",
@@ -34,11 +44,23 @@ const Paragraphs = ({ ...args }) => {
   );
 };
 
+Paragraphs.args = {
+  id: "idComponent",
+  as: "p",
+  align: "start",
+  margin: "0px",
+  padding: "0px",
+  appearance: "dark",
+  typo: "bodyLarge",
+};
+
 Paragraphs.argTypes = {
   children,
   id,
   as,
   align,
+  margin,
+  padding,
   appearance,
   typo,
 };
