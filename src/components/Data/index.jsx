@@ -10,11 +10,11 @@ import { StylesText } from "./styles";
 const regex = /^[0-9]+px(\s+[0-9]+px){0,3}$/;
 
 /**global values for the css properties margin and padding*/
-const globalvalues = ["inherit", "initial", "unset", "auto"];
+const GLOBAL_VALUES_PROPERTIES_CSS = ["inherit", "initial", "unset", "auto"];
 
-const aligns = ["start", "center", "end", "justify"];
+const ALIGN_OPTIONS = ["start", "center", "end", "justify"];
 
-const htmlElements = [
+const HTML_ELEMENTS = [
   "h1",
   "h2",
   "h3",
@@ -29,21 +29,39 @@ const htmlElements = [
 ];
 
 /**the object keys refer to the colour tokens of system of the text role*/
-const appearances = Object.entries(colors.sys.text).map(([key]) => {
+const APPEARANCE_OPTIONS = Object.entries(colors.sys.text).map(([key]) => {
   return key;
 });
 
 /**the object keys refer to the roles of the type system tokens*/
-const typos = Object.entries(typography.sys.typescale).map(([key]) => {
+const TYPO_OPTIONS = Object.entries(typography.sys.typescale).map(([key]) => {
   return key;
 });
 
-const defaultAlign = "start";
-const defaultHtmlElement = "p";
-const defaultAppearance = "dark";
-const defaultTypo = "bodyLarge";
-const defaultMargin = "0px";
-const defaultPadding = "0px";
+const DEFAULTS_VALUES_PROPS = {
+  align: "start",
+  as: "p",
+  appearance: "dark",
+  typo: "bodyLarge",
+  margin: "0px",
+  padding: "0px",
+};
+
+//Function trasnformed
+
+const transformPropValue = (value, allowedValues, defaultValue) => {
+  if (allowedValues.includes(value)) {
+    return value;
+  }
+  return defaultValue;
+};
+
+const transformCssValue = (value, regex, globalValuesCss, defaultValue) => {
+  if (regex.test(value) || globalValuesCss.includes(value)) {
+    return value;
+  }
+  return defaultValue;
+};
 
 const Text = (props) => {
   const {
@@ -57,25 +75,43 @@ const Text = (props) => {
     typo = "bodyLarge",
   } = props;
 
-  const transformedAlign = aligns.includes(align) ? align : defaultAlign;
+  const transformedAlign = transformPropValue(
+    align,
+    ALIGN_OPTIONS,
+    DEFAULTS_VALUES_PROPS.align
+  );
 
-  const transformedAs = htmlElements.includes(as) ? as : defaultHtmlElement;
+  const transformedAs = transformPropValue(
+    as,
+    HTML_ELEMENTS,
+    DEFAULTS_VALUES_PROPS.as
+  );
 
-  const transformedAppearance = appearances.includes(appearance)
-    ? appearance
-    : defaultAppearance;
+  const transformedAppearance = transformPropValue(
+    appearance,
+    APPEARANCE_OPTIONS,
+    DEFAULTS_VALUES_PROPS.appearance
+  );
 
-  const transformedTypo = typos.includes(typo) ? typo : defaultTypo;
+  const transformedTypo = transformPropValue(
+    typo,
+    TYPO_OPTIONS,
+    DEFAULTS_VALUES_PROPS.typo
+  );
 
-  const transformedMargin =
-    regex.test(margin) || globalvalues.includes(margin)
-      ? margin
-      : defaultMargin;
+  const transformedMargin = transformCssValue(
+    margin,
+    regex,
+    GLOBAL_VALUES_PROPERTIES_CSS,
+    DEFAULTS_VALUES_PROPS.margin
+  );
 
-  const transformedPadding =
-    regex.test(padding) || globalvalues.includes(padding)
-      ? padding
-      : defaultPadding;
+  const transformedPadding = transformCssValue(
+    padding,
+    regex,
+    GLOBAL_VALUES_PROPERTIES_CSS,
+    DEFAULTS_VALUES_PROPS.padding
+  );
 
   return (
     <StylesText
@@ -92,23 +128,23 @@ const Text = (props) => {
   );
 };
 
-Text.propsType = {
-  children: PropsType.TextNode,
-  align: PropsType.oneOf(aligns).isRequired,
+Text.propTypes = {
+  children: PropsType.node,
+  align: PropsType.oneOf(ALIGN_OPTIONS).isRequired,
   margin: PropsType.oneOfType([
     PropsType.string,
-    PropsType.oneOf(globalvalues),
+    PropsType.oneOf(GLOBAL_VALUES_PROPERTIES_CSS),
   ]),
   padding: PropsType.oneOfType([
     PropsType.string,
-    PropsType.oneOf(globalvalues),
+    PropsType.oneOf(GLOBAL_VALUES_PROPERTIES_CSS),
   ]),
-  as: PropsType.oneOf(htmlElements).isRequired,
+  as: PropsType.oneOf(HTML_ELEMENTS).isRequired,
   id: PropsType.string,
-  appearance: PropsType.oneOf(appearances).isRequired,
-  typo: PropsType.oneOf(typos).isRequired,
+  appearance: PropsType.oneOf(APPEARANCE_OPTIONS).isRequired,
+  typo: PropsType.oneOf(TYPO_OPTIONS).isRequired,
 };
 
 export default Text;
 
-export { htmlElements, aligns, appearances, typos };
+export { HTML_ELEMENTS, ALIGN_OPTIONS, APPEARANCE_OPTIONS, TYPO_OPTIONS };

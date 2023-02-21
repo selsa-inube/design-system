@@ -1,6 +1,6 @@
 import Text from "../index";
 
-import { typos, appearances } from "../index";
+import { TYPO_OPTIONS, APPEARANCE_OPTIONS } from "../index";
 
 import { typography } from "../../../shared/typography/typography";
 import { colors } from "../../../shared/colors/colors";
@@ -18,16 +18,19 @@ import {
 } from "./props";
 
 const story = {
-  title: "components/Data/Title",
+  title: "components/data/Title",
   components: [Text],
   parameters,
 };
 
 const numberRandom = [
-  Math.floor(Math.random() * typos.length),
-  Math.floor(Math.random() * appearances.length),
+  Math.floor(Math.random() * TYPO_OPTIONS.length),
+  Math.floor(Math.random() * APPEARANCE_OPTIONS.length),
 ];
-const propsRandom = [typos[numberRandom[0]], appearances[numberRandom[1]]];
+const propsRandom = [
+  TYPO_OPTIONS[numberRandom[0]],
+  APPEARANCE_OPTIONS[numberRandom[1]],
+];
 
 const TypoRoleProperties = ({ typo, align, appearance, margin, padding }) => {
   const typographyStory = {

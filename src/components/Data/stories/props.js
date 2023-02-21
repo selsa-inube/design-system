@@ -1,15 +1,20 @@
-import { aligns, htmlElements, appearances, typos } from "../index";
+import {
+  ALIGN_OPTIONS,
+  HTML_ELEMENTS,
+  APPEARANCE_OPTIONS,
+  TYPO_OPTIONS,
+} from "../index";
 const parameters = {
   docs: {
     description: {
       component:
-        "The <Text /> component that allows the use of typographic tokens decoupled from HTML text tags such as h1, h2, ..., p, span, legend, figcaption, blockquote",
+        "The Text component that allows the use of typographic tokens decoupled from HTML text tags such as h1, h2, ..., p, span, legend, figcaption, blockquote",
     },
   },
 };
 
 const align = {
-  options: aligns,
+  options: ALIGN_OPTIONS,
   control: { type: "select" },
   description: "This prop controls the text-align style property.",
   table: {
@@ -34,7 +39,7 @@ const padding = {
 };
 
 const as = {
-  options: htmlElements,
+  options: HTML_ELEMENTS,
   control: { type: "select" },
   description:
     "This prop allows us to control the tag that we will inject in the DOM.",
@@ -49,7 +54,7 @@ const id = {
 };
 
 const appearance = {
-  options: appearances,
+  options: APPEARANCE_OPTIONS,
   control: { type: "select" },
   description:
     "This prop is used to select one of the color system tokens of the role Text as defined in the Foundations.",
@@ -59,7 +64,7 @@ const appearance = {
 };
 
 const typo = {
-  options: typos,
+  options: TYPO_OPTIONS,
   control: { type: "select" },
   description:
     "This prop is used to select one of the typography roles defined in the Foundations.",

@@ -3,7 +3,7 @@ import Text from "../index";
 import { parameters, children, id, as, align, appearance, typo } from "./props";
 
 const story = {
-  title: "components/Data/Paragraphs",
+  title: "components/data/Paragraphs",
   components: [Text],
   parameters,
 };
@@ -16,8 +16,6 @@ Curabitur ac nisi at ex maximus dignissim. Integer eget elit eget tortor efficit
 Aliquam vitae ante massa. Sed dictum velit elit, consectetur porta nisi tincidunt in. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus vestibulum sapien lacinia, tincidunt justo et, cursus enim. Mauris hendrerit, est a bibendum dignissim, mauris nunc vestibulum dui, quis tristique metus augue eu dolor. Praesent fringilla mattis sapien vel porttitor. In accumsan sollicitudin lectus, at sagittis nibh cursus ut. Donec bibendum libero at urna tristique, id commodo libero ullamcorper. Donec mollis urna velit, eu lacinia sapien interdum in. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer vehicula tincidunt dui, a commodo leo venenatis ut. Etiam elementum nunc vitae ligula elementum, a scelerisque massa luctus. Nullam mi neque, malesuada eget leo non, sollicitudin placerat quam.
 
 Donec quis enim mi. Suspendisse convallis commodo odio, at auctor augue auctor sit amet. Nullam laoreet, eros nec porta finibus, lectus quam suscipit felis, at vulputate dui elit dignissim nibh. Sed felis magna, imperdiet id dui vitae, volutpat ornare dolor. Aenean quis tempor augue. Etiam fermentum viverra venenatis. Sed eu tincidunt erat, nec eleifend tortor. Fusce vitae imperdiet felis. Integer quam mauris, volutpat quis lobortis sit amet, vehicula fermentum nulla. Phasellus interdum, arcu sed finibus dapibus, augue enim tincidunt mauris, eget iaculis metus arcu id mi.
-
-
 `;
 
 const filteredParagraphs = loremIpsum
