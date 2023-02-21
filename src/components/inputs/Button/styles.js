@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
 
 import { colors } from "../../../shared/colors/colors";
+import { typography } from "../../../shared/typography/typography";
 
 const colorActionsSysHover = {
   primaryHover: colors.ref.palette.blue.b300,
@@ -10,6 +11,9 @@ const colorActionsSysHover = {
   removeHover: colors.ref.palette.red.r300,
   helpHover: colors.ref.palette.purple.p300,
 };
+const StyledSpanContainer = styled.div`
+  display: block;
+`;
 const StyledSpan = styled.span`
   display: flex;
   justify-content: space-between;
@@ -31,11 +35,7 @@ const StyledSpan = styled.span`
 const StyledButton = styled.button`
   padding: 0px 16px;
   border-radius: 8px;
-  height: 36px;
   width: 100%;
-  max-width: 101px;
-  font-size: 16px;
-  font-weight: 500;
   transition: all 0.3s ease;
   border: none;
   cursor: pointer;
@@ -45,6 +45,36 @@ const StyledButton = styled.button`
     background-color: ${(props) =>
       colorActionsSysHover[props.appearance + "Hover"]};
   }
+  ${(props) =>
+    props.spacing === "wide"
+      ? css`
+          height: 36px;
+          width: 101px;
+          font-size: 16px;
+          ${typography.sys.typescale.titleMedium}
+        `
+      : css`
+          height: 28px;
+          width: 93px;
+          ${typography.sys.typescale.labelLarge}
+        `}
+  ${(props) =>
+    props.isFullWidth
+      ? css`
+          box-sizing: content-box;
+          max-width: inherit;
+          && > div {
+            display: flex;
+            justify-content: center;
+            span {
+              width: 100%;
+              max-width: 100px;
+            }
+          }
+        `
+      : css`
+          box-sizing: none;
+        `}
   ${(props) =>
     props.isDisabled &&
     css`
@@ -62,6 +92,7 @@ const StyledButton = styled.button`
         css`
           border: 1px solid ${colors.ref.palette.neutral.n30};
         `}
+
       &:hover {
         background-color: transparent;
         color: ${(props) => colorActionsSysHover[props.appearance + "Hover"]};
@@ -101,4 +132,4 @@ const StyledIcon = styled.div`
       ? colors.sys.actions[props.appearance]
       : colors.ref.palette.neutral.n0};
 `;
-export { StyledButton, StyledSpan, StyledIcon };
+export { StyledButton, StyledSpan, StyledIcon, StyledSpanContainer };

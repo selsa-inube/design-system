@@ -1,12 +1,11 @@
 import React from "react";
-import { Button } from "../index";
+import { Button, appearances } from "../index";
 import { ButtonController } from "./ButtonController";
+import { StyledFlex } from "./stories.styles";
 
 import {
   isLoading,
-  appearance,
   isDisabled,
-  iconBefore,
   iconAfter,
   type,
   spacing,
@@ -16,7 +15,7 @@ import {
 } from "./props";
 
 const story = {
-  title: "inputs/Button/Default",
+  title: "inputs/Button/Appearances",
   components: [Button],
   decorators: [
     (Story) => (
@@ -27,10 +26,21 @@ const story = {
   ],
 };
 
-export const Default = (args) => <ButtonController {...args} />;
-Default.args = {
+const ButtonComponent = (props) => {
+  return (
+    <StyledFlex>
+      {appearances.map((appearance) => (
+        <div key={appearance}>
+          <ButtonController {...props} appearance={appearance} />
+        </div>
+      ))}
+    </StyledFlex>
+  );
+};
+
+export const Appearances = (args) => <ButtonComponent {...args} />;
+Appearances.args = {
   children: "Button",
-  appearance: "primary",
   isLoading: false,
   isDisabled: false,
   iconBefore: "+",
@@ -41,11 +51,9 @@ Default.args = {
   isFullWidth: false,
   handleClick: () => {},
 };
-Default.argTypes = {
+Appearances.argTypes = {
   isLoading,
-  appearance,
   isDisabled,
-  iconBefore,
   iconAfter,
   type,
   spacing,

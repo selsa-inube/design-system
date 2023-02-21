@@ -1,6 +1,7 @@
 import React from "react";
-import { Button } from "../index";
+import { Button, spacings } from "../index";
 import { ButtonController } from "./ButtonController";
+import { StyledFlex } from "./stories.styles";
 
 import {
   isLoading,
@@ -9,14 +10,13 @@ import {
   iconBefore,
   iconAfter,
   type,
-  spacing,
   variant,
   isFullWidth,
   handleClick,
 } from "./props";
 
 const story = {
-  title: "inputs/Button/Default",
+  title: "inputs/Button/Spacing",
   components: [Button],
   decorators: [
     (Story) => (
@@ -27,8 +27,20 @@ const story = {
   ],
 };
 
-export const Default = (args) => <ButtonController {...args} />;
-Default.args = {
+const ButtonComponent = (props) => {
+  return (
+    <StyledFlex>
+      {spacings.map((spacing) => (
+        <div key={spacing}>
+          <ButtonController {...props} spacing={spacing} />
+        </div>
+      ))}
+    </StyledFlex>
+  );
+};
+
+export const Spacing = (args) => <ButtonComponent {...args} />;
+Spacing.args = {
   children: "Button",
   appearance: "primary",
   isLoading: false,
@@ -36,19 +48,17 @@ Default.args = {
   iconBefore: "+",
   // iconAfter: "+",
   type: "text",
-  spacing: "wide",
   variant: "filled",
   isFullWidth: false,
   handleClick: () => {},
 };
-Default.argTypes = {
+Spacing.argTypes = {
   isLoading,
   appearance,
   isDisabled,
   iconBefore,
   iconAfter,
   type,
-  spacing,
   variant,
   isFullWidth,
   handleClick,

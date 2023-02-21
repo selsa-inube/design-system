@@ -1,11 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { StyledButton, StyledSpan, StyledIcon } from "./styles";
+import {
+  StyledButton,
+  StyledSpan,
+  StyledIcon,
+  StyledSpanContainer,
+} from "./styles";
 import { Spinner } from "./../../feedback/Spinner";
 import { colors } from "../../../shared/colors/colors";
 
 export const appearances = Object.keys(colors.sys.actions);
-const colorHomologation = {
+const colorHomologationSpinner = {
   primary: "blue",
   secondary: "white",
   confirm: "green",
@@ -55,23 +60,25 @@ const Button = (props) => {
         <Spinner
           appearance={
             isDisabled
-              ? colorHomologation.secondary
+              ? colorHomologationSpinner.secondary
               : variant !== "filled"
-              ? colorHomologation[appearance]
-              : colorHomologation.secondary
+              ? colorHomologationSpinner[appearance]
+              : colorHomologationSpinner.secondary
           }
           isTransparent={variant !== "filled" ? false : true}
           size={"medium"}
         />
       ) : (
-        <StyledSpan
-          isDisabled={isDisabled}
-          variant={variants.includes(variant) ? variant : defaultVariant}
-        >
-          <StyledIcon id="mdIcon">{iconBefore}</StyledIcon>
-          {children}
-          <StyledIcon id="mdIcon">{iconAfter}</StyledIcon>
-        </StyledSpan>
+        <StyledSpanContainer>
+          <StyledSpan
+            isDisabled={isDisabled}
+            variant={variants.includes(variant) ? variant : defaultVariant}
+          >
+            <StyledIcon id="mdIcon">{iconBefore}</StyledIcon>
+            {children}
+            <StyledIcon id="mdIcon">{iconAfter}</StyledIcon>
+          </StyledSpan>
+        </StyledSpanContainer>
       )}
     </StyledButton>
   );
@@ -79,16 +86,16 @@ const Button = (props) => {
 
 Button.propTypes = {
   children: PropTypes.node,
-  appearance: PropTypes.oneOf(appearances),
+  appearance: PropTypes.oneOf(appearances).isRequired,
   isLoading: PropTypes.bool,
   isDisabled: PropTypes.bool,
   iconBefore: PropTypes.node,
   iconAfter: PropTypes.node,
-  type: PropTypes.oneOf(types),
-  spacing: PropTypes.oneOf(spacings),
-  variant: PropTypes.oneOf(variants),
+  type: PropTypes.oneOf(types).isRequired,
+  spacing: PropTypes.oneOf(spacings).isRequired,
+  variant: PropTypes.oneOf(variants).isRequired,
   isFullWidth: PropTypes.bool,
-  handleClick: PropTypes.func,
+  handleClick: PropTypes.func.isRequired,
 };
 
 export { Button };

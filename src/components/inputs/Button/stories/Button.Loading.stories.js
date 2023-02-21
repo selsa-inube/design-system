@@ -1,9 +1,9 @@
 import React from "react";
-import { Button } from "../index";
+import { Button, variants } from "../index";
 import { ButtonController } from "./ButtonController";
+import { StyledFlex } from "./stories.styles";
 
 import {
-  isLoading,
   appearance,
   isDisabled,
   iconBefore,
@@ -16,7 +16,7 @@ import {
 } from "./props";
 
 const story = {
-  title: "inputs/Button/Default",
+  title: "inputs/Button/Loading",
   components: [Button],
   decorators: [
     (Story) => (
@@ -27,11 +27,22 @@ const story = {
   ],
 };
 
-export const Default = (args) => <ButtonController {...args} />;
-Default.args = {
+const ButtonComponent = (props) => {
+  return (
+    <StyledFlex>
+      {variants.map((variant) => (
+        <div key={variant}>
+          <ButtonController {...props} variant={variant} isLoading={true} />
+        </div>
+      ))}
+    </StyledFlex>
+  );
+};
+
+export const Loading = (args) => <ButtonComponent {...args} />;
+Loading.args = {
   children: "Button",
   appearance: "primary",
-  isLoading: false,
   isDisabled: false,
   iconBefore: "+",
   // iconAfter: "+",
@@ -41,8 +52,7 @@ Default.args = {
   isFullWidth: false,
   handleClick: () => {},
 };
-Default.argTypes = {
-  isLoading,
+Loading.argTypes = {
   appearance,
   isDisabled,
   iconBefore,

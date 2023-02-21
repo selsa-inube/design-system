@@ -1,13 +1,12 @@
 import React from "react";
 import { Button } from "../index";
 import { ButtonController } from "./ButtonController";
+import { StyledFlex } from "./stories.styles";
 
 import {
   isLoading,
   appearance,
   isDisabled,
-  iconBefore,
-  iconAfter,
   type,
   spacing,
   variant,
@@ -16,7 +15,7 @@ import {
 } from "./props";
 
 const story = {
-  title: "inputs/Button/Default",
+  title: "inputs/Button/Icons",
   components: [Button],
   decorators: [
     (Story) => (
@@ -27,26 +26,38 @@ const story = {
   ],
 };
 
-export const Default = (args) => <ButtonController {...args} />;
-Default.args = {
+const ButtonComponent = (props) => {
+  return (
+    <StyledFlex>
+      {[0, 1, 2].map((item) => (
+        <div key={item}>
+          <ButtonController
+            {...props}
+            iconBefore={item === 0 ? "+" : null}
+            iconAfter={item === 1 ? "+" : null}
+          />
+        </div>
+      ))}
+    </StyledFlex>
+  );
+};
+
+export const Icons = (args) => <ButtonComponent {...args} />;
+Icons.args = {
   children: "Button",
   appearance: "primary",
   isLoading: false,
   isDisabled: false,
-  iconBefore: "+",
-  // iconAfter: "+",
   type: "text",
   spacing: "wide",
   variant: "filled",
   isFullWidth: false,
   handleClick: () => {},
 };
-Default.argTypes = {
+Icons.argTypes = {
   isLoading,
   appearance,
   isDisabled,
-  iconBefore,
-  iconAfter,
   type,
   spacing,
   variant,

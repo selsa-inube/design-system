@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "../index";
 import { ButtonController } from "./ButtonController";
+import { StyledFlex } from "./stories.styles";
 
 import {
   isLoading,
@@ -11,12 +12,11 @@ import {
   type,
   spacing,
   variant,
-  isFullWidth,
   handleClick,
 } from "./props";
 
 const story = {
-  title: "inputs/Button/Default",
+  title: "inputs/Button/FullWidth",
   components: [Button],
   decorators: [
     (Story) => (
@@ -27,8 +27,16 @@ const story = {
   ],
 };
 
-export const Default = (args) => <ButtonController {...args} />;
-Default.args = {
+const ButtonComponent = (props) => {
+  return (
+    <StyledFlex>
+      <ButtonController {...props} isFullWidth={true} />
+    </StyledFlex>
+  );
+};
+
+export const FullWidth = (args) => <ButtonComponent {...args} />;
+FullWidth.args = {
   children: "Button",
   appearance: "primary",
   isLoading: false,
@@ -38,10 +46,9 @@ Default.args = {
   type: "text",
   spacing: "wide",
   variant: "filled",
-  isFullWidth: false,
   handleClick: () => {},
 };
-Default.argTypes = {
+FullWidth.argTypes = {
   isLoading,
   appearance,
   isDisabled,
@@ -50,7 +57,6 @@ Default.argTypes = {
   type,
   spacing,
   variant,
-  isFullWidth,
   handleClick,
 };
 

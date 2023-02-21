@@ -1,6 +1,7 @@
 import React from "react";
-import { Button } from "../index";
+import { Button, variants } from "../index";
 import { ButtonController } from "./ButtonController";
+import { StyledFlex } from "./stories.styles";
 
 import {
   isLoading,
@@ -10,13 +11,12 @@ import {
   iconAfter,
   type,
   spacing,
-  variant,
   isFullWidth,
   handleClick,
 } from "./props";
 
 const story = {
-  title: "inputs/Button/Default",
+  title: "inputs/Button/Variants",
   components: [Button],
   decorators: [
     (Story) => (
@@ -27,8 +27,20 @@ const story = {
   ],
 };
 
-export const Default = (args) => <ButtonController {...args} />;
-Default.args = {
+const ButtonComponent = (props) => {
+  return (
+    <StyledFlex>
+      {variants.map((variant) => (
+        <div key={variant}>
+          <ButtonController {...props} variant={variant} />
+        </div>
+      ))}
+    </StyledFlex>
+  );
+};
+
+export const Variants = (args) => <ButtonComponent {...args} />;
+Variants.args = {
   children: "Button",
   appearance: "primary",
   isLoading: false,
@@ -37,11 +49,10 @@ Default.args = {
   // iconAfter: "+",
   type: "text",
   spacing: "wide",
-  variant: "filled",
   isFullWidth: false,
   handleClick: () => {},
 };
-Default.argTypes = {
+Variants.argTypes = {
   isLoading,
   appearance,
   isDisabled,
@@ -49,7 +60,6 @@ Default.argTypes = {
   iconAfter,
   type,
   spacing,
-  variant,
   isFullWidth,
   handleClick,
 };
