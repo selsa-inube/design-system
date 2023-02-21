@@ -1,4 +1,4 @@
-import { directionAligments, flexAligments, wrapControl } from "../index";
+import { directionAlignments, flexAlignments, wrapControl } from "../index";
 
 const children = {
   options: "",
@@ -18,7 +18,7 @@ const wrap = {
 };
 
 const direction = {
-  options: directionAligments,
+  options: directionAlignments,
   control: { type: "select" },
   description:
     "Defines if the elements will be organized in a row or column manner. ",
@@ -28,7 +28,7 @@ const direction = {
 };
 
 const justifyContent = {
-  options: flexAligments,
+  options: flexAlignments,
   control: { type: "select" },
   description:
     "Defines the horizontal alignment of elements when the direction is row or the vertical alignment of elements when direction is column. ",
@@ -38,7 +38,7 @@ const justifyContent = {
 };
 
 const alignItems = {
-  options: flexAligments,
+  options: flexAlignments,
   control: { type: "select" },
   description:
     "Defines the horizontal alignment of elements when the direction is column or the vertical alignment of elements when direction is row. ",

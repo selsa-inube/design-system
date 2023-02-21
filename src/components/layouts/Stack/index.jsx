@@ -2,8 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import { StyledFlex } from "./styles";
 
-export const directionAligments = ["row", "column"];
-export const flexAligments = [
+export const directionAlignments = ["row", "column"];
+export const flexAlignments = [
   "flex-start",
   "flex-end",
   "center",
@@ -28,13 +28,13 @@ const Stack = (props) => {
     gap = "0px",
   } = props;
 
-  const transformedDirection = directionAligments.includes(direction)
+  const transformedDirection = directionAlignments.includes(direction)
     ? direction
     : defaultDirection;
-  const transformedAlignItems = flexAligments.includes(alignItems)
+  const transformedAlignItems = flexAlignments.includes(alignItems)
     ? alignItems
     : defaultAlignItems;
-  const transformedJustifyContent = flexAligments.includes(justifyContent)
+  const transformedJustifyContent = flexAlignments.includes(justifyContent)
     ? justifyContent
     : defaultJustifyContent;
   const transformedWrap = wrapControl.includes(wrap)
@@ -60,9 +60,9 @@ Stack.propTypes = {
     PropTypes.arrayOf(PropTypes.element),
   ]),
   wrap: PropTypes.oneOf(wrapControl),
-  direction: PropTypes.oneOf(directionAligments).isRequired,
-  justifyContent: PropTypes.oneOf(flexAligments).isRequired,
-  alignItems: PropTypes.oneOf(flexAligments).isRequired,
+  direction: PropTypes.oneOf(directionAlignments).isRequired,
+  justifyContent: PropTypes.oneOf(flexAlignments).isRequired,
+  alignItems: PropTypes.oneOf(flexAlignments).isRequired,
   gap: PropTypes.string,
 };
 
