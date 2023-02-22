@@ -34,12 +34,17 @@ const Button = (props) => {
     isDisabled = false,
     iconBefore,
     iconAfter,
-    type = "text",
-    spacing,
-    variant,
-    isFullWidth,
+    type = defaultType,
+    spacing = defaultSpacing,
+    variant = defaultVariant,
+    isFullWidth = false,
     handleClick,
   } = props;
+  const spinnerColor = isDisabled
+    ? colorHomologationSpinner.secondary
+    : variant !== "filled"
+    ? colorHomologationSpinner[appearance]
+    : colorHomologationSpinner.secondary;
 
   return (
     <StyledButton
@@ -58,15 +63,9 @@ const Button = (props) => {
     >
       {isLoading ? (
         <Spinner
-          appearance={
-            isDisabled
-              ? colorHomologationSpinner.secondary
-              : variant !== "filled"
-              ? colorHomologationSpinner[appearance]
-              : colorHomologationSpinner.secondary
-          }
+          appearance={spinnerColor}
           isTransparent={variant !== "filled" ? false : true}
-          size={"medium"}
+          size={spacing === "wide" ? "medium" : "small"}
         />
       ) : (
         <StyledSpanContainer>
