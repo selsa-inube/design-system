@@ -4,6 +4,7 @@ import { ButtonController } from "./ButtonController";
 import { StyledFlex } from "./stories.styles";
 
 import {
+  children,
   isLoading,
   appearance,
   isDisabled,
@@ -49,6 +50,7 @@ FullWidth.args = {
   handleClick: () => {},
 };
 FullWidth.argTypes = {
+  children,
   isLoading,
   appearance,
   isDisabled,

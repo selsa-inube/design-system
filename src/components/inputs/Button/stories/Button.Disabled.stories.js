@@ -4,6 +4,7 @@ import { ButtonController } from "./ButtonController";
 import { StyledFlex } from "./stories.styles";
 
 import {
+  children,
   isLoading,
   appearance,
   iconBefore,
@@ -53,6 +54,7 @@ Disabled.args = {
   handleClick: () => {},
 };
 Disabled.argTypes = {
+  children,
   isLoading,
   appearance,
   iconBefore,

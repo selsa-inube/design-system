@@ -1,5 +1,10 @@
 import { appearances, types, spacings, variants } from "./../index";
 
+const children = {
+  control: { type: "text" },
+  description: "the text to be displayed",
+};
+
 const isLoading = {
   options: [false, true],
   control: { type: "boolean" },
@@ -73,6 +78,7 @@ const handleClick = {
 };
 
 export {
+  children,
   isLoading,
   appearance,
   isDisabled,

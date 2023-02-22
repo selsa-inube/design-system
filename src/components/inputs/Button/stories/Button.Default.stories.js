@@ -3,6 +3,7 @@ import { Button } from "../index";
 import { ButtonController } from "./ButtonController";
 
 import {
+  children,
   isLoading,
   appearance,
   isDisabled,
@@ -42,6 +43,7 @@ Default.args = {
   handleClick: () => {},
 };
 Default.argTypes = {
+  children,
   isLoading,
   appearance,
   isDisabled,

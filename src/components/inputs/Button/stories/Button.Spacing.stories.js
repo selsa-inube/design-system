@@ -4,6 +4,7 @@ import { ButtonController } from "./ButtonController";
 import { StyledFlex } from "./stories.styles";
 
 import {
+  children,
   isLoading,
   appearance,
   isDisabled,
@@ -53,6 +54,7 @@ Spacing.args = {
   handleClick: () => {},
 };
 Spacing.argTypes = {
+  children,
   isLoading,
   appearance,
   isDisabled,
