@@ -54,7 +54,6 @@ const spacing = {
 const variant = {
   options: variants,
   control: { type: "select" },
-  description: "pass type down to a button",
   table: {
     defaultValue: { summary: "filled" },
   },
