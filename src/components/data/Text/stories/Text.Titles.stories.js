@@ -1,9 +1,7 @@
-import Text from "../index";
+import { Text } from "..";
 
-import { TYPO_OPTIONS, APPEARANCE_OPTIONS } from "../index";
-
-import { typography } from "../../../shared/typography/typography";
-import { colors } from "../../../shared/colors/colors";
+import { typography } from "../../../../shared/typography/typography";
+import { colors } from "../../../../shared/colors/colors";
 import { StyledContainer } from "./styles";
 import {
   parameters,
@@ -23,15 +21,6 @@ const story = {
   parameters,
 };
 
-const numberRandom = [
-  Math.floor(Math.random() * TYPO_OPTIONS.length),
-  Math.floor(Math.random() * APPEARANCE_OPTIONS.length),
-];
-const propsRandom = [
-  TYPO_OPTIONS[numberRandom[0]],
-  APPEARANCE_OPTIONS[numberRandom[1]],
-];
-
 const TypoRoleProperties = ({ typo, align, appearance, margin, padding }) => {
   const typographyStory = {
     "font-family": `${typography.ref.typeface.brand}`,
@@ -50,7 +39,13 @@ const TypoRoleProperties = ({ typo, align, appearance, margin, padding }) => {
   return (
     <>
       {assignationTypo.map(([key, value]) => (
-        <Text key={key}>
+        <Text
+          key={key}
+          typo={typo}
+          align={align}
+          appearance={appearance}
+          as="p"
+        >
           {key}: {value}
         </Text>
       ))}
@@ -58,7 +53,7 @@ const TypoRoleProperties = ({ typo, align, appearance, margin, padding }) => {
   );
 };
 
-const Title = ({ ...args }) => {
+const Title = (args) => {
   return (
     <StyledContainer>
       <Text {...args}>{args.children}</Text>
@@ -77,12 +72,14 @@ const Title = ({ ...args }) => {
 
 Title.args = {
   children: "Title with the Text component",
+  as: "p",
   align: "start",
   margin: "0px",
   padding: "0px",
-  appearance: propsRandom[1],
-  typo: propsRandom[0],
+  appearance: "dark",
+  typo: "bodyMedium",
 };
+
 Title.argTypes = {
   children,
   id,

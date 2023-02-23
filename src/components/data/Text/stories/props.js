@@ -1,9 +1,10 @@
 import {
-  ALIGN_OPTIONS,
-  HTML_ELEMENTS,
-  APPEARANCE_OPTIONS,
-  TYPO_OPTIONS,
-} from "../index";
+  alignsOptios,
+  htmlElements,
+  appearencesOptions,
+  typosOptions,
+} from "..";
+
 const parameters = {
   docs: {
     description: {
@@ -14,7 +15,7 @@ const parameters = {
 };
 
 const align = {
-  options: ALIGN_OPTIONS,
+  options: alignsOptios,
   control: { type: "select" },
   description: "This prop controls the text-align style property.",
   table: {
@@ -39,7 +40,7 @@ const padding = {
 };
 
 const as = {
-  options: HTML_ELEMENTS,
+  options: htmlElements,
   control: { type: "select" },
   description:
     "This prop allows us to control the tag that we will inject in the DOM.",
@@ -54,7 +55,7 @@ const id = {
 };
 
 const appearance = {
-  options: APPEARANCE_OPTIONS,
+  options: appearencesOptions,
   control: { type: "select" },
   description:
     "This prop is used to select one of the color system tokens of the role Text as defined in the Foundations.",
@@ -64,7 +65,7 @@ const appearance = {
 };
 
 const typo = {
-  options: TYPO_OPTIONS,
+  options: typosOptions,
   control: { type: "select" },
   description:
     "This prop is used to select one of the typography roles defined in the Foundations.",

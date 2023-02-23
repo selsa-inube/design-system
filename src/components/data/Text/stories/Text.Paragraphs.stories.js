@@ -1,4 +1,4 @@
-import Text from "../index";
+import { Text } from "..";
 
 import {
   parameters,
@@ -32,7 +32,7 @@ const filteredParagraphs = loremIpsum
   .split("\n")
   .filter((paragraph) => paragraph.trim() !== "");
 
-const Paragraphs = ({ ...args }) => {
+const Paragraphs = (args) => {
   return (
     <>
       {filteredParagraphs.map((paragraph, index) => (
@@ -46,7 +46,7 @@ const Paragraphs = ({ ...args }) => {
 
 Paragraphs.args = {
   id: "idComponent",
-  as: "p",
+  as: "h1",
   align: "start",
   margin: "0px",
   padding: "0px",

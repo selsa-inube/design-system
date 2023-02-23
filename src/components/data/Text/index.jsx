@@ -1,8 +1,8 @@
 import React from "react";
 import PropsType from "prop-types";
 
-import { colors } from "../../shared/colors/colors";
-import { typography } from "../../shared/typography/typography";
+import { colors } from "../../../shared/colors/colors";
+import { typography } from "../../../shared/typography/typography";
 
 import { StylesText } from "./styles";
 
@@ -10,11 +10,11 @@ import { StylesText } from "./styles";
 const regex = /^[0-9]+px(\s+[0-9]+px){0,3}$/;
 
 /**global values for the css properties margin and padding*/
-const GLOBAL_VALUES_PROPERTIES_CSS = ["inherit", "initial", "unset", "auto"];
+const globalValuesPropertiesCss = ["inherit", "initial", "unset", "auto"];
 
-const ALIGN_OPTIONS = ["start", "center", "end", "justify"];
+const alignsOptios = ["start", "center", "end", "justify"];
 
-const HTML_ELEMENTS = [
+const htmlElements = [
   "h1",
   "h2",
   "h3",
@@ -29,26 +29,23 @@ const HTML_ELEMENTS = [
 ];
 
 /**the object keys refer to the colour tokens of system of the text role*/
-const APPEARANCE_OPTIONS = Object.entries(colors.sys.text).map(([key]) => {
+const appearencesOptions = Object.entries(colors.sys.text).map(([key]) => {
   return key;
 });
 
 /**the object keys refer to the roles of the type system tokens*/
-const TYPO_OPTIONS = Object.entries(typography.sys.typescale).map(([key]) => {
+const typosOptions = Object.entries(typography.sys.typescale).map(([key]) => {
   return key;
 });
 
-const DEFAULTS_VALUES_PROPS = {
-  align: "start",
-  as: "p",
-  appearance: "dark",
-  typo: "bodyLarge",
-  margin: "0px",
-  padding: "0px",
-};
+const defaultAlign = "start";
+const defaultHtmlElement = "p";
+const defaultAppearance = "dark";
+const defaultTypo = "bodyLarge";
+const defaultMargin = "0px";
+const defaultPadding = "0px";
 
 //Function trasnformed
-
 const transformPropValue = (value, allowedValues, defaultValue) => {
   if (allowedValues.includes(value)) {
     return value;
@@ -77,40 +74,36 @@ const Text = (props) => {
 
   const transformedAlign = transformPropValue(
     align,
-    ALIGN_OPTIONS,
-    DEFAULTS_VALUES_PROPS.align
+    alignsOptios,
+    defaultAlign
   );
 
   const transformedAs = transformPropValue(
     as,
-    HTML_ELEMENTS,
-    DEFAULTS_VALUES_PROPS.as
+    htmlElements,
+    defaultHtmlElement
   );
 
   const transformedAppearance = transformPropValue(
     appearance,
-    APPEARANCE_OPTIONS,
-    DEFAULTS_VALUES_PROPS.appearance
+    appearencesOptions,
+    defaultAppearance
   );
 
-  const transformedTypo = transformPropValue(
-    typo,
-    TYPO_OPTIONS,
-    DEFAULTS_VALUES_PROPS.typo
-  );
+  const transformedTypo = transformPropValue(typo, typosOptions, defaultTypo);
 
   const transformedMargin = transformCssValue(
     margin,
     regex,
-    GLOBAL_VALUES_PROPERTIES_CSS,
-    DEFAULTS_VALUES_PROPS.margin
+    globalValuesPropertiesCss,
+    defaultMargin
   );
 
   const transformedPadding = transformCssValue(
     padding,
     regex,
-    GLOBAL_VALUES_PROPERTIES_CSS,
-    DEFAULTS_VALUES_PROPS.padding
+    globalValuesPropertiesCss,
+    defaultPadding
   );
 
   return (
@@ -130,21 +123,19 @@ const Text = (props) => {
 
 Text.propTypes = {
   children: PropsType.node,
-  align: PropsType.oneOf(ALIGN_OPTIONS).isRequired,
+  align: PropsType.oneOf(alignsOptios).isRequired,
   margin: PropsType.oneOfType([
     PropsType.string,
-    PropsType.oneOf(GLOBAL_VALUES_PROPERTIES_CSS),
+    PropsType.oneOf(globalValuesPropertiesCss),
   ]),
   padding: PropsType.oneOfType([
     PropsType.string,
-    PropsType.oneOf(GLOBAL_VALUES_PROPERTIES_CSS),
+    PropsType.oneOf(globalValuesPropertiesCss),
   ]),
-  as: PropsType.oneOf(HTML_ELEMENTS).isRequired,
+  as: PropsType.oneOf(htmlElements).isRequired,
   id: PropsType.string,
-  appearance: PropsType.oneOf(APPEARANCE_OPTIONS).isRequired,
-  typo: PropsType.oneOf(TYPO_OPTIONS).isRequired,
+  appearance: PropsType.oneOf(appearencesOptions).isRequired,
+  typo: PropsType.oneOf(typosOptions).isRequired,
 };
 
-export default Text;
-
-export { HTML_ELEMENTS, ALIGN_OPTIONS, APPEARANCE_OPTIONS, TYPO_OPTIONS };
+export { Text, htmlElements, alignsOptios, appearencesOptions, typosOptions };
