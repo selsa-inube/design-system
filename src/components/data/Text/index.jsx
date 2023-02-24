@@ -9,7 +9,6 @@ import { StylesText } from "./styles";
 /**it is validated that the values entered are in pixels and valid according to the css property margin and padding. */
 const regex = /^[0-9]+px(\s+[0-9]+px){0,3}$/;
 
-/**global values for the css properties margin and padding*/
 const globalValuesPropertiesCss = ["inherit", "initial", "unset", "auto"];
 
 const alignsOptios = ["start", "center", "end", "justify"];
@@ -28,12 +27,10 @@ const htmlElements = [
   "blockquote",
 ];
 
-/**the object keys refer to the colour tokens of system of the text role*/
 const appearencesOptions = Object.entries(colors.sys.text).map(([key]) => {
   return key;
 });
 
-/**the object keys refer to the roles of the type system tokens*/
 const typosOptions = Object.entries(typography.sys.typescale).map(([key]) => {
   return key;
 });
@@ -45,7 +42,6 @@ const defaultTypo = "bodyLarge";
 const defaultMargin = "0px";
 const defaultPadding = "0px";
 
-//Function trasnformed
 const transformPropValue = (value, allowedValues, defaultValue) => {
   if (allowedValues.includes(value)) {
     return value;
