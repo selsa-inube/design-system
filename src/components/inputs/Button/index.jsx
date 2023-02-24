@@ -1,7 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { StyledButton, StyledSpan, StyledIcon } from "./styles";
-import { Spinner } from "./../../feedback/Spinner";
+import {
+  Spinner,
+  appearances as SpinnerAppearances,
+} from "./../../feedback/Spinner";
 import { colors } from "../../../shared/colors/colors";
 
 export const appearances = Object.keys(colors.sys.actions);
@@ -14,14 +17,28 @@ const colorHomologationSpinner = {
   help: "purple",
 };
 const getSpinnerColor = (isDisabled, variant, appearance) => {
+  const homologationSpinnerColor = colorHomologationSpinner.secondary;
+  const isDarkSpinnerAppearance = SpinnerAppearances.includes("dark");
+
   if (isDisabled) {
-    return colorHomologationSpinner.secondary;
-  } else if (variant !== "filled") {
-    return colorHomologationSpinner[appearance];
-  } else {
-    return colorHomologationSpinner.secondary;
+    return homologationSpinnerColor;
   }
+
+  if (variant !== "filled") {
+    return appearance === "secondary"
+      ? isDarkSpinnerAppearance
+        ? "dark"
+        : homologationSpinnerColor
+      : colorHomologationSpinner[appearance];
+  }
+
+  return appearance === "secondary"
+    ? isDarkSpinnerAppearance
+      ? "dark"
+      : homologationSpinnerColor
+    : homologationSpinnerColor;
 };
+
 export const types = ["text", "submit", "reset"];
 export const spacings = ["wide", "compact"];
 export const variants = ["filled", "outlined", "none"];
