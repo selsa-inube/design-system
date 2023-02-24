@@ -18,6 +18,15 @@ const colorHomologationSpinner = {
   remove: "red",
   help: "purple",
 };
+const getSpinnerColor = (isDisabled, variant, appearance) => {
+  if (isDisabled) {
+    return colorHomologationSpinner.secondary;
+  } else if (variant !== "filled") {
+    return colorHomologationSpinner[appearance];
+  } else {
+    return colorHomologationSpinner.secondary;
+  }
+};
 export const types = ["text", "submit", "reset"];
 export const spacings = ["wide", "compact"];
 export const variants = ["filled", "outlined", "none"];
@@ -25,6 +34,7 @@ const defaultAppearance = "primary";
 const defaultType = "text";
 const defaultSpacing = "wide";
 const defaultVariant = "filled";
+const defaultSpinnerSize = "small";
 
 const Button = (props) => {
   const {
@@ -40,39 +50,45 @@ const Button = (props) => {
     isFullWidth = false,
     handleClick,
   } = props;
-  const spinnerColor = isDisabled
-    ? colorHomologationSpinner.secondary
-    : variant !== "filled"
-    ? colorHomologationSpinner[appearance]
-    : colorHomologationSpinner.secondary;
+
+  const transformedAppearance = appearances.includes(appearance)
+    ? appearance
+    : defaultAppearance;
+  const transformedType = types.includes(type) ? type : defaultType;
+  const transformedSpacing = spacings.includes(spacing)
+    ? spacing
+    : defaultSpacing;
+  const transformedVariant = variants.includes(variant)
+    ? variant
+    : defaultVariant;
+  const transformedTransparentSpinner = transformedVariant === "filled";
 
   return (
     <StyledButton
-      appearance={
-        appearances.includes(appearance) ? appearance : defaultAppearance
-      }
+      appearance={transformedAppearance}
       isLoading={isLoading}
       isDisabled={isDisabled}
       iconBefore={iconBefore}
       iconAfter={iconAfter}
-      type={types.includes(type) ? type : defaultType}
-      spacing={spacings.includes(spacing) ? spacing : defaultSpacing}
-      variant={variants.includes(variant) ? variant : defaultVariant}
+      type={transformedType}
+      spacing={transformedSpacing}
+      variant={transformedVariant}
       isFullWidth={isFullWidth}
       onClick={handleClick}
     >
       {isLoading ? (
         <Spinner
-          appearance={spinnerColor}
-          isTransparent={variant !== "filled" ? false : true}
-          size={spacing === "wide" ? "medium" : "small"}
+          appearance={getSpinnerColor(
+            isDisabled,
+            transformedVariant,
+            transformedAppearance
+          )}
+          isTransparent={transformedTransparentSpinner}
+          size={defaultSpinnerSize}
         />
       ) : (
         <StyledSpanContainer>
-          <StyledSpan
-            isDisabled={isDisabled}
-            variant={variants.includes(variant) ? variant : defaultVariant}
-          >
+          <StyledSpan isDisabled={isDisabled} variant={transformedVariant}>
             <StyledIcon id="mdIcon">{iconBefore}</StyledIcon>
             {children}
             <StyledIcon id="mdIcon">{iconAfter}</StyledIcon>
