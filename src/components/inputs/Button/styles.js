@@ -11,12 +11,10 @@ const colorActionsSysHover = {
   removeHover: colors.ref.palette.red.r300,
   helpHover: colors.ref.palette.purple.p300,
 };
-const StyledSpanContainer = styled.div`
-  display: block;
-`;
 const StyledSpan = styled.span`
   display: flex;
   justify-content: space-between;
+  gap: 4px;
   overflow: hidden;
 
   ${(props) =>
@@ -32,55 +30,176 @@ const StyledSpan = styled.span`
         `}
 `;
 
+// const StyledButton = styled.button`
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   padding: 0px 16px;
+//   border-radius: 8px;
+//   width: 100%;
+//   transition: all 0.3s ease;
+//   border: none;
+//   cursor: pointer;
+
+//   background-color: ${(props) => colors.sys.actions[props.appearance]};
+//   &:hover {
+//     background-color: ${(props) =>
+//       colorActionsSysHover[props.appearance + "Hover"]};
+//   }
+//   ${(props) =>
+//     props.spacing === "wide"
+//       ? css`
+//           height: 36px;
+//           width: 101px;
+//           font-size: 16px;
+//           ${typography.sys.typescale.titleMedium}
+//         `
+//       : css`
+//           height: 28px;
+//           width: 93px;
+//           ${typography.sys.typescale.labelLarge}
+//         `}
+//   ${(props) =>
+//     props.isFullWidth
+//       ? css`
+//           box-sizing: content-box;
+//           max-width: inherit;
+//           && > div {
+//             display: flex;
+//             justify-content: center;
+//             span {
+//               width: 100%;
+//               max-width: 100px;
+//             }
+//           }
+//         `
+//       : css`
+//           box-sizing: none;
+//         `}
+//   ${(props) =>
+//     props.isDisabled &&
+//     css`
+//       background-color: ${colors.ref.palette.neutral.n30};
+//       pointer-events: none;
+//     `}
+//   ${(props) =>
+//     props.variant === "outlined" &&
+//     css`
+//       background-color: transparent;
+//       color: ${(props) => colors.sys.actions[props.appearance]};
+//       border: 1px solid ${(props) => colors.sys.actions[props.appearance]};
+//       ${(props) =>
+//         props.isDisabled &&
+//         css`
+//           border: 1px solid ${colors.ref.palette.neutral.n30};
+//         `}
+
+//       &:hover {
+//         background-color: transparent;
+//         color: ${(props) => colorActionsSysHover[props.appearance + "Hover"]};
+//         border: 1px solid
+//           ${(props) => colorActionsSysHover[props.appearance + "Hover"]};
+//       }
+//     `}
+
+//   ${(props) =>
+//     props.variant === "none" &&
+//     css`
+//       background-color: transparent;
+//       color: ${(props) => colors.sys.actions[props.appearance]};
+//       border: none;
+//       &:hover {
+//         background-color: transparent;
+//         color: ${(props) => colorActionsSysHover[props.appearance + "Hover"]};
+//         border: none;
+//       }
+//     `}
+
+// ${(props) =>
+//     props.isFullWidth &&
+//     css`
+//       width: 100%;
+//     `}
+
+// ${(props) =>
+//     props.isLoading &&
+//     css`
+//       pointer-events: none;
+//     `}
+// `;
 const StyledButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 0px 16px;
   border-radius: 8px;
-  width: 100%;
   transition: all 0.3s ease;
   border: none;
   cursor: pointer;
+
+  ${(props) =>
+    props.isDisabled
+      ? css`
+          color: ${colors.ref.palette.neutral.n60};
+        `
+      : css`
+          color: ${(props) =>
+            props.variant !== "filled"
+              ? colors.sys.actions[props.appearance]
+              : colors.ref.palette.neutral.n0};
+        `}
 
   background-color: ${(props) => colors.sys.actions[props.appearance]};
   &:hover {
     background-color: ${(props) =>
       colorActionsSysHover[props.appearance + "Hover"]};
   }
+
   ${(props) =>
     props.spacing === "wide"
       ? css`
           height: 36px;
-          width: 101px;
+          min-width: 101px;
           font-size: 16px;
           ${typography.sys.typescale.titleMedium}
         `
       : css`
           height: 28px;
-          width: 93px;
+          min-width: 93px;
           ${typography.sys.typescale.labelLarge}
         `}
+
   ${(props) =>
-    props.isFullWidth
-      ? css`
-          box-sizing: content-box;
-          max-width: inherit;
-          && > div {
-            display: flex;
-            justify-content: center;
-            span {
-              width: 100%;
-              max-width: 100px;
-            }
-          }
-        `
-      : css`
-          box-sizing: none;
-        `}
+    props.isFullWidth &&
+    css`
+      width: 100%;
+      max-width: none;
+
+      && > div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        min-width: inherit;
+        max-width: 200px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        span {
+          width: 100%;
+          max-width: 100px;
+        }
+      }
+    `}
+
   ${(props) =>
     props.isDisabled &&
     css`
       background-color: ${colors.ref.palette.neutral.n30};
       pointer-events: none;
     `}
+
   ${(props) =>
     props.variant === "outlined" &&
     css`
@@ -114,22 +233,17 @@ const StyledButton = styled.button`
       }
     `}
 
-${(props) =>
-    props.isFullWidth &&
-    css`
-      width: 100%;
-    `}
-
-${(props) =>
+  ${(props) =>
     props.isLoading &&
     css`
       pointer-events: none;
     `}
 `;
+
 const StyledIcon = styled.div`
   color: ${(props) =>
     props.variant !== "filled"
       ? colors.sys.actions[props.appearance]
       : colors.ref.palette.neutral.n0};
 `;
-export { StyledButton, StyledSpan, StyledIcon, StyledSpanContainer };
+export { StyledButton, StyledSpan, StyledIcon };

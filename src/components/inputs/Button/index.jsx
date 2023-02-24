@@ -1,11 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {
-  StyledButton,
-  StyledSpan,
-  StyledIcon,
-  StyledSpanContainer,
-} from "./styles";
+import { StyledButton, StyledSpan, StyledIcon } from "./styles";
 import { Spinner } from "./../../feedback/Spinner";
 import { colors } from "../../../shared/colors/colors";
 
@@ -87,13 +82,11 @@ const Button = (props) => {
           size={defaultSpinnerSize}
         />
       ) : (
-        <StyledSpanContainer>
-          <StyledSpan isDisabled={isDisabled} variant={transformedVariant}>
-            <StyledIcon id="mdIcon">{iconBefore}</StyledIcon>
-            {children}
-            <StyledIcon id="mdIcon">{iconAfter}</StyledIcon>
-          </StyledSpan>
-        </StyledSpanContainer>
+        <StyledSpan isDisabled={isDisabled} variant={transformedVariant}>
+          <StyledIcon id="mdIcon">{iconBefore}</StyledIcon>
+          {children}
+          <StyledIcon id="mdIcon">{iconAfter}</StyledIcon>
+        </StyledSpan>
       )}
     </StyledButton>
   );
