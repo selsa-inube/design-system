@@ -32,7 +32,7 @@ const getSpinnerColor = (isDisabled, variant, appearance) => {
       : colorHomologationSpinner[appearance];
   }
 
-  return appearance === "secondary"
+  return appearance === "secondary" || appearance === "warning"
     ? isDarkSpinnerAppearance
       ? "dark"
       : homologationSpinnerColor

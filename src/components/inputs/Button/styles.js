@@ -16,18 +16,6 @@ const StyledSpan = styled.span`
   justify-content: space-between;
   gap: 4px;
   overflow: hidden;
-
-  ${(props) =>
-    props.isDisabled
-      ? css`
-          color: ${colors.ref.palette.neutral.n60};
-        `
-      : css`
-          color: ${(props) =>
-            props.variant !== "filled"
-              ? colors.sys.actions[props.appearance]
-              : colors.ref.palette.neutral.n0};
-        `}
 `;
 
 const StyledButton = styled.button`
@@ -51,7 +39,11 @@ const StyledButton = styled.button`
               ? colors.sys.actions[props.appearance]
               : colors.ref.palette.neutral.n0};
         `}
-
+  ${(props) =>
+    (props.appearance === "secondary" || props.appearance === "warning") &&
+    css`
+      color: ${colors.ref.palette.neutral.n900};
+    `}
   background-color: ${(props) => colors.sys.actions[props.appearance]};
   &:hover {
     background-color: ${(props) =>
@@ -108,7 +100,16 @@ const StyledButton = styled.button`
     css`
       background-color: transparent;
       color: ${(props) => colors.sys.actions[props.appearance]};
-      border: 1px solid ${(props) => colors.sys.actions[props.appearance]};
+      ${(props) =>
+        props.appearance === "secondary" &&
+        css`
+          color: ${colors.ref.palette.neutral.n900};
+        `}
+      border: 1px solid ${(props) =>
+        props.appearance === "secondary"
+          ? colors.ref.palette.neutral.n900
+          : colors.sys.actions[props.appearance]};
+
       ${(props) =>
         props.isDisabled &&
         css`
@@ -117,9 +118,15 @@ const StyledButton = styled.button`
 
       &:hover {
         background-color: transparent;
-        color: ${(props) => colorActionsSysHover[props.appearance + "Hover"]};
+        color: ${(props) =>
+          props.appearance === "secondary"
+            ? colors.ref.palette.neutral.n500
+            : colorActionsSysHover[props.appearance + "Hover"]};
         border: 1px solid
-          ${(props) => colorActionsSysHover[props.appearance + "Hover"]};
+          ${(props) =>
+            props.appearance === "secondary"
+              ? colors.ref.palette.neutral.n500
+              : colorActionsSysHover[props.appearance + "Hover"]};
       }
     `}
 
@@ -127,11 +134,17 @@ const StyledButton = styled.button`
     props.variant === "none" &&
     css`
       background-color: transparent;
-      color: ${(props) => colors.sys.actions[props.appearance]};
+      color: ${(props) =>
+        props.appearance === "secondary"
+          ? colors.ref.palette.neutral.n900
+          : colors.sys.actions[props.appearance]};
       border: none;
       &:hover {
         background-color: transparent;
-        color: ${(props) => colorActionsSysHover[props.appearance + "Hover"]};
+        color: ${(props) =>
+          props.appearance === "secondary"
+            ? colors.ref.palette.neutral.n700
+            : colorActionsSysHover[props.appearance + "Hover"]};
         border: none;
       }
     `}
