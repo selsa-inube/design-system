@@ -47,7 +47,6 @@ Variants.args = {
   isLoading: false,
   isDisabled: false,
   iconBefore: "+",
-  // iconAfter: "+",
   type: "text",
   spacing: "wide",
   isFullWidth: false,

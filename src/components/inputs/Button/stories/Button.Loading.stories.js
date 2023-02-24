@@ -45,7 +45,6 @@ Loading.args = {
   appearance: "primary",
   isDisabled: false,
   iconBefore: "+",
-  // iconAfter: "+",
   type: "text",
   spacing: "wide",
   variant: "filled",

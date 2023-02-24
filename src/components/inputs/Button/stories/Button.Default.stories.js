@@ -35,7 +35,6 @@ Default.args = {
   isLoading: false,
   isDisabled: false,
   iconBefore: "+",
-  // iconAfter: "+",
   type: "text",
   spacing: "wide",
   variant: "filled",

@@ -43,10 +43,8 @@ const ButtonComponent = (props) => {
 export const Disabled = (args) => <ButtonComponent {...args} />;
 Disabled.args = {
   children: "Button",
-  appearance: "primary",
   isLoading: false,
   iconBefore: "+",
-  // iconAfter: "+",
   type: "text",
   spacing: "wide",
   variant: "filled",

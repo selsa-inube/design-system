@@ -47,7 +47,6 @@ Spacing.args = {
   isLoading: false,
   isDisabled: false,
   iconBefore: "+",
-  // iconAfter: "+",
   type: "text",
   variant: "filled",
   isFullWidth: false,
