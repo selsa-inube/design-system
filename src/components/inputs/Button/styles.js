@@ -24,14 +24,17 @@ const StyledButton = styled.button`
   align-items: center;
   padding: 0px 16px;
   border-radius: 8px;
+  font-family: ${typography.sys.typescale.titleMedium.font};
   transition: all 0.3s ease;
   border: none;
   cursor: pointer;
+
   color: ${(props) =>
     props.appearance === "secondary" || props.appearance === "warning"
       ? colors.ref.palette.neutral.n900
       : colors.ref.palette.neutral.n0};
   background-color: ${(props) => colors.sys.actions[props.appearance]};
+
   &:hover {
     background-color: ${(props) =>
       colorActionsSysHover[props.appearance + "Hover"]};
@@ -42,13 +45,12 @@ const StyledButton = styled.button`
       ? css`
           height: 36px;
           min-width: 101px;
-          font-size: 16px;
-          ${typography.sys.typescale.titleMedium}
+          font-size: ${typography.sys.typescale.titleMedium.size};
         `
       : css`
           height: 28px;
           min-width: 93px;
-          ${typography.sys.typescale.labelLarge}
+          font-size: ${typography.sys.typescale.labelLarge.size};
         `}
 
   ${(props) =>
