@@ -27,23 +27,10 @@ const StyledButton = styled.button`
   transition: all 0.3s ease;
   border: none;
   cursor: pointer;
-
-  ${(props) =>
-    props.isDisabled
-      ? css`
-          color: ${colors.ref.palette.neutral.n60};
-        `
-      : css`
-          color: ${(props) =>
-            props.variant !== "filled"
-              ? colors.sys.actions[props.appearance]
-              : colors.ref.palette.neutral.n0};
-        `}
-  ${(props) =>
-    (props.appearance === "secondary" || props.appearance === "warning") &&
-    css`
-      color: ${colors.ref.palette.neutral.n900};
-    `}
+  color: ${(props) =>
+    props.appearance === "secondary" || props.appearance === "warning"
+      ? colors.ref.palette.neutral.n900
+      : colors.ref.palette.neutral.n0};
   background-color: ${(props) => colors.sys.actions[props.appearance]};
   &:hover {
     background-color: ${(props) =>
@@ -74,8 +61,6 @@ const StyledButton = styled.button`
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 100%;
-        min-width: inherit;
         max-width: 200px;
         white-space: nowrap;
         overflow: hidden;
@@ -86,13 +71,6 @@ const StyledButton = styled.button`
           max-width: 100px;
         }
       }
-    `}
-
-  ${(props) =>
-    props.isDisabled &&
-    css`
-      background-color: ${colors.ref.palette.neutral.n30};
-      pointer-events: none;
     `}
 
   ${(props) =>
@@ -152,6 +130,14 @@ const StyledButton = styled.button`
   ${(props) =>
     props.isLoading &&
     css`
+      pointer-events: none;
+    `}
+
+    ${(props) =>
+    props.isDisabled &&
+    css`
+      background-color: ${colors.ref.palette.neutral.n30};
+      color: ${colors.ref.palette.neutral.n60};
       pointer-events: none;
     `}
 `;
