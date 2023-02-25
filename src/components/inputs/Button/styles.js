@@ -24,7 +24,7 @@ const StyledButton = styled.button`
   align-items: center;
   padding: 0px 16px;
   border-radius: 8px;
-  font-family: ${typography.sys.typescale.titleMedium.font};
+  font-family: ${typography.ref.typeface.brand};
   transition: all 0.3s ease;
   border: none;
   cursor: pointer;
