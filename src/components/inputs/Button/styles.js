@@ -75,6 +75,13 @@ const StyledButton = styled.button`
       }
     `}
 
+    ${(props) =>
+    props.isDisabled &&
+    css`
+      background-color: ${colors.ref.palette.neutral.n30};
+      color: ${colors.ref.palette.neutral.n60};
+      pointer-events: none;
+    `}
   ${(props) =>
     props.variant === "outlined" &&
     css`
@@ -93,6 +100,8 @@ const StyledButton = styled.button`
       ${(props) =>
         props.isDisabled &&
         css`
+          background-color: transparent;
+          color: ${colors.ref.palette.neutral.n60};
           border: 1px solid ${colors.ref.palette.neutral.n30};
         `}
 
@@ -119,6 +128,12 @@ const StyledButton = styled.button`
           ? colors.ref.palette.neutral.n900
           : colors.sys.actions[props.appearance]};
       border: none;
+      ${(props) =>
+        props.isDisabled &&
+        css`
+          background-color: transparent;
+          color: ${colors.ref.palette.neutral.n60};
+        `}
       &:hover {
         background-color: transparent;
         color: ${(props) =>
@@ -132,14 +147,6 @@ const StyledButton = styled.button`
   ${(props) =>
     props.isLoading &&
     css`
-      pointer-events: none;
-    `}
-
-    ${(props) =>
-    props.isDisabled &&
-    css`
-      background-color: ${colors.ref.palette.neutral.n30};
-      color: ${colors.ref.palette.neutral.n60};
       pointer-events: none;
     `}
 `;
