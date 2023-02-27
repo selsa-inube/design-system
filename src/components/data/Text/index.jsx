@@ -4,14 +4,14 @@ import PropsType from "prop-types";
 import { colors } from "../../../shared/colors/colors";
 import { typography } from "../../../shared/typography/typography";
 
-import { StylesText } from "./styles";
+import { StyledText } from "./styles";
 
 /**it is validated that the values entered are in pixels and valid according to the css property margin and padding. */
 const regex = /^[0-9]+px(\s+[0-9]+px){0,3}$/;
 
 const globalValuesPropertiesCss = ["inherit", "initial", "unset", "auto"];
 
-const alignsOptios = ["start", "center", "end", "justify"];
+const alignsOptions = ["start", "center", "end", "justify"];
 
 const htmlElements = [
   "h1",
@@ -27,11 +27,11 @@ const htmlElements = [
   "blockquote",
 ];
 
-const appearencesOptions = Object.entries(colors.sys.text).map(([key]) => {
+const appearencesOptions = Object.keys(colors.sys.text).map((key) => {
   return key;
 });
 
-const typosOptions = Object.entries(typography.sys.typescale).map(([key]) => {
+const typosOptions = Object.keys(typography.sys.typescale).map((key) => {
   return key;
 });
 
@@ -59,34 +59,24 @@ const transformCssValue = (value, regex, globalValuesCss, defaultValue) => {
 const Text = (props) => {
   const {
     children,
-    align = "start",
-    margin = "0px",
-    padding = "0px",
-    as = "p",
+    align = defaultAlign,
+    margin = defaultMargin,
+    padding = defaultPadding,
+    as = defaultHtmlElement,
     id,
-    appearance = "dark",
-    typo = "bodyLarge",
+    appearance = defaultAppearance,
+    typo = defaultTypo,
   } = props;
 
-  const transformedAlign = transformPropValue(
-    align,
-    alignsOptios,
-    defaultAlign
-  );
+  const transformedAlign = alignsOptions.includes(align) ? align : defaultAlign;
 
-  const transformedAs = transformPropValue(
-    as,
-    htmlElements,
-    defaultHtmlElement
-  );
+  const transformedAs = htmlElements.includes(as) ? as : defaultHtmlElement;
 
-  const transformedAppearance = transformPropValue(
-    appearance,
-    appearencesOptions,
-    defaultAppearance
-  );
+  const transformedAppearance = appearencesOptions.includes(appearance)
+    ? appearance
+    : defaultAppearance;
 
-  const transformedTypo = transformPropValue(typo, typosOptions, defaultTypo);
+  const transformedTypo = typosOptions.includes(typo) ? typo : defaultTypo;
 
   const transformedMargin = transformCssValue(
     margin,
@@ -103,7 +93,7 @@ const Text = (props) => {
   );
 
   return (
-    <StylesText
+    <StyledText
       as={transformedAs}
       align={transformedAlign}
       id={id}
@@ -113,13 +103,13 @@ const Text = (props) => {
       padding={transformedPadding}
     >
       {children}
-    </StylesText>
+    </StyledText>
   );
 };
 
 Text.propTypes = {
   children: PropsType.node,
-  align: PropsType.oneOf(alignsOptios).isRequired,
+  align: PropsType.oneOf(alignsOptions).isRequired,
   margin: PropsType.oneOfType([
     PropsType.string,
     PropsType.oneOf(globalValuesPropertiesCss),
@@ -134,4 +124,4 @@ Text.propTypes = {
   typo: PropsType.oneOf(typosOptions).isRequired,
 };
 
-export { Text, htmlElements, alignsOptios, appearencesOptions, typosOptions };
+export { Text, htmlElements, alignsOptions, appearencesOptions, typosOptions };

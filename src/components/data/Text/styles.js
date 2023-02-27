@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { typography } from "../../../shared/typography/typography";
 import { colors } from "../../../shared/colors/colors";
 
-const StylesText = styled.p`
+const StyledText = styled.p`
   font-family: ${typography.ref.typeface.brand};
   color: ${({ appearance }) => colors.sys.text[appearance]};
   margin: ${({ margin }) => margin};
@@ -14,4 +14,4 @@ const StylesText = styled.p`
   font-weight: ${({ typo }) => typography.sys.typescale[typo].weight};
 `;
 
-export { StylesText };
+export { StyledText };
