@@ -16,6 +16,7 @@ const colorHomologationSpinner = {
   remove: "red",
   help: "purple",
 };
+
 const getSpinnerColor = (isDisabled, variant, appearance) => {
   const homologationSpinnerColor = colorHomologationSpinner.secondary;
   const isDarkSpinnerAppearance = SpinnerAppearances.includes("dark");
@@ -24,19 +25,17 @@ const getSpinnerColor = (isDisabled, variant, appearance) => {
     return homologationSpinnerColor;
   }
 
-  if (variant !== "filled") {
-    return appearance === "secondary"
-      ? isDarkSpinnerAppearance
-        ? "dark"
-        : homologationSpinnerColor
-      : colorHomologationSpinner[appearance];
+  if (variant === "filled") {
+    if (appearance !== "secondary" && appearance !== "warning") {
+      return homologationSpinnerColor;
+    }
+  } else if (appearance !== "secondary") {
+    return colorHomologationSpinner[appearance];
   }
 
-  return appearance === "secondary" || appearance === "warning"
-    ? isDarkSpinnerAppearance
-      ? "dark"
-      : homologationSpinnerColor
-    : homologationSpinnerColor;
+  return isDarkSpinnerAppearance
+    ? "dark"
+    : colorHomologationSpinner[appearance];
 };
 
 export const types = ["text", "submit", "reset"];
