@@ -1,6 +1,11 @@
 import styled from "styled-components";
 import { colors } from "../../../shared/colors/colors";
 
+const StyledContainaer = styled.div`
+  display: inline-block;
+  position: relative;
+`;
+
 const StyledInput = styled.input`
   box-sizing: border-box;
   display: flex;
@@ -9,8 +14,8 @@ const StyledInput = styled.input`
   padding: 8px 12px 8px 16px;
   gap: 8px;
 
-  width: 280px;
-  height: 48px;
+ width: 100%
+  height: 100%;
 
   border: 1px solid ${colors.ref.palette.neutral.n300};
   border-radius: 8px;
@@ -19,21 +24,17 @@ const StyledInput = styled.input`
   order: 1;
   align-self: stretch;
   flex-grow: 0;
-
-  &::before {
-    content: "";
-    display: block;
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 16px;
+  ::placeholder {
+    padding-left: ${({ iconBefore }) => (iconBefore ? "16px" : "0px")}
   }
 `;
 
-const StyledIcon = styled.div``;
+const StyledIcon = styled.div`
+  position: absolute;
 
-export { StyledInput, StyledIcon };
+  top: 55%;
+
+  left: ${({ iconAfter }) => (iconAfter ? "85%" : "5%")};
+`;
+
+export { StyledInput, StyledIcon, StyledContainaer };

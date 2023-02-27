@@ -1,9 +1,8 @@
-import React from "react";
 import PropTypes from "prop-types";
 
-import { AiOutlineSearch } from "react-icons/ai";
+import Label from "../Label/index";
 
-import { StyledInput, StyledIcon } from "./styles";
+import { StyledInput, StyledIcon, StyledContainaer } from "./styles";
 
 const DEFAULLT_VALUES_PROPS = {
   isDisabled: false,
@@ -22,6 +21,13 @@ const transformedValues = (prop, defaultValue) => {
 
 const typesImput = ["text", "email", "number", "password", "search", "tel"];
 const sizes = ["wide", "compact"];
+
+const renderIcons = (icon) => {
+  if (icon) {
+    return <StyledIcon icon={icon}>{icon}</StyledIcon>;
+  }
+  return null;
+};
 
 const TextField = (props) => {
   const {
@@ -72,28 +78,33 @@ const TextField = (props) => {
   );
 
   return (
-    <StyledInput
-      label={label}
-      name={name}
-      id={id}
-      placeholder={placeholder}
-      isDisabled={transformedIsDisabled}
-      isFocused={transformedIsFocused}
-      type={transformedTypes}
-      value={value}
-      onClick={handleChange}
-      iconBefore={iconBefore}
-      iconAfter={iconAfter}
-      maxLength={maxLength}
-      minLength={minLength}
-      max={max}
-      min={min}
-      isRequired={transformedIsRequired}
-      isInvalid={isInvalid}
-      errorMessage={errorMessage}
-      size={size}
-      isFullWidth={transformedIsFullWidth}
-    ></StyledInput>
+    <StyledContainaer iconAfter={iconAfter}>
+      {label && <Label>{label}</Label>}
+
+      <StyledInput
+        label={label}
+        name={name}
+        id={id}
+        placeholder={placeholder}
+        isDisabled={transformedIsDisabled}
+        isFocused={transformedIsFocused}
+        type={transformedTypes}
+        value={value}
+        onClick={handleChange}
+        iconBefore={iconBefore}
+        iconAfter={iconAfter}
+        maxLength={maxLength}
+        minLength={minLength}
+        max={max}
+        min={min}
+        isRequired={transformedIsRequired}
+        isInvalid={isInvalid}
+        errorMessage={errorMessage}
+        size={size}
+        isFullWidth={transformedIsFullWidth}
+      />
+      <StyledIcon>{iconAfter}</StyledIcon>
+    </StyledContainaer>
   );
 };
 

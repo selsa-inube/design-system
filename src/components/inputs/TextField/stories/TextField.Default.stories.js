@@ -25,6 +25,7 @@ import {
   size,
   isFullWidth,
 } from "./props";
+
 const story = {
   title: "inputs/textField/Default",
   components: [TextField],
@@ -33,8 +34,12 @@ const story = {
 
 const Default = (args) => <TextField {...args} />;
 Default.args = {
-  iconAfter: `${(<AiOutlineSearch />)}`,
+  label: "username",
+  placeholder: "nombre",
+
+  iconBefore: <AiOutlineSearch />,
 };
+
 Default.argTypes = {
   label,
   name,
