@@ -1,8 +1,17 @@
 import PropTypes from "prop-types";
 
+import { AiOutlineSearch } from "react-icons/ai";
+import { BiErrorCircle } from "react-icons/bi";
+
 import Label from "../Label/index";
 
-import { StyledInput, StyledIcon, StyledContainaer } from "./styles";
+import {
+  StyledContainaer,
+  StyledInputContainer,
+  StyledInput,
+  StyledIcon,
+  StyledErrorMensaje,
+} from "./styles";
 
 const DEFAULLT_VALUES_PROPS = {
   isDisabled: false,
@@ -80,30 +89,47 @@ const TextField = (props) => {
   return (
     <StyledContainaer iconAfter={iconAfter}>
       {label && <Label>{label}</Label>}
+      <StyledInputContainer>
+        {iconBefore && (
+          <StyledIcon iconBefore={iconBefore}>{iconBefore}</StyledIcon>
+        )}
 
-      <StyledInput
-        label={label}
-        name={name}
-        id={id}
-        placeholder={placeholder}
-        isDisabled={transformedIsDisabled}
-        isFocused={transformedIsFocused}
-        type={transformedTypes}
-        value={value}
-        onClick={handleChange}
-        iconBefore={iconBefore}
-        iconAfter={iconAfter}
-        maxLength={maxLength}
-        minLength={minLength}
-        max={max}
-        min={min}
-        isRequired={transformedIsRequired}
-        isInvalid={isInvalid}
-        errorMessage={errorMessage}
-        size={size}
-        isFullWidth={transformedIsFullWidth}
-      />
-      <StyledIcon>{iconAfter}</StyledIcon>
+        <StyledInput
+          label={label}
+          name={name}
+          id={id}
+          placeholder={placeholder}
+          isDisabled={transformedIsDisabled}
+          isFocused={transformedIsFocused}
+          type={transformedTypes}
+          value={value}
+          onClick={handleChange}
+          iconBefore={iconBefore}
+          iconAfter={iconAfter}
+          maxLength={maxLength}
+          minLength={minLength}
+          max={max}
+          min={min}
+          isRequired={transformedIsRequired}
+          isInvalid={isInvalid}
+          errorMessage={errorMessage}
+          size={size}
+          isFullWidth={transformedIsFullWidth}
+        />
+        {iconAfter && (
+          <StyledIcon iconAfter={iconAfter}>{iconAfter}</StyledIcon>
+        )}
+        {type === "search" && (
+          <StyledIcon type={type}>
+            <AiOutlineSearch />
+          </StyledIcon>
+        )}
+      </StyledInputContainer>
+      {errorMessage && (
+        <StyledErrorMensaje role="bodySmall">
+          {<BiErrorCircle />} {errorMessage}
+        </StyledErrorMensaje>
+      )}
     </StyledContainaer>
   );
 };

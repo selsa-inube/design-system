@@ -36,8 +36,8 @@ const Default = (args) => <TextField {...args} />;
 Default.args = {
   label: "username",
   placeholder: "nombre",
-
   iconBefore: <AiOutlineSearch />,
+  errorMessage: "no encontrado",
 };
 
 Default.argTypes = {

@@ -1,9 +1,17 @@
 import styled from "styled-components";
 import { colors } from "../../../shared/colors/colors";
+import { typography } from "../../../shared/typography/typography";
 
 const StyledContainaer = styled.div`
   display: inline-block;
   position: relative;
+`;
+
+const StyledInputContainer = styled.div`
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
 `;
 
 const StyledInput = styled.input`
@@ -30,11 +38,37 @@ const StyledInput = styled.input`
 `;
 
 const StyledIcon = styled.div`
+  display: grid;
+  justify-content: center;
+  align-items: center;
   position: absolute;
-
-  top: 55%;
-
-  left: ${({ iconAfter }) => (iconAfter ? "85%" : "5%")};
+  right: ${({ iconBefore }) => iconBefore && "85%"};
+  left: ${({ iconAfter, type }) => iconAfter || (type === "search" && "85%")};
+  height: 24px;
+  width: 24px;
 `;
 
-export { StyledInput, StyledIcon, StyledContainaer };
+const StyledErrorMensaje = styled.p`
+  font-family: ${typography.ref.typeface.brand}, sans-serif;
+  line-height: ${(props) => typography.sys.typescale[props.role].lineHeight};
+  font-size: ${(props) => typography.sys.typescale[props.role].size};
+  letter-spacing: ${(props) => typography.sys.typescale[props.role].tracking};
+  font-weight: ${(props) => typography.sys.typescale[props.role].weight};
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  color: ${colors.sys.messages.error};
+
+  & svg {
+    width: 14px;
+    height: 14px;
+  }
+`;
+
+export {
+  StyledContainaer,
+  StyledInputContainer,
+  StyledInput,
+  StyledIcon,
+  StyledErrorMensaje,
+};
