@@ -1,7 +1,26 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 import { colors } from "../../../shared/colors/colors";
 import { typography } from "../../../shared/typography/typography";
+
+const spacing = {
+  compact: {
+    height: "28px",
+    minWidth: "93px",
+    fontSize: typography.sys.typescale.labelLarge.size,
+  },
+  wide: {
+    height: "36px",
+    minWidth: "101px",
+    fontSize: typography.sys.typescale.titleMedium.size,
+  },
+};
+
+const cursors = {
+  pointer: "pointer",
+  notAllowed: "not-allowed",
+  progress: "progress",
+};
 
 const colorActionsSysHover = {
   primaryHover: colors.ref.palette.blue.b300,
@@ -11,6 +30,173 @@ const colorActionsSysHover = {
   removeHover: colors.ref.palette.red.r300,
   helpHover: colors.ref.palette.purple.p300,
 };
+
+const appearanceColors = {
+  filled: {
+    primary: colors.ref.palette.neutral.n0,
+    secondary: colors.ref.palette.neutral.n900,
+    confirm: colors.ref.palette.neutral.n0,
+    warning: colors.ref.palette.neutral.n900,
+    remove: colors.ref.palette.neutral.n0,
+    help: colors.ref.palette.neutral.n0,
+    disabled: colors.ref.palette.neutral.n30,
+    ...colorActionsSysHover,
+    primaryHover: colors.ref.palette.neutral.n0,
+    secondaryHover: colors.ref.palette.neutral.n900,
+    confirmHover: colors.ref.palette.neutral.n0,
+    warningHover: colors.ref.palette.neutral.n900,
+    removeHover: colors.ref.palette.neutral.n0,
+    helpHover: colors.ref.palette.neutral.n0,
+  },
+  outlined: {
+    ...colors.sys.actions,
+    secondary: colors.ref.palette.neutral.n900,
+    disabled: "transparent",
+    ...colorActionsSysHover,
+    secondaryHover: colors.ref.palette.neutral.n500,
+  },
+  none: {
+    ...colors.sys.actions,
+    secondary: colors.ref.palette.neutral.n900,
+    disabled: "transparent",
+    ...colorActionsSysHover,
+    secondaryHover: colors.ref.palette.neutral.n500,
+  },
+};
+
+const backgroundColor = {
+  filled: {
+    ...colors.sys.actions,
+    disabled: colors.ref.palette.neutral.n30,
+    ...colorActionsSysHover,
+  },
+  outlined: {
+    color: "transparent",
+    disabled: "transparent",
+    primary: "transparent",
+    secondary: "transparent",
+    confirm: "transparent",
+    warning: "transparent",
+    remove: "transparent",
+    help: "transparent",
+    primaryHover: "transparent",
+    secondaryHover: "transparent",
+    confirmHover: "transparent",
+    warningHover: "transparent",
+    removeHover: "transparent",
+    helpHover: "transparent",
+  },
+  none: {
+    color: "transparent",
+    disabled: "transparent",
+    primary: "transparent",
+    secondary: "transparent",
+    confirm: "transparent",
+    warning: "transparent",
+    remove: "transparent",
+    help: "transparent",
+    primaryHover: "transparent",
+    secondaryHover: "transparent",
+    confirmHover: "transparent",
+    warningHover: "transparent",
+    removeHover: "transparent",
+    helpHover: "transparent",
+  },
+};
+
+const appearanceBorders = {
+  filled: {
+    primary: colors.ref.palette.neutral.n0,
+    secondary: colors.ref.palette.neutral.n0,
+    confirm: colors.ref.palette.neutral.n0,
+    warning: colors.ref.palette.neutral.n0,
+    remove: colors.ref.palette.neutral.n0,
+    help: colors.ref.palette.neutral.n0,
+    disabled: "transparent",
+    ...colorActionsSysHover,
+  },
+  outlined: {
+    ...colors.sys.actions,
+    secondary: colors.ref.palette.neutral.n900,
+    disabled: colors.ref.palette.neutral.n30,
+    ...colorActionsSysHover,
+    secondaryHover: colors.ref.palette.neutral.n500,
+  },
+  none: {
+    ...colors.sys.actions,
+    disabled: "transparent",
+    ...colorActionsSysHover,
+    primary: "transparent",
+    secondary: "transparent",
+    confirm: "transparent",
+    warning: "transparent",
+    remove: "transparent",
+    help: "transparent",
+    primaryHover: "transparent",
+    secondaryHover: "transparent",
+    confirmHover: "transparent",
+    warningHover: "transparent",
+    removeHover: "transparent",
+    helpHover: "transparent",
+  },
+};
+
+const getPointer = (props) => {
+  const { isDisabled, isLoading } = props;
+
+  if (isDisabled) {
+    return cursors.notAllowed;
+  }
+
+  if (isLoading) {
+    return cursors.progress;
+  }
+
+  return cursors.pointer;
+};
+
+const getColor = (props) => {
+  const { isDisabled, appearance, variant, isHover } = props;
+
+  if (isDisabled) {
+    return colors.ref.palette.neutral.n60;
+  }
+
+  if (isHover) {
+    return appearanceColors[variant][appearance + "Hover"];
+  }
+
+  return appearanceColors[variant][appearance];
+};
+
+const getBorderColor = (props) => {
+  const { isDisabled, appearance, variant, isHover } = props;
+
+  if (isDisabled) {
+    return appearanceBorders[variant].disabled;
+  }
+
+  if (isHover) {
+    return appearanceBorders[variant][appearance + "Hover"];
+  }
+
+  return appearanceBorders[variant][appearance];
+};
+
+const getBackgroundColor = (props) => {
+  const { isDisabled, variant, appearance, isHover } = props;
+
+  if (isDisabled) {
+    return backgroundColor[variant].disabled;
+  }
+
+  if (isHover) {
+    return backgroundColor[variant][appearance + "Hover"];
+  }
+
+  return backgroundColor[variant][appearance];
+};
+
 const StyledSpan = styled.span`
   display: flex;
   justify-content: space-between;
@@ -24,124 +210,30 @@ const StyledButton = styled.button`
   align-items: center;
   padding: 0px 16px;
   border-radius: 8px;
-  font-family: ${typography.ref.typeface.brand};
   transition: all 0.3s ease;
   border: none;
-  cursor: pointer;
+  border-style: solid;
+  border-width: 1px;
 
-  color: ${(props) =>
-    props.appearance === "secondary" || props.appearance === "warning"
-      ? colors.ref.palette.neutral.n900
-      : colors.ref.palette.neutral.n0};
-  background-color: ${(props) => colors.sys.actions[props.appearance]};
+  font-family: ${typography.ref.typeface.brand};
+  color: ${getColor};
+  background-color: ${getBackgroundColor};
+  border-color: ${getBorderColor};
+  width: ${(props) => (props.isFullWidth === true ? "100%" : "auto")};
+  max-width: ${(props) => (props.isFullWidth === true ? "none" : "auto")};
+  cursor: ${getPointer};
+  ${(props) => spacing[props.spacing]}
 
   &:hover {
+    color: ${(props) => getColor({ ...props, isHover: true })};
+    border-color: ${(props) => getBorderColor({ ...props, isHover: true })};
     background-color: ${(props) =>
-      colorActionsSysHover[props.appearance + "Hover"]};
+      getBackgroundColor({ ...props, isHover: true })};
   }
-
-  ${(props) =>
-    props.spacing === "wide"
-      ? css`
-          height: 36px;
-          min-width: 101px;
-          font-size: ${typography.sys.typescale.titleMedium.size};
-        `
-      : css`
-          height: 28px;
-          min-width: 93px;
-          font-size: ${typography.sys.typescale.labelLarge.size};
-        `}
-
-  ${(props) =>
-    props.isFullWidth &&
-    css`
-      width: 100%;
-      max-width: none;
-    `}
-
-    ${(props) =>
-    props.isDisabled &&
-    css`
-      background-color: ${colors.ref.palette.neutral.n30};
-      color: ${colors.ref.palette.neutral.n60};
-      pointer-events: none;
-    `}
-  ${(props) =>
-    props.variant === "outlined" &&
-    css`
-      background-color: transparent;
-      color: ${(props) => colors.sys.actions[props.appearance]};
-      ${(props) =>
-        props.appearance === "secondary" &&
-        css`
-          color: ${colors.ref.palette.neutral.n900};
-        `}
-      border: 1px solid ${(props) =>
-        props.appearance === "secondary"
-          ? colors.ref.palette.neutral.n900
-          : colors.sys.actions[props.appearance]};
-
-      ${(props) =>
-        props.isDisabled &&
-        css`
-          background-color: transparent;
-          color: ${colors.ref.palette.neutral.n60};
-          border: 1px solid ${colors.ref.palette.neutral.n30};
-        `}
-
-      &:hover {
-        background-color: transparent;
-        color: ${(props) =>
-          props.appearance === "secondary"
-            ? colors.ref.palette.neutral.n500
-            : colorActionsSysHover[props.appearance + "Hover"]};
-        border: 1px solid
-          ${(props) =>
-            props.appearance === "secondary"
-              ? colors.ref.palette.neutral.n500
-              : colorActionsSysHover[props.appearance + "Hover"]};
-      }
-    `}
-
-  ${(props) =>
-    props.variant === "none" &&
-    css`
-      background-color: transparent;
-      color: ${(props) =>
-        props.appearance === "secondary"
-          ? colors.ref.palette.neutral.n900
-          : colors.sys.actions[props.appearance]};
-      border: none;
-      ${(props) =>
-        props.isDisabled &&
-        css`
-          background-color: transparent;
-          color: ${colors.ref.palette.neutral.n60};
-        `}
-      &:hover {
-        background-color: transparent;
-        color: ${(props) =>
-          props.appearance === "secondary"
-            ? colors.ref.palette.neutral.n700
-            : colorActionsSysHover[props.appearance + "Hover"]};
-        border: none;
-      }
-    `}
-
-  ${(props) =>
-    props.isLoading &&
-    css`
-      pointer-events: none;
-    `}
 `;
 
 const StyledIcon = styled.div`
   display: flex;
   align-items: center;
-  color: ${(props) =>
-    props.variant !== "filled"
-      ? colors.sys.actions[props.appearance]
-      : colors.ref.palette.neutral.n0};
 `;
 export { StyledButton, StyledSpan, StyledIcon };
