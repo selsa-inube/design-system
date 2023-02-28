@@ -1,43 +1,43 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { StyledButton, StyledSpan, StyledIcon } from "./styles";
-import {
-  Spinner,
-  appearances as SpinnerAppearances,
-} from "./../../feedback/Spinner";
+import { Spinner } from "./../../feedback/Spinner";
 import { colors } from "../../../shared/colors/colors";
 
 export const appearances = Object.keys(colors.sys.actions);
-const colorHomologationSpinner = {
-  primary: "blue",
-  secondary: "white",
-  confirm: "green",
-  warning: "yellow",
-  remove: "red",
-  help: "purple",
-};
 
+const spinnerColorHomologation = {
+  filled: {
+    primary: "white",
+    secondary: "dark",
+    confirm: "white",
+    warning: "dark",
+    remove: "white",
+    help: "white",
+  },
+  outlined: {
+    primary: "blue",
+    secondary: "dark",
+    confirm: "green",
+    warning: "yellow",
+    remove: "red",
+    help: "purple",
+  },
+  none: {
+    primary: "blue",
+    secondary: "dark",
+    confirm: "green",
+    warning: "yellow",
+    remove: "red",
+    help: "purple",
+  },
+};
 const getSpinnerColor = (isDisabled, variant, appearance) => {
-  const homologationSpinnerColor = colorHomologationSpinner.secondary;
-  const isDarkSpinnerAppearance = SpinnerAppearances.includes("dark");
-
   if (isDisabled) {
-    return homologationSpinnerColor;
+    return "white";
   }
-
-  if (variant === "filled") {
-    if (appearance !== "secondary" && appearance !== "warning") {
-      return homologationSpinnerColor;
-    }
-  } else if (appearance !== "secondary") {
-    return colorHomologationSpinner[appearance];
-  }
-
-  return isDarkSpinnerAppearance
-    ? "dark"
-    : colorHomologationSpinner[appearance];
+  return spinnerColorHomologation[variant][appearance];
 };
-
 export const types = ["text", "submit", "reset"];
 export const spacings = ["wide", "compact"];
 export const variants = ["filled", "outlined", "none"];
