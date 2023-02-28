@@ -2,9 +2,17 @@ import styled from "styled-components";
 import { colors } from "../../../shared/colors/colors";
 import { typography } from "../../../shared/typography/typography";
 
+/* const getColor = (isDisabled, isFocused, errorMessage) => {
+  let color = colors.sys.messages
+}; */
+
 const StyledContainaer = styled.div`
   display: inline-block;
   position: relative;
+
+  & Label {
+    margin-left: 16px;
+  }
 `;
 
 const StyledInputContainer = styled.div`
@@ -12,6 +20,7 @@ const StyledInputContainer = styled.div`
   align-items: center;
   position: relative;
   width: 100%;
+  margin-top: 10px;
 `;
 
 const StyledInput = styled.input`
@@ -50,18 +59,21 @@ const StyledIcon = styled.div`
 
 const StyledErrorMensaje = styled.p`
   font-family: ${typography.ref.typeface.brand}, sans-serif;
-  line-height: ${(props) => typography.sys.typescale[props.role].lineHeight};
-  font-size: ${(props) => typography.sys.typescale[props.role].size};
-  letter-spacing: ${(props) => typography.sys.typescale[props.role].tracking};
-  font-weight: ${(props) => typography.sys.typescale[props.role].weight};
   overflow: hidden;
   display: flex;
   align-items: center;
   color: ${colors.sys.messages.error};
+  margin-left: 16px;
+  margin-top: 5px;
+  line-height: ${(props) => typography.sys.typescale[props.role].lineHeight};
+  font-size: ${(props) => typography.sys.typescale[props.role].size};
+  letter-spacing: ${(props) => typography.sys.typescale[props.role].tracking};
+  font-weight: ${(props) => typography.sys.typescale[props.role].weight};
 
   & svg {
     width: 14px;
     height: 14px;
+    padding-right: 4px;
   }
 `;
 

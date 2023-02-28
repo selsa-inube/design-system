@@ -21,22 +21,8 @@ const DEFAULLT_VALUES_PROPS = {
   isFullWidth: false,
 };
 
-const transformedValues = (prop, defaultValue) => {
-  if (typeof prop === "boolean") {
-    return prop;
-  }
-  return defaultValue;
-};
-
 const typesImput = ["text", "email", "number", "password", "search", "tel"];
 const sizes = ["wide", "compact"];
-
-const renderIcons = (icon) => {
-  if (icon) {
-    return <StyledIcon icon={icon}>{icon}</StyledIcon>;
-  }
-  return null;
-};
 
 const TextField = (props) => {
   const {
@@ -62,33 +48,38 @@ const TextField = (props) => {
     isFullWidth = false,
   } = props;
 
-  const transformedIsDisabled = transformedValues(
-    isDisabled,
-    DEFAULLT_VALUES_PROPS.isDisabled
-  );
+  const transformedIsDisabled =
+    typeof isDisabled === "boolean"
+      ? isDisabled
+      : DEFAULLT_VALUES_PROPS.isDisabled;
 
-  const transformedIsFocused = transformedValues(
-    isFocused,
-    DEFAULLT_VALUES_PROPS.isFocused
-  );
+  const transformedIsFocused =
+    typeof isFocused === "boolean"
+      ? isDisabled
+      : DEFAULLT_VALUES_PROPS.isFocused;
 
   const transformedTypes = typesImput.includes(type)
     ? type
     : DEFAULLT_VALUES_PROPS.type;
 
-  const transformedIsRequired = transformedValues(
-    isRequired,
-    DEFAULLT_VALUES_PROPS.isRequired
-  );
+  const transformedIsRequired =
+    typeof isRequired === "boolean"
+      ? isRequired
+      : DEFAULLT_VALUES_PROPS.isRequired;
 
-  const transformedIsFullWidth = transformedValues(
-    isFullWidth,
-    DEFAULLT_VALUES_PROPS.isFullWidth
-  );
+  const transformedIsFullWidth =
+    typeof isFullWidth === "boolean"
+      ? isFullWidth
+      : DEFAULLT_VALUES_PROPS.isFullWidth;
 
   return (
-    <StyledContainaer iconAfter={iconAfter}>
-      {label && <Label>{label}</Label>}
+    <StyledContainaer iconAfter={iconAfter} isRequired={isRequired}>
+      {label && (
+        <Label htmlFor={id} state="default">
+          {label}
+        </Label>
+      )}
+      {isRequired && <p>(Required)</p>}
       <StyledInputContainer>
         {iconBefore && (
           <StyledIcon iconBefore={iconBefore}>{iconBefore}</StyledIcon>
@@ -127,7 +118,7 @@ const TextField = (props) => {
       </StyledInputContainer>
       {errorMessage && (
         <StyledErrorMensaje role="bodySmall">
-          {<BiErrorCircle />} {errorMessage}
+          {<BiErrorCircle />} ({errorMessage})
         </StyledErrorMensaje>
       )}
     </StyledContainaer>

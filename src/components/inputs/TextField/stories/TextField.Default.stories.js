@@ -35,8 +35,9 @@ const story = {
 const Default = (args) => <TextField {...args} />;
 Default.args = {
   label: "username",
+  id: "username",
   placeholder: "nombre",
-  iconBefore: <AiOutlineSearch />,
+  isRequired: true,
   errorMessage: "no encontrado",
 };
 
