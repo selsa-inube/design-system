@@ -110,14 +110,14 @@ const Button = (props) => {
 
 Button.propTypes = {
   children: PropTypes.node,
-  appearance: PropTypes.oneOf(appearances).isRequired,
+  appearance: PropTypes.oneOf(appearances),
   isLoading: PropTypes.bool,
   isDisabled: PropTypes.bool,
   iconBefore: PropTypes.element,
   iconAfter: PropTypes.element,
-  type: PropTypes.oneOf(types).isRequired,
-  spacing: PropTypes.oneOf(spacings).isRequired,
-  variant: PropTypes.oneOf(variants).isRequired,
+  type: PropTypes.oneOf(types),
+  spacing: PropTypes.oneOf(spacings),
+  variant: PropTypes.oneOf(variants),
   isFullWidth: PropTypes.bool,
   handleClick: PropTypes.func.isRequired,
 };
