@@ -33,6 +33,9 @@ const TypoRoleProperties = ({ typo, align, appearance, margin, padding }) => {
     "line-height": `${typography.sys.typescale[typo].lineHeight}`,
     "font-weight": `${typography.sys.typescale[typo].weight}`,
   };
+  if (margin !== "0px") {
+    typographyStory.margin = `${margin}`;
+  }
 
   const assignationTypo = Object.entries(typographyStory);
 
@@ -74,7 +77,7 @@ Title.args = {
   children: "Title with the Text component",
   as: "p",
   align: "start",
-  margin: "12px 20px 13px 15px 20em",
+  margin: "20px 22px 23px 24px",
   padding: "0px",
   appearance: "dark",
   typo: "bodyMedium",

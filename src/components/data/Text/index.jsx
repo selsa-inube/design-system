@@ -7,7 +7,7 @@ import { typography } from "../../../shared/typography/typography";
 import { StyledText } from "./styles";
 
 /**it is validated that the values entered are in pixels and valid according to the css property margin and padding. */
-const regex = /^[0-9]+px(\s+[0-9]+px){0,3}$/;
+const regex = /^[0-9]+px$/;
 
 const globalValuesPropertiesCss = ["inherit", "initial", "unset", "auto"];
 
@@ -42,11 +42,18 @@ const defaultTypo = "bodyLarge";
 const defaultMargin = "0px";
 const defaultPadding = "0px";
 
-const transformCssValue = (value, regex, globalValuesCss, defaultValue) => {
-  if (regex.test(value) || globalValuesCss.includes(value)) {
-    return value;
+const isValidCssSpacing = (element) => {
+  let result = false;
+  const splitElement = element.split(" ");
+
+  if (element !== "" && splitElement.length > 0) {
+    const validatedElement = splitElement
+      .filter((spacing) => spacing !== "")
+      .every((i) => regex.test(i));
+    result = validatedElement === true && splitElement.length <= 4;
+    return result;
   }
-  return defaultValue;
+  return result;
 };
 
 const Text = (props) => {
@@ -71,28 +78,15 @@ const Text = (props) => {
 
   const transformedTypo = typosOptions.includes(typo) ? typo : defaultTypo;
 
-  const transformedMargin = transformCssValue(
-    margin,
-    regex,
-    globalValuesPropertiesCss,
-    defaultMargin
-  );
-  /*  const transformedMargin =
-    margin
-      .split(" ")
-      .filter((spacing) => spacing !== "")
-      .slice(0, 4)
-      .every((i) => /^[0-9]+px$/.test(i)) === true
-      ? margin.slice(0, margin.indexOf(" ", margin.indexOf(" ") + 1))
-      : defaultAlign; */
+  const transformedMargin =
+    isValidCssSpacing(margin) || globalValuesPropertiesCss.includes(margin)
+      ? margin
+      : defaultMargin;
 
-  console.log(transformedMargin);
-  const transformedPadding = transformCssValue(
-    padding,
-    regex,
-    globalValuesPropertiesCss,
-    defaultPadding
-  );
+  const transformedPadding =
+    isValidCssSpacing(padding) || globalValuesPropertiesCss.includes(padding)
+      ? padding
+      : defaultPadding;
 
   return (
     <StyledText
