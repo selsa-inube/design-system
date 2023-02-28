@@ -42,13 +42,6 @@ const defaultTypo = "bodyLarge";
 const defaultMargin = "0px";
 const defaultPadding = "0px";
 
-const transformPropValue = (value, allowedValues, defaultValue) => {
-  if (allowedValues.includes(value)) {
-    return value;
-  }
-  return defaultValue;
-};
-
 const transformCssValue = (value, regex, globalValuesCss, defaultValue) => {
   if (regex.test(value) || globalValuesCss.includes(value)) {
     return value;
@@ -84,7 +77,16 @@ const Text = (props) => {
     globalValuesPropertiesCss,
     defaultMargin
   );
+  /*  const transformedMargin =
+    margin
+      .split(" ")
+      .filter((spacing) => spacing !== "")
+      .slice(0, 4)
+      .every((i) => /^[0-9]+px$/.test(i)) === true
+      ? margin.slice(0, margin.indexOf(" ", margin.indexOf(" ") + 1))
+      : defaultAlign; */
 
+  console.log(transformedMargin);
   const transformedPadding = transformCssValue(
     padding,
     regex,

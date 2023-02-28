@@ -74,7 +74,7 @@ Title.args = {
   children: "Title with the Text component",
   as: "p",
   align: "start",
-  margin: "0px",
+  margin: "12px 20px 13px 15px 20em",
   padding: "0px",
   appearance: "dark",
   typo: "bodyMedium",
