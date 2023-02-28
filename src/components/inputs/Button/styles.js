@@ -58,21 +58,6 @@ const StyledButton = styled.button`
     css`
       width: 100%;
       max-width: none;
-
-      && > div {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        max-width: 200px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-
-        span {
-          width: 100%;
-          max-width: 100px;
-        }
-      }
     `}
 
     ${(props) =>
