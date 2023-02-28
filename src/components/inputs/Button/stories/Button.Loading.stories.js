@@ -6,8 +6,6 @@ import { StyledFlex } from "./stories.styles";
 import {
   appearance,
   isDisabled,
-  iconBefore,
-  iconAfter,
   type,
   spacing,
   variant,
@@ -44,7 +42,6 @@ Loading.args = {
   children: "Button",
   appearance: "primary",
   isDisabled: false,
-  iconBefore: "+",
   type: "text",
   spacing: "wide",
   variant: "filled",
@@ -54,8 +51,6 @@ Loading.args = {
 Loading.argTypes = {
   appearance,
   isDisabled,
-  iconBefore,
-  iconAfter,
   type,
   spacing,
   variant,

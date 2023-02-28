@@ -2,6 +2,7 @@ import React from "react";
 import { Button, spacings } from "../index";
 import { ButtonController } from "./ButtonController";
 import { StyledFlex } from "./stories.styles";
+import { MdAdd } from "react-icons/md";
 
 import {
   children,
@@ -46,7 +47,7 @@ Spacing.args = {
   appearance: "primary",
   isLoading: false,
   isDisabled: false,
-  iconBefore: "+",
+  iconBefore: <MdAdd />,
   type: "text",
   variant: "filled",
   isFullWidth: false,

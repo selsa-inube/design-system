@@ -2,6 +2,7 @@ import React from "react";
 import { Button } from "../index";
 import { ButtonController } from "./ButtonController";
 import { StyledFlex } from "./stories.styles";
+import { MdAdd } from "react-icons/md";
 
 import {
   children,
@@ -42,7 +43,7 @@ FullWidth.args = {
   appearance: "primary",
   isLoading: false,
   isDisabled: false,
-  iconBefore: "+",
+  iconBefore: <MdAdd />,
   type: "text",
   spacing: "wide",
   variant: "filled",

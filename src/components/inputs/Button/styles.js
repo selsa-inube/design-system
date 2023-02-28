@@ -137,6 +137,8 @@ const StyledButton = styled.button`
 `;
 
 const StyledIcon = styled.div`
+  display: flex;
+  align-items: center;
   color: ${(props) =>
     props.variant !== "filled"
       ? colors.sys.actions[props.appearance]

@@ -2,6 +2,7 @@ import React from "react";
 import { Button, appearances } from "../index";
 import { ButtonController } from "./ButtonController";
 import { StyledFlex } from "./stories.styles";
+import { MdAdd } from "react-icons/md";
 
 import {
   children,
@@ -44,7 +45,7 @@ Appearances.args = {
   children: "Button",
   isLoading: false,
   isDisabled: false,
-  iconBefore: "+",
+  iconBefore: <MdAdd />,
   type: "text",
   spacing: "wide",
   variant: "filled",

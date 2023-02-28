@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "../index";
 import { ButtonController } from "./ButtonController";
+import { MdAdd } from "react-icons/md";
 
 import {
   children,
@@ -34,7 +35,7 @@ Default.args = {
   appearance: "primary",
   isLoading: false,
   isDisabled: false,
-  iconBefore: "+",
+  iconBefore: <MdAdd />,
   type: "text",
   spacing: "wide",
   variant: "filled",

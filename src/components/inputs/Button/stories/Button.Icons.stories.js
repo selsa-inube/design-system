@@ -2,6 +2,7 @@ import React from "react";
 import { Button } from "../index";
 import { ButtonController } from "./ButtonController";
 import { StyledFlex } from "./stories.styles";
+import { MdAdd } from "react-icons/md";
 
 import {
   children,
@@ -34,8 +35,8 @@ const ButtonComponent = (props) => {
         <div key={item}>
           <ButtonController
             {...props}
-            iconBefore={item === 0 ? "+" : null}
-            iconAfter={item === 1 ? "+" : null}
+            iconBefore={item === 0 ? <MdAdd /> : null}
+            iconAfter={item === 1 ? <MdAdd /> : null}
           />
         </div>
       ))}
