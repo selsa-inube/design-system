@@ -32,14 +32,7 @@ const story = {
 export const Default = (args) => <ButtonController {...args} />;
 Default.args = {
   children: "Button",
-  appearance: "primary",
-  isLoading: false,
-  isDisabled: false,
   iconBefore: <MdAdd />,
-  type: "text",
-  spacing: "wide",
-  variant: "filled",
-  isFullWidth: false,
   handleClick: () => {},
 };
 Default.argTypes = {
