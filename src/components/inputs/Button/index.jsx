@@ -32,10 +32,7 @@ const spinnerColorHomologation = {
     help: "purple",
   },
 };
-const getSpinnerColor = (isDisabled, variant, appearance) => {
-  if (isDisabled) {
-    return "white";
-  }
+const getSpinnerColor = (variant, appearance) => {
   return spinnerColorHomologation[variant][appearance];
 };
 export const types = ["text", "submit", "reset"];
@@ -87,10 +84,9 @@ const Button = (props) => {
       isFullWidth={isFullWidth}
       onClick={handleClick}
     >
-      {isLoading ? (
+      {isLoading && !isDisabled ? (
         <Spinner
           appearance={getSpinnerColor(
-            isDisabled,
             transformedVariant,
             transformedAppearance
           )}
