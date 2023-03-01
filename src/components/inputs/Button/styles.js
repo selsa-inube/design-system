@@ -31,22 +31,47 @@ const colorActionsSysHover = {
   helpHover: colors.ref.palette.purple.p300,
 };
 
+const transparentColorActionsSysHover = Object.keys(
+  colorActionsSysHover
+).reduce((accumulator, key) => {
+  accumulator[key] = "transparent";
+  return accumulator;
+}, {});
+
+const transparentColorActionsSys = Object.keys(colors.sys.actions).reduce(
+  (accumulator, key) => {
+    accumulator[key] = "transparent";
+    return accumulator;
+  },
+  {}
+);
+
+const commonColorActionsSys = Object.keys(colors.sys.actions).reduce(
+  (accumulator, key) => {
+    accumulator[key] = colors.ref.palette.neutral.n0;
+    return accumulator;
+  },
+  {}
+);
+
+const commonColorActionsSysHover = Object.keys(colorActionsSysHover).reduce(
+  (accumulator, key) => {
+    accumulator[key] = colors.ref.palette.neutral.n0;
+    return accumulator;
+  },
+  {}
+);
+
 const appearanceColors = {
   filled: {
-    primary: colors.ref.palette.neutral.n0,
+    ...commonColorActionsSys,
     secondary: colors.ref.palette.neutral.n900,
-    confirm: colors.ref.palette.neutral.n0,
     warning: colors.ref.palette.neutral.n900,
-    remove: colors.ref.palette.neutral.n0,
-    help: colors.ref.palette.neutral.n0,
     disabled: colors.ref.palette.neutral.n30,
     ...colorActionsSysHover,
-    primaryHover: colors.ref.palette.neutral.n0,
+    ...commonColorActionsSysHover,
     secondaryHover: colors.ref.palette.neutral.n900,
-    confirmHover: colors.ref.palette.neutral.n0,
     warningHover: colors.ref.palette.neutral.n900,
-    removeHover: colors.ref.palette.neutral.n0,
-    helpHover: colors.ref.palette.neutral.n0,
   },
   outlined: {
     ...colors.sys.actions,
@@ -73,45 +98,20 @@ const backgroundColor = {
   outlined: {
     color: "transparent",
     disabled: "transparent",
-    primary: "transparent",
-    secondary: "transparent",
-    confirm: "transparent",
-    warning: "transparent",
-    remove: "transparent",
-    help: "transparent",
-    primaryHover: "transparent",
-    secondaryHover: "transparent",
-    confirmHover: "transparent",
-    warningHover: "transparent",
-    removeHover: "transparent",
-    helpHover: "transparent",
+    ...transparentColorActionsSys,
+    ...transparentColorActionsSysHover,
   },
   none: {
     color: "transparent",
     disabled: "transparent",
-    primary: "transparent",
-    secondary: "transparent",
-    confirm: "transparent",
-    warning: "transparent",
-    remove: "transparent",
-    help: "transparent",
-    primaryHover: "transparent",
-    secondaryHover: "transparent",
-    confirmHover: "transparent",
-    warningHover: "transparent",
-    removeHover: "transparent",
-    helpHover: "transparent",
+    ...transparentColorActionsSys,
+    ...transparentColorActionsSysHover,
   },
 };
 
 const appearanceBorders = {
   filled: {
-    primary: colors.ref.palette.neutral.n0,
-    secondary: colors.ref.palette.neutral.n0,
-    confirm: colors.ref.palette.neutral.n0,
-    warning: colors.ref.palette.neutral.n0,
-    remove: colors.ref.palette.neutral.n0,
-    help: colors.ref.palette.neutral.n0,
+    ...transparentColorActionsSys,
     disabled: "transparent",
     ...colorActionsSysHover,
   },
@@ -126,18 +126,8 @@ const appearanceBorders = {
     ...colors.sys.actions,
     disabled: "transparent",
     ...colorActionsSysHover,
-    primary: "transparent",
-    secondary: "transparent",
-    confirm: "transparent",
-    warning: "transparent",
-    remove: "transparent",
-    help: "transparent",
-    primaryHover: "transparent",
-    secondaryHover: "transparent",
-    confirmHover: "transparent",
-    warningHover: "transparent",
-    removeHover: "transparent",
-    helpHover: "transparent",
+    ...transparentColorActionsSys,
+    ...transparentColorActionsSysHover,
   },
 };
 
