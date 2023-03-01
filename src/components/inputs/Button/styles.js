@@ -31,35 +31,26 @@ const colorActionsSysHover = {
   helpHover: colors.ref.palette.purple.p300,
 };
 
-const transparentColorActionsSysHover = Object.keys(
-  colorActionsSysHover
-).reduce((accumulator, key) => {
-  accumulator[key] = "transparent";
-  return accumulator;
-}, {});
-
-const transparentColorActionsSys = Object.keys(colors.sys.actions).reduce(
-  (accumulator, key) => {
-    accumulator[key] = "transparent";
-    return accumulator;
-  },
-  {}
+const transparentColorActionsSysHover = Object.fromEntries(
+  Object.keys(colorActionsSysHover).map((key) => [key, "transparent"])
 );
 
-const commonColorActionsSys = Object.keys(colors.sys.actions).reduce(
-  (accumulator, key) => {
-    accumulator[key] = colors.ref.palette.neutral.n0;
-    return accumulator;
-  },
-  {}
+const transparentColorActionsSys = Object.fromEntries(
+  Object.keys(colors.sys.actions).map((key) => [key, "transparent"])
 );
 
-const commonColorActionsSysHover = Object.keys(colorActionsSysHover).reduce(
-  (accumulator, key) => {
-    accumulator[key] = colors.ref.palette.neutral.n0;
-    return accumulator;
-  },
-  {}
+const commonColorActionsSys = Object.fromEntries(
+  Object.keys(colors.sys.actions).map((key) => [
+    key,
+    colors.ref.palette.neutral.n0,
+  ])
+);
+
+const commonColorActionsSysHover = Object.fromEntries(
+  Object.keys(colorActionsSysHover).map((key) => [
+    key,
+    colors.ref.palette.neutral.n0,
+  ])
 );
 
 const appearanceColors = {
