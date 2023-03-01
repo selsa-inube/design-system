@@ -11,7 +11,6 @@ const getColor = (isDisabled, isFocused, errorMessage) => {
   }
 
   if (isFocused) {
-    console.log(isFocused);
     color = colors.ref.palette.blue.b300;
     return color;
   }

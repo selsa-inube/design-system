@@ -26,6 +26,15 @@ const DEFAULLT_VALUES_PROPS = {
 const typesImput = ["text", "email", "number", "password", "search", "tel"];
 const sizes = ["wide", "compact"];
 
+const stateLabel = (prop) => {
+  let state = "default";
+  if (prop) {
+    state = "invalid";
+    return state;
+  }
+  return state;
+};
+
 const TextField = (props) => {
   const {
     label,
@@ -57,7 +66,7 @@ const TextField = (props) => {
 
   const transformedIsFocused =
     typeof isFocused === "boolean"
-      ? isDisabled
+      ? isFocused
       : DEFAULLT_VALUES_PROPS.isFocused;
 
   const transformedTypes = typesImput.includes(type)
@@ -78,11 +87,16 @@ const TextField = (props) => {
     <StyledContainaer iconAfter={iconAfter} isRequired={isRequired}>
       <StyledContainaerLabel>
         {label && (
-          <Label htmlFor={id} state="default">
+          <Label
+            htmlFor={id}
+            state={stateLabel(errorMessage)}
+            isDisabled={isDisabled}
+            isFocused={isFocused}
+          >
             {label}
           </Label>
         )}
-        {isRequired && (
+        {isRequired && !isDisabled && !isFocused && !isInvalid && (
           <StyledParrafo role="bodySmall">(Required)</StyledParrafo>
         )}
       </StyledContainaerLabel>
@@ -102,7 +116,7 @@ const TextField = (props) => {
           isFocused={transformedIsFocused}
           type={transformedTypes}
           value={value}
-          onClick={handleChange}
+          onChange={handleChange}
           iconBefore={iconBefore}
           iconAfter={iconAfter}
           maxLength={maxLength}

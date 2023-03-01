@@ -37,8 +37,10 @@ Default.args = {
   isDisabled: false,
   isFocused: false,
   placeholder: "nombre",
-  isRequired: true,
-  errorMessage: "no encontrado",
+  isRequired: false,
+  errorMessage: "",
+  isInvalid: false,
+  maxLength: 3,
 };
 
 Default.argTypes = {
