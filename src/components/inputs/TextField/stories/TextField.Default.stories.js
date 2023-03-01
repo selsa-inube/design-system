@@ -1,7 +1,5 @@
 import { TextField } from "..";
 
-import { AiOutlineSearch } from "react-icons/ai";
-
 import {
   parameters,
   label,
@@ -36,6 +34,8 @@ const Default = (args) => <TextField {...args} />;
 Default.args = {
   label: "username",
   id: "username",
+  isDisabled: false,
+  isFocused: false,
   placeholder: "nombre",
   isRequired: true,
   errorMessage: "no encontrado",

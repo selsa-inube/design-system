@@ -7,10 +7,12 @@ import Label from "../Label/index";
 
 import {
   StyledContainaer,
+  StyledContainaerLabel,
   StyledInputContainer,
   StyledInput,
   StyledIcon,
   StyledErrorMensaje,
+  StyledParrafo,
 } from "./styles";
 
 const DEFAULLT_VALUES_PROPS = {
@@ -74,15 +76,21 @@ const TextField = (props) => {
 
   return (
     <StyledContainaer iconAfter={iconAfter} isRequired={isRequired}>
-      {label && (
-        <Label htmlFor={id} state="default">
-          {label}
-        </Label>
-      )}
-      {isRequired && <p>(Required)</p>}
+      <StyledContainaerLabel>
+        {label && (
+          <Label htmlFor={id} state="default">
+            {label}
+          </Label>
+        )}
+        {isRequired && (
+          <StyledParrafo role="bodySmall">(Required)</StyledParrafo>
+        )}
+      </StyledContainaerLabel>
       <StyledInputContainer>
         {iconBefore && (
-          <StyledIcon iconBefore={iconBefore}>{iconBefore}</StyledIcon>
+          <StyledIcon isDisabled={isDisabled} iconBefore={iconBefore}>
+            {iconBefore}
+          </StyledIcon>
         )}
 
         <StyledInput
@@ -108,10 +116,12 @@ const TextField = (props) => {
           isFullWidth={transformedIsFullWidth}
         />
         {iconAfter && (
-          <StyledIcon iconAfter={iconAfter}>{iconAfter}</StyledIcon>
+          <StyledIcon iconAfter={iconAfter} isDisabled={isDisabled}>
+            {iconAfter}
+          </StyledIcon>
         )}
         {type === "search" && (
-          <StyledIcon type={type}>
+          <StyledIcon type={type} isDisabled={isDisabled}>
             <AiOutlineSearch />
           </StyledIcon>
         )}

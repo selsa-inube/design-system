@@ -2,16 +2,41 @@ import styled from "styled-components";
 import { colors } from "../../../shared/colors/colors";
 import { typography } from "../../../shared/typography/typography";
 
-/* const getColor = (isDisabled, isFocused, errorMessage) => {
-  let color = colors.sys.messages
-}; */
+const getColor = (isDisabled, isFocused, errorMessage) => {
+  let color = colors.ref.palette.neutral.n300;
+
+  if (isDisabled) {
+    color = colors.ref.palette.neutral.n60;
+    return color;
+  }
+
+  if (isFocused) {
+    console.log(isFocused);
+    color = colors.ref.palette.blue.b300;
+    return color;
+  }
+
+  if (errorMessage) {
+    color = colors.sys.actions.remove;
+    return color;
+  }
+  return color;
+};
 
 const StyledContainaer = styled.div`
   display: inline-block;
   position: relative;
+`;
+
+const StyledContainaerLabel = styled.div`
+  display: flex;
+  align-items: center;
+  height: 20px;
+  width: 150px;
 
   & Label {
     margin-left: 16px;
+    padding-right: 5px;
   }
 `;
 
@@ -30,20 +55,30 @@ const StyledInput = styled.input`
   align-items: center;
   padding: 8px 12px 8px 16px;
   gap: 8px;
-
- width: 100%
+  font-size: 14px;
+  width: 280px;
   height: 100%;
 
-  border: 1px solid ${colors.ref.palette.neutral.n300};
   border-radius: 8px;
-
+  disabled: ${({ isDisabled }) => isDisabled};
   flex: none;
   order: 1;
   align-self: stretch;
   flex-grow: 0;
+  border: 1px solid
+    ${({ isDisabled, isFocused, errorMessage }) =>
+      getColor(isDisabled, isFocused, errorMessage)};
   ::placeholder {
-    padding-left: ${({ iconBefore }) => (iconBefore ? "16px" : "0px")}
+    padding-left: ${({ iconBefore }) => (iconBefore ? "16px" : "0px")};
   }
+  &::-webkit-search-cancel-button {
+    display: none;
+  }
+
+  &::-moz-search-cancel-button {
+    display: none;
+  }
+  ${({ isDisabled }) => isDisabled && "pointer-events: none; opacity: 0.5;"}
 `;
 
 const StyledIcon = styled.div`
@@ -51,24 +86,28 @@ const StyledIcon = styled.div`
   justify-content: center;
   align-items: center;
   position: absolute;
-  right: ${({ iconBefore }) => iconBefore && "85%"};
-  left: ${({ iconAfter, type }) => iconAfter || (type === "search" && "85%")};
   height: 24px;
   width: 24px;
+  right: ${({ iconBefore }) => iconBefore && "85%"};
+  left: ${({ iconAfter, type }) => iconAfter || (type === "search" && "85%")};
+  color: ${({ isDisabled }) => isDisabled && colors.ref.palette.neutral.n60};
 `;
 
-const StyledErrorMensaje = styled.p`
+const StyledParrafo = styled.p`
   font-family: ${typography.ref.typeface.brand}, sans-serif;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  color: ${colors.sys.messages.error};
-  margin-left: 16px;
-  margin-top: 5px;
   line-height: ${(props) => typography.sys.typescale[props.role].lineHeight};
   font-size: ${(props) => typography.sys.typescale[props.role].size};
   letter-spacing: ${(props) => typography.sys.typescale[props.role].tracking};
   font-weight: ${(props) => typography.sys.typescale[props.role].weight};
+`;
+
+const StyledErrorMensaje = styled(StyledParrafo)`
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  margin-left: 16px;
+  margin-top: 5px;
+  color: ${colors.sys.messages.error};
 
   & svg {
     width: 14px;
@@ -79,8 +118,10 @@ const StyledErrorMensaje = styled.p`
 
 export {
   StyledContainaer,
+  StyledContainaerLabel,
   StyledInputContainer,
   StyledInput,
   StyledIcon,
   StyledErrorMensaje,
+  StyledParrafo,
 };
