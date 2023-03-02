@@ -23,4 +23,8 @@ export const Example = (args) => {
   return <SwitchController {...args} size={size} />;
 };
 
+Example.args = {
+  handleChange: () => {},
+};
+
 export default story;
