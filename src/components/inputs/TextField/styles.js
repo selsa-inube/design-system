@@ -2,6 +2,15 @@ import styled from "styled-components";
 import { colors } from "../../../shared/colors/colors";
 import { typography } from "../../../shared/typography/typography";
 
+const sizeOptions = {
+  compact: {
+    height: "40px",
+  },
+  wide: {
+    height: "48px",
+  },
+};
+
 const getColor = (isDisabled, isFocused, errorMessage) => {
   let color = colors.ref.palette.neutral.n300;
 
@@ -23,7 +32,6 @@ const getColor = (isDisabled, isFocused, errorMessage) => {
 };
 
 const StyledContainaer = styled.div`
-  display: inline-block;
   position: relative;
 `;
 
@@ -55,21 +63,23 @@ const StyledInput = styled.input`
   padding: 8px 12px 8px 16px;
   gap: 8px;
   font-size: 14px;
-  width: 280px;
-  height: 100%;
-
   border-radius: 8px;
-  disabled: ${({ isDisabled }) => isDisabled};
   flex: none;
   order: 1;
   align-self: stretch;
   flex-grow: 0;
+  width: ${(props) => (props.isFullWidth === true ? "100%" : "280px")};
+  max-width: ${(props) => (props.isFullWidth === true ? "none" : "auto")};
+  ${({ size }) => sizeOptions[size]};
+  disabled: ${({ isDisabled }) => isDisabled};
   border: 1px solid
     ${({ isDisabled, isFocused, errorMessage }) =>
       getColor(isDisabled, isFocused, errorMessage)};
+
   ::placeholder {
     padding-left: ${({ iconBefore }) => (iconBefore ? "16px" : "0px")};
   }
+
   &::-webkit-search-cancel-button {
     display: none;
   }

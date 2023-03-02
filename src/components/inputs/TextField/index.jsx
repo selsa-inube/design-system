@@ -23,7 +23,7 @@ const DEFAULLT_VALUES_PROPS = {
   isFullWidth: false,
 };
 
-const typesImput = ["text", "email", "number", "password", "search", "tel"];
+const typesInput = ["text", "email", "number", "password", "search", "tel"];
 const sizes = ["wide", "compact"];
 
 const stateLabel = (prop) => {
@@ -69,7 +69,7 @@ const TextField = (props) => {
       ? isFocused
       : DEFAULLT_VALUES_PROPS.isFocused;
 
-  const transformedTypes = typesImput.includes(type)
+  const transformedTypes = typesInput.includes(type)
     ? type
     : DEFAULLT_VALUES_PROPS.type;
 
@@ -154,9 +154,9 @@ TextField.propTypes = {
   name: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
-  isDisabled: PropTypes.bool.isRequired,
-  isFocused: PropTypes.bool.isRequired,
-  type: PropTypes.oneOf(typesImput),
+  isDisabled: PropTypes.bool,
+  isFocused: PropTypes.bool,
+  type: PropTypes.oneOf(typesInput),
   value: PropTypes.string,
   handleChange: PropTypes.func,
   iconBefore: PropTypes.node,
@@ -172,4 +172,4 @@ TextField.propTypes = {
   isFullWidth: PropTypes.bool,
 };
 
-export { TextField, typesImput, sizes };
+export { TextField, typesInput, sizes };

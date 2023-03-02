@@ -25,27 +25,29 @@ import {
 } from "./props";
 
 const story = {
-  title: "inputs/textField/Default",
+  title: "inputs/textField/Required",
   components: [TextField],
   parameters,
 };
 
-const Default = (args) => <TextField {...args} />;
-Default.args = {
+const Required = (args) => <TextField {...args} isRequired={true} />;
+Required.args = {
   label: "Username",
   name: "Username",
   id: "Username",
   placeholder: "Write your full name",
+  isDisabled: false,
+  isFocused: false,
+  type: "text",
   handleChange: () => {},
-  maxLength: 10,
+  maxLength: 20,
   minLength: 1,
-  errorMessage: "",
   isInvalid: false,
+  errorMessage: "",
   size: "wide",
-  isFullWidth: false,
 };
 
-Default.argTypes = {
+Required.argTypes = {
   label,
   name,
   id,
@@ -70,4 +72,4 @@ Default.argTypes = {
 
 export default story;
 
-export { Default };
+export { Required };

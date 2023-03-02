@@ -13,8 +13,6 @@ import {
   handleChange,
   iconBefore,
   iconAfter,
-  maxLength,
-  minLength,
   max,
   min,
   isRequired,
@@ -25,27 +23,30 @@ import {
 } from "./props";
 
 const story = {
-  title: "inputs/textField/Default",
+  title: "inputs/textField/Number",
   components: [TextField],
   parameters,
 };
 
-const Default = (args) => <TextField {...args} />;
-Default.args = {
-  label: "Username",
-  name: "Username",
-  id: "Username",
-  placeholder: "Write your full name",
+const Number = (args) => <TextField {...args} type="number" />;
+Number.args = {
+  label: "Quantity",
+  name: "quantity",
+  id: "quantity",
+  placeholder: "Value",
+  isDisabled: false,
+  isFocused: false,
   handleChange: () => {},
-  maxLength: 10,
-  minLength: 1,
-  errorMessage: "",
+  max: 10,
+  min: 0,
+  isRequired: false,
   isInvalid: false,
+  errorMessage: "",
   size: "wide",
   isFullWidth: false,
 };
 
-Default.argTypes = {
+Number.argTypes = {
   label,
   name,
   id,
@@ -57,8 +58,6 @@ Default.argTypes = {
   handleChange,
   iconBefore,
   iconAfter,
-  maxLength,
-  minLength,
   max,
   min,
   isRequired,
@@ -70,4 +69,4 @@ Default.argTypes = {
 
 export default story;
 
-export { Default };
+export { Number };

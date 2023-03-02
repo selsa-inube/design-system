@@ -25,27 +25,33 @@ import {
 } from "./props";
 
 const story = {
-  title: "inputs/textField/Default",
+  title: "inputs/textField/Search",
   components: [TextField],
   parameters,
 };
 
-const Default = (args) => <TextField {...args} />;
-Default.args = {
-  label: "Username",
-  name: "Username",
-  id: "Username",
-  placeholder: "Write your full name",
+const Search = (args) => <TextField {...args} type="search" />;
+Search.args = {
+  label: "searchField",
+  name: "searchField",
+  id: "searchField",
+  placeholder: "Search...",
+  isDisabled: false,
+  isFocused: false,
+
   handleChange: () => {},
+  isRequired: false,
+  isInvalid: false,
+  errorMessage: "",
   maxLength: 10,
   minLength: 1,
-  errorMessage: "",
-  isInvalid: false,
+  max: 10,
+  min: 1,
   size: "wide",
   isFullWidth: false,
 };
 
-Default.argTypes = {
+Search.argTypes = {
   label,
   name,
   id,
@@ -70,4 +76,4 @@ Default.argTypes = {
 
 export default story;
 
-export { Default };
+export { Search };
