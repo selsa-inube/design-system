@@ -23,100 +23,73 @@ const cursors = {
 };
 
 const hoverColors = {
-  primaryHover: colors.ref.palette.blue.b300,
-  secondaryHover: colors.ref.palette.neutral.n20,
-  confirmHover: colors.ref.palette.green.g300,
-  warningHover: colors.ref.palette.yellow.y300,
-  removeHover: colors.ref.palette.red.r300,
-  helpHover: colors.ref.palette.purple.p300,
+  primary: colors.ref.palette.blue.b300,
+  secondary: colors.ref.palette.neutral.n20,
+  confirm: colors.ref.palette.green.g300,
+  warning: colors.ref.palette.yellow.y300,
+  remove: colors.ref.palette.red.r300,
+  help: colors.ref.palette.purple.p300,
 };
-
-const transparenthoverColors = Object.fromEntries(
-  Object.keys(hoverColors).map((key) => [key, "transparent"])
-);
-
-const transparentColorActionsSys = Object.fromEntries(
-  Object.keys(colors.sys.actions).map((key) => [key, "transparent"])
-);
-
-const commonColorActionsSys = Object.fromEntries(
-  Object.keys(colors.sys.actions).map((key) => [
-    key,
-    colors.ref.palette.neutral.n0,
-  ])
-);
-
-const commonhoverColors = Object.fromEntries(
-  Object.keys(hoverColors).map((key) => [key, colors.ref.palette.neutral.n0])
-);
 
 const appearanceColors = {
   filled: {
-    ...commonColorActionsSys,
-    secondary: colors.ref.palette.neutral.n900,
-    warning: colors.ref.palette.neutral.n900,
-    disabled: colors.ref.palette.neutral.n30,
-    ...hoverColors,
-    ...commonhoverColors,
-    secondaryHover: colors.ref.palette.neutral.n900,
-    warningHover: colors.ref.palette.neutral.n900,
+    normal: {
+      primary: colors.ref.palette.neutral.n0,
+      secondary: colors.ref.palette.neutral.n300,
+      confirm: colors.ref.palette.neutral.n0,
+      warning: colors.ref.palette.neutral.n900,
+      remove: colors.ref.palette.neutral.n0,
+      help: colors.ref.palette.neutral.n0,
+      disabled: colors.ref.palette.neutral.n70,
+    },
+    hover: colors.ref.palette.neutral.n0,
   },
   outlined: {
-    ...colors.sys.actions,
-    secondary: colors.ref.palette.neutral.n900,
-    disabled: "transparent",
-    ...hoverColors,
-    secondaryHover: colors.ref.palette.neutral.n500,
+    normal: {
+      ...colors.sys.actions,
+      secondary: colors.ref.palette.neutral.n300,
+    },
+    hover: {
+      ...hoverColors,
+      secondary: colors.ref.palette.neutral.n300,
+    },
   },
   none: {
-    ...colors.sys.actions,
-    secondary: colors.ref.palette.neutral.n900,
-    disabled: "transparent",
-    ...hoverColors,
-    secondaryHover: colors.ref.palette.neutral.n500,
+    normal: {
+      ...colors.sys.actions,
+      secondary: colors.ref.palette.neutral.n900,
+    },
+    hover: {
+      ...hoverColors,
+      secondary: colors.ref.palette.neutral.n900,
+    },
   },
 };
 
 const backgroundColor = {
   filled: {
-    ...colors.sys.actions,
-    disabled: colors.ref.palette.neutral.n30,
-    ...hoverColors,
+    normal: {
+      ...colors.sys.actions,
+    },
+    hover: {
+      ...hoverColors,
+    },
   },
-  outlined: {
-    color: "transparent",
-    disabled: "transparent",
-    ...transparentColorActionsSys,
-    ...transparenthoverColors,
-  },
-  none: {
-    color: "transparent",
-    disabled: "transparent",
-    ...transparentColorActionsSys,
-    ...transparenthoverColors,
-  },
+  outlined: colors.ref.palette.neutralAlpha.n0A,
+  none: colors.ref.palette.neutralAlpha.n0A,
 };
 
 const borderColors = {
-  filled: {
-    ...transparentColorActionsSys,
-    disabled: "transparent",
-    ...hoverColors,
-  },
+  filled: colors.ref.palette.neutralAlpha.n0A,
   outlined: {
-    ...colors.sys.actions,
-    secondary: colors.ref.palette.neutral.n900,
-    disabled: colors.ref.palette.neutral.n30,
-    ...hoverColors,
-    secondaryHover: colors.ref.palette.neutral.n500,
+    normal: {
+      ...colors.sys.actions,
+    },
+    hover: {
+      ...hoverColors,
+    },
   },
-  none: {
-    ...colors.sys.actions,
-    disabled: "transparent",
-    ...hoverColors,
-    ...transparentColorActionsSys,
-    ...transparenthoverColors,
-  },
+  none: colors.ref.palette.neutralAlpha.n0A,
 };
 
 const getPointer = (props) => {
@@ -134,46 +107,58 @@ const getPointer = (props) => {
 };
 
 const getColor = (props) => {
-  const { isDisabled, appearance, variant, isHover } = props;
+  const { isDisabled, variant, appearance, isHover } = props;
+
+  // if (variant !== "filled") {
+  //   return appearanceColors[variant];
+  // }
 
   if (isDisabled) {
-    return colors.ref.palette.neutral.n60;
+    return appearanceColors[variant].normal.disabled;
   }
 
   if (isHover) {
-    return appearanceColors[variant][appearance + "Hover"];
+    return appearanceColors[variant].hover[appearance];
   }
 
-  return appearanceColors[variant][appearance];
+  return appearanceColors[variant].normal[appearance];
 };
 
 const getBorderColor = (props) => {
-  const { isDisabled, appearance, variant, isHover } = props;
-
-  if (isDisabled) {
-    return borderColors[variant].disabled;
-  }
-
-  if (isHover) {
-    return borderColors[variant][appearance + "Hover"];
-  }
-
-  return borderColors[variant][appearance];
-};
-
-const getBackgroundColor = (props) => {
   const { isDisabled, variant, appearance, isHover } = props;
 
+  if (variant !== "outlined") {
+    return borderColors[variant];
+  }
+
   if (isDisabled) {
-    return backgroundColor[variant].disabled;
+    return borderColors[variant].normal.disabled;
   }
 
   if (isHover) {
-    return backgroundColor[variant][appearance + "Hover"];
+    return borderColors[variant].hover[appearance];
   }
 
-  return backgroundColor[variant][appearance];
+  return borderColors[variant].normal[appearance];
 };
+
+function getBackgroundColor(props) {
+  const { isDisabled, variant, appearance, isHover } = props;
+
+  if (variant !== "filled") {
+    return backgroundColor[variant];
+  }
+
+  if (isDisabled) {
+    return backgroundColor[variant].normal.disabled;
+  }
+
+  if (isHover) {
+    return backgroundColor[variant].hover[appearance];
+  }
+
+  return backgroundColor[variant].normal[appearance];
+}
 
 const StyledSpan = styled.span`
   display: flex;
