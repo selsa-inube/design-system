@@ -46,12 +46,6 @@ const Paragraphs = (args) => {
 
 Paragraphs.args = {
   id: "idComponent",
-  as: "h1",
-  align: "start",
-  margin: "0px",
-  padding: "0px",
-  appearance: "dark",
-  typo: "bodyLarge",
 };
 
 Paragraphs.argTypes = {

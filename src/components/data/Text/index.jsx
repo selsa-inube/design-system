@@ -27,13 +27,9 @@ const htmlElements = [
   "blockquote",
 ];
 
-const appearencesOptions = Object.keys(colors.sys.text).map((key) => {
-  return key;
-});
+const appearencesOptions = Object.keys(colors.sys.text);
 
-const typosOptions = Object.keys(typography.sys.typescale).map((key) => {
-  return key;
-});
+const typosOptions = Object.keys(typography.sys.typescale);
 
 const defaultAlign = "start";
 const defaultHtmlElement = "p";
@@ -51,7 +47,6 @@ const isValidCssSpacing = (element) => {
       .filter((spacing) => spacing !== "")
       .every((i) => regex.test(i));
     result = validatedElement === true && splitElement.length <= 4;
-    return result;
   }
   return result;
 };
@@ -105,7 +100,7 @@ const Text = (props) => {
 
 Text.propTypes = {
   children: PropsType.node,
-  align: PropsType.oneOf(alignsOptions).isRequired,
+  align: PropsType.oneOf(alignsOptions),
   margin: PropsType.oneOfType([
     PropsType.string,
     PropsType.oneOf(globalValuesPropertiesCss),
@@ -114,10 +109,10 @@ Text.propTypes = {
     PropsType.string,
     PropsType.oneOf(globalValuesPropertiesCss),
   ]),
-  as: PropsType.oneOf(htmlElements).isRequired,
+  as: PropsType.oneOf(htmlElements),
   id: PropsType.string,
-  appearance: PropsType.oneOf(appearencesOptions).isRequired,
-  typo: PropsType.oneOf(typosOptions).isRequired,
+  appearance: PropsType.oneOf(appearencesOptions),
+  typo: PropsType.oneOf(typosOptions),
 };
 
 export { Text, htmlElements, alignsOptions, appearencesOptions, typosOptions };
