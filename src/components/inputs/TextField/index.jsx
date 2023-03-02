@@ -84,7 +84,7 @@ const TextField = (props) => {
       : DEFAULLT_VALUES_PROPS.isFullWidth;
 
   return (
-    <StyledContainaer iconAfter={iconAfter} isRequired={isRequired}>
+    <StyledContainaer iconAfter={iconAfter} isFullWidth={isFullWidth}>
       <StyledContainaerLabel>
         {label && (
           <Label

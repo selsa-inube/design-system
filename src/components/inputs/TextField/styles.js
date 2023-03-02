@@ -34,6 +34,8 @@ const getColor = (isDisabled, isFocused, errorMessage) => {
 const StyledContainaer = styled.div`
   display: inline-block;
   position: relative;
+  width: ${(props) => (props.isFullWidth === true ? "100%" : "280px")};
+  max-width: ${(props) => (props.isFullWidth === true ? "none" : "auto")};
 `;
 
 const StyledContainaerLabel = styled.div`

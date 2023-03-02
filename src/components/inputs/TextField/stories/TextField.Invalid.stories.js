@@ -1,6 +1,4 @@
 import { TextField } from "..";
-import { sizes } from "..";
-import { StyledFlex } from "./stories.stiles";
 
 import {
   parameters,
@@ -19,7 +17,6 @@ import {
   minLength,
   max,
   min,
-  isRequired,
   isInvalid,
   errorMessage,
   size,
@@ -27,40 +24,30 @@ import {
 } from "./props";
 
 const story = {
-  title: "inputs/textField/Size",
+  title: "inputs/textField/Invalid",
   components: [TextField],
   parameters,
 };
 
-const TextFieldComponent = (args) => {
-  return (
-    <StyledFlex>
-      {sizes.map((size) => (
-        <div key={size}>
-          <TextField size={size} {...args} />
-        </div>
-      ))}
-    </StyledFlex>
-  );
-};
-
-const Size = TextFieldComponent.bind({});
-Size.args = {
+const Invalid = (args) => <TextField {...args} isInvalid={true} />;
+Invalid.args = {
   label: "Username",
   name: "Username",
   id: "Username",
+  value: "L-GARZON",
+  placeholder: "Username..",
   isDisabled: false,
   isFocused: false,
-  placeholder: "Write your full name",
+  type: "text",
   handleChange: () => {},
-  maxLength: 10,
+  maxLength: 20,
   minLength: 1,
-  errorMessage: "",
   isInvalid: false,
-  isFullWidth: false,
+  errorMessage: "This field can only contain letters",
+  size: "wide",
 };
 
-Size.argTypes = {
+Invalid.argTypes = {
   label,
   name,
   id,
@@ -76,7 +63,6 @@ Size.argTypes = {
   minLength,
   max,
   min,
-  isRequired,
   isInvalid,
   errorMessage,
   size,
@@ -85,4 +71,4 @@ Size.argTypes = {
 
 export default story;
 
-export { Size };
+export { Invalid };
