@@ -32,6 +32,7 @@ const getColor = (isDisabled, isFocused, errorMessage) => {
 };
 
 const StyledContainaer = styled.div`
+  display: inline-block;
   position: relative;
 `;
 

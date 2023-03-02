@@ -1,4 +1,6 @@
 import { TextField } from "..";
+import { sizes } from "..";
+import { StyledFlex } from "./stories.stiles";
 
 import {
   parameters,
@@ -13,6 +15,8 @@ import {
   handleChange,
   iconBefore,
   iconAfter,
+  maxLength,
+  minLength,
   max,
   min,
   isRequired,
@@ -23,31 +27,39 @@ import {
 } from "./props";
 
 const story = {
-  title: "inputs/textField/Number",
+  title: "inputs/textField/Disabled",
   components: [TextField],
   parameters,
 };
 
-const Number = (args) => <TextField {...args} />;
-Number.args = {
-  label: "Quantity",
-  name: "quantity",
-  id: "quantity",
-  placeholder: "Value",
-  type: "number",
-  isDisabled: false,
+const TextFieldComponent = (args) => {
+  return (
+    <StyledFlex>
+      {sizes.map((size) => (
+        <div key={size}>
+          <TextField size={size} isDisabled={true} {...args} />
+        </div>
+      ))}
+    </StyledFlex>
+  );
+};
+
+const Disabled = TextFieldComponent.bind({});
+Disabled.args = {
+  label: "Username",
+  name: "Username",
+  id: "Username",
   isFocused: false,
+  placeholder: "Write your full name",
   handleChange: () => {},
-  max: 10,
-  min: 0,
-  isRequired: false,
-  isInvalid: false,
+  maxLength: 10,
+  minLength: 1,
   errorMessage: "",
-  size: "wide",
+  isInvalid: false,
   isFullWidth: false,
 };
 
-Number.argTypes = {
+Disabled.argTypes = {
   label,
   name,
   id,
@@ -59,6 +71,8 @@ Number.argTypes = {
   handleChange,
   iconBefore,
   iconAfter,
+  maxLength,
+  minLength,
   max,
   min,
   isRequired,
@@ -70,4 +84,4 @@ Number.argTypes = {
 
 export default story;
 
-export { Number };
+export { Disabled };

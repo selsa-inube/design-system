@@ -1,4 +1,4 @@
-import { typesImput, sizes } from "..";
+import { typesInput, sizes } from "..";
 
 const parameters = {
   docs: {
@@ -42,7 +42,7 @@ const isFocused = {
 };
 
 const type = {
-  options: typesImput,
+  options: typesInput,
   control: { type: "select" },
   description: "class name to apply to the input element",
   table: {
