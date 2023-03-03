@@ -25,46 +25,40 @@ const Field = (props) => {
   const systemTokens = colors.sys;
   const transformedSystemTokens = Object.keys(systemTokens[role][systemToken]);
   const refTokens = Object.values(systemTokens[role][systemToken]);
-  console.log(
-    "systemTokens[role][systemToken] :",
-    Object.values(systemTokens[role][systemToken])
-  );
-  console.log("systemTokens :", role, transformedSystemTokens);
 
-  return (
+  return role === "actions" ? (
+    transformedSystemTokens.map((transformedSystemToken) =>
+      refTokens.map((refToken) => (
+        <StyledGridField>
+          <StyledSpan>
+            sys.{role}.{systemToken}.{transformedSystemToken}
+          </StyledSpan>
+          <StyledSpan>{getRefTokenFromHex(refToken)}</StyledSpan>
+          <StyledSpan>
+            <StyledColor
+              role={role}
+              systemToken={systemToken}
+              refToken={transformedSystemToken}
+            >
+              {refToken}
+            </StyledColor>
+          </StyledSpan>
+        </StyledGridField>
+      ))
+    )
+  ) : (
     <StyledGridField>
       <StyledSpan>
-        {transformedSystemTokens.map((transformedSystemToken) => (
-          <>
-            <br />
-            sys.{role}.{systemToken}.{transformedSystemToken}
-          </>
-        ))}
+        sys.{role}.{systemToken}
       </StyledSpan>
       <StyledSpan>
-        {refTokens.map((refToken) => (
-          <>
-            <br />
-            ref.
-            {getRefTokenFromHex(refToken)}
-          </>
-        ))}
+        ref.
+        {getRefTokenFromHex(systemTokens[role][systemToken])}
       </StyledSpan>
       <StyledSpan>
-        {transformedSystemTokens.map((transformedSystemToken) =>
-          refTokens.map((refToken) => (
-            <>
-              <br />
-              <StyledColor
-                role={role}
-                systemToken={systemToken}
-                refToken={transformedSystemToken}
-              >
-                {refToken}
-              </StyledColor>
-            </>
-          ))
-        )}
+        <StyledColor role={role} systemToken={systemToken}>
+          {systemTokens[role][systemToken]}
+        </StyledColor>
       </StyledSpan>
     </StyledGridField>
   );
@@ -73,7 +67,7 @@ const Field = (props) => {
 const GridSystemToken = (props) => {
   const { role } = props;
   const systemTokensGroup = Object.keys(colors.sys[role]);
-  //console.log("systemTokensGroup :", systemTokensGroup, role);
+
   return (
     <>
       <StyledTitleCard>

@@ -47,7 +47,9 @@ const StyledSpan = styled.span`
 
 const StyledColor = styled.div`
   background-color: ${(props) =>
-    colors.sys[props.role][props.systemToken][props.refToken]};
+    props.refToken
+      ? colors.sys[props.role][props.systemToken][props.refToken]
+      : colors.sys[props.role][props.systemToken]};
   display: flex;
   justify-content: center;
   align-items: center;
