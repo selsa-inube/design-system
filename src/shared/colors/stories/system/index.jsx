@@ -23,29 +23,32 @@ function getRefTokenFromHex(value, obj = colors.ref) {
 const Field = (props) => {
   const { role, systemToken } = props;
   const systemTokens = colors.sys;
-  const transformedSystemTokens = Object.keys(systemTokens[role][systemToken]);
-  const refTokens = Object.values(systemTokens[role][systemToken]);
+  const transformedSystemTokens = Object.entries(
+    systemTokens[role][systemToken]
+  );
 
   return role === "actions" ? (
-    transformedSystemTokens.map((transformedSystemToken) =>
-      refTokens.map((refToken) => (
-        <StyledGridField>
-          <StyledSpan>
-            sys.{role}.{systemToken}.{transformedSystemToken}
-          </StyledSpan>
-          <StyledSpan>ref.{getRefTokenFromHex(refToken)}</StyledSpan>
-          <StyledSpan>
-            <StyledColor
-              role={role}
-              systemToken={systemToken}
-              refToken={transformedSystemToken}
-            >
-              {refToken}
-            </StyledColor>
-          </StyledSpan>
-        </StyledGridField>
-      ))
-    )
+    transformedSystemTokens.map((transformedSystemToken, refToken, index) => (
+      <StyledGridField
+        key={`${role}-${systemToken}-${transformedSystemToken}-${refToken}-${index}`}
+      >
+        <StyledSpan>
+          sys.{role}.{systemToken}
+        </StyledSpan>
+        <StyledSpan>
+          ref.{getRefTokenFromHex(transformedSystemToken[1])}
+        </StyledSpan>
+        <StyledSpan>
+          <StyledColor
+            role={role}
+            systemToken={systemToken}
+            refToken={transformedSystemToken[0]}
+          >
+            {transformedSystemToken[1]}
+          </StyledColor>
+        </StyledSpan>
+      </StyledGridField>
+    ))
   ) : (
     <StyledGridField>
       <StyledSpan>
