@@ -33,7 +33,7 @@ const Field = (props) => {
           <StyledSpan>
             sys.{role}.{systemToken}.{transformedSystemToken}
           </StyledSpan>
-          <StyledSpan>{getRefTokenFromHex(refToken)}</StyledSpan>
+          <StyledSpan>ref.{getRefTokenFromHex(refToken)}</StyledSpan>
           <StyledSpan>
             <StyledColor
               role={role}
@@ -52,8 +52,7 @@ const Field = (props) => {
         sys.{role}.{systemToken}
       </StyledSpan>
       <StyledSpan>
-        ref.
-        {getRefTokenFromHex(systemTokens[role][systemToken])}
+        ref.{getRefTokenFromHex(systemTokens[role][systemToken])}
       </StyledSpan>
       <StyledSpan>
         <StyledColor role={role} systemToken={systemToken}>
