@@ -31,7 +31,7 @@ const Field = (props) => {
     transformedSystemTokens.map(([variant, color]) => (
       <StyledGridField key={`${role}-${systemToken}-${variant}`}>
         <StyledSpan>
-          sys.{role}.{systemToken}
+          sys.{role}.{systemToken}.{variant}
         </StyledSpan>
         <StyledSpan>ref.{getRefTokenFromHex(color)}</StyledSpan>
         <StyledSpan>
