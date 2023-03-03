@@ -52,10 +52,32 @@ const GridSystemToken = (props) => {
         <h1>{role}</h1>
       </StyledTitleCard>
       <StyledContainer>
-        {systemTokensGroup.map((systemToken) => (
-          <Field key={systemToken} role={role} systemToken={systemToken} />
-        ))}
+        {systemTokensGroup.map((systemToken) =>
+          role !== "actions" ? (
+            <Field key={systemToken} role={role} systemToken={systemToken} />
+          ) : (
+            <Actions role={role} />
+          )
+        )}
       </StyledContainer>
+    </>
+  );
+};
+
+const Actions = (props) => {
+  const { role } = props;
+  const sysTokenActionLists = Object.keys(colors.sys);
+  return (
+    <>
+      {sysTokenActionLists.map((key) => {
+        return (
+          <StyledContainer>
+            {Object.keys(colors.sys[key]).map((subkey) => {
+              return <Field key={key} role={role} subkey={subkey} />;
+            })}
+          </StyledContainer>
+        );
+      })}
     </>
   );
 };
