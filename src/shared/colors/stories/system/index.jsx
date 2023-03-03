@@ -23,20 +23,48 @@ function getRefTokenFromHex(value, obj = colors.ref) {
 const Field = (props) => {
   const { role, systemToken } = props;
   const systemTokens = colors.sys;
+  const transformedSystemTokens = Object.keys(systemTokens[role][systemToken]);
+  const refTokens = Object.values(systemTokens[role][systemToken]);
+  console.log(
+    "systemTokens[role][systemToken] :",
+    Object.values(systemTokens[role][systemToken])
+  );
+  console.log("systemTokens :", role, transformedSystemTokens);
 
   return (
     <StyledGridField>
       <StyledSpan>
-        sys.{role}.{systemToken}
+        {transformedSystemTokens.map((transformedSystemToken) => (
+          <>
+            <br />
+            sys.{role}.{systemToken}.{transformedSystemToken}
+          </>
+        ))}
       </StyledSpan>
       <StyledSpan>
-        ref.
-        {getRefTokenFromHex(systemTokens[role][systemToken])}
+        {refTokens.map((refToken) => (
+          <>
+            <br />
+            ref.
+            {getRefTokenFromHex(refToken)}
+          </>
+        ))}
       </StyledSpan>
       <StyledSpan>
-        <StyledColor role={role} systemToken={systemToken}>
-          {systemTokens[role][systemToken]}
-        </StyledColor>
+        {transformedSystemTokens.map((transformedSystemToken) =>
+          refTokens.map((refToken) => (
+            <>
+              <br />
+              <StyledColor
+                role={role}
+                systemToken={systemToken}
+                refToken={transformedSystemToken}
+              >
+                {refToken}
+              </StyledColor>
+            </>
+          ))
+        )}
       </StyledSpan>
     </StyledGridField>
   );
@@ -45,39 +73,17 @@ const Field = (props) => {
 const GridSystemToken = (props) => {
   const { role } = props;
   const systemTokensGroup = Object.keys(colors.sys[role]);
-
+  //console.log("systemTokensGroup :", systemTokensGroup, role);
   return (
     <>
       <StyledTitleCard>
         <h1>{role}</h1>
       </StyledTitleCard>
       <StyledContainer>
-        {systemTokensGroup.map((systemToken) =>
-          role !== "actions" ? (
-            <Field key={systemToken} role={role} systemToken={systemToken} />
-          ) : (
-            <Actions role={role} />
-          )
-        )}
+        {systemTokensGroup.map((systemToken) => (
+          <Field key={systemToken} role={role} systemToken={systemToken} />
+        ))}
       </StyledContainer>
-    </>
-  );
-};
-
-const Actions = (props) => {
-  const { role } = props;
-  const sysTokenActionLists = Object.keys(colors.sys);
-  return (
-    <>
-      {sysTokenActionLists.map((key) => {
-        return (
-          <StyledContainer>
-            {Object.keys(colors.sys[key]).map((subkey) => {
-              return <Field key={key} role={role} subkey={subkey} />;
-            })}
-          </StyledContainer>
-        );
-      })}
     </>
   );
 };
