@@ -28,23 +28,15 @@ const Field = (props) => {
   );
 
   return role === "actions" ? (
-    transformedSystemTokens.map((transformedSystemToken, refToken, index) => (
-      <StyledGridField
-        key={`${role}-${systemToken}-${transformedSystemToken}-${refToken}-${index}`}
-      >
+    transformedSystemTokens.map(([variant, color]) => (
+      <StyledGridField key={`${role}-${systemToken}-${variant}`}>
         <StyledSpan>
           sys.{role}.{systemToken}
         </StyledSpan>
+        <StyledSpan>ref.{getRefTokenFromHex(color)}</StyledSpan>
         <StyledSpan>
-          ref.{getRefTokenFromHex(transformedSystemToken[1])}
-        </StyledSpan>
-        <StyledSpan>
-          <StyledColor
-            role={role}
-            systemToken={systemToken}
-            refToken={transformedSystemToken[0]}
-          >
-            {transformedSystemToken[1]}
+          <StyledColor role={role} systemToken={systemToken} refToken={variant}>
+            {color}
           </StyledColor>
         </StyledSpan>
       </StyledGridField>
