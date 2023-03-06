@@ -2,16 +2,8 @@ import styled from "styled-components";
 import { typography } from "../../../shared/typography/typography";
 import { colors } from "../../../shared/colors/colors";
 
-const displayAs = (prop) => {
-  let display = "block";
-  if (prop === "span") {
-    return (display = "inline");
-  }
-  return display;
-};
-
 const StyledText = styled.p`
-  display: ${({ as }) => displayAs(as)};
+  display: ${({ as }) => (as === "span" ? "inline" : "block")};
   font-family: ${typography.ref.typeface.brand};
   color: ${({ appearance }) => colors.sys.text[appearance]};
   margin: ${({ margin }) => margin};
