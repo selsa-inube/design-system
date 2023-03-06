@@ -23,15 +23,31 @@ function getRefTokenFromHex(value, obj = colors.ref) {
 const Field = (props) => {
   const { role, systemToken } = props;
   const systemTokens = colors.sys;
+  const transformedSystemTokens = Object.entries(
+    systemTokens[role][systemToken]
+  );
 
-  return (
+  return role === "actions" ? (
+    transformedSystemTokens.map(([variant, color]) => (
+      <StyledGridField key={`${role}-${systemToken}-${variant}`}>
+        <StyledSpan>
+          sys.{role}.{systemToken}.{variant}
+        </StyledSpan>
+        <StyledSpan>ref.{getRefTokenFromHex(color)}</StyledSpan>
+        <StyledSpan>
+          <StyledColor role={role} systemToken={systemToken} refToken={variant}>
+            {color}
+          </StyledColor>
+        </StyledSpan>
+      </StyledGridField>
+    ))
+  ) : (
     <StyledGridField>
       <StyledSpan>
         sys.{role}.{systemToken}
       </StyledSpan>
       <StyledSpan>
-        ref.
-        {getRefTokenFromHex(systemTokens[role][systemToken])}
+        ref.{getRefTokenFromHex(systemTokens[role][systemToken])}
       </StyledSpan>
       <StyledSpan>
         <StyledColor role={role} systemToken={systemToken}>

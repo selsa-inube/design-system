@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { colors } from "../../../../shared/colors/colors";
 
 const StyledFlex = styled.div`
   display: flex;
@@ -18,18 +17,26 @@ const StyledFlexColumn = styled.div`
 const StyledFlexBetween = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   max-width: 148px;
 `;
 
 const StyledGrid = styled.div`
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(2, 1fr);
-  row-gap: 25px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  column-gap: 32px;
   box-sizing: border-box;
-  &:last-child {
-    background-color: ${colors.ref.palette.neutral.n400};
-  }
 `;
 
-export { StyledFlex, StyledFlexColumn, StyledFlexBetween, StyledGrid };
+const StyledBoxSize = styled.div`
+  width: 6rem;
+`;
+
+export {
+  StyledFlex,
+  StyledFlexColumn,
+  StyledFlexBetween,
+  StyledGrid,
+  StyledBoxSize,
+};
