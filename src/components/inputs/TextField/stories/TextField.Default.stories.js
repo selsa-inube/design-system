@@ -6,9 +6,6 @@ import {
   name,
   id,
   placeholder,
-  isDisabled,
-  isFocused,
-  type,
   value,
   handleChange,
   iconBefore,
@@ -21,7 +18,6 @@ import {
   isInvalid,
   errorMessage,
   size,
-  isFullWidth,
 } from "./props";
 
 const story = {
@@ -35,7 +31,6 @@ Default.args = {
   label: "Username",
   name: "Username",
   id: "Username",
-  value: "",
   placeholder: "Write your full name",
   handleChange: () => {},
   maxLength: 10,
@@ -45,7 +40,6 @@ Default.args = {
   errorMessage: "",
   isInvalid: false,
   size: "wide",
-  isFullWidth: false,
 };
 
 Default.argTypes = {
@@ -53,9 +47,6 @@ Default.argTypes = {
   name,
   id,
   placeholder,
-  isDisabled,
-  isFocused,
-  type,
   value,
   handleChange,
   iconBefore,
@@ -64,11 +55,10 @@ Default.argTypes = {
   minLength,
   max,
   min,
-  isRequired,
   isInvalid,
+  isRequired,
   errorMessage,
   size,
-  isFullWidth,
 };
 
 export default story;

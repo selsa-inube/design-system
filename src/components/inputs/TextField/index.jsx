@@ -144,7 +144,7 @@ const TextField = (props) => {
           </StyledIcon>
         )}
       </StyledInputContainer>
-      {errorMessage && isInvalid && (
+      {errorMessage && isInvalid && type !== "search" && (
         <StyledErrorMensaje
           role="bodySmall"
           isInvalid={isInvalid}

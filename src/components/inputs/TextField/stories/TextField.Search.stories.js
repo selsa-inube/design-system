@@ -36,7 +36,6 @@ Search.args = {
   placeholder: "Search...",
   isDisabled: false,
   isFocused: false,
-
   handleChange: () => {},
   isRequired: false,
   isInvalid: false,

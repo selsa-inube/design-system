@@ -17,9 +17,7 @@ import {
   minLength,
   max,
   min,
-  isRequired,
   isInvalid,
-  errorMessage,
   size,
   isFullWidth,
 } from "./props";
@@ -42,9 +40,11 @@ Required.args = {
   handleChange: () => {},
   maxLength: 20,
   minLength: 1,
+  max: 10,
+  min: 1,
   isInvalid: false,
-  errorMessage: "",
   size: "wide",
+  isFullWidth: false,
 };
 
 Required.argTypes = {
@@ -63,9 +63,7 @@ Required.argTypes = {
   minLength,
   max,
   min,
-  isRequired,
   isInvalid,
-  errorMessage,
   size,
   isFullWidth,
 };
