@@ -42,13 +42,7 @@ const TypoRoleProperties = ({ typo, align, appearance, margin, padding }) => {
   return (
     <>
       {assignationTypo.map(([key, value]) => (
-        <Text
-          key={key}
-          typo="bodyLarge"
-          align={align}
-          appearance={appearance}
-          as="p"
-        >
+        <Text key={key}>
           {key}: {value}
         </Text>
       ))}
