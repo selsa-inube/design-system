@@ -40,7 +40,7 @@ const appearanceColors = {
       warning: colors.ref.palette.neutral.n900,
       remove: colors.ref.palette.neutral.n0,
       help: colors.ref.palette.neutral.n0,
-      disabled: colors.ref.palette.neutral.n70,
+      disabled: colors.sys.actions.disabled.stroke,
     },
     hover: colors.ref.palette.neutral.n0,
   },
@@ -48,6 +48,7 @@ const appearanceColors = {
     normal: {
       ...colors.sys.actions,
       secondary: colors.ref.palette.neutral.n300,
+      disabled: colors.sys.actions.disabled.stroke,
     },
     hover: {
       ...hoverColors,
@@ -58,6 +59,7 @@ const appearanceColors = {
     normal: {
       ...colors.sys.actions,
       secondary: colors.ref.palette.neutral.n900,
+      disabled: colors.sys.actions.disabled.stroke,
     },
     hover: {
       ...hoverColors,
@@ -70,6 +72,7 @@ const backgroundColor = {
   filled: {
     normal: {
       ...colors.sys.actions,
+      disabled: colors.sys.actions.disabled.filled,
     },
     hover: {
       ...hoverColors,
@@ -84,6 +87,7 @@ const borderColors = {
   outlined: {
     normal: {
       ...colors.sys.actions,
+      disabled: colors.sys.actions.disabled.stroke,
     },
     hover: {
       ...hoverColors,
@@ -109,19 +113,19 @@ const getPointer = (props) => {
 const getColor = (props) => {
   const { isDisabled, variant, appearance, isHover } = props;
 
-  // if (variant !== "filled") {
-  //   return appearanceColors[variant];
-  // }
-
   if (isDisabled) {
     return appearanceColors[variant].normal.disabled;
+  }
+
+  if (variant === "filled") {
+    return appearanceColors[variant].normal[appearance];
   }
 
   if (isHover) {
     return appearanceColors[variant].hover[appearance];
   }
 
-  return appearanceColors[variant].normal[appearance];
+  return appearanceColors[variant].normal[appearance].filled;
 };
 
 const getBorderColor = (props) => {
@@ -139,7 +143,7 @@ const getBorderColor = (props) => {
     return borderColors[variant].hover[appearance];
   }
 
-  return borderColors[variant].normal[appearance];
+  return borderColors[variant].normal[appearance].stroke;
 };
 
 function getBackgroundColor(props) {
@@ -157,7 +161,7 @@ function getBackgroundColor(props) {
     return backgroundColor[variant].hover[appearance];
   }
 
-  return backgroundColor[variant].normal[appearance];
+  return backgroundColor[variant].normal[appearance].filled;
 }
 
 const StyledSpan = styled.span`

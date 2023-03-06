@@ -4,7 +4,9 @@ import { StyledButton, StyledSpan, StyledIcon } from "./styles";
 import { Spinner } from "./../../feedback/Spinner";
 import { colors } from "../../../shared/colors/colors";
 
-export const appearances = Object.keys(colors.sys.actions);
+const fixedColors = Object.assign({}, colors.sys.actions);
+delete fixedColors.disabled;
+export const appearances = Object.keys(fixedColors);
 
 const spinnerColorHomologation = {
   filled: {
