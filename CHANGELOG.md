@@ -1,3 +1,38 @@
+# v0.2.0 (Mon Mar 06 2023)
+
+#### 🚀 Enhancement
+
+- Label component [#46](https://github.com/selsa-inube/design-system/pull/46) ([@Andresbl123](https://github.com/Andresbl123) [@wfercanas](https://github.com/wfercanas))
+- Colors-update [#53](https://github.com/selsa-inube/design-system/pull/53) ([@Andresbl123](https://github.com/Andresbl123))
+- Cm/4025/stack [#49](https://github.com/selsa-inube/design-system/pull/49) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- Cm/3904/switch [#47](https://github.com/selsa-inube/design-system/pull/47) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- Update-colors [#52](https://github.com/selsa-inube/design-system/pull/52) ([@Andresbl123](https://github.com/Andresbl123))
+- update-colors-text [#50](https://github.com/selsa-inube/design-system/pull/50) ([@Andresbl123](https://github.com/Andresbl123))
+- fix(buttons): remove dummy button-component [#48](https://github.com/selsa-inube/design-system/pull/48) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- Ab/3568/blanket component [#42](https://github.com/selsa-inube/design-system/pull/42) ([@Andresbl123](https://github.com/Andresbl123) cmarin@sistemasenlinea.com.co)
+- Cm/3567/spinner [#43](https://github.com/selsa-inube/design-system/pull/43) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- fix(colors): adjusted palette colors to include opacity on some colors [#44](https://github.com/selsa-inube/design-system/pull/44) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- installed the react-icons library [#45](https://github.com/selsa-inube/design-system/pull/45) ([@Andresbl123](https://github.com/Andresbl123))
+- Cm/3494/colors palette [#37](https://github.com/selsa-inube/design-system/pull/37) ([@wfercanas](https://github.com/wfercanas) cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- Ab/3497/tokens typography [#38](https://github.com/selsa-inube/design-system/pull/38) ([@Andresbl123](https://github.com/Andresbl123) [@wfercanas](https://github.com/wfercanas))
+- feat: install roboto font in global story preview [#41](https://github.com/selsa-inube/design-system/pull/41) ([@wfercanas](https://github.com/wfercanas))
+- docs: update README [#33](https://github.com/selsa-inube/design-system/pull/33) ([@wfercanas](https://github.com/wfercanas))
+
+#### 🐛 Bug Fix
+
+- fix(exportedComponents): change the path of the components that were exported (cmarin@sistemasenlinea.com.co)
+- feat(exportedComponents): added the components that we've created to the index.js to be exported (cmarin@sistemasenlinea.com.co)
+- 31 publish package [#32](https://github.com/selsa-inube/design-system/pull/32) ([@wfercanas](https://github.com/wfercanas))
+
+#### Authors: 4
+
+- Andres ([@Andresbl123](https://github.com/Andresbl123))
+- cesar.marin (cmarin@sistemasenlinea.com.co)
+- cmarin ([@cmarin001](https://github.com/cmarin001))
+- Fernando Cañas ([@wfercanas](https://github.com/wfercanas))
+
+---
+
 # v0.1.0 (Sun Dec 11 2022)
 
 ## Abstract
