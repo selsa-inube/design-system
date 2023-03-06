@@ -11,7 +11,7 @@ const sizeOptions = {
   },
 };
 
-const getColor = (isDisabled, isFocused, errorMessage) => {
+const getColor = (isDisabled, isFocused, isInvalid, errorMessage) => {
   let color = colors.sys.actions.secondary.stroke;
 
   if (isDisabled) {
@@ -24,7 +24,7 @@ const getColor = (isDisabled, isFocused, errorMessage) => {
     return color;
   }
 
-  if (errorMessage) {
+  if (isInvalid && errorMessage) {
     color = colors.sys.actions.remove.filled;
     return color;
   }
@@ -77,8 +77,8 @@ const StyledInput = styled.input`
   ${({ size }) => sizeOptions[size]};
   disabled: ${({ isDisabled }) => isDisabled};
   border: 1px solid
-    ${({ isDisabled, isFocused, errorMessage }) =>
-      getColor(isDisabled, isFocused, errorMessage)};
+    ${({ isDisabled, isFocused, isInvalid, errorMessage }) =>
+      getColor(isDisabled, isFocused, isInvalid, errorMessage)};
 
   ::placeholder {
     padding-left: ${({ iconBefore }) => (iconBefore ? "16px" : "0px")};
@@ -123,7 +123,8 @@ const StyledErrorMensaje = styled(StyledParrafo)`
   align-items: center;
   margin-left: 16px;
   margin-top: 5px;
-  color: ${colors.sys.messages.error};
+  color: ${({ isDisabled, isFocused, isInvalid, errorMessage }) =>
+    getColor(isDisabled, isFocused, isInvalid, errorMessage)};
 
   & svg {
     width: 14px;

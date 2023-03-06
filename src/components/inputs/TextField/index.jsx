@@ -26,9 +26,9 @@ const DEFAULLT_VALUES_PROPS = {
 const typesInput = ["text", "email", "number", "password", "search", "tel"];
 const sizes = ["wide", "compact"];
 
-const stateLabel = (prop) => {
+const stateLabel = (propsInitial, PropsSecundary) => {
   let state = "default";
-  if (prop) {
+  if (propsInitial && PropsSecundary) {
     state = "invalid";
     return state;
   }
@@ -89,7 +89,7 @@ const TextField = (props) => {
         {label && type !== "search" && (
           <Label
             htmlFor={id}
-            state={stateLabel(errorMessage)}
+            state={stateLabel(isInvalid, errorMessage)}
             isDisabled={isDisabled}
             isFocused={isFocused}
           >
@@ -144,8 +144,14 @@ const TextField = (props) => {
           </StyledIcon>
         )}
       </StyledInputContainer>
-      {errorMessage && (
-        <StyledErrorMensaje role="bodySmall">
+      {errorMessage && isInvalid && (
+        <StyledErrorMensaje
+          role="bodySmall"
+          isInvalid={isInvalid}
+          isDisabled={isDisabled}
+          isFocused={isFocused}
+          errorMessage={errorMessage}
+        >
           {<BiErrorCircle />} ({errorMessage})
         </StyledErrorMensaje>
       )}

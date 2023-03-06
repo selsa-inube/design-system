@@ -15,9 +15,6 @@ import {
   iconAfter,
   maxLength,
   minLength,
-  max,
-  min,
-  isInvalid,
   errorMessage,
   size,
   isFullWidth,
@@ -42,9 +39,9 @@ Invalid.args = {
   handleChange: () => {},
   maxLength: 20,
   minLength: 1,
-  isInvalid: false,
   errorMessage: "This field can only contain letters",
   size: "wide",
+  isFullWidth: false,
 };
 
 Invalid.argTypes = {
@@ -61,9 +58,6 @@ Invalid.argTypes = {
   iconAfter,
   maxLength,
   minLength,
-  max,
-  min,
-  isInvalid,
   errorMessage,
   size,
   isFullWidth,
