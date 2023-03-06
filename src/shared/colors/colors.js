@@ -104,12 +104,34 @@ const ref = {
 
 const sys = {
   actions: {
-    primary: ref.palette.blue.b400,
-    secondary: ref.palette.neutral.n30,
-    confirm: ref.palette.green.g400,
-    warning: ref.palette.yellow.y400,
-    remove: ref.palette.red.r400,
-    help: ref.palette.purple.p400,
+    primary: {
+      filled: ref.palette.blue.b400,
+      stroke: ref.palette.blue.b400,
+    },
+    secondary: {
+      filled: ref.palette.neutral.n30,
+      stroke: ref.palette.neutral.n300,
+    },
+    confirm: {
+      filled: ref.palette.green.g400,
+      stroke: ref.palette.green.g400,
+    },
+    warning: {
+      filled: ref.palette.yellow.y400,
+      stroke: ref.palette.yellow.y400,
+    },
+    remove: {
+      filled: ref.palette.red.r400,
+      stroke: ref.palette.red.r400,
+    },
+    help: {
+      filled: ref.palette.purple.p400,
+      stroke: ref.palette.purple.p400,
+    },
+    disabled: {
+      filled: ref.palette.neutral.n20,
+      stroke: ref.palette.neutral.n70,
+    },
   },
   messages: {
     information: ref.palette.blue.b400,
@@ -149,7 +171,7 @@ const sys = {
     warning: ref.palette.yellow.y400,
     error: ref.palette.red.r400,
     help: ref.palette.purple.p400,
-    disabled: ref.palette.neutral.n80,
+    disabled: ref.palette.neutral.n70,
     dark: ref.palette.neutral.n900,
     light: ref.palette.neutral.n0,
     link: ref.palette.blue.b500,
