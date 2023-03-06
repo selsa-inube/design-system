@@ -40,7 +40,7 @@ Label.propTypes = {
   isDisabled: PropTypes.bool,
   isFocused: PropTypes.bool,
   htmlFor: PropTypes.string.isRequired,
-  state: PropTypes.oneOf(states).isRequired,
+  state: PropTypes.oneOf(states),
   children: PropTypes.node,
 };
 
