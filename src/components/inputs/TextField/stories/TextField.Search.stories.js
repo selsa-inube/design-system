@@ -2,7 +2,6 @@ import { TextField } from "..";
 
 import {
   parameters,
-  label,
   name,
   id,
   placeholder,
@@ -32,7 +31,6 @@ const story = {
 
 const Search = (args) => <TextField {...args} type="search" />;
 Search.args = {
-  label: "searchField",
   name: "searchField",
   id: "searchField",
   placeholder: "Search...",
@@ -52,7 +50,6 @@ Search.args = {
 };
 
 Search.argTypes = {
-  label,
   name,
   id,
   placeholder,

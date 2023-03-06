@@ -86,7 +86,7 @@ const TextField = (props) => {
   return (
     <StyledContainaer iconAfter={iconAfter} isFullWidth={isFullWidth}>
       <StyledContainaerLabel>
-        {label && (
+        {label && type !== "search" && (
           <Label
             htmlFor={id}
             state={stateLabel(errorMessage)}
@@ -96,9 +96,13 @@ const TextField = (props) => {
             {label}
           </Label>
         )}
-        {isRequired && !isDisabled && !isFocused && !isInvalid && (
-          <StyledParrafo role="bodySmall">(Required)</StyledParrafo>
-        )}
+        {isRequired &&
+          !isDisabled &&
+          !isFocused &&
+          !isInvalid &&
+          type !== "search" && (
+            <StyledParrafo role="bodySmall">(Required)</StyledParrafo>
+          )}
       </StyledContainaerLabel>
       <StyledInputContainer>
         {iconBefore && (

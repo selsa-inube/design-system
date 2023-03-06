@@ -12,7 +12,7 @@ const sizeOptions = {
 };
 
 const getColor = (isDisabled, isFocused, errorMessage) => {
-  let color = colors.ref.palette.neutral.n300;
+  let color = colors.sys.actions.secondary.stroke;
 
   if (isDisabled) {
     color = colors.ref.palette.neutral.n60;
@@ -25,9 +25,10 @@ const getColor = (isDisabled, isFocused, errorMessage) => {
   }
 
   if (errorMessage) {
-    color = colors.sys.actions.remove;
+    color = colors.sys.actions.remove.filled;
     return color;
   }
+
   return color;
 };
 
@@ -81,8 +82,11 @@ const StyledInput = styled.input`
 
   ::placeholder {
     padding-left: ${({ iconBefore }) => (iconBefore ? "16px" : "0px")};
+    color: ${colors.sys.actions.secondary.stroke};
   }
-
+  &:focus {
+    outline: none;
+  }
   &::-webkit-search-cancel-button {
     display: none;
   }
