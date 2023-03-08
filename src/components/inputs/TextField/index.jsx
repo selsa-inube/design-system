@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 
 import { AiOutlineSearch } from "react-icons/ai";
-import { BiErrorCircle } from "react-icons/bi";
+import { MdOutlineError } from "react-icons/md";
 
 import Label from "../Label/index";
 
@@ -152,7 +152,7 @@ const TextField = (props) => {
           isFocused={isFocused}
           errorMessage={errorMessage}
         >
-          {<BiErrorCircle />} ({errorMessage})
+          {<MdOutlineError />} ({errorMessage})
         </StyledErrorMensaje>
       )}
     </StyledContainaer>
