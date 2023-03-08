@@ -47,6 +47,8 @@ const textColors = {
   outlined: {
     normal: {
       ...colors.sys.text,
+      confirm: colors.sys.text.success,
+      remove: colors.sys.text.error,
     },
     hover: {
       ...hoverColors,
@@ -56,10 +58,12 @@ const textColors = {
   none: {
     normal: {
       ...colors.sys.text,
+      confirm: colors.sys.text.success,
+      remove: colors.sys.text.error,
     },
     hover: {
       ...hoverColors,
-      secondary: colors.ref.palette.neutral.n900,
+      secondary: colors.ref.palette.neutral.n200,
     },
   },
 };
@@ -121,7 +125,7 @@ const getColor = (props) => {
     return textColors[variant].hover[appearance];
   }
 
-  return textColors[variant].normal[appearance].filled;
+  return textColors[variant].normal[appearance];
 };
 
 const getBorderColor = (props) => {
