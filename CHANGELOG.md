@@ -1,3 +1,18 @@
+# v0.3.0 (Wed Mar 08 2023)
+
+#### 🚀 Enhancement
+
+- Cm/ids5/use media query [#56](https://github.com/selsa-inube/design-system/pull/56) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- Ab/4028/Text [#51](https://github.com/selsa-inube/design-system/pull/51) ([@Andresbl123](https://github.com/Andresbl123))
+
+#### Authors: 3
+
+- Andres ([@Andresbl123](https://github.com/Andresbl123))
+- cesar.marin (cmarin@sistemasenlinea.com.co)
+- cmarin ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v0.2.0 (Mon Mar 06 2023)
 
 #### 🚀 Enhancement
