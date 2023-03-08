@@ -12,7 +12,7 @@ const sizeOptions = {
 };
 
 const getColor = (isDisabled, isFocused, isInvalid, errorMessage) => {
-  let color = colors.sys.actions.secondary.stroke;
+  let color = colors.ref.palette.neutral.n40;
 
   if (isDisabled) {
     color = colors.ref.palette.neutral.n60;
@@ -35,6 +35,7 @@ const getColor = (isDisabled, isFocused, isInvalid, errorMessage) => {
 const StyledContainaer = styled.div`
   display: inline-block;
   position: relative;
+  background-color: ${colors.ref.palette.neutral.n10};
   width: ${(props) => (props.isFullWidth === true ? "100%" : "280px")};
   max-width: ${(props) => (props.isFullWidth === true ? "none" : "auto")};
 `;
@@ -42,12 +43,18 @@ const StyledContainaer = styled.div`
 const StyledContainaerLabel = styled.div`
   display: flex;
   align-items: center;
+  width: ${({ isRequired }) => (isRequired ? "115px" : "51px")};
+  background-color: ${colors.ref.palette.neutral.n10};
   height: 20px;
-  width: 150px;
+  margin-left: 16px;
+  padding-right: 5px;
+  gap: 40px;
+  margin-bottom: 4px;
 
   & Label {
-    margin-left: 16px;
-    padding-right: 5px;
+    height: 20px;
+    width: 35px;
+    font-size: ${typography.sys.typescale.bodyLarge.size};
   }
 `;
 
@@ -56,7 +63,6 @@ const StyledInputContainer = styled.div`
   align-items: center;
   position: relative;
   width: 100%;
-  margin-top: 10px;
 `;
 
 const StyledInput = styled.input`
@@ -72,6 +78,8 @@ const StyledInput = styled.input`
   order: 1;
   align-self: stretch;
   flex-grow: 0;
+  color: ${colors.sys.text.dark};
+  background-color: ${colors.ref.palette.neutral.n10};
   width: ${(props) => (props.isFullWidth === true ? "100%" : "280px")};
   max-width: ${(props) => (props.isFullWidth === true ? "none" : "auto")};
   ${({ size }) => sizeOptions[size]};
@@ -79,14 +87,17 @@ const StyledInput = styled.input`
   border: 1px solid
     ${({ isDisabled, isFocused, isInvalid, errorMessage }) =>
       getColor(isDisabled, isFocused, isInvalid, errorMessage)};
+  ${({ isDisabled }) => isDisabled && "pointer-events: none; opacity: 0.5;"}
 
   ::placeholder {
     padding-left: ${({ iconBefore }) => (iconBefore ? "16px" : "0px")};
-    color: ${colors.sys.actions.secondary.stroke};
+    color: ${colors.sys.text.secondary};
   }
+
   &:focus {
     outline: none;
   }
+
   &::-webkit-search-cancel-button {
     display: none;
   }
@@ -94,7 +105,6 @@ const StyledInput = styled.input`
   &::-moz-search-cancel-button {
     display: none;
   }
-  ${({ isDisabled }) => isDisabled && "pointer-events: none; opacity: 0.5;"}
 `;
 
 const StyledIcon = styled.div`

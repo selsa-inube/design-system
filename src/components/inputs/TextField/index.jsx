@@ -15,20 +15,18 @@ import {
   StyledParrafo,
 } from "./styles";
 
-const DEFAULLT_VALUES_PROPS = {
-  isDisabled: false,
-  isFocused: false,
-  type: "text",
-  isRequired: false,
-  isFullWidth: false,
-};
+const defaultIsDisabled = false;
+const defaultIsFocused = false;
+const defaultType = "text";
+const defaultIsRequired = false;
+const defaultIsFullWidth = false;
 
 const typesInput = ["text", "email", "number", "password", "search", "tel"];
 const sizes = ["wide", "compact"];
 
-const stateLabel = (propsInitial, PropsSecundary) => {
+const stateLabel = (firstProps, secondProps) => {
   let state = "default";
-  if (propsInitial && PropsSecundary) {
+  if (firstProps && secondProps) {
     state = "invalid";
     return state;
   }
@@ -60,28 +58,18 @@ const TextField = (props) => {
   } = props;
 
   const transformedIsDisabled =
-    typeof isDisabled === "boolean"
-      ? isDisabled
-      : DEFAULLT_VALUES_PROPS.isDisabled;
+    typeof isDisabled === "boolean" ? isDisabled : defaultIsDisabled;
 
   const transformedIsFocused =
-    typeof isFocused === "boolean"
-      ? isFocused
-      : DEFAULLT_VALUES_PROPS.isFocused;
+    typeof isFocused === "boolean" ? isFocused : defaultIsFocused;
 
-  const transformedTypes = typesInput.includes(type)
-    ? type
-    : DEFAULLT_VALUES_PROPS.type;
+  const transformedTypes = typesInput.includes(type) ? type : defaultType;
 
   const transformedIsRequired =
-    typeof isRequired === "boolean"
-      ? isRequired
-      : DEFAULLT_VALUES_PROPS.isRequired;
+    typeof isRequired === "boolean" ? isRequired : defaultIsRequired;
 
   const transformedIsFullWidth =
-    typeof isFullWidth === "boolean"
-      ? isFullWidth
-      : DEFAULLT_VALUES_PROPS.isFullWidth;
+    typeof isFullWidth === "boolean" ? isFullWidth : defaultIsFullWidth;
 
   return (
     <StyledContainaer iconAfter={iconAfter} isFullWidth={isFullWidth}>
