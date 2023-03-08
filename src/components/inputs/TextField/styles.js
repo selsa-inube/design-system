@@ -32,7 +32,7 @@ const getColor = (isDisabled, isFocused, isInvalid, errorMessage) => {
   return color;
 };
 
-const StyledContainaer = styled.div`
+const StyledContainer = styled.div`
   display: inline-block;
   position: relative;
   background-color: ${colors.ref.palette.neutral.n10};
@@ -40,7 +40,7 @@ const StyledContainaer = styled.div`
   max-width: ${(props) => (props.isFullWidth === true ? "none" : "auto")};
 `;
 
-const StyledContainaerLabel = styled.div`
+const StyledContainerLabel = styled.div`
   display: flex;
   align-items: center;
   width: ${({ isRequired }) => (isRequired ? "115px" : "51px")};
@@ -90,7 +90,7 @@ const StyledInput = styled.input`
   ${({ isDisabled }) => isDisabled && "pointer-events: none; opacity: 0.5;"}
 
   ::placeholder {
-    padding-left: ${({ iconBefore }) => (iconBefore ? "16px" : "0px")};
+    padding-left: ${({ iconBefore }) => (iconBefore ? "30px" : "0px")};
     color: ${colors.sys.text.secondary};
   }
 
@@ -114,20 +114,22 @@ const StyledIcon = styled.div`
   position: absolute;
   height: 24px;
   width: 24px;
-  right: ${({ iconBefore }) => iconBefore && "85%"};
-  left: ${({ iconAfter, type }) => iconAfter || (type === "search" && "85%")};
+  right: ${({ iconAfter }) => iconAfter && "16px"};
+  left: ${({ iconBefore }) => iconBefore && "16px"};
   color: ${({ isDisabled }) => isDisabled && colors.ref.palette.neutral.n60};
 `;
 
-const StyledParrafo = styled.p`
+const StyledRequired = styled.p`
   font-family: ${typography.ref.typeface.brand}, sans-serif;
   line-height: ${(props) => typography.sys.typescale[props.role].lineHeight};
   font-size: ${(props) => typography.sys.typescale[props.role].size};
   letter-spacing: ${(props) => typography.sys.typescale[props.role].tracking};
   font-weight: ${(props) => typography.sys.typescale[props.role].weight};
+  color: ${({ isDisabled, isFocused, isInvalid, errorMessage }) =>
+    getColor(isDisabled, isFocused, isInvalid, errorMessage)};
 `;
 
-const StyledErrorMensaje = styled(StyledParrafo)`
+const StyledErrorMessage = styled(StyledRequired)`
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -144,11 +146,11 @@ const StyledErrorMensaje = styled(StyledParrafo)`
 `;
 
 export {
-  StyledContainaer,
-  StyledContainaerLabel,
+  StyledContainer,
+  StyledContainerLabel,
   StyledInputContainer,
   StyledInput,
   StyledIcon,
-  StyledErrorMensaje,
-  StyledParrafo,
+  StyledErrorMessage,
+  StyledRequired,
 };

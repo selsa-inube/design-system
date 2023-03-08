@@ -1,5 +1,7 @@
 import { TextField } from "..";
 
+import { AiOutlineSearch } from "react-icons/ai";
+
 import {
   parameters,
   name,
@@ -37,6 +39,7 @@ Search.args = {
   isDisabled: false,
   isFocused: false,
   handleChange: () => {},
+  iconAfter: <AiOutlineSearch />,
   isRequired: false,
   isInvalid: false,
   errorMessage: "",

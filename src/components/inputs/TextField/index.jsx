@@ -1,18 +1,17 @@
 import PropTypes from "prop-types";
 
-import { AiOutlineSearch } from "react-icons/ai";
 import { MdOutlineError } from "react-icons/md";
 
 import Label from "../Label/index";
 
 import {
-  StyledContainaer,
-  StyledContainaerLabel,
+  StyledContainer,
+  StyledContainerLabel,
   StyledInputContainer,
   StyledInput,
   StyledIcon,
-  StyledErrorMensaje,
-  StyledParrafo,
+  StyledErrorMessage,
+  StyledRequired,
 } from "./styles";
 
 const defaultIsDisabled = false;
@@ -24,9 +23,9 @@ const defaultIsFullWidth = false;
 const typesInput = ["text", "email", "number", "password", "search", "tel"];
 const sizes = ["wide", "compact"];
 
-const stateLabel = (firstProps, secondProps) => {
+const invalidState = (isInvalid, errorMessage) => {
   let state = "default";
-  if (firstProps && secondProps) {
+  if (isInvalid && errorMessage) {
     state = "invalid";
     return state;
   }
@@ -72,26 +71,23 @@ const TextField = (props) => {
     typeof isFullWidth === "boolean" ? isFullWidth : defaultIsFullWidth;
 
   return (
-    <StyledContainaer iconAfter={iconAfter} isFullWidth={isFullWidth}>
-      <StyledContainaerLabel>
-        {label && type !== "search" && (
+    <StyledContainer isFullWidth={isFullWidth}>
+      <StyledContainerLabel>
+        {label && (
           <Label
             htmlFor={id}
-            state={stateLabel(isInvalid, errorMessage)}
+            state={invalidState(isInvalid, errorMessage)}
             isDisabled={isDisabled}
             isFocused={isFocused}
           >
             {label}
           </Label>
         )}
-        {isRequired &&
-          !isDisabled &&
-          !isFocused &&
-          !isInvalid &&
-          type !== "search" && (
-            <StyledParrafo role="bodySmall">(Required)</StyledParrafo>
-          )}
-      </StyledContainaerLabel>
+        {isRequired && (
+          <StyledRequired role="bodySmall">(Required)</StyledRequired>
+        )}
+      </StyledContainerLabel>
+
       <StyledInputContainer>
         {iconBefore && (
           <StyledIcon isDisabled={isDisabled} iconBefore={iconBefore}>
@@ -126,14 +122,9 @@ const TextField = (props) => {
             {iconAfter}
           </StyledIcon>
         )}
-        {type === "search" && (
-          <StyledIcon type={type} isDisabled={isDisabled}>
-            <AiOutlineSearch />
-          </StyledIcon>
-        )}
       </StyledInputContainer>
-      {errorMessage && isInvalid && type !== "search" && (
-        <StyledErrorMensaje
+      {errorMessage && isInvalid && (
+        <StyledErrorMessage
           role="bodySmall"
           isInvalid={isInvalid}
           isDisabled={isDisabled}
@@ -141,9 +132,9 @@ const TextField = (props) => {
           errorMessage={errorMessage}
         >
           {<MdOutlineError />} ({errorMessage})
-        </StyledErrorMensaje>
+        </StyledErrorMessage>
       )}
-    </StyledContainaer>
+    </StyledContainer>
   );
 };
 
