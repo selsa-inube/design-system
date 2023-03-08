@@ -52,7 +52,7 @@ const textColors = {
     },
     hover: {
       ...hoverColors,
-      secondary: colors.ref.palette.neutral.n300,
+      secondary: colors.ref.palette.neutral.n200,
     },
   },
   none: {
@@ -72,7 +72,6 @@ const backgroundColor = {
   filled: {
     normal: {
       ...colors.sys.actions,
-      disabled: colors.sys.actions.disabled.filled,
     },
     hover: {
       ...hoverColors,
@@ -87,10 +86,10 @@ const borderColors = {
   outlined: {
     normal: {
       ...colors.sys.actions,
-      disabled: colors.sys.text.disabled,
     },
     hover: {
       ...hoverColors,
+      secondary: colors.ref.palette.neutral.n200,
     },
   },
   none: colors.ref.palette.neutralAlpha.n0A,
@@ -117,10 +116,6 @@ const getColor = (props) => {
     return textColors[variant].normal.disabled;
   }
 
-  if (variant === "filled") {
-    return textColors[variant].normal[appearance];
-  }
-
   if (isHover) {
     return textColors[variant].hover[appearance];
   }
@@ -136,7 +131,7 @@ const getBorderColor = (props) => {
   }
 
   if (isDisabled) {
-    return borderColors[variant].normal.disabled;
+    return borderColors[variant].normal.disabled.stroke;
   }
 
   if (isHover) {
@@ -154,7 +149,7 @@ function getBackgroundColor(props) {
   }
 
   if (isDisabled) {
-    return backgroundColor[variant].normal.disabled;
+    return backgroundColor[variant].normal.disabled.filled;
   }
 
   if (isHover) {
