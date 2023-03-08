@@ -31,7 +31,7 @@ const hoverColors = {
   help: colors.ref.palette.purple.p300,
 };
 
-const appearanceColors = {
+const textColors = {
   filled: {
     normal: {
       primary: colors.ref.palette.neutral.n0,
@@ -114,18 +114,18 @@ const getColor = (props) => {
   const { isDisabled, variant, appearance, isHover } = props;
 
   if (isDisabled) {
-    return appearanceColors[variant].normal.disabled;
+    return textColors[variant].normal.disabled;
   }
 
   if (variant === "filled") {
-    return appearanceColors[variant].normal[appearance];
+    return textColors[variant].normal[appearance];
   }
 
   if (isHover) {
-    return appearanceColors[variant].hover[appearance];
+    return textColors[variant].hover[appearance];
   }
 
-  return appearanceColors[variant].normal[appearance].filled;
+  return textColors[variant].normal[appearance].filled;
 };
 
 const getBorderColor = (props) => {
