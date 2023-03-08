@@ -46,9 +46,7 @@ const textColors = {
   },
   outlined: {
     normal: {
-      ...colors.sys.actions,
-      secondary: colors.ref.palette.neutral.n300,
-      disabled: colors.sys.text.disabled,
+      ...colors.sys.text,
     },
     hover: {
       ...hoverColors,
@@ -57,9 +55,7 @@ const textColors = {
   },
   none: {
     normal: {
-      ...colors.sys.actions,
-      secondary: colors.ref.palette.neutral.n900,
-      disabled: colors.sys.text.disabled,
+      ...colors.sys.text,
     },
     hover: {
       ...hoverColors,
