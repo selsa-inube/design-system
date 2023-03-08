@@ -40,7 +40,7 @@ const textColors = {
       warning: colors.ref.palette.neutral.n900,
       remove: colors.ref.palette.neutral.n0,
       help: colors.ref.palette.neutral.n0,
-      disabled: colors.sys.actions.disabled.stroke,
+      disabled: colors.sys.text.disabled,
     },
     hover: colors.ref.palette.neutral.n0,
   },
@@ -48,7 +48,7 @@ const textColors = {
     normal: {
       ...colors.sys.actions,
       secondary: colors.ref.palette.neutral.n300,
-      disabled: colors.sys.actions.disabled.stroke,
+      disabled: colors.sys.text.disabled,
     },
     hover: {
       ...hoverColors,
@@ -59,7 +59,7 @@ const textColors = {
     normal: {
       ...colors.sys.actions,
       secondary: colors.ref.palette.neutral.n900,
-      disabled: colors.sys.actions.disabled.stroke,
+      disabled: colors.sys.text.disabled,
     },
     hover: {
       ...hoverColors,
@@ -87,7 +87,7 @@ const borderColors = {
   outlined: {
     normal: {
       ...colors.sys.actions,
-      disabled: colors.sys.actions.disabled.stroke,
+      disabled: colors.sys.text.disabled,
     },
     hover: {
       ...hoverColors,
