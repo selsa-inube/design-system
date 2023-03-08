@@ -1,7 +1,7 @@
 import React from "react";
 import { Switch } from "../../components/inputs/Switch";
 import { SwitchController } from "./../../components/inputs/Switch/stories/SwitchController";
-import useMediaQuery from "../useMediaQuery";
+import { useMediaQuery } from "../useMediaQuery";
 
 const story = {
   title: "hooks/useMediaQuery",
