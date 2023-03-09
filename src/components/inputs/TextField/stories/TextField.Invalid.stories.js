@@ -39,6 +39,7 @@ Invalid.args = {
   handleChange: () => {},
   maxLength: 20,
   minLength: 1,
+  isRequired: false,
   errorMessage: "This field can only contain letters",
   size: "wide",
   isFullWidth: false,

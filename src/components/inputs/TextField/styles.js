@@ -119,29 +119,18 @@ const StyledIcon = styled.div`
   color: ${({ isDisabled }) => isDisabled && colors.ref.palette.neutral.n60};
 `;
 
-const StyledRequired = styled.p`
-  font-family: ${typography.ref.typeface.brand}, sans-serif;
-  line-height: ${(props) => typography.sys.typescale[props.role].lineHeight};
-  font-size: ${(props) => typography.sys.typescale[props.role].size};
-  letter-spacing: ${(props) => typography.sys.typescale[props.role].tracking};
-  font-weight: ${(props) => typography.sys.typescale[props.role].weight};
-  color: ${({ isDisabled, isFocused, isInvalid, errorMessage }) =>
-    getColor(isDisabled, isFocused, isInvalid, errorMessage)};
-`;
-
-const StyledErrorMessage = styled(StyledRequired)`
-  overflow: hidden;
+const StyledErrorMessageContainer = styled.div`
   display: flex;
   align-items: center;
-  margin-left: 16px;
-  margin-top: 5px;
+  margin-left: 12px;
+  height: 14px;
   color: ${({ isDisabled, isFocused, isInvalid, errorMessage }) =>
     getColor(isDisabled, isFocused, isInvalid, errorMessage)};
 
   & svg {
     width: 14px;
     height: 14px;
-    padding-right: 4px;
+    margin-top: 8px;
   }
 `;
 
@@ -151,6 +140,5 @@ export {
   StyledInputContainer,
   StyledInput,
   StyledIcon,
-  StyledErrorMessage,
-  StyledRequired,
+  StyledErrorMessageContainer,
 };

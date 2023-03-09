@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { MdOutlineError } from "react-icons/md";
 
 import Label from "../Label/index";
+import { Text } from "../../data/Text/index";
 
 import {
   StyledContainer,
@@ -10,8 +11,7 @@ import {
   StyledInputContainer,
   StyledInput,
   StyledIcon,
-  StyledErrorMessage,
-  StyledRequired,
+  StyledErrorMessageContainer,
 } from "./styles";
 
 const defaultIsDisabled = false;
@@ -25,11 +25,33 @@ const sizes = ["wide", "compact"];
 
 const invalidState = (isInvalid, errorMessage) => {
   let state = "default";
+
   if (isInvalid && errorMessage) {
     state = "invalid";
-    return state;
   }
+
   return state;
+};
+
+const getAppearance = (isDisabled, isFocused, isIvalid, errorMessage) => {
+  let appearance = "dark";
+
+  if (isDisabled) {
+    appearance = "disabled";
+    return appearance;
+  }
+
+  if (isFocused) {
+    appearance = "primary";
+    return appearance;
+  }
+
+  if (isIvalid && errorMessage) {
+    appearance = "error";
+    return appearance;
+  }
+
+  return appearance;
 };
 
 const TextField = (props) => {
@@ -75,16 +97,26 @@ const TextField = (props) => {
       <StyledContainerLabel>
         {label && (
           <Label
-            htmlFor={id}
-            state={invalidState(isInvalid, errorMessage)}
             isDisabled={isDisabled}
             isFocused={isFocused}
+            htmlFor={id}
+            state={invalidState(isInvalid, errorMessage)}
           >
             {label}
           </Label>
         )}
         {isRequired && (
-          <StyledRequired role="bodySmall">(Required)</StyledRequired>
+          <Text
+            typo="bodySmall"
+            appearance={getAppearance(
+              isDisabled,
+              isFocused,
+              isInvalid,
+              errorMessage
+            )}
+          >
+            (Required)
+          </Text>
         )}
       </StyledContainerLabel>
 
@@ -123,16 +155,28 @@ const TextField = (props) => {
           </StyledIcon>
         )}
       </StyledInputContainer>
+
       {errorMessage && isInvalid && (
-        <StyledErrorMessage
-          role="bodySmall"
-          isInvalid={isInvalid}
+        <StyledErrorMessageContainer
           isDisabled={isDisabled}
           isFocused={isFocused}
+          isInvalid={isInvalid}
           errorMessage={errorMessage}
         >
-          {<MdOutlineError />} ({errorMessage})
-        </StyledErrorMessage>
+          <MdOutlineError />
+          <Text
+            typo="bodySmall"
+            appearance={getAppearance(
+              isDisabled,
+              isFocused,
+              isInvalid,
+              errorMessage
+            )}
+            margin="8px 0px 0px 4px"
+          >
+            ({errorMessage})
+          </Text>
+        </StyledErrorMessageContainer>
       )}
     </StyledContainer>
   );
