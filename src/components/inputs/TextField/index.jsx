@@ -24,35 +24,32 @@ const defaultIsFullWidth = false;
 const inputTypes = ["text", "email", "number", "password", "search", "tel"];
 const sizes = ["wide", "compact"];
 
-const getInvalidState = (isInvalid) => {
-  let state = "default";
-
+const getState = (isInvalid) => {
   if (isInvalid) {
-    state = "invalid";
+    return "invalid";
   }
 
-  return state;
+  return "default";
+};
+
+const appearancesHomologation = {
+  isDisabled: "disabled",
+  isFocused: "primary",
+  isInvalid: "error",
 };
 
 const getAppearance = (isDisabled, isFocused, isInvalid) => {
-  let appearance = "dark";
-
   if (isDisabled) {
-    appearance = "disabled";
-    return appearance;
+    return appearancesHomologation.isDisabled;
   }
 
   if (isFocused) {
-    appearance = "primary";
-    return appearance;
+    return appearancesHomologation.isFocused;
   }
 
   if (isInvalid) {
-    appearance = "error";
-    return appearance;
+    return appearancesHomologation.isInvalid;
   }
-
-  return appearance;
 };
 
 const TextField = (props) => {
@@ -101,7 +98,7 @@ const TextField = (props) => {
             isDisabled={isDisabled}
             isFocused={isFocused}
             htmlFor={id}
-            state={getInvalidState(isInvalid)}
+            state={getState(isInvalid)}
           >
             {label}
           </Label>
@@ -164,12 +161,7 @@ const TextField = (props) => {
           <MdOutlineError />
           <Text
             typo="bodySmall"
-            appearance={getAppearance(
-              isDisabled,
-              isFocused,
-              isInvalid,
-              errorMessage
-            )}
+            appearance={getAppearance(isDisabled, isFocused, isInvalid)}
             margin="8px 0px 0px 4px"
           >
             ({errorMessage})

@@ -11,25 +11,20 @@ const sizeOptions = {
   },
 };
 
-const getColor = (isDisabled, isFocused, isInvalid, errorMessage) => {
-  let color = colors.ref.palette.neutral.n40;
-
+const getColor = (isDisabled, isFocused, isInvalid) => {
   if (isDisabled) {
-    color = colors.ref.palette.neutral.n60;
-    return color;
+    return colors.ref.palette.neutral.n60;
   }
 
   if (isFocused) {
-    color = colors.ref.palette.blue.b300;
-    return color;
+    return colors.ref.palette.blue.b300;
   }
 
-  if (isInvalid && errorMessage) {
-    color = colors.sys.actions.remove.filled;
-    return color;
+  if (isInvalid) {
+    return colors.sys.actions.remove.filled;
   }
 
-  return color;
+  return colors.ref.palette.neutral.n40;
 };
 
 const StyledContainer = styled.div`
@@ -83,8 +78,8 @@ const StyledInput = styled.input`
   ${({ size }) => sizeOptions[size]};
   disabled: ${({ isDisabled }) => isDisabled};
   border: 1px solid
-    ${({ isDisabled, isFocused, isInvalid, errorMessage }) =>
-      getColor(isDisabled, isFocused, isInvalid, errorMessage)};
+    ${({ isDisabled, isFocused, isInvalid }) =>
+      getColor(isDisabled, isFocused, isInvalid)};
   ${({ isDisabled }) => isDisabled && "pointer-events: none; opacity: 0.5;"}
 
   ::placeholder {
@@ -122,8 +117,8 @@ const StyledErrorMessageContainer = styled.div`
   align-items: center;
   margin-left: 12px;
   height: 14px;
-  color: ${({ isDisabled, isFocused, isInvalid, errorMessage }) =>
-    getColor(isDisabled, isFocused, isInvalid, errorMessage)};
+  color: ${({ isDisabled, isFocused, isInvalid }) =>
+    getColor(isDisabled, isFocused, isInvalid)};
 
   & svg {
     width: 14px;
