@@ -1,4 +1,5 @@
-import Label, { states } from "../index";
+import { Label } from "../";
+import { states } from "../";
 import { StyledContentStates } from "./stories.styles";
 
 import { parameters, isDisabled, isFocused, htmlFor, children } from "./props";

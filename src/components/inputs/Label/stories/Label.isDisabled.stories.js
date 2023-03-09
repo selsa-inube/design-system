@@ -1,4 +1,4 @@
-import Label from "..";
+import { Label } from "..";
 
 import { parameters, isFocused, htmlFor, state } from "./props";
 

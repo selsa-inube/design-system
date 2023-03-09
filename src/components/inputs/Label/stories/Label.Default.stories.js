@@ -1,4 +1,4 @@
-import Label from "../index";
+import { Label } from "../";
 
 import {
   parameters,
