@@ -1,6 +1,6 @@
 import { TextField } from "..";
 import { sizes } from "..";
-import { StyledFlex } from "./stories.stiles";
+import { StyledFlex } from "./stories.styles";
 
 import {
   parameters,
