@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 
 import { MdOutlineError } from "react-icons/md";
 
-import Label from "../Label/index";
-import { Text } from "../../data/Text/index";
+import Label from "../Label";
+import { Text } from "../../data/Text";
 
 import {
   StyledContainer,
@@ -21,20 +21,20 @@ const defaultType = "text";
 const defaultIsRequired = false;
 const defaultIsFullWidth = false;
 
-const typesInput = ["text", "email", "number", "password", "search", "tel"];
+const inputTypes = ["text", "email", "number", "password", "search", "tel"];
 const sizes = ["wide", "compact"];
 
-const invalidState = (isInvalid, errorMessage) => {
+const getInvalidState = (isInvalid) => {
   let state = "default";
 
-  if (isInvalid && errorMessage) {
+  if (isInvalid) {
     state = "invalid";
   }
 
   return state;
 };
 
-const getAppearance = (isDisabled, isFocused, isIvalid, errorMessage) => {
+const getAppearance = (isDisabled, isFocused, isInvalid) => {
   let appearance = "dark";
 
   if (isDisabled) {
@@ -47,7 +47,7 @@ const getAppearance = (isDisabled, isFocused, isIvalid, errorMessage) => {
     return appearance;
   }
 
-  if (isIvalid && errorMessage) {
+  if (isInvalid) {
     appearance = "error";
     return appearance;
   }
@@ -85,7 +85,7 @@ const TextField = (props) => {
   const transformedIsFocused =
     typeof isFocused === "boolean" ? isFocused : defaultIsFocused;
 
-  const transformedTypes = typesInput.includes(type) ? type : defaultType;
+  const transformedTypes = inputTypes.includes(type) ? type : defaultType;
 
   const transformedIsRequired =
     typeof isRequired === "boolean" ? isRequired : defaultIsRequired;
@@ -101,7 +101,7 @@ const TextField = (props) => {
             isDisabled={isDisabled}
             isFocused={isFocused}
             htmlFor={id}
-            state={invalidState(isInvalid, errorMessage)}
+            state={getInvalidState(isInvalid)}
           >
             {label}
           </Label>
@@ -110,12 +110,7 @@ const TextField = (props) => {
         {isRequired && (
           <Text
             typo="bodySmall"
-            appearance={getAppearance(
-              isDisabled,
-              isFocused,
-              isInvalid,
-              errorMessage
-            )}
+            appearance={getAppearance(isDisabled, isFocused, isInvalid)}
           >
             (Required)
           </Text>
@@ -192,7 +187,7 @@ TextField.propTypes = {
   placeholder: PropTypes.string.isRequired,
   isDisabled: PropTypes.bool,
   isFocused: PropTypes.bool,
-  type: PropTypes.oneOf(typesInput),
+  type: PropTypes.oneOf(inputTypes),
   value: PropTypes.string,
   handleChange: PropTypes.func,
   iconBefore: PropTypes.node,
@@ -208,4 +203,4 @@ TextField.propTypes = {
   isFullWidth: PropTypes.bool,
 };
 
-export { TextField, typesInput, sizes };
+export { TextField, inputTypes, sizes };
