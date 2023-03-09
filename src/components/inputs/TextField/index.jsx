@@ -1,3 +1,4 @@
+import React from "react";
 import PropTypes from "prop-types";
 
 import { MdOutlineError } from "react-icons/md";
@@ -105,6 +106,7 @@ const TextField = (props) => {
             {label}
           </Label>
         )}
+
         {isRequired && (
           <Text
             typo="bodySmall"
@@ -149,6 +151,7 @@ const TextField = (props) => {
           size={size}
           isFullWidth={transformedIsFullWidth}
         />
+
         {iconAfter && (
           <StyledIcon iconAfter={iconAfter} isDisabled={isDisabled}>
             {iconAfter}
