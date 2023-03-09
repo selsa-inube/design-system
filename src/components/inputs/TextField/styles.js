@@ -35,7 +35,6 @@ const getColor = (isDisabled, isFocused, isInvalid, errorMessage) => {
 const StyledContainer = styled.div`
   display: inline-block;
   position: relative;
-  background-color: ${colors.ref.palette.neutral.n10};
   width: ${(props) => (props.isFullWidth === true ? "100%" : "280px")};
   max-width: ${(props) => (props.isFullWidth === true ? "none" : "auto")};
 `;
@@ -44,7 +43,6 @@ const StyledContainerLabel = styled.div`
   display: flex;
   align-items: center;
   width: ${({ isRequired }) => (isRequired ? "115px" : "51px")};
-  background-color: ${colors.ref.palette.neutral.n10};
   height: 20px;
   margin-left: 16px;
   padding-right: 5px;
