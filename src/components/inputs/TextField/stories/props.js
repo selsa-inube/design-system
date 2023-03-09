@@ -1,4 +1,4 @@
-import { typesInput, sizes } from "..";
+import { inputTypes, sizes } from "..";
 
 const parameters = {
   docs: {
@@ -42,7 +42,7 @@ const isFocused = {
 };
 
 const type = {
-  options: typesInput,
+  options: inputTypes,
   control: { type: "select" },
   description: "class name to apply to the input element",
   table: {

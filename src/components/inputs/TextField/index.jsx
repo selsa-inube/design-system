@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import { MdOutlineError } from "react-icons/md";
 
-import Label from "../Label";
+import { Label } from "../Label";
 import { Text } from "../../data/Text";
 
 import {
@@ -32,23 +32,17 @@ const getState = (isInvalid) => {
   return "default";
 };
 
-const appearancesHomologation = {
-  isDisabled: "disabled",
-  isFocused: "primary",
-  isInvalid: "error",
-};
-
 const getAppearance = (isDisabled, isFocused, isInvalid) => {
   if (isDisabled) {
-    return appearancesHomologation.isDisabled;
+    return "disabled";
   }
 
   if (isFocused) {
-    return appearancesHomologation.isFocused;
+    return "primary";
   }
 
   if (isInvalid) {
-    return appearancesHomologation.isInvalid;
+    return "error";
   }
 };
 

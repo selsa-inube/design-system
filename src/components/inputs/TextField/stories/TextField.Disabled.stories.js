@@ -17,7 +17,6 @@ import {
   iconAfter,
   maxLength,
   minLength,
-  size,
 } from "./props";
 
 const story = {
@@ -66,7 +65,6 @@ Disabled.argTypes = {
   iconAfter,
   maxLength,
   minLength,
-  size,
 };
 
 export default story;
