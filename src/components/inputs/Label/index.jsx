@@ -44,5 +44,4 @@ Label.propTypes = {
   children: PropTypes.node,
 };
 
-export default Label;
-export { states };
+export { Label, states };
