@@ -34,13 +34,6 @@ const isDisabled = {
   },
 };
 
-const isFocused = {
-  description: "indicates whether the textfield is in its focused state",
-  table: {
-    defaultValue: { summary: false },
-  },
-};
-
 const type = {
   options: inputTypes,
   control: { type: "select" },
@@ -124,7 +117,6 @@ export {
   id,
   placeholder,
   isDisabled,
-  isFocused,
   type,
   value,
   handleChange,

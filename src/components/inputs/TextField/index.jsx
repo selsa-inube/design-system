@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 import { MdOutlineError } from "react-icons/md";
@@ -16,7 +16,6 @@ import {
 } from "./styles";
 
 const defaultIsDisabled = false;
-const defaultIsFocused = false;
 const defaultType = "text";
 const defaultIsRequired = false;
 const defaultIsFullWidth = false;
@@ -53,7 +52,6 @@ const TextField = (props) => {
     id,
     placeholder,
     isDisabled = false,
-    isFocused = false,
     type = "text",
     value,
     handleChange,
@@ -70,11 +68,12 @@ const TextField = (props) => {
     isFullWidth = false,
   } = props;
 
+  const [isFocused, setIsFocused] = useState(false);
+  const handleFocus = () => setIsFocused(true);
+  const handleOBlur = () => setIsFocused(false);
+
   const transformedIsDisabled =
     typeof isDisabled === "boolean" ? isDisabled : defaultIsDisabled;
-
-  const transformedIsFocused =
-    typeof isFocused === "boolean" ? isFocused : defaultIsFocused;
 
   const transformedTypes = inputTypes.includes(type) ? type : defaultType;
 
@@ -121,7 +120,6 @@ const TextField = (props) => {
           id={id}
           placeholder={placeholder}
           isDisabled={transformedIsDisabled}
-          isFocused={transformedIsFocused}
           type={transformedTypes}
           value={value}
           onChange={handleChange}
@@ -136,6 +134,8 @@ const TextField = (props) => {
           errorMessage={errorMessage}
           size={size}
           isFullWidth={transformedIsFullWidth}
+          onFocus={handleFocus}
+          onBlur={handleOBlur}
         />
 
         {iconAfter && (
@@ -167,7 +167,7 @@ const TextField = (props) => {
 };
 
 TextField.propTypes = {
-  label: PropTypes.string.isRequired,
+  label: PropTypes.string,
   name: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,

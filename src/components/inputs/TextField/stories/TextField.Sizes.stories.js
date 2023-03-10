@@ -1,4 +1,5 @@
 import { TextField } from "..";
+import { TextFieldController } from "./TexfieldController";
 import { sizes } from "..";
 import { StyledFlex } from "./stories.styles";
 
@@ -9,7 +10,6 @@ import {
   id,
   placeholder,
   isDisabled,
-  isFocused,
   type,
   value,
   handleChange,
@@ -36,7 +36,7 @@ const TextFieldComponent = (args) => {
     <StyledFlex>
       {sizes.map((size) => (
         <div key={size}>
-          <TextField size={size} {...args} />
+          <TextFieldController {...args} size={size} />
         </div>
       ))}
     </StyledFlex>
@@ -48,8 +48,8 @@ Size.args = {
   label: "Username",
   name: "Username",
   id: "Username",
+  value: "",
   isDisabled: false,
-  isFocused: false,
   placeholder: "Write your full name",
   handleChange: () => {},
   maxLength: 10,
@@ -65,7 +65,6 @@ Size.argTypes = {
   id,
   placeholder,
   isDisabled,
-  isFocused,
   type,
   value,
   handleChange,

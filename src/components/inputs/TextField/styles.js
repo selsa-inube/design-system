@@ -76,7 +76,7 @@ const StyledInput = styled.input`
   width: ${(props) => (props.isFullWidth === true ? "100%" : "280px")};
   max-width: ${(props) => (props.isFullWidth === true ? "none" : "auto")};
   ${({ size }) => sizeOptions[size]};
-  disabled: ${({ isDisabled }) => isDisabled};
+
   border: 1px solid
     ${({ isDisabled, isFocused, isInvalid }) =>
       getColor(isDisabled, isFocused, isInvalid)};
@@ -89,6 +89,7 @@ const StyledInput = styled.input`
 
   &:focus {
     outline: none;
+    border: 2px solid ${colors.ref.palette.blue.b300};
   }
 
   &::-webkit-search-cancel-button {
