@@ -1,4 +1,4 @@
-import Label from "..";
+import { Label } from "../";
 import { parameters, isDisabled, htmlFor, state, children } from "./props";
 
 const story = {
