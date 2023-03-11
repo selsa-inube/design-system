@@ -34,7 +34,6 @@ Required.args = {
   name: "Username",
   id: "Username",
   placeholder: "Write your full name",
-
   isDisabled: false,
   type: "text",
   handleChange: () => {},

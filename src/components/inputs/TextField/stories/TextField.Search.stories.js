@@ -37,7 +37,7 @@ Search.args = {
   id: "searchField",
   placeholder: "Search...",
   isDisabled: false,
-  value: "Algoa a buscar",
+  value: "",
   handleChange: () => {},
   iconAfter: <AiOutlineSearch />,
   isRequired: false,

@@ -1,4 +1,5 @@
 import { TextField } from "..";
+import { TextFieldController } from "./TexfieldController";
 
 import {
   parameters,
@@ -19,7 +20,6 @@ import {
   errorMessage,
   size,
 } from "./props";
-import { TextFieldController } from "./TexfieldController";
 
 const story = {
   title: "inputs/textField/Default",
@@ -33,6 +33,7 @@ Default.args = {
   name: "Username",
   id: "Username",
   placeholder: "Write your full name",
+  value: "",
   handleChange: () => {},
   maxLength: 10,
   minLength: 1,

@@ -174,7 +174,7 @@ TextField.propTypes = {
   isDisabled: PropTypes.bool,
   isFocused: PropTypes.bool,
   type: PropTypes.oneOf(inputTypes),
-  value: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   handleChange: PropTypes.func,
   iconBefore: PropTypes.node,
   iconAfter: PropTypes.node,
