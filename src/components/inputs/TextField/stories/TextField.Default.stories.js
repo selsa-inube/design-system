@@ -19,6 +19,7 @@ import {
   errorMessage,
   size,
 } from "./props";
+import { TextFieldController } from "./TexfieldController";
 
 const story = {
   title: "inputs/textField/Default",
@@ -26,7 +27,7 @@ const story = {
   parameters,
 };
 
-const Default = (args) => <TextField {...args} />;
+const Default = (args) => <TextFieldController {...args} />;
 Default.args = {
   label: "Username",
   name: "Username",

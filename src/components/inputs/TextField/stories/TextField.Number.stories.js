@@ -1,4 +1,5 @@
 import { TextField } from "..";
+import { TextFieldController } from "./TexfieldController";
 
 import {
   parameters,
@@ -27,7 +28,7 @@ const story = {
   parameters,
 };
 
-const Number = (args) => <TextField {...args} />;
+const Number = (args) => <TextFieldController {...args} />;
 Number.args = {
   label: "Quantity",
   name: "quantity",

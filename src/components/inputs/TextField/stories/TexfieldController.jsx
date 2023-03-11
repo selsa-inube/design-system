@@ -2,13 +2,15 @@ import React, { useState } from "react";
 import { TextField } from "../";
 
 const TextFieldController = (props) => {
-  const [value, setValue] = useState("");
+  const { value = "", handleChange } = props;
+  const [valueInput, setValueInput] = useState(value);
 
-  const handleChange = (event) => {
-    setValue(event.target.value);
+  const handleEvent = (e) => {
+    setValueInput(e.target.value);
+    handleChange(e.target.value);
   };
 
-  return <TextField {...props} value={value} onChange={handleChange} />;
+  return <TextField {...props} value={valueInput} handleChange={handleEvent} />;
 };
 
 export { TextFieldController };

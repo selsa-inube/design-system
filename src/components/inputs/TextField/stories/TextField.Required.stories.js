@@ -20,6 +20,7 @@ import {
   size,
   isFullWidth,
 } from "./props";
+import { TextFieldController } from "./TexfieldController";
 
 const story = {
   title: "inputs/textField/Required",
@@ -27,12 +28,13 @@ const story = {
   parameters,
 };
 
-const Required = (args) => <TextField {...args} isRequired={true} />;
+const Required = (args) => <TextFieldController {...args} isRequired={true} />;
 Required.args = {
   label: "Username",
   name: "Username",
   id: "Username",
   placeholder: "Write your full name",
+
   isDisabled: false,
   type: "text",
   handleChange: () => {},

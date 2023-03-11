@@ -1,4 +1,5 @@
 import { TextField } from "..";
+import { TextFieldController } from "./TexfieldController";
 
 import {
   parameters,
@@ -25,7 +26,7 @@ const story = {
   parameters,
 };
 
-const Invalid = (args) => <TextField {...args} isInvalid={true} />;
+const Invalid = (args) => <TextFieldController {...args} isInvalid={true} />;
 Invalid.args = {
   label: "Username",
   name: "Username",

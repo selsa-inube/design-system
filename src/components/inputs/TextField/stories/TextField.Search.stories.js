@@ -1,4 +1,5 @@
 import { TextField } from "..";
+import { TextFieldController } from "./TexfieldController";
 
 import { AiOutlineSearch } from "react-icons/ai";
 
@@ -30,12 +31,13 @@ const story = {
   parameters,
 };
 
-const Search = (args) => <TextField {...args} type="search" />;
+const Search = (args) => <TextFieldController {...args} type="search" />;
 Search.args = {
   name: "searchField",
   id: "searchField",
   placeholder: "Search...",
   isDisabled: false,
+  value: "Algoa a buscar",
   handleChange: () => {},
   iconAfter: <AiOutlineSearch />,
   isRequired: false,
