@@ -85,29 +85,22 @@ const TextField = (props) => {
 
   return (
     <StyledContainer isFullWidth={isFullWidth}>
-      <StyledContainerLabel>
+      <StyledContainerLabel size={size} isDisabled={isDisabled}>
         {label && (
           <Label
             isDisabled={isDisabled}
             isFocused={isFocused}
             htmlFor={id}
-            state={getState(isInvalid)}
+            state={isInvalid}
           >
             {label}
           </Label>
         )}
 
-        {isRequired && (
-          <Text
-            typo="bodySmall"
-            appearance={getAppearance(isDisabled, isFocused, isInvalid)}
-          >
-            (Required)
-          </Text>
-        )}
+        {isRequired && <Text typo="bodySmall">(Required)</Text>}
       </StyledContainerLabel>
 
-      <StyledInputContainer>
+      <StyledInputContainer isDisabled={isDisabled}>
         {iconBefore && (
           <StyledIcon isDisabled={isDisabled} iconBefore={iconBefore}>
             {iconBefore}
@@ -145,7 +138,7 @@ const TextField = (props) => {
         )}
       </StyledInputContainer>
 
-      {errorMessage && isInvalid && (
+      {isInvalid && (
         <StyledErrorMessageContainer
           isDisabled={isDisabled}
           isFocused={isFocused}

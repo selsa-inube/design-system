@@ -11,6 +11,13 @@ const sizeOptions = {
   },
 };
 
+const fontSize = (size) => {
+  if (size === "compact") {
+    return typography.sys.typescale.bodyMedium.size;
+  }
+  return typography.sys.typescale.bodyLarge.size;
+};
+
 const getColor = (isDisabled, isFocused, isInvalid) => {
   if (isDisabled) {
     return colors.ref.palette.neutral.n60;
@@ -46,8 +53,8 @@ const StyledContainerLabel = styled.div`
 
   & Label {
     height: 20px;
-    width: 35px;
-    font-size: ${typography.sys.typescale.bodyLarge.size};
+    font-size: ${({ size }) => fontSize(size)};
+    pointer-events: ${({ isDisabled }) => isDisabled && "none"};
   }
 `;
 
@@ -56,6 +63,7 @@ const StyledInputContainer = styled.div`
   align-items: center;
   position: relative;
   width: 100%;
+  cursor: ${({ isDisabled }) => isDisabled && "no-drop"};
 `;
 
 const StyledInput = styled.input`
@@ -89,7 +97,8 @@ const StyledInput = styled.input`
 
   &:focus {
     outline: none;
-    border: 2px solid ${colors.ref.palette.blue.b300};
+    border: 2px solid
+      ${({ isInvalid }) => isInvalid && colors.sys.actions.remove.stroke};
   }
 
   &::-webkit-search-cancel-button {
