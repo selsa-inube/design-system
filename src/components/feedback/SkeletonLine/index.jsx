@@ -5,7 +5,12 @@ import { StyledSkeletonLine } from "./styles";
 const SkeletonLine = (props) => {
   const { width = "100%", isAnimated = false } = props;
 
-  return <StyledSkeletonLine width={width} isAnimated={isAnimated} />;
+  const transformedIsAnimated =
+    typeof isAnimated === "boolean" ? isAnimated : false;
+
+  return (
+    <StyledSkeletonLine width={width} isAnimated={transformedIsAnimated} />
+  );
 };
 
 SkeletonLine.propsTypes = {
