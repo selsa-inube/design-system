@@ -3,8 +3,8 @@ import styled from "styled-components";
 import { css } from "styled-components";
 import { colors } from "../../../shared/colors/colors";
 
-const StyledProgressSkeleton = styled.div`
-  background-color: ${colors.sys.actions.secondary.filled};
+const StyledProgressSkeleton = styled.h2`
+  background: ${colors.sys.actions.secondary.filled};
   height: 16px;
   width: ${({ width }) => width};
   border-radius: 6px;
@@ -12,11 +12,12 @@ const StyledProgressSkeleton = styled.div`
 `;
 
 const Skeleton = css`
+  content: "";
   background: linear-gradient(
     to right,
-    ${colors.ref.palette.neutralAlpha.n50A},
-    ${colors.ref.palette.neutralAlpha.n40A},
-    ${colors.ref.palette.neutralAlpha.n50A}
+    ${colors.ref.palette.neutralAlpha.n20A},
+    ${colors.ref.palette.neutralAlpha.n30A},
+    ${colors.ref.palette.neutralAlpha.n20A}
   );
 
   animation: shimmer 2s linear infinite;

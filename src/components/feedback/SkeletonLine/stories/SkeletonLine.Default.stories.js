@@ -15,7 +15,7 @@ const story = {
 };
 const Default = (args) => <SkeletonLine {...args} />;
 Default.args = {
-  width: "90%",
+  width: "100%",
   isAnimated: false,
 };
 Default.argTypes = {
