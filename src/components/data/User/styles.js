@@ -7,7 +7,7 @@ const StyledUser = styled.div`
   justify-content: space-between;
   align-items: center;
   gap: 16px;
-  width: ${(props) => (props.size === true ? "169px" : "121px")};
+  width: ${(props) => (props.size === "large" ? "169px" : "121px")};
 `;
 
 const StyledCard = styled.div`
