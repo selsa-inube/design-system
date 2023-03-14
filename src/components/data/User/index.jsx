@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import { Avatar } from "../Avatar";
+import { Text } from "../Text";
 import { StyledUser, StyledCard } from "./styles";
 
 export const sizes = ["small", "large"];
@@ -14,8 +15,17 @@ const User = (props) => {
   return (
     <StyledUser size={transformedSize}>
       <StyledCard>
-        <span id="userName">{userName}</span>
-        <span id="businessUnit">{businessUnit}</span>
+        <Text id="userName" as="span" appearance={"dark"} typo={"labelMedium"}>
+          {userName}
+        </Text>
+        <Text
+          id="businessUnit"
+          as="span"
+          appearance={"secondary"}
+          typo={"bodySmall"}
+        >
+          {businessUnit}
+        </Text>
       </StyledCard>
       {transformedSize === "large" && <Avatar />}
     </StyledUser>
