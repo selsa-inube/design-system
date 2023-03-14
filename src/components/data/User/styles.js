@@ -21,14 +21,14 @@ const StyledCard = styled.div`
     font-size: ${typography.sys.typescale.labelMedium.size};
     font-weight: ${typography.sys.typescale.labelMedium.weight};
     letter-spacing: ${typography.sys.typescale.labelMedium.tracking};
-    color: ${colors.ref.palette.neutral.n900};
+    color: ${colors.sys.text.dark};
   }
   & > #businessUnit {
     font-family: ${typography.sys.typescale.bodySmall.font};
     font-size: ${typography.sys.typescale.bodySmall.size};
     font-weight: ${typography.sys.typescale.bodySmall.weight};
     letter-spacing: ${typography.sys.typescale.bodySmall.tracking};
-    color: ${colors.ref.palette.neutral.n300};
+    color: ${colors.sys.text.secondary};
   }
 `;
 
