@@ -3,7 +3,9 @@ import PropTypes from "prop-types";
 
 import { Avatar } from "../Avatar";
 import { Text } from "../Text";
-import { StyledUser, StyledCard } from "./styles";
+import { Stack } from "../../layouts/Stack";
+
+import { StyledUser } from "./styles";
 
 export const sizes = ["small", "large"];
 const defaultSize = "large";
@@ -14,19 +16,24 @@ const User = (props) => {
 
   return (
     <StyledUser size={transformedSize}>
-      <StyledCard>
-        <Text id="userName" as="span" appearance={"dark"} typo={"labelMedium"}>
+      <Stack
+        direction="column"
+        justifyContent="center"
+        alignItems="center"
+        gap="4px"
+      >
+        <Text id="userName" as="span" appearance="dark" typo="labelMedium">
           {userName}
         </Text>
         <Text
           id="businessUnit"
           as="span"
-          appearance={"secondary"}
-          typo={"bodySmall"}
+          appearance="secondary"
+          typo="bodySmall"
         >
           {businessUnit}
         </Text>
-      </StyledCard>
+      </Stack>
       {transformedSize === "large" && <Avatar />}
     </StyledUser>
   );

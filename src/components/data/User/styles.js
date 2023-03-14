@@ -8,12 +8,4 @@ const StyledUser = styled.div`
   width: ${(props) => (props.size === "large" ? "169px" : "121px")};
 `;
 
-const StyledCard = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 4px;
-`;
-
-export { StyledUser, StyledCard };
+export { StyledUser };
