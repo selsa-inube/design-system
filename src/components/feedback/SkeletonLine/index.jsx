@@ -1,5 +1,5 @@
 import React from "react";
-import PropsTypes from "prop-types";
+import PropTypes from "prop-types";
 import { StyledSkeletonLine } from "./styles";
 
 const SkeletonLine = (props) => {
@@ -13,9 +13,9 @@ const SkeletonLine = (props) => {
   );
 };
 
-SkeletonLine.propsTypes = {
-  with: PropsTypes.string,
-  isAnimated: PropsTypes.bool,
+SkeletonLine.propTypes = {
+  width: PropTypes.string,
+  isAnimated: PropTypes.bool,
 };
 
 export { SkeletonLine };

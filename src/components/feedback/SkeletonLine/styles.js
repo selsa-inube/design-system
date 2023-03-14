@@ -1,42 +1,40 @@
 import styled from "styled-components";
+import { keyframes } from "styled-components";
 
-import { css } from "styled-components";
 import { colors } from "../../../shared/colors/colors";
 
-const StyledProgressSkeleton = styled.h2`
+const shimmer = keyframes`
+0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+`;
+
+const StyledSkeletonLine = styled.div`
+  position: relative;
   background: ${colors.sys.actions.secondary.filled};
   height: 16px;
   width: ${({ width }) => width};
   border-radius: 6px;
-  box-shadow: none;
-`;
+  overflow: hidden;
 
-const Skeleton = css`
-  content: "";
-  background: linear-gradient(
-    to right,
-    ${colors.ref.palette.neutralAlpha.n20A},
-    ${colors.ref.palette.neutralAlpha.n30A},
-    ${colors.ref.palette.neutralAlpha.n20A}
-  );
-
-  animation: shimmer 2s linear infinite;
-  @keyframes shimmer {
-    0% {
-      background-position: -400px 0;
-    }
-    100% {
-      background-position: 400px 0;
-    }
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(
+      100deg,
+      ${colors.ref.palette.neutralAlpha.n0A} 20%,
+      ${colors.ref.palette.neutralAlpha.n10A} 50%,
+      ${colors.ref.palette.neutralAlpha.n0A} 80%
+    );
+    animation: ${({ isAnimated }) => isAnimated && shimmer} 2s linear infinite;
   }
-`;
-
-const StyledSkeletonLine = styled(StyledProgressSkeleton)`
-  ${({ isAnimated }) =>
-    isAnimated &&
-    css`
-      ${Skeleton}
-    `}
 `;
 
 export { StyledSkeletonLine };
