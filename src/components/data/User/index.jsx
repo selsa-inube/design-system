@@ -9,15 +9,15 @@ const defaultSize = "large";
 
 const User = (props) => {
   const { userName, businessUnit, size = defaultSize } = props;
-  const fixedSize = sizes.includes(size) ? size : defaultSize;
+  const transformedSize = sizes.includes(size) ? size : defaultSize;
 
   return (
-    <StyledUser size={fixedSize}>
+    <StyledUser size={transformedSize}>
       <StyledCard>
         <span id="userName">{userName}</span>
         <span id="businessUnit">{businessUnit}</span>
       </StyledCard>
-      {fixedSize === "large" && <Avatar />}
+      {transformedSize === "large" && <Avatar />}
     </StyledUser>
   );
 };
