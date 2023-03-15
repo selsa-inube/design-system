@@ -89,9 +89,9 @@ const TextField = (props) => {
         {label && (
           <Label
             isDisabled={isDisabled}
-            isFocused={isFocused}
+            isFocused={isInvalid && false}
             htmlFor={id}
-            state={isInvalid}
+            state={getState(isInvalid)}
           >
             {label}
           </Label>

@@ -50,11 +50,11 @@ const StyledContainerLabel = styled.div`
   padding-right: 5px;
   gap: 40px;
   margin-bottom: 4px;
+  pointer-events: ${({ isDisabled }) => isDisabled && "none"};
 
   & Label {
     height: 20px;
     font-size: ${({ size }) => fontSize(size)};
-    pointer-events: ${({ isDisabled }) => isDisabled && "none"};
   }
 `;
 
@@ -98,7 +98,10 @@ const StyledInput = styled.input`
   &:focus {
     outline: none;
     border: 2px solid
-      ${({ isInvalid }) => isInvalid && colors.sys.actions.remove.stroke};
+      ${({ isInvalid }) =>
+        isInvalid
+          ? colors.sys.actions.remove.filled
+          : colors.sys.actions.primary.filled};
   }
 
   &::-webkit-search-cancel-button {
