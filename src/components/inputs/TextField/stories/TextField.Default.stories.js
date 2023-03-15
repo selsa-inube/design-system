@@ -41,6 +41,7 @@ Default.args = {
   max: 0,
   errorMessage: "",
   isInvalid: false,
+  state: "padgin",
   size: "wide",
 };
 

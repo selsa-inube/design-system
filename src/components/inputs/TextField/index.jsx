@@ -21,6 +21,7 @@ const defaultIsRequired = false;
 const defaultIsFullWidth = false;
 
 const inputTypes = ["text", "email", "number", "password", "search", "tel"];
+const status = ["valid", "invalid", "pending"];
 const sizes = ["wide", "compact"];
 
 const getState = (isInvalid) => {
@@ -62,6 +63,7 @@ const TextField = (props) => {
     max,
     min,
     isRequired = false,
+    state = "pending",
     isInvalid,
     errorMessage,
     size,
@@ -70,7 +72,7 @@ const TextField = (props) => {
 
   const [isFocused, setIsFocused] = useState(false);
   const handleFocus = () => setIsFocused(true);
-  const handleOBlur = () => setIsFocused(false);
+  const handleBlur = () => setIsFocused(false);
 
   const transformedIsDisabled =
     typeof isDisabled === "boolean" ? isDisabled : defaultIsDisabled;
@@ -89,7 +91,7 @@ const TextField = (props) => {
         {label && (
           <Label
             isDisabled={isDisabled}
-            isFocused={isInvalid ? false : isFocused}
+            isFocused={state === "invalid" ? false : isFocused}
             htmlFor={id}
             state={getState(isInvalid)}
           >
@@ -126,9 +128,10 @@ const TextField = (props) => {
           isInvalid={isInvalid}
           errorMessage={errorMessage}
           size={size}
+          state={state}
           isFullWidth={transformedIsFullWidth}
           onFocus={handleFocus}
-          onBlur={handleOBlur}
+          onBlur={handleBlur}
         />
 
         {iconAfter && (
@@ -149,7 +152,7 @@ const TextField = (props) => {
           <Text
             typo="bodySmall"
             appearance={getAppearance(isDisabled, isFocused, isInvalid)}
-            margin="8px 0px 0px 4px"
+            margin="8px 0px 0px 0px"
           >
             ({errorMessage})
           </Text>
@@ -182,4 +185,4 @@ TextField.propTypes = {
   isFullWidth: PropTypes.bool,
 };
 
-export { TextField, inputTypes, sizes };
+export { TextField, inputTypes, sizes, status };

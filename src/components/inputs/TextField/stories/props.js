@@ -1,4 +1,4 @@
-import { inputTypes, sizes } from "..";
+import { inputTypes, sizes, status } from "..";
 
 const parameters = {
   docs: {
@@ -91,6 +91,15 @@ const isRequired = {
 
 const isInvalid = {
   description: "identifies if the field is valid or invalid",
+};
+
+const state = {
+  options: status,
+  control: { type: "select" },
+  description: "state of the component",
+  table: {
+    defaultValue: { summary: "pending" },
+  },
 };
 
 const errorMessage = {

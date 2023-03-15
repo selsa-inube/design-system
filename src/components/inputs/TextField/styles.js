@@ -48,7 +48,7 @@ const StyledContainerLabel = styled.div`
   height: 20px;
   margin-left: 16px;
   padding-right: 5px;
-  gap: 40px;
+  gap: 4px;
   margin-bottom: 4px;
   pointer-events: ${({ isDisabled }) => isDisabled && "none"};
 
