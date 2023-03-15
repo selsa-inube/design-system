@@ -26,7 +26,7 @@ const StyledSkeletonIcon = styled.div`
     background: linear-gradient(
       100deg,
       ${colors.ref.palette.neutralAlpha.n0A} 20%,
-      ${colors.ref.palette.neutralAlpha.n10A} 50%,
+      ${colors.ref.palette.neutralAlpha.n20A} 50%,
       ${colors.ref.palette.neutralAlpha.n0A} 80%
     );
     animation: ${({ isAnimated }) => isAnimated && shimmer} 2s linear infinite;
