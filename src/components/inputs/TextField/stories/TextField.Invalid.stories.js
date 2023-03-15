@@ -39,6 +39,7 @@ Invalid.args = {
   maxLength: 20,
   minLength: 1,
   isRequired: false,
+  state: "invalid",
   errorMessage: "This field can only contain letters",
   size: "wide",
   isFullWidth: false,

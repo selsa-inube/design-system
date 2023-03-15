@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 import { MdOutlineError } from "react-icons/md";
+import { AiFillCheckCircle } from "react-icons/ai";
 
 import { Label } from "../Label";
 import { Text } from "../../data/Text";
@@ -13,18 +14,20 @@ import {
   StyledInput,
   StyledIcon,
   StyledErrorMessageContainer,
+  StyledValidMessageContainer,
 } from "./styles";
 
 const defaultIsDisabled = false;
 const defaultType = "text";
 const defaultIsRequired = false;
+const defaultState = "pending";
 const defaultIsFullWidth = false;
 
 const inputTypes = ["text", "email", "number", "password", "search", "tel"];
 const status = ["valid", "invalid", "pending"];
 const sizes = ["wide", "compact"];
 
-const getState = (isInvalid) => {
+/* const getState = (isInvalid) => {
   if (isInvalid) {
     return "invalid";
   }
@@ -44,7 +47,7 @@ const getAppearance = (isDisabled, isFocused, isInvalid) => {
   if (isInvalid) {
     return "error";
   }
-};
+}; */
 
 const TextField = (props) => {
   const {
@@ -64,8 +67,8 @@ const TextField = (props) => {
     min,
     isRequired = false,
     state = "pending",
-    isInvalid,
     errorMessage,
+    validMessage,
     size,
     isFullWidth = false,
   } = props;
@@ -76,6 +79,8 @@ const TextField = (props) => {
 
   const transformedIsDisabled =
     typeof isDisabled === "boolean" ? isDisabled : defaultIsDisabled;
+
+  const transformedState = status.includes(state) ? state : defaultState;
 
   const transformedTypes = inputTypes.includes(type) ? type : defaultType;
 
@@ -90,10 +95,9 @@ const TextField = (props) => {
       <StyledContainerLabel size={size} isDisabled={isDisabled}>
         {label && (
           <Label
+            htmlFor={id}
             isDisabled={isDisabled}
             isFocused={state === "invalid" ? false : isFocused}
-            htmlFor={id}
-            state={getState(isInvalid)}
           >
             {label}
           </Label>
@@ -125,10 +129,9 @@ const TextField = (props) => {
           max={max}
           min={min}
           isRequired={transformedIsRequired}
-          isInvalid={isInvalid}
           errorMessage={errorMessage}
           size={size}
-          state={state}
+          state={transformedState}
           isFullWidth={transformedIsFullWidth}
           onFocus={handleFocus}
           onBlur={handleBlur}
@@ -141,22 +144,25 @@ const TextField = (props) => {
         )}
       </StyledInputContainer>
 
-      {isInvalid && (
+      {state === "invalid" && (
         <StyledErrorMessageContainer
           isDisabled={isDisabled}
           isFocused={isFocused}
-          isInvalid={isInvalid}
           errorMessage={errorMessage}
         >
           <MdOutlineError />
-          <Text
-            typo="bodySmall"
-            appearance={getAppearance(isDisabled, isFocused, isInvalid)}
-            margin="8px 0px 0px 0px"
-          >
+          <Text typo="bodySmall" margin="8px 0px 0px 4px">
             ({errorMessage})
           </Text>
         </StyledErrorMessageContainer>
+      )}
+      {state === "valid" && (
+        <StyledValidMessageContainer>
+          <AiFillCheckCircle />
+          <Text typo="bodySmall" margin="8px 0px 0px 4px">
+            {validMessage}
+          </Text>
+        </StyledValidMessageContainer>
       )}
     </StyledContainer>
   );
@@ -179,7 +185,6 @@ TextField.propTypes = {
   max: PropTypes.number,
   min: PropTypes.number,
   isRequired: PropTypes.bool,
-  isInvalid: PropTypes.bool,
   errorMessage: PropTypes.string,
   size: PropTypes.oneOf(sizes),
   isFullWidth: PropTypes.bool,
