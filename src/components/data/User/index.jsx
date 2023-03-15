@@ -16,25 +16,27 @@ const User = (props) => {
 
   return (
     <StyledUser size={transformedSize}>
-      <Stack
-        direction="column"
-        justifyContent="center"
-        alignItems="center"
-        gap="4px"
-      >
-        <Text id="userName" as="span" appearance="dark" typo="labelMedium">
-          {userName}
-        </Text>
-        <Text
-          id="businessUnit"
-          as="span"
-          appearance="secondary"
-          typo="bodySmall"
+      {transformedSize === "large" && (
+        <Stack
+          direction="column"
+          justifyContent="center"
+          alignItems="center"
+          gap="4px"
         >
-          {businessUnit}
-        </Text>
-      </Stack>
-      {transformedSize === "large" && <Avatar />}
+          <Text id="userName" as="span" appearance="dark" typo="labelMedium">
+            {userName}
+          </Text>
+          <Text
+            id="businessUnit"
+            as="span"
+            appearance="secondary"
+            typo="bodySmall"
+          >
+            {businessUnit}
+          </Text>
+        </Stack>
+      )}
+      <Avatar />
     </StyledUser>
   );
 };
