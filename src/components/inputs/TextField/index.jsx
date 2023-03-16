@@ -27,27 +27,13 @@ const inputTypes = ["text", "email", "number", "password", "search", "tel"];
 const status = ["valid", "invalid", "pending"];
 const sizes = ["wide", "compact"];
 
-/* const getState = (isInvalid) => {
-  if (isInvalid) {
-    return "invalid";
+const getState = (state) => {
+  if (state === "invalid") {
+    return state;
   }
 
   return "default";
 };
-
-const getAppearance = (isDisabled, isFocused, isInvalid) => {
-  if (isDisabled) {
-    return "disabled";
-  }
-
-  if (isFocused) {
-    return "primary";
-  }
-
-  if (isInvalid) {
-    return "error";
-  }
-}; */
 
 const TextField = (props) => {
   const {
@@ -98,6 +84,7 @@ const TextField = (props) => {
             htmlFor={id}
             isDisabled={isDisabled}
             isFocused={state === "invalid" ? false : isFocused}
+            state={getState(state)}
           >
             {label}
           </Label>
@@ -151,7 +138,7 @@ const TextField = (props) => {
           errorMessage={errorMessage}
         >
           <MdOutlineError />
-          <Text typo="bodySmall" margin="8px 0px 0px 4px">
+          <Text typo="bodySmall" margin="8px 0px 0px 4px" appearance="error">
             ({errorMessage})
           </Text>
         </StyledErrorMessageContainer>
@@ -159,7 +146,7 @@ const TextField = (props) => {
       {state === "valid" && (
         <StyledValidMessageContainer>
           <AiFillCheckCircle />
-          <Text typo="bodySmall" margin="8px 0px 0px 4px">
+          <Text typo="bodySmall" margin="8px 0px 0px 4px" appearance="success">
             {validMessage}
           </Text>
         </StyledValidMessageContainer>

@@ -17,23 +17,19 @@ const fontSize = (size) => {
   }
   return typography.sys.typescale.bodyLarge.size;
 };
-/* 
-const getColor = (isDisabled, isFocused, isInvalid) => {
-  if (isDisabled) {
-    return colors.ref.palette.neutral.n60;
-  }
 
-  if (isFocused) {
-    return colors.ref.palette.blue.b300;
-  }
-
-  if (isInvalid) {
+const getColors = (onFocus, state) => {
+  if (state === "invalid") {
     return colors.sys.actions.remove.filled;
+  }
+
+  if (onFocus) {
+    return colors.ref.palette.blue.b300;
   }
 
   return colors.ref.palette.neutral.n40;
 };
- */
+
 const StyledContainer = styled.div`
   display: inline-block;
   position: relative;
@@ -85,7 +81,7 @@ const StyledInput = styled.input`
   max-width: ${(props) => (props.isFullWidth === true ? "none" : "auto")};
   ${({ size }) => sizeOptions[size]};
 
-  border: 1px solid;
+  border: 1px solid ${({ onFocus, state }) => getColors(onFocus, state)};
   ${({ isDisabled }) => isDisabled && "pointer-events: none; opacity: 0.5;"}
 
   ::placeholder {
@@ -95,7 +91,7 @@ const StyledInput = styled.input`
 
   &:focus {
     outline: none;
-    border: 2px solid;
+    border: 2px solid ${({ onFocus, state }) => getColors(onFocus, state)};
   }
 
   &::-webkit-search-cancel-button {
@@ -124,7 +120,7 @@ const StyledErrorMessageContainer = styled.div`
   align-items: center;
   margin-left: 12px;
   height: 14px;
-  // color: ;
+  color: ${colors.sys.actions.remove.filled};
   & svg {
     width: 14px;
     height: 14px;
@@ -134,10 +130,6 @@ const StyledErrorMessageContainer = styled.div`
 
 const StyledValidMessageContainer = styled(StyledErrorMessageContainer)`
   color: ${colors.sys.actions.confirm.filled};
-
-  & p {
-    color: ${colors.sys.actions.confirm.filled};
-  }
 `;
 
 export {
