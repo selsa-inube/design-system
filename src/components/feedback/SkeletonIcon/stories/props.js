@@ -1,17 +1,11 @@
-const width = {
+const size = {
   control: { type: "text" },
-  description: "sets the width-property of the skeleton component",
+  description: "sets the size of the skeleton icon component",
   table: {
     defaultValue: { summary: "24px" },
   },
 };
-const height = {
-  control: { type: "text" },
-  description: "sets the height-property of the skeleton component",
-  table: {
-    defaultValue: { summary: "24px" },
-  },
-};
+
 const isAnimated = {
   options: [false, true],
   control: { type: "boolean" },
@@ -22,4 +16,4 @@ const isAnimated = {
   },
 };
 
-export { width, height, isAnimated };
+export { size, isAnimated };

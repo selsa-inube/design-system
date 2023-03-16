@@ -14,8 +14,8 @@ const StyledSkeletonIcon = styled.div`
   position: relative;
   border-radius: 6px;
   overflow: hidden;
-  width: ${({ width }) => width};
-  height: ${({ height }) => height};
+  width: ${({ size }) => size};
+  height: ${({ size }) => size};
   background: ${colors.sys.actions.secondary.filled};
 
   &::after {
