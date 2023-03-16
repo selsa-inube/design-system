@@ -1,6 +1,7 @@
 // data
 export * from "./Text";
 export * from "./Avatar";
+export * from "./User";
 
 // inputs
 export * from "./Button";
