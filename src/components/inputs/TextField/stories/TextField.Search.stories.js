@@ -19,7 +19,6 @@ import {
   max,
   min,
   isRequired,
-  errorMessage,
   size,
   isFullWidth,
 } from "./props";
@@ -64,7 +63,6 @@ Search.argTypes = {
   max,
   min,
   isRequired,
-  errorMessage,
   size,
   isFullWidth,
 };

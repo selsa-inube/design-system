@@ -17,6 +17,7 @@ import {
   maxLength,
   minLength,
   errorMessage,
+  validMessage,
   size,
   isFullWidth,
 } from "./props";
@@ -67,6 +68,7 @@ Valid.argTypes = {
   maxLength,
   minLength,
   errorMessage,
+  validMessage,
   size,
   isFullWidth,
 };

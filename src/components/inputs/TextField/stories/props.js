@@ -102,10 +102,14 @@ const errorMessage = {
   description: "show when the field is validated and there is an error",
 };
 
+const validMessage = {
+  description: "show when the field is validated without errors",
+};
+
 const size = {
   options: sizes,
   control: { type: "select" },
-  description: "show when the field is validated and there is an error",
+  description: "defines the size of the component",
 };
 
 const isFullWidth = {
@@ -134,6 +138,7 @@ export {
   min,
   isRequired,
   errorMessage,
+  validMessage,
   size,
   isFullWidth,
 };

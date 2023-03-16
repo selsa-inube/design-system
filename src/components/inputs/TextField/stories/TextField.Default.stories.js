@@ -17,6 +17,7 @@ import {
   min,
   isRequired,
   errorMessage,
+  validMessage,
   size,
 } from "./props";
 
@@ -39,6 +40,7 @@ Default.args = {
   min: 0,
   max: 0,
   errorMessage: "",
+  validMessage: "",
   isInvalid: false,
   state: "padgin",
   size: "wide",
@@ -59,6 +61,7 @@ Default.argTypes = {
   min,
   isRequired,
   errorMessage,
+  validMessage,
   size,
 };
 

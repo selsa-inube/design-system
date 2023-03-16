@@ -75,6 +75,7 @@ const TextField = (props) => {
   } = props;
 
   const [isFocused, setIsFocused] = useState(false);
+  const [inputValue, setInputValue] = useState(value);
   const handleFocus = () => setIsFocused(true);
   const handleBlur = () => setIsFocused(false);
 
@@ -187,6 +188,7 @@ TextField.propTypes = {
   min: PropTypes.number,
   isRequired: PropTypes.bool,
   errorMessage: PropTypes.string,
+  validMessage: PropTypes.string,
   size: PropTypes.oneOf(sizes),
   isFullWidth: PropTypes.bool,
 };

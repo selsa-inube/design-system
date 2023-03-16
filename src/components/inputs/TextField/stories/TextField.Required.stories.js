@@ -17,7 +17,6 @@ import {
   minLength,
   max,
   min,
-  isInvalid,
   size,
   isFullWidth,
 } from "./props";
@@ -63,7 +62,6 @@ Required.argTypes = {
   minLength,
   max,
   min,
-  isInvalid,
   size,
   isFullWidth,
 };

@@ -17,6 +17,7 @@ import {
   min,
   isRequired,
   errorMessage,
+  validMessage,
   size,
   isFullWidth,
 } from "./props";
@@ -41,6 +42,7 @@ Number.args = {
   isRequired: false,
   isInvalid: false,
   errorMessage: "",
+  validMessage: "",
   size: "wide",
   isFullWidth: false,
 };
@@ -60,6 +62,7 @@ Number.argTypes = {
   min,
   isRequired,
   errorMessage,
+  validMessage,
   size,
   isFullWidth,
 };

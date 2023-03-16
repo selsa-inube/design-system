@@ -23,6 +23,7 @@ import {
   isRequired,
   isInvalid,
   errorMessage,
+  validMessage,
   isFullWidth,
 } from "./props";
 
@@ -56,6 +57,7 @@ Size.args = {
   maxLength: 10,
   minLength: 1,
   errorMessage: "",
+  validMessage: "",
   isInvalid: false,
   isFullWidth: false,
 };
@@ -79,6 +81,7 @@ Size.argTypes = {
   isRequired,
   isInvalid,
   errorMessage,
+  validMessage,
   isFullWidth,
 };
 
