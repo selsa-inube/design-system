@@ -2,6 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import { MdDone, MdClose } from "react-icons/md";
 
+import { Stack } from "../../layouts/Stack";
+import { Label } from "../Label";
+
 import { StyledContainer, StyledInput, StyledSpan, StyledIcon } from "./styles";
 
 export const sizes = ["small", "large"];
@@ -16,34 +19,45 @@ const Switch = (props) => {
     size = defaultSize,
     checked = false,
     handleChange,
+    children,
   } = props;
 
   const transformedSize = sizes.includes(size) ? size : defaultSize;
 
   return (
-    <StyledContainer size={transformedSize}>
-      <StyledInput
-        id={id}
-        type="checkbox"
-        size={transformedSize}
-        value={value}
-        checked={checked}
-        onChange={handleChange}
-        disabled={isDisabled}
-        name={name}
-      />
-      <StyledSpan size={transformedSize} disabled={isDisabled}>
-        {checked ? (
-          <StyledIcon checked={checked} size={transformedSize}>
-            <MdDone id="mdIcon" />
-          </StyledIcon>
-        ) : (
-          <StyledIcon checked={checked} size={transformedSize}>
-            <MdClose id="mdIcon" />
-          </StyledIcon>
-        )}
-      </StyledSpan>
-    </StyledContainer>
+    <Stack
+      direction={"row"}
+      justifyContent="space-between"
+      alignItems="center"
+      gap="10px"
+    >
+      <StyledContainer size={transformedSize}>
+        <StyledInput
+          id={id}
+          type="checkbox"
+          size={transformedSize}
+          value={value}
+          checked={checked}
+          onChange={handleChange}
+          disabled={isDisabled}
+          name={name}
+        />
+        <StyledSpan size={transformedSize} disabled={isDisabled}>
+          {checked ? (
+            <StyledIcon checked={checked} size={transformedSize}>
+              <MdDone id="mdIcon" />
+            </StyledIcon>
+          ) : (
+            <StyledIcon checked={checked} size={transformedSize}>
+              <MdClose id="mdIcon" />
+            </StyledIcon>
+          )}
+        </StyledSpan>
+      </StyledContainer>
+      <Label htmlFor={id} isDisabled={isDisabled} onClick={handleChange}>
+        {children}
+      </Label>
+    </Stack>
   );
 };
 
