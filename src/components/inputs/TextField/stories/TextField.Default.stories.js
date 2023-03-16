@@ -16,7 +16,6 @@ import {
   max,
   min,
   isRequired,
-  isInvalid,
   errorMessage,
   size,
 } from "./props";
@@ -58,7 +57,6 @@ Default.argTypes = {
   minLength,
   max,
   min,
-  isInvalid,
   isRequired,
   errorMessage,
   size,

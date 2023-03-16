@@ -1,7 +1,25 @@
 import { TextField } from "..";
 import { TextFieldController } from "./TexfieldController";
 import { sizes } from "..";
-import { parameters } from "./props";
+import {
+  parameters,
+  label,
+  name,
+  id,
+  placeholder,
+  isDisabled,
+  state,
+  type,
+  value,
+  handleChange,
+  iconBefore,
+  iconAfter,
+  maxLength,
+  minLength,
+  errorMessage,
+  size,
+  isFullWidth,
+} from "./props";
 import { StyledFlex } from "./stories.styles";
 
 const story = {
@@ -32,6 +50,25 @@ Valid.args = {
   handleChange: () => {},
   state: "valid",
   validMessage: "Field validation is successful",
+};
+
+Valid.argTypes = {
+  label,
+  name,
+  id,
+  placeholder,
+  isDisabled,
+  state,
+  type,
+  value,
+  handleChange,
+  iconBefore,
+  iconAfter,
+  maxLength,
+  minLength,
+  errorMessage,
+  size,
+  isFullWidth,
 };
 
 export default story;

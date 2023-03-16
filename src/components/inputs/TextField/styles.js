@@ -18,7 +18,22 @@ const fontSize = (size) => {
   return typography.sys.typescale.bodyLarge.size;
 };
 
-const getColors = (onFocus, state) => {
+const getColors = (isDisabled, state) => {
+  if (isDisabled) {
+    return colors.ref.palette.neutral.n60;
+  }
+
+  if (state === "invalid") {
+    return colors.sys.actions.remove.filled;
+  }
+
+  return colors.ref.palette.neutral.n40;
+};
+
+const getColorsOnFocus = (isDisabled, onFocus, state) => {
+  if (isDisabled) {
+    return colors.ref.palette.neutral.n60;
+  }
   if (state === "invalid") {
     return colors.sys.actions.remove.filled;
   }
@@ -26,8 +41,19 @@ const getColors = (onFocus, state) => {
   if (onFocus) {
     return colors.ref.palette.blue.b300;
   }
+};
 
-  return colors.ref.palette.neutral.n40;
+const getIsDisabled = (isDosabled, validMessage = "", errorMessage = "") => {
+  if (isDosabled) {
+    return colors.ref.palette.neutral.n60;
+  }
+
+  if (validMessage) {
+    return colors.sys.actions.confirm.filled;
+  }
+  if (errorMessage) {
+    return colors.sys.actions.remove.filled;
+  }
 };
 
 const StyledContainer = styled.div`
@@ -81,7 +107,7 @@ const StyledInput = styled.input`
   max-width: ${(props) => (props.isFullWidth === true ? "none" : "auto")};
   ${({ size }) => sizeOptions[size]};
 
-  border: 1px solid ${({ onFocus, state }) => getColors(onFocus, state)};
+  border: 1px solid ${({ isDisabled, state }) => getColors(isDisabled, state)};
   ${({ isDisabled }) => isDisabled && "pointer-events: none; opacity: 0.5;"}
 
   ::placeholder {
@@ -91,7 +117,9 @@ const StyledInput = styled.input`
 
   &:focus {
     outline: none;
-    border: 2px solid ${({ onFocus, state }) => getColors(onFocus, state)};
+    border: 2px solid
+      ${({ isDisabled, onFocus, state }) =>
+        getColorsOnFocus(isDisabled, onFocus, state)};
   }
 
   &::-webkit-search-cancel-button {
@@ -120,7 +148,8 @@ const StyledErrorMessageContainer = styled.div`
   align-items: center;
   margin-left: 12px;
   height: 14px;
-  color: ${colors.sys.actions.remove.filled};
+  cursor: context-menu;
+  color: ${({ isDisabled, state }) => getColors(isDisabled, state)};
   & svg {
     width: 14px;
     height: 14px;
@@ -129,7 +158,8 @@ const StyledErrorMessageContainer = styled.div`
 `;
 
 const StyledValidMessageContainer = styled(StyledErrorMessageContainer)`
-  color: ${colors.sys.actions.confirm.filled};
+  color: ${({ isDisabled, validMessage }) =>
+    getIsDisabled(isDisabled, validMessage)}; ;
 `;
 
 export {

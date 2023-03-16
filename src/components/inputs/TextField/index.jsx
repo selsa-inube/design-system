@@ -27,12 +27,27 @@ const inputTypes = ["text", "email", "number", "password", "search", "tel"];
 const status = ["valid", "invalid", "pending"];
 const sizes = ["wide", "compact"];
 
+const getFocused = (state, isFocused) => {
+  if (state === "invalid") {
+    return false;
+  }
+
+  return isFocused;
+};
+
 const getState = (state) => {
   if (state === "invalid") {
     return state;
   }
 
   return "default";
+};
+
+const getAppearance = (isDIsabled) => {
+  if (isDIsabled) {
+    return "disabled";
+  }
+  return "error";
 };
 
 const TextField = (props) => {
@@ -83,7 +98,7 @@ const TextField = (props) => {
           <Label
             htmlFor={id}
             isDisabled={isDisabled}
-            isFocused={state === "invalid" ? false : isFocused}
+            isFocused={getFocused(state, isFocused)}
             state={getState(state)}
           >
             {label}
@@ -116,7 +131,6 @@ const TextField = (props) => {
           max={max}
           min={min}
           isRequired={transformedIsRequired}
-          errorMessage={errorMessage}
           size={size}
           state={transformedState}
           isFullWidth={transformedIsFullWidth}
@@ -132,19 +146,19 @@ const TextField = (props) => {
       </StyledInputContainer>
 
       {state === "invalid" && (
-        <StyledErrorMessageContainer
-          isDisabled={isDisabled}
-          isFocused={isFocused}
-          errorMessage={errorMessage}
-        >
+        <StyledErrorMessageContainer isDisabled={isDisabled} state={state}>
           <MdOutlineError />
-          <Text typo="bodySmall" margin="8px 0px 0px 4px" appearance="error">
+          <Text
+            typo="bodySmall"
+            margin="8px 0px 0px 4px"
+            appearance={getAppearance(isDisabled)}
+          >
             ({errorMessage})
           </Text>
         </StyledErrorMessageContainer>
       )}
       {state === "valid" && (
-        <StyledValidMessageContainer>
+        <StyledValidMessageContainer isDisabled={isDisabled}>
           <AiFillCheckCircle />
           <Text typo="bodySmall" margin="8px 0px 0px 4px" appearance="success">
             {validMessage}

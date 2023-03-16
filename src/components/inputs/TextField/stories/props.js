@@ -89,10 +89,6 @@ const isRequired = {
   },
 };
 
-const isInvalid = {
-  description: "identifies if the field is valid or invalid",
-};
-
 const state = {
   options: status,
   control: { type: "select" },
@@ -126,6 +122,7 @@ export {
   id,
   placeholder,
   isDisabled,
+  state,
   type,
   value,
   handleChange,
@@ -136,7 +133,6 @@ export {
   max,
   min,
   isRequired,
-  isInvalid,
   errorMessage,
   size,
   isFullWidth,
