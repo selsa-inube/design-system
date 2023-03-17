@@ -180,10 +180,7 @@ const TextField = (props) => {
         </StyledErrorMessageContainer>
       )}
       {state === "valid" && (
-        <StyledValidMessageContainer
-          isDisabled={isDisabled}
-          validMessage={validMessage}
-        >
+        <StyledValidMessageContainer isDisabled={isDisabled} state={state}>
           <AiFillCheckCircle />
           <Text
             typo="bodySmall"

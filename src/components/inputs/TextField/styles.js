@@ -43,15 +43,16 @@ const getColorsOnFocus = (isDisabled, onFocus, state) => {
   }
 };
 
-const getIsDisabled = (isDosabled, validMessage = "", errorMessage = "") => {
-  if (isDosabled) {
+const getIsDisabled = (isDisabled, state) => {
+  if (isDisabled) {
     return colors.ref.palette.neutral.n60;
   }
 
-  if (validMessage) {
+  if (state === "valid") {
     return colors.sys.actions.confirm.filled;
   }
-  if (errorMessage) {
+
+  if (state === "invalid") {
     return colors.sys.actions.remove.filled;
   }
 };
@@ -149,7 +150,7 @@ const StyledErrorMessageContainer = styled.div`
   margin-left: 16px;
   height: 14px;
   cursor: ${({ isDisabled }) => (isDisabled ? "no-drop" : "context-menu")};
-  color: ${({ isDisabled, state }) => getColors(isDisabled, state)};
+  color: ${({ isDisabled, state }) => getIsDisabled(isDisabled, state)};
   & svg {
     width: 14px;
     height: 14px;
@@ -158,8 +159,7 @@ const StyledErrorMessageContainer = styled.div`
 `;
 
 const StyledValidMessageContainer = styled(StyledErrorMessageContainer)`
-  color: ${({ isDisabled, validMessage }) =>
-    getIsDisabled(isDisabled, validMessage)}; ;
+  color: ${({ isDisabled, state }) => getIsDisabled(isDisabled, state)}; ;
 `;
 
 export {
