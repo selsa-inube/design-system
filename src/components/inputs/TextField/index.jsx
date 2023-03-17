@@ -43,13 +43,6 @@ const getState = (state) => {
   return "default";
 };
 
-const getAppearanceError = (isDIsabled) => {
-  if (isDIsabled) {
-    return "disabled";
-  }
-  return "error";
-};
-
 const getAppearanceValid = (isDIsabled) => {
   if (isDIsabled) {
     return "disabled";
@@ -82,8 +75,27 @@ const TextField = (props) => {
   } = props;
 
   const [isFocused, setIsFocused] = useState(false);
+  const [inputValue, setInputValue] = useState(value);
   const handleFocus = () => setIsFocused(true);
   const handleBlur = () => setIsFocused(false);
+
+  const eventos = (event) => {
+    const inputValue = event.target.value;
+    setInputValue(inputValue);
+
+    if (inputValue != value) {
+      return true;
+    }
+    return false;
+  };
+
+  const getAppearanceError = (isDIsabled) => {
+    if (isDIsabled) {
+      return "disabled";
+    }
+
+    return "error";
+  };
 
   const transformedIsDisabled =
     typeof isDisabled === "boolean" ? isDisabled : defaultIsDisabled;
@@ -129,8 +141,11 @@ const TextField = (props) => {
           placeholder={placeholder}
           isDisabled={transformedIsDisabled}
           type={transformedTypes}
-          value={value}
-          onChange={handleChange}
+          value={inputValue}
+          onChange={(e) => {
+            handleChange(e);
+            eventos(e);
+          }}
           iconBefore={iconBefore}
           iconAfter={iconAfter}
           maxLength={maxLength}
