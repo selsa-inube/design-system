@@ -52,12 +52,12 @@ Size.args = {
   isDisabled: false,
   placeholder: "Write your full name",
   value: "",
+  state: "pending",
   handleChange: () => {},
   maxLength: 10,
   minLength: 1,
   errorMessage: "",
   validMessage: "",
-  isInvalid: false,
   isFullWidth: false,
 };
 

@@ -8,6 +8,7 @@ import {
   id,
   placeholder,
   value,
+  state,
   handleChange,
   iconBefore,
   iconAfter,
@@ -34,6 +35,7 @@ Default.args = {
   id: "Username",
   placeholder: "Write your full name",
   value: "",
+  state: "pending",
   handleChange: () => {},
   maxLength: 10,
   minLength: 1,
@@ -41,8 +43,6 @@ Default.args = {
   max: 0,
   errorMessage: "",
   validMessage: "",
-  isInvalid: false,
-  state: "padgin",
   size: "wide",
 };
 
@@ -52,6 +52,7 @@ Default.argTypes = {
   id,
   placeholder,
   value,
+  state,
   handleChange,
   iconBefore,
   iconAfter,

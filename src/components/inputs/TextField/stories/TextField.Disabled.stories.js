@@ -48,7 +48,6 @@ Disabled.args = {
   maxLength: 10,
   minLength: 1,
   errorMessage: "",
-  isInvalid: false,
 };
 
 Disabled.argTypes = {

@@ -50,12 +50,12 @@ Required.args = {
   placeholder: "Write your full name",
   isDisabled: false,
   type: "text",
+  state: "pending",
   handleChange: () => {},
   maxLength: 20,
   minLength: 1,
   max: 10,
   min: 1,
-  isInvalid: false,
   size: "wide",
   isFullWidth: false,
 };
