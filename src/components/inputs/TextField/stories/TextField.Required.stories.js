@@ -1,4 +1,5 @@
 import { TextField } from "..";
+import { StyledFlex } from "./stories.styles";
 
 import {
   parameters,
@@ -28,7 +29,20 @@ const story = {
   parameters,
 };
 
-const Required = (args) => <TextFieldController {...args} isRequired={true} />;
+const RequiredComponent = (args) => {
+  return (
+    <StyledFlex>
+      <TextFieldController {...args} isRequired={true} />
+      <TextFieldController
+        {...args}
+        state="invalid"
+        errorMessage="This field can not be blank"
+      />
+    </StyledFlex>
+  );
+};
+
+const Required = (args) => <RequiredComponent {...args} isRequired={true} />;
 Required.args = {
   label: "Username",
   name: "Username",

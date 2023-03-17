@@ -148,7 +148,7 @@ const StyledErrorMessageContainer = styled.div`
   align-items: center;
   margin-left: 12px;
   height: 14px;
-  cursor: no-drop;
+  cursor: ${({ isDisabled }) => (isDisabled ? "no-drop" : "context-menu")};
   color: ${({ isDisabled, state }) => getColors(isDisabled, state)};
   & svg {
     width: 14px;
