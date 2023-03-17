@@ -69,6 +69,7 @@ Switch.propTypes = {
   size: PropTypes.oneOf(sizes),
   checked: PropTypes.bool,
   handleChange: PropTypes.func.isRequired,
+  children: PropTypes.node,
 };
 
 export { Switch };
