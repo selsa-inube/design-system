@@ -43,11 +43,18 @@ const getState = (state) => {
   return "default";
 };
 
-const getAppearance = (isDIsabled) => {
+const getAppearanceError = (isDIsabled) => {
   if (isDIsabled) {
     return "disabled";
   }
   return "error";
+};
+
+const getAppearanceValid = (isDIsabled) => {
+  if (isDIsabled) {
+    return "disabled";
+  }
+  return "success";
 };
 
 const TextField = (props) => {
@@ -151,16 +158,23 @@ const TextField = (props) => {
           <Text
             typo="bodySmall"
             margin="8px 0px 0px 4px"
-            appearance={getAppearance(isDisabled)}
+            appearance={getAppearanceError(isDisabled)}
           >
             ({errorMessage})
           </Text>
         </StyledErrorMessageContainer>
       )}
       {state === "valid" && (
-        <StyledValidMessageContainer isDisabled={isDisabled}>
+        <StyledValidMessageContainer
+          isDisabled={isDisabled}
+          validMessage={validMessage}
+        >
           <AiFillCheckCircle />
-          <Text typo="bodySmall" margin="8px 0px 0px 4px" appearance="success">
+          <Text
+            typo="bodySmall"
+            margin="8px 0px 0px 4px"
+            appearance={getAppearanceValid(isDisabled)}
+          >
             {validMessage}
           </Text>
         </StyledValidMessageContainer>

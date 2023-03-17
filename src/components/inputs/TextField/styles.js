@@ -146,7 +146,7 @@ const StyledIcon = styled.div`
 const StyledErrorMessageContainer = styled.div`
   display: flex;
   align-items: center;
-  margin-left: 12px;
+  margin-left: 16px;
   height: 14px;
   cursor: ${({ isDisabled }) => (isDisabled ? "no-drop" : "context-menu")};
   color: ${({ isDisabled, state }) => getColors(isDisabled, state)};

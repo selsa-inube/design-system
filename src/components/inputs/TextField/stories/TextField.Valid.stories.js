@@ -48,6 +48,7 @@ Valid.args = {
   id: "Username",
   placeholder: "Write your full name",
   value: "L-GARZON",
+  isDisabled: false,
   handleChange: () => {},
   state: "valid",
   validMessage: "Field validation is successful",
