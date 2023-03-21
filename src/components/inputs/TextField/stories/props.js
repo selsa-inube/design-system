@@ -1,4 +1,4 @@
-import { inputTypes, sizes, status } from "..";
+import { inputTypes, sizes, states } from "..";
 
 const parameters = {
   docs: {
@@ -90,7 +90,7 @@ const isRequired = {
 };
 
 const state = {
-  options: status,
+  options: states,
   control: { type: "select" },
   description: "state of the component",
   table: {

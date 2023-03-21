@@ -24,7 +24,7 @@ const defaultState = "pending";
 const defaultIsFullWidth = false;
 
 const inputTypes = ["text", "email", "number", "password", "search", "tel"];
-const status = ["valid", "invalid", "pending"];
+const states = ["valid", "invalid", "pending"];
 const sizes = ["wide", "compact"];
 
 const getFocused = (state, isFocused) => {
@@ -43,8 +43,8 @@ const getState = (state) => {
   return "default";
 };
 
-const getAppearanceValid = (isDIsabled) => {
-  if (isDIsabled) {
+const getAppearanceValid = (isDisabled) => {
+  if (isDisabled) {
     return "disabled";
   }
   return "success";
@@ -83,7 +83,7 @@ const TextField = (props) => {
     const inputValue = event.target.value;
     setInputValue(inputValue);
 
-    if (inputValue != value) {
+    if (inputValue !== value) {
       return true;
     }
     return false;
@@ -100,7 +100,7 @@ const TextField = (props) => {
   const transformedIsDisabled =
     typeof isDisabled === "boolean" ? isDisabled : defaultIsDisabled;
 
-  const transformedState = status.includes(state) ? state : defaultState;
+  const transformedState = states.includes(state) ? state : defaultState;
 
   const transformedTypes = inputTypes.includes(type) ? type : defaultType;
 
@@ -218,4 +218,4 @@ TextField.propTypes = {
   isFullWidth: PropTypes.bool,
 };
 
-export { TextField, inputTypes, sizes, status };
+export { TextField, inputTypes, sizes, states };
