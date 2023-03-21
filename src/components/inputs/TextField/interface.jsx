@@ -4,15 +4,15 @@ import PropTypes from "prop-types";
 import { MdOutlineError } from "react-icons/md";
 import { AiFillCheckCircle } from "react-icons/ai";
 
+import { Label } from "../Label";
+import { Text } from "../../data/Text";
+
 import {
   getFocused,
   getState,
   getAppearanceValid,
   getAppearanceError,
 } from ".";
-
-import { Label } from "../Label";
-import { Text } from "../../data/Text";
 
 import {
   StyledContainer,
