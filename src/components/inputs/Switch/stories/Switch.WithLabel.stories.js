@@ -5,7 +5,7 @@ import { StyledFlexBetween, StyledMargin } from "./stories.styles";
 
 import { SwitchController } from "./SwitchController";
 
-import { id, isDisabled, name, handleChange, children } from "./props";
+import { id, isDisabled, name, handleChange, label } from "./props";
 
 const story = {
   title: "inputs/Switch/WithLabel",
@@ -43,14 +43,14 @@ WithLabel.args = {
   name: "nameValue",
   checked: false,
   handleChange: () => {},
-  children: "Label",
+  label: "Label",
 };
 WithLabel.argTypes = {
   id,
   isDisabled,
   name,
   handleChange,
-  children,
+  label,
 };
 
 export default story;

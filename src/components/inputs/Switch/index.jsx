@@ -19,7 +19,7 @@ const Switch = (props) => {
     size = defaultSize,
     checked = false,
     handleChange,
-    children,
+    label,
   } = props;
 
   const transformedSize = sizes.includes(size) ? size : defaultSize;
@@ -55,7 +55,7 @@ const Switch = (props) => {
         </StyledSpan>
       </StyledContainer>
       <Label htmlFor={id} isDisabled={isDisabled} onClick={handleChange}>
-        {children}
+        {label}
       </Label>
     </Stack>
   );
@@ -69,7 +69,7 @@ Switch.propTypes = {
   size: PropTypes.oneOf(sizes),
   checked: PropTypes.bool,
   handleChange: PropTypes.func.isRequired,
-  children: PropTypes.node,
+  label: PropTypes.string,
 };
 
 export { Switch };
