@@ -17,6 +17,7 @@ export * from "./Blanket";
 // feedback
 export * from "./Spinner";
 export * from "./SkeletonLine";
+export * from "./SkeletonIcon";
 
 //  hooks
 export { useMediaQuery } from "./../useMediaQuery";
