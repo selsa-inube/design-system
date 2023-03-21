@@ -24,7 +24,7 @@ import {
 import { StyledFlex } from "./stories.styles";
 
 const story = {
-  title: "inputs/textField/Valid",
+  title: "inputs/TextField/Valid",
   components: [TextField],
   parameters,
 };

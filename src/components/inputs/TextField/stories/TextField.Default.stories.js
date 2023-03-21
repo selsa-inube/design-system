@@ -23,7 +23,7 @@ import {
 } from "./props";
 
 const story = {
-  title: "inputs/textField/Default",
+  title: "inputs/TextField/Default",
   components: [TextField],
   parameters,
 };

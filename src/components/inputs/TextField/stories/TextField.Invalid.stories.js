@@ -22,7 +22,7 @@ import {
 } from "./props";
 
 const story = {
-  title: "inputs/textField/Invalid",
+  title: "inputs/TextField/Invalid",
   components: [TextField],
   parameters,
 };

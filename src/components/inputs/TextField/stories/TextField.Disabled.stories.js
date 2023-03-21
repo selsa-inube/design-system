@@ -20,7 +20,7 @@ import {
 } from "./props";
 
 const story = {
-  title: "inputs/textField/Disabled",
+  title: "inputs/TextField/Disabled",
   components: [TextField],
   parameters,
 };

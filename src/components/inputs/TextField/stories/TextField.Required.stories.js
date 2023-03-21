@@ -24,7 +24,7 @@ import {
 import { TextFieldController } from "./TexfieldController";
 
 const story = {
-  title: "inputs/textField/Required",
+  title: "inputs/TextField/Required",
   components: [TextField],
   parameters,
 };
