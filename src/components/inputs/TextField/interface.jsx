@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 import { MdOutlineError } from "react-icons/md";
-import { AiFillCheckCircle } from "react-icons/ai";
+import { MdCheckCircle } from "react-icons/md";
 
 import { Label } from "../Label";
 import { Text } from "../../data/Text";
@@ -153,7 +153,7 @@ const TextFieldUI = (props) => {
       )}
       {state === "valid" && (
         <StyledValidMessageContainer isDisabled={isDisabled} state={state}>
-          <AiFillCheckCircle />
+          <MdCheckCircle />
           <Text
             typo="bodySmall"
             margin="8px 0px 0px 4px"
