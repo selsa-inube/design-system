@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
+import React from "react";
 
 import { MdOutlineError } from "react-icons/md";
 import { MdCheckCircle } from "react-icons/md";
@@ -24,24 +23,14 @@ import {
   StyledValidMessageContainer,
 } from "./styles";
 
-const defaultIsDisabled = false;
-const defaultType = "text";
-const defaultIsRequired = false;
-const defaultState = "pending";
-const defaultIsFullWidth = false;
-
-const inputTypes = ["text", "email", "number", "password", "search", "tel"];
-const states = ["valid", "invalid", "pending"];
-const sizes = ["wide", "compact"];
-
 const TextFieldUI = (props) => {
   const {
     label,
     name,
     id,
     placeholder,
-    isDisabled = false,
-    type = "text",
+    isDisabled,
+    type,
     value,
     handleChange,
     iconBefore,
@@ -50,37 +39,16 @@ const TextFieldUI = (props) => {
     minLength,
     max,
     min,
-    isRequired = false,
-    state = "pending",
+    isRequired,
+    state,
     errorMessage,
     validMessage,
     size,
-    isFullWidth = false,
+    isFullWidth,
+    isFocused,
+    onFocus,
+    onBlur,
   } = props;
-
-  const [isFocused, setIsFocused] = useState(false);
-  const handleFocus = () => setIsFocused(true);
-  const handleBlur = () => setIsFocused(false);
-
-  const handleInputChange = (event, value) => {
-    if (event.target.value !== value) {
-      return "secondary";
-    }
-    return "error";
-  };
-
-  const transformedIsDisabled =
-    typeof isDisabled === "boolean" ? isDisabled : defaultIsDisabled;
-
-  const transformedState = states.includes(state) ? state : defaultState;
-
-  const transformedTypes = inputTypes.includes(type) ? type : defaultType;
-
-  const transformedIsRequired =
-    typeof isRequired === "boolean" ? isRequired : defaultIsRequired;
-
-  const transformedIsFullWidth =
-    typeof isFullWidth === "boolean" ? isFullWidth : defaultIsFullWidth;
 
   return (
     <StyledContainer isFullWidth={isFullWidth}>
@@ -111,25 +79,22 @@ const TextFieldUI = (props) => {
           name={name}
           id={id}
           placeholder={placeholder}
-          isDisabled={transformedIsDisabled}
-          type={transformedTypes}
+          isDisabled={isDisabled}
+          type={type}
           value={value}
-          onChange={(e) => {
-            handleChange(e);
-            handleInputChange(e, value);
-          }}
+          onChange={handleChange}
           iconBefore={iconBefore}
           iconAfter={iconAfter}
           maxLength={maxLength}
           minLength={minLength}
           max={max}
           min={min}
-          isRequired={transformedIsRequired}
+          isRequired={isRequired}
           size={size}
-          state={transformedState}
-          isFullWidth={transformedIsFullWidth}
-          onFocus={handleFocus}
-          onBlur={handleBlur}
+          state={state}
+          isFullWidth={isFullWidth}
+          onFocus={onFocus}
+          onBlur={onBlur}
         />
 
         {iconAfter && (
@@ -167,27 +132,4 @@ const TextFieldUI = (props) => {
   );
 };
 
-TextFieldUI.propTypes = {
-  label: PropTypes.string,
-  name: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
-  placeholder: PropTypes.string.isRequired,
-  isDisabled: PropTypes.bool,
-  isFocused: PropTypes.bool,
-  type: PropTypes.oneOf(inputTypes),
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  handleChange: PropTypes.func,
-  iconBefore: PropTypes.node,
-  iconAfter: PropTypes.node,
-  maxLength: PropTypes.number,
-  minLength: PropTypes.number,
-  max: PropTypes.number,
-  min: PropTypes.number,
-  isRequired: PropTypes.bool,
-  errorMessage: PropTypes.string,
-  validMessage: PropTypes.string,
-  size: PropTypes.oneOf(sizes),
-  isFullWidth: PropTypes.bool,
-};
-
-export { TextFieldUI, inputTypes, sizes, states };
+export { TextFieldUI };

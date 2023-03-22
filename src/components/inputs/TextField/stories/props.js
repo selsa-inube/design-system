@@ -1,4 +1,4 @@
-import { inputTypes, sizes, states } from "../interface";
+import { inputTypes, sizes, states } from "../";
 
 const parameters = {
   docs: {

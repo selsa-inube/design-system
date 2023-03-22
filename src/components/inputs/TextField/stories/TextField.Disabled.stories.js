@@ -1,5 +1,4 @@
-import { TextField } from "..";
-import { sizes } from "../interface";
+import { TextField, sizes } from "..";
 import { TextFieldController } from "./TexfieldController";
 import { StyledFlex } from "./stories.styles";
 

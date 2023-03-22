@@ -1,6 +1,6 @@
 import { TextField } from "..";
 import { TextFieldController } from "./TexfieldController";
-import { sizes } from "../interface";
+import { sizes } from "..";
 import {
   parameters,
   label,
