@@ -47,5 +47,7 @@ const size = {
     defaultValue: { summary: "small" },
   },
 };
-
-export { id, isDisabled, name, value, checked, handleChange, size };
+const label = {
+  description: "component text content",
+};
+export { id, isDisabled, name, value, checked, handleChange, size, label };
