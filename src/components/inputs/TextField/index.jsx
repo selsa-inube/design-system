@@ -66,6 +66,7 @@ const TextField = (props) => {
     size,
     isFullWidth = false,
   } = props;
+
   const [isFocused, setIsFocused] = useState(false);
   const handleFocus = () => setIsFocused(true);
   const handleBlur = () => setIsFocused(false);
