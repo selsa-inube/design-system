@@ -1,3 +1,23 @@
+# v0.4.0 (Tue Mar 21 2023)
+
+#### 🚀 Enhancement
+
+- cm/ids22/skeletonIcon [#65](https://github.com/selsa-inube/design-system/pull/65) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- ab/ids21/SkeletonLine [#64](https://github.com/selsa-inube/design-system/pull/64) ([@Andresbl123](https://github.com/Andresbl123))
+- cm/ids16/user [#63](https://github.com/selsa-inube/design-system/pull/63) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- cm/ids15/avatar [#61](https://github.com/selsa-inube/design-system/pull/61) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- cm/ids17/exportComponents [#60](https://github.com/selsa-inube/design-system/pull/60) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- ab/ids18/update the export type of the Label component [#62](https://github.com/selsa-inube/design-system/pull/62) ([@Andresbl123](https://github.com/Andresbl123))
+- Cm/4097/button [#54](https://github.com/selsa-inube/design-system/pull/54) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 3
+
+- Andres ([@Andresbl123](https://github.com/Andresbl123))
+- cesar.marin (cmarin@sistemasenlinea.com.co)
+- cmarin ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v0.3.0 (Wed Mar 08 2023)
 
 #### 🚀 Enhancement
