@@ -2,16 +2,14 @@ import React, { useState } from "react";
 import { TextFieldUI } from "../interface";
 
 const TextFieldController = (props) => {
-  const { value = "", handleChange } = props;
-  const [valueInput, setValueInput] = useState(value);
+  const [valueInput, setValueInput] = useState("");
 
-  const handleEvent = (e) => {
+  const handleChange = (e) => {
     setValueInput(e.target.value);
-    handleChange(e.target.value);
   };
 
   return (
-    <TextFieldUI {...props} value={valueInput} handleChange={handleEvent} />
+    <TextFieldUI {...props} value={valueInput} handleChange={handleChange} />
   );
 };
 

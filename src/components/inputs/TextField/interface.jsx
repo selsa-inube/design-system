@@ -62,6 +62,13 @@ const TextFieldUI = (props) => {
   const handleFocus = () => setIsFocused(true);
   const handleBlur = () => setIsFocused(false);
 
+  const handleInputChange = (event, value) => {
+    if (event.target.value !== value) {
+      return "secondary";
+    }
+    return "error";
+  };
+
   const transformedIsDisabled =
     typeof isDisabled === "boolean" ? isDisabled : defaultIsDisabled;
 
@@ -107,7 +114,10 @@ const TextFieldUI = (props) => {
           isDisabled={transformedIsDisabled}
           type={transformedTypes}
           value={value}
-          onChange={handleChange}
+          onChange={(e) => {
+            handleChange(e);
+            handleInputChange(e, value);
+          }}
           iconBefore={iconBefore}
           iconAfter={iconAfter}
           maxLength={maxLength}
