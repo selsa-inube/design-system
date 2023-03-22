@@ -6,22 +6,24 @@ import {
   isFocused,
   htmlFor,
   state,
+  typo,
   children,
 } from "./props";
 
 const story = {
-  title: "inputs/labels/Default",
+  title: "inputs/Label/Default",
   components: [Label],
   parameters,
 };
 
-const Default = ({ isDisabled, isFocused, htmlFor, state, children }) => {
+const Default = ({ isDisabled, isFocused, htmlFor, state, typo, children }) => {
   return (
     <Label
       isDisabled={isDisabled}
       isFocused={isFocused}
       htmlFor={htmlFor}
       state={state}
+      typo={typo}
     >
       {children}
     </Label>
@@ -30,12 +32,14 @@ const Default = ({ isDisabled, isFocused, htmlFor, state, children }) => {
 Default.args = {
   children: "Label Text",
   htmlFor: "LabelText",
+  typo: "labelLarge",
 };
 Default.argTypes = {
   isDisabled,
   isFocused,
   htmlFor,
   state,
+  typo,
   children,
 };
 

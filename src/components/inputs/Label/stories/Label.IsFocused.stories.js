@@ -2,7 +2,7 @@ import { Label } from "../";
 import { parameters, isDisabled, htmlFor, state, children } from "./props";
 
 const story = {
-  title: "inputs/labels/IsFocused",
+  title: "inputs/Label/IsFocused",
   components: [Label],
   parameters,
 };

@@ -5,7 +5,7 @@ import { StyledContentStates } from "./stories.styles";
 import { parameters, isDisabled, isFocused, htmlFor, children } from "./props";
 
 const story = {
-  title: "inputs/labels/States",
+  title: "inputs/Label/States",
   components: [Label],
   parameters,
 };
