@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { colors } from "../../../shared/colors/colors";
 
-const StyledContainer = styled.div`
+const StyleTab = styled.div`
   position: relative;
   display: inline-block;
   user-select: none;
@@ -16,4 +16,4 @@ const StyledContainer = styled.div`
   }
 `;
 
-export { StyledContainer };
+export { StyleTab };

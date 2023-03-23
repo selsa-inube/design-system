@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import { Label } from "../../inputs/Label";
 
-import { StyledContainer } from "./styles";
+import { StyleTab } from "./styles";
 
 const Tab = (props) => {
   const {
@@ -15,7 +15,7 @@ const Tab = (props) => {
   } = props;
   const transformedHandleClick = isDisabled ? undefined : handleClick;
   return (
-    <StyledContainer
+    <StyleTab
       onClick={transformedHandleClick}
       isDisabled={isDisabled}
       isSelected={isSelected}
@@ -23,7 +23,7 @@ const Tab = (props) => {
       <Label htmlFor={id} isFocused={isSelected} isDisabled={isDisabled}>
         {children}
       </Label>
-    </StyledContainer>
+    </StyleTab>
   );
 };
 
