@@ -8,7 +8,6 @@ const TabController = (props) => {
   const handleClickTab = () => {
     setTabSelected(!tabSelected);
     handleClick(!tabSelected);
-    console.log("handleClick: ", !tabSelected);
   };
 
   return (
