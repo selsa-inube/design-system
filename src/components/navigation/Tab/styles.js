@@ -2,8 +2,7 @@ import styled from "styled-components";
 import { colors } from "../../../shared/colors/colors";
 
 const StyleTab = styled.div`
-  position: relative;
-  display: inline-block;
+  width: fit-content;
   user-select: none;
 
   border-bottom: ${({ isSelected, isDisabled }) =>

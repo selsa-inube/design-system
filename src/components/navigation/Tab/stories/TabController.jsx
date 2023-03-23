@@ -1,13 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Tab } from "../index";
 
 const TabController = (props) => {
-  const { isSelected = false, handleClick } = props;
+  const { isSelected = false, handleClick, isDisabled = false } = props;
   const [tabSelected, setTabSelected] = useState(isSelected);
 
+  useEffect(() => {
+    if (isDisabled) {
+      setTabSelected(false);
+    }
+  }, [isDisabled]);
+
   const handleClickTab = () => {
-    setTabSelected(!tabSelected);
-    handleClick(!tabSelected);
+    if (!isDisabled) {
+      setTabSelected(!tabSelected);
+      handleClick(!tabSelected);
+    }
   };
 
   return (

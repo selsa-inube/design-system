@@ -11,17 +11,17 @@ const Tab = (props) => {
     isSelected = false,
     id,
     handleClick,
-    children,
+    label,
   } = props;
-  const transformedHandleClick = isDisabled ? undefined : handleClick;
+
   return (
     <StyleTab
-      onClick={transformedHandleClick}
+      onClick={handleClick}
       isDisabled={isDisabled}
       isSelected={isSelected}
     >
       <Label htmlFor={id} isFocused={isSelected} isDisabled={isDisabled}>
-        {children}
+        {label}
       </Label>
     </StyleTab>
   );
@@ -32,7 +32,7 @@ Tab.propTypes = {
   isSelected: PropTypes.bool,
   id: PropTypes.string,
   handleClick: PropTypes.func.isRequired,
-  children: PropTypes.node.isRequired,
+  labelcode: PropTypes.node.isRequired,
 };
 
 export { Tab };

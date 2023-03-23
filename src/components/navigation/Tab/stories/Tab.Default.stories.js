@@ -2,7 +2,7 @@ import React from "react";
 import { Tab } from "../index";
 import { TabController } from "./TabController";
 
-import { id, isDisabled, isSelected, handleClick, children } from "./props";
+import { id, isDisabled, isSelected, handleClick, label } from "./props";
 
 const story = {
   title: "navigation/Tab/Default",
@@ -21,7 +21,7 @@ Default.args = {
   id: "thisIsAnId",
   isDisabled: false,
   isSelected: false,
-  children: "General Information",
+  label: "General Information",
   handleClick: () => {},
 };
 Default.argTypes = {
@@ -29,7 +29,7 @@ Default.argTypes = {
   isDisabled,
   isSelected,
   handleClick,
-  children,
+  label,
 };
 
 export default story;

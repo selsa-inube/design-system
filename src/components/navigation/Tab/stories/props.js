@@ -25,8 +25,8 @@ const handleClick = {
   control: { type: "func" },
   description: "shall be determine the behavior of the click event",
 };
-const children = {
+const label = {
   control: { type: "text" },
   description: "shall constitute the content to be displayed",
 };
-export { id, isDisabled, isSelected, handleClick, children };
+export { id, isDisabled, isSelected, handleClick, label };
