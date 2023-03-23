@@ -1,6 +1,7 @@
 import { TextField } from "..";
 import { TextFieldController } from "./TexfieldController";
 import { sizes } from "..";
+import { Stack } from "../../../layouts/Stack";
 import {
   parameters,
   label,
@@ -21,7 +22,6 @@ import {
   size,
   isFullWidth,
 } from "./props";
-import { StyledFlex } from "./stories.styles";
 
 const story = {
   title: "inputs/TextField/Valid",
@@ -31,13 +31,13 @@ const story = {
 
 const TextFieldComponent = (args) => {
   return (
-    <StyledFlex>
+    <Stack justifyContent="space-evenly">
       {sizes.map((size) => (
         <div key={size}>
           <TextFieldController {...args} size={size} />
         </div>
       ))}
-    </StyledFlex>
+    </Stack>
   );
 };
 

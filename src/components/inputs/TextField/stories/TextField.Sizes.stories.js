@@ -1,7 +1,7 @@
 import { TextField } from "..";
 import { TextFieldController } from "./TexfieldController";
 import { sizes } from "..";
-import { StyledFlex } from "./stories.styles";
+import { Stack } from "../../../layouts/Stack";
 
 import {
   parameters,
@@ -34,13 +34,13 @@ const story = {
 
 const TextFieldComponent = (args) => {
   return (
-    <StyledFlex>
+    <Stack justifyContent="space-evenly">
       {sizes.map((size) => (
         <div key={size}>
           <TextFieldController {...args} size={size} />
         </div>
       ))}
-    </StyledFlex>
+    </Stack>
   );
 };
 

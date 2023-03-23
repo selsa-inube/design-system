@@ -1,5 +1,5 @@
 import { TextField } from "..";
-import { StyledFlex } from "./stories.styles";
+import { Stack } from "../../../layouts/Stack";
 
 import {
   parameters,
@@ -31,14 +31,14 @@ const story = {
 
 const RequiredComponent = (args) => {
   return (
-    <StyledFlex>
+    <Stack justifyContent="space-evenly">
       <TextFieldController {...args} isRequired={true} />
       <TextFieldController
         {...args}
         state="invalid"
         errorMessage="This field can not be blank"
       />
-    </StyledFlex>
+    </Stack>
   );
 };
 
