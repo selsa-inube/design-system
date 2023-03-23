@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { TextField } from "..";
 
 const TextFieldController = (props) => {
-  const { value } = props;
+  const { value = "" } = props;
   const [valueInput, setValueInput] = useState(value);
 
   const handleChange = (e) => {
