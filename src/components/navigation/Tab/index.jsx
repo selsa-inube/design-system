@@ -32,7 +32,7 @@ Tab.propTypes = {
   isSelected: PropTypes.bool,
   id: PropTypes.string,
   handleClick: PropTypes.func.isRequired,
-  label: PropTypes.node.isRequired,
+  label: PropTypes.string.isRequired,
 };
 
 export { Tab };
