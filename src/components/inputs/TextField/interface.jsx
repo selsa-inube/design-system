@@ -6,12 +6,7 @@ import { MdCheckCircle } from "react-icons/md";
 import { Label } from "../Label";
 import { Text } from "../../data/Text";
 
-import {
-  getFocused,
-  getState,
-  getAppearanceValid,
-  getAppearanceError,
-} from ".";
+import { getLabelState } from ".";
 
 import {
   StyledContainer,
@@ -22,6 +17,55 @@ import {
   StyledErrorMessageContainer,
   StyledValidMessageContainer,
 } from "./styles";
+
+const getAppearanceValid = (isDisabled) => {
+  if (isDisabled) {
+    return "disabled";
+  }
+  return "success";
+};
+
+const getAppearanceError = (isDisabled) => {
+  if (isDisabled) {
+    return "disabled";
+  }
+
+  return "error";
+};
+
+const Invalid = (props) => {
+  const { isDisabled, state, errorMessage } = props;
+
+  return (
+    <StyledErrorMessageContainer isDisabled={isDisabled} state={state}>
+      <MdOutlineError />
+      <Text
+        typo="bodySmall"
+        margin="8px 0px 0px 4px"
+        appearance={getAppearanceError(isDisabled)}
+      >
+        ({errorMessage})
+      </Text>
+    </StyledErrorMessageContainer>
+  );
+};
+
+const Succes = (props) => {
+  const { isDisabled, state, validMessage } = props;
+
+  return (
+    <StyledValidMessageContainer isDisabled={isDisabled} state={state}>
+      <MdCheckCircle />
+      <Text
+        typo="bodySmall"
+        margin="8px 0px 0px 4px"
+        appearance={getAppearanceValid(isDisabled)}
+      >
+        {validMessage}
+      </Text>
+    </StyledValidMessageContainer>
+  );
+};
 
 const TextFieldUI = (props) => {
   const {
@@ -46,8 +90,8 @@ const TextFieldUI = (props) => {
     size,
     isFullWidth,
     isFocused,
-    onFocus,
-    onBlur,
+    handleFocus,
+    handleBlur,
   } = props;
 
   return (
@@ -57,8 +101,8 @@ const TextFieldUI = (props) => {
           <Label
             htmlFor={id}
             isDisabled={isDisabled}
-            isFocused={getFocused(state, isFocused)}
-            state={getState(state)}
+            isFocused={isFocused}
+            state={getLabelState(state)}
           >
             {label}
           </Label>
@@ -93,8 +137,9 @@ const TextFieldUI = (props) => {
           size={size}
           state={state}
           isFullWidth={isFullWidth}
-          onFocus={onFocus}
-          onBlur={onBlur}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
+          isFocused={isFocused}
         />
 
         {iconAfter && (
@@ -105,28 +150,18 @@ const TextFieldUI = (props) => {
       </StyledInputContainer>
 
       {state === "invalid" && (
-        <StyledErrorMessageContainer isDisabled={isDisabled} state={state}>
-          <MdOutlineError />
-          <Text
-            typo="bodySmall"
-            margin="8px 0px 0px 4px"
-            appearance={getAppearanceError(isDisabled)}
-          >
-            ({errorMessage})
-          </Text>
-        </StyledErrorMessageContainer>
+        <Invalid
+          isDisabled={isDisabled}
+          state={state}
+          errorMessage={errorMessage}
+        />
       )}
       {state === "valid" && (
-        <StyledValidMessageContainer isDisabled={isDisabled} state={state}>
-          <MdCheckCircle />
-          <Text
-            typo="bodySmall"
-            margin="8px 0px 0px 4px"
-            appearance={getAppearanceValid(isDisabled)}
-          >
-            {validMessage}
-          </Text>
-        </StyledValidMessageContainer>
+        <Succes
+          isDisabled={isDisabled}
+          state={state}
+          validMessage={validMessage}
+        />
       )}
     </StyledContainer>
   );

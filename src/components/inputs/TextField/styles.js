@@ -18,7 +18,7 @@ const fontSize = (size) => {
   return typography.sys.typescale.bodyLarge.size;
 };
 
-const getColors = (isDisabled, state) => {
+const getColors = (isDisabled, state, isFocused) => {
   if (isDisabled) {
     return colors.ref.palette.neutral.n60;
   }
@@ -27,10 +27,13 @@ const getColors = (isDisabled, state) => {
     return colors.sys.actions.remove.filled;
   }
 
+  if (isFocused) {
+    return colors.ref.palette.blue.b300;
+  }
   return colors.ref.palette.neutral.n40;
 };
 
-const getColorsOnFocus = (isDisabled, onFocus, state) => {
+/* const getColorsOnFocus = (isDisabled, onFocus, state) => {
   if (isDisabled) {
     return colors.ref.palette.neutral.n60;
   }
@@ -41,7 +44,7 @@ const getColorsOnFocus = (isDisabled, onFocus, state) => {
   if (onFocus) {
     return colors.ref.palette.blue.b300;
   }
-};
+}; */
 
 const getIsDisabled = (isDisabled, state) => {
   if (isDisabled) {
@@ -108,7 +111,9 @@ const StyledInput = styled.input`
   max-width: ${(props) => (props.isFullWidth === true ? "none" : "auto")};
   ${({ size }) => sizeOptions[size]};
 
-  border: 1px solid ${({ isDisabled, state }) => getColors(isDisabled, state)};
+  border: 1px solid
+    ${({ isDisabled, state, isFocused }) =>
+      getColors(isDisabled, state, isFocused)};
   ${({ isDisabled }) => isDisabled && "pointer-events: none; opacity: 0.5;"}
 
   ::placeholder {
@@ -118,9 +123,7 @@ const StyledInput = styled.input`
 
   &:focus {
     outline: none;
-    border: 2px solid
-      ${({ isDisabled, onFocus, state }) =>
-        getColorsOnFocus(isDisabled, onFocus, state)};
+    border-width: 2px;
   }
 
   &::-webkit-search-cancel-button {

@@ -12,35 +12,12 @@ const defaultIsRequired = false;
 const defaultState = "pending";
 const defaultIsFullWidth = false;
 
-const getFocused = (state, isFocused) => {
-  if (state === "invalid") {
-    return false;
-  }
-
-  return isFocused;
-};
-
-const getState = (state) => {
+const getLabelState = (state) => {
   if (state === "invalid") {
     return state;
   }
 
   return "default";
-};
-
-const getAppearanceValid = (isDisabled) => {
-  if (isDisabled) {
-    return "disabled";
-  }
-  return "success";
-};
-
-const getAppearanceError = (isDisabled) => {
-  if (isDisabled) {
-    return "disabled";
-  }
-
-  return "error";
 };
 
 const TextField = (props) => {
@@ -65,11 +42,13 @@ const TextField = (props) => {
     validMessage,
     size,
     isFullWidth = false,
+    handleFocus,
+    handleBlur,
   } = props;
 
   const [isFocused, setIsFocused] = useState(false);
-  const handleFocus = () => setIsFocused(true);
-  const handleBlur = () => setIsFocused(false);
+  const handleFocus1 = () => setIsFocused(true);
+  const handleBlur1 = () => setIsFocused(false);
 
   const transformedIsDisabled =
     typeof isDisabled === "boolean" ? isDisabled : defaultIsDisabled;
@@ -83,6 +62,8 @@ const TextField = (props) => {
 
   const transformedIsFullWidth =
     typeof isFullWidth === "boolean" ? isFullWidth : defaultIsFullWidth;
+
+  console.log(isFocused);
 
   return (
     <TextFieldUI
@@ -107,8 +88,8 @@ const TextField = (props) => {
       validMessage={validMessage}
       isFullWidth={transformedIsFullWidth}
       isFocused={isFocused}
-      onFocus={handleFocus}
-      onBlur={handleBlur}
+      handleFocus={handleFocus}
+      handleBlur={handleBlur}
     />
   );
 };
@@ -136,13 +117,4 @@ TextFieldUI.propTypes = {
   isFullWidth: PropTypes.bool,
 };
 
-export {
-  TextField,
-  getFocused,
-  inputTypes,
-  sizes,
-  states,
-  getState,
-  getAppearanceValid,
-  getAppearanceError,
-};
+export { TextField, inputTypes, sizes, states, getLabelState };
