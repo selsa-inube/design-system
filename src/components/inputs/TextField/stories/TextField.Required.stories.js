@@ -1,4 +1,6 @@
 import { TextField } from "..";
+import { TextFieldController } from "./TextfieldController";
+
 import { Stack } from "../../../layouts/Stack";
 
 import {
@@ -21,7 +23,6 @@ import {
   size,
   isFullWidth,
 } from "./props";
-import { TextFieldController } from "./TexfieldController";
 
 const story = {
   title: "inputs/TextField/Required",

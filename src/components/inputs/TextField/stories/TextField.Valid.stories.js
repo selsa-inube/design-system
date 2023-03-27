@@ -1,5 +1,5 @@
 import { TextField } from "..";
-import { TextFieldController } from "./TexfieldController";
+import { TextFieldController } from "./TextfieldController";
 import { sizes } from "..";
 import { Stack } from "../../../layouts/Stack";
 import {

@@ -1,5 +1,5 @@
 import { TextField } from "..";
-import { TextFieldController } from "./TexfieldController";
+import { TextFieldController } from "./TextfieldController";
 
 import { AiOutlineSearch } from "react-icons/ai";
 
