@@ -92,6 +92,7 @@ const TextFieldUI = (props) => {
     isFocused,
     handleFocus,
     handleBlur,
+    handleClick,
   } = props;
 
   return (
@@ -140,6 +141,7 @@ const TextFieldUI = (props) => {
           onFocus={handleFocus}
           onBlur={handleBlur}
           isFocused={isFocused}
+          onClick={handleClick}
         />
 
         {iconAfter && (

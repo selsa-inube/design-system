@@ -42,7 +42,6 @@ Number.args = {
   max: 10,
   min: 0,
   isRequired: false,
-
   errorMessage: "",
   validMessage: "",
   size: "wide",

@@ -7,7 +7,6 @@ const TextFieldController = (props) => {
   const [globalState, setGlobalState] = useState(state);
 
   function isAlphabetical(value) {
-    console.log("first");
     return /^[a-zA-Z]+$/.test(value);
   }
 
@@ -18,7 +17,6 @@ const TextFieldController = (props) => {
   const handleBlur = (e) => {
     const inputValue = e.target.value;
     const isValid = isAlphabetical(inputValue);
-    console.log(isValid);
     setGlobalState(isValid ? "valid" : "invalid");
   };
 

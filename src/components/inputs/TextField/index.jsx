@@ -47,8 +47,10 @@ const TextField = (props) => {
   } = props;
 
   const [isFocused, setIsFocused] = useState(false);
-  const handleFocus1 = () => setIsFocused(true);
-  const handleBlur1 = () => setIsFocused(false);
+
+  const handleClickEvents = () => {
+    setIsFocused(true);
+  };
 
   const transformedIsDisabled =
     typeof isDisabled === "boolean" ? isDisabled : defaultIsDisabled;
@@ -63,10 +65,9 @@ const TextField = (props) => {
   const transformedIsFullWidth =
     typeof isFullWidth === "boolean" ? isFullWidth : defaultIsFullWidth;
 
-  console.log(isFocused);
-
   return (
     <TextFieldUI
+      handleClick={handleClickEvents}
       label={label}
       name={name}
       id={id}
