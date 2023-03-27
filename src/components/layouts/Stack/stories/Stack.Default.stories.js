@@ -34,10 +34,6 @@ export const Default = StackTemplate.bind({});
 
 Default.args = {
   children: [...Array(6 + 1).keys()].slice(1),
-  wrap: "nowrap",
-  direction: "row",
-  justifyContent: "flex-start",
-  alignItems: "flex-start",
   gap: "10px",
 };
 Default.argTypes = {
