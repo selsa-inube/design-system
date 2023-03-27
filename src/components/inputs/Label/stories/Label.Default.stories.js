@@ -32,7 +32,6 @@ const Default = ({ isDisabled, isFocused, htmlFor, state, typo, children }) => {
 Default.args = {
   children: "Label Text",
   htmlFor: "LabelText",
-  typo: "labelLarge",
 };
 Default.argTypes = {
   isDisabled,

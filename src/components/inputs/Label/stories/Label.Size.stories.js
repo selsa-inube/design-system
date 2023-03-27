@@ -17,17 +17,16 @@ const Size = ({ isDisabled, isFocused, htmlFor, state, children }) => {
       alignItems="flex-start"
     >
       {typos.map((typo) => (
-        <div>
-          <Label
-            isDisabled={isDisabled}
-            isFocused={isFocused}
-            htmlFor={htmlFor}
-            typo={typo}
-            state={state}
-          >
-            {children}
-          </Label>
-        </div>
+        <Label
+          isDisabled={isDisabled}
+          isFocused={isFocused}
+          htmlFor={htmlFor}
+          typo={typo}
+          state={state}
+          key={typo}
+        >
+          {children}
+        </Label>
       ))}
     </Stack>
   );
