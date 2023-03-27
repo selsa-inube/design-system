@@ -28,7 +28,9 @@ const story = {
   parameters,
 };
 
-const Search = (args) => <TextFieldController {...args} type="search" />;
+const Search = (args) => (
+  <TextFieldController {...args} type="search" state="pending" />
+);
 Search.args = {
   name: "searchField",
   id: "searchField",
