@@ -20,9 +20,7 @@ export const Default = (args) => <TabController {...args} />;
 Default.args = {
   id: "thisIsAnId",
   isDisabled: false,
-  isSelected: false,
   label: "General Information",
-  handleClick: () => {},
 };
 Default.argTypes = {
   id,

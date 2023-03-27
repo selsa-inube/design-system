@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Tab } from "../index";
 
 const TabController = (props) => {
-  const { isSelected = false, handleClick, isDisabled = false } = props;
+  const { isSelected = false, isDisabled = false } = props;
   const [tabSelected, setTabSelected] = useState(isSelected);
 
   useEffect(() => {
@@ -14,7 +14,6 @@ const TabController = (props) => {
   const handleClickTab = () => {
     if (!isDisabled) {
       setTabSelected(!tabSelected);
-      handleClick(!tabSelected);
     }
   };
 
