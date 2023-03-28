@@ -1,3 +1,56 @@
+# v0.7.0 (Tue Mar 28 2023)
+
+#### 🚀 Enhancement
+
+- cm/ids43/routes [#75](https://github.com/selsa-inube/design-system/pull/75) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- Fc/release/0.6.0 [#74](https://github.com/selsa-inube/design-system/pull/74) ([@wfercanas](https://github.com/wfercanas))
+
+#### Authors: 3
+
+- cesar.marin (cmarin@sistemasenlinea.com.co)
+- cmarin ([@cmarin001](https://github.com/cmarin001))
+- Fernando Cañas ([@wfercanas](https://github.com/wfercanas))
+
+---
+
+# v0.6.0 (Tue Mar 28 2023)
+
+#### 🚀 Enhancement
+
+- cm/ids43/routes [#73](https://github.com/selsa-inube/design-system/pull/73) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+
+#### 🐛 Bug Fix
+
+- Fc/release/0.5.0 [#72](https://github.com/selsa-inube/design-system/pull/72) ([@wfercanas](https://github.com/wfercanas))
+
+#### Authors: 3
+
+- cesar.marin (cmarin@sistemasenlinea.com.co)
+- cmarin ([@cmarin001](https://github.com/cmarin001))
+- Fernando Cañas ([@wfercanas](https://github.com/wfercanas))
+
+---
+
+# v0.5.0 (Mon Mar 27 2023)
+
+#### 🚀 Enhancement
+
+- cm/ids28/switch [#66](https://github.com/selsa-inube/design-system/pull/66) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+
+#### 🐛 Bug Fix
+
+- ab/ids37/Stack-removing-required-props [#70](https://github.com/selsa-inube/design-system/pull/70) ([@Andresbl123](https://github.com/Andresbl123))
+- Fc/release/0.4.0 [#67](https://github.com/selsa-inube/design-system/pull/67) ([@wfercanas](https://github.com/wfercanas))
+
+#### Authors: 4
+
+- Andres ([@Andresbl123](https://github.com/Andresbl123))
+- cesar.marin (cmarin@sistemasenlinea.com.co)
+- cmarin ([@cmarin001](https://github.com/cmarin001))
+- Fernando Cañas ([@wfercanas](https://github.com/wfercanas))
+
+---
+
 # v0.4.0 (Tue Mar 21 2023)
 
 #### 🚀 Enhancement

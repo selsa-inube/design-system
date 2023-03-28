@@ -5,9 +5,12 @@ import { StyledLabel } from "./styles";
 
 const states = ["default", "invalid"];
 
+const typos = ["labelLarge", "labelMedium", "labelSmall"];
+
 const defaultIsDisabled = false;
 const defaultIsFocused = false;
 const defaultState = "default";
+const defaultTypo = "labelLarge";
 
 const Label = (props) => {
   const {
@@ -15,14 +18,19 @@ const Label = (props) => {
     isFocused = false,
     htmlFor,
     state = "default",
+    typo = "labelLarge",
     children,
   } = props;
 
   const transformedIsDisabled =
     typeof isDisabled === "boolean" ? isDisabled : defaultIsDisabled;
+
   const transformedIsFocused =
     typeof isFocused === "boolean" ? isFocused : defaultIsFocused;
+
   const transformedState = states.includes(state) ? state : defaultState;
+
+  const transformedTypo = typos.includes(typo) ? typo : defaultTypo;
 
   return (
     <StyledLabel
@@ -30,6 +38,7 @@ const Label = (props) => {
       isFocused={transformedIsFocused}
       htmlFor={htmlFor}
       state={transformedState}
+      typo={transformedTypo}
     >
       {children}
     </StyledLabel>
@@ -41,7 +50,8 @@ Label.propTypes = {
   isFocused: PropTypes.bool,
   htmlFor: PropTypes.string.isRequired,
   state: PropTypes.oneOf(states),
+  typo: PropTypes.oneOf(typos),
   children: PropTypes.node,
 };
 
-export { Label, states };
+export { Label, states, typos };
