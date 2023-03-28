@@ -1,23 +1,23 @@
 // data
-export * from "./components/data/Text";
-export * from "./components/data/Avatar";
-export * from "./components/data/User";
+export { Text } from "./components/data/Text";
+export { Avatar } from "./components/data/Avatar";
+export { User } from "./components/data/User";
 
 // inputs
-export * from "./components/inputs/Button";
-export * from "./components/inputs/Label";
-export * from "./components/inputs/Switch";
+export { Button } from "./components/inputs/Button";
+export { Label } from "./components/inputs/Label";
+export { Switch } from "./components/inputs/Switch";
 
 // layouts
-export * from "./components/layouts/Stack";
+export { Stack } from "./components/layouts/Stack";
 
 // utils
-export * from "./components/utils/Blanket";
+export { Blanket } from "./components/utils/Blanket";
 
 // feedback
-export * from "./components/utils/Spinner";
-export * from "./components/utils/SkeletonLine";
-export * from "./components/utils/SkeletonIcon";
+export { Spinner } from "./components/feedback/Spinner";
+export { SkeletonLine } from "./components/feedback/SkeletonLine";
+export { SkeletonIcon } from "./components/feedback/SkeletonIcon";
 
 //  hooks
 export { useMediaQuery } from "./hooks/useMediaQuery";
