@@ -1,19 +1,27 @@
 import { Label } from "../";
-import { parameters, isDisabled, htmlFor, state, children } from "./props";
+import {
+  parameters,
+  isDisabled,
+  htmlFor,
+  state,
+  typo,
+  children,
+} from "./props";
 
 const story = {
-  title: "inputs/labels/IsFocused",
+  title: "inputs/Label/IsFocused",
   components: [Label],
   parameters,
 };
 
-const IsFocused = ({ children, state, htmlFor, isDisabled }) => {
+const IsFocused = ({ children, state, htmlFor, typo, isDisabled }) => {
   return (
     <Label
       isDisabled={isDisabled}
       isFocused={true}
       state={state}
       htmlFor={htmlFor}
+      typo={typo}
     >
       {children}
     </Label>
@@ -24,6 +32,7 @@ IsFocused.args = {
   isDisabled: false,
   htmlFor: "id",
   state: "default",
+  typo: "labelLarge",
 };
 
 IsFocused.argTypes = {
@@ -31,6 +40,7 @@ IsFocused.argTypes = {
   children,
   htmlFor,
   state,
+  typo,
 };
 
 export default story;

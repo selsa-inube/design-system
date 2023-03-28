@@ -1,3 +1,5 @@
+import { states, typos } from "..";
+
 const parameters = {
   docs: {
     description: {
@@ -28,7 +30,7 @@ const htmlFor = {
 };
 
 const state = {
-  options: ["default", "invalid"],
+  options: states,
   control: {
     type: "radio",
   },
@@ -38,8 +40,14 @@ const state = {
   },
 };
 
+const typo = {
+  options: typos,
+  control: { type: "select" },
+  description: "indicates the font size used in the component",
+};
+
 const children = {
   description: "component text content",
 };
 
-export { parameters, isDisabled, isFocused, htmlFor, state, children };
+export { parameters, isDisabled, isFocused, htmlFor, state, typo, children };
