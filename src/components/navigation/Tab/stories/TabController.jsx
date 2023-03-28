@@ -13,7 +13,7 @@ const TabController = (props) => {
 
   const handleClickTab = () => {
     if (!isDisabled) {
-      setTabSelected(!tabSelected);
+      setTabSelected(true);
     }
   };
 
