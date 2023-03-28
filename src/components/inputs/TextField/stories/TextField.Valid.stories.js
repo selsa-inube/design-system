@@ -47,10 +47,10 @@ Valid.args = {
   name: "Username",
   id: "Username",
   placeholder: "Write your full name",
-  value: "L-GARZON",
+  value: "LGARZON",
   isDisabled: false,
-  handleChange: () => {},
   state: "valid",
+  errorMessage: "Please enter only letters in this field",
   validMessage: "Field validation is successful",
 };
 

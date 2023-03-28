@@ -33,19 +33,6 @@ const getColors = (isDisabled, state, isFocused) => {
   return colors.ref.palette.neutral.n40;
 };
 
-/* const getColorsOnFocus = (isDisabled, onFocus, state) => {
-  if (isDisabled) {
-    return colors.ref.palette.neutral.n60;
-  }
-  if (state === "invalid") {
-    return colors.sys.actions.remove.filled;
-  }
-
-  if (onFocus) {
-    return colors.ref.palette.blue.b300;
-  }
-}; */
-
 const getIsDisabled = (isDisabled, state) => {
   if (isDisabled) {
     return colors.ref.palette.neutral.n60;
@@ -70,12 +57,12 @@ const StyledContainer = styled.div`
 const StyledContainerLabel = styled.div`
   display: flex;
   align-items: center;
-  width: ${({ isRequired }) => (isRequired ? "115px" : "51px")};
+  gap: 4px;
   height: 20px;
   margin-left: 16px;
   padding-right: 5px;
-  gap: 4px;
   margin-bottom: 4px;
+  width: ${({ isRequired }) => (isRequired ? "115px" : "51px")};
   pointer-events: ${({ isDisabled }) => isDisabled && "none"};
 
   & Label {
@@ -110,7 +97,6 @@ const StyledInput = styled.input`
   width: ${(props) => (props.isFullWidth === true ? "100%" : "280px")};
   max-width: ${(props) => (props.isFullWidth === true ? "none" : "auto")};
   ${({ size }) => sizeOptions[size]};
-
   border: 1px solid
     ${({ isDisabled, state, isFocused }) =>
       getColors(isDisabled, state, isFocused)};

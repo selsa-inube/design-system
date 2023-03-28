@@ -43,10 +43,8 @@ Disabled.args = {
   id: "Username",
   value: "",
   placeholder: "Write your full name",
-  handleChange: () => {},
   maxLength: 10,
   minLength: 1,
-  errorMessage: "",
 };
 
 Disabled.argTypes = {

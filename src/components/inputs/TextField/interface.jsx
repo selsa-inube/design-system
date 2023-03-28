@@ -1,7 +1,6 @@
 import React from "react";
 
-import { MdOutlineError } from "react-icons/md";
-import { MdCheckCircle } from "react-icons/md";
+import { MdOutlineError, MdCheckCircle } from "react-icons/md";
 
 import { Label } from "../Label";
 import { Text } from "../../data/Text";
@@ -18,19 +17,17 @@ import {
   StyledValidMessageContainer,
 } from "./styles";
 
-const getAppearanceValid = (isDisabled) => {
-  if (isDisabled) {
-    return "disabled";
-  }
-  return "success";
-};
+const getTextAppearanceProp = (isDisabled, appearence) => {
+  const appearenceMap = {
+    succes: "success",
+    error: "error",
+  };
 
-const getAppearanceError = (isDisabled) => {
   if (isDisabled) {
     return "disabled";
   }
 
-  return "error";
+  return appearenceMap[appearence] || "dark";
 };
 
 const Invalid = (props) => {
@@ -42,7 +39,7 @@ const Invalid = (props) => {
       <Text
         typo="bodySmall"
         margin="8px 0px 0px 4px"
-        appearance={getAppearanceError(isDisabled)}
+        appearance={getTextAppearanceProp(isDisabled, "error")}
       >
         ({errorMessage})
       </Text>
@@ -50,7 +47,7 @@ const Invalid = (props) => {
   );
 };
 
-const Succes = (props) => {
+const Success = (props) => {
   const { isDisabled, state, validMessage } = props;
 
   return (
@@ -59,7 +56,7 @@ const Succes = (props) => {
       <Text
         typo="bodySmall"
         margin="8px 0px 0px 4px"
-        appearance={getAppearanceValid(isDisabled)}
+        appearance={getTextAppearanceProp(isDisabled, "success")}
       >
         {validMessage}
       </Text>
@@ -92,7 +89,6 @@ const TextFieldUI = (props) => {
     isFocused,
     handleFocus,
     handleBlur,
-    handleClick,
   } = props;
 
   return (
@@ -127,7 +123,6 @@ const TextFieldUI = (props) => {
           isDisabled={isDisabled}
           type={type}
           value={value}
-          onChange={handleChange}
           iconBefore={iconBefore}
           iconAfter={iconAfter}
           maxLength={maxLength}
@@ -138,10 +133,10 @@ const TextFieldUI = (props) => {
           size={size}
           state={state}
           isFullWidth={isFullWidth}
+          isFocused={isFocused}
+          onChange={handleChange}
           onFocus={handleFocus}
           onBlur={handleBlur}
-          isFocused={isFocused}
-          onClick={handleClick}
         />
 
         {iconAfter && (
@@ -159,7 +154,7 @@ const TextFieldUI = (props) => {
         />
       )}
       {state === "valid" && (
-        <Succes
+        <Success
           isDisabled={isDisabled}
           state={state}
           validMessage={validMessage}

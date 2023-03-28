@@ -33,7 +33,12 @@ const story = {
 const RequiredComponent = (args) => {
   return (
     <Stack justifyContent="space-evenly">
-      <TextFieldController {...args} isRequired={true} />
+      <TextFieldController
+        {...args}
+        isRequired={true}
+        errorMessage="This field can not be blank"
+        validMessage="Field validation is successful"
+      />
       <TextFieldController
         {...args}
         state="invalid"
@@ -52,7 +57,6 @@ Required.args = {
   isDisabled: false,
   type: "text",
   state: "pending",
-  handleChange: () => {},
   maxLength: 20,
   minLength: 1,
   max: 10,

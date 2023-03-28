@@ -13,6 +13,12 @@ const TextFieldController = (props) => {
   const handleChange = (e) => {
     setValueInput(e.target.value);
   };
+  const handleFocus = () => {
+    if (globalState === "invalid") {
+      return setGlobalState("invalid");
+    }
+    setGlobalState("pending");
+  };
 
   const handleBlur = (e) => {
     const inputValue = e.target.value;
@@ -26,6 +32,7 @@ const TextFieldController = (props) => {
       value={valueInput}
       handleChange={handleChange}
       state={globalState}
+      handleFocus={handleFocus}
       handleBlur={handleBlur}
     />
   );

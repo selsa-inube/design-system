@@ -48,8 +48,18 @@ const TextField = (props) => {
 
   const [isFocused, setIsFocused] = useState(false);
 
-  const handleClickEvents = () => {
+  const interceptFocus = (e) => {
     setIsFocused(true);
+    if (typeof handleFocus === "function") {
+      handleFocus(e);
+    }
+  };
+
+  const interceptBlur = (e) => {
+    setIsFocused(false);
+    if (typeof handleBlur === "function") {
+      handleBlur(e);
+    }
   };
 
   const transformedIsDisabled =
@@ -67,7 +77,6 @@ const TextField = (props) => {
 
   return (
     <TextFieldUI
-      handleClick={handleClickEvents}
       label={label}
       name={name}
       id={id}
@@ -89,8 +98,8 @@ const TextField = (props) => {
       validMessage={validMessage}
       isFullWidth={transformedIsFullWidth}
       isFocused={isFocused}
-      handleFocus={handleFocus}
-      handleBlur={handleBlur}
+      handleFocus={interceptFocus}
+      handleBlur={interceptBlur}
     />
   );
 };
@@ -116,6 +125,8 @@ TextFieldUI.propTypes = {
   validMessage: PropTypes.string,
   size: PropTypes.oneOf(sizes),
   isFullWidth: PropTypes.bool,
+  handleFocus: PropTypes.func,
+  handleBlur: PropTypes.func,
 };
 
 export { TextField, inputTypes, sizes, states, getLabelState };

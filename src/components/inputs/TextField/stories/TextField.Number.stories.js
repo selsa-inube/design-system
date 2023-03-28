@@ -38,12 +38,9 @@ Number.args = {
   type: "number",
   state: "pending",
   isDisabled: false,
-  handleChange: () => {},
   max: 10,
   min: 0,
   isRequired: false,
-  errorMessage: "",
-  validMessage: "",
   size: "wide",
   isFullWidth: false,
 };

@@ -53,11 +53,10 @@ Size.args = {
   placeholder: "Write your full name",
   value: "",
   state: "pending",
-  handleChange: () => {},
   maxLength: 10,
   minLength: 1,
-  errorMessage: "",
-  validMessage: "",
+  errorMessage: "Please enter only letters in this field",
+  validMessage: "The field has been successfully validated",
   isFullWidth: false,
 };
 

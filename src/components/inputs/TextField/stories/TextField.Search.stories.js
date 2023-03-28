@@ -36,7 +36,6 @@ Search.args = {
   id: "searchField",
   placeholder: "Search...",
   isDisabled: false,
-  handleChange: () => {},
   iconAfter: <AiOutlineSearch />,
   isRequired: false,
   errorMessage: "",
