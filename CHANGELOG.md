@@ -1,3 +1,25 @@
+# v0.8.0 (Tue Mar 28 2023)
+
+#### 🚀 Enhancement
+
+- Blanket should have a named export, not a default export [#77](https://github.com/selsa-inube/design-system/pull/77) ([@Andresbl123](https://github.com/Andresbl123))
+- cm/ids30/tab [#68](https://github.com/selsa-inube/design-system/pull/68) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- Extend the <Label /> to receive typography tokens [#71](https://github.com/selsa-inube/design-system/pull/71) ([@wfercanas](https://github.com/wfercanas) [@Andresbl123](https://github.com/Andresbl123))
+- cm/ids28/switch [#66](https://github.com/selsa-inube/design-system/pull/66) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+
+#### 🐛 Bug Fix
+
+- Fc/release/0.7.0 [#76](https://github.com/selsa-inube/design-system/pull/76) ([@wfercanas](https://github.com/wfercanas))
+
+#### Authors: 4
+
+- Andres ([@Andresbl123](https://github.com/Andresbl123))
+- cesar.marin (cmarin@sistemasenlinea.com.co)
+- cmarin ([@cmarin001](https://github.com/cmarin001))
+- Fernando Cañas ([@wfercanas](https://github.com/wfercanas))
+
+---
+
 # v0.7.0 (Tue Mar 28 2023)
 
 #### 🚀 Enhancement
