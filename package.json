@@ -1,7 +1,7 @@
 {
   "name": "@inube/design-system",
   "homepage": "https://github.com/selsa-inube/design-system#readme",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "license": "ISC",
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "author": "Fernando Cañas <fcanas@sistemasenlinea.com.co>",
