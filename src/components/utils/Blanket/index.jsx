@@ -12,4 +12,4 @@ Blanket.propTypes = {
   children: PropTypes.element,
 };
 
-export default Blanket;
+export { Blanket };
