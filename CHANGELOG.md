@@ -1,3 +1,18 @@
+# v0.7.0 (Tue Mar 28 2023)
+
+#### 🚀 Enhancement
+
+- cm/ids43/routes [#75](https://github.com/selsa-inube/design-system/pull/75) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- Fc/release/0.6.0 [#74](https://github.com/selsa-inube/design-system/pull/74) ([@wfercanas](https://github.com/wfercanas))
+
+#### Authors: 3
+
+- cesar.marin (cmarin@sistemasenlinea.com.co)
+- cmarin ([@cmarin001](https://github.com/cmarin001))
+- Fernando Cañas ([@wfercanas](https://github.com/wfercanas))
+
+---
+
 # v0.6.0 (Tue Mar 28 2023)
 
 #### 🚀 Enhancement
