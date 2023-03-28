@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { colors } from "../../../shared/colors/colors";
 
-const StyleTab = styled.div`
+const StyledTab = styled.div`
   width: fit-content;
   user-select: none;
 
@@ -15,4 +15,4 @@ const StyleTab = styled.div`
   }
 `;
 
-export { StyleTab };
+export { StyledTab };
