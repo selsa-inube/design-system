@@ -1,9 +1,10 @@
 import styled from "styled-components";
 import { colors } from "../../../shared/colors/colors";
 
-const StyledTab = styled.div`
+const StyledTab = styled.li`
   width: fit-content;
   user-select: none;
+  list-style-type: none;
 
   border-bottom: ${({ isSelected, isDisabled }) =>
     isSelected &&
