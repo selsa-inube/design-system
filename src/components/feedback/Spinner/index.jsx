@@ -15,7 +15,7 @@ export const appearances = [
 
 const defaultAppearance = "blue";
 const defaultSize = "medium";
-const defaultTransparent = "false";
+const defaultTransparent = false;
 
 const Spinner = (props) => {
   const {
@@ -30,15 +30,15 @@ const Spinner = (props) => {
         appearances.includes(appearance) ? appearance : defaultAppearance
       }
       size={sizes.includes(size) ? size : defaultSize}
-      isTransparent={Boolean(isTransparent)}
+      isTransparent={isTransparent}
     />
   );
 };
 
 Spinner.propTypes = {
-  size: PropTypes.oneOf(sizes).isRequired,
-  appearance: PropTypes.oneOf(appearances).isRequired,
-  isTransparent: PropTypes.bool.isRequired,
+  size: PropTypes.oneOf(sizes),
+  appearance: PropTypes.oneOf(appearances),
+  isTransparent: PropTypes.bool,
 };
 
 export { Spinner };
