@@ -1,4 +1,4 @@
-import Blanket from "../index";
+import { Blanket } from "..";
 
 const story = {
   title: "utils/Blanket",
