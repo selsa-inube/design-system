@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Tab } from "../index";
 
 const TabController = (props) => {
-  const { isSelected = false, isDisabled = false } = props;
-  const [tabSelected, setTabSelected] = useState(isSelected);
+  const { isDisabled = false } = props;
+  const [tabSelected, setTabSelected] = useState(false);
 
   useEffect(() => {
     if (isDisabled) {
