@@ -27,7 +27,7 @@ const story = {
   parameters,
 };
 
-const Invalid = (args) => <TextFieldController {...args} isInvalid={true} />;
+const Invalid = (args) => <TextFieldController {...args} state="invalid" />;
 Invalid.args = {
   label: "Username",
   name: "Username",
@@ -39,7 +39,6 @@ Invalid.args = {
   maxLength: 20,
   minLength: 1,
   isRequired: false,
-  state: "invalid",
   errorMessage: "Please enter only letters in this field",
   validMessage: "The field has been successfully validated",
   size: "wide",

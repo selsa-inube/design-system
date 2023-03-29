@@ -2,36 +2,35 @@ import React, { useState } from "react";
 import { TextField } from "..";
 
 const TextFieldController = (props) => {
-  const { value = "", state = "pending" } = props;
-  const [valueInput, setValueInput] = useState(value);
-  const [globalState, setGlobalState] = useState(state);
+  const { value = "", state = "pendeging" } = props;
+  const [form, setForm] = useState({ value, state });
 
   function isAlphabetical(value) {
     return /^[a-zA-Z]+$/.test(value);
   }
 
   const handleChange = (e) => {
-    setValueInput(e.target.value);
+    setForm({ value: e.target.value, state: "pending" });
   };
+
   const handleFocus = () => {
-    if (globalState === "invalid") {
-      return setGlobalState("invalid");
+    if (form.state === "invalid") {
+      return setForm({ ...form, state: "invalid" });
     }
-    setGlobalState("pending");
+    setForm({ ...form, state: "pending" });
   };
 
   const handleBlur = (e) => {
-    const inputValue = e.target.value;
-    const isValid = isAlphabetical(inputValue);
-    setGlobalState(isValid ? "valid" : "invalid");
+    const isValid = isAlphabetical(e.target.value);
+    setForm({ ...form, state: isValid ? "valid" : "invalid" });
   };
 
   return (
     <TextField
       {...props}
-      value={valueInput}
+      value={form.value}
       handleChange={handleChange}
-      state={globalState}
+      state={form.state}
       handleFocus={handleFocus}
       handleBlur={handleBlur}
     />

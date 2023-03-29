@@ -105,7 +105,7 @@ const TextFieldUI = (props) => {
           </Label>
         )}
 
-        {isRequired && <Text typo="bodySmall">(Required)</Text>}
+        {isRequired && !isDisabled && <Text typo="bodySmall">(Required)</Text>}
       </StyledContainerLabel>
 
       <StyledInputContainer isDisabled={isDisabled}>

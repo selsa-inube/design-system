@@ -34,7 +34,7 @@ const TextFieldComponent = (args) => {
     <Stack justifyContent="space-evenly">
       {sizes.map((size) => (
         <div key={size}>
-          <TextFieldController {...args} size={size} />
+          <TextFieldController {...args} size={size} state="valid" />
         </div>
       ))}
     </Stack>
@@ -49,7 +49,6 @@ Valid.args = {
   placeholder: "Write your full name",
   value: "LGARZON",
   isDisabled: false,
-  state: "valid",
   errorMessage: "Please enter only letters in this field",
   validMessage: "Field validation is successful",
 };
