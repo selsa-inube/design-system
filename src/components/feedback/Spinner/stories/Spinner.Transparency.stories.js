@@ -27,10 +27,7 @@ const TransparencyTemplate = ({ ...args }) => (
   </StyledFlex>
 );
 export const Transparency = TransparencyTemplate.bind({});
-Transparency.args = {
-  size: "medium",
-  appearance: "blue",
-};
+
 Transparency.argTypes = {
   size,
   appearance,
