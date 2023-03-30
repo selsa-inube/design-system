@@ -46,18 +46,6 @@ const defaultSpacing = "wide";
 const defaultVariant = "filled";
 const defaultSpinnerSize = "small";
 
-const Icons = (props) => {
-  const { iconBefore, iconAfter, children, isDisabled, transformedVariant } =
-    props;
-  return (
-    <StyledSpan isDisabled={isDisabled} variant={transformedVariant}>
-      {iconBefore && <StyledIcon>{iconBefore}</StyledIcon>}
-      {children}
-      {iconAfter && <StyledIcon>{iconAfter}</StyledIcon>}
-    </StyledSpan>
-  );
-};
-
 const Button = (props) => {
   const {
     children,
@@ -108,14 +96,11 @@ const Button = (props) => {
           size={defaultSpinnerSize}
         />
       ) : (
-        <Icons
-          iconBefore={iconBefore}
-          iconAfter={iconAfter}
-          isDisabled={isDisabled}
-          variant={transformedVariant}
-        >
+        <StyledSpan isDisabled={isDisabled} variant={transformedVariant}>
+          {iconBefore && <StyledIcon id="mdIcon">{iconBefore}</StyledIcon>}
           {children}
-        </Icons>
+          {iconAfter && <StyledIcon id="mdIcon">{iconAfter}</StyledIcon>}
+        </StyledSpan>
       )}
     </StyledButton>
   );
