@@ -27,10 +27,7 @@ const SizesTemplate = ({ ...args }) => (
   </StyledFlexBetween>
 );
 export const Sizes = SizesTemplate.bind({});
-Sizes.args = {
-  appearance: "blue",
-  isTransparent: false,
-};
+
 Sizes.argTypes = {
   appearance,
   isTransparent,

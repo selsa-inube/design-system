@@ -117,7 +117,7 @@ Button.propTypes = {
   spacing: PropTypes.oneOf(spacings),
   variant: PropTypes.oneOf(variants),
   isFullWidth: PropTypes.bool,
-  handleClick: PropTypes.func.isRequired,
+  handleClick: PropTypes.func,
 };
 
 export { Button };
