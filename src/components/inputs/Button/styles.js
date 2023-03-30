@@ -124,19 +124,23 @@ const getColor = (props) => {
 };
 
 const getWidth = (iconBefore, iconAfter, isFullWidth) => {
+  const minWidth = 75;
+  const oneIconWidth = 101;
+  const twoIconsWidth = 131;
+
   if (isFullWidth) {
     return "100%";
   }
 
-  if (iconBefore || iconAfter) {
-    return "101px";
-  }
+  let width = minWidth;
 
   if (iconBefore && iconAfter) {
-    return "131px";
+    width = twoIconsWidth;
+  } else if (iconBefore || iconAfter) {
+    width = oneIconWidth;
   }
 
-  return "75px";
+  return `${width}px`;
 };
 
 const getBorderColor = (props) => {
