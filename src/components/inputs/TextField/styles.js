@@ -11,7 +11,7 @@ const sizeOptions = {
   },
 };
 
-const fontSize = (size) => {
+const getFontSize = (size) => {
   if (size === "compact") {
     return typography.sys.typescale.bodyMedium.size;
   }
@@ -67,7 +67,7 @@ const StyledContainerLabel = styled.div`
 
   & Label {
     height: 20px;
-    font-size: ${({ size }) => fontSize(size)};
+    font-size: ${({ size }) => getFontSize(size)};
   }
 `;
 

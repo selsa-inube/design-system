@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { TextField } from "..";
 
 const TextFieldController = (props) => {
-  const { value = "", state = "pendeging" } = props;
+  const { value = "", state = "pending" } = props;
   const [form, setForm] = useState({ value, state });
 
   function isAlphabetical(value) {

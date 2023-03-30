@@ -19,7 +19,7 @@ import {
 
 const getTextAppearanceProp = (isDisabled, appearence) => {
   const appearenceMap = {
-    succes: "success",
+    success: "success",
     error: "error",
   };
 
