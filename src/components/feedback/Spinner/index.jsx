@@ -15,7 +15,7 @@ export const appearances = [
 
 const defaultAppearance = "blue";
 const defaultSize = "medium";
-const defaultTransparent = "false";
+const defaultTransparent = false;
 
 const Spinner = (props) => {
   const {
@@ -24,21 +24,26 @@ const Spinner = (props) => {
     isTransparent = defaultTransparent,
   } = props;
 
+  const transformedSize = sizes.includes(size) ? size : defaultSize;
+  const transformedAppearance = appearances.includes(appearance)
+    ? appearance
+    : defaultAppearance;
+  const transformedIsTransparent =
+    typeof isTransparent === "boolean" ? isTransparent : defaultTransparent;
+
   return (
     <StyledSpinner
-      appearance={
-        appearances.includes(appearance) ? appearance : defaultAppearance
-      }
-      size={sizes.includes(size) ? size : defaultSize}
-      isTransparent={Boolean(isTransparent)}
+      appearance={transformedAppearance}
+      size={transformedSize}
+      isTransparent={transformedIsTransparent}
     />
   );
 };
 
 Spinner.propTypes = {
-  size: PropTypes.oneOf(sizes).isRequired,
-  appearance: PropTypes.oneOf(appearances).isRequired,
-  isTransparent: PropTypes.bool.isRequired,
+  size: PropTypes.oneOf(sizes),
+  appearance: PropTypes.oneOf(appearances),
+  isTransparent: PropTypes.bool,
 };
 
 export { Spinner };

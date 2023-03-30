@@ -13,7 +13,7 @@ import {
 } from "./props";
 
 const story = {
-  title: "components/data/Paragraphs",
+  title: "data/Text/Paragraphs",
   components: [Text],
   parameters,
 };
