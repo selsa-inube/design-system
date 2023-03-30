@@ -7,6 +7,8 @@ const StyledFlex = styled.div`
   flex-direction: ${({ direction }) => direction};
   flex-wrap: ${({ wrap }) => wrap};
   gap: ${({ gap }) => gap};
+  width: 100%;
+  height: 100%;
 `;
 
 export { StyledFlex };
