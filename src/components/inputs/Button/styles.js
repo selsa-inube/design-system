@@ -123,6 +123,22 @@ const getColor = (props) => {
   return textColors[variant].normal[appearance];
 };
 
+const getWidth = (iconBefore, iconAfter, isFullWidth) => {
+  if (isFullWidth) {
+    return "100%";
+  }
+
+  if (iconBefore || iconAfter) {
+    return "101px";
+  }
+
+  if (iconBefore && iconAfter) {
+    return "131px";
+  }
+
+  return "75px";
+};
+
 const getBorderColor = (props) => {
   const { isDisabled, variant, appearance, isHover } = props;
 
@@ -176,12 +192,12 @@ const StyledButton = styled.button`
   border: none;
   border-style: solid;
   border-width: 1px;
-
   font-family: ${typography.ref.typeface.brand};
   color: ${getColor};
   background-color: ${getBackgroundColor};
   border-color: ${getBorderColor};
-  width: ${(props) => (props.isFullWidth === true ? "100%" : "auto")};
+  width: ${(props) =>
+    getWidth(props.iconBefore, props.iconAfter, props.isFullWidth)};
   max-width: ${(props) => (props.isFullWidth === true ? "none" : "auto")};
   cursor: ${getPointer};
   ${(props) => spacing[props.spacing]}
