@@ -30,6 +30,13 @@ const getTextAppearanceProp = (isDisabled, appearence) => {
   return appearenceMap[appearence] || "dark";
 };
 
+const getTypo = (size) => {
+  if (size === "compact") {
+    return "labelMedium";
+  }
+  return "labelLarge";
+};
+
 const Invalid = (props) => {
   const { isDisabled, state, errorMessage } = props;
 
@@ -92,7 +99,7 @@ const TextFieldUI = (props) => {
   } = props;
 
   return (
-    <StyledContainer isFullWidth={isFullWidth}>
+    <StyledContainer isFullWidth={isFullWidth} isDisabled={isDisabled}>
       <StyledContainerLabel size={size} isDisabled={isDisabled}>
         {label && (
           <Label
@@ -100,6 +107,7 @@ const TextFieldUI = (props) => {
             isDisabled={isDisabled}
             isFocused={isFocused}
             state={getLabelState(state)}
+            typo={getTypo(size)}
           >
             {label}
           </Label>

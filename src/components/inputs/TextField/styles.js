@@ -11,13 +11,6 @@ const sizeOptions = {
   },
 };
 
-const getFontSize = (size) => {
-  if (size === "compact") {
-    return typography.sys.typescale.bodyMedium.size;
-  }
-  return typography.sys.typescale.bodyLarge.size;
-};
-
 const getColors = (isDisabled, state, isFocused) => {
   if (isDisabled) {
     return colors.ref.palette.neutral.n60;
@@ -48,53 +41,41 @@ const getIsDisabled = (isDisabled, state) => {
 };
 
 const StyledContainer = styled.div`
-  display: inline-block;
-  position: relative;
-  width: ${(props) => (props.isFullWidth === true ? "100%" : "280px")};
-  max-width: ${(props) => (props.isFullWidth === true ? "none" : "auto")};
+  display: grid;
+  grid-template-rows: auto 1fr;
+  width: ${(props) => (props.isFullWidth === true ? "100%" : "fit-content")};
+  cursor: ${({ isDisabled }) => (isDisabled ? "no-drop" : "context-menu")};
 `;
 
 const StyledContainerLabel = styled.div`
   display: flex;
   align-items: center;
-  gap: 4px;
-  height: 20px;
-  margin-left: 16px;
-  padding-right: 5px;
-  margin-bottom: 4px;
-  width: ${({ isRequired }) => (isRequired ? "115px" : "51px")};
+  margin-bottom: 5px;
   pointer-events: ${({ isDisabled }) => isDisabled && "none"};
 
-  & Label {
-    height: 20px;
-    font-size: ${({ size }) => getFontSize(size)};
+  & p {
+    padding-left: 5px;
   }
 `;
 
 const StyledInputContainer = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
-  position: relative;
-  width: 100%;
-  cursor: ${({ isDisabled }) => isDisabled && "no-drop"};
 `;
 
 const StyledInput = styled.input`
   box-sizing: border-box;
-  display: flex;
-  flex-direction: row;
   align-items: center;
   padding: 8px 12px 8px 16px;
   gap: 8px;
   font-size: 14px;
   border-radius: 8px;
-  flex: none;
-  order: 1;
   align-self: stretch;
-  flex-grow: 0;
   color: ${colors.sys.text.dark};
   background-color: ${colors.ref.palette.neutral.n10};
-  width: ${(props) => (props.isFullWidth === true ? "100%" : "280px")};
+  width: 280px;
   max-width: ${(props) => (props.isFullWidth === true ? "none" : "auto")};
   ${({ size }) => sizeOptions[size]};
   border: 1px solid
@@ -103,7 +84,7 @@ const StyledInput = styled.input`
   ${({ isDisabled }) => isDisabled && "pointer-events: none; opacity: 0.5;"}
 
   ::placeholder {
-    padding-left: ${({ iconBefore }) => (iconBefore ? "30px" : "0px")};
+    padding-left: ${({ iconBefore }) => (iconBefore ? "20px" : "0px")};
     color: ${colors.sys.text.secondary};
   }
 
@@ -122,14 +103,13 @@ const StyledInput = styled.input`
 `;
 
 const StyledIcon = styled.div`
-  display: grid;
+  display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
   height: 24px;
   width: 24px;
-  right: ${({ iconAfter }) => iconAfter && "16px"};
-  left: ${({ iconBefore }) => iconBefore && "16px"};
+  right: ${({ iconAfter }) => iconAfter && "30px"};
+  left: ${({ iconBefore }) => iconBefore && "30px"};
   color: ${({ isDisabled }) => isDisabled && colors.ref.palette.neutral.n60};
 `;
 
@@ -138,7 +118,7 @@ const StyledErrorMessageContainer = styled.div`
   align-items: center;
   margin-left: 16px;
   height: 14px;
-  cursor: ${({ isDisabled }) => (isDisabled ? "no-drop" : "context-menu")};
+
   color: ${({ isDisabled, state }) => getIsDisabled(isDisabled, state)};
   & svg {
     width: 14px;

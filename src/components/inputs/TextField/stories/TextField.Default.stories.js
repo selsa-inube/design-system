@@ -1,6 +1,7 @@
 import { TextField } from "..";
 import { TextFieldController } from "./TextfieldController";
 
+import { MdSearch, MdAssignmentTurnedIn } from "react-icons/md";
 import {
   parameters,
   label,
@@ -34,6 +35,8 @@ Default.args = {
   id: "Username",
   placeholder: "Write your full name",
   value: "",
+  iconBefore: <MdSearch />,
+  iconAfter: <MdAssignmentTurnedIn />,
   maxLength: 10,
   minLength: 1,
   min: 0,
@@ -41,6 +44,9 @@ Default.args = {
   errorMessage: "Please enter only letters in this field",
   validMessage: "The field has been successfully validated",
   size: "wide",
+  isRequired: true,
+  isFullWidth: false,
+  isDisabled: false,
 };
 
 Default.argTypes = {
