@@ -4,7 +4,8 @@ import { Tab } from "../Tab";
 import { Stack } from "../../layouts/Stack";
 import { StyledTabs } from "./styles";
 
-const Tabs = ({ tabs, handleSelectedTab, selectedTab }) => {
+const Tabs = (props) => {
+  const { tabs, handleSelectedTab, selectedTab } = props;
   const [activeTab, setActiveTab] = useState(selectedTab);
 
   const handleClick = (tabId) => {
