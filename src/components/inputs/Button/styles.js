@@ -123,26 +123,6 @@ const getColor = (props) => {
   return textColors[variant].normal[appearance];
 };
 
-const getWidth = (iconBefore, iconAfter, isFullWidth) => {
-  const minWidth = 75;
-  const oneIconWidth = 101;
-  const twoIconsWidth = 131;
-
-  if (isFullWidth) {
-    return "100%";
-  }
-
-  let width = minWidth;
-
-  if (iconBefore && iconAfter) {
-    width = twoIconsWidth;
-  } else if (iconBefore || iconAfter) {
-    width = oneIconWidth;
-  }
-
-  return `${width}px`;
-};
-
 const getBorderColor = (props) => {
   const { isDisabled, variant, appearance, isHover } = props;
 
@@ -200,8 +180,7 @@ const StyledButton = styled.button`
   color: ${getColor};
   background-color: ${getBackgroundColor};
   border-color: ${getBorderColor};
-  width: ${(props) =>
-    getWidth(props.iconBefore, props.iconAfter, props.isFullWidth)};
+  width: ${(props) => (props.isFullWidth === true ? "100%" : "fit-content")};
   max-width: ${(props) => (props.isFullWidth === true ? "none" : "auto")};
   cursor: ${getPointer};
   ${(props) => spacing[props.spacing]}

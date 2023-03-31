@@ -2,7 +2,6 @@ import React from "react";
 import { Button } from "../index";
 import { ButtonController } from "./ButtonController";
 import { MdAdd } from "react-icons/md";
-import { Stack } from "../../../layouts/Stack";
 
 import {
   children,
