@@ -1,5 +1,5 @@
 import React from "react";
-import PropsType from "prop-types";
+import PropTypes from "prop-types";
 
 import { colors } from "../../../shared/colors/colors";
 import { typography } from "../../../shared/typography/typography";
@@ -99,20 +99,20 @@ const Text = (props) => {
 };
 
 Text.propTypes = {
-  children: PropsType.node,
-  align: PropsType.oneOf(alignsOptions),
-  margin: PropsType.oneOfType([
-    PropsType.string,
-    PropsType.oneOf(globalValuesPropertiesCss),
+  children: PropTypes.node,
+  align: PropTypes.oneOf(alignsOptions),
+  margin: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.oneOf(globalValuesPropertiesCss),
   ]),
-  padding: PropsType.oneOfType([
-    PropsType.string,
-    PropsType.oneOf(globalValuesPropertiesCss),
+  padding: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.oneOf(globalValuesPropertiesCss),
   ]),
-  as: PropsType.oneOf(htmlElements),
-  id: PropsType.string,
-  appearance: PropsType.oneOf(appearencesOptions),
-  typo: PropsType.oneOf(typosOptions),
+  as: PropTypes.oneOf(htmlElements),
+  id: PropTypes.string,
+  appearance: PropTypes.oneOf(appearencesOptions),
+  typo: PropTypes.oneOf(typosOptions),
 };
 
 export { Text, htmlElements, alignsOptions, appearencesOptions, typosOptions };

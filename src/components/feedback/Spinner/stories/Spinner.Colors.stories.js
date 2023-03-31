@@ -27,10 +27,7 @@ const ColorsTemplate = ({ ...args }) => (
   </StyledFlex>
 );
 export const Colors = ColorsTemplate.bind({});
-Colors.args = {
-  size: "medium",
-  isTransparent: false,
-};
+
 Colors.argTypes = {
   size,
   isTransparent,

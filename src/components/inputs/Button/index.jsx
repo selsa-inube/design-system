@@ -97,9 +97,9 @@ const Button = (props) => {
         />
       ) : (
         <StyledSpan isDisabled={isDisabled} variant={transformedVariant}>
-          <StyledIcon id="mdIcon">{iconBefore}</StyledIcon>
+          {iconBefore && <StyledIcon id="mdIcon">{iconBefore}</StyledIcon>}
           {children}
-          <StyledIcon id="mdIcon">{iconAfter}</StyledIcon>
+          {iconAfter && <StyledIcon id="mdIcon">{iconAfter}</StyledIcon>}
         </StyledSpan>
       )}
     </StyledButton>
@@ -117,7 +117,7 @@ Button.propTypes = {
   spacing: PropTypes.oneOf(spacings),
   variant: PropTypes.oneOf(variants),
   isFullWidth: PropTypes.bool,
-  handleClick: PropTypes.func.isRequired,
+  handleClick: PropTypes.func,
 };
 
 export { Button };

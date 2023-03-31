@@ -16,11 +16,7 @@ const story = {
 };
 
 export const Default = (args) => <Spinner {...args} />;
-Default.args = {
-  size: "medium",
-  appearance: "blue",
-  isTransparent: false,
-};
+
 Default.argTypes = {
   size,
   appearance,
