@@ -33,7 +33,6 @@ export const Default = (args) => <ButtonController {...args} />;
 Default.args = {
   children: "Button",
   iconBefore: <MdAdd />,
-  handleClick: () => {},
 };
 Default.argTypes = {
   children,
