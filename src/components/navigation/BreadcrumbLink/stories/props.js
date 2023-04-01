@@ -1,21 +1,13 @@
+import { typos } from "..";
 const id = {
   control: { type: "text" },
   description: "shall be the id for the text",
 };
-const isDisabled = {
+const isActive = {
   options: [true, false],
   control: { type: "boolean" },
   description:
     "if the switch is disabled or not. This prevents any interaction.",
-  table: {
-    defaultValue: { summary: "false" },
-  },
-};
-const isSelected = {
-  options: [true, false],
-  control: { type: "boolean" },
-  description:
-    " is designed to ascertain whether the tab has been clicked or not.",
   table: {
     defaultValue: { summary: "false" },
   },
@@ -29,4 +21,14 @@ const label = {
   control: { type: "text" },
   description: "shall constitute the content to be displayed",
 };
-export { id, isDisabled, isSelected, handleClick, label };
+const typo = {
+  options: typos,
+  control: { type: "select" },
+  description: "indicates the font size used in the component",
+};
+const destinationPath = {
+  control: { type: "text" },
+  description: "is the path where the BreadcrumbLink is going to navigate",
+};
+
+export { id, isActive, handleClick, label, typo, destinationPath };

@@ -1,7 +1,14 @@
 import React from "react";
 import { BreadcrumbLink } from "../index";
-
-// import { id, isDisabled, isSelected, handleClick, label } from "./props";
+import { BreadcrumbLinkController } from "./BreadcrumbLinkController";
+import {
+  id,
+  isActive,
+  handleClick,
+  label,
+  typo,
+  destinationPath,
+} from "./props";
 
 const story = {
   title: "navigation/BreadcrumbLink/Default",
@@ -15,18 +22,19 @@ const story = {
   ],
 };
 
-export const Default = (args) => <BreadcrumbLink {...args} />;
+export const Default = (args) => <BreadcrumbLinkController {...args} />;
 Default.args = {
   label: "Privileges",
   destinationPath: "/privileges",
   id: "privileges",
 };
 Default.argTypes = {
-  // id,
-  // isDisabled,
-  // isSelected,
-  // handleClick,
-  // label,
+  id,
+  isActive,
+  handleClick,
+  label,
+  typo,
+  destinationPath,
 };
 
 export default story;
