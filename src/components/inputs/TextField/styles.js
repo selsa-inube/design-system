@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { colors } from "../../../shared/colors/colors";
-import { typography } from "../../../shared/typography/typography";
 
 const sizeOptions = {
   compact: {
@@ -44,11 +43,12 @@ const StyledContainer = styled.div`
   display: grid;
   grid-template-rows: auto 1fr;
   width: ${(props) => (props.isFullWidth === true ? "100%" : "fit-content")};
-  cursor: ${({ isDisabled }) => (isDisabled ? "no-drop" : "context-menu")};
+  cursor: ${({ isDisabled }) => isDisabled && "no-drop"};
 `;
 
 const StyledContainerLabel = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr;
   align-items: center;
   margin-bottom: 5px;
   pointer-events: ${({ isDisabled }) => isDisabled && "none"};
@@ -60,7 +60,6 @@ const StyledContainerLabel = styled.div`
 
 const StyledInputContainer = styled.div`
   display: grid;
-  grid-template-rows: auto;
   grid-template-columns: auto 1fr auto;
   align-items: center;
 `;
@@ -75,7 +74,7 @@ const StyledInput = styled.input`
   align-self: stretch;
   color: ${colors.sys.text.dark};
   background-color: ${colors.ref.palette.neutral.n10};
-  width: 280px;
+  width: ${(props) => (props.isFullWidth === true ? "100%" : "280px")};
   max-width: ${(props) => (props.isFullWidth === true ? "none" : "auto")};
   ${({ size }) => sizeOptions[size]};
   border: 1px solid
@@ -108,8 +107,7 @@ const StyledIcon = styled.div`
   align-items: center;
   height: 24px;
   width: 24px;
-  right: ${({ iconAfter }) => iconAfter && "30px"};
-  left: ${({ iconBefore }) => iconBefore && "30px"};
+
   color: ${({ isDisabled }) => isDisabled && colors.ref.palette.neutral.n60};
 `;
 
@@ -117,9 +115,10 @@ const StyledErrorMessageContainer = styled.div`
   display: flex;
   align-items: center;
   margin-left: 16px;
-  height: 14px;
-
+  height: fit-content;
+  pointer-events: none;
   color: ${({ isDisabled, state }) => getIsDisabled(isDisabled, state)};
+
   & svg {
     width: 14px;
     height: 14px;
