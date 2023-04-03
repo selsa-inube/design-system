@@ -116,7 +116,13 @@ const TextFieldUI = (props) => {
         {isRequired && !isDisabled && <Text typo="bodySmall">(Required)</Text>}
       </StyledContainerLabel>
 
-      <StyledInputContainer isDisabled={isDisabled}>
+      <StyledInputContainer
+        isDisabled={isDisabled}
+        isFocused={isFocused}
+        state={state}
+        iconBefore={iconBefore}
+        iconAfter={iconAfter}
+      >
         {iconBefore && (
           <StyledIcon isDisabled={isDisabled} iconBefore={iconBefore}>
             {iconBefore}

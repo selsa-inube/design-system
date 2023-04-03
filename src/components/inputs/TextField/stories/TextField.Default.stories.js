@@ -35,8 +35,6 @@ Default.args = {
   id: "Username",
   placeholder: "Write your full name",
   value: "",
-  iconBefore: <MdSearch />,
-  iconAfter: <MdAssignmentTurnedIn />,
   maxLength: 10,
   minLength: 1,
   min: 0,

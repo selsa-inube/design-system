@@ -10,6 +10,18 @@ const sizeOptions = {
   },
 };
 
+const getGrid = (iconBefore, iconAfter) => {
+  if (iconBefore && iconAfter) {
+    return "auto 1fr auto";
+  }
+
+  if (iconBefore || iconAfter) {
+    return "auto 1fr";
+  }
+
+  return "1fr";
+};
+
 const getColors = (isDisabled, state, isFocused) => {
   if (isDisabled) {
     return colors.ref.palette.neutral.n60;
@@ -47,10 +59,10 @@ const StyledContainer = styled.div`
 `;
 
 const StyledContainerLabel = styled.div`
-  display: grid;
-  grid-template-columns: auto 1fr;
+  display: flex;
   align-items: center;
-  margin-bottom: 5px;
+  padding-bottom: 5px;
+  padding-left: 21px;
   pointer-events: ${({ isDisabled }) => isDisabled && "none"};
 
   & p {
@@ -60,31 +72,30 @@ const StyledContainerLabel = styled.div`
 
 const StyledInputContainer = styled.div`
   display: grid;
-  grid-template-columns: auto 1fr auto;
   align-items: center;
-`;
-
-const StyledInput = styled.input`
   box-sizing: border-box;
-  align-items: center;
-  padding: 8px 12px 8px 16px;
-  gap: 8px;
-  font-size: 14px;
   border-radius: 8px;
-  align-self: stretch;
-  color: ${colors.sys.text.dark};
+  padding: 0px 12px 0px 16px;
   background-color: ${colors.ref.palette.neutral.n10};
-  width: ${(props) => (props.isFullWidth === true ? "100%" : "280px")};
-  max-width: ${(props) => (props.isFullWidth === true ? "none" : "auto")};
-  ${({ size }) => sizeOptions[size]};
+  grid-template-columns: ${({ iconBefore, iconAfter }) =>
+    getGrid(iconBefore, iconAfter)};
   border: 1px solid
     ${({ isDisabled, state, isFocused }) =>
       getColors(isDisabled, state, isFocused)};
   ${({ isDisabled }) => isDisabled && "pointer-events: none; opacity: 0.5;"}
+`;
+
+const StyledInput = styled.input`
+  font-size: 14px;
+  color: ${colors.sys.text.dark};
+  width: ${(props) => (props.isFullWidth === true ? "100%" : "250px")};
+  max-width: ${(props) => (props.isFullWidth === true ? "none" : "auto")};
+  ${({ size }) => sizeOptions[size]};
+  border: none;
 
   ::placeholder {
-    padding-left: ${({ iconBefore }) => (iconBefore ? "20px" : "0px")};
     color: ${colors.sys.text.secondary};
+    padding-left: 3px;
   }
 
   &:focus {
@@ -98,6 +109,11 @@ const StyledInput = styled.input`
 
   &::-moz-search-cancel-button {
     display: none;
+  }
+
+  &::-webkit-autofill,
+  &::-moz-autofill {
+    background-color: transparent; /* establece el fondo transparente para autofill */
   }
 `;
 
@@ -115,7 +131,6 @@ const StyledErrorMessageContainer = styled.div`
   display: flex;
   align-items: center;
   margin-left: 16px;
-  height: fit-content;
   pointer-events: none;
   color: ${({ isDisabled, state }) => getIsDisabled(isDisabled, state)};
 
@@ -123,6 +138,7 @@ const StyledErrorMessageContainer = styled.div`
     width: 14px;
     height: 14px;
     margin-top: 8px;
+    padding-left: 5px;
   }
 `;
 
