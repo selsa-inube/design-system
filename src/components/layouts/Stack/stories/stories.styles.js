@@ -11,6 +11,10 @@ const StyledDiv = styled.div`
 
 const StyledContainer = styled.div`
   // padding: 32px 64px;
+  display: flex;
+  width: 350px;
+  hwight: 350px;
+  background-color: red;
   div > div:last-of-type > div:nth-of-type(2) {
     gap: 8px;
   }

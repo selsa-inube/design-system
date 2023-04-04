@@ -1,11 +1,11 @@
 import React from "react";
-import { Stack } from "../index";
+import { Stack, flexAlignments } from "../index";
 import { StyledContainer } from "./stories.styles";
 import { Button } from "../../../inputs/Button/index";
 import { MdPersonAddAlt } from "react-icons/md";
 
 const story = {
-  title: "layout/Stack/Implementation",
+  title: "layout/Stack/Nesting",
   components: [Stack],
   decorators: [
     (Story) => (
@@ -15,10 +15,10 @@ const story = {
     ),
   ],
 };
-
+/* 
 const StackTemplate = () => (
   <StyledContainer>
-    <Stack gap="48px">
+    <Stack>
       <Stack>
         <Stack
           direction="row"
@@ -33,7 +33,17 @@ const StackTemplate = () => (
       </Stack>
     </Stack>
   </StyledContainer>
+); */
+
+const StackTemplate = () => (
+  <Stack>
+    {flexAlignments.map((flexAlignment) => (
+      <Stack key={flexAlignment}>
+        <StyledContainer />
+      </Stack>
+    ))}
+  </Stack>
 );
-export const Implementation = StackTemplate.bind({});
+export const Nesting = StackTemplate.bind({});
 
 export default story;
