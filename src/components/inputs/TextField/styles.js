@@ -51,18 +51,41 @@ const getIsDisabled = (isDisabled, state) => {
   }
 };
 
+const getPadding = (iconBefore, iconAfter) => {
+  const padding = {
+    paddingLeft: "16px",
+    paddingRight: "16px",
+  };
+
+  if (iconBefore) {
+    padding.paddingLeft = "2px";
+  }
+
+  if (iconAfter) {
+    padding.paddingRight = "2px";
+  }
+
+  if ((iconBefore && !iconAfter) || (!iconBefore && iconAfter)) {
+    padding.paddingLeft = "2px";
+    padding.paddingRight = "2px";
+  }
+
+  return padding;
+};
+
 const StyledContainer = styled.div`
   display: grid;
   grid-template-rows: auto 1fr;
-  width: ${(props) => (props.isFullWidth === true ? "100%" : "fit-content")};
   cursor: ${({ isDisabled }) => isDisabled && "no-drop"};
+  width: ${({ isFullWidth }) =>
+    isFullWidth === true ? "100%" : "fit-content"};
 `;
 
 const StyledContainerLabel = styled.div`
   display: flex;
   align-items: center;
   padding-bottom: 5px;
-  padding-left: 21px;
+  padding-left: 16px;
   pointer-events: ${({ isDisabled }) => isDisabled && "none"};
 
   & p {
@@ -75,7 +98,7 @@ const StyledInputContainer = styled.div`
   align-items: center;
   box-sizing: border-box;
   border-radius: 8px;
-  padding: 0px 12px 0px 16px;
+
   background-color: ${colors.ref.palette.neutral.n10};
   grid-template-columns: ${({ iconBefore, iconAfter }) =>
     getGrid(iconBefore, iconAfter)};
@@ -87,15 +110,17 @@ const StyledInputContainer = styled.div`
 
 const StyledInput = styled.input`
   font-size: 14px;
+  outline: none;
+  border-radius: 8px;
+  ${({ iconBefore, iconAfter }) => getPadding(iconBefore, iconAfter)}
   color: ${colors.sys.text.dark};
-  width: ${(props) => (props.isFullWidth === true ? "100%" : "250px")};
-  max-width: ${(props) => (props.isFullWidth === true ? "none" : "auto")};
+  width: ${({ isFullWidth }) => (isFullWidth === true ? "100%" : "252px")};
+  max-width: ${({ isFullWidth }) => (isFullWidth === true ? "none" : "auto")};
   ${({ size }) => sizeOptions[size]};
   border: none;
 
   ::placeholder {
     color: ${colors.sys.text.secondary};
-    padding-left: 3px;
   }
 
   &:focus {
@@ -111,9 +136,8 @@ const StyledInput = styled.input`
     display: none;
   }
 
-  &::-webkit-autofill,
-  &::-moz-autofill {
-    background-color: transparent; /* establece el fondo transparente para autofill */
+  &:-webkit-autofill {
+    -webkit-background-clip: text;
   }
 `;
 
@@ -121,16 +145,17 @@ const StyledIcon = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-left: ${({ iconBefore }) => iconBefore && "10px"};
+  padding-right: ${({ iconAfter }) => iconAfter && "10px"};
   height: 24px;
   width: 24px;
-
   color: ${({ isDisabled }) => isDisabled && colors.ref.palette.neutral.n60};
 `;
 
 const StyledErrorMessageContainer = styled.div`
   display: flex;
   align-items: center;
-  margin-left: 16px;
+  margin-left: 12px;
   pointer-events: none;
   color: ${({ isDisabled, state }) => getIsDisabled(isDisabled, state)};
 

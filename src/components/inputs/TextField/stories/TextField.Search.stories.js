@@ -1,7 +1,7 @@
 import { TextField } from "..";
 import { TextFieldController } from "./TextfieldController";
 
-import { AiOutlineSearch } from "react-icons/ai";
+import { MdSearch } from "react-icons/md";
 
 import {
   parameters,
@@ -36,7 +36,7 @@ Search.args = {
   id: "searchField",
   placeholder: "Search...",
   isDisabled: false,
-  iconAfter: <AiOutlineSearch />,
+  iconAfter: <MdSearch />,
   isRequired: false,
   errorMessage: "",
   maxLength: 10,
