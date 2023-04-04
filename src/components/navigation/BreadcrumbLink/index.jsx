@@ -1,7 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link, BrowserRouter } from "react-router-dom";
+
 import { Label } from "../../inputs/Label";
+
 import { StyledBreadcrumbLink } from "./styles";
 
 export const typos = ["labelLarge", "labelMedium", "labelSmall"];
@@ -20,13 +21,15 @@ export const BreadcrumbLink = (props) => {
   const transformedTypos = typos.includes(typo) ? typo : defaultTypo;
 
   return (
-    <StyledBreadcrumbLink isActive={isActive} id={id} onClick={handleClick}>
-      <Label htmlFor={id} typo={transformedTypos}>
-        <BrowserRouter>
-          <Link to={destinationPath}>{label}</Link>
-        </BrowserRouter>
-      </Label>
-    </StyledBreadcrumbLink>
+    <Label htmlFor={id} typo={transformedTypos}>
+      <StyledBreadcrumbLink
+        to={destinationPath}
+        onClick={handleClick}
+        isActive={isActive}
+      >
+        {label}
+      </StyledBreadcrumbLink>
+    </Label>
   );
 };
 
