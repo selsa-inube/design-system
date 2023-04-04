@@ -4,6 +4,10 @@ import { Tab } from "../Tab";
 import { Stack } from "../../layouts/Stack";
 import { StyledTabs } from "./styles";
 
+const duplicateTabIds = (tabs) => {
+  tabs.filter((tab, index) => tabs.indexOF(tab) !== index);
+};
+
 const Tabs = (props) => {
   const { tabs, handleSelectedTab, selectedTab } = props;
   const [activeTab, setActiveTab] = useState(selectedTab);
@@ -12,6 +16,10 @@ const Tabs = (props) => {
     setActiveTab(tabId);
     handleSelectedTab(tabId);
   };
+
+  if (duplicateTabIds(tabs).length > 0) {
+    console.warn(``);
+  }
 
   return (
     <StyledTabs>
