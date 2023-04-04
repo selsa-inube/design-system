@@ -2,6 +2,12 @@ import styled from "styled-components";
 import { colors } from "../../../shared/colors/colors";
 import { Link } from "react-router-dom";
 
+const StyledContainerLink = styled.div`
+  display: flex;
+  width: 100%;
+  height: 100%;
+`;
+
 const StyledBreadcrumbLink = styled(Link)`
   text-decoration: none;
   color: ${({ isActive }) =>
@@ -13,4 +19,4 @@ const StyledBreadcrumbLink = styled(Link)`
   }
 `;
 
-export { StyledBreadcrumbLink };
+export { StyledContainerLink, StyledBreadcrumbLink };

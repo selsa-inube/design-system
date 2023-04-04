@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import { Label } from "../../inputs/Label";
 
-import { StyledBreadcrumbLink } from "./styles";
+import { StyledContainerLink, StyledBreadcrumbLink } from "./styles";
 
 export const typos = ["labelLarge", "labelMedium", "labelSmall"];
 const defaultTypo = "labelLarge";
@@ -21,15 +21,13 @@ export const BreadcrumbLink = (props) => {
   const transformedTypos = typos.includes(typo) ? typo : defaultTypo;
 
   return (
-    <Label htmlFor={id} typo={transformedTypos}>
-      <StyledBreadcrumbLink
-        to={destinationPath}
-        onClick={handleClick}
-        isActive={isActive}
-      >
-        {label}
-      </StyledBreadcrumbLink>
-    </Label>
+    <StyledContainerLink isActive={isActive} id={id} onClick={handleClick}>
+      <Label htmlFor={id} typo={transformedTypos}>
+        <StyledBreadcrumbLink to={destinationPath}>
+          {label}
+        </StyledBreadcrumbLink>
+      </Label>
+    </StyledContainerLink>
   );
 };
 
