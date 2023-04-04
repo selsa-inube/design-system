@@ -20,17 +20,15 @@ const Cards = (props) => {
   const { title, description } = props;
   return (
     <Stack>
-      {flexAlignments.map((flexAlignment) => (
-        <StyledContainer key={flexAlignment}>
-          <Stack gap="10px" wrap="wrap" justifyContent="center">
-            <Stack gap="10px" direction="column" alignItems="center">
-              <MdPersonAddAlt />
-              <Text as="h1">{title}</Text>
-            </Stack>
-            <Text> {description} </Text>
+      <StyledContainer>
+        <Stack gap="10px" wrap="wrap" justifyContent="center">
+          <Stack gap="10px" direction="column" alignItems="center">
+            <MdPersonAddAlt />
+            <Text as="h1">{title}</Text>
           </Stack>
-        </StyledContainer>
-      ))}
+          <Text> {description} </Text>
+        </Stack>
+      </StyledContainer>
     </Stack>
   );
 };
