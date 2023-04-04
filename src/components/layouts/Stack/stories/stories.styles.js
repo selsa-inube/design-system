@@ -10,28 +10,10 @@ const StyledDiv = styled.div`
 `;
 
 const StyledContainer = styled.div`
-  // padding: 32px 64px;
-  display: flex;
-  width: 350px;
-  hwight: 350px;
-  background-color: red;
-  div > div:last-of-type > div:nth-of-type(2) {
-    gap: 8px;
-  }
-  div > div:last-of-type > div:nth-of-type(2) > div {
-    max-width: 280px;
-  }
-  div:last-of-type > div:nth-of-type(2) > svg {
-    display: none;
-  }
-  @media screen and (max-width: 580px) {
-    padding: 16px;
-    button {
-      display: none;
-    }
-    div:last-of-type > div:last-of-type > svg {
-      display: flex;
-    }
-  }
+  border: 1px solid ${colors.ref.palette.neutral.n80};
+  width: 100%;
+  height: 100%;
+  margin: 5px;
 `;
+
 export { StyledDiv, StyledContainer };

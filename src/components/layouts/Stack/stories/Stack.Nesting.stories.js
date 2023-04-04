@@ -1,7 +1,7 @@
 import React from "react";
 import { Stack, flexAlignments } from "../index";
 import { StyledContainer } from "./stories.styles";
-import { Button } from "../../../inputs/Button/index";
+import { Text } from "../../../data/Text/index";
 import { MdPersonAddAlt } from "react-icons/md";
 
 const story = {
@@ -9,41 +9,40 @@ const story = {
   components: [Stack],
   decorators: [
     (Story) => (
-      <div style={{ margin: "3em" }}>
+      <div style={{ margin: "2em" }}>
         <Story />
       </div>
     ),
   ],
 };
-/* 
-const StackTemplate = () => (
-  <StyledContainer>
-    <Stack>
-      <Stack>
-        <Stack
-          direction="row"
-          justifyContent="space-between"
-          alignItems="center"
-        >
-          <input placeholder="Search..." type="search" size="compact" />
-          <Button iconBefore={<MdPersonAddAlt size={18} />} spacing="compact">
-            Invite user
-          </Button>
-        </Stack>
-      </Stack>
-    </Stack>
-  </StyledContainer>
-); */
 
-const StackTemplate = () => (
-  <Stack>
+const Cards = (props) => {
+  const { title, description } = props;
+  return (
+    <Stack>
+      {flexAlignments.map((flexAlignment) => (
+        <StyledContainer key={flexAlignment}>
+          <Stack gap="10px" wrap="wrap" justifyContent="center">
+            <Stack gap="10px" direction="column" alignItems="center">
+              <MdPersonAddAlt />
+              <Text as="h1">{title}</Text>
+            </Stack>
+            <Text> {description} </Text>
+          </Stack>
+        </StyledContainer>
+      ))}
+    </Stack>
+  );
+};
+
+const StackTemplate = (props) => (
+  <Stack {...props} wrap="wrap">
     {flexAlignments.map((flexAlignment) => (
-      <Stack key={flexAlignment}>
-        <StyledContainer />
-      </Stack>
+      <Cards key={flexAlignment} title="Title" description="Description" />
     ))}
   </Stack>
 );
+
 export const Nesting = StackTemplate.bind({});
 
 export default story;
