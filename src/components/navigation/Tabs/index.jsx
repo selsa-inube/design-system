@@ -1,24 +1,31 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { Tab } from "../Tab";
 import { Stack } from "../../layouts/Stack";
 import { StyledTabs } from "./styles";
 
 const duplicateTabIds = (tabs) => {
-  tabs.filter((tab, index) => tabs.indexOF(tab) !== index);
+  const ids = tabs.map((tab, index) => {
+    if (tab.id === undefined) {
+      throw new Error(
+        `The "id" property does not exist for the tab object in the index ${index}.`
+      );
+    }
+    return tab.id;
+  });
+
+  return ids.filter((id, index) => ids.indexOf(id) !== index);
 };
 
 const Tabs = (props) => {
   const { tabs, handleSelectedTab, selectedTab } = props;
-  const [activeTab, setActiveTab] = useState(selectedTab);
 
-  const handleClick = (tabId) => {
-    setActiveTab(tabId);
-    handleSelectedTab(tabId);
-  };
+  const duplicateIds = duplicateTabIds(tabs);
 
-  if (duplicateTabIds(tabs).length > 0) {
-    console.warn(``);
+  if (duplicateIds.length > 0) {
+    console.warn(
+      `Warning: Tab components with the same id were found: [${duplicateIds}]. Tab component ids must be unique for components to maintain their identity across updates.`
+    );
   }
 
   return (
@@ -28,9 +35,9 @@ const Tabs = (props) => {
           <Tab
             key={tab.id}
             isDisabled={tab.isDisabled}
-            isSelected={tab.id === activeTab}
+            isSelected={tab.id === selectedTab}
             id={tab.id}
-            handleClick={() => handleClick(tab.id)}
+            handleClick={() => handleSelectedTab(tab.id)}
             label={tab.label}
           />
         ))}
