@@ -4,6 +4,7 @@ import { StyledFlex } from "./styles";
 
 export const directionAlignments = ["row", "column"];
 export const flexAlignments = [
+  "stretch",
   "flex-start",
   "flex-end",
   "center",
@@ -15,7 +16,7 @@ export const wrapControl = ["wrap", "nowrap"];
 
 const defaultDirection = "row";
 const defaultJustifyContent = "flex-start";
-const defaultAlignItems = "flex-start";
+const defaultAlignItems = "stretch";
 const defaultWrapControl = "nowrap";
 
 const Stack = (props) => {
