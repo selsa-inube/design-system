@@ -65,18 +65,13 @@ const getPadding = (iconBefore, iconAfter) => {
     padding.paddingRight = "2px";
   }
 
-  if ((iconBefore && !iconAfter) || (!iconBefore && iconAfter)) {
-    padding.paddingLeft = "2px";
-    padding.paddingRight = "2px";
-  }
-
   return padding;
 };
 
 const StyledContainer = styled.div`
   display: grid;
   grid-template-rows: auto 1fr;
-  cursor: ${({ isDisabled }) => isDisabled && "no-drop"};
+  cursor: ${({ isDisabled }) => isDisabled && "not-allowed"};
   width: ${({ isFullWidth }) =>
     isFullWidth === true ? "100%" : "fit-content"};
 `;
@@ -149,6 +144,7 @@ const StyledIcon = styled.div`
   padding-right: ${({ iconAfter }) => iconAfter && "10px"};
   height: 24px;
   width: 24px;
+  background-color: ${colors.ref.palette.neutral.n10};
   color: ${({ isDisabled }) => isDisabled && colors.ref.palette.neutral.n60};
 `;
 

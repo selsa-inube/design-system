@@ -18,16 +18,11 @@ import {
 } from "./styles";
 
 const getTextAppearanceProp = (isDisabled, appearence) => {
-  const appearenceMap = {
-    success: "success",
-    error: "error",
-  };
-
   if (isDisabled) {
     return "disabled";
   }
 
-  return appearenceMap[appearence] || "dark";
+  return appearence;
 };
 
 const getTypo = (size) => {
