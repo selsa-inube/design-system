@@ -83,8 +83,8 @@ const StyledContainerLabel = styled.div`
   padding-left: 16px;
   pointer-events: ${({ isDisabled }) => isDisabled && "none"};
 
-  & p {
-    padding-left: 5px;
+  & label {
+    margin-right: 5px;
   }
 `;
 
@@ -93,7 +93,6 @@ const StyledInputContainer = styled.div`
   align-items: center;
   box-sizing: border-box;
   border-radius: 8px;
-
   background-color: ${colors.ref.palette.neutral.n10};
   grid-template-columns: ${({ iconBefore, iconAfter }) =>
     getGrid(iconBefore, iconAfter)};

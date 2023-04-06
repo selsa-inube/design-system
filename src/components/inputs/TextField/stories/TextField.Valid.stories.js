@@ -21,6 +21,7 @@ import {
   validMessage,
   size,
   isFullWidth,
+  isRequired,
 } from "./props";
 
 const story = {
@@ -51,6 +52,7 @@ Valid.args = {
   isDisabled: false,
   errorMessage: "Please enter only letters in this field",
   validMessage: "Field validation is successful",
+  isReuqed: true,
 };
 
 Valid.argTypes = {
@@ -71,6 +73,7 @@ Valid.argTypes = {
   validMessage,
   size,
   isFullWidth,
+  isRequired,
 };
 
 export default story;

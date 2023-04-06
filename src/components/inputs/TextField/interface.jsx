@@ -34,6 +34,7 @@ const getTypo = (size) => {
 
 const Invalid = (props) => {
   const { isDisabled, state, errorMessage } = props;
+  const transformedErrorMessage = errorMessage && `(${errorMessage})`;
 
   return (
     <StyledErrorMessageContainer isDisabled={isDisabled} state={state}>
@@ -43,7 +44,7 @@ const Invalid = (props) => {
         margin="8px 0px 0px 4px"
         appearance={getTextAppearanceProp(isDisabled, "error")}
       >
-        ({errorMessage})
+        {transformedErrorMessage}
       </Text>
     </StyledErrorMessageContainer>
   );
