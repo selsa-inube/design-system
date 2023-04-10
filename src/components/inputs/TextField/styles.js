@@ -93,6 +93,7 @@ const StyledInputContainer = styled.div`
   align-items: center;
   box-sizing: border-box;
   border-radius: 8px;
+  user-select: none;
   background-color: ${colors.ref.palette.neutral.n10};
   grid-template-columns: ${({ iconBefore, iconAfter }) =>
     getGrid(iconBefore, iconAfter)};
