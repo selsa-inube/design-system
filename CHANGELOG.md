@@ -1,3 +1,32 @@
+# v0.10.0 (Wed Apr 05 2023)
+
+#### 🚀 Enhancement
+
+- Validate iconBefore or iconAfter in Button before rendering JSX [#83](https://github.com/selsa-inube/design-system/pull/83) ([@Andresbl123](https://github.com/Andresbl123))
+- Blanket should have a named export, not a default export [#77](https://github.com/selsa-inube/design-system/pull/77) ([@Andresbl123](https://github.com/Andresbl123))
+- cm/ids30/tab [#68](https://github.com/selsa-inube/design-system/pull/68) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- Extend the <Label /> to receive typography tokens [#71](https://github.com/selsa-inube/design-system/pull/71) ([@wfercanas](https://github.com/wfercanas) [@Andresbl123](https://github.com/Andresbl123))
+- cm/ids28/switch [#66](https://github.com/selsa-inube/design-system/pull/66) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+
+#### 🐛 Bug Fix
+
+- Change the default alignItems of <Stack /> to stretch [#91](https://github.com/selsa-inube/design-system/pull/91) ([@Andresbl123](https://github.com/Andresbl123))
+- Release 0.9.0 [#86](https://github.com/selsa-inube/design-system/pull/86) ([@wfercanas](https://github.com/wfercanas))
+- Remove required props in <Spinner /> and adjust isTransparent type handling [#80](https://github.com/selsa-inube/design-system/pull/80) ([@Andresbl123](https://github.com/Andresbl123))
+- <Button/>: remove the handleClick isRequired propType [#84](https://github.com/selsa-inube/design-system/pull/84) ([@Andresbl123](https://github.com/Andresbl123))
+- Adjust PropTypes of <Text /> [#78](https://github.com/selsa-inube/design-system/pull/78) ([@Andresbl123](https://github.com/Andresbl123))
+- Release 0.8.0 [#79](https://github.com/selsa-inube/design-system/pull/79) ([@wfercanas](https://github.com/wfercanas))
+- Fc/release/0.7.0 [#76](https://github.com/selsa-inube/design-system/pull/76) ([@wfercanas](https://github.com/wfercanas))
+
+#### Authors: 4
+
+- Andres ([@Andresbl123](https://github.com/Andresbl123))
+- cesar.marin (cmarin@sistemasenlinea.com.co)
+- cmarin ([@cmarin001](https://github.com/cmarin001))
+- Fernando Cañas ([@wfercanas](https://github.com/wfercanas))
+
+---
+
 # v0.9.0 (Wed Mar 29 2023)
 
 #### 🚀 Enhancement
