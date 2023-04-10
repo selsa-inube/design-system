@@ -144,7 +144,6 @@ const StyledIcon = styled.div`
   padding-right: ${({ iconAfter }) => iconAfter && "10px"};
   height: 24px;
   width: 24px;
-  background-color: ${colors.ref.palette.neutral.n10};
   color: ${({ isDisabled }) => isDisabled && colors.ref.palette.neutral.n60};
 `;
 
