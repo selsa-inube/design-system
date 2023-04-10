@@ -7,7 +7,7 @@ import { StyledTabs } from "./styles";
 const duplicateTabIds = (tabs) => {
   const ids = tabs.map((tab, index) => {
     if (tab.id === undefined) {
-      throw new Error(
+      console.error(
         `The "id" property does not exist for the tab object in the index ${index}.`
       );
     }
