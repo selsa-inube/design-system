@@ -4,7 +4,7 @@ import { Tab } from "../Tab";
 import { Stack } from "../../layouts/Stack";
 import { StyledTabs } from "./styles";
 
-const duplicateTabIds = (tabs) => {
+const checkDuplicateTabIds = (tabs) => {
   const ids = tabs.map((tab, index) => {
     if (tab.id === undefined) {
       console.error(
@@ -20,7 +20,7 @@ const duplicateTabIds = (tabs) => {
 const Tabs = (props) => {
   const { tabs, handleSelectedTab, selectedTab } = props;
 
-  const duplicateIds = duplicateTabIds(tabs);
+  const duplicateIds = checkDuplicateTabIds(tabs);
 
   if (duplicateIds.length > 0) {
     console.warn(
