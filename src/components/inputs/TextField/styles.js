@@ -107,8 +107,9 @@ const StyledInput = styled.input`
   font-size: 14px;
   outline: none;
   border-radius: 8px;
-  ${({ iconBefore, iconAfter }) => getPadding(iconBefore, iconAfter)}
   color: ${colors.sys.text.dark};
+  background-color: ${colors.ref.palette.neutral.n10};
+  ${({ iconBefore, iconAfter }) => getPadding(iconBefore, iconAfter)}
   width: ${({ isFullWidth }) => (isFullWidth === true ? "100%" : "252px")};
   max-width: ${({ isFullWidth }) => (isFullWidth === true ? "none" : "auto")};
   ${({ size }) => sizeOptions[size]};
