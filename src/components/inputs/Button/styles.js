@@ -176,12 +176,11 @@ const StyledButton = styled.button`
   border: none;
   border-style: solid;
   border-width: 1px;
-
   font-family: ${typography.ref.typeface.brand};
   color: ${getColor};
   background-color: ${getBackgroundColor};
   border-color: ${getBorderColor};
-  width: ${(props) => (props.isFullWidth === true ? "100%" : "auto")};
+  width: ${(props) => (props.isFullWidth === true ? "100%" : "fit-content")};
   max-width: ${(props) => (props.isFullWidth === true ? "none" : "auto")};
   cursor: ${getPointer};
   ${(props) => spacing[props.spacing]}
