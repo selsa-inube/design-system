@@ -17,8 +17,4 @@ const StyledBoxSize = styled.div`
   width: 6rem;
 `;
 
-const StyledMargin = styled.div`
-  margin-right: 30px;
-`;
-
-export { StyledFlex, StyledGrid, StyledBoxSize, StyledMargin };
+export { StyledFlex, StyledGrid, StyledBoxSize };

@@ -2,7 +2,6 @@ import React from "react";
 
 import { Switch } from "../index";
 import { SwitchController } from "./SwitchController";
-import { StyledMargin } from "./stories.styles";
 import { id, isDisabled, name, handleChange, label } from "./props";
 
 import { Stack } from "../../../layouts/Stack";
@@ -24,13 +23,11 @@ const SwitchComponent = (props) => {
   return (
     <Stack alignItems="center" justifyContent="space-evenly">
       {[0, 1].map((item) => (
-        <StyledMargin key={item}>
-          <SwitchController
-            {...props}
-            id={String(item)}
-            checked={item > 0 ? !checked : checked}
-          />
-        </StyledMargin>
+        <SwitchController
+          {...props}
+          id={String(item)}
+          checked={item > 0 ? !checked : checked}
+        />
       ))}
     </Stack>
   );
