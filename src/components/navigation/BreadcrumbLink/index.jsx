@@ -21,9 +21,11 @@ const BreadcrumbLink = (props) => {
   const transformedTypos = typos.includes(typo) ? typo : defaultTypo;
 
   return (
-    <StyledContainerLink isActive={isActive} id={id} onClick={handleClick}>
+    <StyledContainerLink id={id} onClick={handleClick}>
       <Label htmlFor={id} typo={transformedTypos}>
-        <StyledBreadcrumbLink to={path}>{label}</StyledBreadcrumbLink>
+        <StyledBreadcrumbLink to={path} isActive={isActive}>
+          {label}
+        </StyledBreadcrumbLink>
       </Label>
     </StyledContainerLink>
   );

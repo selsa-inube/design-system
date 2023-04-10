@@ -13,7 +13,6 @@ const StyledBreadcrumbLink = styled(Link)`
   color: ${({ isActive }) =>
     isActive ? colors.sys.text.dark : colors.sys.text.secondary};
   &:hover {
-    color: ${colors.sys.text.secondary};
     text-decoration: underline;
     text-decoration-color: ${colors.sys.actions.secondary.stroke};
   }
