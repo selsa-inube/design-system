@@ -5,14 +5,14 @@ import { Label } from "../../inputs/Label";
 
 import { StyledContainerLink, StyledBreadcrumbLink } from "./styles";
 
-export const typos = ["labelLarge", "labelMedium", "labelSmall"];
+const typos = ["labelLarge", "labelMedium", "labelSmall"];
 const defaultTypo = "labelLarge";
 
-export const BreadcrumbLink = (props) => {
+const BreadcrumbLink = (props) => {
   const {
     isActive = false,
     label,
-    destinationPath,
+    path,
     id,
     typo = defaultTypo,
     handleClick,
@@ -23,9 +23,7 @@ export const BreadcrumbLink = (props) => {
   return (
     <StyledContainerLink isActive={isActive} id={id} onClick={handleClick}>
       <Label htmlFor={id} typo={transformedTypos}>
-        <StyledBreadcrumbLink to={destinationPath}>
-          {label}
-        </StyledBreadcrumbLink>
+        <StyledBreadcrumbLink to={path}>{label}</StyledBreadcrumbLink>
       </Label>
     </StyledContainerLink>
   );
@@ -34,8 +32,10 @@ export const BreadcrumbLink = (props) => {
 BreadcrumbLink.propTypes = {
   isActive: PropTypes.bool,
   label: PropTypes.string.isRequired,
-  destinationPath: PropTypes.string.isRequired,
+  path: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   typo: PropTypes.oneOf(typos),
-  handleClick: PropTypes.func.isRequired,
+  handleClick: PropTypes.func,
 };
+
+export { BreadcrumbLink, typos };
