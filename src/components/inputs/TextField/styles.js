@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { colors } from "../../../shared/colors/colors";
-import { Stack } from "../../layouts/Stack";
 
 const sizeOptions = {
   compact: {
@@ -112,7 +111,6 @@ const StyledInput = styled.input`
   background-color: ${colors.ref.palette.neutral.n10};
   ${({ iconBefore, iconAfter }) => getPadding(iconBefore, iconAfter)}
   width: ${({ isFullWidth }) => (isFullWidth ? "calc(100% - 32px)" : "252px")};
-  max-width: ${({ isFullWidth }) => (isFullWidth ? "none" : "fit-content")};
   ${({ size }) => sizeOptions[size]};
   border: none;
 

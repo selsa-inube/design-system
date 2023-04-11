@@ -38,9 +38,7 @@ const TextFieldComponent = (args) => {
   return (
     <Stack justifyContent="space-evenly">
       {sizes.map((size) => (
-        <div>
-          <TextFieldController {...args} key={size} size={size} />
-        </div>
+        <TextFieldController {...args} key={size} size={size} />
       ))}
     </Stack>
   );
