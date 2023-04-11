@@ -1,3 +1,17 @@
+# v1.0.0 (Mon Apr 10 2023)
+
+#### 🐛 Bug Fix
+
+- <Button /> should have a width to fit the content if isFullWidth is false [#88](https://github.com/selsa-inube/design-system/pull/88) ([@Andresbl123](https://github.com/Andresbl123))
+- Fc/release/0.10.0 [#92](https://github.com/selsa-inube/design-system/pull/92) ([@wfercanas](https://github.com/wfercanas))
+
+#### Authors: 2
+
+- Andres ([@Andresbl123](https://github.com/Andresbl123))
+- Fernando Cañas ([@wfercanas](https://github.com/wfercanas))
+
+---
+
 # v0.10.0 (Wed Apr 05 2023)
 
 #### 🚀 Enhancement
