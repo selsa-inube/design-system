@@ -3,28 +3,35 @@ import PropTypes from "prop-types";
 
 import { StyledBreadcrumbs } from "./styles";
 
-const Breadcrumbs = (props) => {
-  // const { route } = props;
-  // const crumbs = route.split("/").filter((crumb) => crumb !== "");
+import { BreadcrumbLink } from "../../navigation/BreadcrumbLink";
+import { BrowserRouter } from "react-router-dom";
 
-  // const breadcrumbItems = crumbs.reduce(
-  //   (acc, crumb, index) => {
-  //     const path = `${acc[index].path}/${crumb}`;
-  //     return [...acc, { path, crumb }];
-  //   },
-  //   [{ path: "", crumb: "Home" }]
-  // );
+const Breadcrumbs = (props) => {
+  const { route } = props;
+
+  const crumbs = route.split("/").filter((crumb) => crumb !== "");
+
+  const breadcrumbItems = crumbs.map((crumb, index) => ({
+    path: `/${crumbs.slice(0, index + 1).join("/")}`,
+    crumb: `${crumb.charAt(0).toUpperCase() + crumb.slice(1)}`,
+    isActive: index === crumbs.length - 1,
+  }));
 
   return (
     <StyledBreadcrumbs>
-      {/* <BreadcrumbItem to="/" key="home">
-        Home
-      </BreadcrumbItem>
-      {breadcrumbItems.map((item) => (
-        <BreadcrumbItem to={item.path} key={item.path}>
-          {item.crumb.charAt(0).toUpperCase() + item.crumb.slice(1)}
-        </BreadcrumbItem>
-      ))} */}
+      <BrowserRouter key="home">
+        <BreadcrumbLink path="/" id="Home" label="Home" />
+      </BrowserRouter>
+      {breadcrumbItems.map(({ path, crumb, isActive }) => (
+        <BrowserRouter key={path}>
+          <BreadcrumbLink
+            path={path}
+            id={path}
+            label={crumb}
+            isActive={isActive}
+          />
+        </BrowserRouter>
+      ))}
     </StyledBreadcrumbs>
   );
 };

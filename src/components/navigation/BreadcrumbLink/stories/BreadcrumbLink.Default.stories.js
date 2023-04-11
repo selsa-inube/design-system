@@ -30,7 +30,7 @@ export const Default = (args) => (
 );
 Default.args = {
   label: "Privileges",
-  destinationPath: "/privileges",
+  path: "/privileges",
   id: "privileges",
 };
 Default.argTypes = {
