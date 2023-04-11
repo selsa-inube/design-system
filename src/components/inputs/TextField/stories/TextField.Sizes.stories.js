@@ -3,6 +3,8 @@ import { TextFieldController } from "./TextfieldController";
 import { sizes } from "..";
 import { Stack } from "../../../layouts/Stack";
 
+import { MdSearch } from "react-icons/md";
+
 import {
   parameters,
   label,
@@ -36,8 +38,8 @@ const TextFieldComponent = (args) => {
   return (
     <Stack justifyContent="space-evenly">
       {sizes.map((size) => (
-        <div key={size}>
-          <TextFieldController {...args} size={size} />
+        <div>
+          <TextFieldController {...args} key={size} size={size} />
         </div>
       ))}
     </Stack>

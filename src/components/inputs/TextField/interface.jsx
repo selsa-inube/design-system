@@ -4,6 +4,7 @@ import { MdOutlineError, MdCheckCircle } from "react-icons/md";
 
 import { Label } from "../Label";
 import { Text } from "../../data/Text";
+import { Stack } from "../../layouts/Stack";
 
 import { getLabelState } from ".";
 
@@ -96,7 +97,7 @@ const TextFieldUI = (props) => {
 
   return (
     <StyledContainer isFullWidth={isFullWidth} isDisabled={isDisabled}>
-      <StyledContainerLabel size={size} isDisabled={isDisabled}>
+      <StyledContainerLabel wrap="wrap" size={size} isDisabled={isDisabled}>
         {label && (
           <Label
             htmlFor={id}

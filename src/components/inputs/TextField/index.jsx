@@ -40,7 +40,7 @@ const TextField = (props) => {
     state = "pending",
     errorMessage,
     validMessage,
-    size,
+    size = "wide",
     isFullWidth = false,
     handleFocus,
     handleBlur,

@@ -1,9 +1,10 @@
 import styled from "styled-components";
 import { colors } from "../../../shared/colors/colors";
+import { Stack } from "../../layouts/Stack";
 
 const sizeOptions = {
   compact: {
-    height: "40px",
+    height: "27px",
   },
   wide: {
     height: "48px",
@@ -15,8 +16,12 @@ const getGrid = (iconBefore, iconAfter) => {
     return "auto 1fr auto";
   }
 
-  if (iconBefore || iconAfter) {
+  if (iconBefore && !iconAfter) {
     return "auto 1fr";
+  }
+
+  if (!iconBefore && iconAfter) {
+    return "1fr auto";
   }
 
   return "1fr";
@@ -24,7 +29,7 @@ const getGrid = (iconBefore, iconAfter) => {
 
 const getColors = (isDisabled, state, isFocused) => {
   if (isDisabled) {
-    return colors.ref.palette.neutral.n60;
+    return colors.ref.palette.neutral.n70;
   }
 
   if (state === "invalid") {
@@ -39,7 +44,7 @@ const getColors = (isDisabled, state, isFocused) => {
 
 const getIsDisabled = (isDisabled, state) => {
   if (isDisabled) {
-    return colors.ref.palette.neutral.n60;
+    return colors.ref.palette.neutral.n70;
   }
 
   if (state === "valid") {
@@ -69,17 +74,12 @@ const getPadding = (iconBefore, iconAfter) => {
 };
 
 const StyledContainer = styled.div`
-  display: grid;
-  grid-template-rows: auto 1fr;
   cursor: ${({ isDisabled }) => isDisabled && "not-allowed"};
-  width: ${({ isFullWidth }) =>
-    isFullWidth === true ? "100%" : "fit-content"};
+  width: ${({ isFullWidth }) => (isFullWidth ? "100%" : "fit-content")};
 `;
 
 const StyledContainerLabel = styled.div`
   display: flex;
-  align-items: center;
-  padding-bottom: 5px;
   padding-left: 16px;
   pointer-events: ${({ isDisabled }) => isDisabled && "none"};
 
@@ -107,11 +107,12 @@ const StyledInput = styled.input`
   font-size: 14px;
   outline: none;
   border-radius: 8px;
-  color: ${colors.sys.text.dark};
+  color: ${({ isDisabled }) =>
+    isDisabled ? colors.ref.palette.neutral.n70 : colors.sys.text.dark};
   background-color: ${colors.ref.palette.neutral.n10};
   ${({ iconBefore, iconAfter }) => getPadding(iconBefore, iconAfter)}
-  width: ${({ isFullWidth }) => (isFullWidth === true ? "100%" : "252px")};
-  max-width: ${({ isFullWidth }) => (isFullWidth === true ? "none" : "auto")};
+  width: ${({ isFullWidth }) => (isFullWidth ? "calc(100% - 32px)" : "252px")};
+  max-width: ${({ isFullWidth }) => (isFullWidth ? "none" : "fit-content")};
   ${({ size }) => sizeOptions[size]};
   border: none;
 
@@ -145,7 +146,7 @@ const StyledIcon = styled.div`
   padding-right: ${({ iconAfter }) => iconAfter && "10px"};
   height: 24px;
   width: 24px;
-  color: ${({ isDisabled }) => isDisabled && colors.ref.palette.neutral.n60};
+  color: ${({ isDisabled }) => isDisabled && colors.ref.palette.neutral.n70};
 `;
 
 const StyledErrorMessageContainer = styled.div`
