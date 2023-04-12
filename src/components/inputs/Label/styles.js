@@ -9,15 +9,17 @@ const getColorByState = (isDisabled, isFocused, isInvalid) => {
     color = colors.sys.text.disabled;
     return color;
   }
-  if (isFocused) {
-    color = colors.sys.text.primary;
-    return color;
-  }
 
   if (isInvalid) {
     color = colors.sys.text.error;
     return color;
   }
+
+  if (isFocused) {
+    color = colors.sys.text.primary;
+    return color;
+  }
+
   return color;
 };
 
