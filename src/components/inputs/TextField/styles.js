@@ -95,7 +95,7 @@ const StyledInputContainer = styled.div`
   box-sizing: border-box;
   border-radius: 8px;
   user-select: none;
-  background-color: ${colors.ref.palette.neutral.n10};
+  background: ${colors.ref.palette.neutral.n10};
   grid-template-columns: ${({ iconBefore, iconAfter }) =>
     getGrid(iconBefore, iconAfter)};
   border: 1px solid
@@ -110,7 +110,7 @@ const StyledInput = styled.input`
   border-radius: 8px;
   color: ${({ isDisabled }) =>
     isDisabled ? colors.ref.palette.neutral.n70 : colors.sys.text.dark};
-  background-color: ${colors.ref.palette.neutral.n10};
+  background: ${colors.ref.palette.neutral.n10};
   ${({ iconBefore, iconAfter }) => getPadding(iconBefore, iconAfter)}
   width: ${({ isFullWidth }) => (isFullWidth ? "calc(100% - 32px)" : "252px")};
   ${({ size }) => sizeOptions[size]};
