@@ -19,5 +19,8 @@ export { Spinner } from "./components/feedback/Spinner";
 export { SkeletonLine } from "./components/feedback/SkeletonLine";
 export { SkeletonIcon } from "./components/feedback/SkeletonIcon";
 
+// navigation
+export { Breadcrumbs } from "./components/navigation/Breadcrumbs";
+
 //  hooks
 export { useMediaQuery } from "./hooks/useMediaQuery";
