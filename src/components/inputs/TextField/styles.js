@@ -79,6 +79,8 @@ const StyledContainer = styled.div`
 
 const StyledContainerLabel = styled.div`
   display: flex;
+  align-items: center;
+  margin-bottom: 4px;
   padding-left: 16px;
   pointer-events: ${({ isDisabled }) => isDisabled && "none"};
 
