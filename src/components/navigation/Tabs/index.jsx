@@ -5,14 +5,7 @@ import { Stack } from "../../layouts/Stack";
 import { StyledTabs } from "./styles";
 
 const checkDuplicateTabIds = (tabs) => {
-  const ids = tabs.map((tab, index) => {
-    if (tab.id === undefined) {
-      console.error(
-        `The "id" property does not exist for the tab object in the index ${index}.`
-      );
-    }
-    return tab.id;
-  });
+  const ids = tabs.map((tab) => tab.id);
 
   return ids.filter((id, index) => ids.indexOf(id) !== index);
 };
