@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { typography } from "../../../shared/typography/typography";
 import { colors } from "../../../shared/colors/colors";
 
-const getColorByState = (isDisabled, isFocused, state) => {
+const getColorByState = (isDisabled, isFocused, isInvalid) => {
   let color = colors.sys.text.dark;
 
   if (isDisabled) {
@@ -14,7 +14,7 @@ const getColorByState = (isDisabled, isFocused, state) => {
     return color;
   }
 
-  if (state === "invalid") {
+  if (isInvalid) {
     color = colors.sys.text.error;
     return color;
   }
@@ -27,8 +27,8 @@ const StyledLabel = styled.label`
   font-weight: ${({ typo }) => typography.sys.typescale[typo].weight};
   letter-spacing: ${({ typo }) => typography.sys.typescale[typo].tracking};
   line-height: ${({ typo }) => typography.sys.typescale[typo].lineHeight};
-  color: ${({ isDisabled, isFocused, state }) =>
-    getColorByState(isDisabled, isFocused, state)};
+  color: ${({ isDisabled, isFocused, isInvalid }) =>
+    getColorByState(isDisabled, isFocused, isInvalid)};
 `;
 
 export { StyledLabel };

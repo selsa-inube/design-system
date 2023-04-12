@@ -3,7 +3,7 @@ import {
   parameters,
   isDisabled,
   htmlFor,
-  state,
+  isInvalid,
   typo,
   children,
 } from "./props";
@@ -14,12 +14,12 @@ const story = {
   parameters,
 };
 
-const IsFocused = ({ children, state, htmlFor, typo, isDisabled }) => {
+const IsFocused = ({ children, isInvalid, htmlFor, typo, isDisabled }) => {
   return (
     <Label
       isDisabled={isDisabled}
       isFocused={true}
-      state={state}
+      isInvalid={isInvalid}
       htmlFor={htmlFor}
       typo={typo}
     >
@@ -31,7 +31,7 @@ IsFocused.args = {
   children: "Label Text",
   isDisabled: false,
   htmlFor: "id",
-  state: "default",
+  isInvalid: false,
   typo: "labelLarge",
 };
 
@@ -39,7 +39,7 @@ IsFocused.argTypes = {
   isDisabled,
   children,
   htmlFor,
-  state,
+  isInvalid,
   typo,
 };
 

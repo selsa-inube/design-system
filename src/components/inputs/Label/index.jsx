@@ -3,21 +3,19 @@ import PropTypes from "prop-types";
 
 import { StyledLabel } from "./styles";
 
-const states = ["default", "invalid"];
-
 const typos = ["labelLarge", "labelMedium", "labelSmall"];
 
 const defaultIsDisabled = false;
 const defaultIsFocused = false;
-const defaultState = "default";
+const defaultIsInvalid = false;
 const defaultTypo = "labelLarge";
 
 const Label = (props) => {
   const {
-    isDisabled = false,
-    isFocused = false,
+    isDisabled = defaultIsDisabled,
+    isFocused = defaultIsFocused,
     htmlFor,
-    state = "default",
+    isInvalid = defaultIsInvalid,
     typo = "labelLarge",
     children,
   } = props;
@@ -28,7 +26,8 @@ const Label = (props) => {
   const transformedIsFocused =
     typeof isFocused === "boolean" ? isFocused : defaultIsFocused;
 
-  const transformedState = states.includes(state) ? state : defaultState;
+  const transformedState =
+    typeof isInvalid === "boolean" ? isInvalid : defaultIsInvalid;
 
   const transformedTypo = typos.includes(typo) ? typo : defaultTypo;
 
@@ -37,7 +36,7 @@ const Label = (props) => {
       isDisabled={transformedIsDisabled}
       isFocused={transformedIsFocused}
       htmlFor={htmlFor}
-      state={transformedState}
+      isInvalid={transformedState}
       typo={transformedTypo}
     >
       {children}
@@ -49,9 +48,9 @@ Label.propTypes = {
   isDisabled: PropTypes.bool,
   isFocused: PropTypes.bool,
   htmlFor: PropTypes.string.isRequired,
-  state: PropTypes.oneOf(states),
+  isInvalid: PropTypes.bool,
   typo: PropTypes.oneOf(typos),
   children: PropTypes.node,
 };
 
-export { Label, states, typos };
+export { Label, typos };

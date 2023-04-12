@@ -1,5 +1,5 @@
 import { Label } from "../";
-import { states } from "../";
+
 import { StyledContentStates } from "./stories.styles";
 
 import {
@@ -20,14 +20,14 @@ const story = {
 const States = ({ isDisabled, isFocused, children, typo, htmlFor }) => {
   return (
     <StyledContentStates>
-      {states.map((state) => (
+      {[false, true].map((isInvalid) => (
         <Label
           isDisabled={isDisabled}
           isFocused={isFocused}
-          state={state}
+          isInvalid={isInvalid}
           htmlFor={htmlFor}
           typo={typo}
-          key={state}
+          key={isInvalid.toString()}
         >
           {children}
         </Label>

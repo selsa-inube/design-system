@@ -1,6 +1,6 @@
 import { Label } from "..";
 
-import { parameters, isFocused, htmlFor, state } from "./props";
+import { parameters, isFocused, htmlFor, isInvalid } from "./props";
 
 const story = {
   title: "inputs/Label/IsDisabled",
@@ -8,13 +8,13 @@ const story = {
   parameters,
 };
 
-const IsDisabled = ({ isFocused, htmlFor, state, children }) => {
+const IsDisabled = ({ isFocused, htmlFor, isInvalid, children }) => {
   return (
     <Label
       isDisabled={true}
       isFocused={isFocused}
       htmlFor={htmlFor}
-      state={state}
+      isInvalid={isInvalid}
     >
       {children}
     </Label>
@@ -24,12 +24,12 @@ IsDisabled.args = {
   children: "Label Text",
   isFocused: false,
   htmlFor: "id",
-  state: "default",
+  isInvalid: false,
 };
 IsDisabled.argTypes = {
   isFocused,
   htmlFor,
-  state,
+  isInvalid,
 };
 
 export default story;
