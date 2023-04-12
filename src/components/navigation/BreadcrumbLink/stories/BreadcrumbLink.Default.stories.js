@@ -9,7 +9,6 @@ import {
   typo,
   destinationPath,
 } from "./props";
-import { BrowserRouter } from "react-router-dom";
 
 const story = {
   title: "navigation/BreadcrumbLink/Default",
@@ -23,11 +22,7 @@ const story = {
   ],
 };
 
-export const Default = (args) => (
-  <BrowserRouter>
-    <BreadcrumbLinkController {...args} />
-  </BrowserRouter>
-);
+export const Default = (args) => <BreadcrumbLinkController {...args} />;
 Default.args = {
   label: "Privileges",
   path: "/privileges",

@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import { StyledBreadcrumbs } from "./styles";
 
 import { BreadcrumbLink } from "../../navigation/BreadcrumbLink";
-import { BrowserRouter } from "react-router-dom";
 
 const Breadcrumbs = (props) => {
   const { route } = props;
@@ -19,18 +18,15 @@ const Breadcrumbs = (props) => {
 
   return (
     <StyledBreadcrumbs>
-      <BrowserRouter key="home">
-        <BreadcrumbLink path="/" id="Home" label="Home" />
-      </BrowserRouter>
+      <BreadcrumbLink key="home" path="/" id="Home" label="Home" />
       {breadcrumbItems.map(({ path, crumb, isActive }) => (
-        <BrowserRouter key={path}>
-          <BreadcrumbLink
-            path={path}
-            id={path}
-            label={crumb}
-            isActive={isActive}
-          />
-        </BrowserRouter>
+        <BreadcrumbLink
+          key={path}
+          path={path}
+          id={path}
+          label={crumb}
+          isActive={isActive}
+        />
       ))}
     </StyledBreadcrumbs>
   );

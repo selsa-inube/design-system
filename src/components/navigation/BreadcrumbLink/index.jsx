@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import { Label } from "../../inputs/Label";
-
+import { BrowserRouter } from "react-router-dom";
 import { StyledContainerLink, StyledBreadcrumbLink } from "./styles";
 
 const typos = ["labelLarge", "labelMedium", "labelSmall"];
@@ -24,13 +24,15 @@ const BreadcrumbLink = (props) => {
     typeof isActive === "boolean" ? isActive : defaultIsActive;
 
   return (
-    <StyledContainerLink id={id} onClick={handleClick}>
-      <Label htmlFor={id} typo={transformedTypos}>
-        <StyledBreadcrumbLink to={path} data-is-active={transformedIsActive}>
-          {label}
-        </StyledBreadcrumbLink>
-      </Label>
-    </StyledContainerLink>
+    <BrowserRouter>
+      <StyledContainerLink id={id} onClick={handleClick}>
+        <Label htmlFor={id} typo={transformedTypos}>
+          <StyledBreadcrumbLink to={path} data-is-active={transformedIsActive}>
+            {label}
+          </StyledBreadcrumbLink>
+        </Label>
+      </StyledContainerLink>
+    </BrowserRouter>
   );
 };
 
