@@ -1,11 +1,10 @@
 import React from "react";
+
 import { Switch } from "../index";
-
-import { StyledFlexBetween, StyledMargin } from "./stories.styles";
-
 import { SwitchController } from "./SwitchController";
-
 import { id, isDisabled, name, handleChange, label } from "./props";
+
+import { Stack } from "../../../layouts/Stack";
 
 const story = {
   title: "inputs/Switch/WithLabel",
@@ -22,17 +21,15 @@ const story = {
 const SwitchComponent = (props) => {
   const { checked } = props;
   return (
-    <StyledFlexBetween>
+    <Stack alignItems="center" justifyContent="space-evenly">
       {[0, 1].map((item) => (
-        <StyledMargin key={item}>
-          <SwitchController
-            {...props}
-            id={String(item)}
-            checked={item > 0 ? !checked : checked}
-          />
-        </StyledMargin>
+        <SwitchController
+          {...props}
+          id={String(item)}
+          checked={item > 0 ? !checked : checked}
+        />
       ))}
-    </StyledFlexBetween>
+    </Stack>
   );
 };
 

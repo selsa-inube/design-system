@@ -5,8 +5,6 @@ import { Avatar } from "../Avatar";
 import { Text } from "../Text";
 import { Stack } from "../../layouts/Stack";
 
-import { StyledUser } from "./styles";
-
 export const sizes = ["small", "large"];
 const defaultSize = "large";
 
@@ -15,7 +13,7 @@ const User = (props) => {
   const transformedSize = sizes.includes(size) ? size : defaultSize;
 
   return (
-    <StyledUser size={transformedSize}>
+    <Stack justifyContent="flex-start" alignItems="center" gap="16px">
       {transformedSize === "large" && (
         <Stack
           direction="column"
@@ -37,7 +35,7 @@ const User = (props) => {
         </Stack>
       )}
       <Avatar />
-    </StyledUser>
+    </Stack>
   );
 };
 
