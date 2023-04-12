@@ -7,20 +7,19 @@ import { StyledTabs } from "./styles";
 const checkDuplicateTabIds = (tabs) => {
   const ids = tabs.map((tab) => tab.id);
 
-  return ids.filter((id, index) => ids.indexOf(id) !== index);
+  const duplicateIds = ids.filter((id, index) => ids.indexOf(id) !== index);
+  if (duplicateIds.length > 0) {
+    return console.warn(
+      `Warning: Tab components with the same id were found: [${duplicateIds}]. Tab component ids must be unique for components to maintain their identity across updates.`
+    );
+  }
+  return false;
 };
 
 const Tabs = (props) => {
   const { tabs, handleSelectedTab, selectedTab } = props;
 
-  const duplicateIds = checkDuplicateTabIds(tabs);
-
-  if (duplicateIds.length > 0) {
-    console.warn(
-      `Warning: Tab components with the same id were found: [${duplicateIds}]. Tab component ids must be unique for components to maintain their identity across updates.`
-    );
-  }
-
+  checkDuplicateTabIds(Tabs);
   return (
     <StyledTabs>
       <Stack gap="24px">
