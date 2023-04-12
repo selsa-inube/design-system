@@ -1,11 +1,10 @@
 import React from "react";
+
 import { Switch, sizes } from "../index";
-
 import { SwitchController } from "./SwitchController";
-
-import { StyledFlexBetween } from "./stories.styles";
-
 import { id, isDisabled, name, value, checked, handleChange } from "./props";
+
+import { Stack } from "../../../layouts/Stack";
 
 const story = {
   title: "inputs/Switch/Sizes",
@@ -22,7 +21,7 @@ const story = {
 const SwitchComponent = (props) => {
   const { checked } = props;
   return (
-    <StyledFlexBetween>
+    <Stack alignItems="center" justifyContent="space-evenly">
       {sizes.map((size) => (
         <div key={size}>
           <SwitchController
@@ -32,7 +31,7 @@ const SwitchComponent = (props) => {
           />
         </div>
       ))}
-    </StyledFlexBetween>
+    </Stack>
   );
 };
 
