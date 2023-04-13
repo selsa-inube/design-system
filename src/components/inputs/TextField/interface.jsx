@@ -5,8 +5,6 @@ import { MdOutlineError, MdCheckCircle } from "react-icons/md";
 import { Label } from "../Label";
 import { Text } from "../../data/Text";
 
-import { getLabelState } from ".";
-
 import {
   StyledContainer,
   StyledContainerLabel,
@@ -94,6 +92,8 @@ const TextFieldUI = (props) => {
     handleBlur,
   } = props;
 
+  const transformedIsInvalid = state === "invalid" ? true : false;
+
   return (
     <StyledContainer isFullWidth={isFullWidth} isDisabled={isDisabled}>
       <StyledContainerLabel
@@ -107,7 +107,7 @@ const TextFieldUI = (props) => {
             htmlFor={id}
             isDisabled={isDisabled}
             isFocused={isFocused}
-            state={getLabelState(state)}
+            isInvalid={transformedIsInvalid}
             typo={getTypo(size)}
           >
             {label}
