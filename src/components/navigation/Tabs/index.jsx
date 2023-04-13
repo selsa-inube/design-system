@@ -6,7 +6,6 @@ import { StyledTabs } from "./styles";
 
 const checkDuplicateTabIds = (tabs) => {
   const ids = tabs.map((tab) => tab.id);
-
   const duplicateIds = ids.filter((id, index) => ids.indexOf(id) !== index);
   if (duplicateIds.length > 0) {
     return console.warn(
@@ -19,7 +18,8 @@ const checkDuplicateTabIds = (tabs) => {
 const Tabs = (props) => {
   const { tabs, handleSelectedTab, selectedTab } = props;
 
-  checkDuplicateTabIds(Tabs);
+  checkDuplicateTabIds(tabs);
+
   return (
     <StyledTabs>
       <Stack gap="24px">
