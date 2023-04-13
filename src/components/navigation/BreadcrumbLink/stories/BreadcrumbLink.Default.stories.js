@@ -1,6 +1,8 @@
 import React from "react";
 import { BreadcrumbLink } from "../index";
 import { BreadcrumbLinkController } from "./BreadcrumbLinkController";
+import { BrowserRouter } from "react-router-dom";
+
 import {
   id,
   isActive,
@@ -16,7 +18,9 @@ const story = {
   decorators: [
     (Story) => (
       <div style={{ margin: "3em" }}>
-        <Story />
+        <BrowserRouter>
+          <Story />
+        </BrowserRouter>
       </div>
     ),
   ],

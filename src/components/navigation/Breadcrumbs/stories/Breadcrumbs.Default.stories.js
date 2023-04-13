@@ -1,6 +1,6 @@
 import React from "react";
 import { Breadcrumbs } from "../index";
-
+import { BrowserRouter } from "react-router-dom";
 import { route } from "./props";
 
 const story = {
@@ -9,7 +9,9 @@ const story = {
   decorators: [
     (Story) => (
       <div style={{ margin: "3em" }}>
-        <Story />
+        <BrowserRouter>
+          <Story />
+        </BrowserRouter>
       </div>
     ),
   ],
