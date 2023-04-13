@@ -5,7 +5,7 @@ const StyledBreadcrumbs = styled.ul`
   margin: 0;
   & > *:not(:last-child)::after {
     content: "/";
-    margin: 0 5px;
+    margin: 0 8px;
   }
 `;
 
