@@ -17,14 +17,16 @@ const BreadcrumbMenu = (props) => {
     <StyledBreadcrumbMenu>
       <Stack direction="column" justifyContent="space-between">
         {routes.map((route, index) => (
-          <StyledBox key={route.id}>
-            <BreadcrumbLink
-              id={route.id}
-              path={route.path}
-              label={route.label}
-              isActive={index === activeRouteIndex}
-              handleClick={() => handleBreadcrumbLinkClick(index)}
-            />
+          <StyledBox>
+            <Stack alignItems="center" gap="32px" key={route.id}>
+              <BreadcrumbLink
+                id={route.id}
+                path={route.path}
+                label={route.label}
+                isActive={index === activeRouteIndex}
+                handleClick={() => handleBreadcrumbLinkClick(index)}
+              />
+            </Stack>
           </StyledBox>
         ))}
       </Stack>

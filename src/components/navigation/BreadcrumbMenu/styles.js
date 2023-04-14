@@ -8,16 +8,11 @@ const StyledBreadcrumbMenu = styled.div`
 `;
 
 const StyledBox = styled.div`
-  height: 32px;
-  transition: background-color 0.3s ease-in-out;
-
-  > * label {
-    padding: 8px 12px;
-  }
-
-  &:hover {
-    border-radius: 5px;
-    background-color: ${colors.ref.palette.neutralAlpha.n20A};
+  > * {
+    height: 32px;
+    > * label {
+      padding: 8px 12px 8px 12px;
+    }
   }
 `;
 
