@@ -9,7 +9,7 @@ const StyledTab = styled.li`
   border-bottom: ${({ isSelected, isDisabled }) =>
     isSelected &&
     !isDisabled &&
-    `2px solid ${colors.sys.actions.primary.filled}`};
+    `4px solid ${colors.sys.actions.primary.filled}`};
 
   & > label {
     cursor: ${({ isDisabled }) => (isDisabled ? "not-allowed" : "pointer")};

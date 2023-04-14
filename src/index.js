@@ -11,6 +11,9 @@ export { Switch } from "./components/inputs/Switch";
 // layouts
 export { Stack } from "./components/layouts/Stack";
 
+// navigation
+export { Tabs } from "./components/navigation/Tabs";
+
 // utils
 export { Blanket } from "./components/utils/Blanket";
 
