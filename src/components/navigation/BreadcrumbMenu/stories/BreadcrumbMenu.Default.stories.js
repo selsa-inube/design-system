@@ -28,7 +28,7 @@ Default.args = {
     { label: "Users", path: "/users", id: "users" },
     {
       label: "User edition",
-      path: "/usersEdition",
+      path: "users/edition",
       id: "usersEdition",
     },
   ],
