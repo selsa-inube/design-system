@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { Stack } from "../../layouts/Stack";
 import { BreadcrumbLink } from "../BreadcrumbLink";
@@ -7,24 +7,16 @@ import { StyledBreadcrumbMenu, StyledBox } from "./styles";
 const BreadcrumbMenu = (props) => {
   const { routes } = props;
 
-  const [activeRouteIndex, setActiveRouteIndex] = useState(-1);
-
-  const handleBreadcrumbLinkClick = (routeIndex) => {
-    setActiveRouteIndex(routeIndex);
-  };
-
   return (
     <StyledBreadcrumbMenu>
       <Stack direction="column" justifyContent="space-between">
-        {routes.map((route, index) => (
-          <StyledBox>
-            <Stack alignItems="center" gap="32px" key={route.id}>
+        {routes.map((route) => (
+          <StyledBox key={route.id}>
+            <Stack alignItems="center">
               <BreadcrumbLink
                 id={route.id}
                 path={route.path}
                 label={route.label}
-                isActive={index === activeRouteIndex}
-                handleClick={() => handleBreadcrumbLinkClick(index)}
               />
             </Stack>
           </StyledBox>
