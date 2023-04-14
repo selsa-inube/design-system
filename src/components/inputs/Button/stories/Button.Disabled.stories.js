@@ -15,6 +15,7 @@ import {
   variant,
   isFullWidth,
   handleClick,
+  path,
 } from "./props";
 
 const story = {
@@ -51,6 +52,7 @@ Disabled.args = {
   variant: "filled",
   isFullWidth: false,
   handleClick: () => {},
+  path: "/privileges",
 };
 Disabled.argTypes = {
   children,
@@ -63,6 +65,7 @@ Disabled.argTypes = {
   variant,
   isFullWidth,
   handleClick,
+  path,
 };
 
 export default story;

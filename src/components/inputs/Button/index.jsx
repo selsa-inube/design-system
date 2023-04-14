@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { StyledButton, StyledSpan, StyledIcon } from "./styles";
+import { StyledButton, StyledSpan, StyledIcon, StyledLink } from "./styles";
 import { Spinner } from "./../../feedback/Spinner";
 import { colors } from "../../../shared/colors/colors";
 
@@ -37,7 +37,7 @@ const spinnerColorHomologation = {
 const getSpinnerColor = (variant, appearance) => {
   return spinnerColorHomologation[variant][appearance];
 };
-export const types = ["text", "submit", "reset"];
+export const types = ["text", "submit", "reset", "link"];
 export const spacings = ["wide", "compact"];
 export const variants = ["filled", "outlined", "none"];
 const defaultAppearance = "primary";
@@ -45,6 +45,12 @@ const defaultType = "text";
 const defaultSpacing = "wide";
 const defaultVariant = "filled";
 const defaultSpinnerSize = "small";
+
+const LinkButton = ({ isDisabled, variant, appearance, children }) => (
+  <StyledLink isDisabled={isDisabled} variant={variant} appearance={appearance}>
+    {children}
+  </StyledLink>
+);
 
 const Button = (props) => {
   const {
@@ -59,6 +65,7 @@ const Button = (props) => {
     variant = defaultVariant,
     isFullWidth = false,
     handleClick,
+    path,
   } = props;
 
   const transformedAppearance = appearances.includes(appearance)
@@ -72,6 +79,8 @@ const Button = (props) => {
     ? variant
     : defaultVariant;
   const transformedTransparentSpinner = transformedVariant === "filled";
+
+  const shouldRenderLink = type === "link" && path;
 
   return (
     <StyledButton
@@ -98,7 +107,19 @@ const Button = (props) => {
       ) : (
         <StyledSpan isDisabled={isDisabled} variant={transformedVariant}>
           {iconBefore && <StyledIcon id="mdIcon">{iconBefore}</StyledIcon>}
-          {children}
+          {shouldRenderLink ? (
+            <LinkButton
+              to={path}
+              isDisabled={isDisabled}
+              variant={variant}
+              appearance={appearance}
+            >
+              {children}
+            </LinkButton>
+          ) : (
+            children
+          )}
+
           {iconAfter && <StyledIcon id="mdIcon">{iconAfter}</StyledIcon>}
         </StyledSpan>
       )}
@@ -118,6 +139,7 @@ Button.propTypes = {
   variant: PropTypes.oneOf(variants),
   isFullWidth: PropTypes.bool,
   handleClick: PropTypes.func,
+  path: PropTypes.string,
 };
 
 export { Button };

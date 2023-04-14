@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 import { colors } from "../../../shared/colors/colors";
 import { typography } from "../../../shared/typography/typography";
+import { Link } from "react-router-dom";
 
 const spacing = {
   compact: {
@@ -184,6 +185,7 @@ const StyledButton = styled.button`
   max-width: ${(props) => (props.isFullWidth === true ? "none" : "auto")};
   cursor: ${getPointer};
   ${(props) => spacing[props.spacing]}
+  text-decoration: none;
 
   &:hover {
     color: ${(props) => getColor({ ...props, isHover: true })};
@@ -197,4 +199,11 @@ const StyledIcon = styled.div`
   display: flex;
   align-items: center;
 `;
-export { StyledButton, StyledSpan, StyledIcon };
+
+const StyledLink = styled(Link)`
+  color: ${getColor};
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+`;
+
+export { StyledButton, StyledSpan, StyledIcon, StyledLink };

@@ -15,6 +15,7 @@ import {
   spacing,
   isFullWidth,
   handleClick,
+  path,
 } from "./props";
 
 const story = {
@@ -52,6 +53,7 @@ Variants.args = {
   spacing: "wide",
   isFullWidth: false,
   handleClick: () => {},
+  path: "/privileges",
 };
 Variants.argTypes = {
   children,
@@ -64,6 +66,7 @@ Variants.argTypes = {
   spacing,
   isFullWidth,
   handleClick,
+  path,
 };
 
 export default story;

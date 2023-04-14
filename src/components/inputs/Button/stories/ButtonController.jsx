@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "../index";
+import { BrowserRouter } from "react-router-dom";
 
 const ButtonController = (props) => {
   const [count, setCount] = useState(0);
@@ -9,7 +10,11 @@ const ButtonController = (props) => {
     console.log("handleClick: ", count);
   };
 
-  return <Button {...props} handleClick={handleClick} />;
+  return (
+    <BrowserRouter>
+      <Button {...props} handleClick={handleClick} />
+    </BrowserRouter>
+  );
 };
 
 export { ButtonController };

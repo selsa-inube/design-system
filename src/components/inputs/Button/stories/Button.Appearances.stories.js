@@ -14,6 +14,7 @@ import {
   variant,
   isFullWidth,
   handleClick,
+  path,
 } from "./props";
 
 const story = {
@@ -51,6 +52,7 @@ Appearances.args = {
   variant: "filled",
   isFullWidth: false,
   handleClick: () => {},
+  path: "/privileges",
 };
 Appearances.argTypes = {
   children,
@@ -62,6 +64,7 @@ Appearances.argTypes = {
   variant,
   isFullWidth,
   handleClick,
+  path,
 };
 
 export default story;
