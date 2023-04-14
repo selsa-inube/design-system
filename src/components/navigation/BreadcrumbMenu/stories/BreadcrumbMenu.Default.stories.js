@@ -1,7 +1,7 @@
 import React from "react";
 import { BreadcrumbMenu } from "../index";
 import { BrowserRouter } from "react-router-dom";
-// import { tabs, selectedTab, handleSelectedTab } from "./props";
+import { routes } from "./props";
 
 const story = {
   title: "navigation/BreadcrumbMenu/Default",
@@ -33,10 +33,8 @@ Default.args = {
     },
   ],
 };
-// Default.argTypes = {
-//   tabs,
-//   selectedTab,
-//   handleSelectedTab,
-// };
+Default.argTypes = {
+  routes,
+};
 
 export default story;
