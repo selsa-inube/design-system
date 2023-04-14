@@ -7,10 +7,11 @@ import { StyledContainerLink, StyledBreadcrumbLink } from "./styles";
 
 const typos = ["labelLarge", "labelMedium", "labelSmall"];
 const defaultTypo = "labelLarge";
+const defaultIsActive = false;
 
 const BreadcrumbLink = (props) => {
   const {
-    isActive = false,
+    isActive = defaultIsActive,
     label,
     path,
     id,
@@ -19,11 +20,13 @@ const BreadcrumbLink = (props) => {
   } = props;
 
   const transformedTypos = typos.includes(typo) ? typo : defaultTypo;
+  const transformedIsActive =
+    typeof isActive === "boolean" ? isActive : defaultIsActive;
 
   return (
     <StyledContainerLink id={id} onClick={handleClick}>
       <Label htmlFor={id} typo={transformedTypos}>
-        <StyledBreadcrumbLink to={path} isActive={isActive}>
+        <StyledBreadcrumbLink to={path} data-is-active={transformedIsActive}>
           {label}
         </StyledBreadcrumbLink>
       </Label>
