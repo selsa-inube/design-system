@@ -1,6 +1,8 @@
 import React from "react";
 import { BreadcrumbLink } from "../index";
 import { BreadcrumbLinkController } from "./BreadcrumbLinkController";
+import { BrowserRouter } from "react-router-dom";
+
 import {
   id,
   isActive,
@@ -9,7 +11,6 @@ import {
   typo,
   destinationPath,
 } from "./props";
-import { BrowserRouter } from "react-router-dom";
 
 const story = {
   title: "navigation/BreadcrumbLink/Default",
@@ -17,20 +18,18 @@ const story = {
   decorators: [
     (Story) => (
       <div style={{ margin: "3em" }}>
-        <Story />
+        <BrowserRouter>
+          <Story />
+        </BrowserRouter>
       </div>
     ),
   ],
 };
 
-export const Default = (args) => (
-  <BrowserRouter>
-    <BreadcrumbLinkController {...args} />
-  </BrowserRouter>
-);
+export const Default = (args) => <BreadcrumbLinkController {...args} />;
 Default.args = {
   label: "Privileges",
-  destinationPath: "/privileges",
+  path: "/privileges",
   id: "privileges",
 };
 Default.argTypes = {
