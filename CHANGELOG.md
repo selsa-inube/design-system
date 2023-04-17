@@ -1,3 +1,26 @@
+# v1.1.0 (Fri Apr 14 2023)
+
+#### 🚀 Enhancement
+
+- Create <Breadcrumbs/> [#95](https://github.com/selsa-inube/design-system/pull/95) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- Create <Tabs/> [#89](https://github.com/selsa-inube/design-system/pull/89) (cmarin@sistemasenlinea.com.co [@Andresbl123](https://github.com/Andresbl123) [@cmarin001](https://github.com/cmarin001))
+- Create <TextField /> [#55](https://github.com/selsa-inube/design-system/pull/55) ([@Andresbl123](https://github.com/Andresbl123))
+- Simplify the <Switch /> stories using <Stack /> [#93](https://github.com/selsa-inube/design-system/pull/93) ([@Andresbl123](https://github.com/Andresbl123) cmarin@sistemasenlinea.com.co)
+- Create <BreadcrumbLink/> [#90](https://github.com/selsa-inube/design-system/pull/90) (cmarin@sistemasenlinea.com.co [@Andresbl123](https://github.com/Andresbl123) [@cmarin001](https://github.com/cmarin001))
+
+#### 🐛 Bug Fix
+
+- Verify the <User /> component for It has an improper gap between the avatar and the text [#97](https://github.com/selsa-inube/design-system/pull/97) ([@Andresbl123](https://github.com/Andresbl123))
+- release v1.0.0 [#94](https://github.com/selsa-inube/design-system/pull/94) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 3
+
+- Andres ([@Andresbl123](https://github.com/Andresbl123))
+- cesar.marin (cmarin@sistemasenlinea.com.co)
+- cmarin ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v1.0.0 (Mon Apr 10 2023)
 
 #### 🐛 Bug Fix
