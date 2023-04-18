@@ -3,8 +3,6 @@ import { TextFieldController } from "./TextfieldController";
 import { sizes } from "..";
 import { Stack } from "../../../layouts/Stack";
 
-import { MdSearch } from "react-icons/md";
-
 import {
   parameters,
   label,

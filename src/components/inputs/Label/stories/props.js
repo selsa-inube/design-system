@@ -1,4 +1,4 @@
-import { states, typos } from "..";
+import { typos } from "..";
 
 const parameters = {
   docs: {
