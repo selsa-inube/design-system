@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Stack } from "../../layouts/Stack";
-import { BreadcrumbLink } from "../BreadcrumbLink";
-import { StyledBreadcrumbMenu, StyledBox } from "./styles";
+import { BreadcrumbMenuLink } from "../BreadcrumbMenuLink";
+import { StyledBreadcrumbMenu } from "./styles";
 
 const BreadcrumbMenu = (props) => {
   const { routes } = props;
@@ -11,15 +11,12 @@ const BreadcrumbMenu = (props) => {
     <StyledBreadcrumbMenu>
       <Stack direction="column" justifyContent="space-between">
         {routes.map((route) => (
-          <StyledBox key={route.id}>
-            <Stack alignItems="center">
-              <BreadcrumbLink
-                id={route.id}
-                path={route.path}
-                label={route.label}
-              />
-            </Stack>
-          </StyledBox>
+          <BreadcrumbMenuLink
+            key={route.id}
+            id={route.id}
+            path={route.path}
+            label={route.label}
+          />
         ))}
       </Stack>
     </StyledBreadcrumbMenu>

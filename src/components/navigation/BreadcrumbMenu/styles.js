@@ -7,13 +7,4 @@ const StyledBreadcrumbMenu = styled.div`
   border-radius: 5px;
 `;
 
-const StyledBox = styled.div`
-  > * {
-    height: 32px;
-    > * label {
-      padding: 8px 12px 8px 12px;
-    }
-  }
-`;
-
-export { StyledBreadcrumbMenu, StyledBox };
+export { StyledBreadcrumbMenu };
