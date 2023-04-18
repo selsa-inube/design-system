@@ -7,8 +7,7 @@ const StyledContainerEllipsis = styled.li`
 
 const StyledBreadcrumbEllipsis = styled.div`
   text-decoration: none;
-  color: ${({ "data-is-active": isActive }) =>
-    isActive ? colors.sys.text.dark : colors.sys.text.secondary};
+  color: ${colors.sys.text.secondary};
   &:hover {
     cursor: pointer;
     text-decoration: underline;

@@ -7,26 +7,15 @@ import { StyledContainerEllipsis, StyledBreadcrumbEllipsis } from "./styles";
 
 const typos = ["labelLarge", "labelSmall"];
 const defaultTypo = "labelLarge";
-const defaultIsActive = false;
 
 const BreadcrumbEllipsis = (props) => {
-  const {
-    id,
-    typo = defaultTypo,
-    handleClick,
-    isActive = defaultIsActive,
-  } = props;
+  const { id, typo = defaultTypo, handleClick } = props;
 
   const transformedTypos = typos.includes(typo) ? typo : defaultTypo;
-  const transformedIsActive =
-    typeof isActive === "boolean" ? isActive : defaultIsActive;
-
   return (
     <StyledContainerEllipsis onClick={handleClick}>
       <Label htmlFor={id} typo={transformedTypos}>
-        <StyledBreadcrumbEllipsis data-is-active={transformedIsActive}>
-          ...
-        </StyledBreadcrumbEllipsis>
+        <StyledBreadcrumbEllipsis>...</StyledBreadcrumbEllipsis>
       </Label>
     </StyledContainerEllipsis>
   );
