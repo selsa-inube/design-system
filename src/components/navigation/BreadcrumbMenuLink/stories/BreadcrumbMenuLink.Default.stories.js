@@ -1,13 +1,12 @@
 import React from "react";
-import { BreadcrumbLink } from "../index";
-import { BreadcrumbLinkController } from "./BreadcrumbLinkController";
+import { BreadcrumbMenuLink } from "../index";
 import { BrowserRouter } from "react-router-dom";
 
-import { id, isActive, handleClick, label, typo, path } from "./props";
+import { id, label, typo, path } from "./props";
 
 const story = {
-  title: "navigation/BreadcrumbLink/Default",
-  components: [BreadcrumbLink],
+  title: "navigation/BreadcrumbMenuLink/Default",
+  components: [BreadcrumbMenuLink],
   decorators: [
     (Story) => (
       <div style={{ margin: "3em" }}>
@@ -19,7 +18,7 @@ const story = {
   ],
 };
 
-export const Default = (args) => <BreadcrumbLinkController {...args} />;
+export const Default = (args) => <BreadcrumbMenuLink {...args} />;
 Default.args = {
   label: "Privileges",
   path: "/privileges",
@@ -27,8 +26,6 @@ Default.args = {
 };
 Default.argTypes = {
   id,
-  isActive,
-  handleClick,
   label,
   typo,
   path,
