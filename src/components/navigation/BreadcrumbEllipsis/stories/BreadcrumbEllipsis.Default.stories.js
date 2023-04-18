@@ -22,6 +22,19 @@ const story = {
 export const Default = (args) => <BreadcrumbEllipsisController {...args} />;
 Default.args = {
   id: "privileges",
+  routes: [
+    {
+      label: "Privileges",
+      path: "/privileges",
+      id: "privileges",
+    },
+    { label: "Users", path: "/users", id: "users" },
+    {
+      label: "User edition",
+      path: "users/edition",
+      id: "usersEdition",
+    },
+  ],
 };
 Default.argTypes = {
   id,

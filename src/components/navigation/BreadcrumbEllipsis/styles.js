@@ -10,6 +10,7 @@ const StyledBreadcrumbEllipsis = styled.div`
   color: ${({ "data-is-active": isActive }) =>
     isActive ? colors.sys.text.dark : colors.sys.text.secondary};
   &:hover {
+    cursor: pointer;
     text-decoration: underline;
     text-decoration-color: ${colors.sys.actions.secondary.stroke};
   }
