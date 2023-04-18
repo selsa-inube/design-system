@@ -26,9 +26,9 @@ const typo = {
   control: { type: "select" },
   description: "indicates the font size used in the component",
 };
-const destinationPath = {
+const path = {
   control: { type: "text" },
   description: "is the path where the BreadcrumbLink is going to navigate",
 };
 
-export { id, isActive, handleClick, label, typo, destinationPath };
+export { id, isActive, handleClick, label, typo, path };

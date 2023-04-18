@@ -3,14 +3,7 @@ import { BreadcrumbLink } from "../index";
 import { BreadcrumbLinkController } from "./BreadcrumbLinkController";
 import { BrowserRouter } from "react-router-dom";
 
-import {
-  id,
-  isActive,
-  handleClick,
-  label,
-  typo,
-  destinationPath,
-} from "./props";
+import { id, isActive, handleClick, label, typo, path } from "./props";
 
 const story = {
   title: "navigation/BreadcrumbLink/Default",
@@ -38,7 +31,7 @@ Default.argTypes = {
   handleClick,
   label,
   typo,
-  destinationPath,
+  path,
 };
 
 export default story;
