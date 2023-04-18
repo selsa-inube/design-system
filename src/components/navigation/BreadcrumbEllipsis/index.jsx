@@ -9,12 +9,12 @@ const typos = ["labelLarge", "labelSmall"];
 const defaultTypo = "labelLarge";
 
 const BreadcrumbEllipsis = (props) => {
-  const { id, typo = defaultTypo, handleClick } = props;
+  const { typo = defaultTypo, handleClick } = props;
 
   const transformedTypos = typos.includes(typo) ? typo : defaultTypo;
   return (
     <StyledContainerEllipsis onClick={handleClick}>
-      <Label htmlFor={id} typo={transformedTypos}>
+      <Label htmlFor="ellipsis" typo={transformedTypos}>
         <StyledBreadcrumbEllipsis>...</StyledBreadcrumbEllipsis>
       </Label>
     </StyledContainerEllipsis>
