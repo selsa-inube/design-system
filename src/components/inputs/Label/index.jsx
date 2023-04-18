@@ -26,7 +26,7 @@ const Label = (props) => {
   const transformedIsFocused =
     typeof isFocused === "boolean" ? isFocused : defaultIsFocused;
 
-  const transformedState =
+  const transformedIsInvalid =
     typeof isInvalid === "boolean" ? isInvalid : defaultIsInvalid;
 
   const transformedTypo = typos.includes(typo) ? typo : defaultTypo;
@@ -36,7 +36,7 @@ const Label = (props) => {
       isDisabled={transformedIsDisabled}
       isFocused={transformedIsFocused}
       htmlFor={htmlFor}
-      isInvalid={transformedState}
+      isInvalid={transformedIsInvalid}
       typo={transformedTypo}
     >
       {children}

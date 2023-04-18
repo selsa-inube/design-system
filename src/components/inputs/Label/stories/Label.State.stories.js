@@ -1,6 +1,5 @@
 import { Label } from "../";
-
-import { StyledContentStates } from "./stories.styles";
+import { Stack } from "../../../layouts/Stack";
 
 import {
   parameters,
@@ -19,7 +18,7 @@ const story = {
 
 const States = ({ isDisabled, isFocused, children, typo, htmlFor }) => {
   return (
-    <StyledContentStates>
+    <Stack justifyContent="space-evenly">
       {[false, true].map((isInvalid) => (
         <Label
           isDisabled={isDisabled}
@@ -32,7 +31,7 @@ const States = ({ isDisabled, isFocused, children, typo, htmlFor }) => {
           {children}
         </Label>
       ))}
-    </StyledContentStates>
+    </Stack>
   );
 };
 
