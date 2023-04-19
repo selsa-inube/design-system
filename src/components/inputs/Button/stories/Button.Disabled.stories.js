@@ -1,8 +1,10 @@
 import React from "react";
+import { BrowserRouter } from "react-router-dom";
+import { MdAdd } from "react-icons/md";
+
 import { Button, appearances } from "../index";
 import { ButtonController } from "./ButtonController";
 import { StyledFlex } from "./stories.styles";
-import { MdAdd } from "react-icons/md";
 
 import {
   children,
@@ -23,9 +25,11 @@ const story = {
   components: [Button],
   decorators: [
     (Story) => (
-      <div style={{ margin: "3em" }}>
-        <Story />
-      </div>
+      <BrowserRouter>
+        <div style={{ margin: "3em" }}>
+          <Story />
+        </div>
+      </BrowserRouter>
     ),
   ],
 };
@@ -51,7 +55,7 @@ Disabled.args = {
   spacing: "wide",
   variant: "filled",
   isFullWidth: false,
-  handleClick: () => {},
+  handleClick: () => console.log("clicked"),
   path: "/privileges",
 };
 Disabled.argTypes = {

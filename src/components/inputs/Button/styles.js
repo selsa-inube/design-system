@@ -1,8 +1,8 @@
-import styled from "styled-components";
+import { Link } from "react-router-dom";
+import styled, { css } from "styled-components";
 
 import { colors } from "../../../shared/colors/colors";
 import { typography } from "../../../shared/typography/typography";
-import { Link } from "react-router-dom";
 
 const spacing = {
   compact: {
@@ -160,14 +160,7 @@ function getBackgroundColor(props) {
   return backgroundColor[variant].normal[appearance].filled;
 }
 
-const StyledSpan = styled.span`
-  display: flex;
-  justify-content: space-between;
-  gap: 4px;
-  overflow: hidden;
-`;
-
-const StyledButton = styled.button`
+const containerStyles = css`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -195,15 +188,26 @@ const StyledButton = styled.button`
   }
 `;
 
-const StyledIcon = styled.div`
-  display: flex;
-  align-items: center;
+const StyledButton = styled.button`
+  ${containerStyles}
 `;
 
 const StyledLink = styled(Link)`
-  color: ${getColor};
-  text-decoration: none;
-  transition: all 0.2s ease-in-out;
+  ${containerStyles}
+  margin: 0%;
+  padding: 0%;
+`;
+
+const StyledSpan = styled.span`
+  display: flex;
+  justify-content: space-between;
+  gap: 4px;
+  overflow: hidden;
+`;
+
+const StyledIcon = styled.div`
+  display: flex;
+  align-items: center;
 `;
 
 export { StyledButton, StyledSpan, StyledIcon, StyledLink };

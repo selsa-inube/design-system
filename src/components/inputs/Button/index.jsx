@@ -34,9 +34,11 @@ const spinnerColorHomologation = {
     help: "purple",
   },
 };
+
 const getSpinnerColor = (variant, appearance) => {
   return spinnerColorHomologation[variant][appearance];
 };
+
 export const types = ["text", "submit", "reset", "link"];
 export const spacings = ["wide", "compact"];
 export const variants = ["filled", "outlined", "none"];
@@ -45,12 +47,6 @@ const defaultType = "text";
 const defaultSpacing = "wide";
 const defaultVariant = "filled";
 const defaultSpinnerSize = "small";
-
-const LinkButton = ({ isDisabled, variant, appearance, children }) => (
-  <StyledLink isDisabled={isDisabled} variant={variant} appearance={appearance}>
-    {children}
-  </StyledLink>
-);
 
 const Button = (props) => {
   const {
@@ -80,7 +76,31 @@ const Button = (props) => {
     : defaultVariant;
   const transformedTransparentSpinner = transformedVariant === "filled";
 
-  const shouldRenderLink = type === "link" && path;
+  if (type === "link" && !path) {
+    console.warn("You must provide a path to use a link button");
+  }
+
+  if (type === "link") {
+    return (
+      <StyledLink
+        to={path}
+        appearance={transformedAppearance}
+        isDisabled={isDisabled}
+        iconBefore={iconBefore}
+        iconAfter={iconAfter}
+        spacing={transformedSpacing}
+        variant={transformedVariant}
+        isFullWidth={isFullWidth}
+        onClick={handleClick}
+      >
+        <StyledSpan isDisabled={isDisabled} variant={transformedVariant}>
+          {iconBefore && <StyledIcon id="mdIcon">{iconBefore}</StyledIcon>}
+          {children}
+          {iconAfter && <StyledIcon id="mdIcon">{iconAfter}</StyledIcon>}
+        </StyledSpan>
+      </StyledLink>
+    );
+  }
 
   return (
     <StyledButton
@@ -107,19 +127,7 @@ const Button = (props) => {
       ) : (
         <StyledSpan isDisabled={isDisabled} variant={transformedVariant}>
           {iconBefore && <StyledIcon id="mdIcon">{iconBefore}</StyledIcon>}
-          {shouldRenderLink ? (
-            <LinkButton
-              to={path}
-              isDisabled={isDisabled}
-              variant={variant}
-              appearance={appearance}
-            >
-              {children}
-            </LinkButton>
-          ) : (
-            children
-          )}
-
+          {children}
           {iconAfter && <StyledIcon id="mdIcon">{iconAfter}</StyledIcon>}
         </StyledSpan>
       )}

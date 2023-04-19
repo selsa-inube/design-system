@@ -46,7 +46,7 @@ Loading.args = {
   spacing: "wide",
   variant: "filled",
   isFullWidth: false,
-  handleClick: () => {},
+  handleClick: () => console.log("clicked"),
 };
 Loading.argTypes = {
   appearance,
