@@ -1,4 +1,4 @@
-import { states, typos } from "..";
+import { typos } from "..";
 
 const parameters = {
   docs: {
@@ -29,14 +29,10 @@ const htmlFor = {
   description: "Useful to match this label with the id of a specific entry",
 };
 
-const state = {
-  options: states,
-  control: {
-    type: "radio",
-  },
+const isInvalid = {
   description: "Indicates the possible states in witch the label could be",
   table: {
-    defaultValue: { summary: "default" },
+    defaultValue: { summary: false },
   },
 };
 
@@ -50,4 +46,12 @@ const children = {
   description: "component text content",
 };
 
-export { parameters, isDisabled, isFocused, htmlFor, state, typo, children };
+export {
+  parameters,
+  isDisabled,
+  isFocused,
+  htmlFor,
+  isInvalid,
+  typo,
+  children,
+};

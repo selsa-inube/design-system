@@ -5,7 +5,7 @@ import {
   isDisabled,
   isFocused,
   htmlFor,
-  state,
+  isInvalid,
   typo,
   children,
 } from "./props";
@@ -16,15 +16,9 @@ const story = {
   parameters,
 };
 
-const Default = ({ isDisabled, isFocused, htmlFor, state, typo, children }) => {
+const Default = ({ htmlFor, typo, children }) => {
   return (
-    <Label
-      isDisabled={isDisabled}
-      isFocused={isFocused}
-      htmlFor={htmlFor}
-      state={state}
-      typo={typo}
-    >
+    <Label htmlFor={htmlFor} typo={typo}>
       {children}
     </Label>
   );
@@ -37,7 +31,7 @@ Default.argTypes = {
   isDisabled,
   isFocused,
   htmlFor,
-  state,
+  isInvalid,
   typo,
   children,
 };

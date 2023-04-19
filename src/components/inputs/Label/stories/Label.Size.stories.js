@@ -1,7 +1,7 @@
 import { Label, typos } from "..";
 import { Stack } from "../../../layouts/Stack";
 
-import { parameters, isDisabled, isFocused, htmlFor, state } from "./props";
+import { parameters, isDisabled, isFocused, htmlFor, isInvalid } from "./props";
 
 const story = {
   title: "inputs/Label/Size",
@@ -9,7 +9,7 @@ const story = {
   parameters,
 };
 
-const Size = ({ isDisabled, isFocused, htmlFor, state, children }) => {
+const Size = ({ isDisabled, isFocused, htmlFor, isInvalid, children }) => {
   return (
     <Stack
       direction="row"
@@ -22,7 +22,7 @@ const Size = ({ isDisabled, isFocused, htmlFor, state, children }) => {
           isFocused={isFocused}
           htmlFor={htmlFor}
           typo={typo}
-          state={state}
+          isInvalid={isInvalid}
           key={typo}
         >
           {children}
@@ -37,13 +37,14 @@ Size.args = {
   children: "Text Label",
   isDisabled: false,
   isFocused: false,
+  isInvalid: false,
 };
 
 Size.argTypes = {
   isDisabled,
   isFocused,
   htmlFor,
-  state,
+  isInvalid,
 };
 
 export default story;
