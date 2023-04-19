@@ -171,11 +171,11 @@ const containerStyles = css`
   border-style: solid;
   border-width: 1px;
   font-family: ${typography.ref.typeface.brand};
-  color: ${getColor};
-  background-color: ${getBackgroundColor};
-  border-color: ${getBorderColor};
   width: ${(props) => (props.isFullWidth === true ? "100%" : "fit-content")};
   max-width: ${(props) => (props.isFullWidth === true ? "none" : "auto")};
+  background-color: ${getBackgroundColor};
+  border-color: ${getBorderColor};
+
   cursor: ${getPointer};
   ${(props) => spacing[props.spacing]}
   text-decoration: none;
@@ -190,12 +190,17 @@ const containerStyles = css`
 
 const StyledButton = styled.button`
   ${containerStyles}
+
+  color: ${getColor};
 `;
 
 const StyledLink = styled(Link)`
   ${containerStyles}
   margin: 0%;
   padding: 0%;
+  color: ${({ "data-is-active": isDisabled, variant, appearance }) => getColor};
+  width: ${({ "width-is-full": isFullWidth }) =>
+    isFullWidth ? "100%" : "fit-content"};
 `;
 
 const StyledSpan = styled.span`

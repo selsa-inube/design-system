@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+
 import { StyledButton, StyledSpan, StyledIcon, StyledLink } from "./styles";
 import { Spinner } from "./../../feedback/Spinner";
 import { colors } from "../../../shared/colors/colors";
@@ -67,13 +68,17 @@ const Button = (props) => {
   const transformedAppearance = appearances.includes(appearance)
     ? appearance
     : defaultAppearance;
+
   const transformedType = types.includes(type) ? type : defaultType;
+
   const transformedSpacing = spacings.includes(spacing)
     ? spacing
     : defaultSpacing;
+
   const transformedVariant = variants.includes(variant)
     ? variant
     : defaultVariant;
+
   const transformedTransparentSpinner = transformedVariant === "filled";
 
   if (type === "link" && !path) {
@@ -85,12 +90,10 @@ const Button = (props) => {
       <StyledLink
         to={path}
         appearance={transformedAppearance}
-        isDisabled={isDisabled}
-        iconBefore={iconBefore}
-        iconAfter={iconAfter}
+        data-is-active={isDisabled}
         spacing={transformedSpacing}
         variant={transformedVariant}
-        isFullWidth={isFullWidth}
+        width-is-full={isFullWidth ? "selected" : undefined}
         onClick={handleClick}
       >
         <StyledSpan isDisabled={isDisabled} variant={transformedVariant}>
