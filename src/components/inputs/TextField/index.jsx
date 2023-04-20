@@ -12,14 +12,6 @@ const defaultIsRequired = false;
 const defaultState = "pending";
 const defaultIsFullWidth = false;
 
-const getLabelState = (state) => {
-  if (state === "invalid") {
-    return state;
-  }
-
-  return "default";
-};
-
 const TextField = (props) => {
   const {
     label,
@@ -129,4 +121,4 @@ TextFieldUI.propTypes = {
   handleBlur: PropTypes.func,
 };
 
-export { TextField, inputTypes, sizes, states, getLabelState };
+export { TextField, inputTypes, sizes, states };
