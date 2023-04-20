@@ -173,10 +173,6 @@ const containerStyles = css`
   font-family: ${typography.ref.typeface.brand};
   width: ${(props) => (props.isFullWidth === true ? "100%" : "fit-content")};
   max-width: ${(props) => (props.isFullWidth === true ? "none" : "auto")};
-  background-color: ${getBackgroundColor};
-  border-color: ${getBorderColor};
-
-  cursor: ${getPointer};
   ${(props) => spacing[props.spacing]}
   text-decoration: none;
 
@@ -190,17 +186,28 @@ const containerStyles = css`
 
 const StyledButton = styled.button`
   ${containerStyles}
-
   color: ${getColor};
+  background-color: ${getBackgroundColor};
+  border-color: ${getBorderColor};
+  cursor: ${getPointer};
 `;
 
 const StyledLink = styled(Link)`
   ${containerStyles}
   margin: 0%;
   padding: 0%;
-  color: ${({ "data-is-active": isDisabled, variant, appearance }) => getColor};
   width: ${({ "width-is-full": isFullWidth }) =>
     isFullWidth ? "100%" : "fit-content"};
+  color: ${({ "data-is-active": isDisabled, variant, appearance }) =>
+    getColor({
+      isDisabled,
+      variant,
+      appearance,
+    })};
+  background-color: ${({ "data-is-active": isDisabled, variant, appearance }) =>
+    getBackgroundColor({ isDisabled, variant, appearance })};
+  border-color: ${({ "data-is-active": isDisabled, variant, appearance }) =>
+    getBorderColor({ isDisabled, variant, appearance })};
 `;
 
 const StyledSpan = styled.span`
