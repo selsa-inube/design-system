@@ -174,19 +174,18 @@ const containerStyles = css`
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 8px;
   transition: all 0.3s ease;
+  border-radius: 8px;
   border: none;
-  border-style: solid;
+
   border-width: 1px;
+  text-decoration: none;
   font-family: ${typography.ref.typeface.brand};
   color: ${getColor};
   background-color: ${getBackgroundColor};
   border-color: ${getBorderColor};
   cursor: ${getPointer};
   width: ${getWidth};
-  ${(props) => spacing[props.spacing]}
-  text-decoration: none;
 
   &:hover {
     color: ${(props) => getColor({ ...props, isHover: true })};
@@ -197,13 +196,17 @@ const containerStyles = css`
 `;
 
 const StyledButton = styled.button`
-  ${containerStyles}
   padding: 0px 16px;
+  ${containerStyles}
+  border-style: ${(props) => (props.type !== "link" ? "solid" : "none")};
+  ${(props) => spacing[props.spacing]}
 `;
 
 const StyledLink = styled(Link)`
   margin: 0%;
   padding: 0%;
+  ${containerStyles}
+  border-style: ${(props) => (props.type === "link" ? "solid" : "none")};
 `;
 
 const StyledSpan = styled.span`

@@ -87,7 +87,13 @@ const Button = (props) => {
 
   if (type === "link") {
     return (
-      <StyledLink to={path}>
+      <StyledLink
+        to={path}
+        isdisabled={+isdisabled}
+        variant={transformedVariant}
+        appearance={transformedAppearance}
+        isfullwidth={+isfullwidth}
+      >
         <StyledButton
           appearance={transformedAppearance}
           isdisabled={isdisabled}
