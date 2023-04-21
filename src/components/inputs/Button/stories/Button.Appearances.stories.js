@@ -9,12 +9,12 @@ import { StyledFlex } from "./stories.styles";
 import {
   children,
   isLoading,
-  isDisabled,
+  isdisabled,
   iconAfter,
   type,
   spacing,
   variant,
-  isFullWidth,
+  isfullwidth,
   handleClick,
   path,
 } from "./props";
@@ -49,24 +49,24 @@ export const Appearances = (args) => <ButtonComponent {...args} />;
 Appearances.args = {
   children: "Button",
   isLoading: false,
-  isDisabled: false,
+  isdisabled: false,
   iconBefore: <MdAdd />,
   type: "text",
   spacing: "wide",
   variant: "filled",
-  isFullWidth: false,
+  isfullwidth: false,
   handleClick: () => console.log("clicked"),
   path: "/privileges",
 };
 Appearances.argTypes = {
   children,
   isLoading,
-  isDisabled,
+  isdisabled,
   iconAfter,
   type,
   spacing,
   variant,
-  isFullWidth,
+  isfullwidth,
   handleClick,
   path,
 };

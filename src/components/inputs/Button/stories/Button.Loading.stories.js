@@ -1,15 +1,17 @@
 import React from "react";
+import { BrowserRouter } from "react-router-dom";
+
 import { Button, variants } from "../index";
 import { ButtonController } from "./ButtonController";
 import { StyledFlex } from "./stories.styles";
 
 import {
   appearance,
-  isDisabled,
+  isdisabled,
   type,
   spacing,
   variant,
-  isFullWidth,
+  isfullwidth,
   handleClick,
 } from "./props";
 
@@ -18,9 +20,11 @@ const story = {
   components: [Button],
   decorators: [
     (Story) => (
-      <div style={{ margin: "3em" }}>
-        <Story />
-      </div>
+      <BrowserRouter>
+        <div style={{ margin: "3em" }}>
+          <Story />
+        </div>
+      </BrowserRouter>
     ),
   ],
 };
@@ -41,20 +45,20 @@ export const Loading = (args) => <ButtonComponent {...args} />;
 Loading.args = {
   children: "Button",
   appearance: "primary",
-  isDisabled: false,
+  isdisabled: false,
   type: "text",
   spacing: "wide",
   variant: "filled",
-  isFullWidth: false,
+  isfullwidth: false,
   handleClick: () => console.log("clicked"),
 };
 Loading.argTypes = {
   appearance,
-  isDisabled,
+  isdisabled,
   type,
   spacing,
   variant,
-  isFullWidth,
+  isfullwidth,
   handleClick,
 };
 

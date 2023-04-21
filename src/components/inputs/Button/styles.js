@@ -97,9 +97,9 @@ const borderColors = {
 };
 
 const getPointer = (props) => {
-  const { isDisabled, isLoading } = props;
+  const { isdisabled, isLoading } = props;
 
-  if (isDisabled) {
+  if (isdisabled) {
     return cursors.notAllowed;
   }
 
@@ -111,9 +111,9 @@ const getPointer = (props) => {
 };
 
 const getColor = (props) => {
-  const { isDisabled, variant, appearance, isHover } = props;
+  const { isdisabled, variant, appearance, isHover } = props;
 
-  if (isDisabled) {
+  if (isdisabled) {
     return textColors[variant].normal.disabled;
   }
 
@@ -125,13 +125,13 @@ const getColor = (props) => {
 };
 
 const getBorderColor = (props) => {
-  const { isDisabled, variant, appearance, isHover } = props;
+  const { isdisabled, variant, appearance, isHover } = props;
 
   if (variant !== "outlined") {
     return borderColors[variant];
   }
 
-  if (isDisabled) {
+  if (isdisabled) {
     return borderColors[variant].normal.disabled.stroke;
   }
 
@@ -143,13 +143,13 @@ const getBorderColor = (props) => {
 };
 
 function getBackgroundColor(props) {
-  const { isDisabled, variant, appearance, isHover } = props;
+  const { isdisabled, variant, appearance, isHover } = props;
 
   if (variant !== "filled") {
     return backgroundColor[variant];
   }
 
-  if (isDisabled) {
+  if (isdisabled) {
     return backgroundColor[variant].normal.disabled.filled;
   }
 
@@ -160,19 +160,31 @@ function getBackgroundColor(props) {
   return backgroundColor[variant].normal[appearance].filled;
 }
 
+function getWidth(props) {
+  const { isfullwidth } = props;
+
+  if (isfullwidth) {
+    return "100%";
+  }
+
+  return "fit-content";
+}
+
 const containerStyles = css`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0px 16px;
   border-radius: 8px;
   transition: all 0.3s ease;
   border: none;
   border-style: solid;
   border-width: 1px;
   font-family: ${typography.ref.typeface.brand};
-  width: ${(props) => (props.isFullWidth === true ? "100%" : "fit-content")};
-  max-width: ${(props) => (props.isFullWidth === true ? "none" : "auto")};
+  color: ${getColor};
+  background-color: ${getBackgroundColor};
+  border-color: ${getBorderColor};
+  cursor: ${getPointer};
+  width: ${getWidth};
   ${(props) => spacing[props.spacing]}
   text-decoration: none;
 
@@ -186,28 +198,12 @@ const containerStyles = css`
 
 const StyledButton = styled.button`
   ${containerStyles}
-  color: ${getColor};
-  background-color: ${getBackgroundColor};
-  border-color: ${getBorderColor};
-  cursor: ${getPointer};
+  padding: 0px 16px;
 `;
 
 const StyledLink = styled(Link)`
-  ${containerStyles}
   margin: 0%;
   padding: 0%;
-  width: ${({ "width-is-full": isFullWidth }) =>
-    isFullWidth ? "100%" : "fit-content"};
-  color: ${({ "data-is-active": isDisabled, variant, appearance }) =>
-    getColor({
-      isDisabled,
-      variant,
-      appearance,
-    })};
-  background-color: ${({ "data-is-active": isDisabled, variant, appearance }) =>
-    getBackgroundColor({ isDisabled, variant, appearance })};
-  border-color: ${({ "data-is-active": isDisabled, variant, appearance }) =>
-    getBorderColor({ isDisabled, variant, appearance })};
 `;
 
 const StyledSpan = styled.span`

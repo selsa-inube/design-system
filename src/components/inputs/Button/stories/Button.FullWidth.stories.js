@@ -10,7 +10,7 @@ import {
   children,
   isLoading,
   appearance,
-  isDisabled,
+  isdisabled,
   iconBefore,
   iconAfter,
   type,
@@ -37,7 +37,7 @@ const story = {
 const ButtonComponent = (props) => {
   return (
     <StyledFlex>
-      <ButtonController {...props} isFullWidth={true} />
+      <ButtonController {...props} isfullwidth={true} />
     </StyledFlex>
   );
 };
@@ -47,7 +47,7 @@ FullWidth.args = {
   children: "Button",
   appearance: "primary",
   isLoading: false,
-  isDisabled: false,
+  isdisabled: false,
   iconBefore: <MdAdd />,
   type: "text",
   spacing: "wide",
@@ -59,7 +59,7 @@ FullWidth.argTypes = {
   children,
   isLoading,
   appearance,
-  isDisabled,
+  isdisabled,
   iconBefore,
   iconAfter,
   type,

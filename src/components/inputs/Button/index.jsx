@@ -54,13 +54,13 @@ const Button = (props) => {
     children,
     appearance = defaultAppearance,
     isLoading = false,
-    isDisabled = false,
+    isdisabled = false,
     iconBefore,
     iconAfter,
     type = defaultType,
     spacing = defaultSpacing,
     variant = defaultVariant,
-    isFullWidth = false,
+    isfullwidth = false,
     handleClick,
     path,
   } = props;
@@ -87,20 +87,21 @@ const Button = (props) => {
 
   if (type === "link") {
     return (
-      <StyledLink
-        to={path}
-        appearance={transformedAppearance}
-        data-is-active={isDisabled}
-        spacing={transformedSpacing}
-        variant={transformedVariant}
-        width-is-full={isFullWidth ? "selected" : undefined}
-        onClick={handleClick}
-      >
-        <StyledSpan isDisabled={isDisabled} variant={transformedVariant}>
-          {iconBefore && <StyledIcon id="mdIcon">{iconBefore}</StyledIcon>}
-          {children}
-          {iconAfter && <StyledIcon id="mdIcon">{iconAfter}</StyledIcon>}
-        </StyledSpan>
+      <StyledLink to={path}>
+        <StyledButton
+          appearance={transformedAppearance}
+          isdisabled={isdisabled}
+          spacing={transformedSpacing}
+          variant={transformedVariant}
+          isfullwidth={isfullwidth}
+          onClick={handleClick}
+        >
+          <StyledSpan isdisabled={isdisabled} variant={transformedVariant}>
+            {iconBefore && <StyledIcon id="mdIcon">{iconBefore}</StyledIcon>}
+            {children}
+            {iconAfter && <StyledIcon id="mdIcon">{iconAfter}</StyledIcon>}
+          </StyledSpan>
+        </StyledButton>
       </StyledLink>
     );
   }
@@ -109,16 +110,16 @@ const Button = (props) => {
     <StyledButton
       appearance={transformedAppearance}
       isLoading={isLoading}
-      isDisabled={isDisabled}
+      isdisabled={isdisabled}
       iconBefore={iconBefore}
       iconAfter={iconAfter}
       type={transformedType}
       spacing={transformedSpacing}
       variant={transformedVariant}
-      isFullWidth={isFullWidth}
+      isfullwidth={isfullwidth}
       onClick={handleClick}
     >
-      {isLoading && !isDisabled ? (
+      {isLoading && !isdisabled ? (
         <Spinner
           appearance={getSpinnerColor(
             transformedVariant,
@@ -128,7 +129,7 @@ const Button = (props) => {
           size={defaultSpinnerSize}
         />
       ) : (
-        <StyledSpan isDisabled={isDisabled} variant={transformedVariant}>
+        <StyledSpan isdisabled={isdisabled} variant={transformedVariant}>
           {iconBefore && <StyledIcon id="mdIcon">{iconBefore}</StyledIcon>}
           {children}
           {iconAfter && <StyledIcon id="mdIcon">{iconAfter}</StyledIcon>}
@@ -142,13 +143,13 @@ Button.propTypes = {
   children: PropTypes.node,
   appearance: PropTypes.oneOf(appearances),
   isLoading: PropTypes.bool,
-  isDisabled: PropTypes.bool,
+  isdisabled: PropTypes.bool,
   iconBefore: PropTypes.element,
   iconAfter: PropTypes.element,
   type: PropTypes.oneOf(types),
   spacing: PropTypes.oneOf(spacings),
   variant: PropTypes.oneOf(variants),
-  isFullWidth: PropTypes.bool,
+  isfullwidth: PropTypes.bool,
   handleClick: PropTypes.func,
   path: PropTypes.string,
 };
