@@ -1,17 +1,5 @@
 import { typos } from "..";
-const id = {
-  control: { type: "text" },
-  description: "shall be the id for the text",
-};
-const isActive = {
-  options: [true, false],
-  control: { type: "boolean" },
-  description:
-    "if the switch is disabled or not. This prevents any interaction.",
-  table: {
-    defaultValue: { summary: "false" },
-  },
-};
+
 const handleClick = {
   options: ["logState"],
   control: { type: "func" },
@@ -25,5 +13,16 @@ const typo = {
     defaultValue: { summary: "labelLarge" },
   },
 };
-
-export { id, isActive, handleClick, typo };
+const routes = {
+  description:
+    "The breadcrumb-component will utilize this routes for display, and consequently, it can be employed to locate the source of breadcrumbLinks present within this component.",
+  table: {
+    defaultValue: {
+      summary: `This structure must be present [{
+         label: "",
+        path: "",
+        id: ""}]`,
+    },
+  },
+};
+export { handleClick, typo, routes };

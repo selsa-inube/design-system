@@ -1,9 +1,8 @@
 import React from "react";
 import { BreadcrumbEllipsis } from "../index";
-import { BreadcrumbEllipsisController } from "./BreadcrumbEllipsisController";
 import { BrowserRouter } from "react-router-dom";
 
-import { id, isActive, handleClick, typo } from "./props";
+import { routes, typo } from "./props";
 
 const story = {
   title: "navigation/BreadcrumbEllipsis/Default",
@@ -19,9 +18,8 @@ const story = {
   ],
 };
 
-export const Default = (args) => <BreadcrumbEllipsisController {...args} />;
+export const Default = (args) => <BreadcrumbEllipsis {...args} />;
 Default.args = {
-  id: "privileges",
   routes: [
     {
       label: "Privileges",
@@ -37,9 +35,7 @@ Default.args = {
   ],
 };
 Default.argTypes = {
-  id,
-  isActive,
-  handleClick,
+  routes,
   typo,
 };
 
