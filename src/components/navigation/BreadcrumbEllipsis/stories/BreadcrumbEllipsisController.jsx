@@ -3,20 +3,16 @@ import { BreadcrumbEllipsis } from "../index";
 import { BreadcrumbMenu } from "../../BreadcrumbMenu";
 
 const BreadcrumbEllipsisController = (props) => {
-  const [isActive, setIsActive] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
 
-  const handleClickTab = () => {
-    setIsActive(!isActive);
+  const handleEllipsisClick = () => {
+    setShowMenu(!showMenu);
   };
 
   return (
     <>
-      <BreadcrumbEllipsis
-        {...props}
-        isActive={isActive}
-        handleClick={handleClickTab}
-      />
-      {isActive && <BreadcrumbMenu routes={props.routes} />}
+      <BreadcrumbEllipsis {...props} handleClick={handleEllipsisClick} />
+      {showMenu && <BreadcrumbMenu routes={props.routes} />}
     </>
   );
 };

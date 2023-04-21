@@ -24,7 +24,6 @@ const BreadcrumbEllipsis = (props) => {
 BreadcrumbEllipsis.propTypes = {
   id: PropTypes.string.isRequired,
   typo: PropTypes.oneOf(typos),
-  isActive: PropTypes.bool,
   handleClick: PropTypes.func,
 };
 
