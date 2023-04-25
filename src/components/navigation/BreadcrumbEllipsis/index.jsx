@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import { Label } from "../../inputs/Label";
 import { BreadcrumbMenu } from "../../navigation/BreadcrumbMenu";
@@ -13,13 +13,32 @@ const BreadcrumbEllipsis = (props) => {
   const [showMenu, setShowMenu] = useState(false);
   const transformedTypos = typos.includes(typo) ? typo : defaultTypo;
 
+  const containerRef = useRef(null);
+
   const handleEllipsisClick = () => {
     setShowMenu(!showMenu);
   };
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        containerRef.current &&
+        !containerRef.current.contains(event.target)
+      ) {
+        setShowMenu(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [containerRef]);
+
   return (
     <>
-      <StyledContainerEllipsis onClick={handleEllipsisClick}>
+      <StyledContainerEllipsis ref={containerRef} onClick={handleEllipsisClick}>
         <Label
           htmlFor="ellipsis"
           typo={typos.includes(typo) ? typo : transformedTypos}
