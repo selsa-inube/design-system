@@ -22,7 +22,7 @@ const Default = (args) => <MenuLinkController {...args} />;
 
 Default.args = {
   label: "Privileges",
-  isDisabled: false,
+  isdisabled: false,
 
   icon: <MdAssignmentLate />,
 };

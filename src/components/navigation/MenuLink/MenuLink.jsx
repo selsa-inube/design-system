@@ -1,23 +1,50 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyledMenuLink, StyledLink, StyledIcon } from "./styles";
 import { MdKeyboardArrowRight } from "react-icons/md";
 
 const MenuLink = (props) => {
-  const { isDisabled, isSelected, path, id, handleClick, icon, label } = props;
+  const {
+    isdisabled,
+    isSelected = false,
+    path,
+    id,
+    handleClick,
+    icon,
+    label,
+    handleBlur,
+  } = props;
+
+  const [selected, setSelected] = useState(isSelected);
+
+  const handleSelect = (e) => {
+    setSelected(true);
+    if (typeof handleClick === "function") {
+      handleClick(e);
+    }
+  };
+
+  const interceptBlur = (e) => {
+    setSelected(false);
+
+    if (typeof handleBlur === "function") {
+      handleBlur(e);
+    }
+  };
 
   return (
     <StyledMenuLink
-      isDisabled={isDisabled}
-      isSelected={isSelected}
+      isdisabled={isdisabled}
+      isSelected={selected}
       id={id}
-      onClick={handleClick}
+      onClick={handleSelect}
       $icon={icon}
+      onBlur={interceptBlur}
     >
-      {icon && <StyledIcon isDisabled={isDisabled}>{icon}</StyledIcon>}
-      <StyledLink to={path} isDisabled={isDisabled}>
+      {icon && <StyledIcon isdisabled={isdisabled}>{icon}</StyledIcon>}
+      <StyledLink to={path} isdisabled={+isdisabled}>
         {label}
       </StyledLink>
-      {isSelected && <MdKeyboardArrowRight isDisabled={isDisabled} />}
+      <MdKeyboardArrowRight isdisabled={+isdisabled} />
     </StyledMenuLink>
   );
 };

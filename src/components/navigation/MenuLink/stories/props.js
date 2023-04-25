@@ -1,4 +1,4 @@
-const isDisabled = {
+const isdisabled = {
   description:
     "shall be determine if the tab is disabled (by Default is false) and is not required.",
   table: {
@@ -38,4 +38,4 @@ const label = {
     "shall constitute the content to be displayed within the MenuLink-component and is required",
 };
 
-export { isDisabled, isSelected, path, id, handleClick, icons, label };
+export { isdisabled, isSelected, path, id, handleClick, icons, label };
