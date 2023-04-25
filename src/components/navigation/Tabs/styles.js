@@ -6,6 +6,7 @@ const StyledTabs = styled.div`
   white-space: nowrap;
   width: 100%;
   border-bottom: 2px solid ${colors.ref.palette.neutral.n40};
+  padding-left: 1.5rem;
 `;
 
 export { StyledTabs };
