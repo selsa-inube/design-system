@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { MenuLink } from "../MenuLink";
+import { MenuLink } from "..";
 import { StyledList } from "./styled";
 
 const MenuLinkController = (props) => {

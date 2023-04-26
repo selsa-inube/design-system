@@ -1,5 +1,5 @@
 import { BrowserRouter } from "react-router-dom";
-import { MenuLink } from "../MenuLink";
+import { MenuLink } from "..";
 import { MenuLinkController } from "./MenuLink.Controller";
 
 import { MdAssignmentLate } from "react-icons/md";
