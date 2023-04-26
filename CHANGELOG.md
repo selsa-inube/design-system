@@ -1,16 +1,40 @@
+# v2.0.0 (Mon Apr 24 2023)
+
+#### 💥 Breaking Change
+
+- Sync Label and TextField so there is no state homologation [#98](https://github.com/selsa-inube/design-system/pull/98) ([@Andresbl123](https://github.com/Andresbl123))
+
+#### 🚀 Enhancement
+
+- Create `<BreadcrumbMenu/>` [#99](https://github.com/selsa-inube/design-system/pull/99) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+
+#### 🐛 Bug Fix
+
+- Remove pointer-events: none from `Blanket` [#107](https://github.com/selsa-inube/design-system/pull/107) ([@Andresbl123](https://github.com/Andresbl123))
+- Export the `TextField` from the library [#106](https://github.com/selsa-inube/design-system/pull/106) ([@Andresbl123](https://github.com/Andresbl123))
+- release v1.1.0 [#102](https://github.com/selsa-inube/design-system/pull/102) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 3
+
+- Andres ([@Andresbl123](https://github.com/Andresbl123))
+- cesar.marin (cmarin@sistemasenlinea.com.co)
+- cmarin ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v1.1.0 (Fri Apr 14 2023)
 
 #### 🚀 Enhancement
 
-- Create <Breadcrumbs/> [#95](https://github.com/selsa-inube/design-system/pull/95) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
-- Create <Tabs/> [#89](https://github.com/selsa-inube/design-system/pull/89) (cmarin@sistemasenlinea.com.co [@Andresbl123](https://github.com/Andresbl123) [@cmarin001](https://github.com/cmarin001))
-- Create <TextField /> [#55](https://github.com/selsa-inube/design-system/pull/55) ([@Andresbl123](https://github.com/Andresbl123))
-- Simplify the <Switch /> stories using <Stack /> [#93](https://github.com/selsa-inube/design-system/pull/93) ([@Andresbl123](https://github.com/Andresbl123) cmarin@sistemasenlinea.com.co)
-- Create <BreadcrumbLink/> [#90](https://github.com/selsa-inube/design-system/pull/90) (cmarin@sistemasenlinea.com.co [@Andresbl123](https://github.com/Andresbl123) [@cmarin001](https://github.com/cmarin001))
+- Create `<Breadcrumbs/>` [#95](https://github.com/selsa-inube/design-system/pull/95) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- Create `<Tabs/>` [#89](https://github.com/selsa-inube/design-system/pull/89) (cmarin@sistemasenlinea.com.co [@Andresbl123](https://github.com/Andresbl123) [@cmarin001](https://github.com/cmarin001))
+- Create `<TextField />` [#55](https://github.com/selsa-inube/design-system/pull/55) ([@Andresbl123](https://github.com/Andresbl123))
+- Simplify the `<Switch />` stories using `<Stack />` [#93](https://github.com/selsa-inube/design-system/pull/93) ([@Andresbl123](https://github.com/Andresbl123) cmarin@sistemasenlinea.com.co)
+- Create `<BreadcrumbLink/>` [#90](https://github.com/selsa-inube/design-system/pull/90) (cmarin@sistemasenlinea.com.co [@Andresbl123](https://github.com/Andresbl123) [@cmarin001](https://github.com/cmarin001))
 
 #### 🐛 Bug Fix
 
-- Verify the <User /> component for It has an improper gap between the avatar and the text [#97](https://github.com/selsa-inube/design-system/pull/97) ([@Andresbl123](https://github.com/Andresbl123))
+- Verify the `<User />` component for It has an improper gap between the avatar and the text [#97](https://github.com/selsa-inube/design-system/pull/97) ([@Andresbl123](https://github.com/Andresbl123))
 - release v1.0.0 [#94](https://github.com/selsa-inube/design-system/pull/94) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
 
 #### Authors: 3
@@ -25,7 +49,7 @@
 
 #### 🐛 Bug Fix
 
-- <Button /> should have a width to fit the content if isFullWidth is false [#88](https://github.com/selsa-inube/design-system/pull/88) ([@Andresbl123](https://github.com/Andresbl123))
+- `<Button />` should have a width to fit the content if isFullWidth is false [#88](https://github.com/selsa-inube/design-system/pull/88) ([@Andresbl123](https://github.com/Andresbl123))
 - Fc/release/0.10.0 [#92](https://github.com/selsa-inube/design-system/pull/92) ([@wfercanas](https://github.com/wfercanas))
 
 #### Authors: 2
@@ -42,16 +66,16 @@
 - Validate iconBefore or iconAfter in Button before rendering JSX [#83](https://github.com/selsa-inube/design-system/pull/83) ([@Andresbl123](https://github.com/Andresbl123))
 - Blanket should have a named export, not a default export [#77](https://github.com/selsa-inube/design-system/pull/77) ([@Andresbl123](https://github.com/Andresbl123))
 - cm/ids30/tab [#68](https://github.com/selsa-inube/design-system/pull/68) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
-- Extend the <Label /> to receive typography tokens [#71](https://github.com/selsa-inube/design-system/pull/71) ([@wfercanas](https://github.com/wfercanas) [@Andresbl123](https://github.com/Andresbl123))
+- Extend the `<Label />` to receive typography tokens [#71](https://github.com/selsa-inube/design-system/pull/71) ([@wfercanas](https://github.com/wfercanas) [@Andresbl123](https://github.com/Andresbl123))
 - cm/ids28/switch [#66](https://github.com/selsa-inube/design-system/pull/66) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
 
 #### 🐛 Bug Fix
 
-- Change the default alignItems of <Stack /> to stretch [#91](https://github.com/selsa-inube/design-system/pull/91) ([@Andresbl123](https://github.com/Andresbl123))
+- Change the default alignItems of `<Stack />` to stretch [#91](https://github.com/selsa-inube/design-system/pull/91) ([@Andresbl123](https://github.com/Andresbl123))
 - Release 0.9.0 [#86](https://github.com/selsa-inube/design-system/pull/86) ([@wfercanas](https://github.com/wfercanas))
-- Remove required props in <Spinner /> and adjust isTransparent type handling [#80](https://github.com/selsa-inube/design-system/pull/80) ([@Andresbl123](https://github.com/Andresbl123))
-- <Button/>: remove the handleClick isRequired propType [#84](https://github.com/selsa-inube/design-system/pull/84) ([@Andresbl123](https://github.com/Andresbl123))
-- Adjust PropTypes of <Text /> [#78](https://github.com/selsa-inube/design-system/pull/78) ([@Andresbl123](https://github.com/Andresbl123))
+- Remove required props in `<Spinner />` and adjust isTransparent type handling [#80](https://github.com/selsa-inube/design-system/pull/80) ([@Andresbl123](https://github.com/Andresbl123))
+- `<Button/>:` remove the handleClick isRequired propType [#84](https://github.com/selsa-inube/design-system/pull/84) ([@Andresbl123](https://github.com/Andresbl123))
+- Adjust PropTypes of `<Text />` [#78](https://github.com/selsa-inube/design-system/pull/78) ([@Andresbl123](https://github.com/Andresbl123))
 - Release 0.8.0 [#79](https://github.com/selsa-inube/design-system/pull/79) ([@wfercanas](https://github.com/wfercanas))
 - Fc/release/0.7.0 [#76](https://github.com/selsa-inube/design-system/pull/76) ([@wfercanas](https://github.com/wfercanas))
 
@@ -70,14 +94,14 @@
 
 - Blanket should have a named export, not a default export [#77](https://github.com/selsa-inube/design-system/pull/77) ([@Andresbl123](https://github.com/Andresbl123))
 - cm/ids30/tab [#68](https://github.com/selsa-inube/design-system/pull/68) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
-- Extend the <Label /> to receive typography tokens [#71](https://github.com/selsa-inube/design-system/pull/71) ([@wfercanas](https://github.com/wfercanas) [@Andresbl123](https://github.com/Andresbl123))
+- Extend the `<Label />` to receive typography tokens [#71](https://github.com/selsa-inube/design-system/pull/71) ([@wfercanas](https://github.com/wfercanas) [@Andresbl123](https://github.com/Andresbl123))
 - cm/ids28/switch [#66](https://github.com/selsa-inube/design-system/pull/66) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
 
 #### 🐛 Bug Fix
 
-- Remove required props in <Spinner /> and adjust isTransparent type handling [#80](https://github.com/selsa-inube/design-system/pull/80) ([@Andresbl123](https://github.com/Andresbl123))
-- <Button/>: remove the handleClick isRequired propType [#84](https://github.com/selsa-inube/design-system/pull/84) ([@Andresbl123](https://github.com/Andresbl123))
-- Adjust PropTypes of <Text /> [#78](https://github.com/selsa-inube/design-system/pull/78) ([@Andresbl123](https://github.com/Andresbl123))
+- Remove required props in `<Spinner />` and adjust isTransparent type handling [#80](https://github.com/selsa-inube/design-system/pull/80) ([@Andresbl123](https://github.com/Andresbl123))
+- `<Button/>:` remove the handleClick isRequired propType [#84](https://github.com/selsa-inube/design-system/pull/84) ([@Andresbl123](https://github.com/Andresbl123))
+- Adjust PropTypes of `<Text />` [#78](https://github.com/selsa-inube/design-system/pull/78) ([@Andresbl123](https://github.com/Andresbl123))
 - Release 0.8.0 [#79](https://github.com/selsa-inube/design-system/pull/79) ([@wfercanas](https://github.com/wfercanas))
 - Fc/release/0.7.0 [#76](https://github.com/selsa-inube/design-system/pull/76) ([@wfercanas](https://github.com/wfercanas))
 
@@ -96,7 +120,7 @@
 
 - Blanket should have a named export, not a default export [#77](https://github.com/selsa-inube/design-system/pull/77) ([@Andresbl123](https://github.com/Andresbl123))
 - cm/ids30/tab [#68](https://github.com/selsa-inube/design-system/pull/68) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
-- Extend the <Label /> to receive typography tokens [#71](https://github.com/selsa-inube/design-system/pull/71) ([@wfercanas](https://github.com/wfercanas) [@Andresbl123](https://github.com/Andresbl123))
+- Extend the `<Label />` to receive typography tokens [#71](https://github.com/selsa-inube/design-system/pull/71) ([@wfercanas](https://github.com/wfercanas) [@Andresbl123](https://github.com/Andresbl123))
 - cm/ids28/switch [#66](https://github.com/selsa-inube/design-system/pull/66) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
 
 #### 🐛 Bug Fix
