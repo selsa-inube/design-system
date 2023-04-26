@@ -161,9 +161,17 @@ function getBackgroundColor(props) {
 }
 
 function getWidth(props) {
-  const { isfullwidth } = props;
+  const { isFullWidth } = props;
 
-  if (isfullwidth) {
+  if (isFullWidth) {
+    return "100%";
+  }
+
+  return "fit-content";
+}
+
+function getWidthLink(isFullWidth) {
+  if (isFullWidth) {
     return "100%";
   }
 
@@ -185,7 +193,6 @@ const containerStyles = css`
   background-color: ${getBackgroundColor};
   border-color: ${getBorderColor};
   cursor: ${getPointer};
-  width: ${getWidth};
 
   &:hover {
     color: ${(props) => getColor({ ...props, isHover: true })};
@@ -198,6 +205,7 @@ const containerStyles = css`
 const StyledButton = styled.button`
   padding: 0px 16px;
   ${containerStyles}
+  width: ${getWidth};
   border-style: ${(props) => (props.type !== "link" ? "solid" : "none")};
   ${(props) => spacing[props.spacing]}
 `;
@@ -207,6 +215,7 @@ const StyledLink = styled(Link)`
   padding: 0%;
   ${containerStyles}
   border-style: ${(props) => (props.type === "link" ? "solid" : "none")};
+  width: ${({ isfullwidth }) => getWidthLink(isfullwidth)};
 `;
 
 const StyledSpan = styled.span`

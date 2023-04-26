@@ -10,11 +10,11 @@ import {
   children,
   isLoading,
   appearance,
-  isdisabled,
+  isDisabled,
   type,
   spacing,
   variant,
-  isfullwidth,
+  isFullWidth,
   handleClick,
 } from "./props";
 
@@ -53,22 +53,22 @@ Icons.args = {
   children: "Button",
   appearance: "primary",
   isLoading: false,
-  isdisabled: false,
+  isDisabled: false,
   type: "text",
   spacing: "wide",
   variant: "filled",
-  isfullwidth: false,
+  isFullWidth: false,
   handleClick: () => console.log("clicked"),
 };
 Icons.argTypes = {
   children,
   isLoading,
   appearance,
-  isdisabled,
+  isDisabled,
   type,
   spacing,
   variant,
-  isfullwidth,
+  isFullWidth,
   handleClick,
 };
 

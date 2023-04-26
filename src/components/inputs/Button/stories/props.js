@@ -22,7 +22,7 @@ const appearance = {
     defaultValue: { summary: "primary" },
   },
 };
-const isdisabled = {
+const isDisabled = {
   options: [true, false],
   control: { type: "boolean" },
   description: "set if the button is disabled",
@@ -63,7 +63,7 @@ const variant = {
     defaultValue: { summary: "filled" },
   },
 };
-const isfullwidth = {
+const isFullWidth = {
   options: [true, false],
   control: { type: "boolean" },
   description: "option to fit button width to its parent width",
@@ -86,13 +86,13 @@ export {
   children,
   isLoading,
   appearance,
-  isdisabled,
+  isDisabled,
   iconBefore,
   iconAfter,
   type,
   spacing,
   variant,
-  isfullwidth,
+  isFullWidth,
   handleClick,
   path,
 };

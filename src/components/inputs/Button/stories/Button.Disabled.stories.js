@@ -15,7 +15,7 @@ import {
   type,
   spacing,
   variant,
-  isfullwidth,
+  isFullWidth,
   handleClick,
   path,
 } from "./props";
@@ -39,7 +39,7 @@ const ButtonComponent = (props) => {
     <StyledFlex>
       {appearances.map((appearance) => (
         <div key={appearance}>
-          <ButtonController {...props} isdisabled={true} />
+          <ButtonController {...props} isDisabled={true} />
         </div>
       ))}
     </StyledFlex>
@@ -54,7 +54,7 @@ Disabled.args = {
   type: "text",
   spacing: "wide",
   variant: "filled",
-  isfullwidth: false,
+  isFullWidth: false,
   handleClick: () => console.log("clicked"),
   path: "/privileges",
 };
@@ -67,7 +67,7 @@ Disabled.argTypes = {
   type,
   spacing,
   variant,
-  isfullwidth,
+  isFullWidth,
   handleClick,
   path,
 };

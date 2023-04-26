@@ -7,11 +7,11 @@ import { StyledFlex } from "./stories.styles";
 
 import {
   appearance,
-  isdisabled,
+  isDisabled,
   type,
   spacing,
   variant,
-  isfullwidth,
+  isFullWidth,
   handleClick,
 } from "./props";
 
@@ -45,20 +45,20 @@ export const Loading = (args) => <ButtonComponent {...args} />;
 Loading.args = {
   children: "Button",
   appearance: "primary",
-  isdisabled: false,
+  isDisabled: false,
   type: "text",
   spacing: "wide",
   variant: "filled",
-  isfullwidth: false,
+  isFullWidth: false,
   handleClick: () => console.log("clicked"),
 };
 Loading.argTypes = {
   appearance,
-  isdisabled,
+  isDisabled,
   type,
   spacing,
   variant,
-  isfullwidth,
+  isFullWidth,
   handleClick,
 };
 
