@@ -65,6 +65,8 @@ const StyledMenuLink = styled.li`
   pointer-events: ${({ isdisabled }) => isdisabled && "none"};
 
   & > svg:last-child path {
+    width: 24px;
+    height: 24px;
     color: ${colors.ref.palette.neutral.n900};
     display: ${({ isdisabled, isSelected }) =>
       (isdisabled || !isSelected) && "none"};
