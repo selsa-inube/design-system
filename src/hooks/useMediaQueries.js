@@ -41,7 +41,7 @@ const useMediaQueries = (queries) => {
           mediaQueryObject.removeEventListener("change", updateState)
         );
     }
-  }, [queries]);
+  }, [queries.join(",")]);
 
   return matches;
 };
