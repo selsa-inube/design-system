@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { MenuLink } from "../MenuLink";
+import { StyledList } from "./styled";
 
 const MenuLinkController = (props) => {
   const [select, setSelect] = useState(false);
   return (
-    <ul>
+    <StyledList>
       <MenuLink {...props} />
-      <MenuLink {...props} />
-    </ul>
+    </StyledList>
   );
 };
 

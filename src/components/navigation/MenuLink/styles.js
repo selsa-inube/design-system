@@ -63,7 +63,6 @@ const StyledMenuLink = styled.li`
   padding: 0px 16px;
   color: ${({ isdisabled }) => isdisabled && colors.ref.palette.neutral.n70};
   pointer-events: ${({ isdisabled }) => isdisabled && "none"};
-  margin-bottom: 5px;
 
   & > svg:last-child path {
     color: ${colors.ref.palette.neutral.n900};
