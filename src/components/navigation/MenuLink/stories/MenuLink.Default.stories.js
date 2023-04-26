@@ -1,8 +1,17 @@
 import { BrowserRouter } from "react-router-dom";
+import { MdAssignmentLate } from "react-icons/md";
+
 import { MenuLink } from "..";
 import { MenuLinkController } from "./MenuLink.Controller";
-
-import { MdAssignmentLate } from "react-icons/md";
+import {
+  id,
+  label,
+  path,
+  isdisabled,
+  isSelected,
+  icons,
+  handleClick,
+} from "./props";
 
 const story = {
   title: "navigation/MenuLink/Default",
@@ -21,10 +30,20 @@ const story = {
 const Default = (args) => <MenuLinkController {...args} />;
 
 Default.args = {
+  id: "privileges",
   label: "Privileges",
-  isdisabled: false,
-
+  path: "/privileges",
   icon: <MdAssignmentLate />,
+};
+
+Default.argTypes = {
+  id,
+  label,
+  path,
+  isdisabled,
+  isSelected,
+  icons,
+  handleClick,
 };
 
 export default story;

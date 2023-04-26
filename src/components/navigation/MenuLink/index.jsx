@@ -34,4 +34,15 @@ const MenuLink = (props) => {
   );
 };
 
+MenuLink.propTypes = {
+  id: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  path: PropTypes.string.isRequired,
+  isdisabled: PropTypes.bool,
+  isSelected: PropTypes.bool,
+  icon: PropTypes.node,
+  handleClick: PropTypes.func,
+  handleBlur: PropTypes.func,
+};
+
 export { MenuLink };
