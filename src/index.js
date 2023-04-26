@@ -28,3 +28,4 @@ export { Breadcrumbs } from "./components/navigation/Breadcrumbs";
 
 //  hooks
 export { useMediaQuery } from "./hooks/useMediaQuery";
+export { useMediaQueries } from "./hooks/useMediaQueries";
