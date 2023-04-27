@@ -97,9 +97,9 @@ const borderColors = {
 };
 
 const getPointer = (props) => {
-  const { isdisabled, isLoading } = props;
+  const { isDisabled, isLoading } = props;
 
-  if (isdisabled) {
+  if (isDisabled) {
     return cursors.notAllowed;
   }
 
@@ -111,9 +111,9 @@ const getPointer = (props) => {
 };
 
 const getColor = (props) => {
-  const { isdisabled, variant, appearance, isHover } = props;
+  const { isDisabled, variant, appearance, isHover } = props;
 
-  if (isdisabled) {
+  if (isDisabled) {
     return textColors[variant].normal.disabled;
   }
 
@@ -125,13 +125,13 @@ const getColor = (props) => {
 };
 
 const getBorderColor = (props) => {
-  const { isdisabled, variant, appearance, isHover } = props;
+  const { isDisabled, variant, appearance, isHover } = props;
 
   if (variant !== "outlined") {
     return borderColors[variant];
   }
 
-  if (isdisabled) {
+  if (isDisabled) {
     return borderColors[variant].normal.disabled.stroke;
   }
 
@@ -142,14 +142,12 @@ const getBorderColor = (props) => {
   return borderColors[variant].normal[appearance].stroke;
 };
 
-function getBackgroundColor(props) {
-  const { isdisabled, variant, appearance, isHover } = props;
-
+function getBackgroundColor(isDisabled, variant, appearance, isHover = false) {
   if (variant !== "filled") {
     return backgroundColor[variant];
   }
 
-  if (isdisabled) {
+  if (isDisabled) {
     return backgroundColor[variant].normal.disabled.filled;
   }
 
@@ -160,17 +158,7 @@ function getBackgroundColor(props) {
   return backgroundColor[variant].normal[appearance].filled;
 }
 
-function getWidth(props) {
-  const { isFullWidth } = props;
-
-  if (isFullWidth) {
-    return "100%";
-  }
-
-  return "fit-content";
-}
-
-function getWidthLink(isFullWidth) {
+function getWidth(isFullWidth) {
   if (isFullWidth) {
     return "100%";
   }
@@ -185,12 +173,10 @@ const containerStyles = css`
   transition: all 0.3s ease;
   border-radius: 8px;
   border: none;
-
   border-width: 1px;
   text-decoration: none;
   font-family: ${typography.ref.typeface.brand};
   color: ${getColor};
-  background-color: ${getBackgroundColor};
   border-color: ${getBorderColor};
   cursor: ${getPointer};
 
@@ -205,17 +191,18 @@ const containerStyles = css`
 const StyledButton = styled.button`
   padding: 0px 16px;
   ${containerStyles}
-  width: ${getWidth};
+  width: ${({ isFullWidth }) => getWidth(isFullWidth)};
+  background-color: ${({ isDisabled, variant, appearance }) =>
+    getBackgroundColor(isDisabled, variant, appearance)};
   border-style: ${(props) => (props.type !== "link" ? "solid" : "none")};
   ${(props) => spacing[props.spacing]}
 `;
-
 const StyledLink = styled(Link)`
   margin: 0%;
   padding: 0%;
   ${containerStyles}
   border-style: ${(props) => (props.type === "link" ? "solid" : "none")};
-  width: ${({ isfullwidth }) => getWidthLink(isfullwidth)};
+  width: ${({ isfullwidth }) => getWidth(!!isfullwidth)};
 `;
 
 const StyledSpan = styled.span`

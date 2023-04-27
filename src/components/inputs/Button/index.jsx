@@ -85,6 +85,9 @@ const Button = (props) => {
     console.warn("You must provide a path to use a link button");
   }
 
+  /* const isdisabled = +isDisabled;
+  const isfullwidth = +isFullWidth; */
+
   if (type === "link") {
     return (
       <StyledLink
@@ -115,14 +118,14 @@ const Button = (props) => {
   return (
     <StyledButton
       appearance={transformedAppearance}
-      isLoading={isLoading}
-      isDisabled={isDisabled}
+      isLoading={false}
+      isDisabled={false}
       iconBefore={iconBefore}
       iconAfter={iconAfter}
       type={transformedType}
       spacing={transformedSpacing}
       variant={transformedVariant}
-      isFullWidth={isFullWidth}
+      isFullWidth={false}
       onClick={handleClick}
     >
       {isLoading && !isDisabled ? (

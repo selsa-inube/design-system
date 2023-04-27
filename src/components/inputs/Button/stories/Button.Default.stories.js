@@ -38,6 +38,7 @@ export const Default = (args) => <ButtonController {...args} />;
 
 Default.args = {
   children: "Button",
+  path: "/privilege",
   iconBefore: <MdAdd />,
 };
 Default.argTypes = {
