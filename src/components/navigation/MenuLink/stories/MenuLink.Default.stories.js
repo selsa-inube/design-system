@@ -1,5 +1,5 @@
 import { BrowserRouter } from "react-router-dom";
-import { MdAssignmentLate } from "react-icons/md";
+import { MdHouse } from "react-icons/md";
 
 import { MenuLink } from "..";
 import { MenuLinkController } from "./MenuLink.Controller";
@@ -7,9 +7,9 @@ import {
   id,
   label,
   path,
-  isdisabled,
+  isDisabled,
   isSelected,
-  icons,
+  icon,
   handleClick,
 } from "./props";
 
@@ -33,16 +33,17 @@ Default.args = {
   id: "privileges",
   label: "Privileges",
   path: "/privileges",
-  icon: <MdAssignmentLate />,
+  isDisabled: false,
+  icon: <MdHouse />,
 };
 
 Default.argTypes = {
   id,
   label,
   path,
-  isdisabled,
+  isDisabled,
   isSelected,
-  icons,
+  icon,
   handleClick,
 };
 

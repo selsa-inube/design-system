@@ -4,22 +4,6 @@ import { Link } from "react-router-dom";
 import { colors } from "../../../shared/colors/colors";
 import { typography } from "../../../shared/typography/typography";
 
-/* const getGrid = (icon, isSelected) => {
-  if (icon && isSelected) {
-    return "auto 1fr auto";
-  }
-
-  if (icon && !isSelected) {
-    return "auto 1fr";
-  }
-
-  if (!icon && isSelected) {
-    return "1fr auto";
-  }
-
-  return "1fr";
-}; */
-
 const getGrid = (icon) => {
   if (icon) {
     return "auto 1fr auto";
@@ -28,15 +12,15 @@ const getGrid = (icon) => {
   return "1fr auto";
 };
 
-const getColorLabel = (isdisabled) => {
-  if (isdisabled) {
+const getColorLabel = (isDisabled) => {
+  if (isDisabled) {
     return colors.sys.text.disabled;
   }
   return colors.sys.text.dark;
 };
 
-const getBorderLeft = (isdisabled, isSelected) => {
-  if (isSelected && !isdisabled) {
+const getBorderLeft = (isDisabled, isSelected) => {
+  if (isSelected && !isDisabled) {
     return `5px solid ${colors.ref.palette.neutral.n900}`;
   }
 
@@ -54,26 +38,31 @@ const StyledMenuLink = styled.li`
   align-items: center;
   box-sizing: border-box;
   list-style-type: none;
-  border-left: ${({ isdisabled, isSelected }) =>
-    getBorderLeft(isdisabled, isSelected)};
-  background-color: ${({ isdisabled, isSelected }) =>
-    (!isdisabled || isSelected) && colors.ref.palette.neutral.n30};
+  border-left: ${({ isDisabled, isSelected }) =>
+    getBorderLeft(isDisabled, isSelected)};
+  background-color: ${({ isDisabled, isSelected }) =>
+    (!isDisabled || isSelected) && colors.ref.palette.neutral.n30};
   background-size: cover;
   gap: 24px;
   padding: 0px 16px;
-  color: ${({ isdisabled }) => isdisabled && colors.ref.palette.neutral.n70};
-  pointer-events: ${({ isdisabled }) => isdisabled && "none"};
+  color: ${({ isDisabled }) => isDisabled && colors.ref.palette.neutral.n70};
+  pointer-events: ${({ isDisabled }) => isDisabled && "none"};
 
-  & > svg:last-child path {
+  & > div:first-child svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  & > svg:last-child {
     width: 24px;
     height: 24px;
     color: ${colors.ref.palette.neutral.n900};
-    display: ${({ isdisabled, isSelected }) =>
-      (isdisabled || !isSelected) && "none"};
+    display: ${({ isDisabled, isSelected }) =>
+      (isDisabled || !isSelected) && "none"};
   }
 
-  ${({ isdisabled }) =>
-    !isdisabled &&
+  ${({ isDisabled }) =>
+    !isDisabled &&
     `
       &:hover {
         color: ${colors.sys.actions.primary.filled};
@@ -91,12 +80,4 @@ const StyledLink = styled(Link)`
   width: 100%;
 `;
 
-const StyledIcon = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 24px;
-  height: 24px;
-`;
-
-export { StyledMenuLink, StyledLink, StyledIcon };
+export { StyledMenuLink, StyledLink };

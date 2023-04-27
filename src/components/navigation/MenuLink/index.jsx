@@ -2,14 +2,15 @@ import React from "react";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import PropTypes from "prop-types";
 
-import { StyledMenuLink, StyledLink, StyledIcon } from "./styles";
+import { Stack } from "../../layouts/Stack/index";
+import { StyledMenuLink, StyledLink } from "./styles";
 
 const MenuLink = (props) => {
   const {
     id,
     label,
     path,
-    isdisabled = false,
+    isDisabled = false,
     isSelected = false,
     icon,
     handleClick,
@@ -18,18 +19,26 @@ const MenuLink = (props) => {
 
   return (
     <StyledMenuLink
-      isdisabled={isdisabled}
+      isDisabled={isDisabled}
       isSelected={isSelected}
       id={id}
       onClick={handleClick}
       $icon={icon}
       onBlur={handleBlur}
     >
-      {icon && <StyledIcon isdisabled={isdisabled}>{icon}</StyledIcon>}
-      <StyledLink to={path} isdisabled={+isdisabled}>
+      {icon && (
+        <Stack
+          justifyContent="center"
+          alignItems="center"
+          isDisabled={isDisabled}
+        >
+          {icon}
+        </Stack>
+      )}
+      <StyledLink to={path} isdisabled={+isDisabled}>
         {label}
       </StyledLink>
-      <MdKeyboardArrowRight isdisabled={+isdisabled} />
+      <MdKeyboardArrowRight isdisabled={+isDisabled} />
     </StyledMenuLink>
   );
 };
@@ -38,7 +47,7 @@ MenuLink.propTypes = {
   id: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   path: PropTypes.string.isRequired,
-  isdisabled: PropTypes.bool,
+  isDisabled: PropTypes.bool,
   isSelected: PropTypes.bool,
   icon: PropTypes.node,
   handleClick: PropTypes.func,
