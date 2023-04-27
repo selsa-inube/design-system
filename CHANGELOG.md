@@ -13,6 +13,21 @@
 
 ---
 
+# v2.0.1 (Thu Apr 27 2023)
+
+#### 🐛 Bug Fix
+
+- `<Blanket />` should tend to be on top when rendered [#117](https://github.com/selsa-inube/design-system/pull/117) ([@Andresbl123](https://github.com/Andresbl123))
+- `<Tabs />` are starting without left-padding for first `<Tab />` [#111](https://github.com/selsa-inube/design-system/pull/111) ([@Andresbl123](https://github.com/Andresbl123))
+- Fc/release/2.0.0 [#108](https://github.com/selsa-inube/design-system/pull/108) ([@wfercanas](https://github.com/wfercanas))
+
+#### Authors: 2
+
+- Andres ([@Andresbl123](https://github.com/Andresbl123))
+- Fernando Cañas ([@wfercanas](https://github.com/wfercanas))
+
+---
+
 # v2.0.0 (Mon Apr 24 2023)
 
 #### 💥 Breaking Change
