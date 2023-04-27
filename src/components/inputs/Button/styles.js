@@ -96,9 +96,7 @@ const borderColors = {
   none: colors.ref.palette.neutralAlpha.n0A,
 };
 
-const getPointer = (props) => {
-  const { isDisabled, isLoading } = props;
-
+const getPointer = (isDisabled, isLoading = false) => {
   if (isDisabled) {
     return cursors.notAllowed;
   }
@@ -110,11 +108,9 @@ const getPointer = (props) => {
   return cursors.pointer;
 };
 
-const getColor = (props) => {
-  const { isDisabled, variant, appearance, isHover } = props;
-
+const getColor = (isDisabled, variant, appearance, isHover = false) => {
   if (isDisabled) {
-    return textColors[variant].normal.disabled;
+    return textColors.filled.normal.disabled;
   }
 
   if (isHover) {
@@ -124,9 +120,7 @@ const getColor = (props) => {
   return textColors[variant].normal[appearance];
 };
 
-const getBorderColor = (props) => {
-  const { isDisabled, variant, appearance, isHover } = props;
-
+const getBorderColor = (isDisabled, variant, appearance, isHover = false) => {
   if (variant !== "outlined") {
     return borderColors[variant];
   }
@@ -176,16 +170,6 @@ const containerStyles = css`
   border-width: 1px;
   text-decoration: none;
   font-family: ${typography.ref.typeface.brand};
-  color: ${getColor};
-  border-color: ${getBorderColor};
-  cursor: ${getPointer};
-
-  &:hover {
-    color: ${(props) => getColor({ ...props, isHover: true })};
-    border-color: ${(props) => getBorderColor({ ...props, isHover: true })};
-    background-color: ${(props) =>
-      getBackgroundColor({ ...props, isHover: true })};
-  }
 `;
 
 const StyledButton = styled.button`
@@ -195,14 +179,48 @@ const StyledButton = styled.button`
   background-color: ${({ isDisabled, variant, appearance }) =>
     getBackgroundColor(isDisabled, variant, appearance)};
   border-style: ${(props) => (props.type !== "link" ? "solid" : "none")};
-  ${(props) => spacing[props.spacing]}
+  ${(props) => spacing[props.spacing]};
+
+  color: ${({ isDisabled, variant, appearance }) =>
+    getColor(isDisabled, variant, appearance)};
+  border-color: ${({ isDisabled, variant, appearance }) =>
+    getBorderColor(isDisabled, variant, appearance)};
+  background-color: ${({ isDisabled, variant, appearance }) =>
+    getBackgroundColor(isDisabled, variant, appearance)};
+  cursor: ${({ isDisabled, isLoading }) => getPointer(isDisabled, isLoading)};
+
+  &:hover {
+    color: ${({ isDisabled, variant, appearance }) =>
+      getColor(isDisabled, variant, appearance, true)};
+    border-color: ${({ isDisabled, variant, appearance }) =>
+      getBorderColor(isDisabled, variant, appearance, true)};
+    background-color: ${({ isDisabled, variant, appearance }) =>
+      getBackgroundColor(isDisabled, variant, appearance, true)};
+  }
 `;
+
 const StyledLink = styled(Link)`
   margin: 0%;
   padding: 0%;
   ${containerStyles}
   border-style: ${(props) => (props.type === "link" ? "solid" : "none")};
   width: ${({ isfullwidth }) => getWidth(!!isfullwidth)};
+  color: ${({ isdisabled, variant, appearance }) =>
+    getColor(!!isdisabled, variant, appearance)};
+  border-color: ${({ isdisabled, variant, appearance }) =>
+    getBorderColor(!!isdisabled, variant, appearance)};
+  background-color: ${({ isdisabled, variant, appearance }) =>
+    getBackgroundColor(!!isdisabled, variant, appearance)};
+  cursor: ${({ isdisabled }) => getPointer(!!isdisabled)};
+
+  &:hover {
+    color: ${({ isdisabled, variant, appearance }) =>
+      getColor(!!isdisabled, variant, appearance, true)};
+    border-color: ${({ isdisabled, variant, appearance }) =>
+      getBorderColor(!!isdisabled, variant, appearance, true)};
+    background-color: ${({ isdisabled, variant, appearance }) =>
+      getBackgroundColor(!!isdisabled, variant, appearance, true)};
+  }
 `;
 
 const StyledSpan = styled.span`
