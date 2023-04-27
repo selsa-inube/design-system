@@ -1,6 +1,6 @@
 import React from "react";
-import { Label } from "../../components/inputs/Label";
 import { useMediaQueries } from "../useMediaQueries";
+import { Text } from "../../components/data/Text";
 
 const story = {
   title: "hooks/useMediaQueries",
@@ -23,14 +23,12 @@ export const ExampleMediaQueries = () => {
   const matches = useMediaQueries(queries);
   return (
     <>
-      <p>Matches:</p>
+      <Text>Matches:</Text>
       <ul>
         {Object.keys(matches).map((query) => (
-          <li key={query}>
-            <Label htmlFor={query}>
-              {query}: {matches[query] ? "true" : "false"}{" "}
-            </Label>
-          </li>
+          <Text key={query}>
+            {query}: {matches[query] ? "true" : "false"}
+          </Text>
         ))}
       </ul>
     </>
