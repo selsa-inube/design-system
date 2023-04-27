@@ -1,8 +1,10 @@
 import React from "react";
+import { BrowserRouter } from "react-router-dom";
+import { MdAdd } from "react-icons/md";
+
 import { Button, variants } from "../index";
 import { ButtonController } from "./ButtonController";
 import { StyledFlex } from "./stories.styles";
-import { MdAdd } from "react-icons/md";
 
 import {
   children,
@@ -15,6 +17,7 @@ import {
   spacing,
   isFullWidth,
   handleClick,
+  path,
 } from "./props";
 
 const story = {
@@ -22,9 +25,11 @@ const story = {
   components: [Button],
   decorators: [
     (Story) => (
-      <div style={{ margin: "3em" }}>
-        <Story />
-      </div>
+      <BrowserRouter>
+        <div style={{ margin: "3em" }}>
+          <Story />
+        </div>
+      </BrowserRouter>
     ),
   ],
 };
@@ -51,7 +56,8 @@ Variants.args = {
   type: "text",
   spacing: "wide",
   isFullWidth: false,
-  handleClick: () => {},
+  handleClick: () => console.log("clicked"),
+  path: "/privileges",
 };
 Variants.argTypes = {
   children,
@@ -64,6 +70,7 @@ Variants.argTypes = {
   spacing,
   isFullWidth,
   handleClick,
+  path,
 };
 
 export default story;

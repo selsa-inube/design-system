@@ -12,6 +12,7 @@ const StyledBlanket = styled.div`
   right: 0%;
   background-color: ${colors.ref.palette.neutralAlpha.n100A};
   border: none;
+  z-index: 1;
 `;
 
 export { StyledBlanket };
