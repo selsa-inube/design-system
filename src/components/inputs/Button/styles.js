@@ -31,43 +31,6 @@ const hoverColors = {
   help: colors.ref.palette.purple.p300,
 };
 
-const textColors = {
-  filled: {
-    normal: {
-      primary: colors.ref.palette.neutral.n0,
-      secondary: colors.ref.palette.neutral.n300,
-      confirm: colors.ref.palette.neutral.n0,
-      warning: colors.ref.palette.neutral.n900,
-      remove: colors.ref.palette.neutral.n0,
-      help: colors.ref.palette.neutral.n0,
-      disabled: colors.sys.text.disabled,
-    },
-    hover: colors.ref.palette.neutral.n0,
-  },
-  outlined: {
-    normal: {
-      ...colors.sys.text,
-      confirm: colors.sys.text.success,
-      remove: colors.sys.text.error,
-    },
-    hover: {
-      ...hoverColors,
-      secondary: colors.ref.palette.neutral.n200,
-    },
-  },
-  none: {
-    normal: {
-      ...colors.sys.text,
-      confirm: colors.sys.text.success,
-      remove: colors.sys.text.error,
-    },
-    hover: {
-      ...hoverColors,
-      secondary: colors.ref.palette.neutral.n200,
-    },
-  },
-};
-
 const backgroundColor = {
   filled: {
     normal: {
@@ -109,20 +72,6 @@ const getPointer = (props) => {
   return cursors.pointer;
 };
 
-const getColor = (props) => {
-  const { isDisabled, variant, appearance, isHover } = props;
-
-  if (isDisabled) {
-    return textColors[variant].normal.disabled;
-  }
-
-  if (isHover) {
-    return textColors[variant].hover[appearance];
-  }
-
-  return textColors[variant].normal[appearance];
-};
-
 const getBorderColor = (props) => {
   const { isDisabled, variant, appearance, isHover } = props;
 
@@ -159,13 +108,6 @@ function getBackgroundColor(props) {
   return backgroundColor[variant].normal[appearance].filled;
 }
 
-const StyledSpan = styled.span`
-  display: flex;
-  justify-content: space-between;
-  gap: 4px;
-  overflow: hidden;
-`;
-
 const StyledButton = styled.button`
   display: flex;
   justify-content: center;
@@ -177,7 +119,6 @@ const StyledButton = styled.button`
   border-style: solid;
   border-width: 1px;
   font-family: ${typography.ref.typeface.brand};
-  color: ${getColor};
   background-color: ${getBackgroundColor};
   border-color: ${getBorderColor};
   width: ${(props) => (props.isFullWidth === true ? "100%" : "fit-content")};
@@ -185,8 +126,14 @@ const StyledButton = styled.button`
   cursor: ${getPointer};
   ${(props) => spacing[props.spacing]}
 
+  & > span {
+    display: flex;
+    justify-content: space-between;
+    gap: 4px;
+    overflow: hidden;
+  }
+
   &:hover {
-    color: ${(props) => getColor({ ...props, isHover: true })};
     border-color: ${(props) => getBorderColor({ ...props, isHover: true })};
     background-color: ${(props) =>
       getBackgroundColor({ ...props, isHover: true })};
@@ -197,4 +144,4 @@ const StyledIcon = styled.div`
   display: flex;
   align-items: center;
 `;
-export { StyledButton, StyledSpan, StyledIcon };
+export { StyledButton, StyledIcon };

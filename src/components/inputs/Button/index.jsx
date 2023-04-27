@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { StyledButton, StyledSpan, StyledIcon } from "./styles";
+import { StyledButton, StyledIcon } from "./styles";
 import { Spinner } from "./../../feedback/Spinner";
 import { colors } from "../../../shared/colors/colors";
-
+import { Text } from "../../data/Text/index";
 const fixedColors = Object.assign({}, colors.sys.actions);
 delete fixedColors.disabled;
 export const appearances = Object.keys(fixedColors);
@@ -34,9 +34,44 @@ const spinnerColorHomologation = {
     help: "purple",
   },
 };
+
 const getSpinnerColor = (variant, appearance) => {
   return spinnerColorHomologation[variant][appearance];
 };
+
+const textAppearences = {
+  filled: {
+    normal: {
+      primary: "light",
+      secondary: "secondary",
+      confirm: "light",
+      warning: "dark",
+      remove: "light",
+      help: "light",
+      disabled: "disabled",
+    },
+    hover: "light",
+  },
+  outlined: {
+    normal: {
+      confirm: "success",
+      remove: "error",
+    },
+    hover: {
+      secondary: colors.ref.palette.neutral.n200,
+    },
+  },
+  none: {
+    normal: {
+      confirm: "success",
+      remove: "error",
+    },
+    hover: {
+      secondary: colors.ref.palette.neutral.n200,
+    },
+  },
+};
+
 export const types = ["text", "submit", "reset"];
 export const spacings = ["wide", "compact"];
 export const variants = ["filled", "outlined", "none"];
@@ -96,11 +131,19 @@ const Button = (props) => {
           size={defaultSpinnerSize}
         />
       ) : (
-        <StyledSpan isDisabled={isDisabled} variant={transformedVariant}>
+        <Text
+          as="span"
+          appearance={
+            textAppearences[transformedVariant].normal[transformedAppearance]
+          }
+          typo="labelLarge"
+          isDisabled={isDisabled}
+          variant={transformedVariant}
+        >
           {iconBefore && <StyledIcon id="mdIcon">{iconBefore}</StyledIcon>}
           {children}
           {iconAfter && <StyledIcon id="mdIcon">{iconAfter}</StyledIcon>}
-        </StyledSpan>
+        </Text>
       )}
     </StyledButton>
   );
