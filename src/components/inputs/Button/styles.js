@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import { Link } from "react-router-dom";
+import styled, { css } from "styled-components";
 
 import { colors } from "../../../shared/colors/colors";
 import { typography } from "../../../shared/typography/typography";
@@ -95,9 +96,7 @@ const borderColors = {
   none: colors.ref.palette.neutralAlpha.n0A,
 };
 
-const getPointer = (props) => {
-  const { isDisabled, isLoading } = props;
-
+const getPointer = (isDisabled, isLoading = false) => {
   if (isDisabled) {
     return cursors.notAllowed;
   }
@@ -109,11 +108,9 @@ const getPointer = (props) => {
   return cursors.pointer;
 };
 
-const getColor = (props) => {
-  const { isDisabled, variant, appearance, isHover } = props;
-
+const getColor = (isDisabled, variant, appearance, isHover = false) => {
   if (isDisabled) {
-    return textColors[variant].normal.disabled;
+    return textColors.filled.normal.disabled;
   }
 
   if (isHover) {
@@ -123,9 +120,7 @@ const getColor = (props) => {
   return textColors[variant].normal[appearance];
 };
 
-const getBorderColor = (props) => {
-  const { isDisabled, variant, appearance, isHover } = props;
-
+const getBorderColor = (isDisabled, variant, appearance, isHover = false) => {
   if (variant !== "outlined") {
     return borderColors[variant];
   }
@@ -141,9 +136,7 @@ const getBorderColor = (props) => {
   return borderColors[variant].normal[appearance].stroke;
 };
 
-function getBackgroundColor(props) {
-  const { isDisabled, variant, appearance, isHover } = props;
-
+function getBackgroundColor(isDisabled, variant, appearance, isHover = false) {
   if (variant !== "filled") {
     return backgroundColor[variant];
   }
@@ -159,6 +152,77 @@ function getBackgroundColor(props) {
   return backgroundColor[variant].normal[appearance].filled;
 }
 
+function getWidth(isFullWidth) {
+  if (isFullWidth) {
+    return "100%";
+  }
+
+  return "fit-content";
+}
+
+const containerStyles = css`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  border: none;
+  border-width: 1px;
+  text-decoration: none;
+  font-family: ${typography.ref.typeface.brand};
+`;
+
+const StyledButton = styled.button`
+  padding: 0px 16px;
+  ${containerStyles}
+  width: ${({ isFullWidth }) => getWidth(isFullWidth)};
+  background-color: ${({ isDisabled, variant, appearance }) =>
+    getBackgroundColor(isDisabled, variant, appearance)};
+  border-style: ${(props) => (props.type !== "link" ? "solid" : "none")};
+  ${(props) => spacing[props.spacing]};
+
+  color: ${({ isDisabled, variant, appearance }) =>
+    getColor(isDisabled, variant, appearance)};
+  border-color: ${({ isDisabled, variant, appearance }) =>
+    getBorderColor(isDisabled, variant, appearance)};
+  background-color: ${({ isDisabled, variant, appearance }) =>
+    getBackgroundColor(isDisabled, variant, appearance)};
+  cursor: ${({ isDisabled, isLoading }) => getPointer(isDisabled, isLoading)};
+
+  &:hover {
+    color: ${({ isDisabled, variant, appearance }) =>
+      getColor(isDisabled, variant, appearance, true)};
+    border-color: ${({ isDisabled, variant, appearance }) =>
+      getBorderColor(isDisabled, variant, appearance, true)};
+    background-color: ${({ isDisabled, variant, appearance }) =>
+      getBackgroundColor(isDisabled, variant, appearance, true)};
+  }
+`;
+
+const StyledLink = styled(Link)`
+  margin: 0%;
+  padding: 0%;
+  ${containerStyles}
+  border-style: ${(props) => (props.type === "link" ? "solid" : "none")};
+  width: ${({ isfullwidth }) => getWidth(!!isfullwidth)};
+  color: ${({ isdisabled, variant, appearance }) =>
+    getColor(!!isdisabled, variant, appearance)};
+  border-color: ${({ isdisabled, variant, appearance }) =>
+    getBorderColor(!!isdisabled, variant, appearance)};
+  background-color: ${({ isdisabled, variant, appearance }) =>
+    getBackgroundColor(!!isdisabled, variant, appearance)};
+  cursor: ${({ isdisabled }) => getPointer(!!isdisabled)};
+
+  &:hover {
+    color: ${({ isdisabled, variant, appearance }) =>
+      getColor(!!isdisabled, variant, appearance, true)};
+    border-color: ${({ isdisabled, variant, appearance }) =>
+      getBorderColor(!!isdisabled, variant, appearance, true)};
+    background-color: ${({ isdisabled, variant, appearance }) =>
+      getBackgroundColor(!!isdisabled, variant, appearance, true)};
+  }
+`;
+
 const StyledSpan = styled.span`
   display: flex;
   justify-content: space-between;
@@ -166,35 +230,9 @@ const StyledSpan = styled.span`
   overflow: hidden;
 `;
 
-const StyledButton = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0px 16px;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  border: none;
-  border-style: solid;
-  border-width: 1px;
-  font-family: ${typography.ref.typeface.brand};
-  color: ${getColor};
-  background-color: ${getBackgroundColor};
-  border-color: ${getBorderColor};
-  width: ${(props) => (props.isFullWidth === true ? "100%" : "fit-content")};
-  max-width: ${(props) => (props.isFullWidth === true ? "none" : "auto")};
-  cursor: ${getPointer};
-  ${(props) => spacing[props.spacing]}
-
-  &:hover {
-    color: ${(props) => getColor({ ...props, isHover: true })};
-    border-color: ${(props) => getBorderColor({ ...props, isHover: true })};
-    background-color: ${(props) =>
-      getBackgroundColor({ ...props, isHover: true })};
-  }
-`;
-
 const StyledIcon = styled.div`
   display: flex;
   align-items: center;
 `;
-export { StyledButton, StyledSpan, StyledIcon };
+
+export { StyledButton, StyledSpan, StyledIcon, StyledLink };
