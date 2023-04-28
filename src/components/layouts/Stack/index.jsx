@@ -58,6 +58,7 @@ const Stack = (props) => {
 Stack.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.element,
+    PropTypes.node,
     PropTypes.arrayOf(PropTypes.element),
   ]),
   wrap: PropTypes.oneOf(wrapControl),

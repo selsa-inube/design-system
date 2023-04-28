@@ -3,7 +3,7 @@ import { colors } from "../../../shared/colors/colors";
 
 const sizeOptions = {
   compact: {
-    height: "27px",
+    height: "40px",
   },
   wide: {
     height: "48px",
