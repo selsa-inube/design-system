@@ -28,14 +28,16 @@ const getBorderLeft = (isDisabled, isSelected) => {
 };
 
 const getBackgroundColor = (isDisabled, isSelected) => {
+  let color = "transparent";
   if (isDisabled) {
-    return false;
+    return color;
   }
   if (isSelected && !isDisabled) {
-    return colors.ref.palette.neutral.n30;
+    color = colors.ref.palette.neutral.n30;
+    return color;
   }
 
-  return false;
+  return color;
 };
 
 const getColorIcon = (isDisabled, isSelected) => {
