@@ -2,7 +2,6 @@ import React from "react";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import PropTypes from "prop-types";
 
-import { Stack } from "../../layouts/Stack/index";
 import { StyledMenuLink, StyledLink } from "./styles";
 
 const MenuLink = (props) => {
@@ -26,15 +25,7 @@ const MenuLink = (props) => {
       $icon={icon}
       onBlur={handleBlur}
     >
-      {icon && (
-        <Stack
-          justifyContent="center"
-          alignItems="center"
-          isDisabled={isDisabled}
-        >
-          {icon}
-        </Stack>
-      )}
+      {icon}
       <StyledLink to={path} isdisabled={+isDisabled}>
         {label}
       </StyledLink>

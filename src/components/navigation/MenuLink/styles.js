@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
 
 import { colors } from "../../../shared/colors/colors";
@@ -27,6 +27,34 @@ const getBorderLeft = (isDisabled, isSelected) => {
   return `0px`;
 };
 
+const getBackgroundColor = (isDisabled, isSelected) => {
+  if (isDisabled) {
+    return false;
+  }
+  if (isSelected && !isDisabled) {
+    return colors.ref.palette.neutral.n30;
+  }
+
+  return false;
+};
+
+const getColorIcon = (isDisabled, isSelected) => {
+  if (isDisabled) {
+    return colors.ref.palette.neutral.n70;
+  }
+
+  if (isSelected && !isDisabled) {
+    return colors.sys.actions.primary.filled;
+  }
+
+  return colors.ref.palette.neutral.n900;
+};
+
+const stilesIcons = css`
+  width: 24px;
+  height: 24px;
+`;
+
 const StyledMenuLink = styled.li`
   display: grid;
   grid-template-columns: ${({ $icon, isSelected }) =>
@@ -41,34 +69,37 @@ const StyledMenuLink = styled.li`
   border-left: ${({ isDisabled, isSelected }) =>
     getBorderLeft(isDisabled, isSelected)};
   background-color: ${({ isDisabled, isSelected }) =>
-    (!isDisabled || isSelected) && colors.ref.palette.neutral.n30};
+    getBackgroundColor(isDisabled, isSelected)};
   background-size: cover;
   gap: 24px;
   padding: 0px 16px;
   color: ${({ isDisabled }) => isDisabled && colors.ref.palette.neutral.n70};
   pointer-events: ${({ isDisabled }) => isDisabled && "none"};
 
-  & > div:first-child svg {
-    width: 24px;
-    height: 24px;
-  }
-
   & > svg:last-child {
-    width: 24px;
-    height: 24px;
+    ${stilesIcons};
     color: ${colors.ref.palette.neutral.n900};
     display: ${({ isDisabled, isSelected }) =>
       (isDisabled || !isSelected) && "none"};
+  }
+
+  & > svg:first-child {
+    ${stilesIcons};
+    color: ${({ isDisabled, isSelected }) =>
+      getColorIcon(isDisabled, isSelected)};
   }
 
   ${({ isDisabled }) =>
     !isDisabled &&
     `
       &:hover {
-        color: ${colors.sys.actions.primary.filled};
-        background-color: ${colors.ref.palette.neutral.n30};   
+        background-color: ${colors.ref.palette.neutral.n30};
       }
-  `}
+      &:hover  > svg:first-child {
+        color: ${colors.sys.actions.primary.filled};
+          
+      }
+  `};
 `;
 
 const StyledLink = styled(Link)`
