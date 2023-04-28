@@ -8,12 +8,10 @@ const spacing = {
   compact: {
     height: "28px",
     minWidth: "93px",
-    fontSize: typography.sys.typescale.labelLarge.size,
   },
   wide: {
     height: "36px",
     minWidth: "101px",
-    fontSize: typography.sys.typescale.titleMedium.size,
   },
 };
 
@@ -170,6 +168,10 @@ const containerStyles = css`
   border-width: 1px;
   text-decoration: none;
   font-family: ${typography.ref.typeface.brand};
+  font-size: ${typography.sys.typescale.labelLarge.size};
+  font-weight: ${typography.sys.typescale.labelLarge.weight};
+  line-height: ${typography.sys.typescale.labelLarge.lineHeight};
+  letter-spacing: ${typography.sys.typescale.labelLarge.letterSpacing};
 `;
 
 const StyledButton = styled.button`
