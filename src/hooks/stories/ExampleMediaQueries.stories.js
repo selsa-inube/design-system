@@ -29,7 +29,6 @@ export const ExampleMediaQueries = ({ queries: initialQueries }) => {
     </>
   );
 };
-
 ExampleMediaQueries.args = {
   queries: ["(min-width: 1200px)", "(min-width: 992px)", "(min-width: 768px)"],
 };

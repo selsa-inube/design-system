@@ -5,11 +5,21 @@ const validateQueries = (queries) => {
     return new Error("Invalid parameter: queries must be an array");
   }
 
-  const invalidQuery = queries.find(
-    (query) => typeof query !== "string" || query.trim() === ""
-  );
-  if (invalidQuery) {
-    return new Error("Invalid query: must be a non-empty string");
+  const invalidQuery = queries.find((query) => {
+    if (typeof query !== "string") {
+      return true;
+    }
+    if (query.trim().length === 0) {
+      return true;
+    }
+    return false;
+  });
+
+  if (invalidQuery === "") {
+    if (typeof invalidQuery !== "string") {
+      return new Error("Invalid query: must be a string");
+    }
+    return new Error("Invalid query: must not be an empty string");
   }
 };
 
@@ -57,4 +67,5 @@ const useMediaQueries = (initialQueries) => {
 
   return matches;
 };
+
 export { useMediaQueries };
