@@ -3,7 +3,6 @@ import { MdAdd } from "react-icons/md";
 import { BrowserRouter } from "react-router-dom";
 
 import { Button, spacings } from "../index";
-import { ButtonController } from "./ButtonController";
 import { StyledFlex } from "./stories.styles";
 
 import {
@@ -39,7 +38,7 @@ const ButtonComponent = (props) => {
     <StyledFlex>
       {spacings.map((spacing) => (
         <div key={spacing}>
-          <ButtonController {...props} spacing={spacing} />
+          <Button {...props} spacing={spacing} />
         </div>
       ))}
     </StyledFlex>

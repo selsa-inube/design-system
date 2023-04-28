@@ -3,7 +3,6 @@ import { BrowserRouter } from "react-router-dom";
 import { MdAdd } from "react-icons/md";
 
 import { Button } from "../index";
-import { ButtonController } from "./ButtonController";
 
 import {
   children,
@@ -34,12 +33,13 @@ const story = {
   ],
 };
 
-export const Default = (args) => <ButtonController {...args} />;
+export const Default = (args) => <Button {...args} />;
 
 Default.args = {
   children: "Button",
   path: "/privilege",
   iconBefore: <MdAdd />,
+  handleClick: () => console.log("clicked from Default-story"),
 };
 Default.argTypes = {
   children,

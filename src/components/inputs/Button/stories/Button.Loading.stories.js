@@ -2,7 +2,6 @@ import React from "react";
 import { BrowserRouter } from "react-router-dom";
 
 import { Button, variants } from "../index";
-import { ButtonController } from "./ButtonController";
 import { StyledFlex } from "./stories.styles";
 
 import {
@@ -34,7 +33,7 @@ const ButtonComponent = (props) => {
     <StyledFlex>
       {variants.map((variant) => (
         <div key={variant}>
-          <ButtonController {...props} variant={variant} isLoading={true} />
+          <Button {...props} variant={variant} isLoading={true} />
         </div>
       ))}
     </StyledFlex>
