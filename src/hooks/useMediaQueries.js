@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 
-const useMediaQueries = (queries) => {
-  if (!Array.isArray(queries)) {
+const useMediaQueries = (initialQueries) => {
+  if (!Array.isArray(initialQueries)) {
     throw new Error("Invalid parameter: queries must be an array");
   }
 
-  const mediaQueryList = queries.map((query) => {
+  const mediaQueryList = initialQueries.map((query) => {
     if (typeof query !== "string" || query.trim() === "") {
       throw new Error("Invalid query: must be a non-empty string");
     }
@@ -29,7 +29,7 @@ const useMediaQueries = (queries) => {
   const updateState = () => setMatches(initializeState());
 
   useEffect(() => {
-    if (queries.length > 0) {
+    if (initialQueries.length > 0) {
       updateState();
 
       mediaQueryList.forEach((mediaQueryObject) =>
@@ -41,7 +41,7 @@ const useMediaQueries = (queries) => {
           mediaQueryObject.removeEventListener("change", updateState)
         );
     }
-  }, [queries.join(",")]);
+  }, [initialQueries.join(",")]);
 
   return matches;
 };

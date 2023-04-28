@@ -14,16 +14,11 @@ const story = {
   ],
 };
 
-const queries = [
-  "(min-width: 1200px)",
-  "(min-width: 992px)",
-  "(min-width: 768px)",
-];
-export const ExampleMediaQueries = () => {
-  const matches = useMediaQueries(queries);
+export const ExampleMediaQueries = ({ queries: initialQueries }) => {
+  const matches = useMediaQueries(initialQueries);
   return (
     <>
-      <Text>Matches:</Text>
+      <Text>Media queries matches:</Text>
       <ul>
         {Object.keys(matches).map((query) => (
           <Text key={query}>
@@ -35,4 +30,7 @@ export const ExampleMediaQueries = () => {
   );
 };
 
+ExampleMediaQueries.args = {
+  queries: ["(min-width: 1200px)", "(min-width: 992px)", "(min-width: 768px)"],
+};
 export default story;
