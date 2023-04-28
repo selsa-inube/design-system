@@ -59,8 +59,7 @@ const stilesIcons = css`
 
 const StyledMenuLink = styled.li`
   display: grid;
-  grid-template-columns: ${({ $icon, isSelected }) =>
-    getGrid($icon, isSelected)};
+  grid-template-columns: ${({ icon, isSelected }) => getGrid(icon, isSelected)};
   width: 100%;
   height: 100%;
   min-height: 40px;

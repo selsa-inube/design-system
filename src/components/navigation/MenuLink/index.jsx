@@ -22,7 +22,7 @@ const MenuLink = (props) => {
       isSelected={isSelected}
       id={id}
       onClick={handleClick}
-      $icon={icon}
+      icon={icon}
       onBlur={handleBlur}
     >
       {icon}
