@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 import { StyledMenuLink, StyledLink } from "./styles";
 
-const MenuLink = (props) => {
+const NavLink = (props) => {
   const {
     id,
     label,
@@ -34,7 +34,7 @@ const MenuLink = (props) => {
   );
 };
 
-MenuLink.propTypes = {
+NavLink.propTypes = {
   id: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   path: PropTypes.string.isRequired,
@@ -45,4 +45,4 @@ MenuLink.propTypes = {
   handleBlur: PropTypes.func,
 };
 
-export { MenuLink };
+export { NavLink };

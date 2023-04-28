@@ -1,8 +1,8 @@
 import { BrowserRouter } from "react-router-dom";
 import { MdHouse } from "react-icons/md";
 
-import { MenuLink } from "..";
-import { MenuLinkController } from "./MenuLink.Controller";
+import { NavLink } from "..";
+import { NavLinkController } from "./NavLink.Controller";
 import {
   id,
   label,
@@ -14,8 +14,8 @@ import {
 } from "./props";
 
 const story = {
-  title: "navigation/MenuLink/Default",
-  components: [MenuLink],
+  title: "navigation/NavLink/Default",
+  components: [NavLink],
   decorators: [
     (Story) => (
       <div style={{ margin: "3em" }}>
@@ -27,7 +27,7 @@ const story = {
   ],
 };
 
-const Default = (args) => <MenuLinkController {...args} />;
+const Default = (args) => <NavLinkController {...args} />;
 
 Default.args = {
   id: "privileges",

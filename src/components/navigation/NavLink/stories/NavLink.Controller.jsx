@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { MenuLink } from "..";
+import { NavLink } from "..";
 
-const MenuLinkController = (props) => {
+const NavLinkController = (props) => {
   const [select, setSelect] = useState(false);
 
   const handleClick = () => {
@@ -14,7 +14,7 @@ const MenuLinkController = (props) => {
 
   return (
     <ul>
-      <MenuLink
+      <NavLink
         {...props}
         isSelected={select}
         handleClick={handleClick}
@@ -24,4 +24,4 @@ const MenuLinkController = (props) => {
   );
 };
 
-export { MenuLinkController };
+export { NavLinkController };
