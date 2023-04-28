@@ -23,14 +23,22 @@ const useMediaQueries = (initialQueries) => {
   const [matches, setMatches] = useState(initializeState);
 
   const handleChange = (event) => {
-    setMatches((prevState) => ({ ...prevState, [event.media]: event.matches }));
+    setMatches((prevState) => {
+      if (prevState[event.media] === event.matches) {
+        // No need to update state if the value hasn't changed
+        return prevState;
+      }
+      return { ...prevState, [event.media]: event.matches };
+    });
   };
-
-  const updateState = () => setMatches(initializeState());
 
   useEffect(() => {
     if (initialQueries.length > 0) {
-      updateState();
+      const handleInitialQueries = () => {
+        setMatches(initializeState());
+      };
+
+      handleInitialQueries();
 
       mediaQueryList.forEach((mediaQueryObject) =>
         mediaQueryObject.addEventListener("change", handleChange)
@@ -38,7 +46,7 @@ const useMediaQueries = (initialQueries) => {
 
       return () =>
         mediaQueryList.forEach((mediaQueryObject) =>
-          mediaQueryObject.removeEventListener("change", updateState)
+          mediaQueryObject.removeEventListener("change", handleChange)
         );
     }
   }, [initialQueries.join(",")]);
