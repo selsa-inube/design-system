@@ -3,7 +3,6 @@ import { BrowserRouter } from "react-router-dom";
 import { MdAdd } from "react-icons/md";
 
 import { Button } from "../index";
-import { ButtonController } from "./ButtonController";
 import { StyledFlex } from "./stories.styles";
 
 import {
@@ -37,7 +36,7 @@ const ButtonComponent = (props) => {
     <StyledFlex>
       {[0, 1, 2].map((item) => (
         <div key={item}>
-          <ButtonController
+          <Button
             {...props}
             iconBefore={item === 0 ? <MdAdd /> : null}
             iconAfter={item === 1 ? <MdAdd /> : null}

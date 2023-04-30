@@ -3,7 +3,6 @@ import { BrowserRouter } from "react-router-dom";
 import { MdAdd } from "react-icons/md";
 
 import { Button, appearances } from "../index";
-import { ButtonController } from "./ButtonController";
 import { StyledFlex } from "./stories.styles";
 
 import {
@@ -39,7 +38,7 @@ const ButtonComponent = (props) => {
     <StyledFlex>
       {appearances.map((appearance) => (
         <div key={appearance}>
-          <ButtonController {...props} isDisabled={true} />
+          <Button {...props} isDisabled={true} />
         </div>
       ))}
     </StyledFlex>
