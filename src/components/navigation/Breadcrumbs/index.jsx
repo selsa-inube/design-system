@@ -6,17 +6,16 @@ import { StyledBreadcrumbs } from "./styles";
 import { BreadcrumbLink } from "../../navigation/BreadcrumbLink";
 import { useMediaQuery } from "../../../hooks/useMediaQuery";
 import { BreadcrumbEllipsis, typos } from "../../navigation/BreadcrumbEllipsis";
-
 function getBreadcrumbItems(crumbs, maxCrumbs) {
   if (crumbs.length > maxCrumbs) {
     const firstCrumb = {
-      path: `/${crumbs[0]}`,
-      crumb: `${capitalizeString(crumbs[0])}`,
+      path: "/",
+      crumb: "Home",
       isActive: false,
     };
 
     const lastCrumb = {
-      path: `/${crumbs.slice(-1)[0]}`,
+      path: `/${crumbs.join("/")}`,
       crumb: `${capitalizeString(crumbs.slice(-1)[0])}`,
       isActive: true,
     };
@@ -29,20 +28,29 @@ function getBreadcrumbItems(crumbs, maxCrumbs) {
 
     return [firstCrumb, middleCrumb, lastCrumb];
   } else {
-    return crumbs.map((crumb, index) => ({
+    const breadcrumbItems = crumbs.map((crumb, index) => ({
       path: `/${crumbs.slice(0, index + 1).join("/")}`,
       crumb: `${capitalizeString(crumb)}`,
       isActive: index === crumbs.length - 1,
     }));
+
+    if (breadcrumbItems.length > 1) {
+      breadcrumbItems[0].path = "/";
+    }
+
+    return breadcrumbItems;
   }
 }
 
 function getRoutesForEllipsis(crumbs) {
-  return crumbs.slice(1, -1).map((item) => ({
-    label: item,
-    path: `/${item.toLowerCase()}`,
-    id: item,
-  }));
+  return crumbs.slice(1, -1).map((crumb, index) => {
+    const path = `/${crumbs.slice(0, index + 2).join("/")}`;
+    return {
+      label: crumb,
+      path: path.toLowerCase(),
+      id: path,
+    };
+  });
 }
 
 function shouldShowEllipsis(index, length, maxCrumbs) {
@@ -74,13 +82,16 @@ const Breadcrumbs = (props) => {
             routes={routesForEllipsis}
           />
         ) : (
-          <BreadcrumbLink
-            key={path}
-            path={path}
-            id={path}
-            label={crumb}
-            isActive={isActive}
-          />
+          (console.log(path),
+          (
+            <BreadcrumbLink
+              key={path}
+              path={path}
+              id={path}
+              label={crumb}
+              isActive={isActive}
+            />
+          ))
         )
       )}
     </StyledBreadcrumbs>
