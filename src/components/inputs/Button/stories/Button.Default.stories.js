@@ -1,7 +1,8 @@
 import React from "react";
-import { Button } from "../index";
-import { ButtonController } from "./ButtonController";
+import { BrowserRouter } from "react-router-dom";
 import { MdAdd } from "react-icons/md";
+
+import { Button } from "../index";
 
 import {
   children,
@@ -15,6 +16,7 @@ import {
   variant,
   isFullWidth,
   handleClick,
+  path,
 } from "./props";
 
 const story = {
@@ -22,18 +24,22 @@ const story = {
   components: [Button],
   decorators: [
     (Story) => (
-      <div style={{ margin: "3em" }}>
-        <Story />
-      </div>
+      <BrowserRouter>
+        <div style={{ margin: "3em" }}>
+          <Story />
+        </div>
+      </BrowserRouter>
     ),
   ],
 };
 
-export const Default = (args) => <ButtonController {...args} />;
+export const Default = (args) => <Button {...args} />;
 
 Default.args = {
   children: "Button",
+  path: "/privilege",
   iconBefore: <MdAdd />,
+  handleClick: () => console.log("clicked from Default-story"),
 };
 Default.argTypes = {
   children,
@@ -47,6 +53,7 @@ Default.argTypes = {
   variant,
   isFullWidth,
   handleClick,
+  path,
 };
 
 export default story;

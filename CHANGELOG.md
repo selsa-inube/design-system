@@ -1,3 +1,42 @@
+# v2.1.0 (Fri Apr 28 2023)
+
+#### 🚀 Enhancement
+
+- Extend button to also be of type "link" so that it can enable navigation [#100](https://github.com/selsa-inube/design-system/pull/100) ([@Andresbl123](https://github.com/Andresbl123))
+
+#### 🐛 Bug Fix
+
+- When re-sizing the screen to test responsive, there is an error about a wrong prop type in `<User />` [#120](https://github.com/selsa-inube/design-system/pull/120) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- Adjust height of `<TextField />` for "wide" and "compact" sizes [#121](https://github.com/selsa-inube/design-system/pull/121) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- Release v2.0.1 [#119](https://github.com/selsa-inube/design-system/pull/119) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- `<Blanket />` should tend to be on top when rendered [#117](https://github.com/selsa-inube/design-system/pull/117) ([@Andresbl123](https://github.com/Andresbl123))
+- `<Tabs />` are starting without left-padding for first `<Tab />` [#111](https://github.com/selsa-inube/design-system/pull/111) ([@Andresbl123](https://github.com/Andresbl123))
+- Fc/release/2.0.0 [#108](https://github.com/selsa-inube/design-system/pull/108) ([@wfercanas](https://github.com/wfercanas))
+
+#### Authors: 4
+
+- Andres ([@Andresbl123](https://github.com/Andresbl123))
+- cesar.marin (cmarin@sistemasenlinea.com.co)
+- cmarin ([@cmarin001](https://github.com/cmarin001))
+- Fernando Cañas ([@wfercanas](https://github.com/wfercanas))
+
+---
+
+# v2.0.1 (Thu Apr 27 2023)
+
+#### 🐛 Bug Fix
+
+- `<Blanket />` should tend to be on top when rendered [#117](https://github.com/selsa-inube/design-system/pull/117) ([@Andresbl123](https://github.com/Andresbl123))
+- `<Tabs />` are starting without left-padding for first `<Tab />` [#111](https://github.com/selsa-inube/design-system/pull/111) ([@Andresbl123](https://github.com/Andresbl123))
+- Fc/release/2.0.0 [#108](https://github.com/selsa-inube/design-system/pull/108) ([@wfercanas](https://github.com/wfercanas))
+
+#### Authors: 2
+
+- Andres ([@Andresbl123](https://github.com/Andresbl123))
+- Fernando Cañas ([@wfercanas](https://github.com/wfercanas))
+
+---
+
 # v2.0.0 (Mon Apr 24 2023)
 
 #### 💥 Breaking Change

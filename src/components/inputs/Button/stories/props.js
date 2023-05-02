@@ -77,6 +77,11 @@ const handleClick = {
   description: "function to control button click",
 };
 
+const path = {
+  description:
+    "Is the path where the button is going to navigate when is used as button for navigation",
+};
+
 export {
   children,
   isLoading,
@@ -89,4 +94,5 @@ export {
   variant,
   isFullWidth,
   handleClick,
+  path,
 };

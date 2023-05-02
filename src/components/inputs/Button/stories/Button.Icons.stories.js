@@ -1,8 +1,9 @@
 import React from "react";
-import { Button } from "../index";
-import { ButtonController } from "./ButtonController";
-import { StyledFlex } from "./stories.styles";
+import { BrowserRouter } from "react-router-dom";
 import { MdAdd } from "react-icons/md";
+
+import { Button } from "../index";
+import { StyledFlex } from "./stories.styles";
 
 import {
   children,
@@ -21,9 +22,11 @@ const story = {
   components: [Button],
   decorators: [
     (Story) => (
-      <div style={{ margin: "3em" }}>
-        <Story />
-      </div>
+      <BrowserRouter>
+        <div style={{ margin: "3em" }}>
+          <Story />
+        </div>
+      </BrowserRouter>
     ),
   ],
 };
@@ -33,7 +36,7 @@ const ButtonComponent = (props) => {
     <StyledFlex>
       {[0, 1, 2].map((item) => (
         <div key={item}>
-          <ButtonController
+          <Button
             {...props}
             iconBefore={item === 0 ? <MdAdd /> : null}
             iconAfter={item === 1 ? <MdAdd /> : null}
@@ -54,7 +57,7 @@ Icons.args = {
   spacing: "wide",
   variant: "filled",
   isFullWidth: false,
-  handleClick: () => {},
+  handleClick: () => console.log("clicked"),
 };
 Icons.argTypes = {
   children,

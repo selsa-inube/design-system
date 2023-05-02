@@ -1,6 +1,7 @@
 import React from "react";
+import { BrowserRouter } from "react-router-dom";
+
 import { Button, variants } from "../index";
-import { ButtonController } from "./ButtonController";
 import { StyledFlex } from "./stories.styles";
 
 import {
@@ -18,9 +19,11 @@ const story = {
   components: [Button],
   decorators: [
     (Story) => (
-      <div style={{ margin: "3em" }}>
-        <Story />
-      </div>
+      <BrowserRouter>
+        <div style={{ margin: "3em" }}>
+          <Story />
+        </div>
+      </BrowserRouter>
     ),
   ],
 };
@@ -30,7 +33,7 @@ const ButtonComponent = (props) => {
     <StyledFlex>
       {variants.map((variant) => (
         <div key={variant}>
-          <ButtonController {...props} variant={variant} isLoading={true} />
+          <Button {...props} variant={variant} isLoading={true} />
         </div>
       ))}
     </StyledFlex>
@@ -46,7 +49,7 @@ Loading.args = {
   spacing: "wide",
   variant: "filled",
   isFullWidth: false,
-  handleClick: () => {},
+  handleClick: () => console.log("clicked"),
 };
 Loading.argTypes = {
   appearance,

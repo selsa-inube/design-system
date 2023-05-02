@@ -1,8 +1,9 @@
 import React from "react";
-import { Button, appearances } from "../index";
-import { ButtonController } from "./ButtonController";
-import { StyledFlex } from "./stories.styles";
+import { BrowserRouter } from "react-router-dom";
 import { MdAdd } from "react-icons/md";
+
+import { Button, appearances } from "../index";
+import { StyledFlex } from "./stories.styles";
 
 import {
   children,
@@ -15,6 +16,7 @@ import {
   variant,
   isFullWidth,
   handleClick,
+  path,
 } from "./props";
 
 const story = {
@@ -22,9 +24,11 @@ const story = {
   components: [Button],
   decorators: [
     (Story) => (
-      <div style={{ margin: "3em" }}>
-        <Story />
-      </div>
+      <BrowserRouter>
+        <div style={{ margin: "3em" }}>
+          <Story />
+        </div>
+      </BrowserRouter>
     ),
   ],
 };
@@ -34,7 +38,7 @@ const ButtonComponent = (props) => {
     <StyledFlex>
       {appearances.map((appearance) => (
         <div key={appearance}>
-          <ButtonController {...props} isDisabled={true} />
+          <Button {...props} isDisabled={true} />
         </div>
       ))}
     </StyledFlex>
@@ -50,7 +54,8 @@ Disabled.args = {
   spacing: "wide",
   variant: "filled",
   isFullWidth: false,
-  handleClick: () => {},
+  handleClick: () => console.log("clicked"),
+  path: "/privileges",
 };
 Disabled.argTypes = {
   children,
@@ -63,6 +68,7 @@ Disabled.argTypes = {
   variant,
   isFullWidth,
   handleClick,
+  path,
 };
 
 export default story;
