@@ -52,12 +52,12 @@ const getColorIcon = (isDisabled, isSelected) => {
   return colors.ref.palette.neutral.n900;
 };
 
-const stilesIcons = css`
+const iconStyles = css`
   width: 24px;
   height: 24px;
 `;
 
-const StyledMenuLink = styled.li`
+const StyledNavLink = styled.li`
   display: grid;
   grid-template-columns: ${({ icon, isSelected }) => getGrid(icon, isSelected)};
   width: 100%;
@@ -78,14 +78,14 @@ const StyledMenuLink = styled.li`
   pointer-events: ${({ isDisabled }) => isDisabled && "none"};
 
   & > svg:last-child {
-    ${stilesIcons};
+    ${iconStyles};
     color: ${colors.ref.palette.neutral.n900};
     display: ${({ isDisabled, isSelected }) =>
       (isDisabled || !isSelected) && "none"};
   }
 
   & > svg:first-child {
-    ${stilesIcons};
+    ${iconStyles};
     color: ${({ isDisabled, isSelected }) =>
       getColorIcon(isDisabled, isSelected)};
   }
@@ -95,10 +95,12 @@ const StyledMenuLink = styled.li`
     `
       &:hover {
         background-color: ${colors.ref.palette.neutral.n30};
+        cursor: pointer;
       }
+
       &:hover  > svg:first-child {
         color: ${colors.sys.actions.primary.filled};
-          
+         
       }
   `};
 `;
@@ -112,4 +114,4 @@ const StyledLink = styled(Link)`
   width: 100%;
 `;
 
-export { StyledMenuLink, StyledLink };
+export { StyledNavLink, StyledLink };
