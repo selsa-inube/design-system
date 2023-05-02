@@ -7,6 +7,12 @@ import { StyledContainerEllipsis, StyledBreadcrumbEllipsis } from "./styles";
 const typos = ["labelLarge", "labelSmall"];
 const defaultTypo = "labelLarge";
 
+const handleClickOutside = (event, containerRef, setShowMenu) => {
+  if (containerRef.current && !containerRef.current.contains(event.target)) {
+    setShowMenu(false);
+  }
+};
+
 const BreadcrumbEllipsis = (props) => {
   const { typo = defaultTypo, routes } = props;
 
@@ -15,26 +21,21 @@ const BreadcrumbEllipsis = (props) => {
 
   const containerRef = useRef(null);
 
+  useEffect(() => {
+    document.addEventListener("mousedown", (event) =>
+      handleClickOutside(event, containerRef, setShowMenu)
+    );
+
+    return () => {
+      document.removeEventListener("mousedown", (event) =>
+        handleClickOutside(event, containerRef, setShowMenu)
+      );
+    };
+  }, [containerRef]);
+
   const handleEllipsisClick = () => {
     setShowMenu(!showMenu);
   };
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (
-        containerRef.current &&
-        !containerRef.current.contains(event.target)
-      ) {
-        setShowMenu(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [containerRef]);
 
   return (
     <>
