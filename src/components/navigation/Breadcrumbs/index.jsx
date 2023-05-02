@@ -7,28 +7,17 @@ import { BreadcrumbLink } from "../../navigation/BreadcrumbLink";
 import { useMediaQuery } from "../../../hooks/useMediaQuery";
 import { BreadcrumbEllipsis, typos } from "../../navigation/BreadcrumbEllipsis";
 
-const Breadcrumbs = (props) => {
-  const { route } = props;
-
-  const crumbs = route.split("/").filter((crumb) => crumb !== "");
-  crumbs.unshift("Home");
-  const isDesktop = useMediaQuery("(min-width: 768px)");
-  const maxCrumbs = isDesktop ? 5 : 3;
-  let breadcrumbItems = [];
-
+function getBreadcrumbItems(crumbs, maxCrumbs) {
   if (crumbs.length > maxCrumbs) {
     const firstCrumb = {
       path: `/${crumbs[0]}`,
-      crumb: `${crumbs[0].charAt(0).toUpperCase() + crumbs[0].slice(1)}`,
+      crumb: `${capitalizeString(crumbs[0])}`,
       isActive: false,
     };
 
     const lastCrumb = {
       path: `/${crumbs.slice(-1)[0]}`,
-      crumb: `${
-        crumbs.slice(-1)[0].charAt(0).toUpperCase() +
-        crumbs.slice(-1)[0].slice(1)
-      }`,
+      crumb: `${capitalizeString(crumbs.slice(-1)[0])}`,
       isActive: true,
     };
 
@@ -38,25 +27,47 @@ const Breadcrumbs = (props) => {
       isActive: false,
     };
 
-    breadcrumbItems.push(firstCrumb, middleCrumb, lastCrumb);
+    return [firstCrumb, middleCrumb, lastCrumb];
   } else {
-    breadcrumbItems = crumbs.map((crumb, index) => ({
+    return crumbs.map((crumb, index) => ({
       path: `/${crumbs.slice(0, index + 1).join("/")}`,
-      crumb: `${crumb.charAt(0).toUpperCase() + crumb.slice(1)}`,
+      crumb: `${capitalizeString(crumb)}`,
       isActive: index === crumbs.length - 1,
     }));
   }
+}
 
-  const routesForEllipsis = crumbs.slice(1, -1).map((item) => ({
+function getRoutesForEllipsis(crumbs) {
+  return crumbs.slice(1, -1).map((item) => ({
     label: item,
     path: `/${item.toLowerCase()}`,
     id: item,
   }));
+}
+
+function shouldShowEllipsis(index, length, maxCrumbs) {
+  return index === 1 && length > maxCrumbs;
+}
+
+function capitalizeString(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+const Breadcrumbs = (props) => {
+  const { route } = props;
+
+  const crumbs = route.split("/").filter((crumb) => crumb !== "");
+  crumbs.unshift("Home");
+  const isDesktop = useMediaQuery("(min-width: 768px)");
+  const maxCrumbs = isDesktop ? 5 : 3;
+  const breadcrumbItems = getBreadcrumbItems(crumbs, maxCrumbs);
+
+  const routesForEllipsis = getRoutesForEllipsis(crumbs);
 
   return (
     <StyledBreadcrumbs>
       {breadcrumbItems.map(({ path, crumb, isActive }, index) =>
-        index === 1 && crumbs.length > maxCrumbs ? (
+        shouldShowEllipsis(index, crumbs.length, maxCrumbs) ? (
           <BreadcrumbEllipsis
             key={`breadcrumb-ellipsis-${index}`}
             typo={typos[isDesktop ? "labelLarge" : "labelSmall"]}
