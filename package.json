@@ -25,10 +25,9 @@
     "serve": "vite preview",
     "auto": "auto",
     "prepare": "husky install",
-    "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public",
-    "test-storybook": "test-storybook --watch",
-    "chromatic": "npx chromatic"
+    "chromatic": "npx chromatic",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
@@ -47,19 +46,15 @@
     "@babel/preset-react": "^7.18.6",
     "@commitlint/cli": "^17.3.0",
     "@commitlint/config-conventional": "^17.3.0",
-    "@storybook/addon-a11y": "^6.5.14",
-    "@storybook/addon-actions": "^6.5.14",
-    "@storybook/addon-essentials": "^6.5.14",
-    "@storybook/addon-interactions": "^6.5.14",
-    "@storybook/addon-links": "^6.5.14",
-    "@storybook/builder-webpack5": "^6.5.14",
-    "@storybook/jest": "^0.0.10",
-    "@storybook/manager-webpack5": "^6.5.14",
-    "@storybook/node-logger": "^6.5.14",
-    "@storybook/preset-create-react-app": "^4.1.2",
-    "@storybook/react": "^6.5.14",
-    "@storybook/test-runner": "^0.9.1",
-    "@storybook/testing-library": "^0.0.13",
+    "@storybook/addon-essentials": "^7.0.8",
+    "@storybook/addon-interactions": "^7.0.8",
+    "@storybook/addon-links": "^7.0.8",
+    "@storybook/blocks": "^7.0.8",
+    "@storybook/preset-create-react-app": "^7.0.8",
+    "@storybook/react": "^7.0.8",
+    "@storybook/react-vite": "^7.0.8",
+    "@storybook/react-webpack5": "^7.0.8",
+    "@storybook/testing-library": "0.1.0",
     "@vitejs/plugin-react": "4.0.0",
     "auto": "^10.37.6",
     "babel-plugin-named-exports-order": "^0.0.2",
@@ -70,6 +65,7 @@
     "lint-staged": "^13.1.0",
     "prettier": "2.8.0",
     "prop-types": "^15.8.1",
+    "storybook": "^7.0.8",
     "vite": "4.3.4",
     "webpack": "^5.75.0"
   },
@@ -87,6 +83,18 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+  "eslintConfig": {
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
     ]
   }
 }
