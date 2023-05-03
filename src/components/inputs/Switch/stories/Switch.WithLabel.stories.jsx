@@ -24,6 +24,7 @@ const SwitchComponent = (props) => {
     <Stack alignItems="center" justifyContent="space-evenly">
       {[0, 1].map((item) => (
         <SwitchController
+          key={item}
           {...props}
           id={String(item)}
           checked={item > 0 ? !checked : checked}

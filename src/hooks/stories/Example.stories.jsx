@@ -25,6 +25,7 @@ export const Example = (args) => {
 
 Example.args = {
   handleChange: () => {},
+  id: "thisIsAnId",
 };
 
 export default story;
