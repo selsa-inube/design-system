@@ -31,18 +31,16 @@ const initializeState = (mediaQueryList) => {
   return initialState;
 };
 
-const useMediaQueries = (initialQueries) => {
+const useMediaQueries = (queries) => {
   const [matches, setMatches] = useState({});
 
   useEffect(() => {
-    const validationError = validateQueries(initialQueries);
+    const validationError = validateQueries(queries);
     if (validationError) {
       throw validationError;
     }
 
-    const mediaQueryList = initialQueries.map((query) =>
-      window.matchMedia(query)
-    );
+    const mediaQueryList = queries.map((query) => window.matchMedia(query));
 
     setMatches(initializeState(mediaQueryList));
 
@@ -63,7 +61,7 @@ const useMediaQueries = (initialQueries) => {
       mediaQueryList.forEach((mediaQueryObject) =>
         mediaQueryObject.removeEventListener("change", handleChange)
       );
-  }, [initialQueries]);
+  }, [queries]);
 
   return matches;
 };
