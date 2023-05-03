@@ -1,3 +1,5 @@
+import React from "react";
+
 import { SkeletonLine } from "..";
 import { parameters, width, isAnimated } from "./props";
 
