@@ -11,6 +11,9 @@ const StyledBreadcrumbs = styled.ul`
   & li > label {
     display: inherit;
   }
+  & > div {
+    left: 12%;
+  }
 `;
 
 export { StyledBreadcrumbs };
