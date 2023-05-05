@@ -21,10 +21,6 @@ function getBreadcrumbItems(crumbs, maxCrumbs) {
     );
   }
 
-  if (breadcrumbItems.length > 1) {
-    breadcrumbItems[0].path = "/";
-  }
-
   return breadcrumbItems;
 }
 
