@@ -13,10 +13,18 @@ export default defineConfig({
       exports: "named",
     },
     rollupOptions: {
-      external: ["react"],
+      external: [
+        "react",
+        "react-router-dom",
+        "styled-components",
+        "react-icons",
+      ],
       output: {
         globals: {
           react: "React",
+          "react-router-dom": "ReactRouterDOM",
+          "styled-components": "styled",
+          "react-icons": "ReactIcons",
         },
       },
     },
