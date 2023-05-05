@@ -31,8 +31,8 @@
   },
   "private": false,
   "scripts": {
-    "start": "vite",
-    "build": "vite build",
+    "dev": "vite",
+    "build": "vite build --mode production",
     "serve": "vite preview",
     "auto": "auto",
     "prepare": "husky install",
