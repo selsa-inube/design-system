@@ -13,22 +13,12 @@ function getBreadcrumbItems(crumbs, maxCrumbs) {
     crumb: `${capitalizeString(crumb)}`,
     isActive: index === crumbs.length - 1,
   }));
-  console.log("breadcrumbItems: ", breadcrumbItems);
 
   if (breadcrumbItems.length > maxCrumbs) {
-    const firstCrumb = {
-      path: "/",
-      crumb: "Home",
-      isActive: false,
-    };
-
-    const lastCrumb = {
-      path: `/${crumbs.slice(1, crumbs.length).join("/")}`,
-      crumb: `${capitalizeString(crumbs.slice(-1)[0])}`,
-      isActive: true,
-    };
-
-    return [firstCrumb, "", lastCrumb];
+    return breadcrumbItems.filter(
+      (item, index) =>
+        index === 0 || index === breadcrumbItems.length - 1 || index === 2
+    );
   }
 
   if (breadcrumbItems.length > 1) {
