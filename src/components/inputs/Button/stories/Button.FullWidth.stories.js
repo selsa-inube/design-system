@@ -3,7 +3,6 @@ import { BrowserRouter } from "react-router-dom";
 import { Button } from "../index";
 import { MdAdd } from "react-icons/md";
 
-import { ButtonController } from "./ButtonController";
 import { StyledFlex } from "./stories.styles";
 
 import {
@@ -37,7 +36,7 @@ const story = {
 const ButtonComponent = (props) => {
   return (
     <StyledFlex>
-      <ButtonController {...props} isFullWidth={true} />
+      <Button {...props} isFullWidth={true} />
     </StyledFlex>
   );
 };
