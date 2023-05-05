@@ -5,7 +5,18 @@
   "license": "ISC",
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "author": "Fernando Cañas <fcanas@sistemasenlinea.com.co>",
-  "main": "dist/index.js",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.cjs.js",
+  "module": "./dist/index/es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index/es.js",
+      "require": "./dist/index/cjs.js"
+    }
+  },
   "keywords": [
     "inube",
     "design",
