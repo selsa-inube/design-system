@@ -1,25 +1,37 @@
 import { useLayoutEffect, useState } from "react";
 
-const validateQueries = (queries) => {
-  if (!Array.isArray(queries)) {
-    throw new Error("Invalid parameter: queries must be an array");
+const validateArray = (arr, name) => {
+  if (!Array.isArray(arr)) {
+    throw new Error(`Invalid parameter: ${name} must be an array`);
   }
+  if (arr.length <= 0) {
+    throw new Error(`Invalid parameter: ${name} must not be an empty array`);
+  }
+};
+
+const validateNonEmptyString = (value, name) => {
+  if (typeof value !== "string") {
+    throw new Error(`Invalid ${name}: must be a string`);
+  }
+  if (value.trim().length === 0) {
+    throw new Error(`Invalid ${name}: must not be an empty string`);
+  }
+};
+
+const validateQueries = (queries) => {
+  validateArray(queries, "queries");
 
   const invalidQuery = queries.find((query) => {
-    if (typeof query !== "string") {
-      return true;
+    try {
+      validateNonEmptyString(query, "query");
+      return false;
+    } catch (error) {
+      throw error;
     }
-    if (query.trim().length === 0) {
-      return true;
-    }
-    return false;
   });
 
   if (invalidQuery) {
-    if (typeof invalidQuery !== "string") {
-      throw new Error("Invalid query: must be a string");
-    }
-    throw new Error("Invalid query: must not be an empty string");
+    throw new Error("Invalid queries: one or more queries are invalid");
   }
 };
 
@@ -32,6 +44,7 @@ const initializeState = (mediaQueryList) => {
 };
 
 const useMediaQueries = (queries) => {
+  validateArray(queries, "queries");
   validateQueries(queries);
 
   const [matches, setMatches] = useState(() =>
@@ -59,12 +72,6 @@ const useMediaQueries = (queries) => {
   const handleChange = (event, prevState) => {
     return { ...prevState, [event.media]: event.matches };
   };
-
-  if (Object.keys(matches).length === 0) {
-    throw new Error(
-      "Empty matches object returned from useMediaQueries. This can break the layout of the component that is expecting a sequence of true and false for the media queries passed to the hook."
-    );
-  }
 
   return matches;
 };
