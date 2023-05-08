@@ -31,6 +31,10 @@ export const ExampleMediaQueries = (args) => {
   );
 };
 ExampleMediaQueries.args = {
-  initialQueries: ["", "(min-width: 992px)", "(min-width: 768px)"],
+  initialQueries: [
+    "(min-width: 1200px)",
+    "(min-width: 992px)",
+    "(min-width: 768px)",
+  ],
 };
 export default story;

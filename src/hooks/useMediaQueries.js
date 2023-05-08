@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useLayoutEffect, useState } from "react";
 
 const validateQueries = (queries) => {
   if (!Array.isArray(queries)) {
@@ -36,10 +36,8 @@ const useMediaQueries = (queries) => {
 
   const [matches, setMatches] = useState({});
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const mediaQueryList = queries.map((query) => window.matchMedia(query));
-
-    setMatches(initializeState(mediaQueryList));
 
     const handleChange = (event) => {
       setMatches((prevState) => {
@@ -49,6 +47,8 @@ const useMediaQueries = (queries) => {
         return { ...prevState, [event.media]: event.matches };
       });
     };
+
+    setMatches(initializeState(mediaQueryList));
 
     mediaQueryList.forEach((mediaQueryObject) =>
       mediaQueryObject.addEventListener("change", handleChange)
