@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 const validateQueries = (queries) => {
   if (!Array.isArray(queries)) {
-    return new Error("Invalid parameter: queries must be an array");
+    throw new Error("Invalid parameter: queries must be an array");
   }
 
   const invalidQuery = queries.find((query) => {
@@ -15,11 +15,11 @@ const validateQueries = (queries) => {
     return false;
   });
 
-  if (invalidQuery === "") {
+  if (invalidQuery) {
     if (typeof invalidQuery !== "string") {
-      return new Error("Invalid query: must be a string");
+      throw new Error("Invalid query: must be a string");
     }
-    return new Error("Invalid query: must not be an empty string");
+    throw new Error("Invalid query: must not be an empty string");
   }
 };
 
@@ -32,14 +32,11 @@ const initializeState = (mediaQueryList) => {
 };
 
 const useMediaQueries = (queries) => {
+  validateQueries(queries);
+
   const [matches, setMatches] = useState({});
 
   useEffect(() => {
-    const validationError = validateQueries(queries);
-    if (validationError) {
-      throw validationError;
-    }
-
     const mediaQueryList = queries.map((query) => window.matchMedia(query));
 
     setMatches(initializeState(mediaQueryList));
