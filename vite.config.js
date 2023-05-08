@@ -9,7 +9,7 @@ export default defineConfig({
       entry: resolve(__dirname, "src/index.js"),
       name: "design-system",
       fileName: (format) => `index.${format}.js`,
-      formats: ["es", "cjs", "umd"],
+      formats: ["es", "umd"],
       exports: "named",
     },
     rollupOptions: {
@@ -18,6 +18,7 @@ export default defineConfig({
         "react-router-dom",
         "styled-components",
         "react-icons",
+        "prop-types",
       ],
       output: {
         globals: {
@@ -25,6 +26,7 @@ export default defineConfig({
           "react-router-dom": "ReactRouterDOM",
           "styled-components": "styled",
           "react-icons": "ReactIcons",
+          "prop-types": "PropTypes",
         },
       },
     },
