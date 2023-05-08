@@ -36,28 +36,31 @@ const useMediaQueries = (queries) => {
 
   const [matches, setMatches] = useState({});
 
+  const handleChange = (event, prevState) => {
+    if (prevState[event.media] === event.matches) {
+      return prevState;
+    }
+    return { ...prevState, [event.media]: event.matches };
+  };
+
   useLayoutEffect(() => {
     const mediaQueryList = queries.map((query) => window.matchMedia(query));
 
-    const handleChange = (event) => {
-      setMatches((prevState) => {
-        if (prevState[event.media] === event.matches) {
-          return prevState;
-        }
-        return { ...prevState, [event.media]: event.matches };
-      });
-    };
-
     setMatches(initializeState(mediaQueryList));
 
-    mediaQueryList.forEach((mediaQueryObject) =>
-      mediaQueryObject.addEventListener("change", handleChange)
-    );
+    const handleChanges = mediaQueryList.map((mediaQueryObject) => {
+      const changeHandler = (event) => {
+        setMatches((prevState) => handleChange(event, prevState));
+      };
+      mediaQueryObject.addEventListener("change", changeHandler);
+      return changeHandler;
+    });
 
-    return () =>
-      mediaQueryList.forEach((mediaQueryObject) =>
-        mediaQueryObject.removeEventListener("change", handleChange)
-      );
+    return () => {
+      handleChanges.forEach((changeHandler, index) => {
+        mediaQueryList[index].removeEventListener("change", changeHandler);
+      });
+    };
   }, [queries]);
 
   return matches;
