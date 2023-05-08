@@ -37,9 +37,6 @@ const useMediaQueries = (queries) => {
   const [matches, setMatches] = useState({});
 
   const handleChange = (event, prevState) => {
-    if (prevState[event.media] === event.matches) {
-      return prevState;
-    }
     return { ...prevState, [event.media]: event.matches };
   };
 
