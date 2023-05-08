@@ -34,16 +34,12 @@ const initializeState = (mediaQueryList) => {
 const useMediaQueries = (queries) => {
   validateQueries(queries);
 
-  const [matches, setMatches] = useState({});
-
-  const handleChange = (event, prevState) => {
-    return { ...prevState, [event.media]: event.matches };
-  };
+  const [matches, setMatches] = useState(() =>
+    initializeState(queries.map((query) => window.matchMedia(query)))
+  );
 
   useLayoutEffect(() => {
     const mediaQueryList = queries.map((query) => window.matchMedia(query));
-
-    setMatches(initializeState(mediaQueryList));
 
     const handleChanges = mediaQueryList.map((mediaQueryObject) => {
       const changeHandler = (event) => {
@@ -59,6 +55,16 @@ const useMediaQueries = (queries) => {
       });
     };
   }, [queries]);
+
+  const handleChange = (event, prevState) => {
+    return { ...prevState, [event.media]: event.matches };
+  };
+
+  if (Object.keys(matches).length === 0) {
+    throw new Error(
+      "Empty matches object returned from useMediaQueries. This can break the layout of the component that is expecting a sequence of true and false for the media queries passed to the hook."
+    );
+  }
 
   return matches;
 };
