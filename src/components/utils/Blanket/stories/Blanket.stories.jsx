@@ -1,3 +1,5 @@
+import React from "react";
+
 import { Blanket } from "..";
 
 const story = {

@@ -1,3 +1,5 @@
+import React from "react";
+
 import { TextField } from "..";
 import { TextFieldController } from "./TextfieldController";
 
@@ -7,63 +9,55 @@ import {
   name,
   id,
   placeholder,
-  isDisabled,
-  state,
-  type,
   value,
   handleChange,
   iconBefore,
   iconAfter,
   maxLength,
   minLength,
-  errorMessage,
+  max,
+  min,
   size,
-  isFullWidth,
 } from "./props";
 
 const story = {
-  title: "inputs/TextField/Invalid",
+  title: "inputs/TextField/Default",
   components: [TextField],
   parameters,
 };
 
-const Invalid = (args) => <TextFieldController {...args} state="invalid" />;
-Invalid.args = {
+const Default = (args) => <TextFieldController {...args} />;
+Default.args = {
   label: "Username",
   name: "Username",
   id: "Username",
-  value: "L-GARZON",
-  placeholder: "Username..",
-  isDisabled: false,
-  type: "text",
-  maxLength: 20,
+  placeholder: "Write your full name",
+  value: "",
+  maxLength: 10,
   minLength: 1,
-  isRequired: true,
+  min: 0,
+  max: 0,
   errorMessage: "Please enter only letters in this field",
   validMessage: "The field has been successfully validated",
   size: "wide",
-  isFullWidth: false,
 };
 
-Invalid.argTypes = {
+Default.argTypes = {
   label,
   name,
   id,
   placeholder,
-  isDisabled,
-  state,
-  type,
   value,
   handleChange,
   iconBefore,
   iconAfter,
   maxLength,
   minLength,
-  errorMessage,
+  max,
+  min,
   size,
-  isFullWidth,
 };
 
 export default story;
 
-export { Invalid };
+export { Default };
