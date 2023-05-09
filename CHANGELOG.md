@@ -1,3 +1,24 @@
+# v2.2.0 (Tue May 09 2023)
+
+#### 🚀 Enhancement
+
+- Migrate the project from CRA to Vite [#128](https://github.com/selsa-inube/design-system/pull/128) ([@Andresbl123](https://github.com/Andresbl123) cmarin@sistemasenlinea.com.co)
+- Develop the `<NavLink />` component [#116](https://github.com/selsa-inube/design-system/pull/116) ([@Andresbl123](https://github.com/Andresbl123))
+
+#### 🐛 Bug Fix
+
+- Delete `<ButtonController />` in `<Button />` stories [#126](https://github.com/selsa-inube/design-system/pull/126) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- Adjust the use of typography tokens in `<Button />` [#124](https://github.com/selsa-inube/design-system/pull/124) ([@Andresbl123](https://github.com/Andresbl123))
+- release v2.1.0 [#125](https://github.com/selsa-inube/design-system/pull/125) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 3
+
+- Andres ([@Andresbl123](https://github.com/Andresbl123))
+- cesar.marin (cmarin@sistemasenlinea.com.co)
+- cmarin ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v2.1.0 (Fri Apr 28 2023)
 
 #### 🚀 Enhancement
