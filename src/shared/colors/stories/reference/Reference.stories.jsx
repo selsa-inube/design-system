@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ColorReference } from "../reference";
+import { ColorReference } from ".";
 
 const story = {
   title: "Shared/Colors/Reference",

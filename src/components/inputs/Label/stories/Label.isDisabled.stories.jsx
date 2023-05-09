@@ -1,5 +1,6 @@
-import { Label } from "..";
+import React from "react";
 
+import { Label } from "..";
 import { parameters, isFocused, htmlFor, isInvalid } from "./props";
 
 const story = {

@@ -1,3 +1,4 @@
+import React from "react";
 import { Text } from "..";
 
 import { typography } from "../../../../shared/typography/typography";
