@@ -1,5 +1,5 @@
 import React from "react";
-import { SkeletonIcon } from "./../index";
+import { SkeletonIcon } from "../index";
 
 import { size, isAnimated } from "./props";
 

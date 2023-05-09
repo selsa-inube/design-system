@@ -1,3 +1,5 @@
+import React from "react";
+
 import { Label, typos } from "..";
 import { Stack } from "../../../layouts/Stack";
 
