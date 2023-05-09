@@ -1,4 +1,4 @@
-# v2.2.0 (Tue May 09 2023)
+# v3.0.1 (Tue May 09 2023)
 
 #### 🚀 Enhancement
 
