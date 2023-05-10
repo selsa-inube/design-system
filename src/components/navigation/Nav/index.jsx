@@ -42,18 +42,16 @@ const Nav = (props) => {
           ))}
         </Stack>
         <SeparatorLine />
-        {/* <Stack direction="column"> */}
         <NavLink
           id="logout"
           label="logout"
           icon={<MdLogout />}
           path={logoutPath}
         />
-        {/* </Stack> */}
       </Stack>
       <StyledFooter>
         <Stack justifyContent="center">
-          <Text typosOptions="labelMedium">© 2023 Sistemas Enlinea S.A</Text>
+          <Text typo="labelMedium">© 2023 Sistemas Enlinea S.A</Text>
         </Stack>
       </StyledFooter>
     </StyledNav>
