@@ -14,44 +14,46 @@ const Nav = (props) => {
 
   return (
     <StyledNav>
-      <Text
-        padding="20px 17px"
-        margin="0px 0px 32px 0px"
-        as="h2"
-        appearance="secondary"
-        typoToken="titleMedium"
-      >
-        {title}
-      </Text>
-
-      <Stack id="nav" direction="column" gap="43px">
-        {navObject.map((navSection, index) => (
-          <Stack key={index} direction="column" justifyContent="center">
-            <Text
-              padding="0px 0px 26px 16px"
-              as="h2"
-              appearance="secondary"
-              typo="titleSmall"
-            >
-              {navSection.subTitle}
-            </Text>
-            <Stack direction="column">
-              <NavUI routes={navSection.routes} />
+      <Stack direction="column">
+        <Text
+          padding="20px 17px"
+          margin="0px 0px 32px 0px"
+          as="h2"
+          appearance="secondary"
+          typoToken="titleMedium"
+        >
+          {title}
+        </Text>
+        <Stack id="nav" direction="column" gap="43px">
+          {navObject.map((navSection, index) => (
+            <Stack key={index} direction="column" justifyContent="center">
+              <Text
+                padding="0px 0px 26px 16px"
+                as="h2"
+                appearance="secondary"
+                typo="titleSmall"
+              >
+                {navSection.subTitle}
+              </Text>
+              <Stack direction="column">
+                <NavUI routes={navSection.routes} />
+              </Stack>
             </Stack>
-          </Stack>
-        ))}
+          ))}
+        </Stack>
         <SeparatorLine />
+        {/* <Stack direction="column"> */}
         <NavLink
           id="logout"
           label="logout"
           icon={<MdLogout />}
           path={logoutPath}
         />
+        {/* </Stack> */}
       </Stack>
-
       <StyledFooter>
         <Stack justifyContent="center">
-          <Text typoToken="labelMedium">© 2023 Sistemas Enlinea S.A</Text>
+          <Text typosOptions="labelMedium">© 2023 Sistemas Enlinea S.A</Text>
         </Stack>
       </StyledFooter>
     </StyledNav>
