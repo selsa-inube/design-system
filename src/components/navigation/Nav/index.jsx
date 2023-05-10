@@ -24,7 +24,7 @@ const Nav = (props) => {
         >
           {title}
         </Text>
-        <Stack id="nav" direction="column" gap="43px">
+        <Stack direction="column" gap="43px">
           {navObject.map((navSection, index) => (
             <Stack key={index} direction="column" justifyContent="center">
               <Text

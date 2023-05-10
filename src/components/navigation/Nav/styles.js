@@ -5,8 +5,9 @@ const StyledNav = styled.div`
   box-sizing: border-box;
   width: 100%;
   height: 100%;
-  position: relative;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background-color: ${colors.ref.palette.neutral.n10};
   border-right: 1px solid ${colors.ref.palette.neutral.n40};
 `;
@@ -18,8 +19,6 @@ const StyledFooter = styled.footer`
     margin: 0px;
   }
 
-  position: absolute;
-  bottom: 0;
   width: 100%;
 `;
 
