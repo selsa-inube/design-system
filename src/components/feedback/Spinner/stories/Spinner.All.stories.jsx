@@ -1,5 +1,5 @@
 import React from "react";
-import { Spinner, sizes, appearances } from "./../index";
+import { Spinner, sizes, appearances } from "../index";
 
 import { StyledFlex, StyledFlexColumn, StyledGrid } from "./styles";
 

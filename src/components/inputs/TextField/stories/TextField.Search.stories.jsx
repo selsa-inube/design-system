@@ -1,71 +1,71 @@
+import React from "react";
+import { MdSearch } from "react-icons/md";
+
 import { TextField } from "..";
 import { TextFieldController } from "./TextfieldController";
 
 import {
   parameters,
-  label,
   name,
   id,
   placeholder,
   isDisabled,
   type,
-  state,
-  value,
   handleChange,
   iconBefore,
   iconAfter,
+  maxLength,
+  minLength,
   max,
   min,
   isRequired,
-  errorMessage,
-  validMessage,
   size,
   isFullWidth,
 } from "./props";
 
 const story = {
-  title: "inputs/TextField/Number",
+  title: "inputs/TextField/Search",
   components: [TextField],
   parameters,
 };
 
-const Number = (args) => <TextFieldController {...args} />;
-Number.args = {
-  label: "Quantity",
-  name: "quantity",
-  id: "quantity",
-  placeholder: "Value",
-  type: "number",
-  state: "pending",
+const Search = (args) => (
+  <TextFieldController {...args} type="search" state="pending" />
+);
+Search.args = {
+  name: "searchField",
+  id: "searchField",
+  placeholder: "Search...",
   isDisabled: false,
-  max: 10,
-  min: 0,
+  iconAfter: <MdSearch />,
   isRequired: false,
+  errorMessage: "",
+  maxLength: 10,
+  minLength: 1,
+  max: 10,
+  min: 1,
   size: "wide",
   isFullWidth: false,
 };
 
-Number.argTypes = {
-  label,
+Search.argTypes = {
   name,
   id,
   placeholder,
   isDisabled,
   type,
-  state,
-  value,
   handleChange,
   iconBefore,
   iconAfter,
+  maxLength,
+  minLength,
   max,
   min,
   isRequired,
-  errorMessage,
-  validMessage,
   size,
   isFullWidth,
 };
 
 export default story;
 
-export { Number };
+export { Search };

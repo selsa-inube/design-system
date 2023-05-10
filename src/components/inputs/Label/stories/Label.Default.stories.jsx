@@ -1,4 +1,6 @@
-import { Label } from "../";
+import React from "react";
+
+import { Label } from "..";
 
 import {
   parameters,

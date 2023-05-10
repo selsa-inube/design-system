@@ -1,6 +1,6 @@
 import React from "react";
 import { Switch } from "../../components/inputs/Switch";
-import { SwitchController } from "./../../components/inputs/Switch/stories/SwitchController";
+import { SwitchController } from "../../components/inputs/Switch/stories/SwitchController";
 import { useMediaQuery } from "../useMediaQuery";
 
 const story = {
@@ -25,6 +25,7 @@ export const Example = (args) => {
 
 Example.args = {
   handleChange: () => {},
+  id: "thisIsAnId",
 };
 
 export default story;
