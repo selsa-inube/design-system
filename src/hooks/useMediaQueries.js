@@ -1,9 +1,12 @@
 import { useLayoutEffect, useState } from "react";
 
-const validateArray = (arr, name) => {
+const validateArrayType = (arr, name) => {
   if (!Array.isArray(arr)) {
     throw new Error(`Invalid parameter: ${name} must be an array`);
   }
+};
+
+const validateArrayNotEmpty = (arr, name) => {
   if (arr.length <= 0) {
     throw new Error(`Invalid parameter: ${name} must not be an empty array`);
   }
@@ -19,7 +22,8 @@ const validateNonEmptyString = (value, name) => {
 };
 
 const validateQueries = (queries) => {
-  validateArray(queries, "queries");
+  validateArrayType(queries, "queries");
+  validateArrayNotEmpty(queries, "queries");
 
   const invalidQuery = queries.find((query) => {
     try {
@@ -44,7 +48,7 @@ const initializeState = (mediaQueryList) => {
 };
 
 const useMediaQueries = (queries) => {
-  validateArray(queries, "queries");
+  validateArrayType(queries, "queries");
   validateQueries(queries);
 
   const [matches, setMatches] = useState(() =>
