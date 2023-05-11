@@ -8,11 +8,14 @@ import { useMediaQuery } from "../../../hooks/useMediaQuery";
 import { BreadcrumbEllipsis, typos } from "../../navigation/BreadcrumbEllipsis";
 
 function getBreadcrumbItems(crumbs, maxCrumbs) {
-  const breadcrumbItems = crumbs.map((crumb, index) => ({
-    path: `/${crumbs.slice(1, index + 1).join("/")}`,
-    crumb: `${capitalizeString(crumb)}`,
-    isActive: index === crumbs.length - 1,
-  }));
+  const breadcrumbItems = [
+    { path: "/", crumb: "Home", isActive: false },
+    ...crumbs.map((crumb, index) => ({
+      path: `/${crumbs.slice(0, index + 1).join("/")}`,
+      crumb: `${capitalizeString(crumb)}`,
+      isActive: index === crumbs.length - 1,
+    })),
+  ];
 
   if (breadcrumbItems.length > maxCrumbs) {
     return breadcrumbItems.filter(
@@ -25,8 +28,8 @@ function getBreadcrumbItems(crumbs, maxCrumbs) {
 }
 
 function getRoutesForEllipsis(crumbs) {
-  return crumbs.slice(1, -1).map((crumb, index) => {
-    const path = `/${crumbs.slice(1, index + 2).join("/")}`;
+  return crumbs.slice(0, -1).map((crumb, index) => {
+    const path = `/${crumbs.slice(0, index + 1).join("/")}`;
     return {
       label: crumb,
       path: path.toLowerCase(),
@@ -43,33 +46,47 @@ const Breadcrumbs = (props) => {
   const { route } = props;
 
   const crumbs = route.split("/").filter((crumb) => crumb !== "");
-  crumbs.unshift("Home");
   const isDesktop = useMediaQuery("(min-width: 768px)");
   const maxCrumbs = isDesktop ? 5 : 3;
   const breadcrumbItems = getBreadcrumbItems(crumbs, maxCrumbs);
 
   const routesForEllipsis = getRoutesForEllipsis(crumbs);
-  const showEllipsis = crumbs.length > maxCrumbs;
+
+  if (crumbs.length + 1 > maxCrumbs) {
+    return (
+      <StyledBreadcrumbs>
+        {breadcrumbItems.map(({ path, crumb, isActive }, index) =>
+          index === 1 ? (
+            <BreadcrumbEllipsis
+              key={`breadcrumb-ellipsis-${index}`}
+              typo={typos[isDesktop ? "labelLarge" : "labelSmall"]}
+              routes={routesForEllipsis}
+            />
+          ) : (
+            <BreadcrumbLink
+              key={path}
+              path={path}
+              id={path}
+              label={crumb}
+              isActive={isActive}
+            />
+          )
+        )}
+      </StyledBreadcrumbs>
+    );
+  }
 
   return (
     <StyledBreadcrumbs>
-      {breadcrumbItems.map(({ path, crumb, isActive }, index) =>
-        index === 1 && showEllipsis ? (
-          <BreadcrumbEllipsis
-            key={`breadcrumb-ellipsis-${index}`}
-            typo={typos[isDesktop ? "labelLarge" : "labelSmall"]}
-            routes={routesForEllipsis}
-          />
-        ) : (
-          <BreadcrumbLink
-            key={path}
-            path={path}
-            id={path}
-            label={crumb}
-            isActive={isActive}
-          />
-        )
-      )}
+      {breadcrumbItems.map(({ path, crumb, isActive }) => (
+        <BreadcrumbLink
+          key={path}
+          path={path}
+          id={path}
+          label={crumb}
+          isActive={isActive}
+        />
+      ))}
     </StyledBreadcrumbs>
   );
 };
