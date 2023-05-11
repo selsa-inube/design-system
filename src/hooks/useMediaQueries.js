@@ -56,17 +56,17 @@ const useMediaQueries = (queries) => {
     }, []);
 
     useLayoutEffect(() => {
-      const handleChanges = mediaQueryList.map((mediaQueryObject) => {
-        const changeHandler = (event) => {
-          setMatches((prevState) => handleChange(event, prevState));
-        };
+      const changeHandler = (event) => {
+        setMatches((prevState) => handleChange(event, prevState));
+      };
+
+      mediaQueryList.forEach((mediaQueryObject) => {
         mediaQueryObject.addEventListener("change", changeHandler);
-        return changeHandler;
       });
 
       return () => {
-        handleChanges.forEach((changeHandler, index) => {
-          mediaQueryList[index].removeEventListener("change", changeHandler);
+        mediaQueryList.forEach((mediaQueryObject) => {
+          mediaQueryObject.removeEventListener("change", changeHandler);
         });
       };
     }, [mediaQueryList, handleChange]);
