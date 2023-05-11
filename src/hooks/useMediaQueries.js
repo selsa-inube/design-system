@@ -50,13 +50,10 @@ const initializeState = (mediaQueryList) => {
 const useMediaQueries = (queries) => {
   validateQueries(queries);
 
-  const [matches, setMatches] = useState(() =>
-    initializeState(queries.map((query) => window.matchMedia(query)))
-  );
+  const mediaQueryList = queries.map((query) => window.matchMedia(query));
+  const [matches, setMatches] = useState(() => initializeState(mediaQueryList));
 
   useLayoutEffect(() => {
-    const mediaQueryList = queries.map((query) => window.matchMedia(query));
-
     const handleChanges = mediaQueryList.map((mediaQueryObject) => {
       const changeHandler = (event) => {
         setMatches((prevState) => handleChange(event, prevState));
@@ -70,7 +67,7 @@ const useMediaQueries = (queries) => {
         mediaQueryList[index].removeEventListener("change", changeHandler);
       });
     };
-  }, [queries]);
+  }, [mediaQueryList]);
 
   const handleChange = (event, prevState) => {
     return { ...prevState, [event.media]: event.matches };
