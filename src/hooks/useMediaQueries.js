@@ -41,8 +41,8 @@ const validateQueries = (queries) => {
 
 const initializeState = (mediaQueryList) => {
   const initialState = {};
-  mediaQueryList.forEach((query) => {
-    initialState[query.media] = query.matches;
+  mediaQueryList.forEach((mediaQueryObject) => {
+    initialState[mediaQueryObject.media] = mediaQueryObject.matches;
   });
   return initialState;
 };
