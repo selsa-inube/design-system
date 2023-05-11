@@ -48,7 +48,6 @@ const initializeState = (mediaQueryList) => {
 };
 
 const useMediaQueries = (queries) => {
-  validateArrayType(queries, "queries");
   validateQueries(queries);
 
   const [matches, setMatches] = useState(() =>
