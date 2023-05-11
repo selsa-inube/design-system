@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState } from "react";
+import { useLayoutEffect, useState, useCallback } from "react";
 
 const validateArrayType = (arr, name) => {
   if (!Array.isArray(arr)) {
@@ -51,6 +51,10 @@ const useMediaQueries = (queries) => {
       initializeState(mediaQueryList)
     );
 
+    const handleChange = useCallback((event, prevState) => {
+      return { ...prevState, [event.media]: event.matches };
+    }, []);
+
     useLayoutEffect(() => {
       const handleChanges = mediaQueryList.map((mediaQueryObject) => {
         const changeHandler = (event) => {
@@ -65,11 +69,7 @@ const useMediaQueries = (queries) => {
           mediaQueryList[index].removeEventListener("change", changeHandler);
         });
       };
-    }, [mediaQueryList]);
-
-    const handleChange = (event, prevState) => {
-      return { ...prevState, [event.media]: event.matches };
-    };
+    }, [mediaQueryList, handleChange]);
 
     return matches;
   } catch (error) {
