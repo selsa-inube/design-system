@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback } from "react";
 
 const validateArrayType = (arr, name) => {
   if (!Array.isArray(arr)) {
@@ -55,7 +55,7 @@ const useMediaQueries = (queries) => {
       return { ...prevState, [event.media]: event.matches };
     }, []);
 
-    useLayoutEffect(() => {
+    useEffect(() => {
       const changeHandler = (event) => {
         setMatches((prevState) => handleChange(event, prevState));
       };
