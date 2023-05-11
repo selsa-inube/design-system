@@ -15,26 +15,23 @@ const BreadcrumbEllipsis = (props) => {
 
   const containerRef = useRef(null);
 
-  const handleEllipsisClick = () => {
-    setShowMenu(!showMenu);
+  const handleClickOutside = (event) => {
+    if (containerRef.current && !containerRef.current.contains(event.target)) {
+      setShowMenu(false);
+    }
   };
 
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (
-        containerRef.current &&
-        !containerRef.current.contains(event.target)
-      ) {
-        setShowMenu(false);
-      }
-    };
-
     document.addEventListener("mousedown", handleClickOutside);
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [containerRef]);
+
+  const handleEllipsisClick = () => {
+    setShowMenu(!showMenu);
+  };
 
   return (
     <>
