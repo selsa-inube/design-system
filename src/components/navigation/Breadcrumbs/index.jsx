@@ -28,6 +28,7 @@ function capitalizeString(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
+export const sizes = ["labelLarge", "labelSmall"];
 const Breadcrumbs = (props) => {
   const { route } = props;
 
@@ -35,35 +36,39 @@ const Breadcrumbs = (props) => {
   const isDesktop = useMediaQuery("(min-width: 768px)");
   const maxCrumbs = isDesktop ? 5 : 3;
   const breadcrumbItems = getBreadcrumbItems(crumbs);
+  const transformedSize = isDesktop ? sizes[0] : sizes[1];
 
   if (breadcrumbItems.length > maxCrumbs) {
     const routesForEllipsis = breadcrumbItems
       .slice(0, -1)
       .filter((_, index) => index !== 0);
-    const breadcrumbItemsFiltered = breadcrumbItems.filter(
-      (_, index) =>
-        index === 0 || index === 1 || index === breadcrumbItems.length - 1
+
+    const breadcrumbItemsFiltered = new Array(
+      breadcrumbItems[0],
+      breadcrumbItems[breadcrumbItems.length - 1]
     );
 
     return (
       <StyledBreadcrumbs>
-        {breadcrumbItemsFiltered.map(({ path, label, isActive }, index) =>
-          index === 1 ? (
-            <BreadcrumbEllipsis
-              key={`breadcrumb-ellipsis-${index}`}
-              typo={typos[isDesktop ? "labelLarge" : "labelSmall"]}
-              routes={routesForEllipsis}
-            />
-          ) : (
-            <BreadcrumbLink
-              key={path}
-              path={path}
-              id={path}
-              label={label}
-              isActive={isActive}
-            />
-          )
-        )}
+        <BreadcrumbLink
+          key={breadcrumbItemsFiltered[0].path}
+          path={breadcrumbItemsFiltered[0].path}
+          id={breadcrumbItemsFiltered[0].path}
+          label={breadcrumbItemsFiltered[0].label}
+          isActive={breadcrumbItemsFiltered[0].isActive}
+        />
+        <BreadcrumbEllipsis
+          key={`breadcrumb-ellipsis`}
+          typo={typos[transformedSize]}
+          routes={routesForEllipsis}
+        />
+        <BreadcrumbLink
+          key={breadcrumbItemsFiltered[1].path}
+          path={breadcrumbItemsFiltered[1].path}
+          id={breadcrumbItemsFiltered[1].path}
+          label={breadcrumbItemsFiltered[1].label}
+          isActive={breadcrumbItemsFiltered[1].isActive}
+        />
       </StyledBreadcrumbs>
     );
   }
