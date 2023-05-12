@@ -31,7 +31,7 @@ const Nav = (props) => {
           {title}
         </Text>
         <Stack direction="column" gap="43px">
-          {navObject.map((navSection, index) => (
+          {navObject.map((navSection) => (
             <Stack
               key={navSection.subTitle}
               direction="column"
