@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState } from "react";
 
 const validateArrayType = (arr, name) => {
   if (!Array.isArray(arr)) {
@@ -47,9 +47,9 @@ const useMediaQueries = (queries) => {
   const mediaQueryList = queries.map((query) => window.matchMedia(query));
   const [matches, setMatches] = useState(() => initializeState(mediaQueryList));
 
-  const handleChange = useCallback((event, prevState) => {
+  const handleChange = (event, prevState) => {
     return { ...prevState, [event.media]: event.matches };
-  }, []);
+  };
 
   const changeHandler = (event) => {
     setMatches((prevState) => handleChange(event, prevState));
@@ -65,7 +65,7 @@ const useMediaQueries = (queries) => {
         mediaQueryObject.removeEventListener("change", changeHandler);
       });
     };
-  }, [mediaQueryList, changeHandler]);
+  }, [mediaQueryList]);
 
   return matches;
 };
