@@ -12,7 +12,7 @@ const StyledBreadcrumbs = styled.ul`
     display: inherit;
   }
   & > div {
-    left: 12%;
+    left: 7rem;
   }
 `;
 
