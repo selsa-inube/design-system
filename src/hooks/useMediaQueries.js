@@ -40,39 +40,34 @@ const initializeState = (mediaQueryList) => {
 };
 
 const useMediaQueries = (queries) => {
-  try {
-    validateArrayType(queries, "queries");
-    validateQueries(queries);
-    validateArrayNotEmpty(queries, "queries");
-    const mediaQueryList = queries.map((query) => window.matchMedia(query));
-    const [matches, setMatches] = useState(() =>
-      initializeState(mediaQueryList)
-    );
+  validateArrayType(queries, "queries");
+  validateQueries(queries);
+  validateArrayNotEmpty(queries, "queries");
 
-    const handleChange = useCallback((event, prevState) => {
-      return { ...prevState, [event.media]: event.matches };
-    }, []);
+  const mediaQueryList = queries.map((query) => window.matchMedia(query));
+  const [matches, setMatches] = useState(() => initializeState(mediaQueryList));
 
-    useEffect(() => {
-      const changeHandler = (event) => {
-        setMatches((prevState) => handleChange(event, prevState));
-      };
+  const handleChange = useCallback((event, prevState) => {
+    return { ...prevState, [event.media]: event.matches };
+  }, []);
 
+  const changeHandler = (event) => {
+    setMatches((prevState) => handleChange(event, prevState));
+  };
+
+  useEffect(() => {
+    mediaQueryList.forEach((mediaQueryObject) => {
+      mediaQueryObject.addEventListener("change", changeHandler);
+    });
+
+    return () => {
       mediaQueryList.forEach((mediaQueryObject) => {
-        mediaQueryObject.addEventListener("change", changeHandler);
+        mediaQueryObject.removeEventListener("change", changeHandler);
       });
+    };
+  }, [mediaQueryList, changeHandler]);
 
-      return () => {
-        mediaQueryList.forEach((mediaQueryObject) => {
-          mediaQueryObject.removeEventListener("change", changeHandler);
-        });
-      };
-    }, [mediaQueryList, handleChange]);
-
-    return matches;
-  } catch (error) {
-    throw new Error(error);
-  }
+  return matches;
 };
 
 export { useMediaQueries };
