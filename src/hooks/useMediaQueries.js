@@ -22,9 +22,6 @@ const validateNonEmptyString = (value, name) => {
 };
 
 const validateQueries = (queries) => {
-  validateArrayType(queries, "queries");
-  validateArrayNotEmpty(queries, "queries");
-
   queries.forEach((query) => {
     try {
       validateNonEmptyString(query, "query");
@@ -44,8 +41,9 @@ const initializeState = (mediaQueryList) => {
 
 const useMediaQueries = (queries) => {
   try {
+    validateArrayType(queries, "queries");
     validateQueries(queries);
-
+    validateArrayNotEmpty(queries, "queries");
     const mediaQueryList = queries.map((query) => window.matchMedia(query));
     const [matches, setMatches] = useState(() =>
       initializeState(mediaQueryList)
