@@ -43,19 +43,14 @@ const Breadcrumbs = (props) => {
       .slice(0, -1)
       .filter((_, index) => index !== 0);
 
-    const breadcrumbItemsFiltered = new Array(
-      breadcrumbItems[0],
-      breadcrumbItems[breadcrumbItems.length - 1]
-    );
-
     return (
       <StyledBreadcrumbs>
         <BreadcrumbLink
-          key={breadcrumbItemsFiltered[0].path}
-          path={breadcrumbItemsFiltered[0].path}
-          id={breadcrumbItemsFiltered[0].path}
-          label={breadcrumbItemsFiltered[0].label}
-          isActive={breadcrumbItemsFiltered[0].isActive}
+          key={breadcrumbItems[0].path}
+          path={breadcrumbItems[0].path}
+          id={breadcrumbItems[0].path}
+          label={breadcrumbItems[0].label}
+          isActive={breadcrumbItems[0].isActive}
         />
         <BreadcrumbEllipsis
           key={`breadcrumb-ellipsis`}
@@ -63,11 +58,11 @@ const Breadcrumbs = (props) => {
           routes={routesForEllipsis}
         />
         <BreadcrumbLink
-          key={breadcrumbItemsFiltered[1].path}
-          path={breadcrumbItemsFiltered[1].path}
-          id={breadcrumbItemsFiltered[1].path}
-          label={breadcrumbItemsFiltered[1].label}
-          isActive={breadcrumbItemsFiltered[1].isActive}
+          key={breadcrumbItems[1].path}
+          path={breadcrumbItems[1].path}
+          id={breadcrumbItems[1].path}
+          label={breadcrumbItems[1].label}
+          isActive={breadcrumbItems[1].isActive}
         />
       </StyledBreadcrumbs>
     );
