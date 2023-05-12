@@ -7,35 +7,21 @@ import { BreadcrumbLink } from "../../navigation/BreadcrumbLink";
 import { useMediaQuery } from "../../../hooks/useMediaQuery";
 import { BreadcrumbEllipsis, typos } from "../../navigation/BreadcrumbEllipsis";
 
-function getBreadcrumbItems(crumbs, maxCrumbs) {
+function getBreadcrumbItems(crumbs) {
   const breadcrumbItems = [
-    { path: "/", crumb: "Home", isActive: false },
-    ...crumbs.map((crumb, index) => ({
-      path: `/${crumbs.slice(0, index + 1).join("/")}`,
-      crumb: `${capitalizeString(crumb)}`,
+    { path: "/", label: "Home", isActive: false },
+    ...crumbs.map((label, index) => ({
+      path: `/${crumbs
+        .slice(0, index + 1)
+        .join("/")
+        .toLowerCase()}`,
+      label: `${capitalizeString(label)}`,
+      id: `/${crumbs.slice(0, index + 1).join("/")}`,
       isActive: index === crumbs.length - 1,
     })),
   ];
 
-  if (breadcrumbItems.length > maxCrumbs) {
-    return breadcrumbItems.filter(
-      (item, index) =>
-        index === 0 || index === breadcrumbItems.length - 1 || index === 2
-    );
-  }
-
   return breadcrumbItems;
-}
-
-function getRoutesForEllipsis(crumbs) {
-  return crumbs.slice(0, -1).map((crumb, index) => {
-    const path = `/${crumbs.slice(0, index + 1).join("/")}`;
-    return {
-      label: crumb,
-      path: path.toLowerCase(),
-      id: path,
-    };
-  });
 }
 
 function capitalizeString(string) {
@@ -48,14 +34,20 @@ const Breadcrumbs = (props) => {
   const crumbs = route.split("/").filter((crumb) => crumb !== "");
   const isDesktop = useMediaQuery("(min-width: 768px)");
   const maxCrumbs = isDesktop ? 5 : 3;
-  const breadcrumbItems = getBreadcrumbItems(crumbs, maxCrumbs);
+  const breadcrumbItems = getBreadcrumbItems(crumbs);
 
-  const routesForEllipsis = getRoutesForEllipsis(crumbs);
+  if (breadcrumbItems.length > maxCrumbs) {
+    const routesForEllipsis = breadcrumbItems
+      .slice(0, -1)
+      .filter((_, index) => index !== 0);
+    const breadcrumbItemsFiltered = breadcrumbItems.filter(
+      (_, index) =>
+        index === 0 || index === breadcrumbItems.length - 1 || index === 2
+    );
 
-  if (crumbs.length + 1 > maxCrumbs) {
     return (
       <StyledBreadcrumbs>
-        {breadcrumbItems.map(({ path, crumb, isActive }, index) =>
+        {breadcrumbItemsFiltered.map(({ path, label, isActive }, index) =>
           index === 1 ? (
             <BreadcrumbEllipsis
               key={`breadcrumb-ellipsis-${index}`}
@@ -67,7 +59,7 @@ const Breadcrumbs = (props) => {
               key={path}
               path={path}
               id={path}
-              label={crumb}
+              label={label}
               isActive={isActive}
             />
           )
@@ -78,12 +70,12 @@ const Breadcrumbs = (props) => {
 
   return (
     <StyledBreadcrumbs>
-      {breadcrumbItems.map(({ path, crumb, isActive }) => (
+      {breadcrumbItems.map(({ path, label, isActive }) => (
         <BreadcrumbLink
           key={path}
           path={path}
           id={path}
-          label={crumb}
+          label={label}
           isActive={isActive}
         />
       ))}
