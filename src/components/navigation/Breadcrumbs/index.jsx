@@ -42,7 +42,7 @@ const Breadcrumbs = (props) => {
       .filter((_, index) => index !== 0);
     const breadcrumbItemsFiltered = breadcrumbItems.filter(
       (_, index) =>
-        index === 0 || index === breadcrumbItems.length - 1 || index === 2
+        index === 0 || index === 1 || index === breadcrumbItems.length - 1
     );
 
     return (
