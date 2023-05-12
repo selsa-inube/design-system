@@ -1,14 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { NavLink } from "../NavLink";
 
 const NavUI = (props) => {
-  const { routes } = props;
-
-  const [selectedId, setSelectedId] = useState(null);
-
-  const handleClick = (id) => {
-    setSelectedId(id);
-  };
+  const { routes, selectedId, handleClick } = props;
 
   return routes.map((route) => (
     <NavLink

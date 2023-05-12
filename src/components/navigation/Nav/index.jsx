@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Stack } from "../../layouts/Stack";
 import { NavUI } from "./interface";
@@ -11,6 +11,12 @@ import { MdLogout } from "react-icons/md";
 
 const Nav = (props) => {
   const { title, navObject, logoutPath } = props;
+
+  const [selectedId, setSelectedId] = useState(null);
+
+  const handleClick = (id) => {
+    setSelectedId(id);
+  };
 
   return (
     <StyledNav>
@@ -26,7 +32,11 @@ const Nav = (props) => {
         </Text>
         <Stack direction="column" gap="43px">
           {navObject.map((navSection, index) => (
-            <Stack key={index} direction="column" justifyContent="center">
+            <Stack
+              key={navSection.subTitle}
+              direction="column"
+              justifyContent="center"
+            >
               <Text
                 padding="0px 0px 26px 16px"
                 as="h2"
@@ -36,7 +46,11 @@ const Nav = (props) => {
                 {navSection.subTitle}
               </Text>
               <Stack direction="column">
-                <NavUI routes={navSection.routes} />
+                <NavUI
+                  routes={navSection.routes}
+                  selectedId={selectedId}
+                  handleClick={handleClick}
+                />
               </Stack>
             </Stack>
           ))}
