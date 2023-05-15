@@ -34,6 +34,9 @@ const story = {
       </div>
     ),
   ],
+  parameters: {
+    layout: "fullscreen",
+  },
 };
 
 const Default = (args) => <Nav {...args} />;
@@ -46,19 +49,19 @@ Default.args = {
       routes: [
         {
           id: "privileges",
-          label: "Privilegios",
+          label: "Privileges",
           icon: <MdVpnKey />,
           path: "/privileges",
         },
         {
           id: "accounting",
-          label: "Contabilidad",
+          label: "Accounting",
           icon: <MdMoney />,
           path: "/accounting",
         },
         {
           id: "contacts",
-          label: "Contactos",
+          label: "Contacts",
           icon: <MdContacts />,
           path: "/contacts",
         },
