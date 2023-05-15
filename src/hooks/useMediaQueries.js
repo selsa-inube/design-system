@@ -1,23 +1,23 @@
 import { useEffect, useState } from "react";
 
-const validateArrayType = (arr, name) => {
+const validateArrayType = (arr) => {
   if (!Array.isArray(arr)) {
-    throw new Error(`Invalid parameter: ${name} must be an array`);
+    throw new Error(`Invalid parameter: queries must be an array`);
   }
 };
 
-const validateArrayNotEmpty = (arr, name) => {
+const validateArrayNotEmpty = (arr) => {
   if (arr.length <= 0) {
-    throw new Error(`Invalid parameter: ${name} must not be an empty array`);
+    throw new Error(`Invalid parameter: queries must not be an empty array`);
   }
 };
 
-const validateNonEmptyString = (value, name) => {
+const validateNonEmptyString = (value) => {
   if (typeof value !== "string") {
-    throw new Error(`Invalid ${name}: must be a string`);
+    throw new Error(`Invalid queries: must be a string`);
   }
   if (value.trim().length === 0) {
-    throw new Error(`Invalid ${name}: must not be an empty string`);
+    throw new Error(`Invalid queries: must not be an empty string`);
   }
 };
 
@@ -40,9 +40,9 @@ const initializeState = (mediaQueryList) => {
 };
 
 const useMediaQueries = (queries) => {
-  validateArrayType(queries, "queries");
+  validateArrayType(queries);
   validateQueries(queries);
-  validateArrayNotEmpty(queries, "queries");
+  validateArrayNotEmpty(queries);
 
   const mediaQueryList = queries.map((query) => window.matchMedia(query));
   const [matches, setMatches] = useState(() => initializeState(mediaQueryList));
