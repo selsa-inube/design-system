@@ -110,6 +110,7 @@ const StyledLink = styled(Link)`
   font-family: ${typography.ref.typeface};
   text-decoration: none;
   font-family: ${typography.ref.typeface.brand};
+  font-size: ${typography.sys.typescale.bodyMedium.size};
   color: ${({ isdisabled }) => getColorLabel(isdisabled)};
   width: 100%;
 `;

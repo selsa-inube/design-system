@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Stack } from "../../layouts/Stack";
-import { NavUI } from "./interface";
 import { Text } from "../../data/Text";
 
 import { StyledNav, StyledFooter, SeparatorLine } from "./styles";
@@ -34,6 +33,10 @@ const Nav = (props) => {
     setSelectedId(id);
   };
 
+  const transformedGap = navObject.some((navSection) => navSection.subTitle)
+    ? "32px"
+    : "0px";
+
   return (
     <StyledNav>
       <Stack direction="column">
@@ -46,21 +49,19 @@ const Nav = (props) => {
         >
           {title}
         </Text>
-        <Stack direction="column" gap="43px">
-          {navObject.map((navSection) => (
-            <Stack
-              key={navSection.subTitle}
-              direction="column"
-              justifyContent="center"
-            >
-              <Text
-                padding="0px 0px 26px 16px"
-                as="h2"
-                appearance="secondary"
-                typo="titleSmall"
-              >
-                {navSection.subTitle}
-              </Text>
+        <Stack direction="column" gap={transformedGap}>
+          {navObject.map((navSection, index) => (
+            <Stack key={index} direction="column" justifyContent="center">
+              {navSection.subTitle && (
+                <Text
+                  padding="0px 0px 26px 16px"
+                  as="h2"
+                  appearance="secondary"
+                  typo="titleSmall"
+                >
+                  {navSection.subTitle}
+                </Text>
+              )}
               <Stack direction="column">
                 <NavLinkSection
                   routes={navSection.routes}
