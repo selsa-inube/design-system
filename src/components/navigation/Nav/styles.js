@@ -24,7 +24,7 @@ const StyledFooter = styled.footer`
 
 const SeparatorLine = styled.div`
   width: calc(100% - 32px);
-  margin: 0 16px;
+  margin: 8px 16px;
   height: 1px;
   background-color: ${colors.ref.palette.neutral.n40};
 `;

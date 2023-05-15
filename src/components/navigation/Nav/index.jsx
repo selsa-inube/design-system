@@ -9,6 +9,22 @@ import { NavLink } from "../NavLink";
 
 import { MdLogout } from "react-icons/md";
 
+const NavLinkSection = (props) => {
+  const { routes, selectedId, handleClick } = props;
+
+  return routes.map((route) => (
+    <NavLink
+      key={route.id}
+      id={route.id}
+      label={route.label}
+      icon={route.icon}
+      path={route.path}
+      isSelected={route.id === selectedId}
+      handleClick={() => handleClick(route.id)}
+    />
+  ));
+};
+
 const Nav = (props) => {
   const { title, navObject, logoutPath } = props;
 
@@ -46,7 +62,7 @@ const Nav = (props) => {
                 {navSection.subTitle}
               </Text>
               <Stack direction="column">
-                <NavUI
+                <NavLinkSection
                   routes={navSection.routes}
                   selectedId={selectedId}
                   handleClick={handleClick}
@@ -65,7 +81,7 @@ const Nav = (props) => {
       </Stack>
       <StyledFooter>
         <Stack justifyContent="center">
-          <Text typo="labelMedium">© 2023 Sistemas Enlinea S.A</Text>
+          <Text typo="labelMedium">©2023 - Inube</Text>
         </Stack>
       </StyledFooter>
     </StyledNav>
