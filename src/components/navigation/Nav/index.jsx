@@ -2,14 +2,18 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Stack } from "../../layouts/Stack";
 import { Text } from "../../data/Text";
-
+import { useLocation } from "react-router-dom";
 import { StyledNav, StyledFooter, SeparatorLine } from "./styles";
 import { NavLink } from "../NavLink";
 
 import { MdLogout } from "react-icons/md";
 
 const NavLinkSection = (props) => {
-  const { routes, selectedId, handleClick } = props;
+  const { routes, handleClick } = props;
+  const location = useLocation();
+  const currentUrl = location.pathname;
+
+  const isSelected = (url) => currentUrl.startsWith(url);
 
   return routes.map((route) => (
     <NavLink
@@ -18,20 +22,14 @@ const NavLinkSection = (props) => {
       label={route.label}
       icon={route.icon}
       path={route.path}
-      isSelected={route.id === selectedId}
-      handleClick={() => handleClick(route.id)}
+      isSelected={isSelected(route.path)}
+      handleClick={handleClick}
     />
   ));
 };
 
 const Nav = (props) => {
-  const { title, navObject, logoutPath } = props;
-
-  const [selectedId, setSelectedId] = useState(null);
-
-  const handleClick = (id) => {
-    setSelectedId(id);
-  };
+  const { title, navObject, logoutPath, handleClick } = props;
 
   const transformedGap = navObject.some((navSection) => navSection.subTitle)
     ? "32px"
@@ -65,7 +63,6 @@ const Nav = (props) => {
               <Stack direction="column">
                 <NavLinkSection
                   routes={navSection.routes}
-                  selectedId={selectedId}
                   handleClick={handleClick}
                 />
               </Stack>
