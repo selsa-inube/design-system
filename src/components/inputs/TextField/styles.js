@@ -105,7 +105,7 @@ const StyledInputContainer = styled.div`
 `;
 
 const StyledInput = styled.input`
-  font-size: 14px;
+  font-size: 16px;
   outline: none;
   border-radius: 8px;
   color: ${({ isDisabled }) =>
