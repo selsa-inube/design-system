@@ -39,10 +39,8 @@ const Breadcrumbs = (props) => {
   const transformedSize = isDesktop ? sizes[0] : sizes[1];
 
   if (breadcrumbItems.length > maxCrumbs) {
-    const routesForEllipsis = breadcrumbItems
-      .slice(0, -1)
-      .filter((_, index) => index !== 0);
-
+    const routesForEllipsis = breadcrumbItems.slice(1, -1);
+    const transformedLastElement = breadcrumbItems[breadcrumbItems.length - 1];
     return (
       <StyledBreadcrumbs>
         <BreadcrumbLink
@@ -58,11 +56,11 @@ const Breadcrumbs = (props) => {
           routes={routesForEllipsis}
         />
         <BreadcrumbLink
-          key={breadcrumbItems[1].path}
-          path={breadcrumbItems[1].path}
-          id={breadcrumbItems[1].path}
-          label={breadcrumbItems[1].label}
-          isActive={breadcrumbItems[1].isActive}
+          key={transformedLastElement.path}
+          path={transformedLastElement.path}
+          id={transformedLastElement.path}
+          label={transformedLastElement.label}
+          isActive={transformedLastElement.isActive}
         />
       </StyledBreadcrumbs>
     );
