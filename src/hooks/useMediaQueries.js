@@ -65,7 +65,7 @@ const useMediaQueries = (queries) => {
         mediaQueryObject.removeEventListener("change", changeHandler);
       });
     };
-  }, [mediaQueryList]);
+  }, [mediaQueryList, handleChange]);
 
   return matches;
 };
