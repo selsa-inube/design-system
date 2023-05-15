@@ -47,22 +47,20 @@ const useMediaQueries = (queries) => {
   const mediaQueryList = queries.map((query) => window.matchMedia(query));
   const [matches, setMatches] = useState(() => initializeState(mediaQueryList));
 
-  const handleChange = (event, prevState) => {
-    return { ...prevState, [event.media]: event.matches };
-  };
-
-  const changeHandler = (event) => {
-    setMatches((prevState) => handleChange(event, prevState));
+  const handleChange = (event) => {
+    setMatches((prevState) => {
+      return { ...prevState, [event.media]: event.matches };
+    });
   };
 
   useEffect(() => {
     mediaQueryList.forEach((mediaQueryObject) => {
-      mediaQueryObject.addEventListener("change", changeHandler);
+      mediaQueryObject.addEventListener("change", handleChange);
     });
 
     return () => {
       mediaQueryList.forEach((mediaQueryObject) => {
-        mediaQueryObject.removeEventListener("change", changeHandler);
+        mediaQueryObject.removeEventListener("change", handleChange);
       });
     };
   }, [mediaQueryList, handleChange]);
