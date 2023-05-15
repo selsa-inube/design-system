@@ -27,7 +27,6 @@ const story = {
   decorators: [
     (Story) => (
       <div style={{ width: "248px", height: "971px" }}>
-        {/* <div> */}
         <BrowserRouter>
           <Story />
         </BrowserRouter>
