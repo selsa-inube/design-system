@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { colors } from "../../../shared/colors/colors";
+import { typography } from "../../../shared/typography/typography";
 
 const sizeOptions = {
   compact: {
@@ -105,7 +106,11 @@ const StyledInputContainer = styled.div`
 `;
 
 const StyledInput = styled.input`
-  font-size: 16px;
+  font-family: ${typography.sys.typescale.bodyLarge.font};
+  font-size: ${typography.sys.typescale.bodyLarge.size};
+  font-weight: ${typography.sys.typescale.bodyLarge.weight};
+  line-height: ${typography.sys.typescale.bodyLarge.lineHeight};
+  letter-spacing: ${typography.sys.typescale.bodyLarge.letterSpacing};
   outline: none;
   border-radius: 8px;
   color: ${({ isDisabled }) =>
