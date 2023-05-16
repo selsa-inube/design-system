@@ -8,24 +8,12 @@ const defaultSize = "4px";
 const defaultDurations = 1000;
 export const appearances = Object.keys(colors.sys.actions);
 
-/**it is validated that the values entered are in pixels */
-const regex = /^[0-9]+px$/;
-
 const getProgressBarColor = (appearance) => {
   return colors.sys.actions[appearance].filled;
 };
 
-const isValidCssPixelMeasure = (element) => {
-  let result = false;
-  const splitElement = element.split(" ");
-
-  if (element !== "" && splitElement.length > 0) {
-    const validatedElement = splitElement
-      .filter((spacing) => spacing !== "")
-      .every((i) => regex.test(i));
-    result = validatedElement === true && splitElement.length <= 4;
-  }
-  return result;
+const isValidCssPixelMeasure = (size) => {
+  return /^[0-9]+px$/.test(size);
 };
 
 const ProgressBar = (props) => {
@@ -36,7 +24,7 @@ const ProgressBar = (props) => {
     handleCountdownEnd,
   } = props;
 
-  const [showProgressBar, setShowProgressBar] = useState(true);
+  const [animationComplete, setAnimationComplete] = useState(false);
 
   const transformedAppearance = appearances.includes(appearance)
     ? appearance
@@ -44,21 +32,22 @@ const ProgressBar = (props) => {
   const transformedSize = isValidCssPixelMeasure(size) ? size : defaultSize;
 
   const handleAnimationEnd = () => {
-    setShowProgressBar(false);
     if (handleCountdownEnd) {
       handleCountdownEnd();
     }
+    setAnimationComplete(true);
   };
 
   return (
     <>
-      {showProgressBar && (
+      {!animationComplete && (
         <StyledProgressBar
           id="progress-bar"
           appearance={getProgressBarColor(transformedAppearance)}
           size={transformedSize}
           durations={durations}
           onAnimationEnd={handleAnimationEnd}
+          animationInProgress={!animationComplete}
         />
       )}
     </>
