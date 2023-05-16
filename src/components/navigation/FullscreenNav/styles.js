@@ -22,6 +22,13 @@ const StyledCloseMenu = styled.div`
   }
 `;
 
+const StyledContainerText = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 16px;
+`;
+
 const StyledSeparatorLine = styled.div`
   width: calc(100% - 32px);
   margin: 0 16px;
@@ -41,6 +48,7 @@ const StyledFooter = styled.footer`
 export {
   StyledFullscreenNav,
   StyledCloseMenu,
+  StyledContainerText,
   StyledSeparatorLine,
   StyledFooter,
 };

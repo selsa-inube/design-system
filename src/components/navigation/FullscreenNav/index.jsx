@@ -10,6 +10,7 @@ import { NavLink } from "../NavLink/index";
 import {
   StyledFullscreenNav,
   StyledCloseMenu,
+  StyledContainerText,
   StyledSeparatorLine,
   StyledFooter,
 } from "./styles";
@@ -24,13 +25,18 @@ const FullscreenNav = (props) => {
     return (
       <StyledFullscreenNav>
         <StyledCloseMenu>
-          <Text>Menu</Text>
+          <Text appearance="secondary">Menu</Text>
           <MdClose onClick={() => setIsMenuOpen(false)} />
         </StyledCloseMenu>
-        <Stack direction="column">
+        <Stack direction="column" gap="24px">
           {navObject.map((section) => (
             <section key={section.subTitle}>
-              {section.subTitle && <Text>{section.subTitle}</Text>}
+              {section.subTitle && (
+                <StyledContainerText>
+                  <Text appearance="secondary">{section.subTitle}</Text>
+                </StyledContainerText>
+              )}
+
               {section.routes.map((route) => (
                 <Stack
                   key={route.id.toString()}
@@ -50,14 +56,18 @@ const FullscreenNav = (props) => {
           <hr />
         </Stack>
         <StyledSeparatorLine />
+
         <NavLink
           id="logout"
           label="logout"
           icon={<MdLogout />}
           path={logoutPath}
         />
+
         <StyledFooter>
-          <Text typo="labelMedium">©2023 - Inube</Text>
+          <Text typo="labelMedium" appearance="disabled">
+            ©2023 - Inube
+          </Text>
         </StyledFooter>
       </StyledFullscreenNav>
     );
