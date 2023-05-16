@@ -31,9 +31,9 @@ const StyledContainerText = styled.div`
 
 const StyledSeparatorLine = styled.div`
   width: calc(100% - 32px);
-  margin: 0 16px;
+  margin: 16px 16px 16px;
   height: 1px;
-  background-color: ${colors.ref.palette.neutral.n10};
+  background-color: ${colors.ref.palette.neutral.n40};
 `;
 
 const StyledFooter = styled.footer`
