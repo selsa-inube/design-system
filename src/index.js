@@ -27,3 +27,4 @@ export { Nav } from "./components/navigation/Nav";
 
 //  hooks
 export { useMediaQuery } from "./hooks/useMediaQuery";
+export { useMediaQueries } from "./hooks/useMediaQueries";
