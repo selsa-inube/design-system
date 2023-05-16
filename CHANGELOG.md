@@ -1,3 +1,23 @@
+# v3.1.0 (Tue May 16 2023)
+
+#### 🚀 Enhancement
+
+- Develop the `<useMediaQueries />` hook [#118](https://github.com/selsa-inube/design-system/pull/118) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- Develop the `<BreadcrumbEllipsis />` component [#103](https://github.com/selsa-inube/design-system/pull/103) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+
+#### 🐛 Bug Fix
+
+- Fix font-size in `<TextField />` [#133](https://github.com/selsa-inube/design-system/pull/133) ([@Andresbl123](https://github.com/Andresbl123))
+- Release design-System v3.0.1 [#130](https://github.com/selsa-inube/design-system/pull/130) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 3
+
+- Andres ([@Andresbl123](https://github.com/Andresbl123))
+- cesar.marin (cmarin@sistemasenlinea.com.co)
+- cmarin ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v3.0.1 (Tue May 09 2023)
 
 #### 🚀 Enhancement
