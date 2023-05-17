@@ -12,7 +12,7 @@ import {
   StyledContentButtons,
 } from "./styles";
 
-import { Text } from "../../../data/Text/index";
+import { Text } from "../../Text/index";
 
 function Pagination(props) {
   const {
@@ -24,6 +24,7 @@ function Pagination(props) {
     handleNextPage,
     handleEndPage,
   } = props;
+
   return (
     <StyledContentPagination>
       <StyledContentText>
