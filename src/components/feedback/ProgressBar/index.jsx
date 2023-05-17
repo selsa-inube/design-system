@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { StyledProgressBar } from "./styles";
 import { colors } from "../../../shared/colors/colors";
@@ -24,8 +24,6 @@ const ProgressBar = (props) => {
     handleCountdownEnd,
   } = props;
 
-  const [animationComplete, setAnimationComplete] = useState(false);
-
   const transformedAppearance = appearances.includes(appearance)
     ? appearance
     : defaultAppearance;
@@ -35,22 +33,16 @@ const ProgressBar = (props) => {
     if (handleCountdownEnd) {
       handleCountdownEnd();
     }
-    setAnimationComplete(true);
   };
 
   return (
-    <>
-      {!animationComplete && (
-        <StyledProgressBar
-          id="progress-bar"
-          appearance={getProgressBarColor(transformedAppearance)}
-          size={transformedSize}
-          durations={durations}
-          onAnimationEnd={handleAnimationEnd}
-          animationInProgress={!animationComplete}
-        />
-      )}
-    </>
+    <StyledProgressBar
+      id="progress-bar"
+      appearance={getProgressBarColor(transformedAppearance)}
+      size={transformedSize}
+      durations={durations}
+      onAnimationEnd={handleAnimationEnd}
+    />
   );
 };
 
