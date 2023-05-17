@@ -1,4 +1,4 @@
-/* import {
+import {
   StyledTable,
   StyledThead,
   StyledTbody,
@@ -10,6 +10,7 @@
 import { Text } from "../Text";
 import { MdOpenInNew } from "react-icons/md";
 
+import { useMediaQueries } from "../../../hooks/useMediaQueries";
 import { useMediaQuery } from "../../../hooks/useMediaQuery";
 
 function findCurrentMediaQuery(currentMediaQuery) {
@@ -109,4 +110,3 @@ function TableUI(props) {
 }
 
 export { TableUI };
- */
