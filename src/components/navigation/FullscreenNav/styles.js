@@ -1,6 +1,13 @@
 import styled from "styled-components";
 import { colors } from "../../../shared/colors/colors";
 
+const StyledContDropMenu = styled.div`
+  width: fit-content;
+  & > svg {
+    cursor: pointer;
+  }
+`;
+
 const StyledFullscreenNav = styled.nav`
   display: flex;
   flex-direction: column;
@@ -19,6 +26,7 @@ const StyledCloseMenu = styled.div`
   & > svg {
     width: 24px;
     height: 24px;
+    cursor: pointer;
   }
 `;
 
@@ -46,6 +54,7 @@ const StyledFooter = styled.footer`
 `;
 
 export {
+  StyledContDropMenu,
   StyledFullscreenNav,
   StyledCloseMenu,
   StyledContainerText,

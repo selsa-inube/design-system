@@ -31,22 +31,22 @@ const navObject = [
     routes: [
       {
         id: "1",
-        label: "Privilegios",
-        description: "Modifica las propiedades y permisos de tu cuenta",
+        label: "Privileges",
+        description: "Modify the properties and permissions of your account",
         icon: <MdVpnKey />,
         path: "/privileges",
       },
       {
         id: "2",
-        label: "Contabilidad",
-        description: "Registra ingresos y gastos económicos de la compañía",
+        label: "Accounting",
+        description: "Record the company's financial income and expenses",
         icon: <MdMoney />,
         path: "/accounting",
       },
       {
         id: "3",
-        label: "Contactos",
-        description: "Registra tus contactos y almacénalos de manera óptima",
+        label: "Contacts",
+        description: "Register your contacts and store them in an optimal way",
         icon: <MdContacts />,
         path: "/contacts",
       },

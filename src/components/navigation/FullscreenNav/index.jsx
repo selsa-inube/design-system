@@ -8,6 +8,7 @@ import { Text } from "../../data/Text";
 import { NavLink } from "../NavLink/index";
 
 import {
+  StyledContDropMenu,
   StyledFullscreenNav,
   StyledCloseMenu,
   StyledContainerText,
@@ -89,9 +90,9 @@ const FullscreenNav = (props) => {
   return (
     <>
       {!isMenuOpen ? (
-        <div>
+        <StyledContDropMenu>
           <MdMenu onClick={() => setIsMenuOpen(true)} />
-        </div>
+        </StyledContDropMenu>
       ) : (
         createPortal(<FullscreenMenu />, renderMenu)
       )}
