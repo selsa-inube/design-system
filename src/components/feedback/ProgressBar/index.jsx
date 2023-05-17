@@ -29,19 +29,13 @@ const ProgressBar = (props) => {
     : defaultAppearance;
   const transformedSize = isValidCssPixelMeasure(size) ? size : defaultSize;
 
-  const handleAnimationEnd = () => {
-    if (handleCountdownEnd) {
-      handleCountdownEnd();
-    }
-  };
-
   return (
     <StyledProgressBar
       id="progress-bar"
       appearance={getProgressBarColor(transformedAppearance)}
       size={transformedSize}
       durations={durations}
-      onAnimationEnd={handleAnimationEnd}
+      onAnimationEnd={handleCountdownEnd}
     />
   );
 };
