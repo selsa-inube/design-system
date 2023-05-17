@@ -15,7 +15,7 @@ const ProgressBarAnimation = keyframes`
 const StyledProgressBar = styled.div`
   width: 100%;
   height: ${(props) => props.size};
-  transform-origin: right;
+  transform-origin: left;
   animation: ${ProgressBarAnimation} ${(props) => props.durations}ms linear;
   background-color: ${(props) => props.appearance};
   animation-fill-mode: forwards;
