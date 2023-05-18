@@ -62,7 +62,7 @@ const breakPoints = [
   { breakpoint: "(max-width: 360px)", totalColumns: 1 },
 ];
 
-const entriesDefault = [
+const entries = [
   {
     id: 11,
     username: "David Leonardo Garzón",
@@ -311,7 +311,7 @@ Default.args = {
   titles,
   actions,
   breakPoints,
-  entriesDefault,
+  entries,
   entriesPagination,
 };
 

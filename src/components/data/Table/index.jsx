@@ -18,6 +18,8 @@ function Table(props) {
 
   const filteredEntries = useMemo(() => {
     const titlesId = titles.map((title) => title.id);
+
+    console.log(entries);
     return entries.filter((entry) => {
       for (const attribute in entry) {
         if (
@@ -33,6 +35,9 @@ function Table(props) {
       return false;
     });
   }, [entries, filter, titles]);
+
+  console.log(filteredEntries);
+  debugger;
 
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = Math.ceil(filteredEntries.length / pageLength);
@@ -74,11 +79,11 @@ function Table(props) {
         entries={getPageEntries()}
         breakPoints={breakPoints}
       />
-      {filteredEntries().length > pageLength && (
+      {filteredEntries.length > pageLength && (
         <Pagination
           firstEntryInPage={firstEntryInPage}
           lastEntryInPage={lastEntryInPage}
-          totalRecords={filteredEntries().length}
+          totalRecords={filteredEntries.length}
           handleStartPage={goToFirstPage}
           handlePrevPage={prevPage}
           handleNextPage={nextPage}
