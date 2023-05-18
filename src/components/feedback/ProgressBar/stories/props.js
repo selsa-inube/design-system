@@ -18,7 +18,7 @@ const appearance = {
   },
 };
 
-const durations = {
+const duration = {
   control: { type: "number" },
   description: "the total duration of the animation, in milliseconds",
   table: {
@@ -30,4 +30,4 @@ const handleCountdownEnd = {
   description: "function to be executed when the progress bar reaches zero",
 };
 
-export { size, appearance, durations, handleCountdownEnd };
+export { size, appearance, duration, handleCountdownEnd };

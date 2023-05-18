@@ -5,7 +5,7 @@ import { colors } from "../../../shared/colors/colors";
 
 const defaultAppearance = "primary";
 const defaultSize = "4px";
-const defaultDurations = 1000;
+const defaultDuration = 3000;
 export const appearances = Object.keys(colors.sys.actions);
 
 const getProgressBarColor = (appearance) => {
@@ -20,7 +20,7 @@ const ProgressBar = (props) => {
   const {
     size = defaultSize,
     appearance = defaultAppearance,
-    durations = defaultDurations,
+    duration = defaultDuration,
     handleCountdownEnd,
   } = props;
 
@@ -34,7 +34,7 @@ const ProgressBar = (props) => {
       id="progress-bar"
       appearance={getProgressBarColor(transformedAppearance)}
       size={transformedSize}
-      durations={durations}
+      duration={duration}
       onAnimationEnd={handleCountdownEnd}
     />
   );
@@ -43,7 +43,7 @@ const ProgressBar = (props) => {
 ProgressBar.propTypes = {
   size: PropTypes.string,
   appearance: PropTypes.oneOf(appearances),
-  durations: PropTypes.number,
+  duration: PropTypes.number,
   handleCountdownEnd: PropTypes.func,
 };
 

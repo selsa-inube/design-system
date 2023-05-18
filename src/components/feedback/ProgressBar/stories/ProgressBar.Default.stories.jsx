@@ -1,7 +1,7 @@
 import React from "react";
 import { ProgressBar } from "../index";
 
-import { size, appearance, durations, handleCountdownEnd } from "./props";
+import { size, appearance, duration, handleCountdownEnd } from "./props";
 
 const story = {
   title: "feedback/ProgressBar/Default",
@@ -23,7 +23,7 @@ Default.args = {
 Default.argTypes = {
   size,
   appearance,
-  durations,
+  duration,
   handleCountdownEnd,
 };
 
