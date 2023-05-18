@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Table } from "../index";
 import { Switch } from "../../../inputs/Switch/index";
 
@@ -31,11 +31,25 @@ const titles = [
   },
 ];
 
+const SwitchController = (props) => {
+  const { checked = false, handleChange } = props;
+  const [switchChecked, setSwitchChecked] = useState(checked);
+
+  const handleToggle = () => {
+    setSwitchChecked(!switchChecked);
+    handleChange(!switchChecked);
+  };
+
+  return (
+    <Switch {...props} checked={switchChecked} handleChange={handleToggle} />
+  );
+};
+
 const actions = [
   {
     id: 1,
     actionName: "Activate",
-    content: <Switch />,
+    content: <SwitchController />,
     type: "secondary",
   },
   {
