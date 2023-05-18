@@ -1,3 +1,4 @@
+import React from "react";
 import {
   MdNavigateBefore,
   MdNavigateNext,
@@ -28,7 +29,7 @@ function Pagination(props) {
   return (
     <StyledContentPagination>
       <StyledContentText>
-        <Text typoToken="bodySmall">
+        <Text typo="bodySmall">
           {firstEntryInPage + 1} - {lastEntryInPage} of {totalRecords}
         </Text>
       </StyledContentText>

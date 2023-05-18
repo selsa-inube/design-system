@@ -35,9 +35,6 @@ function Table(props) {
     });
   }, [entries, filter, titles]);
 
-  console.log(filteredEntries);
-  debugger;
-
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = Math.ceil(filteredEntries.length / pageLength);
   const firstEntryInPage = (currentPage - 1) * pageLength;
