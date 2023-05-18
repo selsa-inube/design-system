@@ -1,4 +1,4 @@
-import { appearances as colors } from "./../index";
+import { appearances as colors } from "../index";
 
 const size = {
   control: { type: "text" },

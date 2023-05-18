@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { StyledProgressBar } from "./styles";
+import { StyledCountdownBar } from "./styles";
 import { colors } from "../../../shared/colors/colors";
 
 const defaultAppearance = "primary";
@@ -8,7 +8,7 @@ const defaultSize = "4px";
 const defaultDuration = 3000;
 export const appearances = Object.keys(colors.sys.actions);
 
-const getProgressBarColor = (appearance) => {
+const getCountdownBarColor = (appearance) => {
   return colors.sys.actions[appearance].filled;
 };
 
@@ -16,12 +16,12 @@ const isValidCssPixelMeasure = (size) => {
   return /^[0-9]+px$/.test(size);
 };
 
-const ProgressBar = (props) => {
+const CountdownBar = (props) => {
   const {
     size = defaultSize,
     appearance = defaultAppearance,
     duration = defaultDuration,
-    handleCountdownEnd,
+    handleCountdown,
   } = props;
 
   const transformedAppearance = appearances.includes(appearance)
@@ -30,21 +30,21 @@ const ProgressBar = (props) => {
   const transformedSize = isValidCssPixelMeasure(size) ? size : defaultSize;
 
   return (
-    <StyledProgressBar
+    <StyledCountdownBar
       id="progress-bar"
-      appearance={getProgressBarColor(transformedAppearance)}
+      appearance={getCountdownBarColor(transformedAppearance)}
       size={transformedSize}
       duration={duration}
-      onAnimationEnd={handleCountdownEnd}
+      onAnimationEnd={handleCountdown}
     />
   );
 };
 
-ProgressBar.propTypes = {
+CountdownBar.propTypes = {
   size: PropTypes.string,
   appearance: PropTypes.oneOf(appearances),
   duration: PropTypes.number,
-  handleCountdownEnd: PropTypes.func,
+  handleCountdown: PropTypes.func,
 };
 
-export { ProgressBar };
+export { CountdownBar };

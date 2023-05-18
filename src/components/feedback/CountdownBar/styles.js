@@ -1,6 +1,6 @@
 import styled, { keyframes } from "styled-components";
 
-const ProgressBarAnimation = keyframes`
+const CountdownBarAnimation = keyframes`
   0% {
     transform: scaleX(1);
   }
@@ -9,13 +9,13 @@ const ProgressBarAnimation = keyframes`
   }
 `;
 
-const StyledProgressBar = styled.div`
+const StyledCountdownBar = styled.div`
   width: 100%;
   height: ${(props) => props.size};
   transform-origin: left;
-  animation: ${ProgressBarAnimation} ${(props) => props.duration}ms linear;
+  animation: ${CountdownBarAnimation} ${(props) => props.duration}ms linear;
   background-color: ${(props) => props.appearance};
   animation-fill-mode: forwards;
 `;
 
-export { StyledProgressBar };
+export { StyledCountdownBar };
