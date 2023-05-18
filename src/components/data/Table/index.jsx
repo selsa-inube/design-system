@@ -19,7 +19,6 @@ function Table(props) {
   const filteredEntries = useMemo(() => {
     const titlesId = titles.map((title) => title.id);
 
-    console.log(entries);
     return entries.filter((entry) => {
       for (const attribute in entry) {
         if (
