@@ -26,8 +26,8 @@ const duration = {
   },
 };
 
-const handleCountdownEnd = {
+const handleCountdown = {
   description: "function to be executed when the progress bar reaches zero",
 };
 
-export { size, appearance, duration, handleCountdownEnd };
+export { size, appearance, duration, handleCountdown };
