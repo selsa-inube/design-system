@@ -18,7 +18,6 @@ import {
   max,
   min,
   size,
-  readOnly,
 } from "./props";
 
 const story = {
@@ -41,7 +40,6 @@ Default.args = {
   errorMessage: "Please enter only letters in this field",
   validMessage: "The field has been successfully validated",
   size: "wide",
-  readOnly: false,
 };
 
 Default.argTypes = {
@@ -58,7 +56,6 @@ Default.argTypes = {
   max,
   min,
   size,
-  readOnly,
 };
 
 export default story;

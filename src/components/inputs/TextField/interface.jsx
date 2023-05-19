@@ -90,7 +90,6 @@ const TextFieldUI = (props) => {
     isFocused,
     handleFocus,
     handleBlur,
-    readOnly,
   } = props;
 
   const transformedIsInvalid = state === "invalid" ? true : false;
@@ -153,7 +152,6 @@ const TextFieldUI = (props) => {
           onChange={handleChange}
           onFocus={handleFocus}
           onBlur={handleBlur}
-          readOnly={readOnly}
         />
 
         {iconAfter && (

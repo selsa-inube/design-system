@@ -119,13 +119,6 @@ const isFullWidth = {
   },
 };
 
-const readOnly = {
-  descriptions: "option to make the field read only",
-  table: {
-    defaultValue: { summary: false },
-  },
-};
-
 export {
   parameters,
   label,
@@ -148,5 +141,4 @@ export {
   validMessage,
   size,
   isFullWidth,
-  readOnly,
 };

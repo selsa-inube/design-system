@@ -26,7 +26,6 @@ import {
   errorMessage,
   validMessage,
   isFullWidth,
-  readOnly,
 } from "./props";
 
 const story = {
@@ -60,7 +59,6 @@ Size.args = {
   validMessage: "The field has been successfully validated",
   isFullWidth: false,
   isRequired: false,
-  readOnly: false,
 };
 
 Size.argTypes = {
@@ -83,7 +81,6 @@ Size.argTypes = {
   errorMessage,
   validMessage,
   isFullWidth,
-  readOnly,
 };
 
 export default story;
