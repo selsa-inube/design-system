@@ -2,7 +2,11 @@ import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import { Label } from "../../inputs/Label";
 import { BreadcrumbMenu } from "../../navigation/BreadcrumbMenu";
-import { StyledContainerEllipsis, StyledBreadcrumbEllipsis } from "./styles";
+import {
+  StyledContainerEllipsis,
+  StyledBreadcrumbEllipsis,
+  StyledRelativeContainer,
+} from "./styles";
 
 const typos = ["labelLarge", "labelSmall"];
 const defaultTypo = "labelLarge";
@@ -34,7 +38,7 @@ const BreadcrumbEllipsis = (props) => {
   };
 
   return (
-    <>
+    <StyledRelativeContainer>
       <StyledContainerEllipsis>
         <Label
           htmlFor="ellipsis"
@@ -49,7 +53,7 @@ const BreadcrumbEllipsis = (props) => {
         </Label>
       </StyledContainerEllipsis>
       {showMenu && <BreadcrumbMenu routes={routes} />}
-    </>
+    </StyledRelativeContainer>
   );
 };
 
