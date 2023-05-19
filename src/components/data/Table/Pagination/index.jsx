@@ -27,23 +27,26 @@ function Pagination(props) {
   } = props;
 
   return (
-    <StyledContentPagination>
+    <StyledContentPagination aria-label="Pagination">
       <StyledContentText>
         <Text typo="bodySmall">
           {firstEntryInPage + 1} - {lastEntryInPage} of {totalRecords}
         </Text>
       </StyledContentText>
       <StyledContentButtons>
-        <StyledButton onClick={handleStartPage}>
+        <StyledButton
+          onClick={handleStartPage}
+          aria-label="go to the first page"
+        >
           <MdFirstPage />
         </StyledButton>
-        <StyledButton onClick={handlePrevPage}>
+        <StyledButton onClick={handlePrevPage} aria-label="go to previous page">
           <MdNavigateBefore />
         </StyledButton>
-        <StyledButton onClick={handleNextPage}>
+        <StyledButton onClick={handleNextPage} aria-label="go to next page">
           <MdNavigateNext />
         </StyledButton>
-        <StyledButton onClick={handleEndPage}>
+        <StyledButton onClick={handleEndPage} aria-label="go to last page">
           <MdLastPage />
         </StyledButton>
       </StyledContentButtons>
