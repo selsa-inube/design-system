@@ -3,11 +3,9 @@ import PropTypes from "prop-types";
 
 import { colors } from "../../../shared/colors/colors";
 import { typography } from "../../../shared/typography/typography";
+import { validateCssSpacing } from "../../../utils/validateCssSpacing";
 
 import { StyledText } from "./styles";
-
-/**it is validated that the values entered are in pixels and valid according to the css property margin and padding. */
-const regex = /^[0-9]+px$/;
 
 const globalValuesPropertiesCss = ["inherit", "initial", "unset", "auto"];
 
@@ -38,19 +36,6 @@ const defaultTypo = "bodyLarge";
 const defaultMargin = "0px";
 const defaultPadding = "0px";
 
-const isValidCssSpacing = (element) => {
-  let result = false;
-  const splitElement = element.split(" ");
-
-  if (element !== "" && splitElement.length > 0) {
-    const validatedElement = splitElement
-      .filter((spacing) => spacing !== "")
-      .every((i) => regex.test(i));
-    result = validatedElement === true && splitElement.length <= 4;
-  }
-  return result;
-};
-
 const Text = (props) => {
   const {
     children,
@@ -74,12 +59,12 @@ const Text = (props) => {
   const transformedTypo = typosOptions.includes(typo) ? typo : defaultTypo;
 
   const transformedMargin =
-    isValidCssSpacing(margin) || globalValuesPropertiesCss.includes(margin)
+    validateCssSpacing(margin) || globalValuesPropertiesCss.includes(margin)
       ? margin
       : defaultMargin;
 
   const transformedPadding =
-    isValidCssSpacing(padding) || globalValuesPropertiesCss.includes(padding)
+    validateCssSpacing(padding) || globalValuesPropertiesCss.includes(padding)
       ? padding
       : defaultPadding;
 
