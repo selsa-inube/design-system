@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import { colors } from "../../../shared/colors/colors";
 import { typography } from "../../../shared/typography/typography";
-import { validateCssSpacing } from "../../../utils/validateCssSpacing";
+import { validateCssSpacing } from "../../../utilities/validateCssSpacing";
 
 import { StyledText } from "./styles";
 
