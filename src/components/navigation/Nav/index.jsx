@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { Stack } from "../../layouts/Stack";
 import { Text } from "../../data/Text";
@@ -7,6 +7,28 @@ import { StyledNav, StyledFooter, SeparatorLine } from "./styles";
 import { NavLink } from "../NavLink";
 
 import { MdLogout } from "react-icons/md";
+
+const checkSections = (navigation) => {
+  let result = [];
+
+  Object.keys(navigation).forEach((key) => {
+    const item = navigation[key];
+    if (
+      item &&
+      item.hasOwnProperty("id") &&
+      item.hasOwnProperty("label") &&
+      item.hasOwnProperty("icon") &&
+      item.hasOwnProperty("path")
+    ) {
+      result.push({ type: "Page", key: key });
+    } else if (item && typeof item === "object") {
+      result.push({ type: "Section", key: key });
+      result = result.concat(checkSections(item));
+    }
+  });
+
+  return result;
+};
 
 const NavLinkSection = (props) => {
   const { routes, handleClick } = props;
@@ -29,40 +51,91 @@ const NavLinkSection = (props) => {
 };
 
 const Nav = (props) => {
-  const { title, navObject, logoutPath, handleClick } = props;
+  const { title, navigation, logoutPath, handleClick } = props;
 
-  const transformedGap = navObject.some((navSection) => navSection.subTitle)
-    ? "32px"
-    : "0px";
+  const transformedNavigation = checkSections(navigation);
+  const containsSection = transformedNavigation.some(
+    (item) => item.type === "Section"
+  );
+
+  if (containsSection) {
+    const transformedRoutes = (routeKey) => Object.values(navigation[routeKey]);
+    const filterSections = transformedNavigation.filter(
+      (item) => item.type === "Section"
+    );
+
+    return (
+      <StyledNav>
+        <Stack direction="column">
+          <Text
+            padding="0px"
+            margin="32px 0px 32px 16px"
+            as="h2"
+            appearance="secondary"
+            typo="titleSmall"
+          >
+            {title}
+          </Text>
+          <Stack direction="column" gap="26px">
+            {filterSections.map((navSection) => (
+              <Stack
+                key={navSection.key}
+                direction="column"
+                justifyContent="center"
+              >
+                <Text
+                  padding="16px"
+                  as="h2"
+                  appearance="secondary"
+                  typo="titleSmall"
+                >
+                  {navSection.key.toUpperCase()}
+                </Text>
+
+                <Stack direction="column">
+                  <NavLinkSection
+                    routes={transformedRoutes(navSection.key)}
+                    handleClick={handleClick}
+                  />
+                </Stack>
+              </Stack>
+            ))}
+          </Stack>
+          <SeparatorLine />
+          <NavLink
+            id="logout"
+            label="Logout"
+            icon={<MdLogout />}
+            path={logoutPath}
+          />
+        </Stack>
+        <StyledFooter>
+          <Stack justifyContent="center">
+            <Text typo="labelMedium">©2023 - Inube</Text>
+          </Stack>
+        </StyledFooter>
+      </StyledNav>
+    );
+  }
 
   return (
     <StyledNav>
       <Stack direction="column">
         <Text
-          padding="20px 17px"
-          margin="0px 0px 32px 0px"
+          padding="0px"
+          margin="32px 0px 32px 16px"
           as="h2"
           appearance="secondary"
-          typoToken="titleMedium"
+          typo="titleSmall"
         >
           {title}
         </Text>
-        <Stack direction="column" gap={transformedGap}>
-          {navObject.map((navSection, index) => (
+        <Stack direction="column">
+          {transformedNavigation.map((navSection, index) => (
             <Stack key={index} direction="column" justifyContent="center">
-              {navSection.subTitle && (
-                <Text
-                  padding="0px 0px 26px 16px"
-                  as="h2"
-                  appearance="secondary"
-                  typo="titleSmall"
-                >
-                  {navSection.subTitle}
-                </Text>
-              )}
               <Stack direction="column">
                 <NavLinkSection
-                  routes={navSection.routes}
+                  routes={Array(navigation[navSection.key])}
                   handleClick={handleClick}
                 />
               </Stack>
@@ -72,7 +145,7 @@ const Nav = (props) => {
         <SeparatorLine />
         <NavLink
           id="logout"
-          label="logout"
+          label="Logout"
           icon={<MdLogout />}
           path={logoutPath}
         />
@@ -87,19 +160,10 @@ const Nav = (props) => {
 };
 
 Nav.propTypes = {
-  navObject: PropTypes.arrayOf(
-    PropTypes.shape({
-      subTitle: PropTypes.string,
-      routes: PropTypes.arrayOf(
-        PropTypes.shape({
-          path: PropTypes.string.isRequired,
-          id: PropTypes.string.isRequired,
-          icon: PropTypes.node.isRequired,
-          label: PropTypes.string.isRequired,
-        })
-      ).isRequired,
-    })
-  ).isRequired,
+  title: PropTypes.string,
+  navigation: PropTypes.object.isRequired,
+  logoutPath: PropTypes.string.isRequired,
+  handleClick: PropTypes.func,
 };
 
 export { Nav };

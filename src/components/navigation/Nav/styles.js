@@ -26,6 +26,7 @@ const SeparatorLine = styled.div`
   width: calc(100% - 32px);
   margin: 8px 16px;
   height: 1px;
+  padding: 0.5px 0px;
   background-color: ${colors.ref.palette.neutral.n40};
 `;
 

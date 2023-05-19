@@ -1,10 +1,10 @@
 import { BrowserRouter } from "react-router-dom";
 import {
-  MdVpnKey,
-  MdMoney,
-  MdContacts,
+  MdKey,
+  MdMeetingRoom,
+  MdPhone,
   MdBadge,
-  MdStar,
+  MdStarBorder,
   MdAccountBalance,
   MdAccountBalanceWallet,
 } from "react-icons/md";
@@ -42,58 +42,50 @@ const WithOutSubtitles = (args) => <Nav {...args} />;
 
 WithOutSubtitles.args = {
   title: "MENU",
-  navObject: [
-    {
-      routes: [
-        {
-          id: "privileges",
-          label: "Privileges",
-          icon: <MdVpnKey />,
-          path: "/privileges",
-        },
-        {
-          id: "accounting",
-          label: "Accounting",
-          icon: <MdMoney />,
-          path: "/accounting",
-        },
-        {
-          id: "contacts",
-          label: "Contacts",
-          icon: <MdContacts />,
-          path: "/contacts",
-        },
-      ],
+  navigation: {
+    privileges: {
+      id: "privileges",
+      label: "Privileges",
+      icon: <MdKey />,
+      path: "/privileges",
     },
-    {
-      routes: [
-        {
-          id: "documents",
-          label: "Documents",
-          icon: <MdBadge />,
-          path: "/documents",
-        },
-        {
-          id: "marketing",
-          label: "Marketing",
-          icon: <MdStar />,
-          path: "/marketing",
-        },
-        {
-          id: "savings",
-          label: "Savings",
-          icon: <MdAccountBalanceWallet />,
-          path: "/savings",
-        },
-        {
-          id: "credit",
-          label: "Credit",
-          icon: <MdAccountBalance />,
-          path: "/credit",
-        },
-      ],
+    accounting: {
+      id: "accounting",
+      label: "Accounting",
+      icon: <MdMeetingRoom />,
+      path: "/accounting",
     },
-  ],
+    contacts: {
+      id: "contacts",
+      label: "Contacts",
+      icon: <MdPhone />,
+      path: "/contacts",
+    },
+    documents: {
+      id: "documents",
+      label: "Documents",
+      icon: <MdBadge />,
+      path: "/documents",
+    },
+    marketing: {
+      id: "marketing",
+      label: "Marketing",
+      icon: <MdStarBorder />,
+      path: "/marketing",
+    },
+    savings: {
+      id: "savings",
+      label: "Savings",
+      icon: <MdAccountBalanceWallet />,
+      path: "/savings",
+    },
+    credit: {
+      id: "credit",
+      label: "Credit",
+      icon: <MdAccountBalance />,
+      path: "/credit",
+    },
+  },
   logoutPath: "/logout",
 };
 

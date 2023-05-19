@@ -107,10 +107,15 @@ const StyledNavLink = styled.li`
 
 const StyledLink = styled(Link)`
   box-sizing: border-box;
-  font-family: ${typography.ref.typeface};
+
   text-decoration: none;
-  font-family: ${typography.ref.typeface.brand};
+
   font-size: ${typography.sys.typescale.bodyMedium.size};
+  font-family: ${typography.sys.typescale.bodyMedium.font};
+  font-size: ${typography.sys.typescale.bodyMedium.size};
+  line-height: ${typography.sys.typescale.bodyMedium.lineHeight};
+  letter-spacing: ${typography.sys.typescale.bodyMedium.tracking};
+  font-weight: ${typography.sys.typescale.bodyMedium.weight};
   color: ${({ isdisabled }) => getColorLabel(isdisabled)};
   width: 100%;
 `;
