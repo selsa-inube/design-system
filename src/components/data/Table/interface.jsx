@@ -1,4 +1,6 @@
 import React, { useMemo } from "react";
+import { MdOpenInNew } from "react-icons/md";
+
 import {
   StyledTable,
   StyledThead,
@@ -8,11 +10,10 @@ import {
   StyledThTitle,
   StyledTd,
 } from "./styles";
-import { Text } from "../Text";
-import { MdOpenInNew } from "react-icons/md";
 
 import { useMediaQueries } from "../../../hooks/useMediaQueries";
 import { useMediaQuery } from "../../../hooks/useMediaQuery";
+import { Text } from "../Text";
 
 function findCurrentMediaQuery(currentMediaQuery) {
   const lastIndexMedia = Object.values(currentMediaQuery).lastIndexOf(true);
