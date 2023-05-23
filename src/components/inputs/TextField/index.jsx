@@ -42,7 +42,9 @@ const TextField = (props) => {
   const [isFocused, setIsFocused] = useState(false);
 
   const interceptFocus = (e) => {
-    setIsFocused(true);
+    if (!readOnly) {
+      setIsFocused(true);
+    }
     if (typeof handleFocus === "function") {
       handleFocus(e);
     }
