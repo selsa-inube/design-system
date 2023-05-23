@@ -7,8 +7,6 @@ import { validateCssSpacing } from "../../../utilities/validateCssSpacing";
 
 import { StyledText } from "./styles";
 
-const globalValuesPropertiesCss = ["inherit", "initial", "unset", "auto"];
-
 const alignsOptions = ["start", "center", "end", "justify"];
 
 const htmlElements = [
@@ -58,15 +56,11 @@ const Text = (props) => {
 
   const transformedTypo = typosOptions.includes(typo) ? typo : defaultTypo;
 
-  const transformedMargin =
-    validateCssSpacing(margin) || globalValuesPropertiesCss.includes(margin)
-      ? margin
-      : defaultMargin;
+  const transformedMargin = validateCssSpacing(margin) ? margin : defaultMargin;
 
-  const transformedPadding =
-    validateCssSpacing(padding) || globalValuesPropertiesCss.includes(padding)
-      ? padding
-      : defaultPadding;
+  const transformedPadding = validateCssSpacing(padding)
+    ? padding
+    : defaultPadding;
 
   return (
     <StyledText
@@ -86,14 +80,8 @@ const Text = (props) => {
 Text.propTypes = {
   children: PropTypes.node,
   align: PropTypes.oneOf(alignsOptions),
-  margin: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.oneOf(globalValuesPropertiesCss),
-  ]),
-  padding: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.oneOf(globalValuesPropertiesCss),
-  ]),
+  margin: PropTypes.string,
+  padding: PropTypes.string,
   as: PropTypes.oneOf(htmlElements),
   id: PropTypes.string,
   appearance: PropTypes.oneOf(appearencesOptions),
