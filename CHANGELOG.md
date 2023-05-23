@@ -1,3 +1,24 @@
+# v3.2.0 (Tue May 23 2023)
+
+#### 🚀 Enhancement
+
+- Develop the `<CountdownBar />` component [#134](https://github.com/selsa-inube/design-system/pull/134) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+
+#### 🐛 Bug Fix
+
+- Fix `<TextField />` component to implement new `readOnly` property [#143](https://github.com/selsa-inube/design-system/pull/143) ([@Andresbl123](https://github.com/Andresbl123))
+- Fix the font-weight property in `<TextField />` styles [#141](https://github.com/selsa-inube/design-system/pull/141) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- Fix the menu positioning when the `<ellipsisBreadCrumb/>` is clicked [#142](https://github.com/selsa-inube/design-system/pull/142) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- Release new version 3.1.0 [#135](https://github.com/selsa-inube/design-system/pull/135) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 3
+
+- Andres ([@Andresbl123](https://github.com/Andresbl123))
+- cesar.marin (cmarin@sistemasenlinea.com.co)
+- cmarin ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v3.1.0 (Tue May 16 2023)
 
 #### 🚀 Enhancement
