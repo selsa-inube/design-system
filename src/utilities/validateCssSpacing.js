@@ -6,16 +6,17 @@ const globalValuesPropertiesCss = ["inherit", "initial", "unset", "auto"];
 const validateCssSpacing = (size) => {
   const splitPixels = size.trim().split(" ");
 
-  const isGlobalCssValue =
-    globalValuesPropertiesCss.includes(size.trim()) && splitPixels.length === 1;
-
   if (size === "" || splitPixels.length === 0 || splitPixels.length > 4) {
     return false;
   }
 
-  return (
-    splitPixels.every((valueSize) => regex.test(valueSize)) || isGlobalCssValue
-  );
+  const isGlobalCssValue = globalValuesPropertiesCss.includes(size);
+
+  if (isGlobalCssValue && splitPixels.length === 1) {
+    return true;
+  }
+
+  return splitPixels.every((valueSize) => regex.test(valueSize));
 };
 
 export { validateCssSpacing };
