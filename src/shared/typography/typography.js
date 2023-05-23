@@ -99,7 +99,7 @@ const sys = {
       lineHeight: "24px",
       size: "16px",
       tracking: "0.5px",
-      weight: ref.typeface.weight.medium,
+      weight: ref.typeface.weight.regular,
     },
     bodyMedium: {
       font: ref.typeface.brand,
