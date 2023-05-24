@@ -17,18 +17,15 @@ const validateCssSpacing = (size) => {
   }
 
   if (globalValuesPropertiesCss.includes(size) && splitPixels.length === 1) {
-    return console.error(
+    return true;
+  } else if (splitPixels.every((valueSize) => regex.test(valueSize))) {
+    return true;
+  } else {
+    console.error(
       "Provide a single valid spacing measurement in the correct format, following CSS syntax"
     );
+    return false;
   }
-
-  if (!splitPixels.every((valueSize) => regex.test(valueSize))) {
-    console.error(
-      "It must be a number followed by 'px', taking into account the CSS format"
-    );
-  }
-
-  return true;
 };
 
 export { validateCssSpacing };
