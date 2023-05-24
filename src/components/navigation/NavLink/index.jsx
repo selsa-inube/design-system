@@ -17,20 +17,20 @@ const NavLink = (props) => {
   } = props;
 
   return (
-    <StyledNavLink
-      isDisabled={isDisabled}
-      isSelected={isSelected}
-      id={id}
-      onClick={handleClick}
-      icon={icon}
-      onBlur={handleBlur}
-    >
-      {icon}
-      <StyledLink to={path} isdisabled={+isDisabled}>
+    <StyledLink to={path} isdisabled={+isDisabled}>
+      <StyledNavLink
+        isDisabled={isDisabled}
+        isSelected={isSelected}
+        id={id}
+        onClick={handleClick}
+        icon={icon}
+        onBlur={handleBlur}
+      >
+        {icon}
         {label}
-      </StyledLink>
-      <MdKeyboardArrowRight isdisabled={+isDisabled} />
-    </StyledNavLink>
+        <MdKeyboardArrowRight isdisabled={+isDisabled} />
+      </StyledNavLink>
+    </StyledLink>
   );
 };
 

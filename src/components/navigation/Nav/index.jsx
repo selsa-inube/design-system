@@ -8,28 +8,6 @@ import { NavLink } from "../NavLink";
 
 import { MdLogout } from "react-icons/md";
 
-const checkSections = (navigation) => {
-  let result = [];
-
-  Object.keys(navigation).forEach((key) => {
-    const item = navigation[key];
-    if (
-      item &&
-      item.hasOwnProperty("id") &&
-      item.hasOwnProperty("label") &&
-      item.hasOwnProperty("icon") &&
-      item.hasOwnProperty("path")
-    ) {
-      result.push({ type: "Page", key: key });
-    } else if (item && typeof item === "object") {
-      result.push({ type: "Section", key: key });
-      result = result.concat(checkSections(item));
-    }
-  });
-
-  return result;
-};
-
 const NavLinkSection = (props) => {
   const { routes, handleClick } = props;
   const location = useLocation();
@@ -53,17 +31,14 @@ const NavLinkSection = (props) => {
 const Nav = (props) => {
   const { title, navigation, logoutPath, handleClick } = props;
 
-  const transformedNavigation = checkSections(navigation);
-  const containsSection = transformedNavigation.some(
-    (item) => item.type === "Section"
-  );
-
-  if (containsSection) {
-    const transformedRoutes = (routeKey) => Object.values(navigation[routeKey]);
-    const filterSections = transformedNavigation.filter(
-      (item) => item.type === "Section"
+  if (Array.isArray(navigation) && navigation.length === 1) {
+    throw new Error(
+      `Invalid parameter: Please consider defining 'navigation' as a data object rather than utilizing an array data structure. The use of an array data structure for a single section is not necessary.`
     );
+  }
 
+  if (Array.isArray(navigation)) {
+    const transformedRoutes = (routes) => Object.values(routes);
     return (
       <StyledNav>
         <Stack direction="column">
@@ -77,9 +52,9 @@ const Nav = (props) => {
             {title}
           </Text>
           <Stack direction="column" gap="26px">
-            {filterSections.map((navSection) => (
+            {navigation.map((navSection) => (
               <Stack
-                key={navSection.key}
+                key={navSection.section}
                 direction="column"
                 justifyContent="center"
               >
@@ -89,12 +64,11 @@ const Nav = (props) => {
                   appearance="secondary"
                   typo="titleSmall"
                 >
-                  {navSection.key.toUpperCase()}
+                  {navSection.section.toUpperCase()}
                 </Text>
-
                 <Stack direction="column">
                   <NavLinkSection
-                    routes={transformedRoutes(navSection.key)}
+                    routes={transformedRoutes(navSection.links)}
                     handleClick={handleClick}
                   />
                 </Stack>
@@ -118,6 +92,7 @@ const Nav = (props) => {
     );
   }
 
+  const transformedNavigation = Object.values(navigation.links);
   return (
     <StyledNav>
       <Stack direction="column">
@@ -131,16 +106,14 @@ const Nav = (props) => {
           {title}
         </Text>
         <Stack direction="column">
-          {transformedNavigation.map((navSection, index) => (
-            <Stack key={index} direction="column" justifyContent="center">
-              <Stack direction="column">
-                <NavLinkSection
-                  routes={Array(navigation[navSection.key])}
-                  handleClick={handleClick}
-                />
-              </Stack>
+          <Stack key="links" direction="column" justifyContent="center">
+            <Stack direction="column">
+              <NavLinkSection
+                routes={transformedNavigation}
+                handleClick={handleClick}
+              />
             </Stack>
-          ))}
+          </Stack>
         </Stack>
         <SeparatorLine />
         <NavLink
@@ -161,7 +134,8 @@ const Nav = (props) => {
 
 Nav.propTypes = {
   title: PropTypes.string,
-  navigation: PropTypes.object.isRequired,
+  navigation: PropTypes.oneOfType([PropTypes.object, PropTypes.array])
+    .isRequired,
   logoutPath: PropTypes.string.isRequired,
   handleClick: PropTypes.func,
 };
