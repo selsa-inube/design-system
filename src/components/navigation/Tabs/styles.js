@@ -8,6 +8,10 @@ const StyledTabs = styled.div`
   width: 100%;
   border-bottom: 2px solid ${colors.ref.palette.neutral.n40};
   padding: 0px 16px;
+
+  > div:last-child > *:last-child {
+    padding-right: 16px;
+  }
 `;
 
 export { StyledTabs };
