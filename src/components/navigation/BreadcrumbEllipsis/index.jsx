@@ -18,9 +18,13 @@ const BreadcrumbEllipsis = (props) => {
   const transformedTypos = typos.includes(typo) ? typo : defaultTypo;
 
   const containerRef = useRef(null);
-
+  const menuRef = useRef(null);
   const handleClickOutside = (event) => {
-    if (containerRef.current && !containerRef.current.contains(event.target)) {
+    if (
+      containerRef.current &&
+      !containerRef.current.contains(event.target) &&
+      (!menuRef.current || !menuRef.current.contains(event.target))
+    ) {
       setShowMenu(false);
     }
   };
@@ -52,13 +56,19 @@ const BreadcrumbEllipsis = (props) => {
           </StyledBreadcrumbEllipsis>
         </Label>
       </StyledContainerEllipsis>
-      {showMenu && <BreadcrumbMenu routes={routes} />}
+      {showMenu && (
+        <BreadcrumbMenu
+          ref={menuRef}
+          routes={routes}
+          onOptionClick={handleEllipsisClick}
+        />
+      )}
     </StyledRelativeContainer>
   );
 };
 
 BreadcrumbEllipsis.propTypes = {
-  typo: PropTypes.oneOf(["labelLarge", "labelSmall"]),
+  typo: PropTypes.oneOf(typos),
   routes: PropTypes.array.isRequired,
 };
 
