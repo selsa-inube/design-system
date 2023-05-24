@@ -11,71 +11,52 @@ import {
   StyledContDropMenu,
   StyledFullscreenNav,
   StyledCloseMenu,
-  StyledContainerText,
+  StyledContainerNavLink,
   StyledSeparatorLine,
   StyledFooter,
 } from "./styles";
 
+const Footer = ({ children }) => {
+  return (
+    <Text typo="labelMedium" appearance="disabled">
+      {children}
+    </Text>
+  );
+};
+
 const FullscreenNav = (props) => {
-  const { portalId, navObject, logoutPath } = props;
+  const { portalId, navigation, logoutPath } = props;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [selectedNavLink, setSelectedNavLink] = useState(null);
+  //const [selectedNavLink, setSelectedNavLink] = useState(null);
 
   const renderMenu = document.getElementById(portalId);
 
-  const handleNavLinkSelection = (route) => {
+  /*  const handleNavLinkSelection = (route) => {
     setSelectedNavLink(route);
-  };
+  }; */
 
   const FullscreenMenu = () => {
     return (
       <StyledFullscreenNav>
         <StyledCloseMenu>
-          <Text typo="titleLarge" appearance="secondary">
-            Menu
+          <Text typo="titleSmall" appearance="secondary">
+            {navigation.title}
           </Text>
           <MdClose onClick={() => setIsMenuOpen(false)} />
         </StyledCloseMenu>
-        <Stack direction="column" gap="24px">
-          {navObject.map((section) => (
-            <section key={section.subTitle}>
-              {section.subTitle && (
-                <StyledContainerText>
-                  <Text typo="titleSmall" appearance="secondary">
-                    {section.subTitle}
-                  </Text>
-                </StyledContainerText>
-              )}
-
-              {section.routes.map((route) => {
-                const isActived = selectedNavLink === route;
-                return (
-                  <Stack
-                    key={route.id}
-                    direction="column"
-                    alignItems="flex-start"
-                  >
-                    <NavLink
-                      id={route.id}
-                      label={route.label}
-                      path={route.path}
-                      icon={route.icon}
-                      isSelected={isActived}
-                      handleClick={() => handleNavLinkSelection(route)}
-                    />
-                  </Stack>
-                );
-              })}
-            </section>
+        <Stack>
+          {Object.keys(navigation.navigation).map((section) => (
+            <Text>{section}</Text>
           ))}
         </Stack>
+
         <StyledSeparatorLine />
 
         <NavLink
           id="logout"
           label="logout"
-          icon={<MdLogout />}
-          path={logoutPath}
+          icon={navigation.logoutPath.icon}
+          path={navigation.logoutPath.path}
         />
 
         <StyledFooter>
@@ -102,7 +83,7 @@ const FullscreenNav = (props) => {
 
 FullscreenNav.propTypes = {
   portalId: PropTypes.string.isRequired,
-  navObject: PropTypes.arrayOf(
+  navigation: PropTypes.arrayOf(
     PropTypes.shape({
       subTitle: PropTypes.string,
       routes: PropTypes.arrayOf(

@@ -30,7 +30,7 @@ const StyledCloseMenu = styled.div`
   }
 `;
 
-const StyledContainerText = styled.div`
+const StyledContainerNavLink = styled.div`
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -57,7 +57,7 @@ export {
   StyledContDropMenu,
   StyledFullscreenNav,
   StyledCloseMenu,
-  StyledContainerText,
+  StyledContainerNavLink,
   StyledSeparatorLine,
   StyledFooter,
 };

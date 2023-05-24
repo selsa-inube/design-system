@@ -1,14 +1,18 @@
 import React from "react";
-import { FullscreenNav } from "..";
 import { BrowserRouter } from "react-router-dom";
+
+import { FullscreenNav } from "..";
+import { parameters, portalId } from "./props";
+
 import {
   MdVpnKey,
-  MdMoney,
+  MdMeetingRoom,
   MdContacts,
+  MdStarBorder,
   MdBadge,
-  MdStar,
   MdAccountBalanceWallet,
   MdAccountBalance,
+  MdLogout,
 } from "react-icons/md";
 
 const story = {
@@ -25,74 +29,81 @@ const story = {
   ],
 };
 
-const navObject = [
-  {
-    subTitle: "ADMINISTRATE",
-    routes: [
-      {
-        id: "1",
+const navigation = {
+  title: "MENU",
+  navigation: {
+    administrate: {
+      privileges: {
+        id: "privileges",
         label: "Privileges",
-        description: "Modify the properties and permissions of your account",
         icon: <MdVpnKey />,
         path: "/privileges",
       },
-      {
-        id: "2",
+      accounting: {
+        id: "accounting",
         label: "Accounting",
-        description: "Record the company's financial income and expenses",
-        icon: <MdMoney />,
+        icon: <MdMeetingRoom />,
         path: "/accounting",
       },
-      {
-        id: "3",
+      contacts: {
+        id: "contacts",
         label: "Contacts",
-        description: "Register your contacts and store them in an optimal way",
         icon: <MdContacts />,
         path: "/contacts",
       },
-    ],
-  },
-  {
-    subTitle: "REQUEST",
-    routes: [
-      {
-        id: "1",
+      crm: {
+        id: "crm",
+        label: "CRM",
+        icon: <MdStarBorder />,
+        path: "/crm",
+      },
+    },
+    request: {
+      documents: {
+        id: "documents",
         label: "Documents",
-        description: "documents",
         icon: <MdBadge />,
         path: "/documents",
       },
-      {
-        id: "2",
+      marketing: {
+        id: "marketing",
         label: "Marketing",
-        description: "marketing",
-        icon: <MdStar />,
+        icon: <MdStarBorder />,
         path: "/marketing",
       },
-      {
-        id: "3",
+      savings: {
+        id: "savings",
         label: "Savings",
-        description: "savings",
         icon: <MdAccountBalanceWallet />,
         path: "/savings",
       },
-      {
-        id: "4",
+      credit: {
+        id: "credit",
         label: "Credit",
-        description: "credit",
         icon: <MdAccountBalance />,
         path: "/credit",
       },
-    ],
+    },
   },
-];
+  logoutPath: {
+    id: "logout",
+    label: "Logout",
+    icon: <MdLogout />,
+    path: "/logout",
+  },
+};
 
 const Default = (args) => <FullscreenNav {...args} />;
 
 Default.args = {
   portalId: "portals",
-  navObject,
+  navigation,
   logoutPath: "/logout",
+};
+
+Default.argTypes = {
+  portalId,
+  navigation,
 };
 
 export default story;
