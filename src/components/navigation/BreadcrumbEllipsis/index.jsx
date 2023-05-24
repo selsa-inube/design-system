@@ -60,7 +60,7 @@ const BreadcrumbEllipsis = (props) => {
         <BreadcrumbMenu
           ref={menuRef}
           routes={routes}
-          onOptionClick={handleEllipsisClick}
+          handleClick={handleEllipsisClick}
         />
       )}
     </StyledRelativeContainer>

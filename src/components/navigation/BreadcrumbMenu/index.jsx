@@ -5,7 +5,7 @@ import { BreadcrumbMenuLink } from "../BreadcrumbMenuLink";
 import { StyledBreadcrumbMenu } from "./styles";
 
 const BreadcrumbMenu = React.forwardRef((props, ref) => {
-  const { routes, onOptionClick } = props;
+  const { routes, handleClick } = props;
 
   return (
     <StyledBreadcrumbMenu ref={ref}>
@@ -16,7 +16,7 @@ const BreadcrumbMenu = React.forwardRef((props, ref) => {
             id={route.id}
             path={route.path}
             label={route.label}
-            onClick={onOptionClick}
+            onClick={handleClick}
           />
         ))}
       </Stack>
@@ -32,6 +32,7 @@ BreadcrumbMenu.propTypes = {
       label: PropTypes.string.isRequired,
     })
   ).isRequired,
+  handleClick: PropTypes.func,
 };
 
 export { BreadcrumbMenu };
