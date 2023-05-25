@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import { colors } from "../../../shared/colors/colors";
 import { typography } from "../../../shared/typography/typography";
-import { validateCssSpacing } from "../../../utilities/validateCssSpacing";
+import { validateBoxModelMeasure } from "../../../utilities/validateBoxModelMeasure";
 
 import { StyledText } from "./styles";
 
@@ -56,9 +56,11 @@ const Text = (props) => {
 
   const transformedTypo = typosOptions.includes(typo) ? typo : defaultTypo;
 
-  const transformedMargin = validateCssSpacing(margin) ? margin : defaultMargin;
+  const transformedMargin = validateBoxModelMeasure(margin)
+    ? margin
+    : defaultMargin;
 
-  const transformedPadding = validateCssSpacing(padding)
+  const transformedPadding = validateBoxModelMeasure(padding)
     ? padding
     : defaultPadding;
 
