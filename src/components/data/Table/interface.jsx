@@ -88,7 +88,7 @@ function TableUI(props) {
           {TitleColumns.map((title) => (
             <StyledThTitle
               key={`title-${title.id}`}
-              aria-aria-label={title.titleName}
+              aria-label={title.titleName}
             >
               <Text typo="labelMedium">{title.titleName}</Text>
             </StyledThTitle>
