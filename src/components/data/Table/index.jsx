@@ -95,7 +95,7 @@ Table.propTypes = {
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       titleName: PropTypes.string.isRequired,
-      Prioridad: PropTypes.number.isRequired,
+      priority: PropTypes.number.isRequired,
     })
   ).isRequired,
   actions: PropTypes.arrayOf(

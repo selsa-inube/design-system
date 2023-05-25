@@ -70,7 +70,7 @@ function TableUI(props) {
   const mediaActionOpen = useMediaQuery("(max-width: 850px)");
 
   const queriesArray = useMemo(
-    () => breakPoints.map((breakpoint) => breakpoint.breakpoint),
+    () => breakPoints.map((breakpoint) => breakpoint.breakPoint),
     [breakPoints]
   );
 

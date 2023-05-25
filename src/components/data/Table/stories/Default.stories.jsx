@@ -32,7 +32,7 @@ const titles = [
 ];
 
 const SwitchController = (props) => {
-  const { checked = false, handleChange } = props;
+  const { htmlFor, checked = false, handleChange } = props;
   const [switchChecked, setSwitchChecked] = useState(checked);
 
   const handleToggle = () => {
@@ -41,25 +41,30 @@ const SwitchController = (props) => {
   };
 
   return (
-    <Switch {...props} checked={switchChecked} handleChange={handleToggle} />
+    <Switch
+      {...props}
+      htmlFor={htmlFor}
+      checked={switchChecked}
+      handleChange={handleToggle}
+    />
   );
 };
 
 const actions = [
   {
-    id: 1,
+    id: "Activate",
     actionName: "Activate",
-    content: <SwitchController />,
+    content: <SwitchController htmlFor="index" />,
     type: "secondary",
   },
   {
-    id: 2,
+    id: "Edit",
     actionName: "Edit",
     content: <MdModeEdit />,
     type: "primary",
   },
   {
-    id: 3,
+    id: "Deleten ",
     actionName: "Delete",
     content: <MdDelete />,
     type: "remove",
@@ -67,39 +72,39 @@ const actions = [
 ];
 
 const breakPoints = [
-  { breakpoint: "(min-width: 1091px)", totalColumns: 4 },
-  { breakpoint: "(max-width: 1090px)", totalColumns: 3 },
-  { breakpoint: "(max-width: 980px)", totalColumns: 2 },
-  { breakpoint: "(max-width: 850px)", totalColumns: 4 },
-  { breakpoint: "(max-width: 680px)", totalColumns: 3 },
-  { breakpoint: "(max-width: 550px)", totalColumns: 2 },
-  { breakpoint: "(max-width: 360px)", totalColumns: 1 },
+  { breakPoint: "(min-width: 1091px)", totalColumns: 4 },
+  { breakPoint: "(max-width: 1090px)", totalColumns: 3 },
+  { breakPoint: "(max-width: 980px)", totalColumns: 2 },
+  { breakPoint: "(max-width: 850px)", totalColumns: 4 },
+  { breakPoint: "(max-width: 680px)", totalColumns: 3 },
+  { breakPoint: "(max-width: 550px)", totalColumns: 2 },
+  { breakPoint: "(max-width: 360px)", totalColumns: 1 },
 ];
 
 const entries = [
   {
-    id: 11,
+    id: "11",
     username: "David Leonardo Garzón",
     code: "LGARZON",
     userID: "1256545",
     position: "Credit Analyst",
   },
   {
-    id: 12,
+    id: "12",
     username: "Angie Pinilla",
     code: "APINILLA",
     userID: "789654",
     position: "Adviser",
   },
   {
-    id: 13,
+    id: "13",
     username: "Cristian Rojas",
     code: "CROJAS",
     userID: "258963",
     position: "Credit Analyst",
   },
   {
-    id: 14,
+    id: "14",
     username: "Johan Nova",
     code: "JNOVA",
     userID: "589647",
