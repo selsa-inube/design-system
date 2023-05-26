@@ -21,7 +21,7 @@ const StyledFullscreenNav = styled.nav`
 const StyledCloseMenu = styled.div`
   display: grid;
   grid-template-columns: 1fr auto;
-  padding: 32px 24px 16px;
+  padding: 32px 24px 16px 16px;
 
   & > svg {
     width: 24px;
@@ -53,11 +53,20 @@ const StyledFooter = styled.footer`
   gap: 24px;
 `;
 
+const StyledContainertitleSection = styled.div`
+  width: 100%;
+  height: 52px;
+
+  & > Text:not(:first-child) {
+    margin-top: 16px;
+  }
+`;
+
 export {
   StyledContDropMenu,
   StyledFullscreenNav,
   StyledCloseMenu,
-  StyledContainerNavLink,
+  StyledContainertitleSection,
   StyledSeparatorLine,
   StyledFooter,
 };
