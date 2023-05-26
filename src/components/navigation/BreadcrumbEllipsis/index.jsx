@@ -18,51 +18,36 @@ const BreadcrumbEllipsis = (props) => {
   const transformedTypos = typos.includes(typo) ? typo : defaultTypo;
 
   const containerRef = useRef(null);
-  const menuRef = useRef(null);
-  const handleClickOutside = (event) => {
-    if (
-      containerRef.current &&
-      !containerRef.current.contains(event.target) &&
-      (!menuRef.current || !menuRef.current.contains(event.target))
-    ) {
+
+  const closeEllipsisMenu = (event) => {
+    if (!containerRef.current.contains(event.target)) {
       setShowMenu(false);
     }
   };
 
   useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("click", closeEllipsisMenu);
 
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("click", closeEllipsisMenu);
     };
   }, [containerRef]);
 
-  const handleEllipsisClick = () => {
+  const toggleEllipsisMenu = () => {
     setShowMenu(!showMenu);
   };
 
   return (
-    <StyledRelativeContainer>
+    <StyledRelativeContainer ref={containerRef} onClick={toggleEllipsisMenu}>
       <StyledContainerEllipsis>
         <Label
           htmlFor="ellipsis"
           typo={typos.includes(typo) ? typo : transformedTypos}
         >
-          <StyledBreadcrumbEllipsis
-            ref={containerRef}
-            onClick={handleEllipsisClick}
-          >
-            ...
-          </StyledBreadcrumbEllipsis>
+          <StyledBreadcrumbEllipsis>...</StyledBreadcrumbEllipsis>
         </Label>
       </StyledContainerEllipsis>
-      {showMenu && (
-        <BreadcrumbMenu
-          ref={menuRef}
-          routes={routes}
-          handleClick={handleEllipsisClick}
-        />
-      )}
+      {showMenu && <BreadcrumbMenu routes={routes} />}
     </StyledRelativeContainer>
   );
 };

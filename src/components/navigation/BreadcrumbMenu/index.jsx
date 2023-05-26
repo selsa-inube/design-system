@@ -4,11 +4,11 @@ import { Stack } from "../../layouts/Stack";
 import { BreadcrumbMenuLink } from "../BreadcrumbMenuLink";
 import { StyledBreadcrumbMenu } from "./styles";
 
-const BreadcrumbMenu = React.forwardRef((props, ref) => {
-  const { routes, handleClick } = props;
+const BreadcrumbMenu = (props) => {
+  const { routes } = props;
 
   return (
-    <StyledBreadcrumbMenu ref={ref}>
+    <StyledBreadcrumbMenu>
       <Stack direction="column" justifyContent="space-between">
         {routes.map((route) => (
           <BreadcrumbMenuLink
@@ -16,13 +16,12 @@ const BreadcrumbMenu = React.forwardRef((props, ref) => {
             id={route.id}
             path={route.path}
             label={route.label}
-            onClick={handleClick}
           />
         ))}
       </Stack>
     </StyledBreadcrumbMenu>
   );
-});
+};
 
 BreadcrumbMenu.propTypes = {
   routes: PropTypes.arrayOf(
@@ -32,7 +31,6 @@ BreadcrumbMenu.propTypes = {
       label: PropTypes.string.isRequired,
     })
   ).isRequired,
-  handleClick: PropTypes.func,
 };
 
 export { BreadcrumbMenu };
