@@ -6,6 +6,7 @@ const StyledContainerEllipsis = styled.li`
 `;
 
 const StyledBreadcrumbEllipsis = styled.div`
+  user-select: none;
   text-decoration: none;
   color: ${colors.sys.text.secondary};
   &:hover {
@@ -15,4 +16,13 @@ const StyledBreadcrumbEllipsis = styled.div`
   }
 `;
 
-export { StyledContainerEllipsis, StyledBreadcrumbEllipsis };
+const StyledRelativeContainer = styled.div`
+  position: relative;
+  display: inline-block;
+`;
+
+export {
+  StyledContainerEllipsis,
+  StyledBreadcrumbEllipsis,
+  StyledRelativeContainer,
+};

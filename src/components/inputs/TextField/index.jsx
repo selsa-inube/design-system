@@ -36,12 +36,15 @@ const TextField = (props) => {
     isFullWidth = false,
     handleFocus,
     handleBlur,
+    readOnly,
   } = props;
 
   const [isFocused, setIsFocused] = useState(false);
 
   const interceptFocus = (e) => {
-    setIsFocused(true);
+    if (!readOnly) {
+      setIsFocused(true);
+    }
     if (typeof handleFocus === "function") {
       handleFocus(e);
     }
@@ -66,6 +69,8 @@ const TextField = (props) => {
 
   const transformedIsFullWidth =
     typeof isFullWidth === "boolean" ? isFullWidth : defaultIsFullWidth;
+
+  const transformedReadOnly = typeof readOnly === "boolean" ? readOnly : false;
 
   return (
     <TextFieldUI
@@ -92,6 +97,7 @@ const TextField = (props) => {
       isFocused={isFocused}
       handleFocus={interceptFocus}
       handleBlur={interceptBlur}
+      readOnly={transformedReadOnly}
     />
   );
 };
@@ -119,6 +125,7 @@ TextFieldUI.propTypes = {
   isFullWidth: PropTypes.bool,
   handleFocus: PropTypes.func,
   handleBlur: PropTypes.func,
+  readOnly: PropTypes.bool,
 };
 
 export { TextField, inputTypes, sizes, states };
