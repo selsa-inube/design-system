@@ -10,11 +10,11 @@ const typos = ["labelLarge", "labelMedium", "labelSmall"];
 const defaultTypo = "labelLarge";
 
 const BreadcrumbMenuLink = (props) => {
-  const { label, path, id, typo = defaultTypo, onClick } = props;
+  const { label, path, id, typo = defaultTypo } = props;
   const transformedTypos = typos.includes(typo) ? typo : defaultTypo;
 
   return (
-    <StyledBreadcrumbMenuLink to={path} onClick={onClick}>
+    <StyledBreadcrumbMenuLink to={path}>
       <StyledContainerLink id={id}>
         <Stack alignItems="center">
           <Label htmlFor={id} typo={transformedTypos}>
