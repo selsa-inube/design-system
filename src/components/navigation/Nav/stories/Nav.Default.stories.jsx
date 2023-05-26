@@ -42,9 +42,9 @@ const Default = (args) => <Nav {...args} />;
 
 Default.args = {
   title: "MENU",
-  navigation: [
-    {
-      section: "Administrate",
+  sections: {
+    administrate: {
+      nameSections: "Administrate",
       links: {
         privileges: {
           id: "privileges",
@@ -72,8 +72,8 @@ Default.args = {
         },
       },
     },
-    {
-      section: "Request",
+    request: {
+      nameSections: "Request",
       links: {
         documents: {
           id: "documents",
@@ -101,7 +101,7 @@ Default.args = {
         },
       },
     },
-  ],
+  },
   logoutPath: "/logout",
 };
 
