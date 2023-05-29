@@ -22,16 +22,15 @@ import {
 const FullscreenNav = (props) => {
   const { portalId, navigation, logoutPath } = props;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [selectedNavLink, setSelectedNavLink] = useState(null);
+
   let location = useLocation();
+  const currentUrl = location.pathname;
 
   const renderMenu = document.getElementById(portalId);
 
   const numberSections = Object.keys(navigation.sections);
 
-  const handleNavLinkSelection = (link) => {
-    setSelectedNavLink(link.id);
-  };
+  const isActive = (url) => currentUrl.startsWith(url);
 
   if (numberSections.length === 0) {
     throw new Error("The navigation must have at least one section");
@@ -63,7 +62,6 @@ const FullscreenNav = (props) => {
                   <Stack direction="column">
                     {Object.entries(sectionValue.links).map(
                       ([linkKey, linkValue]) => {
-                        const isActive = selectedNavLink === linkValue.id;
                         return (
                           <NavLink
                             key={linkKey}
@@ -71,10 +69,7 @@ const FullscreenNav = (props) => {
                             label={linkValue.label}
                             icon={linkValue.icon}
                             path={linkValue.path}
-                            isSelected={isActive}
-                            handleClick={() =>
-                              handleNavLinkSelection(linkValue)
-                            }
+                            isSelected={isActive(linkValue.path)}
                           />
                         );
                       }
@@ -120,6 +115,7 @@ const FullscreenNav = (props) => {
                       label={linkValue.label}
                       icon={linkValue.icon}
                       path={linkValue.path}
+                      isSelected={isActive(linkValue.path)}
                     />
                   )
                 )}
