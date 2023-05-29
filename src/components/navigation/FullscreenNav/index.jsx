@@ -11,7 +11,6 @@ import {
   StyledContDropMenu,
   StyledFullscreenNav,
   StyledCloseMenu,
-  StyledContainertitleSection,
   StyledSeparatorLine,
   StyledFooter,
 } from "./styles";
@@ -49,16 +48,14 @@ const FullscreenNav = (props) => {
             {Object.entries(navigation.sections).map(
               ([sectionKey, sectionValue]) => (
                 <Stack key={sectionKey} direction="column">
-                  <StyledContainertitleSection>
-                    <Text
-                      as="h2"
-                      typo="titleSmall"
-                      appearance="secondary"
-                      padding="16px"
-                    >
-                      {sectionValue.nameSection}
-                    </Text>
-                  </StyledContainertitleSection>
+                  <Text
+                    as="h2"
+                    typo="titleSmall"
+                    appearance="secondary"
+                    padding="16px"
+                  >
+                    {sectionValue.nameSection}
+                  </Text>
 
                   <Stack direction="column">
                     {Object.entries(sectionValue.links).map(

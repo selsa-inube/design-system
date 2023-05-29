@@ -16,6 +16,12 @@ const StyledFullscreenNav = styled.nav`
   height: 100%;
   background-color: ${colors.ref.palette.neutral.n10};
   padding-left: 24px;
+
+  & > div:nth-child(2) {
+    & > div:nth-child(n + 2) {
+      margin-top: 28px;
+    }
+  }
 `;
 
 const StyledCloseMenu = styled.div`
@@ -28,13 +34,6 @@ const StyledCloseMenu = styled.div`
     height: 24px;
     cursor: pointer;
   }
-`;
-
-const StyledContainerNavLink = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  padding: 16px;
 `;
 
 const StyledSeparatorLine = styled.div`
@@ -53,20 +52,10 @@ const StyledFooter = styled.footer`
   gap: 24px;
 `;
 
-const StyledContainertitleSection = styled.div`
-  width: 100%;
-  height: 52px;
-
-  & > Text:not(:first-child) {
-    margin-top: 16px;
-  }
-`;
-
 export {
   StyledContDropMenu,
   StyledFullscreenNav,
   StyledCloseMenu,
-  StyledContainertitleSection,
   StyledSeparatorLine,
   StyledFooter,
 };
