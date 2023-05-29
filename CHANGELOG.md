@@ -1,3 +1,17 @@
+# v3.2.1 (Mon May 29 2023)
+
+#### 🐛 Bug Fix
+
+- Fix `<breadCrumb/>` redirection in mobile devices [#147](https://github.com/selsa-inube/design-system/pull/147) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- Release v3.2.0 [#144](https://github.com/selsa-inube/design-system/pull/144) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 2
+
+- cesar.marin (cmarin@sistemasenlinea.com.co)
+- cmarin ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v3.2.0 (Tue May 23 2023)
 
 #### 🚀 Enhancement
