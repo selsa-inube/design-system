@@ -24,9 +24,9 @@ const validateBoxModelMeasure = (value) => {
     return;
   }
 
-  if (measures.every((valueSize) => regex.test(valueSize))) {
-    return;
-  } else {
+  const isValid = measures.every((valueSize) => regex.test(valueSize));
+
+  if (!isValid) {
     throw new Error(
       "Provide a single valid spacing measurement in the correct format, following CSS syntax."
     );
