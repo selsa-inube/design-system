@@ -5,7 +5,6 @@ const StyledTab = styled.li`
   width: fit-content;
   user-select: none;
   list-style-type: none;
-  padding: 0px 16px;
   border-bottom: ${({ isSelected, isDisabled }) =>
     isSelected &&
     !isDisabled &&

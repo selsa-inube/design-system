@@ -7,6 +7,10 @@ const StyledTabs = styled.div`
   white-space: nowrap;
   width: 100%;
   border-bottom: 2px solid ${colors.ref.palette.neutral.n40};
+
+  & > div > li:last-child {
+    padding-right: 16px;
+  }
 `;
 
 export { StyledTabs };
