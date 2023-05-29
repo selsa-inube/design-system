@@ -9,13 +9,10 @@ import {
   MdBadge,
   MdAccountBalanceWallet,
   MdAccountBalance,
-  MdLogout,
 } from "react-icons/md";
 
 import { FullscreenNav } from "..";
-import { parameters, navigation, portalId } from "./props";
-
-//import { navigations } from "./mockData";
+import { parameters, portalId, navigation, logoutPath } from "./props";
 
 const story = {
   title: "navigation/FullscreenNav/Default",
@@ -98,18 +95,14 @@ Default.args = {
         },
       },
     },
-    logoutPath: {
-      id: "logout",
-      label: "Logout",
-      icon: <MdLogout />,
-      path: "/logout",
-    },
   },
+  logoutPath: "/logout",
 };
 
 Default.argTypes = {
   portalId,
   navigation,
+  logoutPath,
 };
 
 export default story;

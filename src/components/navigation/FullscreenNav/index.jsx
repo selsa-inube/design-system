@@ -1,6 +1,10 @@
 import React, { useState } from "react";
+
 import { createPortal } from "react-dom";
-import PropTypes, { object } from "prop-types";
+import { useLocation } from "react-router-dom";
+
+import PropTypes from "prop-types";
+
 import { MdMenu, MdClose, MdLogout } from "react-icons/md";
 
 import { Stack } from "../../layouts/Stack/index";
@@ -14,7 +18,6 @@ import {
   StyledSeparatorLine,
   StyledFooter,
 } from "./styles";
-import { useLocation } from "react-router-dom";
 
 const FullscreenNav = (props) => {
   const { portalId, navigation, logoutPath } = props;
@@ -84,10 +87,10 @@ const FullscreenNav = (props) => {
 
           <StyledSeparatorLine />
           <NavLink
-            id={navigation.logoutPath.id}
-            label={navigation.logoutPath.label}
-            icon={navigation.logoutPath.icon}
-            path={navigation.logoutPath.path}
+            id="logoutPath"
+            label="Logout"
+            icon={<MdLogout />}
+            path={logoutPath}
           />
           <StyledFooter>
             <Text typo="labelMedium" appearance="disabled">
@@ -126,10 +129,10 @@ const FullscreenNav = (props) => {
         </Stack>
         <StyledSeparatorLine />
         <NavLink
-          id={navigation.logoutPath.id}
-          label={navigation.logoutPath.label}
-          icon={navigation.logoutPath.icon}
-          path={navigation.logoutPath.path}
+          id="logoutPath"
+          label="Logout"
+          icon={<MdLogout />}
+          path={logoutPath}
         />
         <StyledFooter>
           <Text typo="labelMedium" appearance="disabled">
@@ -152,23 +155,14 @@ const FullscreenNav = (props) => {
     </>
   );
 };
-/* 
+
 FullscreenNav.propTypes = {
   portalId: PropTypes.string.isRequired,
-  navigation: PropTypes.arrayOf(
-    PropTypes.shape({
-      subTitle: PropTypes.string,
-      routes: PropTypes.arrayOf(
-        PropTypes.shape({
-          id: PropTypes.string.isRequired,
-          label: PropTypes.string.isRequired,
-          path: PropTypes.string.isRequired,
-          icon: PropTypes.node.isRequired,
-        })
-      ),
-    })
-  ).isRequired,
+  navigation: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    sections: PropTypes.object.isRequired,
+  }).isRequired,
   logoutPath: PropTypes.string.isRequired,
 };
- */
+
 export { FullscreenNav };

@@ -16,4 +16,8 @@ const portalId = {
   description: "id of the portal element",
 };
 
-export { parameters, navigation, portalId };
+const logoutPath = {
+  description: "path to the logout page",
+};
+
+export { parameters, portalId, navigation, logoutPath };
