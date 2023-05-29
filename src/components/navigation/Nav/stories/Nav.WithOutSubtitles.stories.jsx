@@ -11,15 +11,7 @@ import {
 
 import { Nav } from "..";
 
-import {
-  id,
-  label,
-  path,
-  isDisabled,
-  isSelected,
-  icon,
-  handleClick,
-} from "./props";
+import { navigation, logoutPath } from "./props";
 
 const story = {
   title: "navigation/Nav/WithOutSubtitles",
@@ -97,13 +89,8 @@ WithOutSubtitles.args = {
 };
 
 WithOutSubtitles.argTypes = {
-  id,
-  label,
-  path,
-  isDisabled,
-  isSelected,
-  icon,
-  handleClick,
+  navigation,
+  logoutPath,
 };
 
 export default story;
