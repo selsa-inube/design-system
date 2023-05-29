@@ -32,10 +32,6 @@ const FullscreenNav = (props) => {
 
   const isActive = (url) => currentUrl.startsWith(url);
 
-  if (numberSections.length === 0) {
-    throw new Error("The navigation must have at least one section");
-  }
-
   const FullscreenMenu = () => {
     if (numberSections.length > 1) {
       return (
