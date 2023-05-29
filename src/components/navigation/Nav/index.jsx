@@ -82,7 +82,9 @@ const Nav = (props) => {
         </Stack>
         <StyledFooter>
           <Stack justifyContent="center">
-            <Text typo="labelMedium">©2023 - Inube</Text>
+            <Text typo="labelMedium" padding="24px" appearance="disabled">
+              ©2023 - Inube
+            </Text>
           </Stack>
         </StyledFooter>
       </StyledNav>
@@ -121,7 +123,9 @@ const Nav = (props) => {
       </Stack>
       <StyledFooter>
         <Stack justifyContent="center">
-          <Text typo="labelMedium">©2023 - Inube</Text>
+          <Text typo="labelMedium" appearance="disabled" padding="24px">
+            ©2023 - Inube
+          </Text>
         </Stack>
       </StyledFooter>
     </StyledNav>

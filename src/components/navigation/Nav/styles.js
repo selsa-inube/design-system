@@ -13,12 +13,6 @@ const StyledNav = styled.div`
 `;
 
 const StyledFooter = styled.footer`
-  & p {
-    color: ${colors.ref.palette.neutral.n60};
-    padding: 24px;
-    margin: 0px;
-  }
-
   width: 100%;
 `;
 
