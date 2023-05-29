@@ -56,13 +56,25 @@ const Text = (props) => {
 
   const transformedTypo = typosOptions.includes(typo) ? typo : defaultTypo;
 
-  const transformedMargin = validateBoxModelMeasure(margin)
-    ? margin
-    : defaultMargin;
+  const transformedMargin = (margin) => {
+    try {
+      validateBoxModelMeasure(margin);
+      return margin;
+    } catch (error) {
+      console.error(error);
+      return defaultMargin;
+    }
+  };
 
-  const transformedPadding = validateBoxModelMeasure(padding)
-    ? padding
-    : defaultPadding;
+  const transformedPadding = (padding) => {
+    try {
+      validateBoxModelMeasure(padding);
+      return padding;
+    } catch (error) {
+      console.error(error);
+      return defaultPadding;
+    }
+  };
 
   return (
     <StyledText
@@ -71,8 +83,8 @@ const Text = (props) => {
       id={id}
       appearance={transformedAppearance}
       typo={transformedTypo}
-      margin={transformedMargin}
-      padding={transformedPadding}
+      margin={transformedMargin(margin)}
+      padding={transformedPadding(padding)}
     >
       {children}
     </StyledText>
