@@ -11,17 +11,18 @@ const defaultTypo = "labelLarge";
 
 const BreadcrumbMenuLink = (props) => {
   const { label, path, id, typo = defaultTypo } = props;
-
   const transformedTypos = typos.includes(typo) ? typo : defaultTypo;
 
   return (
-    <StyledContainerLink id={id}>
-      <Stack alignItems="center">
-        <Label htmlFor={id} typo={transformedTypos}>
-          <StyledBreadcrumbMenuLink to={path}>{label}</StyledBreadcrumbMenuLink>
-        </Label>
-      </Stack>
-    </StyledContainerLink>
+    <StyledBreadcrumbMenuLink to={path}>
+      <StyledContainerLink id={id}>
+        <Stack alignItems="center">
+          <Label htmlFor={id} typo={transformedTypos}>
+            {label}
+          </Label>
+        </Stack>
+      </StyledContainerLink>
+    </StyledBreadcrumbMenuLink>
   );
 };
 
