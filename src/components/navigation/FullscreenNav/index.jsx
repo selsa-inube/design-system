@@ -28,9 +28,11 @@ const FullscreenNav = (props) => {
 
   const renderMenu = document.getElementById(portalId);
 
+  const isActive = (url) => currentUrl.startsWith(url);
+
   const numberSections = Object.keys(navigation.sections);
 
-  const isActive = (url) => currentUrl.startsWith(url);
+  const navigationSectionValues = Object.values(navigation.sections);
 
   const FullscreenMenu = () => {
     if (numberSections.length > 1) {
@@ -43,37 +45,31 @@ const FullscreenNav = (props) => {
             <MdClose onClick={() => setIsMenuOpen(false)} />
           </StyledCloseMenu>
           <Stack direction="column">
-            {Object.entries(navigation.sections).map(
-              ([sectionKey, sectionValue]) => (
-                <Stack key={sectionKey} direction="column">
-                  <Text
-                    as="h2"
-                    typo="titleSmall"
-                    appearance="secondary"
-                    padding="16px"
-                  >
-                    {sectionValue.nameSection}
-                  </Text>
+            {navigationSectionValues.map((sectionValue) => (
+              <Stack key={sectionValue.nameSection} direction="column">
+                <Text
+                  as="h2"
+                  typo="titleSmall"
+                  appearance="secondary"
+                  padding="16px"
+                >
+                  {sectionValue.nameSection}
+                </Text>
 
-                  <Stack direction="column">
-                    {Object.entries(sectionValue.links).map(
-                      ([linkKey, linkValue]) => {
-                        return (
-                          <NavLink
-                            key={linkKey}
-                            id={linkValue.id}
-                            label={linkValue.label}
-                            icon={linkValue.icon}
-                            path={linkValue.path}
-                            isSelected={isActive(linkValue.path)}
-                          />
-                        );
-                      }
-                    )}
-                  </Stack>
+                <Stack direction="column">
+                  {Object.values(sectionValue.links).map((linkValue) => (
+                    <NavLink
+                      key={linkValue.id}
+                      id={linkValue.id}
+                      label={linkValue.label}
+                      icon={linkValue.icon}
+                      path={linkValue.path}
+                      isSelected={isActive(linkValue.path)}
+                    />
+                  ))}
                 </Stack>
-              )
-            )}
+              </Stack>
+            ))}
           </Stack>
 
           <StyledSeparatorLine />
@@ -99,25 +95,21 @@ const FullscreenNav = (props) => {
           </Text>
           <MdClose onClick={() => setIsMenuOpen(false)} />
         </StyledCloseMenu>
-        <Stack>
-          {Object.entries(navigation.sections).map(
-            ([sectionKey, sectionValue]) => (
-              <Stack key={sectionKey} direction="column">
-                {Object.entries(sectionValue.links).map(
-                  ([linkKey, linkValue]) => (
-                    <NavLink
-                      key={linkKey}
-                      id={linkValue.id}
-                      label={linkValue.label}
-                      icon={linkValue.icon}
-                      path={linkValue.path}
-                      isSelected={isActive(linkValue.path)}
-                    />
-                  )
-                )}
-              </Stack>
-            )
-          )}
+        <Stack direction="column">
+          {navigationSectionValues.map((sectionValue) => (
+            <Stack key={sectionValue} direction="column">
+              {Object.values(sectionValue.links).map((linkValue) => (
+                <NavLink
+                  key={linkValue.id}
+                  id={linkValue.id}
+                  label={linkValue.label}
+                  icon={linkValue.icon}
+                  path={linkValue.path}
+                  isSelected={isActive(linkValue.path)}
+                />
+              ))}
+            </Stack>
+          ))}
         </Stack>
         <StyledSeparatorLine />
         <NavLink
