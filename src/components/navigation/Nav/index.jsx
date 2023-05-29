@@ -29,11 +29,11 @@ const NavLinkSection = (props) => {
 };
 
 const Nav = (props) => {
-  const { title, sections, logoutPath, handleClick } = props;
+  const { navigation, logoutPath, handleClick } = props;
   const getValues = (object) => Object.values(object);
-  const transformedSections = getValues(sections);
+  const transformedSections = getValues(navigation.sections);
 
-  if (Object.keys(sections).length > 1) {
+  if (Object.keys(navigation.sections).length > 1) {
     return (
       <StyledNav>
         <Stack direction="column">
@@ -44,7 +44,7 @@ const Nav = (props) => {
             appearance="secondary"
             typo="titleSmall"
           >
-            {title}
+            {navigation.title}
           </Text>
           <Stack direction="column" gap="26px">
             {transformedSections.map((navSection) => (
@@ -99,7 +99,7 @@ const Nav = (props) => {
           appearance="secondary"
           typo="titleSmall"
         >
-          {title}
+          {navigation.title}
         </Text>
         <Stack direction="column">
           <Stack key="links" direction="column" justifyContent="center">
@@ -130,7 +130,7 @@ const Nav = (props) => {
 
 Nav.propTypes = {
   title: PropTypes.string,
-  sections: PropTypes.object.isRequired,
+  navigation: PropTypes.object.isRequired,
   logoutPath: PropTypes.string.isRequired,
   handleClick: PropTypes.func,
 };
