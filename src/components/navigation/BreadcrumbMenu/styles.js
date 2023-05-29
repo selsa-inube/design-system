@@ -9,6 +9,12 @@ const StyledBreadcrumbMenu = styled.div`
   box-shadow: 0px 2px 4px ${colors.ref.palette.neutralAlpha.n50A};
   background-color: ${colors.ref.palette.neutral.n0};
   border-radius: 4px;
+  a {
+    &:hover {
+      cursor: pointer;
+      background-color: ${colors.ref.palette.neutral.n30};
+    }
+  }
 `;
 
 export { StyledBreadcrumbMenu };
