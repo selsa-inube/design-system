@@ -19,6 +19,54 @@ import {
   StyledFooter,
 } from "./styles";
 
+const MultiSections = ({ navigation, isActive }) => {
+  const navigationSectionValues = Object.values(navigation.sections);
+
+  return (
+    <Stack direction="column">
+      {navigationSectionValues.map((sectionValue) => (
+        <Stack key={sectionValue.section} direction="column">
+          <Text as="h2" typo="titleSmall" appearance="secondary" padding="16px">
+            {sectionValue.section}
+          </Text>
+
+          <Stack direction="column">
+            {Object.values(sectionValue.links).map((linkValue) => (
+              <NavLink
+                key={linkValue.id}
+                id={linkValue.id}
+                label={linkValue.label}
+                icon={linkValue.icon}
+                path={linkValue.path}
+                isSelected={isActive(linkValue.path)}
+              />
+            ))}
+          </Stack>
+        </Stack>
+      ))}
+    </Stack>
+  );
+};
+
+const OneSection = ({ navigation, isActive }) => {
+  const sectionValue = Object.values(navigation.sections)[0];
+
+  return (
+    <Stack direction="column">
+      {Object.values(sectionValue.links).map((linkValue) => (
+        <NavLink
+          key={linkValue.id}
+          id={linkValue.id}
+          label={linkValue.label}
+          icon={linkValue.icon}
+          path={linkValue.path}
+          isSelected={isActive(linkValue.path)}
+        />
+      ))}
+    </Stack>
+  );
+};
+
 const FullscreenNav = (props) => {
   const { portalId, navigation, logoutPath } = props;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -30,10 +78,6 @@ const FullscreenNav = (props) => {
 
   const isActive = (url) => currentUrl.startsWith(url);
 
-  const totalSections = Object.keys(navigation.sections);
-
-  const navigationSectionValues = Object.values(navigation.sections);
-
   const FullscreenMenu = () => {
     return (
       <StyledFullscreenNav>
@@ -43,51 +87,10 @@ const FullscreenNav = (props) => {
           </Text>
           <MdClose onClick={() => setIsMenuOpen(false)} />
         </StyledCloseMenu>
-        {totalSections.length > 1 ? (
-          <Stack direction="column">
-            {navigationSectionValues.map((sectionValue) => (
-              <Stack key={sectionValue.section} direction="column">
-                <Text
-                  as="h2"
-                  typo="titleSmall"
-                  appearance="secondary"
-                  padding="16px"
-                >
-                  {sectionValue.section}
-                </Text>
-
-                <Stack direction="column">
-                  {Object.values(sectionValue.links).map((linkValue) => (
-                    <NavLink
-                      key={linkValue.id}
-                      id={linkValue.id}
-                      label={linkValue.label}
-                      icon={linkValue.icon}
-                      path={linkValue.path}
-                      isSelected={isActive(linkValue.path)}
-                    />
-                  ))}
-                </Stack>
-              </Stack>
-            ))}
-          </Stack>
+        {Object.keys(navigation.sections).length > 1 ? (
+          <MultiSections navigation={navigation} isActive={isActive} />
         ) : (
-          <Stack direction="column">
-            {navigationSectionValues.map((sectionValue) => (
-              <Stack key={sectionValue} direction="column">
-                {Object.values(sectionValue.links).map((linkValue) => (
-                  <NavLink
-                    key={linkValue.id}
-                    id={linkValue.id}
-                    label={linkValue.label}
-                    icon={linkValue.icon}
-                    path={linkValue.path}
-                    isSelected={isActive(linkValue.path)}
-                  />
-                ))}
-              </Stack>
-            ))}
-          </Stack>
+          <OneSection navigation={navigation} isActive={isActive} />
         )}
         <StyledSeparatorLine />
         <NavLink
