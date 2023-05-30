@@ -31,5 +31,6 @@ const validateBoxModelMeasure = (value) => {
       "Provide a single valid spacing measurement in the correct format, following CSS syntax."
     );
   }
+  return;
 };
 export { validateBoxModelMeasure };
