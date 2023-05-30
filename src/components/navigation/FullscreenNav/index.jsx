@@ -34,8 +34,6 @@ const FullscreenNav = (props) => {
 
   const navigationSectionValues = Object.values(navigation.sections);
 
-  const getValues = (values) => Object.values(values);
-
   const FullscreenMenu = () => {
     return (
       <StyledFullscreenNav>
@@ -59,7 +57,7 @@ const FullscreenNav = (props) => {
                 </Text>
 
                 <Stack direction="column">
-                  {getValues(sectionValue.links).map((linkValue) => (
+                  {Object.values(sectionValue.links).map((linkValue) => (
                     <NavLink
                       key={linkValue.id}
                       id={linkValue.id}
@@ -77,7 +75,7 @@ const FullscreenNav = (props) => {
           <Stack direction="column">
             {navigationSectionValues.map((sectionValue) => (
               <Stack key={sectionValue} direction="column">
-                {getValues(sectionValue.links).map((linkValue) => (
+                {Object.values(sectionValue.links).map((linkValue) => (
                   <NavLink
                     key={linkValue.id}
                     id={linkValue.id}
