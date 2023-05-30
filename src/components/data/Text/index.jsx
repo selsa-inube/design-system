@@ -7,7 +7,7 @@ import { validateBoxModelMeasure } from "../../../utilities/validateBoxModelMeas
 
 import { StyledText } from "./styles";
 
-const alignsOptions = ["start", "center", "end", "justify"];
+const alignOptions = ["start", "center", "end", "justify"];
 
 const htmlElements = [
   "h1",
@@ -46,7 +46,7 @@ const Text = (props) => {
     typo = defaultTypo,
   } = props;
 
-  const transformedAlign = alignsOptions.includes(align) ? align : defaultAlign;
+  const transformedAlign = alignOptions.includes(align) ? align : defaultAlign;
 
   const transformedAs = htmlElements.includes(as) ? as : defaultHtmlElement;
 
@@ -56,24 +56,14 @@ const Text = (props) => {
 
   const transformedTypo = typosOptions.includes(typo) ? typo : defaultTypo;
 
-  const transformedMargin = (margin) => {
+  const transformedMeasure = (valueBoxModel, defaultValue) => {
     try {
-      validateBoxModelMeasure(margin);
-      return margin;
+      validateBoxModelMeasure(valueBoxModel);
     } catch (error) {
       console.error(error);
-      return defaultMargin;
+      return defaultValue;
     }
-  };
-
-  const transformedPadding = (padding) => {
-    try {
-      validateBoxModelMeasure(padding);
-      return padding;
-    } catch (error) {
-      console.error(error);
-      return defaultPadding;
-    }
+    return valueBoxModel;
   };
 
   return (
@@ -83,8 +73,8 @@ const Text = (props) => {
       id={id}
       appearance={transformedAppearance}
       typo={transformedTypo}
-      margin={transformedMargin(margin)}
-      padding={transformedPadding(padding)}
+      margin={transformedMeasure(margin, defaultMargin)}
+      padding={transformedMeasure(padding, defaultPadding)}
     >
       {children}
     </StyledText>
@@ -93,7 +83,7 @@ const Text = (props) => {
 
 Text.propTypes = {
   children: PropTypes.node,
-  align: PropTypes.oneOf(alignsOptions),
+  align: PropTypes.oneOf(alignOptions),
   margin: PropTypes.string,
   padding: PropTypes.string,
   as: PropTypes.oneOf(htmlElements),
@@ -102,4 +92,4 @@ Text.propTypes = {
   typo: PropTypes.oneOf(typosOptions),
 };
 
-export { Text, htmlElements, alignsOptions, appearencesOptions, typosOptions };
+export { Text, htmlElements, alignOptions, appearencesOptions, typosOptions };
