@@ -14,7 +14,7 @@ import { Nav } from "..";
 import { navigation, logoutPath } from "./props";
 
 const story = {
-  title: "navigation/Nav/WithOutSubtitles",
+  title: "navigation/Nav/WithoutSections",
   components: [Nav],
   decorators: [
     (Story) => (
@@ -30,14 +30,14 @@ const story = {
   },
 };
 
-const WithOutSubtitles = (args) => <Nav {...args} />;
+const WithoutSections = (args) => <Nav {...args} />;
 
-WithOutSubtitles.args = {
+WithoutSections.args = {
   navigation: {
     title: "MENU",
     sections: {
       administrate: {
-        nameSections: "Administrate",
+        name: "Administrate",
         links: {
           privileges: {
             id: "privileges",
@@ -88,11 +88,11 @@ WithOutSubtitles.args = {
   logoutPath: "/logout",
 };
 
-WithOutSubtitles.argTypes = {
+WithoutSections.argTypes = {
   navigation,
   logoutPath,
 };
 
 export default story;
 
-export { WithOutSubtitles };
+export { WithoutSections };

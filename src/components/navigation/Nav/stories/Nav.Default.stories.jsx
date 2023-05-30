@@ -37,7 +37,7 @@ Default.args = {
     title: "MENU",
     sections: {
       administrate: {
-        nameSections: "Administrate",
+        name: "Administrate",
         links: {
           privileges: {
             id: "privileges",
@@ -66,7 +66,7 @@ Default.args = {
         },
       },
       request: {
-        nameSections: "Request",
+        name: "Request",
         links: {
           documents: {
             id: "documents",

@@ -50,7 +50,7 @@ const Nav = (props) => {
           <Stack direction="column" gap="26px">
             {sections.map((navSection) => (
               <Stack
-                key={navSection.nameSections}
+                key={navSection.name}
                 direction="column"
                 justifyContent="center"
               >
@@ -60,7 +60,7 @@ const Nav = (props) => {
                   appearance="secondary"
                   typo="titleSmall"
                 >
-                  {navSection.nameSections.toUpperCase()}
+                  {navSection.name.toUpperCase()}
                 </Text>
                 <Stack direction="column">
                   {
