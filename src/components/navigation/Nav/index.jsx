@@ -8,30 +8,68 @@ import { NavLink } from "../NavLink";
 
 import { MdLogout } from "react-icons/md";
 
-const NavLinkSection = (props) => {
-  const { routes, handleClick } = props;
+const Links = (props) => {
+  const { section } = props;
   const location = useLocation();
   const currentUrl = location.pathname;
 
   const isSelected = (url) => currentUrl.startsWith(url);
 
-  return routes.map((route) => (
+  return section.map((sectionObject) => (
     <NavLink
-      key={route.id}
-      id={route.id}
-      label={route.label}
-      icon={route.icon}
-      path={route.path}
-      isSelected={isSelected(route.path)}
-      handleClick={handleClick}
+      key={sectionObject.id}
+      id={sectionObject.id}
+      label={sectionObject.label}
+      icon={sectionObject.icon}
+      path={sectionObject.path}
+      isSelected={isSelected(sectionObject.path)}
     />
   ));
 };
 
+const MultiSections = ({ navigation, sections }) => {
+  return (
+    <Stack direction="column" gap="26px">
+      {sections.map((section) => (
+        <Stack
+          key={navigation.sections[section].name}
+          direction="column"
+          justifyContent="center"
+        >
+          <Text padding="16px" as="h2" appearance="secondary" typo="titleSmall">
+            {navigation.sections[section].name}
+          </Text>
+          <Stack direction="column">
+            {
+              <Links
+                section={Object.values(navigation.sections[section].links)}
+              />
+            }
+          </Stack>
+        </Stack>
+      ))}
+    </Stack>
+  );
+};
+
+const OneSection = ({ navigation, firstSection }) => {
+  return (
+    <Stack direction="column">
+      <Stack key="links" direction="column" justifyContent="center">
+        <Stack direction="column">
+          <Links
+            section={Object.values(navigation.sections[firstSection].links)}
+          />
+        </Stack>
+      </Stack>
+    </Stack>
+  );
+};
+
 const Nav = (props) => {
-  const { navigation, logoutPath, handleClick } = props;
-  const getValues = (object) => Object.values(object);
-  const sections = getValues(navigation.sections);
+  const { navigation, logoutPath } = props;
+  const sections = Object.keys(navigation.sections);
+  const firstSection = sections[0];
   const totalSections = Object.keys(navigation.sections).length;
 
   return (
@@ -47,43 +85,9 @@ const Nav = (props) => {
           {navigation.title}
         </Text>
         {totalSections > 1 ? (
-          <Stack direction="column" gap="26px">
-            {sections.map((navSection) => (
-              <Stack
-                key={navSection.name}
-                direction="column"
-                justifyContent="center"
-              >
-                <Text
-                  padding="16px"
-                  as="h2"
-                  appearance="secondary"
-                  typo="titleSmall"
-                >
-                  {navSection.name.toUpperCase()}
-                </Text>
-                <Stack direction="column">
-                  {
-                    <NavLinkSection
-                      routes={getValues(navSection.links)}
-                      handleClick={handleClick}
-                    />
-                  }
-                </Stack>
-              </Stack>
-            ))}
-          </Stack>
+          <MultiSections navigation={navigation} sections={sections} />
         ) : (
-          <Stack direction="column">
-            <Stack key="links" direction="column" justifyContent="center">
-              <Stack direction="column">
-                <NavLinkSection
-                  routes={getValues(sections[0].links)}
-                  handleClick={handleClick}
-                />
-              </Stack>
-            </Stack>
-          </Stack>
+          <OneSection navigation={navigation} firstSection={firstSection} />
         )}
         <SeparatorLine />
         <NavLink
@@ -108,7 +112,6 @@ Nav.propTypes = {
   title: PropTypes.string,
   navigation: PropTypes.object.isRequired,
   logoutPath: PropTypes.string.isRequired,
-  handleClick: PropTypes.func,
 };
 
 export { Nav };

@@ -57,7 +57,11 @@ const iconStyles = css`
   height: 24px;
 `;
 
-const StyledNavLink = styled.li`
+const StyledNavList = styled.li`
+  list-style-type: none;
+`;
+
+const StyledNavLink = styled.div`
   display: grid;
   grid-template-columns: ${({ icon, isSelected }) => getGrid(icon, isSelected)};
   width: 100%;
@@ -66,7 +70,6 @@ const StyledNavLink = styled.li`
   min-width: 180px;
   align-items: center;
   box-sizing: border-box;
-  list-style-type: none;
   border-left: ${({ isDisabled, isSelected }) =>
     getBorderLeft(isDisabled, isSelected)};
   background-color: ${({ isDisabled, isSelected }) =>
@@ -120,4 +123,4 @@ const StyledLink = styled(Link)`
   width: 100%;
 `;
 
-export { StyledNavLink, StyledLink };
+export { StyledNavLink, StyledLink, StyledNavList };
