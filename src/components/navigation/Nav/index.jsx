@@ -31,23 +31,24 @@ const NavLinkSection = (props) => {
 const Nav = (props) => {
   const { navigation, logoutPath, handleClick } = props;
   const getValues = (object) => Object.values(object);
-  const transformedSections = getValues(navigation.sections);
+  const sections = getValues(navigation.sections);
+  const totalSections = Object.keys(navigation.sections).length;
 
-  if (Object.keys(navigation.sections).length > 1) {
-    return (
-      <StyledNav>
-        <Stack direction="column">
-          <Text
-            padding="0px"
-            margin="32px 0px 32px 16px"
-            as="h2"
-            appearance="secondary"
-            typo="titleSmall"
-          >
-            {navigation.title}
-          </Text>
+  return (
+    <StyledNav>
+      <Stack direction="column">
+        <Text
+          padding="0px"
+          margin="32px 0px 32px 16px"
+          as="h2"
+          appearance="secondary"
+          typo="titleSmall"
+        >
+          {navigation.title}
+        </Text>
+        {totalSections > 1 ? (
           <Stack direction="column" gap="26px">
-            {transformedSections.map((navSection) => (
+            {sections.map((navSection) => (
               <Stack
                 key={navSection.nameSections}
                 direction="column"
@@ -72,47 +73,18 @@ const Nav = (props) => {
               </Stack>
             ))}
           </Stack>
-          <SeparatorLine />
-          <NavLink
-            id="logout"
-            label="Logout"
-            icon={<MdLogout />}
-            path={logoutPath}
-          />
-        </Stack>
-        <StyledFooter>
-          <Stack justifyContent="center">
-            <Text typo="labelMedium" padding="24px" appearance="disabled">
-              ©2023 - Inube
-            </Text>
-          </Stack>
-        </StyledFooter>
-      </StyledNav>
-    );
-  }
-
-  return (
-    <StyledNav>
-      <Stack direction="column">
-        <Text
-          padding="0px"
-          margin="32px 0px 32px 16px"
-          as="h2"
-          appearance="secondary"
-          typo="titleSmall"
-        >
-          {navigation.title}
-        </Text>
-        <Stack direction="column">
-          <Stack key="links" direction="column" justifyContent="center">
-            <Stack direction="column">
-              <NavLinkSection
-                routes={getValues(transformedSections[0].links)}
-                handleClick={handleClick}
-              />
+        ) : (
+          <Stack direction="column">
+            <Stack key="links" direction="column" justifyContent="center">
+              <Stack direction="column">
+                <NavLinkSection
+                  routes={getValues(sections[0].links)}
+                  handleClick={handleClick}
+                />
+              </Stack>
             </Stack>
           </Stack>
-        </Stack>
+        )}
         <SeparatorLine />
         <NavLink
           id="logout"
