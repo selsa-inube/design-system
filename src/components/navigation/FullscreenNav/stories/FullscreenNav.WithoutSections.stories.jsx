@@ -15,7 +15,7 @@ import { FullscreenNav } from "..";
 import { parameters, portalId, navigation, logoutPath } from "./props";
 
 const story = {
-  title: "navigation/FullscreenNav/WithOutSubtitles",
+  title: "navigation/FullscreenNav/WithoutSections",
   components: [FullscreenNav],
   parameters,
   decorators: [
@@ -29,15 +29,15 @@ const story = {
   ],
 };
 
-const WithOutSubtitles = (args) => <FullscreenNav {...args} />;
+const WithoutSections = (args) => <FullscreenNav {...args} />;
 
-WithOutSubtitles.args = {
+WithoutSections.args = {
   portalId: "portals",
   navigation: {
     title: "MENU",
     sections: {
       administrate: {
-        nameSections: "Administrate",
+        sections: "Administrate",
         links: {
           privileges: {
             id: "privileges",
@@ -88,7 +88,7 @@ WithOutSubtitles.args = {
   logoutPath: "/logout",
 };
 
-WithOutSubtitles.argTypes = {
+WithoutSections.argTypes = {
   portalId,
   navigation,
   logoutPath,
@@ -96,4 +96,4 @@ WithOutSubtitles.argTypes = {
 
 export default story;
 
-export { WithOutSubtitles };
+export { WithoutSections };

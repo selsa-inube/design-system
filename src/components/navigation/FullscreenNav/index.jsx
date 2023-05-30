@@ -30,32 +30,32 @@ const FullscreenNav = (props) => {
 
   const isActive = (url) => currentUrl.startsWith(url);
 
-  const numberSections = Object.keys(navigation.sections);
+  const totalSections = Object.keys(navigation.sections);
 
   const navigationSectionValues = Object.values(navigation.sections);
 
   const getValues = (values) => Object.values(values);
 
   const FullscreenMenu = () => {
-    if (numberSections.length > 1) {
-      return (
-        <StyledFullscreenNav>
-          <StyledCloseMenu>
-            <Text typo="titleSmall" appearance="secondary">
-              {navigation.title}
-            </Text>
-            <MdClose onClick={() => setIsMenuOpen(false)} />
-          </StyledCloseMenu>
+    return (
+      <StyledFullscreenNav>
+        <StyledCloseMenu>
+          <Text typo="titleSmall" appearance="secondary">
+            {navigation.title}
+          </Text>
+          <MdClose onClick={() => setIsMenuOpen(false)} />
+        </StyledCloseMenu>
+        {totalSections.length > 1 ? (
           <Stack direction="column">
             {navigationSectionValues.map((sectionValue) => (
-              <Stack key={sectionValue.nameSection} direction="column">
+              <Stack key={sectionValue.section} direction="column">
                 <Text
                   as="h2"
                   typo="titleSmall"
                   appearance="secondary"
                   padding="16px"
                 >
-                  {sectionValue.nameSection}
+                  {sectionValue.section}
                 </Text>
 
                 <Stack direction="column">
@@ -73,46 +73,24 @@ const FullscreenNav = (props) => {
               </Stack>
             ))}
           </Stack>
-
-          <StyledSeparatorLine />
-          <NavLink
-            id="logoutPath"
-            label="Logout"
-            icon={<MdLogout />}
-            path={logoutPath}
-          />
-          <StyledFooter>
-            <Text typo="labelMedium" appearance="disabled">
-              ©2023 - Inube
-            </Text>
-          </StyledFooter>
-        </StyledFullscreenNav>
-      );
-    }
-    return (
-      <StyledFullscreenNav>
-        <StyledCloseMenu>
-          <Text typo="titleSmall" appearance="secondary">
-            {navigation.title}
-          </Text>
-          <MdClose onClick={() => setIsMenuOpen(false)} />
-        </StyledCloseMenu>
-        <Stack direction="column">
-          {navigationSectionValues.map((sectionValue) => (
-            <Stack key={sectionValue} direction="column">
-              {getValues(sectionValue.links).map((linkValue) => (
-                <NavLink
-                  key={linkValue.id}
-                  id={linkValue.id}
-                  label={linkValue.label}
-                  icon={linkValue.icon}
-                  path={linkValue.path}
-                  isSelected={isActive(linkValue.path)}
-                />
-              ))}
-            </Stack>
-          ))}
-        </Stack>
+        ) : (
+          <Stack direction="column">
+            {navigationSectionValues.map((sectionValue) => (
+              <Stack key={sectionValue} direction="column">
+                {getValues(sectionValue.links).map((linkValue) => (
+                  <NavLink
+                    key={linkValue.id}
+                    id={linkValue.id}
+                    label={linkValue.label}
+                    icon={linkValue.icon}
+                    path={linkValue.path}
+                    isSelected={isActive(linkValue.path)}
+                  />
+                ))}
+              </Stack>
+            ))}
+          </Stack>
+        )}
         <StyledSeparatorLine />
         <NavLink
           id="logoutPath"
