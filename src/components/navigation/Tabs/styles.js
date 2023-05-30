@@ -7,6 +7,7 @@ const StyledTabs = styled.div`
   white-space: nowrap;
   width: 100%;
   border-bottom: 2px solid ${colors.ref.palette.neutral.n40};
+  padding: 0px 16px;
 
   & > div {
     width: fit-content;
