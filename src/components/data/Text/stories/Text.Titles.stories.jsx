@@ -73,7 +73,7 @@ Title.args = {
   as: "h1",
   align: "start",
   margin: "20px 22px 23px 24px",
-  padding: "0px",
+  padding: "5px",
   appearance: "dark",
   typo: "bodyMedium",
 };
