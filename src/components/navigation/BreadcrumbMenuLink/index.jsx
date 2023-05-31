@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { Label } from "../../inputs/Label";
 import { Stack } from "../../layouts/Stack";
+import { Text } from "../../data/Text";
 
 import { StyledContainerLink, StyledBreadcrumbMenuLink } from "./styles";
 
@@ -17,9 +17,13 @@ const BreadcrumbMenuLink = (props) => {
     <StyledBreadcrumbMenuLink to={path}>
       <StyledContainerLink id={id}>
         <Stack alignItems="center">
-          <Label htmlFor={id} typo={transformedTypos}>
+          <Text
+            typo={transformedTypos}
+            appearance="secondary"
+            padding="8px 12px"
+          >
             {label}
-          </Label>
+          </Text>
         </Stack>
       </StyledContainerLink>
     </StyledBreadcrumbMenuLink>
