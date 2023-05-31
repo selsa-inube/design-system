@@ -1,5 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
+
+import { validateBoxModelMeasure } from "../../../utilities/validateBoxModelMeasure";
 import { StyledFlex } from "./styles";
 
 export const directionAlignments = ["row", "column"];
@@ -18,6 +20,9 @@ const defaultDirection = "row";
 const defaultJustifyContent = "flex-start";
 const defaultAlignItems = "stretch";
 const defaultWrapControl = "nowrap";
+const defaultGap = "0px";
+const defaultMargin = "0px";
+const defaultPadding = "0px";
 
 const Stack = (props) => {
   const {
@@ -26,7 +31,9 @@ const Stack = (props) => {
     direction = defaultDirection,
     justifyContent = defaultJustifyContent,
     alignItems = defaultAlignItems,
-    gap = "0px",
+    gap,
+    margin,
+    padding,
   } = props;
 
   const transformedDirection = directionAlignments.includes(direction)
@@ -42,13 +49,25 @@ const Stack = (props) => {
     ? wrap
     : defaultWrapControl;
 
+  const transformedMeasure = (valueBoxModel, defaultValue) => {
+    try {
+      validateBoxModelMeasure(valueBoxModel);
+    } catch (error) {
+      console.error(error);
+      return defaultValue;
+    }
+    return valueBoxModel;
+  };
+
   return (
     <StyledFlex
       direction={transformedDirection}
       justifyContent={transformedJustifyContent}
       alignItems={transformedAlignItems}
       wrap={transformedWrap}
-      gap={gap}
+      gap={transformedMeasure(gap, defaultGap)}
+      margin={transformedMeasure(margin, defaultMargin)}
+      padding={transformedMeasure(padding, defaultPadding)}
     >
       {children}
     </StyledFlex>
@@ -66,6 +85,8 @@ Stack.propTypes = {
   justifyContent: PropTypes.oneOf(flexAlignments),
   alignItems: PropTypes.oneOf(flexAlignments),
   gap: PropTypes.string,
+  margin: PropTypes.string,
+  padding: PropTypes.string,
 };
 
 export { Stack };
