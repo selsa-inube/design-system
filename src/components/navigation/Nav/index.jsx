@@ -40,11 +40,9 @@ const MultiSections = ({ navigation, sections }) => {
             {navigation.sections[section].name}
           </Text>
           <Stack direction="column">
-            {
-              <Links
-                section={Object.values(navigation.sections[section].links)}
-              />
-            }
+            <Links
+              section={Object.values(navigation.sections[section].links)}
+            />
           </Stack>
         </Stack>
       ))}
