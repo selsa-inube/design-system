@@ -1,7 +1,7 @@
 import { validateBoxModelMeasure } from "../utilities/validateBoxModelMeasure";
 
 const transformedMeasure = (valueBoxModel, defaultValue) => {
-  if (valueBoxModel === undefined || valueBoxModel.trim().length === 0) {
+  if (!valueBoxModel) {
     return defaultValue;
   }
   try {
