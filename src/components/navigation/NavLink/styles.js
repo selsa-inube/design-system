@@ -57,7 +57,11 @@ const iconStyles = css`
   height: 24px;
 `;
 
-const StyledNavLink = styled.li`
+const StyledNavList = styled.li`
+  list-style-type: none;
+`;
+
+const StyledNavLink = styled.div`
   display: grid;
   grid-template-columns: ${({ icon, isSelected }) => getGrid(icon, isSelected)};
   width: 100%;
@@ -66,7 +70,6 @@ const StyledNavLink = styled.li`
   min-width: 180px;
   align-items: center;
   box-sizing: border-box;
-  list-style-type: none;
   border-left: ${({ isDisabled, isSelected }) =>
     getBorderLeft(isDisabled, isSelected)};
   background-color: ${({ isDisabled, isSelected }) =>
@@ -107,11 +110,17 @@ const StyledNavLink = styled.li`
 
 const StyledLink = styled(Link)`
   box-sizing: border-box;
-  font-family: ${typography.ref.typeface};
+
   text-decoration: none;
-  font-family: ${typography.ref.typeface.brand};
+
+  font-size: ${typography.sys.typescale.bodyMedium.size};
+  font-family: ${typography.sys.typescale.bodyMedium.font};
+  font-size: ${typography.sys.typescale.bodyMedium.size};
+  line-height: ${typography.sys.typescale.bodyMedium.lineHeight};
+  letter-spacing: ${typography.sys.typescale.bodyMedium.tracking};
+  font-weight: ${typography.sys.typescale.bodyMedium.weight};
   color: ${({ isdisabled }) => getColorLabel(isdisabled)};
   width: 100%;
 `;
 
-export { StyledNavLink, StyledLink };
+export { StyledNavLink, StyledLink, StyledNavList };
