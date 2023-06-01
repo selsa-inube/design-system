@@ -55,4 +55,32 @@ const gap = {
     defaultValue: { summary: "0px" },
   },
 };
-export { children, wrap, direction, justifyContent, alignItems, gap };
+
+const margin = {
+  type: { name: "string", required: false },
+  description:
+    "Sets the margin in px or global values for all four sides of the component",
+  table: {
+    defaultValue: { summary: "0px" },
+  },
+};
+
+const padding = {
+  type: { name: "string", required: false },
+  description:
+    "Sets the padding in px p global values for all four sides of the component",
+  table: {
+    defaultValue: { summary: "0px" },
+  },
+};
+
+export {
+  children,
+  wrap,
+  direction,
+  justifyContent,
+  alignItems,
+  gap,
+  margin,
+  padding,
+};
