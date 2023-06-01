@@ -23,11 +23,14 @@ const Switch = (props) => {
   } = props;
 
   const transformedSize = sizes.includes(size) ? size : defaultSize;
-  const tranformedGap = label ? "10px" : "0px";
+  const tranformedGap = label.trim().length === 0 ? "10px" : "0px";
+  const transformedAlignment =
+    label.trim().length === 0 ? "space-between" : "center";
+
   return (
     <Stack
       direction={"row"}
-      justifyContent="space-between"
+      justifyContent={transformedAlignment}
       alignItems="center"
       gap={tranformedGap}
     >
