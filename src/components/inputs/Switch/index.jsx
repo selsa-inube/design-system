@@ -23,9 +23,8 @@ const Switch = (props) => {
   } = props;
 
   const transformedSize = sizes.includes(size) ? size : defaultSize;
-  const tranformedGap = label.trim().length === 0 ? "10px" : "0px";
-  const transformedAlignment =
-    label.trim().length === 0 ? "space-between" : "center";
+  const tranformedGap = label ? "10px" : "0px";
+  const transformedAlignment = label ? "space-between" : "center";
 
   return (
     <Stack
