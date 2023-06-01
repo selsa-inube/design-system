@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 import { createPortal } from "react-dom";
-import { useLocation } from "react-router-dom";
 
 import PropTypes from "prop-types";
 
@@ -19,15 +18,15 @@ import {
   StyledFooter,
 } from "./styles";
 
-const MultiSections = ({ navigation, isActive }) => {
+const MultiSections = ({ navigation }) => {
   const navigationSectionValues = Object.values(navigation.sections);
 
   return (
     <Stack direction="column">
       {navigationSectionValues.map((sectionValue) => (
-        <Stack key={sectionValue.section} direction="column">
+        <Stack key={sectionValue.name} direction="column">
           <Text as="h2" typo="titleSmall" appearance="secondary" padding="16px">
-            {sectionValue.section}
+            {sectionValue.name}
           </Text>
 
           <Stack direction="column">
@@ -38,7 +37,6 @@ const MultiSections = ({ navigation, isActive }) => {
                 label={linkValue.label}
                 icon={linkValue.icon}
                 path={linkValue.path}
-                isSelected={isActive(linkValue.path)}
               />
             ))}
           </Stack>
@@ -48,7 +46,7 @@ const MultiSections = ({ navigation, isActive }) => {
   );
 };
 
-const OneSection = ({ navigation, isActive }) => {
+const OneSection = ({ navigation }) => {
   const sectionValue = Object.values(navigation.sections)[0];
 
   return (
@@ -60,10 +58,43 @@ const OneSection = ({ navigation, isActive }) => {
           label={linkValue.label}
           icon={linkValue.icon}
           path={linkValue.path}
-          isSelected={isActive(linkValue.path)}
         />
       ))}
     </Stack>
+  );
+};
+
+const FullscreenMenu = ({ navigation, logoutPath, onClose }) => {
+  const handleClick = () => {
+    onClose();
+  };
+
+  return (
+    <StyledFullscreenNav>
+      <StyledCloseMenu>
+        <Text typo="titleSmall" appearance="secondary">
+          {navigation.title}
+        </Text>
+        <MdClose onClick={handleClick} />
+      </StyledCloseMenu>
+      {Object.keys(navigation.sections).length > 1 ? (
+        <MultiSections navigation={navigation} />
+      ) : (
+        <OneSection navigation={navigation} />
+      )}
+      <StyledSeparatorLine />
+      <NavLink
+        id="logoutPath"
+        label="Logout"
+        icon={<MdLogout />}
+        path={logoutPath}
+      />
+      <StyledFooter>
+        <Text typo="labelMedium" appearance="disabled">
+          ©2023 - Inube
+        </Text>
+      </StyledFooter>
+    </StyledFullscreenNav>
   );
 };
 
@@ -71,52 +102,32 @@ const FullscreenNav = (props) => {
   const { portalId, navigation, logoutPath } = props;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  let location = useLocation();
-  const currentUrl = location.pathname;
+  const node = document.getElementById(portalId);
 
-  const renderMenu = document.getElementById(portalId);
-
-  const isActive = (url) => currentUrl.startsWith(url);
-
-  const FullscreenMenu = () => {
-    return (
-      <StyledFullscreenNav>
-        <StyledCloseMenu>
-          <Text typo="titleSmall" appearance="secondary">
-            {navigation.title}
-          </Text>
-          <MdClose onClick={() => setIsMenuOpen(false)} />
-        </StyledCloseMenu>
-        {Object.keys(navigation.sections).length > 1 ? (
-          <MultiSections navigation={navigation} isActive={isActive} />
-        ) : (
-          <OneSection navigation={navigation} isActive={isActive} />
-        )}
-        <StyledSeparatorLine />
-        <NavLink
-          id="logoutPath"
-          label="Logout"
-          icon={<MdLogout />}
-          path={logoutPath}
-        />
-        <StyledFooter>
-          <Text typo="labelMedium" appearance="disabled">
-            ©2023 - Inube
-          </Text>
-        </StyledFooter>
-      </StyledFullscreenNav>
+  if (node === null) {
+    throw new Error(
+      "The portal node is not defined. This can occur when the specific node used to render the portal has not been defined correctly."
     );
+  }
+
+  const handleClose = () => {
+    setIsMenuOpen(false);
   };
 
   return (
     <>
-      {!isMenuOpen ? (
-        <StyledContDropMenu>
-          <MdMenu onClick={() => setIsMenuOpen(true)} />
-        </StyledContDropMenu>
-      ) : (
-        createPortal(<FullscreenMenu />, renderMenu)
-      )}
+      <StyledContDropMenu>
+        <MdMenu onClick={() => setIsMenuOpen(true)} />
+      </StyledContDropMenu>
+      {isMenuOpen &&
+        createPortal(
+          <FullscreenMenu
+            navigation={navigation}
+            logoutPath={logoutPath}
+            onClose={handleClose}
+          />,
+          node
+        )}
     </>
   );
 };

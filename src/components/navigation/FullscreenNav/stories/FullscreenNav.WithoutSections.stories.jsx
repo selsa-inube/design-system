@@ -37,7 +37,7 @@ WithoutSections.args = {
     title: "MENU",
     sections: {
       administrate: {
-        sections: "Administrate",
+        name: "Administrate",
         links: {
           privileges: {
             id: "privileges",

@@ -2,8 +2,11 @@ import styled from "styled-components";
 import { colors } from "../../../shared/colors/colors";
 
 const StyledContDropMenu = styled.div`
+  position: absolute;
   width: fit-content;
   & > svg {
+    width: 24px;
+    height: 24px;
     cursor: pointer;
   }
 `;
@@ -14,8 +17,14 @@ const StyledFullscreenNav = styled.nav`
   box-sizing: border-box;
   width: 100%;
   height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   background-color: ${colors.ref.palette.neutral.n10};
   padding-left: 24px;
+  z-index: 2;
 
   & > div:nth-child(2) {
     & > div:nth-child(n + 2) {
@@ -45,6 +54,8 @@ const StyledSeparatorLine = styled.div`
 
 const StyledFooter = styled.footer`
   display: flex;
+  width: 100%;
+  height: 100%;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
