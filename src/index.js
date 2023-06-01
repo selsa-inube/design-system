@@ -12,9 +12,6 @@ export { TextField } from "./components/inputs/TextField";
 // layouts
 export { Stack } from "./components/layouts/Stack";
 
-// navigation
-export { Tabs } from "./components/navigation/Tabs";
-
 // utils
 export { Blanket } from "./components/utils/Blanket";
 
@@ -25,6 +22,8 @@ export { SkeletonIcon } from "./components/feedback/SkeletonIcon";
 
 // navigation
 export { Breadcrumbs } from "./components/navigation/Breadcrumbs";
+export { Tabs } from "./components/navigation/Tabs";
+export { Nav } from "./components/navigation/Nav";
 
 //  hooks
 export { useMediaQuery } from "./hooks/useMediaQuery";
