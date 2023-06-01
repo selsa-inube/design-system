@@ -23,7 +23,7 @@ const StyledFullscreenNav = styled.nav`
   bottom: 0;
   left: 0;
   background-color: ${colors.ref.palette.neutral.n10};
-  padding-left: 24px;
+  padding: 0px 16px;
   z-index: 2;
 
   & > div:nth-child(2) {
