@@ -2,7 +2,7 @@ import React from "react";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import PropTypes from "prop-types";
 
-import { StyledNavLink, StyledLink } from "./styles";
+import { StyledNavLink, StyledLink, StyledNavList } from "./styles";
 
 const NavLink = (props) => {
   const {
@@ -17,20 +17,22 @@ const NavLink = (props) => {
   } = props;
 
   return (
-    <StyledNavLink
-      isDisabled={isDisabled}
-      isSelected={isSelected}
-      id={id}
-      onClick={handleClick}
-      icon={icon}
-      onBlur={handleBlur}
-    >
-      {icon}
+    <StyledNavList>
       <StyledLink to={path} isdisabled={+isDisabled}>
-        {label}
+        <StyledNavLink
+          isDisabled={isDisabled}
+          isSelected={isSelected}
+          id={id}
+          onClick={handleClick}
+          icon={icon}
+          onBlur={handleBlur}
+        >
+          {icon}
+          {label}
+          <MdKeyboardArrowRight isdisabled={+isDisabled} />
+        </StyledNavLink>
       </StyledLink>
-      <MdKeyboardArrowRight isdisabled={+isDisabled} />
-    </StyledNavLink>
+    </StyledNavList>
   );
 };
 
