@@ -23,13 +23,13 @@ const Switch = (props) => {
   } = props;
 
   const transformedSize = sizes.includes(size) ? size : defaultSize;
-
+  const tranformedGap = label ? "10px" : "0px";
   return (
     <Stack
       direction={"row"}
       justifyContent="space-between"
       alignItems="center"
-      gap="10px"
+      gap={tranformedGap}
     >
       <StyledContainer size={transformedSize}>
         <StyledInput
@@ -54,9 +54,11 @@ const Switch = (props) => {
           )}
         </StyledSpan>
       </StyledContainer>
-      <Label htmlFor={id} isDisabled={isDisabled} onClick={handleChange}>
-        {label}
-      </Label>
+      {label && (
+        <Label htmlFor={id} isDisabled={isDisabled} onClick={handleChange}>
+          {label}
+        </Label>
+      )}
     </Stack>
   );
 };
