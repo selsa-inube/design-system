@@ -52,7 +52,7 @@ Variants.args = {
   isLoading: false,
   isDisabled: false,
   iconBefore: <MdAdd />,
-  type: "text",
+  type: "button",
   spacing: "wide",
   isFullWidth: false,
   handleClick: () => console.log("clicked"),

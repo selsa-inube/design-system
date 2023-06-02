@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { Label } from "../../inputs/Label";
+import { Text } from "../../data/Text";
 
 import { StyledTab } from "./styles";
 
@@ -14,15 +14,25 @@ const Tab = (props) => {
     label,
   } = props;
 
+  const appearance = (isSelected, isDisabled) => {
+    if (isSelected && !isDisabled) {
+      return "primary";
+    }
+    if (isDisabled) {
+      return "disabled";
+    }
+    return "dark";
+  };
+
   return (
     <StyledTab
       onClick={handleClick}
       isDisabled={isDisabled}
       isSelected={isSelected}
     >
-      <Label htmlFor={id} isFocused={isSelected} isDisabled={isDisabled}>
+      <Text id={id} appearance={appearance(isSelected, isDisabled)}>
         {label}
-      </Label>
+      </Text>
     </StyledTab>
   );
 };

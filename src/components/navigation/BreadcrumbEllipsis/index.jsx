@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
-import { Label } from "../../inputs/Label";
+
 import { BreadcrumbMenu } from "../../navigation/BreadcrumbMenu";
+import { Text } from "../../data/Text/index";
+
 import {
   StyledContainerEllipsis,
   StyledBreadcrumbEllipsis,
@@ -40,12 +42,9 @@ const BreadcrumbEllipsis = (props) => {
   return (
     <StyledRelativeContainer ref={containerRef} onClick={toggleEllipsisMenu}>
       <StyledContainerEllipsis>
-        <Label
-          htmlFor="ellipsis"
-          typo={typos.includes(typo) ? typo : transformedTypos}
-        >
+        <Text typo={typos.includes(typo) ? typo : transformedTypos}>
           <StyledBreadcrumbEllipsis>...</StyledBreadcrumbEllipsis>
-        </Label>
+        </Text>
       </StyledContainerEllipsis>
       {showMenu && <BreadcrumbMenu routes={routes} />}
     </StyledRelativeContainer>

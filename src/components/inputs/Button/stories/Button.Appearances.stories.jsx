@@ -50,7 +50,7 @@ Appearances.args = {
   isLoading: false,
   isDisabled: false,
   iconBefore: <MdAdd />,
-  type: "text",
+  type: "button",
   spacing: "wide",
   variant: "filled",
   isFullWidth: false,

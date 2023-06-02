@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { Label } from "../../inputs/Label";
+import { Text } from "../../data/Text";
 
 import { StyledContainerLink, StyledBreadcrumbLink } from "./styles";
 
@@ -25,11 +25,11 @@ const BreadcrumbLink = (props) => {
 
   return (
     <StyledContainerLink id={id} onClick={handleClick}>
-      <Label htmlFor={id} typo={transformedTypos}>
+      <Text typo={transformedTypos} appearance="secondary">
         <StyledBreadcrumbLink to={path} data-is-active={transformedIsActive}>
           {label}
         </StyledBreadcrumbLink>
-      </Label>
+      </Text>
     </StyledContainerLink>
   );
 };

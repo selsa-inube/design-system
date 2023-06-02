@@ -10,7 +10,7 @@ const StyledTab = styled.li`
     !isDisabled &&
     `4px solid ${colors.sys.actions.primary.filled}`};
 
-  & > label {
+  & > p {
     cursor: ${({ isDisabled }) => (isDisabled ? "not-allowed" : "pointer")};
   }
 `;
