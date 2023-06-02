@@ -1,9 +1,9 @@
 import React from "react";
 
-import { MdModeEdit, MdDelete, MdToggleOff } from "react-icons/md";
+import { titlesMuck, actionsMuck, breakPointsMuck } from "./mucks";
 
 import { Table } from "../index";
-import { StyledContainerActions } from "./styles";
+
 import {
   parameters,
   titles,
@@ -22,100 +22,9 @@ const story = {
 
 const Pagination = (args) => <Table {...args} />;
 Pagination.args = {
-  titles: [
-    {
-      id: "username",
-      titleName: "Username",
-      priority: 1,
-    },
-    {
-      id: "code",
-      titleName: "Code",
-      priority: 2,
-    },
-    {
-      id: "userID",
-      titleName: "User Id",
-      priority: 0,
-    },
-    {
-      id: "position",
-      titleName: "Position",
-      priority: 3,
-    },
-  ],
-  actions: [
-    {
-      id: "Activate",
-      actionName: "Activate",
-      content: (
-        <StyledContainerActions>
-          <MdToggleOff />
-        </StyledContainerActions>
-      ),
-      type: "secondary",
-    },
-    {
-      id: "Edit",
-      actionName: "Edit",
-      content: (
-        <StyledContainerActions>
-          <MdModeEdit />
-        </StyledContainerActions>
-      ),
-      type: "primary",
-    },
-    {
-      id: "Deleten ",
-      actionName: "Delete",
-      content: (
-        <StyledContainerActions>
-          <MdDelete />
-        </StyledContainerActions>
-      ),
-      type: "remove",
-    },
-  ],
-  breakPoints: [
-    { breakPoint: "(min-width: 1091px)", totalColumns: 4 },
-    { breakPoint: "(max-width: 1090px)", totalColumns: 3 },
-    { breakPoint: "(max-width: 980px)", totalColumns: 2 },
-    { breakPoint: "(max-width: 850px)", totalColumns: 4 },
-    { breakPoint: "(max-width: 680px)", totalColumns: 3 },
-    { breakPoint: "(max-width: 550px)", totalColumns: 2 },
-    { breakPoint: "(max-width: 360px)", totalColumns: 1 },
-  ],
+  titles: titlesMuck,
+  actions: actionsMuck,
   entries: [
-    {
-      id: "11",
-      username: "David Leonardo Garzón",
-      code: "LGARZON",
-      userID: "1256545",
-      position: "Credit Analyst",
-    },
-    {
-      id: "12",
-      username: "Angie Pinilla",
-      code: "APINILLA",
-      userID: "789654",
-      position: "Adviser",
-    },
-    {
-      id: "13",
-      username: "Cristian Rojas",
-      code: "CROJAS",
-      userID: "258963",
-      position: "Credit Analyst",
-    },
-    {
-      id: "14",
-      username: "Johan Nova",
-      code: "JNOVA",
-      userID: "589647",
-      position: "Adviser",
-    },
-  ],
-  entriesPagination: [
     {
       id: 11,
       username: "David Leonardo Garzón",
@@ -327,15 +236,18 @@ Pagination.args = {
       position: "Adviser",
     },
   ],
+  filter: "",
+  pageLength: 10,
+  breakPoints: breakPointsMuck,
 };
 
 Pagination.argTypes = {
   titles,
   actions,
   entries,
-  breakPoints,
   filter,
   pageLength,
+  breakPoints,
 };
 
 export default story;
