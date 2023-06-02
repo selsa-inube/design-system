@@ -45,7 +45,7 @@ const type = {
   control: { type: "select" },
   description: "pass type down to a button",
   table: {
-    defaultValue: { summary: "text" },
+    defaultValue: { summary: "button" },
   },
 };
 const spacing = {

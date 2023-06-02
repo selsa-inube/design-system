@@ -40,11 +40,11 @@ const getSpinnerColor = (variant, appearance) => {
   return spinnerColorHomologation[variant][appearance];
 };
 
-export const types = ["text", "submit", "reset", "link"];
+export const types = ["button", "submit", "reset", "link"];
 export const spacings = ["wide", "compact"];
 export const variants = ["filled", "outlined", "none"];
 const defaultAppearance = "primary";
-const defaultType = "text";
+const defaultType = "button";
 const defaultSpacing = "wide";
 const defaultVariant = "filled";
 const defaultSpinnerSize = "small";

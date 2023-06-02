@@ -50,7 +50,7 @@ Disabled.args = {
   children: "Button",
   isLoading: false,
   iconBefore: <MdAdd />,
-  type: "text",
+  type: "button",
   spacing: "wide",
   variant: "filled",
   isFullWidth: false,

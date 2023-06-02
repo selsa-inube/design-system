@@ -52,7 +52,7 @@ Spacing.args = {
   isLoading: false,
   isDisabled: false,
   iconBefore: <MdAdd />,
-  type: "text",
+  type: "button",
   variant: "filled",
   isFullWidth: false,
   handleClick: () => console.log("clicked"),

@@ -48,7 +48,7 @@ FullWidth.args = {
   isLoading: false,
   isDisabled: false,
   iconBefore: <MdAdd />,
-  type: "text",
+  type: "button",
   spacing: "wide",
   variant: "filled",
   handleClick: () => console.log("clicked"),
