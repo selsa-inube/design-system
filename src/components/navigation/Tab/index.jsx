@@ -1,8 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { Label } from "../../inputs/Label";
-
 import { Text } from "../../data/Text";
 
 import { StyledTab } from "./styles";
