@@ -53,7 +53,7 @@ Icons.args = {
   appearance: "primary",
   isLoading: false,
   isDisabled: false,
-  type: "text",
+  type: "button",
   spacing: "wide",
   variant: "filled",
   isFullWidth: false,

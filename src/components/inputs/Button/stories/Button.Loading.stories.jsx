@@ -45,7 +45,7 @@ Loading.args = {
   children: "Button",
   appearance: "primary",
   isDisabled: false,
-  type: "text",
+  type: "button",
   spacing: "wide",
   variant: "filled",
   isFullWidth: false,
