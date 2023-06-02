@@ -2,8 +2,6 @@ import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 
 import { BreadcrumbMenu } from "../../navigation/BreadcrumbMenu";
-import { Label } from "../../inputs/Label";
-
 import { Text } from "../../data/Text/index";
 
 import {
