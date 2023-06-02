@@ -1,11 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { StyledBreadcrumbs } from "./styles";
-
 import { BreadcrumbLink } from "../../navigation/BreadcrumbLink";
-import { useMediaQuery } from "../../../hooks/useMediaQuery";
 import { BreadcrumbEllipsis, typos } from "../../navigation/BreadcrumbEllipsis";
+
+import { useMediaQuery } from "../../../hooks/useMediaQuery";
+
+import { StyledBreadcrumbs } from "./styles";
 
 function getBreadcrumbItems(crumbs) {
   const breadcrumbItems = [

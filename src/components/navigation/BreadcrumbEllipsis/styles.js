@@ -5,7 +5,7 @@ const StyledContainerEllipsis = styled.li`
   display: inline-block;
 `;
 
-const StyledBreadcrumbEllipsis = styled.div`
+const StyledBreadcrumbEllipsis = styled.span`
   user-select: none;
   text-decoration: none;
   color: ${colors.sys.text.secondary};

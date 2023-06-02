@@ -9,7 +9,7 @@ const StyledBreadcrumbs = styled.ul`
     content: "/";
     margin: 0 8px;
   }
-  & li > label {
+  & li > p {
     display: inherit;
   }
 `;
