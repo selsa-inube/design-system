@@ -1,8 +1,8 @@
 import { BrowserRouter } from "react-router-dom";
 import { MdHouse } from "react-icons/md";
-
+import { NavLinkController } from "../../NavLink/stories/NavLink.Controller";
 import { NavLink } from "..";
-import { NavLinkController } from "./NavLink.Controller";
+
 import {
   id,
   label,

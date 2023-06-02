@@ -1,5 +1,5 @@
 import {
-  alignsOptions,
+  alignOptions,
   htmlElements,
   appearencesOptions,
   typosOptions,
@@ -15,7 +15,7 @@ const parameters = {
 };
 
 const align = {
-  options: alignsOptions,
+  options: alignOptions,
   control: { type: "select" },
   description: "This prop controls the text-align style property.",
   table: {

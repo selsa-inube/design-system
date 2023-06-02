@@ -3,15 +3,11 @@ import PropTypes from "prop-types";
 
 import { colors } from "../../../shared/colors/colors";
 import { typography } from "../../../shared/typography/typography";
+import { transformedMeasure } from "../../../utilities/transformedMeasure";
 
 import { StyledText } from "./styles";
 
-/**it is validated that the values entered are in pixels and valid according to the css property margin and padding. */
-const regex = /^[0-9]+px$/;
-
-const globalValuesPropertiesCss = ["inherit", "initial", "unset", "auto"];
-
-const alignsOptions = ["start", "center", "end", "justify"];
+const alignOptions = ["start", "center", "end", "justify"];
 
 const htmlElements = [
   "h1",
@@ -38,19 +34,6 @@ const defaultTypo = "bodyLarge";
 const defaultMargin = "0px";
 const defaultPadding = "0px";
 
-const isValidCssSpacing = (element) => {
-  let result = false;
-  const splitElement = element.split(" ");
-
-  if (element !== "" && splitElement.length > 0) {
-    const validatedElement = splitElement
-      .filter((spacing) => spacing !== "")
-      .every((i) => regex.test(i));
-    result = validatedElement === true && splitElement.length <= 4;
-  }
-  return result;
-};
-
 const Text = (props) => {
   const {
     children,
@@ -63,7 +46,7 @@ const Text = (props) => {
     typo = defaultTypo,
   } = props;
 
-  const transformedAlign = alignsOptions.includes(align) ? align : defaultAlign;
+  const transformedAlign = alignOptions.includes(align) ? align : defaultAlign;
 
   const transformedAs = htmlElements.includes(as) ? as : defaultHtmlElement;
 
@@ -73,16 +56,6 @@ const Text = (props) => {
 
   const transformedTypo = typosOptions.includes(typo) ? typo : defaultTypo;
 
-  const transformedMargin =
-    isValidCssSpacing(margin) || globalValuesPropertiesCss.includes(margin)
-      ? margin
-      : defaultMargin;
-
-  const transformedPadding =
-    isValidCssSpacing(padding) || globalValuesPropertiesCss.includes(padding)
-      ? padding
-      : defaultPadding;
-
   return (
     <StyledText
       as={transformedAs}
@@ -90,8 +63,8 @@ const Text = (props) => {
       id={id}
       appearance={transformedAppearance}
       typo={transformedTypo}
-      margin={transformedMargin}
-      padding={transformedPadding}
+      margin={transformedMeasure(margin, defaultMargin)}
+      padding={transformedMeasure(padding, defaultPadding)}
     >
       {children}
     </StyledText>
@@ -100,19 +73,13 @@ const Text = (props) => {
 
 Text.propTypes = {
   children: PropTypes.node,
-  align: PropTypes.oneOf(alignsOptions),
-  margin: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.oneOf(globalValuesPropertiesCss),
-  ]),
-  padding: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.oneOf(globalValuesPropertiesCss),
-  ]),
+  align: PropTypes.oneOf(alignOptions),
+  margin: PropTypes.string,
+  padding: PropTypes.string,
   as: PropTypes.oneOf(htmlElements),
   id: PropTypes.string,
   appearance: PropTypes.oneOf(appearencesOptions),
   typo: PropTypes.oneOf(typosOptions),
 };
 
-export { Text, htmlElements, alignsOptions, appearencesOptions, typosOptions };
+export { Text, htmlElements, alignOptions, appearencesOptions, typosOptions };
