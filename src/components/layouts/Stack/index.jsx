@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { validateBoxModelMeasure } from "../../../utilities/validateBoxModelMeasure";
+import { transformedMeasure } from "../../../utilities/transformedMeasure";
 import { StyledFlex } from "./styles";
 
 export const directionAlignments = ["row", "column"];
@@ -48,16 +48,6 @@ const Stack = (props) => {
   const transformedWrap = wrapControl.includes(wrap)
     ? wrap
     : defaultWrapControl;
-
-  const transformedMeasure = (valueBoxModel, defaultValue) => {
-    try {
-      validateBoxModelMeasure(valueBoxModel);
-    } catch (error) {
-      console.error(error);
-      return defaultValue;
-    }
-    return valueBoxModel;
-  };
 
   return (
     <StyledFlex

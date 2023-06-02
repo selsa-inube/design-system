@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import { colors } from "../../../shared/colors/colors";
 import { typography } from "../../../shared/typography/typography";
-import { validateBoxModelMeasure } from "../../../utilities/validateBoxModelMeasure";
+import { transformedMeasure } from "../../../utilities/transformedMeasure";
 
 import { StyledText } from "./styles";
 
@@ -55,16 +55,6 @@ const Text = (props) => {
     : defaultAppearance;
 
   const transformedTypo = typosOptions.includes(typo) ? typo : defaultTypo;
-
-  const transformedMeasure = (valueBoxModel, defaultValue) => {
-    try {
-      validateBoxModelMeasure(valueBoxModel);
-    } catch (error) {
-      console.error(error);
-      return defaultValue;
-    }
-    return valueBoxModel;
-  };
 
   return (
     <StyledText
