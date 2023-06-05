@@ -237,7 +237,7 @@ Pagination.args = {
     },
   ],
   filter: "",
-  pageLength: 10,
+  pageLength: 9,
   breakPoints: breakPointsMuck,
 };
 
