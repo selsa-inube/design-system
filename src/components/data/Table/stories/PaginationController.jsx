@@ -6,7 +6,9 @@ const PaginationController = (props) => {
   const [currentPage, setCurrentPage] = useState(1);
 
   const totalPages = Math.ceil(entries.length / pageLength);
+
   const firstEntryInPage = (currentPage - 1) * pageLength;
+
   const lastEntryInPage = Math.min(
     firstEntryInPage + pageLength,
     entries.length
