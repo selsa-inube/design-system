@@ -12,7 +12,7 @@ import { Text } from "../../Text/index";
 import { Stack } from "../../../layouts/Stack";
 import { StyledButton } from "./styles";
 
-function Pagination(props) {
+const Pagination = (props) => {
   const {
     firstEntryInPage,
     lastEntryInPage,
@@ -57,7 +57,7 @@ function Pagination(props) {
       </Stack>
     </Stack>
   );
-}
+};
 
 Pagination.propTypes = {
   firstEntryInPage: PropTypes.number.isRequired,

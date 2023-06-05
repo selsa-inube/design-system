@@ -65,7 +65,7 @@ function ShowAction(actionContent, entry, mediaQuery) {
   );
 }
 
-function TableUI(props) {
+const TableUI = (props) => {
   const { titles, actions, entries, breakPoints } = props;
   const mediaActionOpen = useMediaQuery("(max-width: 850px)");
 
@@ -113,6 +113,6 @@ function TableUI(props) {
       </StyledTbody>
     </StyledTable>
   );
-}
+};
 
 export { TableUI };

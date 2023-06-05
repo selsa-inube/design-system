@@ -1,5 +1,3 @@
-import React from "react";
-
 import { Table } from "../index";
 
 import { titlesMuck, actionsMuck, breakPointsMuck } from "./mucks";

@@ -6,7 +6,7 @@ import { TableUI } from "./interface";
 import { useState } from "react";
 import { Stack } from "../../layouts/Stack";
 
-function Table(props) {
+const Table = (props) => {
   const {
     titles,
     actions,
@@ -90,7 +90,7 @@ function Table(props) {
       )}
     </Stack>
   );
-}
+};
 
 Table.propTypes = {
   titles: PropTypes.arrayOf(
