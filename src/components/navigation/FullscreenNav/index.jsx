@@ -68,7 +68,7 @@ const FullscreenMenu = (props) => {
   const handleClick = () => {
     onClose();
   };
-
+  const totalSections = Object.keys(navigation.sections).length;
   return (
     <StyledFullscreenNav>
       <StyledCloseMenu>
@@ -77,7 +77,7 @@ const FullscreenMenu = (props) => {
         </Text>
         <MdClose onClick={handleClick} />
       </StyledCloseMenu>
-      {Object.keys(navigation.sections).length > 1 ? (
+      {totalSections.length > 1 ? (
         <MultiSections navigation={navigation} />
       ) : (
         <OneSection navigation={navigation} />
