@@ -64,7 +64,8 @@ const OneSection = ({ navigation }) => {
   );
 };
 
-const FullscreenMenu = ({ navigation, logoutPath, onClose }) => {
+const FullscreenMenu = (props) => {
+  const { navigation, logoutPath, onClose } = props;
   const handleClick = () => {
     onClose();
   };
