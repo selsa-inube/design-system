@@ -28,7 +28,6 @@ const MultiSections = ({ navigation }) => {
           <Text as="h2" typo="titleSmall" appearance="secondary" padding="16px">
             {sectionValue.name}
           </Text>
-
           <Stack direction="column">
             {Object.values(sectionValue.links).map((linkValue) => (
               <NavLink
