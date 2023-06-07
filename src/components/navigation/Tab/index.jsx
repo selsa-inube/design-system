@@ -30,7 +30,11 @@ const Tab = (props) => {
       isDisabled={isDisabled}
       isSelected={isSelected}
     >
-      <Text id={id} appearance={appearance(isSelected, isDisabled)}>
+      <Text
+        id={id}
+        typo="labelMedium"
+        appearance={appearance(isSelected, isDisabled)}
+      >
         {label}
       </Text>
     </StyledTab>
