@@ -1,3 +1,23 @@
+# v4.1.0 (Wed Jun 07 2023)
+
+#### 🚀 Enhancement
+
+- Develop the `<Table />` component [#129](https://github.com/selsa-inube/design-system/pull/129) ([@Andresbl123](https://github.com/Andresbl123) cmarin@sistemasenlinea.com.co)
+- Adjust `font-size` attribute of `<Tab/>` [#160](https://github.com/selsa-inube/design-system/pull/160) ([@Andresbl123](https://github.com/Andresbl123))
+- Develop the `<FullscreenNav />` component [#132](https://github.com/selsa-inube/design-system/pull/132) ([@Andresbl123](https://github.com/Andresbl123))
+
+#### 🐛 Bug Fix
+
+- Release design-system v4.0.0 [#158](https://github.com/selsa-inube/design-system/pull/158) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 3
+
+- Andres ([@Andresbl123](https://github.com/Andresbl123))
+- cesar.marin (cmarin@sistemasenlinea.com.co)
+- cmarin ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v4.0.0 (Fri Jun 02 2023)
 
 #### 💥 Breaking Change
