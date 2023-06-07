@@ -14,9 +14,9 @@ const story = {
   ],
 };
 
-const Paginations = (args) => <PaginationController {...args} />;
+const Default = (args) => <PaginationController {...args} />;
 
-Paginations.args = {
+Default.args = {
   entries: [
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
   ],
@@ -25,4 +25,4 @@ Paginations.args = {
 
 export default story;
 
-export { Paginations };
+export { Default };
