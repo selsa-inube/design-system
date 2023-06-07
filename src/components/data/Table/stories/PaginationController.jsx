@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Pagination } from "../Pagination";
+import { Pagination } from "../Pagination/index";
 
 const PaginationController = (props) => {
   const { entries, pageLength = 10 } = props;
