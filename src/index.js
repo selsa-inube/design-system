@@ -7,6 +7,7 @@ export { User } from "./components/data/User";
 export { Button } from "./components/inputs/Button";
 export { Label } from "./components/inputs/Label";
 export { Switch } from "./components/inputs/Switch";
+export { Table } from "./components/data/Table";
 export { TextField } from "./components/inputs/TextField";
 
 // layouts
