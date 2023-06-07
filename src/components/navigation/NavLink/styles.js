@@ -65,8 +65,7 @@ const StyledNavLink = styled.div`
   display: grid;
   grid-template-columns: ${({ icon, isSelected }) => getGrid(icon, isSelected)};
   width: 100%;
-  height: 100%;
-  min-height: 40px;
+  height: 40px;
   min-width: 180px;
   align-items: center;
   box-sizing: border-box;

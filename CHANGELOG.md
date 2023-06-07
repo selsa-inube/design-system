@@ -1,3 +1,31 @@
+# v4.0.0 (Fri Jun 02 2023)
+
+#### 💥 Breaking Change
+
+- Add 'button' type and prevent redirection in `<Button />` [#157](https://github.com/selsa-inube/design-system/pull/157) ([@Andresbl123](https://github.com/Andresbl123))
+
+#### 🚀 Enhancement
+
+- Develop the `<Nav />` component [#131](https://github.com/selsa-inube/design-system/pull/131) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- Add `margin` and `padding` props to `<Stack />` [#154](https://github.com/selsa-inube/design-system/pull/154) ([@Andresbl123](https://github.com/Andresbl123))
+- Implement the `validateCssSpacing()` function at the general level for the application [#140](https://github.com/selsa-inube/design-system/pull/140) ([@Andresbl123](https://github.com/Andresbl123))
+
+#### 🐛 Bug Fix
+
+- Search `<Label />` with htmlFor when no `<input />` [#153](https://github.com/selsa-inube/design-system/pull/153) ([@Andresbl123](https://github.com/Andresbl123))
+- Adjust the `<Switch/>` to eliminate unnecessary space between elements when a label is not present [#155](https://github.com/selsa-inube/design-system/pull/155) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- Fix the error for implemenation of `validateBoxModelMeasure` [#156](https://github.com/selsa-inube/design-system/pull/156) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- Fix `<Tabs/>` in order to add a `padding-right` [#148](https://github.com/selsa-inube/design-system/pull/148) ([@Andresbl123](https://github.com/Andresbl123))
+- Release design-system v.3.2.1 [#149](https://github.com/selsa-inube/design-system/pull/149) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 3
+
+- Andres ([@Andresbl123](https://github.com/Andresbl123))
+- cesar.marin (cmarin@sistemasenlinea.com.co)
+- cmarin ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v3.2.1 (Mon May 29 2023)
 
 #### 🐛 Bug Fix
