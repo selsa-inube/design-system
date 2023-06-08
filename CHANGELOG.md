@@ -1,3 +1,23 @@
+# v4.1.1 (Thu Jun 08 2023)
+
+#### 🐛 Bug Fix
+
+- Adjust the `<Button/>` to ensure that, when the isDisabled property is enabled, the button won't allow click interactions [#166](https://github.com/selsa-inube/design-system/pull/166) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- Add Storybook URL of main branch in `README.md` [#163](https://github.com/selsa-inube/design-system/pull/163) ([@Andresbl123](https://github.com/Andresbl123))
+- Adjust the `<TextField/>` `blur`; it only works when the 'required' property is enabled. [#165](https://github.com/selsa-inube/design-system/pull/165) ([@Andresbl123](https://github.com/Andresbl123))
+
+#### 📝 Documentation
+
+- Release version 4.1.0 [#162](https://github.com/selsa-inube/design-system/pull/162) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 3
+
+- Andres ([@Andresbl123](https://github.com/Andresbl123))
+- cesar.marin (cmarin@sistemasenlinea.com.co)
+- cmarin ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v4.1.0 (Wed Jun 07 2023)
 
 #### 🚀 Enhancement
