@@ -52,7 +52,7 @@ const TextField = (props) => {
 
   const interceptBlur = (e) => {
     setIsFocused(false);
-    if (typeof handleBlur === "function" && isRequired) {
+    if (typeof handleBlur === "function") {
       handleBlur(e);
     }
   };
