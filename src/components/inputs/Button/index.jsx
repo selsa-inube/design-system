@@ -81,6 +81,8 @@ const Button = (props) => {
 
   const transformedTransparentSpinner = transformedVariant === "filled";
 
+  const transformedHandleClick = isDisabled ? null : handleClick;
+
   if (type === "link" && !path) {
     console.warn("You must provide a path to use a link button");
   }
@@ -93,7 +95,7 @@ const Button = (props) => {
         variant={transformedVariant}
         appearance={transformedAppearance}
         isfullwidth={+isFullWidth}
-        onClick={handleClick}
+        onClick={transformedHandleClick}
       >
         <StyledButton
           appearance={transformedAppearance}
@@ -123,7 +125,7 @@ const Button = (props) => {
       spacing={transformedSpacing}
       variant={transformedVariant}
       isFullWidth={isFullWidth}
-      onClick={handleClick}
+      onClick={transformedHandleClick}
     >
       {isLoading && !isDisabled ? (
         <Spinner
