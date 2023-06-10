@@ -38,7 +38,7 @@ const Header = (props) => {
 
   return (
     <StyledHeader>
-      <Stack justifyContent="space-between">
+      <Stack alignItems="center" justifyContent="space-between">
         <LogoAndNav
           portalId={portalId}
           navigation={navigation}
@@ -61,7 +61,6 @@ Header.propTypes = {
   navigation: PropTypes.object.isRequired,
   logo: PropTypes.node.isRequired,
   logoutPath: PropTypes.string.isRequired,
-  shouldDisplay: PropTypes.bool.isRequired,
 };
 
 export { Header };
