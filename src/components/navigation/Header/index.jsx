@@ -12,35 +12,52 @@ const breakpoints = {
   large: "(min-width: 1440px)",
 };
 
+const LogoAndNav = (props) => {
+  const { portalId, navigation, logoutPath, logo, shouldDisplay } = props;
+  if (!shouldDisplay) return null;
+
+  return (
+    <Stack justifyContent="space-between" gap="23px">
+      <FullscreenNav
+        portalId={portalId}
+        navigation={navigation}
+        logoutPath={logoutPath}
+      />
+      <div>{logo}</div>
+    </Stack>
+  );
+};
+
+LogoAndNav.propTypes = {
+  portalId: PropTypes.string.isRequired,
+  navigation: PropTypes.object.isRequired,
+  logo: PropTypes.node.isRequired,
+  logoutPath: PropTypes.string.isRequired,
+  shouldDisplay: PropTypes.bool.isRequired,
+};
+
 const Header = (props) => {
   const { portalId, navigation, logoutPath, logo } = props;
-
   const matches = useMediaQueries(Object.values(breakpoints));
-  const transformedUserSize =
-    matches[breakpoints.small] && !matches[breakpoints.medium]
-      ? "small"
-      : "large";
-  const transformedMatches =
-    (matches[breakpoints.small] || matches[breakpoints.medium]) &&
-    !matches[breakpoints.large];
+  const isSmallScreen =
+    matches[breakpoints.small] && !matches[breakpoints.medium];
+  const shouldDisplayNav =
+    matches[breakpoints.small] || matches[breakpoints.medium];
 
   return (
     <StyledHeader>
       <Stack justifyContent="space-between">
-        <Stack justifyContent="space-between" gap="23px">
-          {transformedMatches && (
-            <FullscreenNav
-              portalId={portalId}
-              navigation={navigation}
-              logoutPath={logoutPath}
-            />
-          )}
-          <div>{logo}</div>
-        </Stack>
+        <LogoAndNav
+          portalId={portalId}
+          navigation={navigation}
+          logoutPath={logoutPath}
+          logo={logo}
+          shouldDisplay={!matches[breakpoints.large] && shouldDisplayNav}
+        />
         <User
           userName="Leonardo Garzón"
           businessUnit="Sistemas Enlínea S.A"
-          size={transformedUserSize}
+          size={isSmallScreen ? "small" : "large"}
         />
       </Stack>
     </StyledHeader>
