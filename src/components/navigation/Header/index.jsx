@@ -28,14 +28,6 @@ const LogoAndNav = (props) => {
   );
 };
 
-LogoAndNav.propTypes = {
-  portalId: PropTypes.string.isRequired,
-  navigation: PropTypes.object.isRequired,
-  logo: PropTypes.node.isRequired,
-  logoutPath: PropTypes.string.isRequired,
-  shouldDisplay: PropTypes.bool.isRequired,
-};
-
 const Header = (props) => {
   const { portalId, navigation, logoutPath, logo } = props;
   const matches = useMediaQueries(Object.values(breakpoints));
@@ -69,6 +61,7 @@ Header.propTypes = {
   navigation: PropTypes.object.isRequired,
   logo: PropTypes.node.isRequired,
   logoutPath: PropTypes.string.isRequired,
+  shouldDisplay: PropTypes.bool.isRequired,
 };
 
 export { Header };
