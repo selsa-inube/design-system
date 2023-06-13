@@ -37,21 +37,19 @@ const Header = (props) => {
     matches[breakpoints.small] || matches[breakpoints.medium];
 
   return (
-    <StyledHeader>
-      <Stack alignItems="center" justifyContent="space-between">
-        <LogoAndNav
-          portalId={portalId}
-          navigation={navigation}
-          logoutPath={logoutPath}
-          logo={logo}
-          shouldDisplay={!matches[breakpoints.large] && shouldDisplayNav}
-        />
-        <User
-          userName="Leonardo Garzón"
-          businessUnit="Sistemas Enlínea S.A"
-          size={isSmallScreen ? "small" : "large"}
-        />
-      </Stack>
+    <StyledHeader alignItems="center" justifyContent="space-between">
+      <LogoAndNav
+        portalId={portalId}
+        navigation={navigation}
+        logoutPath={logoutPath}
+        logo={logo}
+        shouldDisplay={!matches[breakpoints.large] && shouldDisplayNav}
+      />
+      <User
+        userName="Leonardo Garzón"
+        businessUnit="Sistemas Enlínea S.A"
+        size={isSmallScreen ? "small" : "large"}
+      />
     </StyledHeader>
   );
 };
