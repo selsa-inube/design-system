@@ -10,7 +10,7 @@ const story = {
 const Default = (args) => <DropDownItem {...args} />;
 
 Default.args = {
-  label: "Item 1",
+  children: "Item 1",
   isSelected: true,
 };
 
