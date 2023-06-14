@@ -25,7 +25,7 @@ const StyledFullscreenNav = styled.nav`
   background-color: ${colors.ref.palette.neutral.n10};
   padding: 0px 16px;
   z-index: 2;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
 
