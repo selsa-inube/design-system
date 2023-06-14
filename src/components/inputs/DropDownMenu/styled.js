@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { colors } from "../../../shared/colors/colors";
 
-const StyledDropDownMenu = styled.datalist`
+const StyledDropDownMenu = styled.div`
   display: flex;
   flex-direction: column;
   padding: 4px 0px;
@@ -11,4 +11,12 @@ const StyledDropDownMenu = styled.datalist`
   border-radius: 4px;
 `;
 
-export { StyledDropDownMenu };
+const StyledDropDownList = styled.ul``;
+
+export { StyledDropDownMenu, StyledDropDownList };
+
+/* 
+ <StyledDropDownButton onClick={() => setIsOpen(!isOpen)}>
+        {selectedOption || "Select an option"}
+      </StyledDropDownButton>
+*/
