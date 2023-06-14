@@ -6,15 +6,18 @@ import { Stack } from "../../layouts/Stack";
 import { useMediaQueries } from "../../../hooks/useMediaQueries";
 import { StyledHeader } from "./styles";
 
-const breakpoints = {
-  small: "(min-width: 320px)",
-  medium: "(min-width: 744px)",
-  large: "(min-width: 1440px)",
-};
+const SMALL_SCREEN = "(min-width: 320px)";
+const MEDIUM_SCREEN = "(min-width: 744px)";
+const LARGE_SCREEN = "(min-width: 1440px)";
+
+const getScreenSize = (matches) =>
+  matches[SMALL_SCREEN] && !matches[MEDIUM_SCREEN] ? "small" : "large";
+
+const shouldDisplayNav = (matches) =>
+  matches[SMALL_SCREEN] || matches[MEDIUM_SCREEN];
 
 const LogoAndNav = (props) => {
   const { portalId, navigation, logoutPath, logo, shouldDisplay } = props;
-
   return (
     <Stack justifyContent="space-between" gap="23px">
       {shouldDisplay && (
@@ -31,14 +34,9 @@ const LogoAndNav = (props) => {
 
 const Header = (props) => {
   const { portalId, navigation, logoutPath, logo } = props;
-  const matches = useMediaQueries(Object.values(breakpoints));
-  const isSmallScreen =
-    matches[breakpoints.small] && !matches[breakpoints.medium];
-  const shouldDisplayNav =
-    matches[breakpoints.small] || matches[breakpoints.medium];
-  const transformedSize = isSmallScreen ? "small" : "large";
+  const matches = useMediaQueries([SMALL_SCREEN, MEDIUM_SCREEN, LARGE_SCREEN]);
   const shouldDisplayLogoAndNav =
-    !matches[breakpoints.large] && shouldDisplayNav;
+    !matches[LARGE_SCREEN] && shouldDisplayNav(matches);
 
   return (
     <StyledHeader alignItems="center" justifyContent="space-between">
@@ -52,7 +50,7 @@ const Header = (props) => {
       <User
         userName="Leonardo Garzón"
         businessUnit="Sistemas Enlínea S.A"
-        size={transformedSize}
+        size={getScreenSize(matches)}
       />
     </StyledHeader>
   );
