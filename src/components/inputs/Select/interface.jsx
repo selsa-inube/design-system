@@ -1,5 +1,9 @@
 import React, { useState } from "react";
-import { MdOutlineError, MdCheckCircle } from "react-icons/md";
+import {
+  MdOutlineError,
+  MdCheckCircle,
+  MdOutlineArrowDropDown,
+} from "react-icons/md";
 
 import { Label } from "../Label";
 import { Text } from "../../data/Text";
@@ -11,6 +15,7 @@ import {
   StyledContainerLabel,
   StyledInputContainer,
   StyledInput,
+  StyledIcon,
   StyledErrorMessageContainer,
   StyledValidMessageContainer,
 } from "./styles";
@@ -84,13 +89,16 @@ const SelectUI = (props) => {
     handleBlur,
     readOnly,
     options,
-    list,
+    openOptions,
+    value,
+    onCloseOptions,
   } = props;
 
-  const [selectedOption, setSelectedOption] = useState("");
+  const [selectedOption, setSelectedOption] = useState(value);
 
-  const handleOptionClick = (option) => {
-    setSelectedOption(option);
+  const handleOptionClick = (label) => {
+    console.log(label, "Andres label renderizado 1");
+    setSelectedOption(label);
   };
 
   const transformedIsInvalid = state === "invalid" ? true : false;
@@ -130,7 +138,6 @@ const SelectUI = (props) => {
           id={id}
           placeholder={placeholder}
           isDisabled={isDisabled}
-          value={selectedOption}
           isRequired={isRequired}
           size={size}
           state={state}
@@ -140,8 +147,11 @@ const SelectUI = (props) => {
           onFocus={handleFocus}
           onBlur={handleBlur}
           readOnly={readOnly}
-          onClick={() => handleOptionClick()}
+          value={selectedOption || value}
         />
+        <StyledIcon isDisabled={isDisabled}>
+          <MdOutlineArrowDropDown />
+        </StyledIcon>
       </StyledInputContainer>
 
       {state === "invalid" && (
@@ -158,7 +168,15 @@ const SelectUI = (props) => {
           validMessage={validMessage}
         />
       )}
-      <DropDownMenu id={list} options={options} />
+      {openOptions && (
+        <DropDownMenu
+          options={options}
+          isOpenOptions={openOptions}
+          handleClick={handleOptionClick}
+          onCloseOptions={onCloseOptions}
+          handleSelect={handleOptionClick}
+        />
+      )}
     </StyledContainer>
   );
 };

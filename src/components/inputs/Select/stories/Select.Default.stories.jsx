@@ -1,12 +1,13 @@
 import React from "react";
 import { Select } from "../index";
+import { SelectController } from "./SelectController";
 
 const story = {
   title: "Inputs/Select/Default",
   component: [Select],
 };
 
-const Default = (args) => <Select {...args} />;
+const Default = (args) => <SelectController {...args} />;
 
 Default.args = {
   label: "Label",
@@ -15,11 +16,11 @@ Default.args = {
   placeholder: "Placeholder",
   isDisabled: false,
   options: [
-    { id: 1, label: "Item 1", isDisabled: true },
+    { id: 1, label: "Item", isDisabled: true },
     { id: 2, label: "Item 2", isDisabled: false },
     { id: 3, label: "Item 3", isDisabled: false },
   ],
-  list: "list",
+  value: "andres",
 };
 
 export default story;

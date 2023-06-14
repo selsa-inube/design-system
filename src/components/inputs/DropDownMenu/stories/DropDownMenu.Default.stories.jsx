@@ -13,6 +13,7 @@ Default.args = {
     { id: 2, label: "Item 2", isDisabled: false },
     { id: 3, label: "Item 3", isDisabled: false },
   ],
+  isOpenOptions: true,
 };
 
 export default story;

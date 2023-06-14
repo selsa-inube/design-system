@@ -29,14 +29,15 @@ const Select = (props) => {
     handleBlur,
     readOnly,
     options,
-    list,
   } = props;
 
   const [isFocused, setIsFocused] = useState(false);
+  const [open, setOpen] = useState(false);
 
   const interceptFocus = (e) => {
     if (!readOnly) {
       setIsFocused(true);
+      setOpen(true);
     }
     if (typeof handleFocus === "function") {
       handleFocus(e);
@@ -45,9 +46,14 @@ const Select = (props) => {
 
   const interceptBlur = (e) => {
     setIsFocused(false);
+
     if (typeof handleBlur === "function") {
       handleBlur(e);
     }
+  };
+
+  const handleCloseOptions = () => {
+    setOpen(false);
   };
 
   const transformedIsDisabled =
@@ -82,7 +88,8 @@ const Select = (props) => {
       handleBlur={interceptBlur}
       readOnly={transformedReadOnly}
       options={options}
-      list={list}
+      openOptions={open}
+      onCloseOptions={handleCloseOptions}
     />
   );
 };

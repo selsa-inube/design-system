@@ -75,7 +75,7 @@ const StyledInputContainer = styled.div`
 const StyledInput = styled.input`
   outline: none;
   border-radius: 8px;
-  padding: 8px 12px 8px 16px;
+  padding: 0px 12px 0px 16px;
   font-family: ${typography.sys.typescale.bodyLarge.font};
   font-size: ${typography.sys.typescale.bodyLarge.size};
   font-weight: ${typography.sys.typescale.bodyLarge.weight};
@@ -87,6 +87,7 @@ const StyledInput = styled.input`
 
   width: ${({ isFullWidth }) => (isFullWidth ? "calc(100% - 32px)" : "252px")};
   ${({ size }) => sizeOptions[size]};
+
   border: none;
 
   ::placeholder {
@@ -109,6 +110,17 @@ const StyledInput = styled.input`
   &:-webkit-autofill {
     -webkit-background-clip: text;
   }
+`;
+
+const StyledIcon = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: ${({ iconBefore }) => iconBefore && "10px"};
+  padding-right: ${({ iconAfter }) => iconAfter && "10px"};
+  height: 24px;
+  width: 24px;
+  color: ${({ isDisabled }) => isDisabled && colors.ref.palette.neutral.n70};
 `;
 
 const StyledErrorMessageContainer = styled.div`
@@ -135,6 +147,7 @@ export {
   StyledContainerLabel,
   StyledInputContainer,
   StyledInput,
+  StyledIcon,
   StyledErrorMessageContainer,
   StyledValidMessageContainer,
 };

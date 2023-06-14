@@ -1,59 +1,47 @@
 import React, { useState } from "react";
 
-import { StyledDropDownMenu, StyledDropDownList } from "./styled";
+import { StyledDropDownMenu } from "./styled";
 import { DropDownItem } from "../DropDownItem/index";
-/* 
-const DropDownMenu = (props) => {
-  const { id, options } = props;
-
-  options.map((option) => console.log(option.label));
-  return (
-    <StyledDropDownMenu id={id}>
-      {options.map((dropDownItem) => (
-        <DropDownItem
-          key={dropDownItem.id}
-          id={dropDownItem.id}
-          isDisabled={dropDownItem.isDisabled}
-          value={dropDownItem.label}
-        >
-          {dropDownItem.label}
-        </DropDownItem>
-      ))}
-    </StyledDropDownMenu>
-  );
-};
-
- */
 
 const DropDownMenu = (props) => {
-  const { options } = props;
-  const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState("");
+  const { options, handleClick, isOpenOptions, onCloseOptions, handleSelect } =
+    props;
+  const [isOpen, setIsOpen] = useState(isOpenOptions);
+  //const [selectedOption, setSelectedOption] = useState("");
 
-  const handleOptionClick = (option) => {
-    setSelectedOption(option);
+  const handleOptionClick = (label) => {
     setIsOpen(false);
+
+    if (typeof handleClick === "function") {
+      handleClick();
+    }
+
+    if (typeof onCloseOptions === "function") {
+      onCloseOptions();
+    }
+
+    if (typeof handleSelect === "function") {
+      handleSelect(label);
+    }
   };
 
   return (
-    <StyledDropDownMenu>
-      <button onClick={() => setIsOpen(!isOpen)}>
-        {selectedOption || "Select an option"}
-      </button>
+    <>
       {isOpen && (
-        <StyledDropDownList>
-          {options.map((option) => (
+        <StyledDropDownMenu>
+          {options.map((dropDownitem) => (
             <DropDownItem
-              key={option.id}
-              onClick={() => handleOptionClick(option.label)}
-              isDisabled={option.isDisabled}
+              key={dropDownitem.id}
+              id={dropDownitem.id}
+              isDisabled={dropDownitem.isDisabled}
+              handleClick={() => handleOptionClick(dropDownitem.label)}
             >
-              {option.label}
+              {dropDownitem.label}
             </DropDownItem>
           ))}
-        </StyledDropDownList>
+        </StyledDropDownMenu>
       )}
-    </StyledDropDownMenu>
+    </>
   );
 };
 
