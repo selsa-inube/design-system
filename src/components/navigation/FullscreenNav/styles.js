@@ -25,6 +25,9 @@ const StyledFullscreenNav = styled.nav`
   background-color: ${colors.ref.palette.neutral.n10};
   padding: 0px 16px;
   z-index: 2;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
 
   & > div:nth-child(2) {
     & > div:nth-child(n + 2) {
@@ -54,7 +57,6 @@ const StyledSeparatorLine = styled.div`
 
 const StyledFooter = styled.footer`
   display: flex;
-  width: 100%;
   height: 100%;
   flex-direction: column;
   justify-content: flex-end;
