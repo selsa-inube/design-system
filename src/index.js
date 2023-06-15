@@ -27,6 +27,7 @@ export { Stack } from "./components/layouts/Stack";
 export { Breadcrumbs } from "./components/navigation/Breadcrumbs";
 export { Nav } from "./components/navigation/Nav";
 export { Tabs } from "./components/navigation/Tabs";
+export { Header } from "./components/navigation/Header";
 
 // utils
 export { Blanket } from "./components/utils/Blanket";
