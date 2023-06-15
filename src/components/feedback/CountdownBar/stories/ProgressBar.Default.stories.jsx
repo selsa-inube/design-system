@@ -1,7 +1,7 @@
 import React from "react";
 import { CountdownBar } from "../index";
 
-import { size, appearance, duration, handleCountdown } from "./props";
+import { size, appearance, duration, isPaused, handleCountdown } from "./props";
 
 const story = {
   title: "feedback/CountdownBar/Default",
@@ -24,6 +24,7 @@ Default.argTypes = {
   size,
   appearance,
   duration,
+  isPaused,
   handleCountdown,
 };
 
