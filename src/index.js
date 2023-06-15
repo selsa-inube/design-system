@@ -25,6 +25,7 @@ export { SkeletonIcon } from "./components/feedback/SkeletonIcon";
 export { Breadcrumbs } from "./components/navigation/Breadcrumbs";
 export { Tabs } from "./components/navigation/Tabs";
 export { Nav } from "./components/navigation/Nav";
+export { Header } from "./components/navigation/Header";
 
 //  hooks
 export { useMediaQuery } from "./hooks/useMediaQuery";

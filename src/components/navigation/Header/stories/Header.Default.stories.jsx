@@ -12,7 +12,7 @@ import {
 
 import { Header } from "..";
 
-import { navigation, logo, userOptions } from "./props";
+import { navigation, logo } from "./props";
 
 const story = {
   title: "navigation/Header/Default",
@@ -102,13 +102,11 @@ Default.args = {
       alt="Logo"
     />
   ),
-  userOptions: "",
 };
 
 Default.argTypes = {
   navigation,
   logo,
-  userOptions,
 };
 
 export default story;
