@@ -27,7 +27,7 @@ const LogoAndNav = (props) => {
           logoutPath={logoutPath}
         />
       )}
-      <div>{logo}</div>
+      {logo}
     </Stack>
   );
 };
