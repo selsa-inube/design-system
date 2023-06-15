@@ -20,8 +20,8 @@ const StyledCountdownBar = styled.div`
   ${({ isPaused }) =>
     isPaused &&
     `
-    &:hover {
-      animation-play-state: paused;
+      &:hover {
+        animation-play-state: paused;
   }`}
 `;
 
