@@ -46,6 +46,7 @@ CountdownBar.propTypes = {
   size: PropTypes.string,
   appearance: PropTypes.oneOf(appearances),
   duration: PropTypes.number,
+  isPaused: PropTypes.bool,
   handleCountdown: PropTypes.func,
 };
 
