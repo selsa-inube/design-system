@@ -107,7 +107,6 @@ const Nav = (props) => {
 };
 
 Nav.propTypes = {
-  title: PropTypes.string,
   navigation: PropTypes.object.isRequired,
   logoutPath: PropTypes.string.isRequired,
 };
