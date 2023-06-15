@@ -26,8 +26,16 @@ const duration = {
   },
 };
 
+const isPaused = {
+  control: { type: "boolean" },
+  description: "pause or start the animation",
+  table: {
+    defaultValue: { summary: false },
+  },
+};
+
 const handleCountdown = {
   description: "function to be executed when the progress bar reaches zero",
 };
 
-export { size, appearance, duration, handleCountdown };
+export { size, appearance, duration, isPaused, handleCountdown };

@@ -21,6 +21,7 @@ const CountdownBar = (props) => {
     size = defaultSize,
     appearance = defaultAppearance,
     duration = defaultDuration,
+    isPaused = false,
     handleCountdown,
   } = props;
 
@@ -35,6 +36,7 @@ const CountdownBar = (props) => {
       appearance={getCountdownBarColor(transformedAppearance)}
       size={transformedSize}
       duration={duration}
+      isPaused={isPaused}
       onAnimationEnd={handleCountdown}
     />
   );
