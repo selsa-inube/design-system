@@ -20,6 +20,7 @@ const DropDownItem = (props) => {
       isDisabled={isDisabled}
       onClick={() => handleOptionClick(children)}
       value={children}
+      onBlur={handleClick}
     >
       {children}
     </StyledDropDownItem>
