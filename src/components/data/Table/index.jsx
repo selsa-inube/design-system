@@ -104,7 +104,7 @@ Table.propTypes = {
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       actionName: PropTypes.string.isRequired,
-      content: PropTypes.node,
+      content: PropTypes.func,
       type: PropTypes.string,
     })
   ).isRequired,

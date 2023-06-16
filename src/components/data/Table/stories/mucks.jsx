@@ -29,7 +29,7 @@ const actionsMuck = [
   {
     id: "Activate",
     actionName: "Activate",
-    content: (
+    content: () => (
       <StyledContainerActions>
         <MdToggleOff />
       </StyledContainerActions>
@@ -39,7 +39,7 @@ const actionsMuck = [
   {
     id: "Edit",
     actionName: "Edit",
-    content: (
+    content: () => (
       <StyledContainerActions>
         <MdModeEdit />
       </StyledContainerActions>
@@ -49,7 +49,7 @@ const actionsMuck = [
   {
     id: "Deleten ",
     actionName: "Delete",
-    content: (
+    content: () => (
       <StyledContainerActions>
         <MdDelete />
       </StyledContainerActions>
