@@ -13,7 +13,7 @@ const Table = (props) => {
     entries,
     filter = "",
     pageLength = 10,
-    breakPoints,
+    breakpoints,
   } = props;
 
   const filteredEntries = useMemo(() => {
@@ -75,7 +75,7 @@ const Table = (props) => {
         titles={titles}
         actions={actions}
         entries={getPageEntries()}
-        breakPoints={breakPoints}
+        breakpoints={breakpoints}
       />
       {filteredEntries.length > pageLength && (
         <Pagination
@@ -111,9 +111,9 @@ Table.propTypes = {
   entries: PropTypes.arrayOf(PropTypes.shape({ id: PropTypes.string })),
   filte: PropTypes.string,
   pageLength: PropTypes.number,
-  breakPoints: PropTypes.arrayOf(
+  breakpoints: PropTypes.arrayOf(
     PropTypes.shape({
-      breakPoint: PropTypes.string.isRequired,
+      breakpoint: PropTypes.string.isRequired,
       totalColumns: PropTypes.number.isRequired,
     })
   ),

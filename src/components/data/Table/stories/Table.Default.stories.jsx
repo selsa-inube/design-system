@@ -7,7 +7,7 @@ import {
   titles,
   actions,
   entries,
-  breakPoints,
+  breakpoints,
   filter,
   pageLength,
 } from "./props";
@@ -54,14 +54,14 @@ Default.args = {
   ],
   filter: "",
   pageLength: 10,
-  breakPoints: breakPointsMuck,
+  breakpoints: breakPointsMuck,
 };
 
 Default.argTypes = {
   titles,
   actions,
   entries,
-  breakPoints,
+  breakpoints,
   filter,
   pageLength,
 };

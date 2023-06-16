@@ -25,8 +25,8 @@ function priorityColumns(titles, numColumns) {
   return titles.filter((title) => title.priority <= maxPriorityToDisplay);
 }
 
-function totalTitleColumns(titles, breakPoints, media) {
-  const numColumns = breakPoints[findCurrentMediaQuery(media)].totalColumns;
+function totalTitleColumns(titles, breakpoints, media) {
+  const numColumns = breakpoints[findCurrentMediaQuery(media)].totalColumns;
 
   if (numColumns >= titles.length) return titles;
 
@@ -68,19 +68,19 @@ function ShowAction(actionContent, entry, mediaQuery) {
 }
 
 const TableUI = (props) => {
-  const { titles, actions, entries, breakPoints } = props;
+  const { titles, actions, entries, breakpoints } = props;
   const mediaActionOpen = useMediaQuery("(max-width: 850px)");
 
   const queriesArray = useMemo(
-    () => breakPoints.map((breakpoint) => breakpoint.breakPoint),
-    [breakPoints]
+    () => breakpoints.map((breakpoint) => breakpoint.breakpoint),
+    [breakpoints]
   );
 
   const media = useMediaQueries(queriesArray);
 
   const TitleColumns = useMemo(
-    () => totalTitleColumns(titles, breakPoints, media),
-    [titles, breakPoints, media]
+    () => totalTitleColumns(titles, breakpoints, media),
+    [titles, breakpoints, media]
   );
 
   return (

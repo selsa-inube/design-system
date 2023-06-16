@@ -59,13 +59,13 @@ const actionsMuck = [
 ];
 
 const breakPointsMuck = [
-  { breakPoint: "(min-width: 1091px)", totalColumns: 4 },
-  { breakPoint: "(max-width: 1090px)", totalColumns: 3 },
-  { breakPoint: "(max-width: 980px)", totalColumns: 2 },
-  { breakPoint: "(max-width: 850px)", totalColumns: 4 },
-  { breakPoint: "(max-width: 680px)", totalColumns: 3 },
-  { breakPoint: "(max-width: 550px)", totalColumns: 2 },
-  { breakPoint: "(max-width: 360px)", totalColumns: 1 },
+  { breakpoint: "(min-width: 1091px)", totalColumns: 4 },
+  { breakpoint: "(max-width: 1090px)", totalColumns: 3 },
+  { breakpoint: "(max-width: 980px)", totalColumns: 2 },
+  { breakpoint: "(max-width: 850px)", totalColumns: 4 },
+  { breakpoint: "(max-width: 680px)", totalColumns: 3 },
+  { breakpoint: "(max-width: 550px)", totalColumns: 2 },
+  { breakpoint: "(max-width: 360px)", totalColumns: 1 },
 ];
 
 export { titlesMuck, actionsMuck, breakPointsMuck };
