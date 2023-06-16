@@ -13,6 +13,7 @@ const StyledBlanket = styled.div`
   background-color: ${colors.ref.palette.neutralAlpha.n100A};
   border: none;
   z-index: 1;
+  overflow: auto;
 `;
 
 export { StyledBlanket };

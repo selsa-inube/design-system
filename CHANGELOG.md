@@ -1,3 +1,26 @@
+# v4.2.0 (Thu Jun 15 2023)
+
+#### 🚀 Enhancement
+
+- Create `<Header/>` component [#171](https://github.com/selsa-inube/design-system/pull/171) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+
+#### 🐛 Bug Fix
+
+- Adjust the `<Blanket/>` to prevent content overflow when it is too large [#179](https://github.com/selsa-inube/design-system/pull/179) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- the 'title' attribute from the PropTypes of the `<Nav/>` component, as it is no longer requisite within that context [#178](https://github.com/selsa-inube/design-system/pull/178) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- Adjust the `<CountDownBar/>` to pause when the user's cursor hovers over it [#176](https://github.com/selsa-inube/design-system/pull/176) ([@Andresbl123](https://github.com/Andresbl123))
+- enable the export of the `<CountdownBar />` component to be used [#177](https://github.com/selsa-inube/design-system/pull/177) ([@Andresbl123](https://github.com/Andresbl123))
+- Adjust the `<FullscreenNav/>` to include a scroll function for when the screen becomes too small [#170](https://github.com/selsa-inube/design-system/pull/170) ([@Andresbl123](https://github.com/Andresbl123))
+- Release version 4.1.1 [#167](https://github.com/selsa-inube/design-system/pull/167) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 3
+
+- Andres ([@Andresbl123](https://github.com/Andresbl123))
+- cesar.marin (cmarin@sistemasenlinea.com.co)
+- cmarin ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v4.1.1 (Thu Jun 08 2023)
 
 #### 🐛 Bug Fix
