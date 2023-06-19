@@ -28,7 +28,7 @@ const DropDownMenu = (props) => {
   return (
     <>
       {isOpen && (
-        <StyledDropDownMenu onBlur={onCloseOptions}>
+        <StyledDropDownMenu>
           {options.map((dropDownitem) => (
             <DropDownItem
               key={dropDownitem.id}

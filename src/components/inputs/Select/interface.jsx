@@ -97,7 +97,6 @@ const SelectUI = (props) => {
   const [selectedOption, setSelectedOption] = useState(value);
 
   const handleOptionClick = (label) => {
-    console.log(label, "Andres label renderizado 1");
     setSelectedOption(label);
   };
 
@@ -150,7 +149,7 @@ const SelectUI = (props) => {
           value={selectedOption || value}
         />
         <StyledIcon isDisabled={isDisabled}>
-          <MdOutlineArrowDropDown />
+          <MdOutlineArrowDropDown onClick={onCloseOptions} />
         </StyledIcon>
       </StyledInputContainer>
 

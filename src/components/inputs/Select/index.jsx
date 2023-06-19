@@ -53,7 +53,7 @@ const Select = (props) => {
   };
 
   const handleCloseOptions = () => {
-    setOpen(false);
+    setOpen(!open);
   };
 
   const transformedIsDisabled =
