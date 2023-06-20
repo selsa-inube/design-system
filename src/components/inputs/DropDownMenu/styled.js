@@ -12,9 +12,3 @@ const StyledDropDownMenu = styled.ul`
 `;
 
 export { StyledDropDownMenu };
-
-/* 
- <StyledDropDownButton onClick={() => setIsOpen(!isOpen)}>
-        {selectedOption || "Select an option"}
-      </StyledDropDownButton>
-*/

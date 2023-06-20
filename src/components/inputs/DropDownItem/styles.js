@@ -17,6 +17,9 @@ const StyledDropDownItem = styled.li`
   font-weight: ${typography.sys.typescale.bodyMedium.weight};
   line-height: ${typography.sys.typescale.bodyMedium.lineHeight};
   letter-spacing: ${typography.sys.typescale.bodyMedium.tracking};
+  color: ${({ isDisabled }) => isDisabled && colors.ref.palette.neutral.n70};
+  cursor: ${({ isDisabled }) => (!isDisabled ? "pointer" : "not-allowed")};
+  pointer-events: ${({ isDisabled }) => isDisabled && "none"};
 
   &:hover {
     background-color: ${colors.ref.palette.neutral.n30};

@@ -171,7 +171,7 @@ const SelectUI = forwardRef((props, ref) => {
           validMessage={validMessage}
         />
       )}
-      {openOptions && (
+      {openOptions && !isDisabled && (
         <DropDownMenu
           options={options}
           isOpenOptions={openOptions}
