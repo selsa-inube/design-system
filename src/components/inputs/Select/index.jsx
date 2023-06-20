@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 import { SelectUI } from "./interface";
 
@@ -34,6 +34,8 @@ const Select = (props) => {
   const [isFocused, setIsFocused] = useState(false);
   const [open, setOpen] = useState(false);
 
+  const selectRef = useRef(null);
+
   const interceptFocus = (e) => {
     if (!readOnly) {
       setIsFocused(true);
@@ -46,7 +48,6 @@ const Select = (props) => {
 
   const interceptBlur = (e) => {
     setIsFocused(false);
-
     if (typeof handleBlur === "function") {
       handleBlur(e);
     }
@@ -55,6 +56,20 @@ const Select = (props) => {
   const handleCloseOptions = () => {
     setOpen(!open);
   };
+
+  const handleClickOutside = (event) => {
+    if (selectRef.current && !selectRef.current.contains(event.target)) {
+      setOpen(false);
+    }
+  };
+
+  React.useEffect(() => {
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
 
   const transformedIsDisabled =
     typeof isDisabled === "boolean" ? isDisabled : defaultIsDisabled;
@@ -90,6 +105,7 @@ const Select = (props) => {
       options={options}
       openOptions={open}
       onCloseOptions={handleCloseOptions}
+      ref={selectRef}
     />
   );
 };

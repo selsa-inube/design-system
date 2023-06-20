@@ -19,7 +19,6 @@ const DropDownItem = (props) => {
       id={id}
       isDisabled={isDisabled}
       onClick={() => handleOptionClick(children)}
-      value={children}
       onBlur={handleClick}
     >
       {children}

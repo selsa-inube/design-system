@@ -7,7 +7,6 @@ const DropDownMenu = (props) => {
   const { options, handleClick, isOpenOptions, onCloseOptions, handleSelect } =
     props;
   const [isOpen, setIsOpen] = useState(isOpenOptions);
-  //const [selectedOption, setSelectedOption] = useState("");
 
   const handleOptionClick = (label) => {
     setIsOpen(false);

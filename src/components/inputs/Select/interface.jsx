@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, forwardRef } from "react";
 import {
   MdOutlineError,
   MdCheckCircle,
@@ -70,7 +70,7 @@ const Success = (props) => {
   );
 };
 
-const SelectUI = (props) => {
+const SelectUI = forwardRef((props, ref) => {
   const {
     label,
     name,
@@ -103,7 +103,11 @@ const SelectUI = (props) => {
   const transformedIsInvalid = state === "invalid" ? true : false;
 
   return (
-    <StyledContainer isFullWidth={isFullWidth} isDisabled={isDisabled}>
+    <StyledContainer
+      isFullWidth={isFullWidth}
+      isDisabled={isDisabled}
+      ref={ref}
+    >
       <StyledContainerLabel
         alignItems="center"
         wrap="wrap"
@@ -178,6 +182,6 @@ const SelectUI = (props) => {
       )}
     </StyledContainer>
   );
-};
+});
 
 export { SelectUI };
