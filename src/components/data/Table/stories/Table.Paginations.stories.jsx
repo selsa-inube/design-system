@@ -7,7 +7,7 @@ import {
   titles,
   actions,
   entries,
-  breakPoints,
+  breakpoints,
   filter,
   pageLength,
 } from "./props";
@@ -236,7 +236,7 @@ Paginations.args = {
   ],
   filter: "",
   pageLength: 10,
-  breakPoints: breakPointsMuck,
+  breakpoints: breakPointsMuck,
 };
 
 Paginations.argTypes = {
@@ -245,7 +245,7 @@ Paginations.argTypes = {
   entries,
   filter,
   pageLength,
-  breakPoints,
+  breakpoints,
 };
 
 export default story;
