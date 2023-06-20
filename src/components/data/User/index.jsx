@@ -41,7 +41,7 @@ const User = (props) => {
 
 User.propTypes = {
   userName: PropTypes.string.isRequired,
-  businessUnit: PropTypes.string.isRequired,
+  businessUnit: PropTypes.string,
   size: PropTypes.oneOf(sizes),
 };
 
