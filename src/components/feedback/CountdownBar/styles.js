@@ -16,13 +16,7 @@ const StyledCountdownBar = styled.div`
   animation: ${CountdownBarAnimation} ${(props) => props.duration}ms linear;
   background-color: ${(props) => props.appearance};
   animation-fill-mode: forwards;
-
-  ${({ isPaused }) =>
-    isPaused &&
-    `
-      &:hover {
-        animation-play-state: paused;
-  }`}
+  animation-play-state: ${(props) => (props.isPaused ? "paused" : "running")};
 `;
 
 export { StyledCountdownBar };
