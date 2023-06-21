@@ -51,11 +51,11 @@ const entries = {
   },
 };
 
-const breakPoints = {
+const breakpoints = {
   description:
     "(Array[objects]): shall be designed to accept an array of objects with a predetermined structure and it'll be the breakPoints used for the table's responsive, as specified below: Each object shall contain the following attributes",
 
-  breakPoint: {
+  breakpoint: {
     description:
       "The width specified shall determine the extent to which the hook modifies the columns that are to be displayed on the table.",
   },
@@ -80,7 +80,7 @@ export {
   titles,
   actions,
   entries,
-  breakPoints,
+  breakpoints,
   filter,
   pageLength,
 };
