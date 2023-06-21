@@ -14,10 +14,9 @@ const SelectController = (props) => {
   };
 
   const handleFocus = () => {
-    if (form.state === "invalid") {
-      return setForm({ ...form, state: "invalid" });
+    if (!value) {
+      setForm({ ...form, state: "pending" });
     }
-    setForm({ ...form, state: "pending" });
   };
 
   const handleBlur = (e) => {
