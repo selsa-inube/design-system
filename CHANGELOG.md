@@ -1,3 +1,24 @@
+# v4.2.1 (Wed Jun 21 2023)
+
+#### 🐛 Bug Fix
+
+- Adjust `<Header/>` component to eliminate any embedded static code [#190](https://github.com/selsa-inube/design-system/pull/190) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- Adjust `<CountDownBar/>` in order to manage the isPause property with other aproach [#184](https://github.com/selsa-inube/design-system/pull/184) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- Adjust the <Table/>. Currently, it is throwing an error when we try to implement the actions [#185](https://github.com/selsa-inube/design-system/pull/185) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- Adjust the `<Blanket/>` to prevent content overflow when it is too large [#179](https://github.com/selsa-inube/design-system/pull/179) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- the 'title' attribute from the PropTypes of the `<Nav/>` component, as it is no longer requisite within that context [#178](https://github.com/selsa-inube/design-system/pull/178) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+
+#### 📝 Documentation
+
+- Release new version 4.2.0 [#181](https://github.com/selsa-inube/design-system/pull/181) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 2
+
+- cesar.marin (cmarin@sistemasenlinea.com.co)
+- cmarin ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v4.2.0 (Thu Jun 15 2023)
 
 #### 🚀 Enhancement
