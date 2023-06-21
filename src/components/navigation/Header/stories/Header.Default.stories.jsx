@@ -108,6 +108,7 @@ Default.args = {
   logo: <Logo />,
   userName: "Leonardo Garzón",
   businessUnit: "Sistemas Enlínea S.A",
+  isBusinessUnit: true,
 };
 
 Default.argTypes = {
