@@ -1,6 +1,7 @@
-import { InteractiveModal } from "@components/feedback/InteractiveModal";
+import { InteractiveModal } from "../../../feedback/InteractiveModal";
 import { useState } from "react";
 import { MdOpenInNew } from "react-icons/md";
+import PropTypes from "prop-types";
 
 function DisplayEntry(props) {
   const { entry, actions, title, titleLabels } = props;
@@ -16,6 +17,7 @@ function DisplayEntry(props) {
       <MdOpenInNew onClick={handleToggleModal} />
       {showModal && (
         <InteractiveModal
+          portalId="portals"
           title={title}
           closeModal={handleToggleModal}
           infoData={entry}
@@ -26,5 +28,12 @@ function DisplayEntry(props) {
     </>
   );
 }
+
+DisplayEntry.propTypes = {
+  entry: PropTypes.object.isRequired,
+  actions: PropTypes.array.isRequired,
+  title: PropTypes.string.isRequired,
+  titleLabels: PropTypes.array.isRequired,
+};
 
 export { DisplayEntry };

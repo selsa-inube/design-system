@@ -1,6 +1,5 @@
 import React, { useMemo } from "react";
-import { MdOpenInNew } from "react-icons/md";
-
+import { DisplayEntry } from "./DisplayEntry";
 import {
   StyledTable,
   StyledThead,
@@ -51,7 +50,7 @@ function showActionTitle(actionTitle, mediaQuery) {
   );
 }
 
-function ShowAction(actionContent, entry, mediaQuery) {
+function ShowAction(actionContent, entry, mediaQuery, modalTitle, titleLabels) {
   return !mediaQuery ? (
     <>
       {actionContent.map((action) => (
@@ -62,13 +61,18 @@ function ShowAction(actionContent, entry, mediaQuery) {
     </>
   ) : (
     <StyledTd>
-      <MdOpenInNew />
+      <DisplayEntry
+        entry={entry}
+        title={modalTitle}
+        actions={actionContent}
+        titleLabels={titleLabels}
+      />
     </StyledTd>
   );
 }
 
 const TableUI = (props) => {
-  const { titles, actions, entries, breakpoints } = props;
+  const { titles, actions, entries, breakpoints, modalTitle } = props;
   const mediaActionOpen = useMediaQuery("(max-width: 850px)");
 
   const queriesArray = useMemo(
@@ -109,7 +113,7 @@ const TableUI = (props) => {
                 <Text typo="bodySmall">{entry[title.id]}</Text>
               </StyledTd>
             ))}
-            {ShowAction(actions, entry, mediaActionOpen)}
+            {ShowAction(actions, entry, mediaActionOpen, modalTitle, titles)}
           </StyledTr>
         ))}
       </StyledTbody>
