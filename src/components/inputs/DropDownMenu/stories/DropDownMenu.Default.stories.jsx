@@ -9,9 +9,9 @@ const story = {
 const Default = (args) => <DropDownMenu {...args} />;
 Default.args = {
   options: [
-    { id: 1, label: "Item 1", isDisabled: true },
-    { id: 2, label: "Item 2", isDisabled: false },
-    { id: 3, label: "Item 3", isDisabled: false },
+    { id: "1", label: "Item 1", isDisabled: true },
+    { id: "2", label: "Item 2", isDisabled: false },
+    { id: "3", label: "Item 3", isDisabled: false },
   ],
   isOpenOptions: true,
 };

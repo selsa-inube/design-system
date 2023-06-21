@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 
 import { StyledDropDownMenu } from "./styled";
 import { DropDownItem } from "../DropDownItem/index";
@@ -42,6 +43,20 @@ const DropDownMenu = (props) => {
       )}
     </>
   );
+};
+
+DropDownMenu.propTypes = {
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      label: PropTypes.string,
+      isDisabled: PropTypes.bool,
+    })
+  ),
+  handleClick: PropTypes.func,
+  isOpenOptions: PropTypes.bool,
+  onCloseOptions: PropTypes.func,
+  handleSelect: PropTypes.func,
 };
 
 export { DropDownMenu };

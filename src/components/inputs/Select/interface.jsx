@@ -92,12 +92,13 @@ const SelectUI = forwardRef((props, ref) => {
     openOptions,
     value,
     onCloseOptions,
+    handleInput,
   } = props;
 
   const [selectedOption, setSelectedOption] = useState(value);
 
-  const handleOptionClick = (label) => {
-    setSelectedOption(label);
+  const handleOptionClick = (valueOption) => {
+    setSelectedOption(valueOption);
   };
 
   const transformedIsInvalid = state === "invalid" ? true : false;
@@ -151,6 +152,7 @@ const SelectUI = forwardRef((props, ref) => {
           onBlur={handleBlur}
           readOnly={readOnly}
           value={selectedOption || value}
+          onInput={handleInput}
         />
         <StyledIcon isDisabled={isDisabled}>
           <MdOutlineArrowDropDown onClick={onCloseOptions} />

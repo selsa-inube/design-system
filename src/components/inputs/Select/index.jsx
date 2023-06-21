@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import PropTypes from "prop-types";
 
 import { SelectUI } from "./interface";
 
@@ -29,6 +30,7 @@ const Select = (props) => {
     handleBlur,
     readOnly,
     options,
+    handleInput,
   } = props;
 
   const [isFocused, setIsFocused] = useState(false);
@@ -106,8 +108,35 @@ const Select = (props) => {
       openOptions={open}
       onCloseOptions={handleCloseOptions}
       ref={selectRef}
+      handleInput={handleInput}
     />
   );
+};
+
+Select.propTypes = {
+  label: PropTypes.string,
+  name: PropTypes.string,
+  id: PropTypes.string,
+  placeholder: PropTypes.string,
+  isDisabled: PropTypes.bool,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  handleChange: PropTypes.func,
+  isRequired: PropTypes.bool,
+  state: PropTypes.oneOf(states),
+  errorMessage: PropTypes.string,
+  validMessage: PropTypes.string,
+  size: PropTypes.oneOf(["wide", "full"]),
+  isFullWidth: PropTypes.bool,
+  handleFocus: PropTypes.func,
+  handleBlur: PropTypes.func,
+  readOnly: PropTypes.bool,
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      label: PropTypes.string,
+      isDisabled: PropTypes.bool,
+    })
+  ).isRequired,
 };
 
 export { Select };

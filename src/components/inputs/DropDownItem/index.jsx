@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import { StyledDropDownItem } from "./styles";
 
@@ -24,6 +25,14 @@ const DropDownItem = (props) => {
       {children}
     </StyledDropDownItem>
   );
+};
+
+DropDownItem.propTypes = {
+  id: PropTypes.string,
+  isDisabled: PropTypes.bool,
+  children: PropTypes.string,
+  handleClick: PropTypes.func,
+  handleSelect: PropTypes.func,
 };
 
 export { DropDownItem };

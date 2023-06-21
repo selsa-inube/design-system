@@ -16,11 +16,13 @@ Default.args = {
   placeholder: "Placeholder",
   isDisabled: false,
   options: [
-    { id: 1, label: "Item 1", isDisabled: true },
-    { id: 2, label: "123", isDisabled: false },
-    { id: 3, label: "Item", isDisabled: false },
+    { id: "1", label: "Item 1", isDisabled: false },
+    { id: "2", label: "123", isDisabled: false },
+    { id: "3", label: "Item", isDisabled: false },
   ],
-  value: "andres",
+
+  isRequired: true,
+  errorMessage: "This field can not be blank",
 };
 
 export default story;

@@ -102,7 +102,7 @@ const TextField = (props) => {
   );
 };
 
-TextFieldUI.propTypes = {
+TextField.propTypes = {
   label: PropTypes.string,
   name: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,

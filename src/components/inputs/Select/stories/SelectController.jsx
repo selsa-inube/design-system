@@ -19,7 +19,8 @@ const SelectController = (props) => {
     }
   };
 
-  const handleBlur = (e) => {
+  const handleInput = (e) => {
+    console.log("entra");
     const isValid = isAlphabetical(e.target.value);
     setForm({ ...form, state: isValid ? "valid" : "invalid" });
   };
@@ -31,7 +32,7 @@ const SelectController = (props) => {
       handleChange={handleChange}
       state={form.state}
       handleFocus={handleFocus}
-      handleBlur={handleBlur}
+      handleInput={handleInput}
     />
   );
 };
