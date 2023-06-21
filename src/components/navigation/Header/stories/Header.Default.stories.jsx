@@ -12,7 +12,14 @@ import {
 
 import { Header } from "..";
 
-import { navigation, logo } from "./props";
+import {
+  portalId,
+  navigation,
+  logo,
+  logoutPath,
+  userName,
+  businessUnit,
+} from "./props";
 import { Logo } from "./logo";
 
 const story = {
@@ -98,11 +105,17 @@ Default.args = {
   },
   logoutPath: "/logout",
   logo: <Logo />,
+  userName: "Leonardo Garzón",
+  businessUnit: "Sistemas Enlínea S.A",
 };
 
 Default.argTypes = {
+  portalId,
   navigation,
   logo,
+  logoutPath,
+  userName,
+  businessUnit,
 };
 
 export default story;

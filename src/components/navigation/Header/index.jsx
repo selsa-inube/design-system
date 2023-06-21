@@ -33,7 +33,8 @@ const LogoAndNav = (props) => {
 };
 
 const Header = (props) => {
-  const { portalId, navigation, logoutPath, logo } = props;
+  const { portalId, navigation, logoutPath, logo, userName, businessUnit } =
+    props;
   const matches = useMediaQueries([SMALL_SCREEN, MEDIUM_SCREEN, LARGE_SCREEN]);
   const shouldDisplayLogoAndNav =
     !matches[LARGE_SCREEN] && shouldDisplayNav(matches);
@@ -48,8 +49,8 @@ const Header = (props) => {
         shouldDisplay={shouldDisplayLogoAndNav}
       />
       <User
-        userName="Leonardo Garzón"
-        businessUnit="Sistemas Enlínea S.A"
+        userName={userName}
+        businessUnit={businessUnit}
         size={getScreenSize(matches)}
       />
     </StyledHeader>
@@ -61,6 +62,8 @@ Header.propTypes = {
   navigation: PropTypes.object.isRequired,
   logo: PropTypes.node.isRequired,
   logoutPath: PropTypes.string.isRequired,
+  userName: PropTypes.string.isRequired,
+  businessUnit: PropTypes.string.isRequired,
 };
 
 export { Header };
