@@ -96,7 +96,6 @@ const SelectUI = forwardRef((props, ref) => {
   } = props;
 
   const [selectedOption, setSelectedOption] = useState(value);
-
   const handleOptionClick = (valueOption) => {
     setSelectedOption(valueOption);
   };
@@ -142,7 +141,7 @@ const SelectUI = forwardRef((props, ref) => {
           id={id}
           placeholder={placeholder}
           isDisabled={isDisabled}
-          isRequired={isRequired}
+          required={isRequired}
           size={size}
           state={state}
           isFullWidth={isFullWidth}

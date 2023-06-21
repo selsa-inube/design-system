@@ -20,7 +20,6 @@ const SelectController = (props) => {
   };
 
   const handleInput = (e) => {
-    console.log("entra");
     const isValid = isAlphabetical(e.target.value);
     setForm({ ...form, state: isValid ? "valid" : "invalid" });
   };
