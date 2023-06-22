@@ -8,7 +8,7 @@ const SelectController = (props) => {
   const handleChange = (e) => {
     setForm({ value: e.target.value, state: "pending" });
   };
-  /*
+
   const handleFocus = () => {
     if (!value) {
       setForm({ ...form, state: "pending" });
@@ -16,11 +16,11 @@ const SelectController = (props) => {
   };
 
   const handleblur = (e) => {
-    if (e.target.value.length > 3) {
+    if (e.target.value === "") {
       setForm({ ...form, state: "invalid" });
       return;
     }
-  }; */
+  };
 
   return (
     <Select
@@ -28,6 +28,8 @@ const SelectController = (props) => {
       value={form.value}
       state={form.state}
       handleChange={handleChange}
+      handleFocus={handleFocus}
+      handleBlur={handleblur}
     />
   );
 };

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import PropTypes from "prop-types";
 
 import { StyledDropDownItem } from "./styles";
@@ -13,7 +13,11 @@ const DropDownItem = (props) => {
     handleSelect,
   } = props;
 
+  const [select, setSelect] = useState(isSelected);
+  const itemRef = useRef(null);
+
   const handleOptionClick = (label) => {
+    setSelect(true);
     if (typeof handleClick === "function") {
       handleClick();
     }
@@ -22,13 +26,20 @@ const DropDownItem = (props) => {
     }
   };
 
+  const offSelected = () => {
+    console.log("entra");
+    setSelect(false);
+  };
+
   return (
     <StyledDropDownItem
       id={id}
       isDisabled={isDisabled}
-      isSelected={isSelected}
+      isSelected={select}
       onClick={() => handleOptionClick(children)}
-      onBlur={handleClick}
+      ref={itemRef}
+      onBlur={offSelected}
+      tabIndex={0}
     >
       {children}
     </StyledDropDownItem>
