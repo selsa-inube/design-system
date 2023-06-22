@@ -5,7 +5,7 @@ import {
   MdOutlineShortcut,
 } from "react-icons/md";
 import { InteractiveModal } from "../index";
-import { BrowserRouter } from "react-router-dom";
+
 import {
   portalId,
   title,
@@ -21,9 +21,7 @@ const story = {
   decorators: [
     (Story) => (
       <div style={{ margin: "3em" }}>
-        <BrowserRouter>
-          <Story />
-        </BrowserRouter>
+        <Story />
       </div>
     ),
   ],

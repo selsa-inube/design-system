@@ -1,6 +1,5 @@
 import { action } from "@storybook/addon-actions";
 import { InteractiveModal } from "../index";
-import { BrowserRouter } from "react-router-dom";
 import { portalId, title, closeModal, infoData, labels } from "./props";
 const story = {
   title: "feedback/InteractiveModal/WithLabels",
@@ -8,9 +7,7 @@ const story = {
   decorators: [
     (Story) => (
       <div style={{ margin: "3em" }}>
-        <BrowserRouter>
-          <Story />
-        </BrowserRouter>
+        <Story />
       </div>
     ),
   ],
