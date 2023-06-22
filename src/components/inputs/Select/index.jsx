@@ -37,7 +37,7 @@ const Select = (props) => {
   const [open, setOpen] = useState(false);
 
   const selectRef = useRef(null);
-
+  console.log(isRequired, "isRequired");
   const interceptFocus = (e) => {
     setIsFocused(true);
 
