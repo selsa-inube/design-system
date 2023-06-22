@@ -75,6 +75,16 @@ const pageLength = {
     "(number), shall be the number of the entries that will be displayed on the table",
 };
 
+const infoTitle = {
+  control: { type: "text" },
+  description: "custom title for information that displays in modal",
+};
+
+const actionsTitle = {
+  control: { type: "text" },
+  description: "custom title for actions that displays in modal",
+};
+
 export {
   parameters,
   titles,
@@ -83,4 +93,6 @@ export {
   breakpoints,
   filter,
   pageLength,
+  infoTitle,
+  actionsTitle,
 };

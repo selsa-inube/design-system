@@ -10,6 +10,8 @@ import {
   breakpoints,
   filter,
   pageLength,
+  infoTitle,
+  actionsTitle,
 } from "./props";
 
 const story = {
@@ -55,6 +57,9 @@ Default.args = {
   filter: "",
   pageLength: 10,
   breakpoints: breakPointsMuck,
+  modalTitle: "Formulario",
+  infoTitle: "Informacion",
+  actionsTitle: "Acciones",
 };
 
 Default.argTypes = {
@@ -64,6 +69,8 @@ Default.argTypes = {
   breakpoints,
   filter,
   pageLength,
+  infoTitle,
+  actionsTitle,
 };
 
 export default story;

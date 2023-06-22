@@ -50,7 +50,15 @@ function showActionTitle(actionTitle, mediaQuery) {
   );
 }
 
-function ShowAction(actionContent, entry, mediaQuery, modalTitle, titleLabels) {
+function ShowAction(
+  actionContent,
+  entry,
+  mediaQuery,
+  modalTitle,
+  titleLabels,
+  infoTitle,
+  actionsTitle
+) {
   return !mediaQuery ? (
     <>
       {actionContent.map((action) => (
@@ -66,13 +74,24 @@ function ShowAction(actionContent, entry, mediaQuery, modalTitle, titleLabels) {
         title={modalTitle}
         actions={actionContent}
         titleLabels={titleLabels}
+        infoTitle={infoTitle}
+        actionsTitle={actionsTitle}
       />
     </StyledTd>
   );
 }
 
 const TableUI = (props) => {
-  const { titles, actions, entries, breakpoints, modalTitle } = props;
+  const {
+    titles,
+    actions,
+    entries,
+    breakpoints,
+    modalTitle,
+    infoTitle,
+    actionsTitle,
+  } = props;
+
   const mediaActionOpen = useMediaQuery("(max-width: 850px)");
 
   const queriesArray = useMemo(
@@ -113,7 +132,15 @@ const TableUI = (props) => {
                 <Text typo="bodySmall">{entry[title.id]}</Text>
               </StyledTd>
             ))}
-            {ShowAction(actions, entry, mediaActionOpen, modalTitle, titles)}
+            {ShowAction(
+              actions,
+              entry,
+              mediaActionOpen,
+              modalTitle,
+              titles,
+              infoTitle,
+              actionsTitle
+            )}
           </StyledTr>
         ))}
       </StyledTbody>

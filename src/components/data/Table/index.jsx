@@ -15,6 +15,8 @@ const Table = (props) => {
     pageLength = 10,
     breakpoints,
     modalTitle,
+    infoTitle,
+    actionsTitle,
   } = props;
 
   const filteredEntries = useMemo(() => {
@@ -78,6 +80,8 @@ const Table = (props) => {
         entries={getPageEntries()}
         breakpoints={breakpoints}
         modalTitle={modalTitle}
+        infoTitle={infoTitle}
+        actionsTitle={actionsTitle}
       />
       {filteredEntries.length > pageLength && (
         <Pagination

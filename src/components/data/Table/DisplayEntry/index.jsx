@@ -4,8 +4,7 @@ import { MdOpenInNew } from "react-icons/md";
 import PropTypes from "prop-types";
 
 function DisplayEntry(props) {
-  const { entry, actions, title, titleLabels } = props;
-
+  const { entry, actions, title, titleLabels, infoTitle, actionsTitle } = props;
   const [showModal, setShowModal] = useState(false);
 
   const handleToggleModal = () => {
@@ -23,6 +22,8 @@ function DisplayEntry(props) {
           infoData={entry}
           actions={actions}
           labels={titleLabels}
+          infoTitle={infoTitle}
+          actionsTitle={actionsTitle}
         />
       )}
     </>
