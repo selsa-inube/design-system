@@ -124,7 +124,7 @@ Select.propTypes = {
   state: PropTypes.oneOf(states),
   errorMessage: PropTypes.string,
   validMessage: PropTypes.string,
-  size: PropTypes.oneOf(["wide", "compact"]),
+  size: PropTypes.oneOf(sizes),
   isFullWidth: PropTypes.bool,
   handleFocus: PropTypes.func,
   handleBlur: PropTypes.func,
@@ -138,4 +138,4 @@ Select.propTypes = {
   ).isRequired,
 };
 
-export { Select };
+export { Select, states, sizes };

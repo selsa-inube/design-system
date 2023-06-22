@@ -27,7 +27,6 @@ const DropDownItem = (props) => {
   };
 
   const offSelected = () => {
-    console.log("entra");
     setSelect(false);
   };
 
