@@ -1,6 +1,15 @@
 import { action } from "@storybook/addon-actions";
 import { InteractiveModal } from "../index";
-import { portalId, title, closeModal, infoData, labels } from "./props";
+import {
+  portalId,
+  title,
+  closeModal,
+  infoData,
+  labels,
+  infoTitle,
+  actionsTitle,
+} from "./props";
+
 const story = {
   title: "feedback/InteractiveModal/WithLabels",
   components: [InteractiveModal],
@@ -63,6 +72,8 @@ WithLabels.args = {
   closeModal: closeInteractiveModal,
   infoData: data,
   labels: labelsArray,
+  infoTitle: "Información",
+  actionsTitle: "Acciones",
 };
 
 WithLabels.argTypes = {
@@ -71,6 +82,8 @@ WithLabels.argTypes = {
   closeModal,
   infoData,
   labels,
+  infoTitle,
+  actionsTitle,
 };
 
 export default story;

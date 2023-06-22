@@ -10,7 +10,16 @@ import { MdClear } from "react-icons/md";
 import { StyledActionContainer, StyledModal } from "./styles";
 
 const InteractiveModal = (props) => {
-  const { portalId, title, closeModal, infoData, actions, labels } = props;
+  const {
+    portalId,
+    title,
+    closeModal,
+    infoData,
+    actions,
+    labels,
+    infoTitle,
+    actionsTitle,
+  } = props;
 
   const smallScreen = useMediaQuery("(max-width: 580px)");
 
@@ -35,7 +44,7 @@ const InteractiveModal = (props) => {
               <Text typo="headlineSmall">{title}</Text>
               <MdClear size={24} cursor="pointer" onClick={closeModal} />
             </Stack>
-            {hasActions && <Text typo="titleMedium">Información</Text>}
+            {hasActions && <Text typo="titleMedium">{infoTitle}</Text>}
             {hasLabels
               ? labels.map(
                   (field, id) =>
@@ -71,7 +80,7 @@ const InteractiveModal = (props) => {
           </Stack>
           {hasActions && (
             <Stack direction="column" gap="16px">
-              <Text typo="titleMedium">Acciones</Text>
+              <Text typo="titleMedium">{actionsTitle}</Text>
               {actions.map((action) => (
                 <Stack key={action.id} gap="10px">
                   <StyledActionContainer>
@@ -100,6 +109,8 @@ InteractiveModal.propTypes = {
   infoData: PropTypes.object.isRequired,
   actions: PropTypes.array,
   labels: PropTypes.array,
+  infoTitle: PropTypes.string,
+  actionsTitle: PropTypes.string,
 };
 
 export { InteractiveModal };

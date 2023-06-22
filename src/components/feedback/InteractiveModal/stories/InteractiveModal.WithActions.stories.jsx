@@ -13,6 +13,8 @@ import {
   infoData,
   actions,
   labels,
+  infoTitle,
+  actionsTitle,
 } from "./props";
 
 const story = {
@@ -99,6 +101,8 @@ WithActions.args = {
   infoData: data,
   actions: actionsArray,
   labels: labelsArray,
+  infoTitle: "Información",
+  actionsTitle: "Acciones",
 };
 WithActions.argTypes = {
   portalId,
@@ -107,6 +111,8 @@ WithActions.argTypes = {
   infoData,
   actions,
   labels,
+  infoTitle,
+  actionsTitle,
 };
 
 export default story;

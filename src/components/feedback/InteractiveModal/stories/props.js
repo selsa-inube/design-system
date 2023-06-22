@@ -28,4 +28,23 @@ const labels = {
   description: "custom labels for the interactive modal",
 };
 
-export { portalId, title, closeModal, infoData, actions, labels };
+const infoTitle = {
+  control: { type: "text" },
+  description: "custom title for information that displays in modal",
+};
+
+const actionsTitle = {
+  control: { type: "text" },
+  description: "custom title for actions that displays in modal",
+};
+
+export {
+  portalId,
+  title,
+  closeModal,
+  infoData,
+  actions,
+  labels,
+  infoTitle,
+  actionsTitle,
+};

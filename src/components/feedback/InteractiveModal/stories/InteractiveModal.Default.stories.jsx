@@ -1,7 +1,14 @@
 import { action } from "@storybook/addon-actions";
 import { InteractiveModal } from "../index";
 
-import { portalId, title, closeModal, infoData } from "./props";
+import {
+  portalId,
+  title,
+  closeModal,
+  infoData,
+  infoTitle,
+  actionsTitle,
+} from "./props";
 const story = {
   title: "feedback/InteractiveModal/Default",
   components: [InteractiveModal],
@@ -35,12 +42,16 @@ Default.args = {
   title: "User Information",
   closeModal: closeInteractiveModal,
   infoData: data,
+  infoTitle: "Información",
+  actionsTitle: "Acciones",
 };
 Default.argTypes = {
   portalId,
   title,
   closeModal,
   infoData,
+  infoTitle,
+  actionsTitle,
 };
 
 export default story;
