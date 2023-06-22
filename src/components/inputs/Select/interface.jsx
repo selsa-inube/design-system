@@ -87,12 +87,10 @@ const SelectUI = forwardRef((props, ref) => {
     isFocused,
     handleFocus,
     handleBlur,
-    readOnly,
     options,
     openOptions,
     value,
     onCloseOptions,
-    handleInput,
   } = props;
 
   const [selectedOption, setSelectedOption] = useState(value);
