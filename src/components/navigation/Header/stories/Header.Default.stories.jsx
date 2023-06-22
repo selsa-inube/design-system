@@ -19,6 +19,7 @@ import {
   logoutPath,
   userName,
   businessUnit,
+  isBusinessUnit,
 } from "./props";
 import { Logo } from "./logo";
 
@@ -107,6 +108,7 @@ Default.args = {
   logo: <Logo />,
   userName: "Leonardo Garzón",
   businessUnit: "Sistemas Enlínea S.A",
+  isBusinessUnit: true,
 };
 
 Default.argTypes = {
@@ -116,6 +118,7 @@ Default.argTypes = {
   logoutPath,
   userName,
   businessUnit,
+  isBusinessUnit,
 };
 
 export default story;
