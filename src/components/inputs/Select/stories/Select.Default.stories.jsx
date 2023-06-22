@@ -21,7 +21,7 @@ Default.args = {
     { id: "3", label: "Item", isDisabled: false },
   ],
 
-  isRequired: true,
+  isRequired: false,
   errorMessage: "This field can not be blank",
 };
 

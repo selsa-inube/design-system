@@ -4,7 +4,14 @@ import PropTypes from "prop-types";
 import { StyledDropDownItem } from "./styles";
 
 const DropDownItem = (props) => {
-  const { id, isDisabled, children, handleClick, handleSelect } = props;
+  const {
+    id,
+    isDisabled,
+    isSelected = false,
+    children,
+    handleClick,
+    handleSelect,
+  } = props;
 
   const handleOptionClick = (label) => {
     if (typeof handleClick === "function") {
@@ -19,6 +26,7 @@ const DropDownItem = (props) => {
     <StyledDropDownItem
       id={id}
       isDisabled={isDisabled}
+      isSelected={isSelected}
       onClick={() => handleOptionClick(children)}
       onBlur={handleClick}
     >

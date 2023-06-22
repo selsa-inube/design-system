@@ -136,6 +136,8 @@ const SelectUI = forwardRef((props, ref) => {
       >
         <StyledInput
           autoComplete="off"
+          readOnly={true}
+          value={selectedOption || value}
           label={label}
           name={name}
           id={id}
@@ -149,9 +151,7 @@ const SelectUI = forwardRef((props, ref) => {
           onChange={handleChange}
           onFocus={handleFocus}
           onBlur={handleBlur}
-          readOnly={readOnly}
-          value={selectedOption || value}
-          onInput={handleInput}
+          onClick={onCloseOptions}
         />
         <StyledIcon isDisabled={isDisabled}>
           <MdOutlineArrowDropDown onClick={onCloseOptions} />

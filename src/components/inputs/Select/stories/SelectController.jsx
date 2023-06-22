@@ -5,33 +5,29 @@ const SelectController = (props) => {
   const { value = "", state = "pending" } = props;
   const [form, setForm] = useState({ value, state });
 
-  function isAlphabetical(value) {
-    return /^[a-zA-Z]+$/.test(value.trim());
-  }
-
   const handleChange = (e) => {
     setForm({ value: e.target.value, state: "pending" });
   };
-
+  /*
   const handleFocus = () => {
     if (!value) {
       setForm({ ...form, state: "pending" });
     }
   };
 
-  const handleInput = (e) => {
-    const isValid = isAlphabetical(e.target.value);
-    setForm({ ...form, state: isValid ? "valid" : "invalid" });
-  };
+  const handleblur = (e) => {
+    if (e.target.value.length > 3) {
+      setForm({ ...form, state: "invalid" });
+      return;
+    }
+  }; */
 
   return (
     <Select
       {...props}
       value={form.value}
-      handleChange={handleChange}
       state={form.state}
-      handleFocus={handleFocus}
-      handleInput={handleInput}
+      handleChange={handleChange}
     />
   );
 };

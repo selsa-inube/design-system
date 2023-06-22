@@ -70,12 +70,14 @@ const StyledInputContainer = styled.div`
     ${({ isDisabled, state, isFocused }) =>
       getColors(isDisabled, state, isFocused)};
   ${({ isDisabled }) => isDisabled && "pointer-events: none; opacity: 0.5;"}
+  cursor: ${({ isDisabled }) => isDisabled && "not-allowed"};
 `;
 
 const StyledInput = styled.input`
   outline: none;
   border-radius: 8px;
   padding: 0px 12px 0px 16px;
+  cursor: default;
   font-family: ${typography.sys.typescale.bodyLarge.font};
   font-size: ${typography.sys.typescale.bodyLarge.size};
   font-weight: ${typography.sys.typescale.bodyLarge.weight};

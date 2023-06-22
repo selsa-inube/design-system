@@ -4,9 +4,9 @@ import PropTypes from "prop-types";
 import { SelectUI } from "./interface";
 
 const states = ["valid", "invalid", "pending"];
+const sizes = ["wide", "compact"];
 
 const defaultIsDisabled = false;
-
 const defaultIsRequired = false;
 const defaultState = "pending";
 const defaultIsFullWidth = false;
@@ -39,10 +39,8 @@ const Select = (props) => {
   const selectRef = useRef(null);
 
   const interceptFocus = (e) => {
-    if (!readOnly) {
-      setIsFocused(true);
-      setOpen(true);
-    }
+    setIsFocused(true);
+
     if (typeof handleFocus === "function") {
       handleFocus(e);
     }
@@ -50,6 +48,7 @@ const Select = (props) => {
 
   const interceptBlur = (e) => {
     setIsFocused(false);
+
     if (typeof handleBlur === "function") {
       handleBlur(e);
     }
@@ -125,7 +124,7 @@ Select.propTypes = {
   state: PropTypes.oneOf(states),
   errorMessage: PropTypes.string,
   validMessage: PropTypes.string,
-  size: PropTypes.oneOf(["wide", "full"]),
+  size: PropTypes.oneOf(["wide", "compact"]),
   isFullWidth: PropTypes.bool,
   handleFocus: PropTypes.func,
   handleBlur: PropTypes.func,

@@ -5,13 +5,9 @@ import { StyledDropDownMenu } from "./styled";
 import { DropDownItem } from "../DropDownItem/index";
 
 const DropDownMenu = (props) => {
-  const { options, handleClick, isOpenOptions, onCloseOptions, handleSelect } =
-    props;
-  const [isOpen, setIsOpen] = useState(isOpenOptions);
+  const { options, handleClick, onCloseOptions, handleSelect } = props;
 
   const handleOptionClick = (label) => {
-    setIsOpen(false);
-
     if (typeof handleClick === "function") {
       handleClick();
     }
@@ -26,22 +22,19 @@ const DropDownMenu = (props) => {
   };
 
   return (
-    <>
-      {isOpen && (
-        <StyledDropDownMenu>
-          {options.map((dropDownitem) => (
-            <DropDownItem
-              key={dropDownitem.id}
-              id={dropDownitem.id}
-              isDisabled={dropDownitem.isDisabled}
-              handleClick={() => handleOptionClick(dropDownitem.label)}
-            >
-              {dropDownitem.label}
-            </DropDownItem>
-          ))}
-        </StyledDropDownMenu>
-      )}
-    </>
+    <StyledDropDownMenu>
+      {options.map((dropDownitem) => (
+        <DropDownItem
+          key={dropDownitem.id}
+          id={dropDownitem.id}
+          isDisabled={dropDownitem.isDisabled}
+          isSelected={dropDownitem.isSelected}
+          handleClick={() => handleOptionClick(dropDownitem.label)}
+        >
+          {dropDownitem.label}
+        </DropDownItem>
+      ))}
+    </StyledDropDownMenu>
   );
 };
 
