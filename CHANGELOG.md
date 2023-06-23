@@ -1,3 +1,21 @@
+# v4.2.2 (Fri Jun 23 2023)
+
+#### 🐛 Bug Fix
+
+- Adjust internal margin of the `<Nav/>` component to accurately conform to the provided design mockups [#195](https://github.com/selsa-inube/design-system/pull/195) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- Adjust `<Header/>` in order to include props that manage the BusinessUnit [#192](https://github.com/selsa-inube/design-system/pull/192) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+
+#### 📝 Documentation
+
+- design-system new release 4.2.1 [#194](https://github.com/selsa-inube/design-system/pull/194) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 2
+
+- cesar.marin (cmarin@sistemasenlinea.com.co)
+- cmarin ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v4.2.1 (Wed Jun 21 2023)
 
 #### 🐛 Bug Fix
