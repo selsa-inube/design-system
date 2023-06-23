@@ -74,7 +74,6 @@ const TextArea = (props) => {
       placeholder={placeholder}
       isDisabled={transformedIsDisabled}
       value={value}
-      handleChange={handleChange}
       maxLength={maxLength}
       minLength={minLength}
       max={max}
@@ -86,6 +85,7 @@ const TextArea = (props) => {
       validMessage={validMessage}
       isFullWidth={transformedIsFullWidth}
       isFocused={isFocused}
+      handleChange={handleChange}
       handleFocus={interceptFocus}
       handleBlur={interceptBlur}
       readOnly={transformedReadOnly}

@@ -2,6 +2,22 @@ import styled from "styled-components";
 import { colors } from "../../../shared/colors/colors";
 import { typography } from "../../../shared/typography/typography";
 
+const getGrid = (label, counter) => {
+  if (label && counter) {
+    return "auto 1fr auto";
+  }
+
+  if (label && !counter) {
+    return "auto 1fr";
+  }
+
+  if (!label && counter) {
+    return "1fr auto";
+  }
+
+  return "1fr";
+};
+
 const getColors = (isDisabled, state, isFocused) => {
   if (isDisabled) {
     return colors.ref.palette.neutral.n70;
@@ -37,14 +53,15 @@ const StyledContainer = styled.div`
 `;
 
 const StyledContainerLabel = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: ${({ label, counter }) => getGrid(label, counter)};
+  gap: 4px;
+  pointer-events: ${({ isDisabled }) => isDisabled && "none"};
   align-items: center;
   margin-bottom: 4px;
-  padding-left: 16px;
-  pointer-events: ${({ isDisabled }) => isDisabled && "none"};
 
   & label {
-    margin-right: 5px;
+    padding-left: 16px;
   }
 `;
 

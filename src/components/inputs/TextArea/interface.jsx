@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useState, useEffect } from "react";
 
 import { MdOutlineError, MdCheckCircle } from "react-icons/md";
 
@@ -29,13 +29,25 @@ const getTypo = (size) => {
 };
 
 const Counter = (props) => {
-  const { id, maxLength, textarea } = props;
+  const { id, maxLength } = props;
+  const [valueLength, setValueLength] = useState(0);
 
-  return (
-    <Text typo="bodySmall" margin="8px 0px 0px 4px">{`
-    ${textarea}/${maxLength}
-    `}</Text>
-  );
+  useEffect(() => {
+    const textareaElement = document.getElementById(id);
+    setValueLength(textareaElement.value.length);
+
+    const handleTextareaChange = () => {
+      setValueLength(textareaElement.value.length);
+    };
+
+    textareaElement.addEventListener("input", handleTextareaChange);
+
+    return () => {
+      textareaElement.removeEventListener("input", handleTextareaChange);
+    };
+  }, [id]);
+
+  return <Text typo="bodySmall">{`${valueLength}/${maxLength}`}</Text>;
 };
 
 const Invalid = (props) => {
@@ -80,11 +92,7 @@ const TextAreaUI = (props) => {
     id,
     placeholder,
     isDisabled,
-    type,
     value,
-    handleChange,
-    iconBefore,
-    iconAfter,
     maxLength,
     minLength,
     max,
@@ -96,6 +104,7 @@ const TextAreaUI = (props) => {
     size,
     isFullWidth,
     isFocused,
+    handleChange,
     handleFocus,
     handleBlur,
     readOnly,
@@ -103,8 +112,6 @@ const TextAreaUI = (props) => {
   } = props;
 
   const transformedIsInvalid = state === "invalid" ? true : false;
-  const textarea = useRef(null);
-  console.log(textarea, "textarea2");
 
   return (
     <StyledContainer isFullWidth={isFullWidth} isDisabled={isDisabled}>
@@ -113,6 +120,8 @@ const TextAreaUI = (props) => {
         wrap="wrap"
         size={size}
         isDisabled={isDisabled}
+        label={label}
+        counter={counter}
       >
         {label && (
           <Label
@@ -127,20 +136,14 @@ const TextAreaUI = (props) => {
         )}
 
         {isRequired && !isDisabled && <Text typo="bodySmall">(Required)</Text>}
-        {counter && (
-          <Counter id={id} maxLength={maxLength} element={textarea} />
-        )}
+        {counter && <Counter id={id} maxLength={maxLength} />}
       </StyledContainerLabel>
 
       <StyledTextarea
-        label={label}
         name={name}
         id={id}
         placeholder={placeholder}
         isDisabled={isDisabled}
-        type={type}
-        iconBefore={iconBefore}
-        iconAfter={iconAfter}
         maxLength={maxLength}
         minLength={minLength}
         max={max}
@@ -154,7 +157,6 @@ const TextAreaUI = (props) => {
         onFocus={handleFocus}
         onBlur={handleBlur}
         readOnly={readOnly}
-        ref={textarea}
         value={value}
       />
 

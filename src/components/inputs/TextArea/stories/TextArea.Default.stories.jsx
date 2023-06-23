@@ -15,9 +15,11 @@ Default.args = {
   id: "textarea",
   placeholder: "Storybook TextArea",
   isDisabled: false,
-  maxLength: 120,
+  maxLength: 320,
   counter: true,
-  value: "prueba",
+  isRequired: true,
+  value:
+    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil veniam, reiciendis ipsum itaque unde odio voluptatum ab cumque deleniti dolore magnam quas hic rem, mollitia adipisci. Officiis accusamus aut consectetur",
 };
 
 export default story;
