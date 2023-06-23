@@ -4,7 +4,15 @@ import { MdOpenInNew } from "react-icons/md";
 import PropTypes from "prop-types";
 
 function DisplayEntry(props) {
-  const { entry, actions, title, titleLabels, infoTitle, actionsTitle } = props;
+  const {
+    portalId,
+    entry,
+    actions,
+    title,
+    titleLabels,
+    infoTitle,
+    actionsTitle,
+  } = props;
   const [showModal, setShowModal] = useState(false);
 
   const handleToggleModal = () => {
@@ -16,7 +24,7 @@ function DisplayEntry(props) {
       <MdOpenInNew onClick={handleToggleModal} />
       {showModal && (
         <InteractiveModal
-          portalId="portals"
+          portalId={portalId}
           title={title}
           closeModal={handleToggleModal}
           infoData={entry}
@@ -31,10 +39,13 @@ function DisplayEntry(props) {
 }
 
 DisplayEntry.propTypes = {
+  portalId: PropTypes.string,
   entry: PropTypes.object.isRequired,
   actions: PropTypes.array.isRequired,
   title: PropTypes.string.isRequired,
   titleLabels: PropTypes.array.isRequired,
+  infoTitle: PropTypes.string,
+  actionsTitle: PropTypes.string,
 };
 
 export { DisplayEntry };

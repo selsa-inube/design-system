@@ -51,6 +51,7 @@ function showActionTitle(actionTitle, mediaQuery) {
 }
 
 function ShowAction(
+  portalId,
   actionContent,
   entry,
   mediaQuery,
@@ -70,6 +71,7 @@ function ShowAction(
   ) : (
     <StyledTd>
       <DisplayEntry
+        portalId={portalId}
         entry={entry}
         title={modalTitle}
         actions={actionContent}
@@ -83,6 +85,7 @@ function ShowAction(
 
 const TableUI = (props) => {
   const {
+    portalId,
     titles,
     actions,
     entries,
@@ -133,6 +136,7 @@ const TableUI = (props) => {
               </StyledTd>
             ))}
             {ShowAction(
+              portalId,
               actions,
               entry,
               mediaActionOpen,

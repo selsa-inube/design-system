@@ -7,6 +7,10 @@ const parameters = {
   },
 };
 
+const id = {
+  description: "uniquely identifies the **Table Component**.",
+};
+
 const titles = {
   description:
     "(Array[objects]): shall be designed to accept an array of objects with a predetermined structure and it’ll be the titles for the table, as specified below: Each object shall contain the following attributes (keys):",
@@ -87,6 +91,7 @@ const actionsTitle = {
 
 export {
   parameters,
+  id,
   titles,
   actions,
   entries,

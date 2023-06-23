@@ -4,6 +4,7 @@ import { titlesMuck, actionsMuck, breakPointsMuck } from "./mucks";
 
 import {
   parameters,
+  id,
   titles,
   actions,
   entries,
@@ -22,6 +23,7 @@ const story = {
 
 const Default = (args) => <Table {...args} />;
 Default.args = {
+  id: "tableId",
   titles: titlesMuck,
   actions: actionsMuck,
   entries: [
@@ -57,12 +59,13 @@ Default.args = {
   filter: "",
   pageLength: 10,
   breakpoints: breakPointsMuck,
-  modalTitle: "Formulario",
-  infoTitle: "Informacion",
-  actionsTitle: "Acciones",
+  modalTitle: "Form",
+  infoTitle: "Information",
+  actionsTitle: "Actions",
 };
 
 Default.argTypes = {
+  id,
   titles,
   actions,
   entries,
