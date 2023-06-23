@@ -31,4 +31,17 @@ const portalId = {
   description: "id of the portal element",
 };
 
-export { portalId, navigation, logo, logoutPath, userName, businessUnit };
+const isBusinessUnit = {
+  description:
+    "ascertain whether the 'header-component' displays the attribute 'businessUnit' or not",
+};
+
+export {
+  portalId,
+  navigation,
+  logo,
+  logoutPath,
+  userName,
+  businessUnit,
+  isBusinessUnit,
+};
