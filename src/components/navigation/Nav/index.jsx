@@ -75,7 +75,7 @@ const Nav = (props) => {
       <Stack direction="column">
         <Text
           padding="0px"
-          margin="32px 0px 32px 16px"
+          margin="32px 16px 16px 16px"
           as="h2"
           appearance="secondary"
           typo="titleSmall"
