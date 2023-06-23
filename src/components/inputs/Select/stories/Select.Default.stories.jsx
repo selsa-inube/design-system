@@ -34,6 +34,7 @@ Default.args = {
   name: "name",
   id: "id",
   placeholder: "Placeholder",
+  value: "Item 2",
   isDisabled: false,
   options: [
     { id: "1", label: "Item 1", isDisabled: false },

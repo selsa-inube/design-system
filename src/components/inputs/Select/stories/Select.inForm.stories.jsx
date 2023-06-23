@@ -43,9 +43,16 @@ const InForm = (props) => {
     return;
   };
 
+  const handleBlur = (e) => {
+    if (e.target.value === "") {
+      setForm({ ...form, state: "invalid" });
+      return;
+    }
+  };
+
   return (
     <StyledForm>
-      <Select {...props} state={form.state} />
+      <Select {...props} state={form.state} handleBlur={(e) => handleBlur(e)} />
       <Button
         type="submit"
         spacing="compact"

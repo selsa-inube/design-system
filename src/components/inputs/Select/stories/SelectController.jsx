@@ -15,13 +15,6 @@ const SelectController = (props) => {
     }
   };
 
-  const handleblur = (e) => {
-    if (e.target.value === "") {
-      setForm({ ...form, state: "invalid" });
-      return;
-    }
-  };
-
   return (
     <Select
       {...props}
@@ -29,7 +22,6 @@ const SelectController = (props) => {
       state={form.state}
       handleChange={handleChange}
       handleFocus={handleFocus}
-      handleBlur={handleblur}
     />
   );
 };
