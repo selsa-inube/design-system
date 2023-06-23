@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 
 import { MdOutlineError, MdCheckCircle } from "react-icons/md";
 
@@ -26,6 +26,16 @@ const getTypo = (size) => {
     return "labelMedium";
   }
   return "labelLarge";
+};
+
+const Counter = (props) => {
+  const { id, maxLength, textarea } = props;
+
+  return (
+    <Text typo="bodySmall" margin="8px 0px 0px 4px">{`
+    ${textarea}/${maxLength}
+    `}</Text>
+  );
 };
 
 const Invalid = (props) => {
@@ -89,9 +99,12 @@ const TextAreaUI = (props) => {
     handleFocus,
     handleBlur,
     readOnly,
+    counter,
   } = props;
 
   const transformedIsInvalid = state === "invalid" ? true : false;
+  const textarea = useRef(null);
+  console.log(textarea, "textarea2");
 
   return (
     <StyledContainer isFullWidth={isFullWidth} isDisabled={isDisabled}>
@@ -114,6 +127,9 @@ const TextAreaUI = (props) => {
         )}
 
         {isRequired && !isDisabled && <Text typo="bodySmall">(Required)</Text>}
+        {counter && (
+          <Counter id={id} maxLength={maxLength} element={textarea} />
+        )}
       </StyledContainerLabel>
 
       <StyledTextarea
@@ -123,7 +139,6 @@ const TextAreaUI = (props) => {
         placeholder={placeholder}
         isDisabled={isDisabled}
         type={type}
-        value={value}
         iconBefore={iconBefore}
         iconAfter={iconAfter}
         maxLength={maxLength}
@@ -139,6 +154,8 @@ const TextAreaUI = (props) => {
         onFocus={handleFocus}
         onBlur={handleBlur}
         readOnly={readOnly}
+        ref={textarea}
+        value={value}
       />
 
       {state === "invalid" && (

@@ -49,24 +49,22 @@ const StyledContainerLabel = styled.div`
 `;
 
 const StyledTextarea = styled.textarea`
-  outline: none;
   border-radius: 8px;
+  padding: 8px 12px 8px 16px;
   font-family: ${typography.sys.typescale.bodyLarge.font};
   font-size: ${typography.sys.typescale.bodyLarge.size};
   font-weight: ${typography.sys.typescale.bodyLarge.weight};
   line-height: ${typography.sys.typescale.bodyLarge.lineHeight};
   letter-spacing: ${typography.sys.typescale.bodyLarge.letterSpacing};
+  width: ${({ isFullWidth }) => (isFullWidth ? "calc(100% - 32px)" : "452px")};
+  height: 120px;
   color: ${({ isDisabled }) =>
     isDisabled ? colors.ref.palette.neutral.n70 : colors.sys.text.dark};
   background: ${colors.ref.palette.neutral.n10};
-  border: 1px solid
+  border: 2px solid
     ${({ isDisabled, state, isFocused }) =>
       getColors(isDisabled, state, isFocused)};
   ${({ isDisabled }) => isDisabled && "pointer-events: none; opacity: 0.5;"}
-
-  width: ${({ isFullWidth }) => (isFullWidth ? "calc(100% - 32px)" : "252px")};
-
-  border: none;
 
   ::placeholder {
     color: ${colors.sys.text.secondary};
@@ -75,14 +73,6 @@ const StyledTextarea = styled.textarea`
   &:focus {
     outline: none;
     border-width: 2px;
-  }
-
-  &::-webkit-search-cancel-button {
-    display: none;
-  }
-
-  &::-moz-search-cancel-button {
-    display: none;
   }
 
   &:-webkit-autofill {

@@ -32,6 +32,7 @@ const TextArea = (props) => {
     handleFocus,
     handleBlur,
     readOnly,
+    counter,
   } = props;
 
   const [isFocused, setIsFocused] = useState(false);
@@ -88,6 +89,7 @@ const TextArea = (props) => {
       handleFocus={interceptFocus}
       handleBlur={interceptBlur}
       readOnly={transformedReadOnly}
+      counter={counter}
     />
   );
 };
@@ -113,6 +115,7 @@ TextArea.propTypes = {
   handleFocus: PropTypes.func,
   handleBlur: PropTypes.func,
   readOnly: PropTypes.bool,
+  counter: PropTypes.bool,
 };
 
 export { TextArea, sizes, states };
