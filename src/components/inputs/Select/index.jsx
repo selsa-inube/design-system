@@ -5,7 +5,6 @@ import { SelectUI } from "./interface";
 
 const states = ["valid", "invalid", "pending"];
 const sizes = ["wide", "compact"];
-
 const defaultIsDisabled = false;
 const defaultIsRequired = false;
 const defaultState = "pending";
@@ -28,16 +27,15 @@ const Select = (props) => {
     isFullWidth = false,
     handleFocus,
     handleBlur,
-    readOnly,
     options,
-    handleInput,
+    handleClick,
   } = props;
 
   const [isFocused, setIsFocused] = useState(false);
   const [open, setOpen] = useState(false);
 
   const selectRef = useRef(null);
-  console.log(isRequired, "isRequired");
+
   const interceptFocus = (e) => {
     setIsFocused(true);
 
@@ -83,7 +81,6 @@ const Select = (props) => {
   const transformedIsFullWidth =
     typeof isFullWidth === "boolean" ? isFullWidth : defaultIsFullWidth;
 
-  const transformedReadOnly = typeof readOnly === "boolean" ? readOnly : false;
   return (
     <SelectUI
       label={label}
@@ -102,12 +99,11 @@ const Select = (props) => {
       isFocused={isFocused}
       handleFocus={interceptFocus}
       handleBlur={interceptBlur}
-      readOnly={transformedReadOnly}
       options={options}
       openOptions={open}
+      handleClick={handleClick}
       onCloseOptions={handleCloseOptions}
       ref={selectRef}
-      handleInput={handleInput}
     />
   );
 };
@@ -128,6 +124,7 @@ Select.propTypes = {
   isFullWidth: PropTypes.bool,
   handleFocus: PropTypes.func,
   handleBlur: PropTypes.func,
+  handleClick: PropTypes.func,
   readOnly: PropTypes.bool,
   options: PropTypes.arrayOf(
     PropTypes.shape({

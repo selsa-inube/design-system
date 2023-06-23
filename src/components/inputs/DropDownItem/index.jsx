@@ -26,7 +26,7 @@ const DropDownItem = (props) => {
     }
   };
 
-  const offSelected = () => {
+  const interceptorOnBlur = () => {
     setSelect(false);
   };
 
@@ -37,7 +37,7 @@ const DropDownItem = (props) => {
       isSelected={select}
       onClick={() => handleOptionClick(children)}
       ref={itemRef}
-      onBlur={offSelected}
+      onBlur={interceptorOnBlur}
       tabIndex={0}
     >
       {children}

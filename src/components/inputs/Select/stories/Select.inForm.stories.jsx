@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { Select } from "../index";
-import { SelectController } from "./SelectController";
 
 import { Button } from "../../Button/index";
 import { StyledForm } from "./styles";
@@ -31,11 +30,27 @@ const story = {
   parameters,
 };
 
-const InForm = (args) => {
+const InForm = (props) => {
+  const { value = "", state = "pending", isRequired } = props;
+  const [form, setForm] = useState({ value, state });
+
+  const handleClick = (e) => {
+    if (!value && isRequired) {
+      setForm({ ...form, state: "invalid" });
+      e.preventDefault();
+      return;
+    }
+    return;
+  };
+
   return (
     <StyledForm>
-      <SelectController {...args} />
-      <Button type="submit" spacing="compact">
+      <Select {...props} state={form.state} />
+      <Button
+        type="submit"
+        spacing="compact"
+        handleClick={(e) => handleClick(e)}
+      >
         Submit
       </Button>
     </StyledForm>
@@ -55,6 +70,7 @@ InForm.args = {
     { id: "3", label: "Item", isDisabled: false },
   ],
   size: "compact",
+  errorMessage: "This field can not be blank",
 };
 
 InForm.argTypes = {
