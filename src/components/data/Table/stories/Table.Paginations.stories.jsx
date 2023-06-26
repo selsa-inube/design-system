@@ -4,12 +4,15 @@ import { Table } from "../index";
 
 import {
   parameters,
+  id,
   titles,
   actions,
   entries,
   breakpoints,
   filter,
   pageLength,
+  infoTitle,
+  actionsTitle,
 } from "./props";
 
 const story = {
@@ -20,6 +23,7 @@ const story = {
 
 const Paginations = (args) => <Table {...args} />;
 Paginations.args = {
+  id: "tableId",
   titles: titlesMuck,
   actions: actionsMuck,
   entries: [
@@ -237,15 +241,21 @@ Paginations.args = {
   filter: "",
   pageLength: 10,
   breakpoints: breakPointsMuck,
+  modalTitle: "Form",
+  infoTitle: "Information",
+  actionsTitle: "Actions",
 };
 
 Paginations.argTypes = {
+  id,
   titles,
   actions,
   entries,
   filter,
   pageLength,
   breakpoints,
+  infoTitle,
+  actionsTitle,
 };
 
 export default story;
