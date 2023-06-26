@@ -28,8 +28,16 @@ const getTypo = (size) => {
   return "labelLarge";
 };
 
+const getAppearanceCounter = (valueLength, maxLength, lengthThreshold) => {
+  if (maxLength - valueLength <= lengthThreshold && valueLength <= maxLength) {
+    return "warning";
+  }
+
+  return "secondary";
+};
+
 const Counter = (props) => {
-  const { id, maxLength } = props;
+  const { id, maxLength, lengthThreshold } = props;
   const [valueLength, setValueLength] = useState(0);
 
   useEffect(() => {
@@ -47,7 +55,12 @@ const Counter = (props) => {
     };
   }, [id]);
 
-  return <Text typo="bodySmall">{`${valueLength}/${maxLength}`}</Text>;
+  return (
+    <Text
+      typo="bodySmall"
+      appearance={getAppearanceCounter(valueLength, maxLength, lengthThreshold)}
+    >{`${valueLength}/${maxLength}`}</Text>
+  );
 };
 
 const Invalid = (props) => {
@@ -109,6 +122,7 @@ const TextAreaUI = (props) => {
     handleBlur,
     readOnly,
     counter,
+    lengthThreshold,
   } = props;
 
   const transformedIsInvalid = state === "invalid" ? true : false;
@@ -136,7 +150,13 @@ const TextAreaUI = (props) => {
         )}
 
         {isRequired && !isDisabled && <Text typo="bodySmall">(Required)</Text>}
-        {counter && <Counter id={id} maxLength={maxLength} />}
+        {counter && (
+          <Counter
+            id={id}
+            maxLength={maxLength}
+            lengthThreshold={lengthThreshold}
+          />
+        )}
       </StyledContainerLabel>
 
       <StyledTextarea

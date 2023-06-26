@@ -33,6 +33,7 @@ const TextArea = (props) => {
     handleBlur,
     readOnly,
     counter,
+    lengthThreshold,
   } = props;
 
   const [isFocused, setIsFocused] = useState(false);
@@ -90,6 +91,7 @@ const TextArea = (props) => {
       handleBlur={interceptBlur}
       readOnly={transformedReadOnly}
       counter={counter}
+      lengthThreshold={lengthThreshold}
     />
   );
 };
