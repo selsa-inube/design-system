@@ -28,9 +28,13 @@ const getTypo = (size) => {
   return "labelLarge";
 };
 
-const getAppearanceCounter = (valueLength, maxLength, lengthThreshold) => {
+const getAppearanceCounter = (valueLength, maxLength = 0, lengthThreshold) => {
   if (maxLength - valueLength <= lengthThreshold && valueLength <= maxLength) {
     return "warning";
+  }
+
+  if (valueLength > maxLength) {
+    return "error";
   }
 
   return "secondary";
@@ -164,7 +168,6 @@ const TextAreaUI = (props) => {
         id={id}
         placeholder={placeholder}
         isDisabled={isDisabled}
-        maxLength={maxLength}
         minLength={minLength}
         max={max}
         min={min}
