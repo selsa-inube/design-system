@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 
 import { Select } from "../index";
+import { InForm } from "./Select.form.Controller";
 
-import { Button } from "../../Button/index";
-import { StyledForm } from "./styles";
 import {
   parameters,
   label,
@@ -25,46 +24,14 @@ import {
 } from "./props";
 
 const story = {
-  title: "Inputs/Select/InForm",
+  title: "Inputs/Select/SelectInForm",
   component: [Select],
   parameters,
 };
 
-const InForm = (props) => {
-  const { value = "", state = "pending", isRequired } = props;
-  const [form, setForm] = useState({ value, state });
+const SelectInForm = (args) => <InForm {...args} />;
 
-  const handleClick = (e) => {
-    if (!value && isRequired) {
-      setForm({ ...form, state: "invalid" });
-      e.preventDefault();
-      return;
-    }
-    return;
-  };
-
-  const handleBlur = (e) => {
-    if (e.target.value === "") {
-      setForm({ ...form, state: "invalid" });
-      return;
-    }
-  };
-
-  return (
-    <StyledForm>
-      <Select {...props} state={form.state} handleBlur={(e) => handleBlur(e)} />
-      <Button
-        type="submit"
-        spacing="compact"
-        handleClick={(e) => handleClick(e)}
-      >
-        Submit
-      </Button>
-    </StyledForm>
-  );
-};
-
-InForm.args = {
+SelectInForm.args = {
   label: "Select",
   name: "select",
   id: "select",
@@ -80,7 +47,7 @@ InForm.args = {
   errorMessage: "This field can not be blank",
 };
 
-InForm.argTypes = {
+SelectInForm.argTypes = {
   label,
   name,
   id,
@@ -100,4 +67,4 @@ InForm.argTypes = {
 };
 
 export default story;
-export { InForm };
+export { SelectInForm };

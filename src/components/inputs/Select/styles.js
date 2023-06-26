@@ -117,7 +117,7 @@ const StyledInput = styled.input`
 `;
 
 const StyledIcon = styled.div`
-  display: flex;
+  display: grid;
   justify-content: center;
   align-items: center;
   padding-left: ${({ iconBefore }) => iconBefore && "10px"};
