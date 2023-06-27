@@ -3,7 +3,6 @@ import { TextAreaUI } from "./interface";
 import PropTypes from "prop-types";
 
 const states = ["valid", "invalid", "pending"];
-const sizes = ["wide", "compact"];
 
 const defaultIsDisabled = false;
 const defaultIsRequired = false;
@@ -27,7 +26,6 @@ const TextArea = (props) => {
     state = "pending",
     errorMessage,
     validMessage,
-    size = "wide",
     isFullWidth = false,
     handleFocus,
     handleBlur,
@@ -80,7 +78,6 @@ const TextArea = (props) => {
       max={max}
       min={min}
       isRequired={transformedIsRequired}
-      size={size}
       state={transformedState}
       errorMessage={errorMessage}
       validMessage={validMessage}
@@ -112,7 +109,6 @@ TextArea.propTypes = {
   isRequired: PropTypes.bool,
   errorMessage: PropTypes.string,
   validMessage: PropTypes.string,
-  size: PropTypes.oneOf(sizes),
   isFullWidth: PropTypes.bool,
   handleFocus: PropTypes.func,
   handleBlur: PropTypes.func,
@@ -120,4 +116,4 @@ TextArea.propTypes = {
   counter: PropTypes.bool,
 };
 
-export { TextArea, sizes, states };
+export { TextArea, states };

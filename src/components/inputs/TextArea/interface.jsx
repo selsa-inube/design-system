@@ -21,13 +21,6 @@ const getTextAppearanceProp = (isDisabled, appearence) => {
   return appearence;
 };
 
-const getTypo = (size) => {
-  if (size === "compact") {
-    return "labelMedium";
-  }
-  return "labelLarge";
-};
-
 const getAppearanceCounter = (
   valueLength,
   maxLength = 0,
@@ -130,7 +123,6 @@ const TextAreaUI = (props) => {
     state,
     errorMessage,
     validMessage,
-    size,
     isFullWidth,
     isFocused,
     handleChange,
@@ -148,7 +140,6 @@ const TextAreaUI = (props) => {
       <StyledContainerLabel
         alignItems="center"
         wrap="wrap"
-        size={size}
         isDisabled={isDisabled}
         label={label}
         counter={counter}
@@ -159,7 +150,6 @@ const TextAreaUI = (props) => {
             isDisabled={isDisabled}
             isFocused={isFocused}
             isInvalid={transformedIsInvalid}
-            typo={getTypo(size)}
           >
             {label}
           </Label>
@@ -185,7 +175,6 @@ const TextAreaUI = (props) => {
         max={max}
         min={min}
         isRequired={isRequired}
-        size={size}
         state={state}
         isFullWidth={isFullWidth}
         isFocused={isFocused}
