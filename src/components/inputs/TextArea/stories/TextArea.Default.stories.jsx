@@ -29,6 +29,7 @@ import {
 const story = {
   title: "inputs/TextArea/Default",
   components: [TextArea],
+  parameters,
 };
 
 const Default = (args) => <TextAreaController {...args} />;
@@ -46,7 +47,6 @@ Default.args = {
 };
 
 Default.argTypes = {
-  parameters,
   label,
   name,
   id,
