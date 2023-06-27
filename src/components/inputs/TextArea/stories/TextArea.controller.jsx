@@ -19,7 +19,7 @@ const TextAreaController = (props) => {
   const handleBlur = (e) => {
     if (e.target.value.length > maxLength) {
       setForm({ ...form, state: "invalid" });
-    }
+    } else setForm({ ...form, state: "valid" });
   };
   return (
     <TextArea

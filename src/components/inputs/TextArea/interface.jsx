@@ -4,6 +4,7 @@ import { MdOutlineError, MdCheckCircle } from "react-icons/md";
 
 import { Label } from "../Label";
 import { Text } from "../../data/Text";
+import { Stack } from "../../layouts/Stack";
 
 import {
   StyledContainer,
@@ -28,7 +29,16 @@ const getTypo = (size) => {
   return "labelLarge";
 };
 
-const getAppearanceCounter = (valueLength, maxLength = 0, lengthThreshold) => {
+const getAppearanceCounter = (
+  valueLength,
+  maxLength = 0,
+  lengthThreshold,
+  isDisabled
+) => {
+  if (isDisabled) {
+    return "disabled";
+  }
+
   if (maxLength - valueLength <= lengthThreshold && valueLength <= maxLength) {
     return "warning";
   }
@@ -41,7 +51,7 @@ const getAppearanceCounter = (valueLength, maxLength = 0, lengthThreshold) => {
 };
 
 const Counter = (props) => {
-  const { id, maxLength, lengthThreshold } = props;
+  const { id, maxLength, lengthThreshold, isDisabled } = props;
   const [valueLength, setValueLength] = useState(0);
 
   useEffect(() => {
@@ -62,7 +72,12 @@ const Counter = (props) => {
   return (
     <Text
       typo="bodySmall"
-      appearance={getAppearanceCounter(valueLength, maxLength, lengthThreshold)}
+      appearance={getAppearanceCounter(
+        valueLength,
+        maxLength,
+        lengthThreshold,
+        isDisabled
+      )}
     >{`${valueLength}/${maxLength}`}</Text>
   );
 };
@@ -76,7 +91,6 @@ const Invalid = (props) => {
       <MdOutlineError />
       <Text
         typo="bodySmall"
-        margin="8px 0px 0px 4px"
         appearance={getTextAppearanceProp(isDisabled, "error")}
       >
         {transformedErrorMessage}
@@ -93,7 +107,6 @@ const Success = (props) => {
       <MdCheckCircle />
       <Text
         typo="bodySmall"
-        margin="8px 0px 0px 4px"
         appearance={getTextAppearanceProp(isDisabled, "success")}
       >
         {validMessage}
@@ -154,11 +167,12 @@ const TextAreaUI = (props) => {
         )}
 
         {isRequired && !isDisabled && <Text typo="bodySmall">(Required)</Text>}
-        {counter && (
+        {counter && !isDisabled && (
           <Counter
             id={id}
             maxLength={maxLength}
             lengthThreshold={lengthThreshold}
+            isDisabled={isDisabled}
           />
         )}
       </StyledContainerLabel>

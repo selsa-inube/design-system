@@ -109,17 +109,17 @@ const StyledIcon = styled.div`
 `;
 
 const StyledErrorMessageContainer = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 5px;
   align-items: center;
-  margin-left: 12px;
+  padding-left: 12px;
   pointer-events: none;
   color: ${({ isDisabled, state }) => getIsDisabled(isDisabled, state)};
 
   & svg {
     width: 14px;
     height: 14px;
-    margin-top: 8px;
-    padding-left: 5px;
   }
 `;
 
