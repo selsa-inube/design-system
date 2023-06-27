@@ -2,7 +2,15 @@ import React from "react";
 
 import { Switch } from "../index";
 import { SwitchController } from "./SwitchController";
-import { id, isDisabled, name, handleChange, label } from "./props";
+import {
+  id,
+  isDisabled,
+  name,
+  handleChange,
+  label,
+  margin,
+  padding,
+} from "./props";
 
 import { Stack } from "../../../layouts/Stack";
 
@@ -42,6 +50,8 @@ WithLabel.args = {
   checked: false,
   handleChange: () => {},
   label: "Label",
+  margin: "0px",
+  padding: "0px",
 };
 WithLabel.argTypes = {
   id,
@@ -49,6 +59,8 @@ WithLabel.argTypes = {
   name,
   handleChange,
   label,
+  margin,
+  padding,
 };
 
 export default story;

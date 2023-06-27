@@ -1,7 +1,7 @@
 {
   "name": "@inube/design-system",
   "homepage": "https://github.com/selsa-inube/design-system#readme",
-  "version": "4.2.2",
+  "version": "4.2.3",
   "license": "ISC",
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "author": "Fernando Cañas <fcanas@sistemasenlinea.com.co>",
@@ -66,6 +66,7 @@
     "@storybook/react": "^7.0.9",
     "@storybook/react-vite": "^7.0.9",
     "@storybook/testing-library": "0.1.0",
+    "@storybook/components": "^7.0.24",
     "@vitejs/plugin-react": "4.0.0",
     "auto": "^10.37.6",
     "babel-plugin-named-exports-order": "^0.0.2",

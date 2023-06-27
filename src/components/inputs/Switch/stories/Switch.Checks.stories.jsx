@@ -2,7 +2,7 @@ import React from "react";
 
 import { Switch } from "../index";
 import { SwitchController } from "./SwitchController";
-import { id, isDisabled, name, handleChange } from "./props";
+import { id, isDisabled, name, handleChange, margin, padding } from "./props";
 
 import { Stack } from "../../../layouts/Stack";
 const story = {
@@ -40,12 +40,16 @@ Checks.args = {
   name: "nameValue",
   checked: false,
   handleChange: () => {},
+  margin: "0px",
+  padding: "0px",
 };
 Checks.argTypes = {
   id,
   isDisabled,
   name,
   handleChange,
+  margin,
+  padding,
 };
 
 export default story;
