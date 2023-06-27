@@ -1,33 +1,24 @@
-import React, { useState } from "react";
-import { TextFieldUI } from "./interface";
+import React, { useState, useRef } from "react";
 import PropTypes from "prop-types";
 
-const inputTypes = ["text", "email", "number", "password", "search", "tel"];
+import { SelectUI } from "./interface";
+
 const states = ["valid", "invalid", "pending"];
 const sizes = ["wide", "compact"];
-
 const defaultIsDisabled = false;
-const defaultType = "text";
 const defaultIsRequired = false;
 const defaultState = "pending";
 const defaultIsFullWidth = false;
 
-const TextField = (props) => {
+const Select = (props) => {
   const {
     label,
     name,
     id,
     placeholder,
     isDisabled = false,
-    type = "text",
     value,
     handleChange,
-    iconBefore,
-    iconAfter,
-    maxLength,
-    minLength,
-    max,
-    min,
     isRequired = false,
     state = "pending",
     errorMessage,
@@ -36,15 +27,18 @@ const TextField = (props) => {
     isFullWidth = false,
     handleFocus,
     handleBlur,
-    readOnly,
+    options,
+    handleClick,
   } = props;
 
   const [isFocused, setIsFocused] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  const selectRef = useRef(null);
 
   const interceptFocus = (e) => {
-    if (!readOnly) {
-      setIsFocused(true);
-    }
+    setIsFocused(true);
+
     if (typeof handleFocus === "function") {
       handleFocus(e);
     }
@@ -52,17 +46,34 @@ const TextField = (props) => {
 
   const interceptBlur = (e) => {
     setIsFocused(false);
+
     if (typeof handleBlur === "function") {
       handleBlur(e);
     }
   };
 
+  const handleCloseOptions = () => {
+    setOpen(!open);
+  };
+
+  const handleClickOutside = (event) => {
+    if (selectRef.current && !selectRef.current.contains(event.target)) {
+      setOpen(false);
+    }
+  };
+
+  React.useEffect(() => {
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [selectRef]);
+
   const transformedIsDisabled =
     typeof isDisabled === "boolean" ? isDisabled : defaultIsDisabled;
 
   const transformedState = states.includes(state) ? state : defaultState;
-
-  const transformedTypes = inputTypes.includes(type) ? type : defaultType;
 
   const transformedIsRequired =
     typeof isRequired === "boolean" ? isRequired : defaultIsRequired;
@@ -70,24 +81,15 @@ const TextField = (props) => {
   const transformedIsFullWidth =
     typeof isFullWidth === "boolean" ? isFullWidth : defaultIsFullWidth;
 
-  const transformedReadOnly = typeof readOnly === "boolean" ? readOnly : false;
-
   return (
-    <TextFieldUI
+    <SelectUI
       label={label}
       name={name}
       id={id}
       placeholder={placeholder}
       isDisabled={transformedIsDisabled}
-      type={transformedTypes}
       value={value}
       handleChange={handleChange}
-      iconBefore={iconBefore}
-      iconAfter={iconAfter}
-      maxLength={maxLength}
-      minLength={minLength}
-      max={max}
-      min={min}
       isRequired={transformedIsRequired}
       size={size}
       state={transformedState}
@@ -97,35 +99,40 @@ const TextField = (props) => {
       isFocused={isFocused}
       handleFocus={interceptFocus}
       handleBlur={interceptBlur}
-      readOnly={transformedReadOnly}
+      options={options}
+      openOptions={open}
+      handleClick={handleClick}
+      onCloseOptions={handleCloseOptions}
+      ref={selectRef}
     />
   );
 };
 
-TextField.propTypes = {
+Select.propTypes = {
   label: PropTypes.string,
-  name: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
-  placeholder: PropTypes.string.isRequired,
+  name: PropTypes.string,
+  id: PropTypes.string,
+  placeholder: PropTypes.string,
   isDisabled: PropTypes.bool,
-  isFocused: PropTypes.bool,
-  type: PropTypes.oneOf(inputTypes),
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   handleChange: PropTypes.func,
-  iconBefore: PropTypes.node,
-  iconAfter: PropTypes.node,
-  maxLength: PropTypes.number,
-  minLength: PropTypes.number,
-  max: PropTypes.number,
-  min: PropTypes.number,
   isRequired: PropTypes.bool,
+  state: PropTypes.oneOf(states),
   errorMessage: PropTypes.string,
   validMessage: PropTypes.string,
   size: PropTypes.oneOf(sizes),
   isFullWidth: PropTypes.bool,
   handleFocus: PropTypes.func,
   handleBlur: PropTypes.func,
+  handleClick: PropTypes.func,
   readOnly: PropTypes.bool,
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      label: PropTypes.string,
+      isDisabled: PropTypes.bool,
+    })
+  ).isRequired,
 };
 
-export { TextField, inputTypes, sizes, states };
+export { Select, states, sizes };
