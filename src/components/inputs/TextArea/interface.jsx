@@ -4,7 +4,6 @@ import { MdOutlineError, MdCheckCircle } from "react-icons/md";
 
 import { Label } from "../Label";
 import { Text } from "../../data/Text";
-import { Stack } from "../../layouts/Stack";
 
 import {
   StyledContainer,
