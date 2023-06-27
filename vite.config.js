@@ -2,6 +2,7 @@ import { resolve } from "path";
 
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import vitesconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
   build: {
@@ -31,5 +32,5 @@ export default defineConfig({
       },
     },
   },
-  plugins: [react()],
+  plugins: [react(), vitesconfigPaths()],
 });

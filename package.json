@@ -1,7 +1,7 @@
 {
   "name": "@inube/design-system",
   "homepage": "https://github.com/selsa-inube/design-system#readme",
-  "version": "4.2.2",
+  "version": "4.2.3",
   "license": "ISC",
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "author": "Fernando Cañas <fcanas@sistemasenlinea.com.co>",
@@ -50,7 +50,8 @@
     "react-scripts": "5.0.1",
     "storybook-addon-designs": "^6.3.1",
     "styled-components": "^5.3.6",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "vite-tsconfig-paths": "^4.2.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.19.3",
@@ -65,6 +66,7 @@
     "@storybook/react": "^7.0.9",
     "@storybook/react-vite": "^7.0.9",
     "@storybook/testing-library": "0.1.0",
+    "@storybook/components": "^7.0.24",
     "@vitejs/plugin-react": "4.0.0",
     "auto": "^10.37.6",
     "babel-plugin-named-exports-order": "^0.0.2",
@@ -76,6 +78,7 @@
     "prettier": "2.8.0",
     "prop-types": "^15.8.1",
     "storybook": "^7.0.9",
+    "typescript": "^4.9.5",
     "vite": "4.3.4"
   },
   "lint-staged": {

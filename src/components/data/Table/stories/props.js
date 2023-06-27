@@ -7,6 +7,10 @@ const parameters = {
   },
 };
 
+const id = {
+  description: "uniquely identifies the **Table Component**.",
+};
+
 const titles = {
   description:
     "(Array[objects]): shall be designed to accept an array of objects with a predetermined structure and it’ll be the titles for the table, as specified below: Each object shall contain the following attributes (keys):",
@@ -75,12 +79,25 @@ const pageLength = {
     "(number), shall be the number of the entries that will be displayed on the table",
 };
 
+const infoTitle = {
+  control: { type: "text" },
+  description: "custom title for information that displays in modal",
+};
+
+const actionsTitle = {
+  control: { type: "text" },
+  description: "custom title for actions that displays in modal",
+};
+
 export {
   parameters,
+  id,
   titles,
   actions,
   entries,
   breakpoints,
   filter,
   pageLength,
+  infoTitle,
+  actionsTitle,
 };

@@ -1,6 +1,5 @@
 import React, { useMemo } from "react";
-import { MdOpenInNew } from "react-icons/md";
-
+import { DisplayEntry } from "./DisplayEntry";
 import {
   StyledTable,
   StyledThead,
@@ -51,7 +50,16 @@ function showActionTitle(actionTitle, mediaQuery) {
   );
 }
 
-function ShowAction(actionContent, entry, mediaQuery) {
+function ShowAction(
+  portalId,
+  actionContent,
+  entry,
+  mediaQuery,
+  modalTitle,
+  titleLabels,
+  infoTitle,
+  actionsTitle
+) {
   return !mediaQuery ? (
     <>
       {actionContent.map((action) => (
@@ -62,13 +70,31 @@ function ShowAction(actionContent, entry, mediaQuery) {
     </>
   ) : (
     <StyledTd>
-      <MdOpenInNew />
+      <DisplayEntry
+        portalId={portalId}
+        entry={entry}
+        title={modalTitle}
+        actions={actionContent}
+        titleLabels={titleLabels}
+        infoTitle={infoTitle}
+        actionsTitle={actionsTitle}
+      />
     </StyledTd>
   );
 }
 
 const TableUI = (props) => {
-  const { titles, actions, entries, breakpoints } = props;
+  const {
+    portalId,
+    titles,
+    actions,
+    entries,
+    breakpoints,
+    modalTitle,
+    infoTitle,
+    actionsTitle,
+  } = props;
+
   const mediaActionOpen = useMediaQuery("(max-width: 850px)");
 
   const queriesArray = useMemo(
@@ -109,7 +135,16 @@ const TableUI = (props) => {
                 <Text typo="bodySmall">{entry[title.id]}</Text>
               </StyledTd>
             ))}
-            {ShowAction(actions, entry, mediaActionOpen)}
+            {ShowAction(
+              portalId,
+              actions,
+              entry,
+              mediaActionOpen,
+              modalTitle,
+              titles,
+              infoTitle,
+              actionsTitle
+            )}
           </StyledTr>
         ))}
       </StyledTbody>

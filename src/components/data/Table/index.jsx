@@ -8,12 +8,16 @@ import { Stack } from "../../layouts/Stack";
 
 const Table = (props) => {
   const {
+    id,
     titles,
     actions,
     entries,
     filter = "",
     pageLength = 10,
     breakpoints,
+    modalTitle,
+    infoTitle,
+    actionsTitle,
   } = props;
 
   const filteredEntries = useMemo(() => {
@@ -70,29 +74,36 @@ const Table = (props) => {
   }
 
   return (
-    <Stack direction="column">
-      <TableUI
-        titles={titles}
-        actions={actions}
-        entries={getPageEntries()}
-        breakpoints={breakpoints}
-      />
-      {filteredEntries.length > pageLength && (
-        <Pagination
-          firstEntryInPage={firstEntryInPage}
-          lastEntryInPage={lastEntryInPage}
-          totalRecords={filteredEntries.length}
-          handleStartPage={goToFirstPage}
-          handlePrevPage={prevPage}
-          handleNextPage={nextPage}
-          handleEndPage={goToEndPage}
+    <div id={id}>
+      <Stack direction="column">
+        <TableUI
+          portalId={id}
+          titles={titles}
+          actions={actions}
+          entries={getPageEntries()}
+          breakpoints={breakpoints}
+          modalTitle={modalTitle}
+          infoTitle={infoTitle}
+          actionsTitle={actionsTitle}
         />
-      )}
-    </Stack>
+        {filteredEntries.length > pageLength && (
+          <Pagination
+            firstEntryInPage={firstEntryInPage}
+            lastEntryInPage={lastEntryInPage}
+            totalRecords={filteredEntries.length}
+            handleStartPage={goToFirstPage}
+            handlePrevPage={prevPage}
+            handleNextPage={nextPage}
+            handleEndPage={goToEndPage}
+          />
+        )}
+      </Stack>
+    </div>
   );
 };
 
 Table.propTypes = {
+  id: PropTypes.string.isRequired,
   titles: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
@@ -109,7 +120,7 @@ Table.propTypes = {
     })
   ).isRequired,
   entries: PropTypes.arrayOf(PropTypes.shape({ id: PropTypes.string })),
-  filte: PropTypes.string,
+  filter: PropTypes.string,
   pageLength: PropTypes.number,
   breakpoints: PropTypes.arrayOf(
     PropTypes.shape({
@@ -117,5 +128,9 @@ Table.propTypes = {
       totalColumns: PropTypes.number.isRequired,
     })
   ),
+  modalTitle: PropTypes.string,
+  infoTitle: PropTypes.string,
+  actionsTitle: PropTypes.string,
 };
+
 export { Table };
