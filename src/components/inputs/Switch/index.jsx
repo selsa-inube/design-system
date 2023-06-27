@@ -6,9 +6,12 @@ import { Stack } from "../../layouts/Stack";
 import { Label } from "../Label";
 
 import { StyledContainer, StyledInput, StyledSpan, StyledIcon } from "./styles";
+import { transformedMeasure } from "../../../utilities/transformedMeasure";
 
 export const sizes = ["small", "large"];
 const defaultSize = "small";
+const defaultMargin = "0px";
+const defaultPadding = "0px";
 
 const Switch = (props) => {
   const {
@@ -20,6 +23,8 @@ const Switch = (props) => {
     checked = false,
     handleChange,
     label,
+    margin,
+    padding,
   } = props;
 
   const transformedSize = sizes.includes(size) ? size : defaultSize;
@@ -32,6 +37,8 @@ const Switch = (props) => {
       justifyContent={transformedJustify}
       alignItems="center"
       gap={tranformedGap}
+      margin={transformedMeasure(margin, defaultMargin)}
+      padding={transformedMeasure(padding, defaultPadding)}
     >
       <StyledContainer size={transformedSize}>
         <StyledInput
@@ -74,6 +81,8 @@ Switch.propTypes = {
   checked: PropTypes.bool,
   handleChange: PropTypes.func.isRequired,
   label: PropTypes.string,
+  margin: PropTypes.string,
+  padding: PropTypes.string,
 };
 
 export { Switch };
