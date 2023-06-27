@@ -65,6 +65,7 @@
     "@storybook/react": "^7.0.9",
     "@storybook/react-vite": "^7.0.9",
     "@storybook/testing-library": "0.1.0",
+    "@storybook/components": "^7.0.24",
     "@vitejs/plugin-react": "4.0.0",
     "auto": "^10.37.6",
     "babel-plugin-named-exports-order": "^0.0.2",
