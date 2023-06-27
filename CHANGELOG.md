@@ -1,6 +1,6 @@
-# v4.3.0 (Tue Jun 27 2023)
+# v4.2.3 (Tue Jun 27 2023)
 
-#### 🚀 Enhancement
+#### 🐛 Bug Fix
 
 - Adjust `<Table/>` component such that it incorporates the modal in responsive mode and the 'open' attribute is set to true [#196](https://github.com/selsa-inube/design-system/pull/196) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
 
