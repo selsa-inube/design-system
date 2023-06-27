@@ -6,7 +6,11 @@ import { StyledAvatar } from "./styles";
 
 export const defaultIcon = <MdPersonOutline />;
 
-const Avatar = (props) => {
+interface AvatarProps {
+  icon?: React.ReactElement;
+}
+
+const Avatar = (props: AvatarProps) => {
   const { icon = defaultIcon } = props;
 
   return <StyledAvatar>{icon}</StyledAvatar>;

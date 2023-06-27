@@ -31,7 +31,7 @@
   "private": false,
   "scripts": {
     "dev": "vite",
-    "build": "vite build --mode production",
+    "build": "tsc && vite build --mode production",
     "serve": "vite preview",
     "auto": "auto",
     "prepare": "husky install",
