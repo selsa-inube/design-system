@@ -2,7 +2,7 @@ import React from "react";
 
 import { Switch } from "../index";
 import { SwitchController } from "./SwitchController";
-import { id, isDisabled, name, handleChange } from "./props";
+import { id, isDisabled, name, handleChange, margin, padding } from "./props";
 
 import { Stack } from "../../../layouts/Stack";
 
@@ -37,12 +37,16 @@ Disabled.args = {
   isDisabled: true,
   name: "nameState",
   handleChange: () => {},
+  margin: "0px",
+  padding: "0px",
 };
 Disabled.argTypes = {
   id,
   isDisabled,
   name,
   handleChange,
+  margin,
+  padding,
 };
 
 export default story;

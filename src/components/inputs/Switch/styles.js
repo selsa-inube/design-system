@@ -60,6 +60,8 @@ const StyledContainer = styled.label`
   position: relative;
   display: inline-block;
   ${(props) => sizes[props.size]}
+  margin: ${({ margin }) => margin};
+  padding: ${({ padding }) => padding};
 `;
 
 const StyledInput = styled.input`
