@@ -2,7 +2,16 @@ import React from "react";
 
 import { Switch, sizes } from "../index";
 import { SwitchController } from "./SwitchController";
-import { id, isDisabled, name, value, checked, handleChange } from "./props";
+import {
+  id,
+  isDisabled,
+  name,
+  value,
+  checked,
+  handleChange,
+  margin,
+  padding,
+} from "./props";
 
 import { Stack } from "../../../layouts/Stack";
 
@@ -43,6 +52,8 @@ Sizes.args = {
   value: "as",
   checked: false,
   handleChange: () => {},
+  margin: "0px",
+  padding: "0px",
 };
 Sizes.argTypes = {
   id,
@@ -51,6 +62,8 @@ Sizes.argTypes = {
   value,
   checked,
   handleChange,
+  margin,
+  padding,
 };
 
 export default story;

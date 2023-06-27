@@ -10,6 +10,8 @@ import {
   checked,
   handleChange,
   size,
+  margin,
+  padding,
 } from "./props";
 
 const story = {
@@ -33,6 +35,8 @@ Default.args = {
   checked: false,
   size: "small",
   handleChange: () => {},
+  margin: "0px",
+  padding: "0px",
 };
 Default.argTypes = {
   id,
@@ -42,6 +46,8 @@ Default.argTypes = {
   checked,
   handleChange,
   size,
+  margin,
+  padding,
 };
 
 export default story;
