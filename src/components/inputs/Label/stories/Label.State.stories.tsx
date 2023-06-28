@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-import { Label } from "..";
+import { Label, TypographyLabel } from "..";
 import { Stack } from "../../../layouts/Stack";
 
 import {
@@ -23,7 +23,7 @@ interface LabelArgs {
   htmlFor: string;
   isFocused: boolean;
   isInvalid: boolean;
-  typo: "labelLarge" | "labelMedium" | "labelSmall";
+  typo: TypographyLabel;
   children: ReactNode;
 }
 

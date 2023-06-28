@@ -2,23 +2,21 @@ import React from "react";
 
 import { StyledLabel } from "./styles";
 
-const typos: ["labelLarge", "labelMedium", "labelSmall"] = [
-  "labelLarge",
-  "labelMedium",
-  "labelSmall",
-];
+const typos = ["labelLarge", "labelMedium", "labelSmall"] as const;
 
 const defaultIsDisabled = false;
 const defaultIsFocused = false;
 const defaultIsInvalid = false;
 const defaultTypo = "labelLarge";
 
+export type TypographyLabel = typeof typos[number];
+
 interface LabelProps {
   isDisabled?: boolean;
   isFocused?: boolean;
   htmlFor: string;
   isInvalid?: boolean;
-  typo?: "labelLarge" | "labelMedium" | "labelSmall";
+  typo?: TypographyLabel;
   children: React.ReactNode;
 }
 

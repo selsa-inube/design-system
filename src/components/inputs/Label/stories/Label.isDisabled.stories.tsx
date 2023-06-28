@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-import { Label } from "..";
+import { Label, TypographyLabel } from "..";
 import { parameters, isFocused, htmlFor, isInvalid } from "./props";
 
 const story = {
@@ -14,7 +14,7 @@ interface LabelArgs {
   htmlFor: string;
   isFocused: boolean;
   isInvalid: boolean;
-  typo: "labelLarge" | "labelMedium" | "labelSmall";
+  typo: TypographyLabel;
   children: ReactNode;
 }
 

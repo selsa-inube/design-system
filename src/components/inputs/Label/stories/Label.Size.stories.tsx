@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-import { Label, typos } from "..";
+import { Label, TypographyLabel, typos } from "..";
 import { Stack } from "../../../layouts/Stack";
 
 import { parameters, isDisabled, isFocused, htmlFor, isInvalid } from "./props";
@@ -16,7 +16,7 @@ interface LabelArgs {
   htmlFor: string;
   isFocused: boolean;
   isInvalid: boolean;
-  typo: "labelLarge" | "labelMedium" | "labelSmall";
+  typo: TypographyLabel;
   children: ReactNode;
 }
 
