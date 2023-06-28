@@ -7,11 +7,10 @@ import vitesconfigPaths from "vite-tsconfig-paths";
 export default defineConfig({
   build: {
     lib: {
-      entry: resolve(__dirname, "src/index.js"),
+      entry: resolve(__dirname, "src/index.ts"),
       name: "design-system",
       fileName: (format) => `index.${format}.js`,
       formats: ["es", "umd"],
-      exports: "named",
     },
     rollupOptions: {
       external: [
