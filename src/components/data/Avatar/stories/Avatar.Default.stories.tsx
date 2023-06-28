@@ -1,4 +1,4 @@
-import React from "react";
+import { Story } from "@storybook/react";
 import { Avatar } from "../index";
 
 import { icon } from "./props";
@@ -7,7 +7,7 @@ const story = {
   title: "data/Avatar/Default",
   components: [Avatar],
   decorators: [
-    (Story) => (
+    (Story: Story) => (
       <div style={{ margin: "3em" }}>
         <Story />
       </div>
