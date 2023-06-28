@@ -2,12 +2,7 @@ import React from "react";
 import { Switch } from "../../components/inputs/Switch";
 import { SwitchController } from "../../components/inputs/Switch/stories/SwitchController";
 import { useMediaQuery } from "../useMediaQuery";
-
-interface SwitchControllerProps {
-  handleChange: () => void;
-  id: string;
-  size?: string;
-}
+import { IExampleSwitch } from "./IExampleSwitch.interface";
 
 const story = {
   title: "hooks/useMediaQuery",
@@ -21,7 +16,7 @@ const story = {
   ],
 };
 
-export const Example = (args: SwitchControllerProps) => {
+export const Example = (args: IExampleSwitch) => {
   const isLargeScreen = useMediaQuery("(min-width: 600px)");
 
   const size = isLargeScreen ? "large" : "small";
