@@ -1,3 +1,28 @@
+# v5.0.0 (Wed Jun 28 2023)
+
+#### 💥 Breaking Change
+
+- Install TypeScript [#198](https://github.com/selsa-inube/design-system/pull/198) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+
+#### 🚀 Enhancement
+
+- Develop the `<TextArea />` component [#191](https://github.com/selsa-inube/design-system/pull/191) ([@Andresbl123](https://github.com/Andresbl123))
+- Develop the `<Select />` component [#173](https://github.com/selsa-inube/design-system/pull/173) ([@Andresbl123](https://github.com/Andresbl123))
+- Add margin and padding props to `<Switch/>` [#200](https://github.com/selsa-inube/design-system/pull/200) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+
+#### 🐛 Bug Fix
+
+- Configure TypeScript [#201](https://github.com/selsa-inube/design-system/pull/201) ([@Andresbl123](https://github.com/Andresbl123))
+- Release design-system new version 4.2.3 [#199](https://github.com/selsa-inube/design-system/pull/199) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 3
+
+- Andres ([@Andresbl123](https://github.com/Andresbl123))
+- cesar.marin (cmarin@sistemasenlinea.com.co)
+- cmarin ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v4.2.3 (Tue Jun 27 2023)
 
 #### 🐛 Bug Fix
