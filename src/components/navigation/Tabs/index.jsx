@@ -3,6 +3,20 @@ import PropTypes from "prop-types";
 import { Tab } from "../Tab";
 import { Stack } from "../../layouts/Stack";
 import { StyledTabs } from "./styles";
+import { Select } from "../../inputs/Select";
+
+export const TabTypes = Object.freeze({
+  TAB: "tab",
+  SELECT: "select",
+});
+
+export const sizes = Object.freeze({
+  WIDE: "wide",
+  COMPACT: "compact",
+});
+
+const defaultType = TabTypes.TAB;
+const defaultSize = sizes.WIDE;
 
 const checkDuplicateTabIds = (tabs) => {
   const ids = tabs.map((tab) => tab.id);
@@ -16,9 +30,30 @@ const checkDuplicateTabIds = (tabs) => {
 };
 
 const Tabs = (props) => {
-  const { tabs, handleSelectedTab, selectedTab } = props;
-
+  const { tabs, type, size, handleSelectedTab, selectedTab } = props;
+  const transformedType = Object.values(TabTypes).includes(type)
+    ? type
+    : defaultType;
+  const transformedSize = Object.values(sizes).includes(size)
+    ? size
+    : defaultSize;
   checkDuplicateTabIds(tabs);
+
+  if (transformedType === TabTypes.SELECT) {
+    const selectOptions = tabs.map((tab) => ({
+      id: tab.id,
+      label: tab.label,
+      isDisabled: tab.isDisabled,
+    }));
+    return (
+      <Select
+        size={transformedSize}
+        options={selectOptions}
+        value={selectedTab}
+        handleChange={(value) => handleSelectedTab(value)}
+      />
+    );
+  }
 
   return (
     <StyledTabs>
@@ -46,6 +81,8 @@ Tabs.propTypes = {
       label: PropTypes.string.isRequired,
     })
   ).isRequired,
+  type: PropTypes.oneOf(Object.values(TabTypes)),
+  size: PropTypes.oneOf(Object.values(sizes)),
   handleSelectedTab: PropTypes.func.isRequired,
   selectedTab: PropTypes.string.isRequired,
 };

@@ -1,3 +1,5 @@
+import { TabTypes } from "./../index";
+
 const tabs = {
   control: { type: "func" },
   description:
@@ -22,4 +24,14 @@ const handleSelectedTab = {
     "attribute shall determine the behavior of the click event and should handle the state for the tabs-component",
 };
 
-export { tabs, selectedTab, handleSelectedTab };
+const type = {
+  options: TabTypes,
+  control: { type: "select" },
+  description:
+    "shall determine the way the tabs will display in order to avoid horizontal scrolling",
+  table: {
+    defaultValue: { summary: "tab" },
+  },
+};
+
+export { tabs, selectedTab, handleSelectedTab, type };
