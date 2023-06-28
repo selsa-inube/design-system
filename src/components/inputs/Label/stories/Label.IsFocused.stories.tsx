@@ -1,4 +1,4 @@
-import React from "react";
+import { ReactNode } from "react";
 
 import { Label } from "..";
 import {
@@ -16,7 +16,22 @@ const story = {
   parameters,
 };
 
-const IsFocused = ({ children, isInvalid, htmlFor, typo, isDisabled }) => {
+interface LabelArgs {
+  isDisabled: boolean;
+  htmlFor: string;
+  isFocused: boolean;
+  isInvalid: boolean;
+  typo: "labelLarge" | "labelMedium" | "labelSmall";
+  children: ReactNode;
+}
+
+const IsFocused = ({
+  children,
+  isInvalid,
+  htmlFor,
+  typo,
+  isDisabled,
+}: LabelArgs) => {
   return (
     <Label
       isDisabled={isDisabled}

@@ -1,4 +1,4 @@
-import React from "react";
+import { ReactNode } from "react";
 
 import { Label } from "..";
 
@@ -18,7 +18,13 @@ const story = {
   parameters,
 };
 
-const Default = ({ htmlFor, typo, children }) => {
+interface LabelArgs {
+  htmlFor: string;
+  typo: "labelLarge" | "labelMedium" | "labelSmall";
+  children: ReactNode;
+}
+
+const Default = ({ htmlFor, typo, children }: LabelArgs) => {
   return (
     <Label htmlFor={htmlFor} typo={typo}>
       {children}

@@ -1,16 +1,28 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 import { StyledLabel } from "./styles";
 
-const typos = ["labelLarge", "labelMedium", "labelSmall"];
+const typos: ["labelLarge", "labelMedium", "labelSmall"] = [
+  "labelLarge",
+  "labelMedium",
+  "labelSmall",
+];
 
 const defaultIsDisabled = false;
 const defaultIsFocused = false;
 const defaultIsInvalid = false;
 const defaultTypo = "labelLarge";
 
-const Label = (props) => {
+interface LabelProps {
+  isDisabled?: boolean;
+  isFocused?: boolean;
+  htmlFor: string;
+  isInvalid?: boolean;
+  typo?: "labelLarge" | "labelMedium" | "labelSmall";
+  children: React.ReactNode;
+}
+
+const Label = (props: LabelProps) => {
   const {
     isDisabled = defaultIsDisabled,
     isFocused = defaultIsFocused,
@@ -42,15 +54,6 @@ const Label = (props) => {
       {children}
     </StyledLabel>
   );
-};
-
-Label.propTypes = {
-  isDisabled: PropTypes.bool,
-  isFocused: PropTypes.bool,
-  htmlFor: PropTypes.string.isRequired,
-  isInvalid: PropTypes.bool,
-  typo: PropTypes.oneOf(typos),
-  children: PropTypes.node,
 };
 
 export { Label, typos };
