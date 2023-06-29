@@ -1,4 +1,4 @@
-import { TabProps } from "./interface.Tab";
+import { TabProps } from "./interfaces/interface.Tab";
 
 import { Text } from "../../data/Text";
 

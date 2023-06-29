@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { TabProps } from "../interface.Tab";
+import { TabProps } from "../interfaces/interface.Tab";
 import { Tab } from "../index";
 
 const TabController = (props: TabProps) => {

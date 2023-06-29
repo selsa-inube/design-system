@@ -1,5 +1,5 @@
 import { ElementType } from "react";
-import { TabProps } from "../interface.Tab";
+import { TabProps } from "../interfaces/interface.Tab";
 import { Tab } from "../index";
 import { TabController } from "./TabController";
 
