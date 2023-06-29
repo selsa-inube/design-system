@@ -1,4 +1,4 @@
-import { typos } from "..";
+import { typos } from "../interfaces";
 
 const parameters = {
   docs: {
