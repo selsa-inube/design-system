@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 
-import { Label, TypographyLabel, typos } from "..";
+import { TypographyLabel, typos } from "../interfaces";
+import { Label } from "../";
 import { Stack } from "../../../layouts/Stack";
 
 import { parameters, isDisabled, isFocused, htmlFor, isInvalid } from "./props";

@@ -1,6 +1,6 @@
-import { ReactNode } from "react";
+import { LabelProps } from "../interfaces";
 
-import { Label, TypographyLabel } from "..";
+import { Label } from "..";
 
 import {
   parameters,
@@ -18,13 +18,7 @@ const story = {
   parameters,
 };
 
-interface LabelArgs {
-  htmlFor: string;
-  typo: TypographyLabel;
-  children: ReactNode;
-}
-
-const Default = ({ htmlFor, typo, children }: LabelArgs) => {
+const Default = ({ htmlFor, typo, children }: LabelProps) => {
   return (
     <Label htmlFor={htmlFor} typo={typo}>
       {children}

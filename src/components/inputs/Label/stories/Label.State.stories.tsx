@@ -1,6 +1,6 @@
-import { ReactNode } from "react";
+import { LabelProps } from "../interfaces";
 
-import { Label, TypographyLabel } from "..";
+import { Label } from "..";
 import { Stack } from "../../../layouts/Stack";
 
 import {
@@ -18,22 +18,13 @@ const story = {
   parameters,
 };
 
-interface LabelArgs {
-  isDisabled: boolean;
-  htmlFor: string;
-  isFocused: boolean;
-  isInvalid: boolean;
-  typo: TypographyLabel;
-  children: ReactNode;
-}
-
 const States = ({
   isDisabled,
   isFocused,
   children,
   typo,
   htmlFor,
-}: LabelArgs) => {
+}: LabelProps) => {
   return (
     <Stack justifyContent="space-evenly">
       {[false, true].map((isInvalid) => (
