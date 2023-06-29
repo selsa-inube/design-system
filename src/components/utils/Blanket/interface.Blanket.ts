@@ -1,7 +1,5 @@
 import { ReactNode } from "react";
 
-interface BlanketProps {
+export interface BlanketProps {
   children?: ReactNode;
 }
-
-export type { BlanketProps };
