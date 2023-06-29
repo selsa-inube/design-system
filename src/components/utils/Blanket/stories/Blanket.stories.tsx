@@ -1,4 +1,4 @@
-import React from "react";
+import { BlanketProps } from "../interface.Blanket";
 
 import { Blanket } from "..";
 
@@ -21,7 +21,7 @@ const story = {
   },
 };
 
-const Default = (args) => <Blanket {...args} />;
+const Default = (args: BlanketProps) => <Blanket {...args} />;
 
 export default story;
 export { Default };
