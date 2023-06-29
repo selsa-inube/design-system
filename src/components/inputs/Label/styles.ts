@@ -2,6 +2,8 @@ import styled from "styled-components";
 import { typography } from "../../../shared/typography/typography";
 import { colors } from "../../../shared/colors/colors";
 
+import { LabelProps } from "./interfaces";
+
 const getColor = (
   isDisabled: boolean,
   isFocused: boolean,
@@ -27,24 +29,33 @@ const getColor = (
   return color;
 };
 
-interface StyledLabelProps {
-  isDisabled: boolean;
-  isFocused: boolean;
-  isInvalid: boolean;
-  typo: "labelLarge" | "labelMedium" | "labelSmall";
-}
+console.log();
+
+/* const StyledLabel = styled.label<LabelProps>`
+  font-family: ${typography.sys.typescale.labelLarge.font};
+  font-size: ${({ typo } ) => typography.sys.typescale[typo].size};
+  font-weight: ${({ typo }) => typography.sys.typescale[typo].weight};
+  letter-spacing: ${({ typo }) => typography.sys.typescale[typo].tracking};
+  line-height: ${({ typo }) => typography.sys.typescale[typo].lineHeight};
+  color: ${({ isDisabled, isFocused, isInvalid }) =>
+    getColor(isDisabled, isFocused, isInvalid)};
+`;
+ */
 
 const StyledLabel = styled.label`
   font-family: ${typography.sys.typescale.labelLarge.font};
-  font-size: ${({ typo }: StyledLabelProps) =>
-    typography.sys.typescale[typo].size};
-  font-weight: ${({ typo }: StyledLabelProps) =>
-    typography.sys.typescale[typo].weight};
-  letter-spacing: ${({ typo }: StyledLabelProps) =>
-    typography.sys.typescale[typo].tracking};
-  line-height: ${({ typo }: StyledLabelProps) =>
-    typography.sys.typescale[typo].lineHeight};
-  color: ${({ isDisabled, isFocused, isInvalid }: StyledLabelProps) =>
+  font-size: ${({ typo }: LabelProps) =>
+    typo && typography.sys.typescale[typo].size};
+  font-weight: ${({ typo }: LabelProps) =>
+    typo && typography.sys.typescale[typo].weight};
+  letter-spacing: ${({ typo }: LabelProps) =>
+    typo && typography.sys.typescale[typo].tracking};
+  line-height: ${({ typo }: LabelProps) =>
+    typo && typography.sys.typescale[typo].lineHeight};
+  color: ${({ isDisabled, isFocused, isInvalid }: LabelProps) =>
+    isDisabled &&
+    isFocused &&
+    isInvalid &&
     getColor(isDisabled, isFocused, isInvalid)};
 `;
 

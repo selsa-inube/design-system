@@ -1,24 +1,11 @@
-import React from "react";
+import { LabelProps, typos } from "./interfaces";
 
 import { StyledLabel } from "./styles";
-
-const typos = ["labelLarge", "labelMedium", "labelSmall"] as const;
 
 const defaultIsDisabled = false;
 const defaultIsFocused = false;
 const defaultIsInvalid = false;
 const defaultTypo = "labelLarge";
-
-export type TypographyLabel = typeof typos[number];
-
-interface LabelProps {
-  isDisabled?: boolean;
-  isFocused?: boolean;
-  htmlFor: string;
-  isInvalid?: boolean;
-  typo?: TypographyLabel;
-  children: React.ReactNode;
-}
 
 const Label = (props: LabelProps) => {
   const {
@@ -54,4 +41,4 @@ const Label = (props: LabelProps) => {
   );
 };
 
-export { Label, typos };
+export { Label };
