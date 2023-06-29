@@ -1,11 +1,10 @@
-import React from "react";
-import PropTypes from "prop-types";
+import { TabProps } from "./interface.Tab";
 
 import { Text } from "../../data/Text";
 
 import { StyledTab } from "./styles";
 
-const Tab = (props) => {
+const Tab = (props: TabProps) => {
   const {
     isDisabled = false,
     isSelected = false,
@@ -14,7 +13,7 @@ const Tab = (props) => {
     label,
   } = props;
 
-  const appearance = (isSelected, isDisabled) => {
+  const appearance = (isSelected: boolean, isDisabled: boolean) => {
     if (isSelected && !isDisabled) {
       return "primary";
     }
@@ -39,14 +38,6 @@ const Tab = (props) => {
       </Text>
     </StyledTab>
   );
-};
-
-Tab.propTypes = {
-  isDisabled: PropTypes.bool,
-  isSelected: PropTypes.bool,
-  id: PropTypes.string,
-  handleClick: PropTypes.func.isRequired,
-  label: PropTypes.string.isRequired,
 };
 
 export { Tab };

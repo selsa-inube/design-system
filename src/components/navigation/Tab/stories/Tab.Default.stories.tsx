@@ -1,4 +1,5 @@
-import React from "react";
+import { ElementType } from "react";
+import { TabProps } from "../interface.Tab";
 import { Tab } from "../index";
 import { TabController } from "./TabController";
 
@@ -8,7 +9,7 @@ const story = {
   title: "navigation/Tab/Default",
   components: [Tab],
   decorators: [
-    (Story) => (
+    (Story: ElementType) => (
       <div style={{ margin: "3em" }}>
         <Story />
       </div>
@@ -16,7 +17,7 @@ const story = {
   ],
 };
 
-export const Default = (args) => <TabController {...args} />;
+export const Default = (args: TabProps) => <TabController {...args} />;
 Default.args = {
   id: "thisIsAnId",
   isDisabled: false,
