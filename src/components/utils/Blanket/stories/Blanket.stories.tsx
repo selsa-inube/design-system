@@ -3,7 +3,7 @@ import { BlanketProps } from "../interface.Blanket";
 import { Blanket } from "..";
 
 const story = {
-  title: "utils/Blanket",
+  title: "utils/Blanket/Default",
   components: Blanket,
   parameters: {
     docs: {
