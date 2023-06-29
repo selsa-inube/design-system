@@ -1,4 +1,4 @@
-import { LabelProps } from "../interfaces";
+import { LabelProps } from "../interface.Label";
 
 import { Label } from "..";
 import { Stack } from "../../../layouts/Stack";
