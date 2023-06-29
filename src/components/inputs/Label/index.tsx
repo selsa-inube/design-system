@@ -1,4 +1,4 @@
-import { LabelProps, typos } from "./interface.Label";
+import { LabelProps, typos } from "./interfaces/interface.Label";
 
 import { StyledLabel } from "./styles";
 

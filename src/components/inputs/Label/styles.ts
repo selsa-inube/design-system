@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { typography } from "../../../shared/typography/typography";
 import { colors } from "../../../shared/colors/colors";
 
-import { LabelProps } from "./interface.Label";
+import { LabelProps } from "./interfaces/interface.Label";
 
 const getColor = (
   isDisabled: boolean,
