@@ -7,7 +7,7 @@ import { TextField } from "../../inputs/TextField";
 import { useMediaQuery } from "../../../hooks/useMediaQuery";
 import { createPortal } from "react-dom";
 import { MdClear } from "react-icons/md";
-import { StyledActionContainer, StyledModal } from "./styles";
+import { StyledModal } from "./styles";
 
 const InteractiveModal = (props) => {
   const {
@@ -83,14 +83,9 @@ const InteractiveModal = (props) => {
               <Text typo="titleMedium">{actionsTitle}</Text>
               {actions.map((action) => (
                 <Stack key={action.id} gap="10px">
-                  <StyledActionContainer>
-                    {typeof action.content === "function"
-                      ? action.content(infoData)
-                      : action.content}
-                  </StyledActionContainer>
-                  <Text typo="labelLarge" appearance="secondary">
-                    {action.actionName}
-                  </Text>
+                  {typeof action.content === "function"
+                    ? action.content(infoData)
+                    : action.content}
                 </Stack>
               ))}
             </Stack>
