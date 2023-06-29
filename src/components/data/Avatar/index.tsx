@@ -1,4 +1,4 @@
-import { AvatarProps } from "./interface.Avatar";
+import { AvatarProps } from "./interfaces/interface.Avatar";
 import { MdPersonOutline } from "react-icons/md";
 
 import { StyledAvatar } from "./styles";
