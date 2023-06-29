@@ -1,22 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Tab } from "../Tab";
 import { Stack } from "../../layouts/Stack";
-import { StyledTabs } from "./styles";
-import { Select } from "../../inputs/Select";
+import { StyledTabs, StyledIconWrapper } from "./styles";
+import { DropDownMenu } from "../../inputs/DropDownMenu";
+import { MdKeyboardArrowDown } from "react-icons/md";
 
 export const TabTypes = Object.freeze({
   TAB: "tab",
   SELECT: "select",
 });
 
-export const sizes = Object.freeze({
-  WIDE: "wide",
-  COMPACT: "compact",
-});
-
 const defaultType = TabTypes.TAB;
-const defaultSize = sizes.WIDE;
 
 const checkDuplicateTabIds = (tabs) => {
   const ids = tabs.map((tab) => tab.id);
@@ -30,28 +25,52 @@ const checkDuplicateTabIds = (tabs) => {
 };
 
 const Tabs = (props) => {
-  const { tabs, type, size, handleSelectedTab, selectedTab } = props;
+  const { tabs, type, handleSelectedTab, selectedTab } = props;
+
+  const [isDropDownOpen, setIsDropDownOpen] = useState(false);
+
   const transformedType = Object.values(TabTypes).includes(type)
     ? type
     : defaultType;
-  const transformedSize = Object.values(sizes).includes(size)
-    ? size
-    : defaultSize;
+
   checkDuplicateTabIds(tabs);
 
   if (transformedType === TabTypes.SELECT) {
-    const selectOptions = tabs.map((tab) => ({
+    const firstTab = tabs[0];
+    const dropDownOptions = tabs.slice(1).map((tab) => ({
       id: tab.id,
       label: tab.label,
       isDisabled: tab.isDisabled,
     }));
+
     return (
-      <Select
-        size={transformedSize}
-        options={selectOptions}
-        value={selectedTab}
-        handleChange={(value) => handleSelectedTab(value)}
-      />
+      <>
+        <StyledTabs>
+          <Stack gap="24px">
+            <StyledIconWrapper
+              onClick={() => setIsDropDownOpen(!isDropDownOpen)}
+            >
+              <MdKeyboardArrowDown />
+            </StyledIconWrapper>
+            <Tab
+              key={firstTab.id}
+              isDisabled={firstTab.isDisabled}
+              isSelected={firstTab.id === selectedTab}
+              id={firstTab.id}
+              handleClick={() => handleSelectedTab(firstTab.id)}
+              label={firstTab.label}
+            />
+          </Stack>
+        </StyledTabs>
+        {isDropDownOpen && (
+          <DropDownMenu
+            options={dropDownOptions}
+            handleSelect={(value) => handleSelectedTab(value)}
+            isOpenOptions={isDropDownOpen}
+            onCloseOptions={() => setIsDropDownOpen(false)}
+          />
+        )}
+      </>
     );
   }
 
@@ -82,7 +101,6 @@ Tabs.propTypes = {
     })
   ).isRequired,
   type: PropTypes.oneOf(Object.values(TabTypes)),
-  size: PropTypes.oneOf(Object.values(sizes)),
   handleSelectedTab: PropTypes.func.isRequired,
   selectedTab: PropTypes.string.isRequired,
 };

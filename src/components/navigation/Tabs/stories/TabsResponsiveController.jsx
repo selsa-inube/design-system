@@ -5,7 +5,6 @@ import { useMediaQueries } from "./../../../../hooks/useMediaQueries";
 const TabsResponsiveController = ({ tabs, selectedTab }) => {
   const [selectedTabController, setSelectedTab] = useState(selectedTab);
   const [type, setType] = useState("select");
-  const [size, setSize] = useState("compact");
 
   const mediaQueries = useMediaQueries([
     "(min-width: 320px) and (max-width: 768px)",
@@ -15,10 +14,8 @@ const TabsResponsiveController = ({ tabs, selectedTab }) => {
   useEffect(() => {
     if (mediaQueries["(min-width: 320px) and (max-width: 768px)"]) {
       setType("select");
-      setSize("compact");
     } else if (mediaQueries["(min-width: 769px)"]) {
       setType("tab");
-      setSize("wide");
     }
   }, [mediaQueries]);
 
@@ -26,7 +23,6 @@ const TabsResponsiveController = ({ tabs, selectedTab }) => {
     <Tabs
       tabs={tabs}
       type={type}
-      size={size}
       handleSelectedTab={setSelectedTab}
       selectedTab={selectedTabController}
     />
