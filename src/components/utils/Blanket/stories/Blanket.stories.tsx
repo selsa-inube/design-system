@@ -1,4 +1,4 @@
-import { BlanketProps } from "../interface.Blanket";
+import { BlanketProps } from "../interfaces/interface.Blanket";
 
 import { Blanket } from "..";
 
