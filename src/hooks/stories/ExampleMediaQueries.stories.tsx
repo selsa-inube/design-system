@@ -1,12 +1,13 @@
 import React from "react";
 import { useMediaQueries } from "../useMediaQueries";
 import { Text } from "../../components/data/Text";
+import { IArgs } from "./ExampleMediaQueries.interface";
 
 const story = {
   title: "hooks/useMediaQueries",
   components: [useMediaQueries],
   decorators: [
-    (Story) => (
+    (Story: React.ComponentType) => (
       <div style={{ margin: "3em" }}>
         <Story />
       </div>
@@ -14,7 +15,7 @@ const story = {
   ],
 };
 
-export const ExampleMediaQueries = (args) => {
+export const ExampleMediaQueries = (args: IArgs) => {
   const { initialQueries } = args;
   const matches = useMediaQueries(initialQueries);
   return (
@@ -30,6 +31,7 @@ export const ExampleMediaQueries = (args) => {
     </>
   );
 };
+
 ExampleMediaQueries.args = {
   initialQueries: [
     "(min-width: 1200px)",
@@ -37,4 +39,5 @@ ExampleMediaQueries.args = {
     "(min-width: 768px)",
   ],
 };
+
 export default story;
