@@ -1,6 +1,4 @@
-export const typos = ["labelLarge", "labelMedium", "labelSmall"] as const;
-
-export type TypographyLabel = typeof typos[number];
+import { TypographyLabel } from "../types/type.Label";
 
 export interface LabelProps {
   isDisabled?: boolean;
