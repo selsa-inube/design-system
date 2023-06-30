@@ -1,13 +1,15 @@
-import React from "react";
-import { Spinner, sizes } from "../index";
+import { Meta } from "@storybook/react";
 
+import { Spinner } from "..";
+import { ISpinnerProps } from "../interfaces/interface.Spinner";
+import { sizes } from "../types/type.Spinner";
 import { StyledFlexBetween } from "./styles";
 
-import { appearance, isTransparent } from "./props";
+import { size, appearance, isTransparent } from "./props";
 
-const story = {
+const meta: Meta<ISpinnerProps> = {
   title: "feedback/Spinner/Sizes",
-  components: [Spinner],
+  component: Spinner,
   decorators: [
     (Story) => (
       <div style={{ margin: "3em" }}>
@@ -15,6 +17,11 @@ const story = {
       </div>
     ),
   ],
+  argTypes: {
+    size,
+    appearance,
+    isTransparent,
+  },
 };
 
 const SizesTemplate = ({ ...args }) => (
@@ -28,9 +35,4 @@ const SizesTemplate = ({ ...args }) => (
 );
 export const Sizes = SizesTemplate.bind({});
 
-Sizes.argTypes = {
-  appearance,
-  isTransparent,
-};
-
-export default story;
+export default meta;

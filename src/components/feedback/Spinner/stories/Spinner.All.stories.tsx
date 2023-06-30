@@ -1,5 +1,6 @@
-import React from "react";
-import { Spinner, sizes, appearances } from "../index";
+import { ElementType } from "react";
+import { Spinner } from "..";
+import { sizes, appearances } from "../types/type.Spinner";
 
 import { StyledFlex, StyledFlexColumn, StyledGrid } from "./styles";
 
@@ -7,7 +8,7 @@ const story = {
   title: "feedback/Spinner/All",
   components: [Spinner],
   decorators: [
-    (Story) => (
+    (Story: ElementType) => (
       <div style={{ margin: "3em" }}>
         <Story />
       </div>

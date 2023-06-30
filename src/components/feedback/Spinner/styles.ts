@@ -1,4 +1,5 @@
 import styled, { keyframes } from "styled-components";
+import { ISpinnerProps } from "./interfaces/interface.Spinner";
 
 import { colors } from "../../../shared/colors/colors";
 
@@ -40,13 +41,14 @@ const StyledSpinner = styled.div`
   display: inline-block;
   animation: 0.8s linear infinite ${spinner};
   border: solid 4px
-    ${(props) =>
+    ${(props: ISpinnerProps) =>
       props.isTransparent === true
         ? colors.ref.palette.neutralAlpha.n0A
         : colors.ref.palette.neutral.n30};
-  border-bottom-color: ${(props) => colorHomologation[props.appearance]};
+  border-bottom-color: ${(props: ISpinnerProps) =>
+    props.appearance && colorHomologation[props.appearance]};
   border-radius: 50%;
-  ${(props) => sizes[props.size]}
+  ${(props: ISpinnerProps) => props.size && sizes[props.size]}
   box-sizing: border-box;
 `;
 

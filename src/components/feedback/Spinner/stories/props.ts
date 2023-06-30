@@ -1,4 +1,4 @@
-import { sizes, appearances } from "./../index";
+import { sizes, appearances } from "../types/type.Spinner";
 
 const size = {
   options: sizes,

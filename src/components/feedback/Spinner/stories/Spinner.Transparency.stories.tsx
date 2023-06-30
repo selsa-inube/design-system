@@ -1,13 +1,14 @@
-import React from "react";
-import { Spinner } from "../index";
+import { Meta } from "@storybook/react";
+import { Spinner } from "..";
+import { ISpinnerProps } from "../interfaces/interface.Spinner";
 
 import { StyledFlex } from "./styles";
 
 import { size, appearance } from "./props";
 
-const story = {
+const meta: Meta<ISpinnerProps> = {
   title: "feedback/Spinner/Transparency",
-  components: [Spinner],
+  component: Spinner,
   decorators: [
     (Story) => (
       <div style={{ margin: "3em" }}>
@@ -15,12 +16,16 @@ const story = {
       </div>
     ),
   ],
+  argTypes: {
+    size,
+    appearance,
+  },
 };
 
-const TransparencyTemplate = ({ ...args }) => (
+const TransparencyTemplate = (args: ISpinnerProps) => (
   <StyledFlex>
     {[true, false].map((state) => (
-      <div key={state}>
+      <div key={state.toString()}>
         <Spinner {...args} isTransparent={state} />
       </div>
     ))}
@@ -28,9 +33,4 @@ const TransparencyTemplate = ({ ...args }) => (
 );
 export const Transparency = TransparencyTemplate.bind({});
 
-Transparency.argTypes = {
-  size,
-  appearance,
-};
-
-export default story;
+export default meta;

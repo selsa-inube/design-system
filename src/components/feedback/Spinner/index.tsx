@@ -1,23 +1,13 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { StyledSpinner } from "./styles";
+import { ISpinnerProps } from "./interfaces/interface.Spinner";
+import { sizes, appearances } from "./types/type.Spinner";
 
-export const sizes = ["large", "medium", "small"];
-export const appearances = [
-  "blue",
-  "green",
-  "yellow",
-  "red",
-  "purple",
-  "dark",
-  "white",
-];
+import { StyledSpinner } from "./styles";
 
 const defaultAppearance = "blue";
 const defaultSize = "medium";
 const defaultTransparent = false;
 
-const Spinner = (props) => {
+const Spinner = (props: ISpinnerProps) => {
   const {
     size = defaultSize,
     appearance = defaultAppearance,
@@ -38,12 +28,6 @@ const Spinner = (props) => {
       isTransparent={transformedIsTransparent}
     />
   );
-};
-
-Spinner.propTypes = {
-  size: PropTypes.oneOf(sizes),
-  appearance: PropTypes.oneOf(appearances),
-  isTransparent: PropTypes.bool,
 };
 
 export { Spinner };
