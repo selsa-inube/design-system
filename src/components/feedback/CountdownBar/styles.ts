@@ -11,7 +11,7 @@ const CountdownBarAnimation = keyframes`
   }
 `;
 
-const StyledCountdownBar = styled.div<ICountdownBarProps>`
+const StyledCountdownBar = styled.div`
   width: 100%;
   height: ${(props: ICountdownBarProps) => props.size};
   transform-origin: left;

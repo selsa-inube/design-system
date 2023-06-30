@@ -1,19 +1,6 @@
 import { appearances as colors } from "../index";
 
-interface IArgType {
-  options?: {};
-  control: { type: string };
-  description: string;
-  table: {
-    defaultValue: { summary: string | number | boolean };
-  };
-}
-
-interface IFunctionType {
-  description: string;
-}
-
-const size: IArgType = {
+const size = {
   control: { type: "text" },
   description:
     "which allows it to be given a custom thickness, according to the need.",
@@ -22,7 +9,7 @@ const size: IArgType = {
   },
 };
 
-const appearance: IArgType = {
+const appearance = {
   options: colors,
   control: { type: "select" },
   description: "colors used to identify the state of the component",
@@ -31,7 +18,7 @@ const appearance: IArgType = {
   },
 };
 
-const duration: IArgType = {
+const duration = {
   control: { type: "number" },
   description: "the total duration of the animation, in milliseconds",
   table: {
@@ -39,7 +26,7 @@ const duration: IArgType = {
   },
 };
 
-const isPaused: IArgType = {
+const isPaused = {
   control: { type: "boolean" },
   description: "pause or start the animation",
   table: {
@@ -47,7 +34,7 @@ const isPaused: IArgType = {
   },
 };
 
-const handleCountdown: IFunctionType = {
+const handleCountdown = {
   description: "function to be executed when the progress bar reaches zero",
 };
 
