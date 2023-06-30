@@ -1,6 +1,7 @@
-import React from "react";
+import { ReactNode } from "react";
 
-import { Label, typos } from "..";
+import { TypographyLabel, typos } from "../types/Label.type";
+import { Label } from "../";
 import { Stack } from "../../../layouts/Stack";
 
 import { parameters, isDisabled, isFocused, htmlFor, isInvalid } from "./props";
@@ -11,7 +12,22 @@ const story = {
   parameters,
 };
 
-const Size = ({ isDisabled, isFocused, htmlFor, isInvalid, children }) => {
+interface LabelArgs {
+  isDisabled: boolean;
+  htmlFor: string;
+  isFocused: boolean;
+  isInvalid: boolean;
+  typo: TypographyLabel;
+  children: ReactNode;
+}
+
+const Size = ({
+  isDisabled,
+  isFocused,
+  htmlFor,
+  isInvalid,
+  children,
+}: LabelArgs) => {
   return (
     <Stack
       direction="row"
