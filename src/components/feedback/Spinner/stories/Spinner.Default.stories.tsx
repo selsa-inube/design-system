@@ -1,15 +1,14 @@
-import { Meta } from "@storybook/react";
-
+import { ElementType } from "react";
 import { Spinner } from "..";
 import { ISpinnerProps } from "../interfaces/Spinner.interface";
 
 import { size, appearance, isTransparent } from "./props";
 
-const meta: Meta<ISpinnerProps> = {
+const story = {
   title: "feedback/Spinner/Default",
   component: Spinner,
   decorators: [
-    (Story) => (
+    (Story: ElementType) => (
       <div style={{ margin: "3em" }}>
         <Story />
       </div>
@@ -24,4 +23,4 @@ const meta: Meta<ISpinnerProps> = {
 
 export const Default = (args: ISpinnerProps) => <Spinner {...args} />;
 
-export default meta;
+export default story;

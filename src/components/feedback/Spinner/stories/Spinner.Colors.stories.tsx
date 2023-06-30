@@ -1,4 +1,4 @@
-import type { Meta } from "@storybook/react";
+import { ElementType } from "react";
 
 import { Spinner } from "..";
 import { ISpinnerProps } from "../interfaces/Spinner.interface";
@@ -7,11 +7,11 @@ import { StyledFlex } from "./styles";
 
 import { size, isTransparent } from "./props";
 
-const meta: Meta<ISpinnerProps> = {
+const story = {
   title: "feedback/Spinner/Colors",
   component: Spinner,
   decorators: [
-    (Story) => (
+    (Story: ElementType) => (
       <div style={{ margin: "3em" }}>
         <Story />
       </div>
@@ -35,4 +35,4 @@ const ColorsTemplate = (args: ISpinnerProps) => (
 
 export const Colors = ColorsTemplate.bind({});
 
-export default meta;
+export default story;
