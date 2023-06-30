@@ -1,4 +1,4 @@
-import React from "react";
+import { ILabelProps } from "../interfaces/Label.interface";
 
 import { Label } from "..";
 import {
@@ -16,7 +16,13 @@ const story = {
   parameters,
 };
 
-const IsFocused = ({ children, isInvalid, htmlFor, typo, isDisabled }) => {
+const IsFocused = ({
+  children,
+  isInvalid,
+  htmlFor,
+  typo,
+  isDisabled,
+}: ILabelProps) => {
   return (
     <Label
       isDisabled={isDisabled}
