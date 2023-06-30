@@ -1,4 +1,5 @@
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import PropTypes from "prop-types";
 
 import { BreadcrumbMenu } from "../../navigation/BreadcrumbMenu";
 import { Text } from "../../data/Text/index";
@@ -8,24 +9,20 @@ import {
   StyledBreadcrumbEllipsis,
   StyledRelativeContainer,
 } from "./styles";
-import { Typos } from "./types/Typos.type";
-import { IBreadcrumbEllipsisProps } from "./interfaces/BreadcrumbEllipsisProps.interface";
 
-const typos: Typos = ["labelLarge", "labelSmall"];
+const typos = ["labelLarge", "labelSmall"];
 const defaultTypo = "labelLarge";
 
-const BreadcrumbEllipsis = (props: IBreadcrumbEllipsisProps) => {
+const BreadcrumbEllipsis = (props) => {
   const { typo = defaultTypo, routes } = props;
+
   const [showMenu, setShowMenu] = useState(false);
   const transformedTypos = typos.includes(typo) ? typo : defaultTypo;
 
-  const containerRef = useRef<HTMLDivElement | null>(null);
+  const containerRef = useRef(null);
 
-  const closeEllipsisMenu = (event: globalThis.MouseEvent) => {
-    if (
-      containerRef.current &&
-      !containerRef.current.contains(event.target as Node)
-    ) {
+  const closeEllipsisMenu = (event) => {
+    if (!containerRef.current.contains(event.target)) {
       setShowMenu(false);
     }
   };
@@ -52,6 +49,11 @@ const BreadcrumbEllipsis = (props: IBreadcrumbEllipsisProps) => {
       {showMenu && <BreadcrumbMenu routes={routes} />}
     </StyledRelativeContainer>
   );
+};
+
+BreadcrumbEllipsis.propTypes = {
+  typo: PropTypes.oneOf(typos),
+  routes: PropTypes.array.isRequired,
 };
 
 export { BreadcrumbEllipsis, typos };
