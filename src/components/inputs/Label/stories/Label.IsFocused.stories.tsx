@@ -1,4 +1,4 @@
-import { LabelProps } from "../interfaces/interface.Label";
+import { ILabelProps } from "../interfaces/Label.interface";
 
 import { Label } from "..";
 import {
@@ -22,7 +22,7 @@ const IsFocused = ({
   htmlFor,
   typo,
   isDisabled,
-}: LabelProps) => {
+}: ILabelProps) => {
   return (
     <Label
       isDisabled={isDisabled}

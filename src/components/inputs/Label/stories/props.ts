@@ -1,4 +1,4 @@
-import { typos } from "../types/type.Label";
+import { typos } from "../types/Label.type";
 
 const parameters = {
   docs: {

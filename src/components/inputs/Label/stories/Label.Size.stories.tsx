@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-import { TypographyLabel, typos } from "../types/type.Label";
+import { TypographyLabel, typos } from "../types/Label.type";
 import { Label } from "../";
 import { Stack } from "../../../layouts/Stack";
 

@@ -1,5 +1,5 @@
-import { LabelProps } from "./interfaces/interface.Label";
-import { typos } from "./types/type.Label";
+import { ILabelProps } from "./interfaces/Label.interface";
+import { typos } from "./types/Label.type";
 
 import { StyledLabel } from "./styles";
 
@@ -8,7 +8,7 @@ const defaultIsFocused = false;
 const defaultIsInvalid = false;
 const defaultTypo = "labelLarge";
 
-const Label = (props: LabelProps) => {
+const Label = (props: ILabelProps) => {
   const {
     isDisabled = defaultIsDisabled,
     isFocused = defaultIsFocused,

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { typography } from "../../../shared/typography/typography";
 import { colors } from "../../../shared/colors/colors";
 
-import { LabelProps } from "./interfaces/interface.Label";
+import { ILabelProps } from "./interfaces/Label.interface";
 
 const getColor = (
   isDisabled: boolean,
@@ -31,15 +31,15 @@ const getColor = (
 
 const StyledLabel = styled.label`
   font-family: ${typography.sys.typescale.labelLarge.font};
-  font-size: ${({ typo }: LabelProps) =>
+  font-size: ${({ typo }: ILabelProps) =>
     typo && typography.sys.typescale[typo].size};
-  font-weight: ${({ typo }: LabelProps) =>
+  font-weight: ${({ typo }: ILabelProps) =>
     typo && typography.sys.typescale[typo].weight};
-  letter-spacing: ${({ typo }: LabelProps) =>
+  letter-spacing: ${({ typo }: ILabelProps) =>
     typo && typography.sys.typescale[typo].tracking};
-  line-height: ${({ typo }: LabelProps) =>
+  line-height: ${({ typo }: ILabelProps) =>
     typo && typography.sys.typescale[typo].lineHeight};
-  color: ${({ isDisabled, isFocused, isInvalid }: LabelProps) =>
+  color: ${({ isDisabled, isFocused, isInvalid }: ILabelProps) =>
     getColor(isDisabled, isFocused, isInvalid)};
 `;
 
