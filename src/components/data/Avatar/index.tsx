@@ -1,11 +1,11 @@
-import { AvatarProps } from "./interfaces/interface.Avatar";
+import { IAvatarProps } from "./interfaces/Avatar.interface";
 import { MdPersonOutline } from "react-icons/md";
 
 import { StyledAvatar } from "./styles";
 
 export const defaultIcon = <MdPersonOutline />;
 
-const Avatar = (props: AvatarProps) => {
+const Avatar = (props: IAvatarProps) => {
   const { icon = defaultIcon } = props;
 
   return <StyledAvatar>{icon}</StyledAvatar>;
