@@ -1,4 +1,3 @@
-import React from "react";
 import { Text } from "..";
 
 import { typography } from "../../../../shared/typography/typography";
@@ -15,6 +14,7 @@ import {
   appearance,
   typo,
 } from "./props";
+import { ITextProps } from "../interfaces/TextProps.interface";
 
 const story = {
   title: "data/Text/Title",
@@ -22,17 +22,31 @@ const story = {
   parameters,
 };
 
-const TypoRoleProperties = ({ typo, align, appearance, margin, padding }) => {
+const TypoRoleProperties = ({
+  typo,
+  align,
+  appearance,
+  margin,
+  padding,
+}: ITextProps) => {
   const typographyStory = {
     "font-family": `${typography.ref.typeface.brand}`,
-    color: `${colors.sys.text[appearance]}`,
+    color: `${(colors.sys.text as Record<string, string>)[appearance!]}`,
     margin: `${margin}`,
     padding: `${padding}`,
     "text-align": `${align}`,
-    "font-size": `${typography.sys.typescale[typo].size}`,
-    "letter-spacing": `${typography.sys.typescale[typo].tracking}`,
-    "line-height": `${typography.sys.typescale[typo].lineHeight}`,
-    "font-weight": `${typography.sys.typescale[typo].weight}`,
+    "font-size": `${
+      (typography.sys.typescale as Record<string, any>)[typo!].size
+    }`,
+    "letter-spacing": `${
+      (typography.sys.typescale as Record<string, any>)[typo!].tracking
+    }`,
+    "line-height": `${
+      (typography.sys.typescale as Record<string, any>)[typo!].lineHeight
+    }`,
+    "font-weight": `${
+      (typography.sys.typescale as Record<string, any>)[typo!].weight
+    }`,
   };
   if (margin !== "0px") {
     typographyStory.margin = `${margin}`;
@@ -51,7 +65,7 @@ const TypoRoleProperties = ({ typo, align, appearance, margin, padding }) => {
   );
 };
 
-const Title = (args) => {
+const Title = (args: ITextProps) => {
   return (
     <StyledContainer>
       <Text {...args}>{args.children}</Text>
