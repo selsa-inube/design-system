@@ -28,11 +28,6 @@ Default.args = {
       path: "/privileges",
       id: "privileges",
     },
-    {
-      label: "Contacts",
-      path: "/contacts",
-      id: "contacts",
-    },
     { label: "Users", path: "/users", id: "users" },
     {
       label: "User edition",
