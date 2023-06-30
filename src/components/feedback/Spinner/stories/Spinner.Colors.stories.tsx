@@ -1,8 +1,8 @@
 import type { Meta } from "@storybook/react";
 
 import { Spinner } from "..";
-import { ISpinnerProps } from "../interfaces/interface.Spinner";
-import { appearances } from "../types/type.Spinner";
+import { ISpinnerProps } from "../interfaces/Spinner.interface";
+import { appearances } from "../types/Spinner.type";
 import { StyledFlex } from "./styles";
 
 import { size, isTransparent } from "./props";

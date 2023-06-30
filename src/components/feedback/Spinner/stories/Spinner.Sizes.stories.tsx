@@ -1,8 +1,8 @@
 import { Meta } from "@storybook/react";
 
 import { Spinner } from "..";
-import { ISpinnerProps } from "../interfaces/interface.Spinner";
-import { sizes } from "../types/type.Spinner";
+import { ISpinnerProps } from "../interfaces/Spinner.interface";
+import { sizes } from "../types/Spinner.type";
 import { StyledFlexBetween } from "./styles";
 
 import { size, appearance, isTransparent } from "./props";
@@ -24,7 +24,7 @@ const meta: Meta<ISpinnerProps> = {
   },
 };
 
-const SizesTemplate = ({ ...args }) => (
+const SizesTemplate = (args: ISpinnerProps) => (
   <StyledFlexBetween>
     {sizes.map((size) => (
       <div key={size}>

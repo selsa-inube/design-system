@@ -1,4 +1,4 @@
-import { SizeSoinner, AppearanceSpinner } from "../types/type.Spinner";
+import { SizeSoinner, AppearanceSpinner } from "../types/Spinner.type";
 
 export interface ISpinnerProps {
   size?: SizeSoinner;

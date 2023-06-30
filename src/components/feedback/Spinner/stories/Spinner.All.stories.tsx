@@ -1,19 +1,27 @@
-import { ElementType } from "react";
+import { Meta } from "@storybook/react";
+
 import { Spinner } from "..";
-import { sizes, appearances } from "../types/type.Spinner";
+import { ISpinnerProps } from "../interfaces/Spinner.interface";
+import { sizes, appearances } from "../types/Spinner.type";
+import { size, appearance, isTransparent } from "./props";
 
 import { StyledFlex, StyledFlexColumn, StyledGrid } from "./styles";
 
-const story = {
+const meta: Meta<ISpinnerProps> = {
   title: "feedback/Spinner/All",
-  components: [Spinner],
+  component: Spinner,
   decorators: [
-    (Story: ElementType) => (
+    (Story) => (
       <div style={{ margin: "3em" }}>
         <Story />
       </div>
     ),
   ],
+  argTypes: {
+    size,
+    appearance,
+    isTransparent,
+  },
 };
 
 export const All = () => (
@@ -45,4 +53,4 @@ export const All = () => (
   </StyledFlex>
 );
 
-export default story;
+export default meta;

@@ -1,6 +1,6 @@
 import { Meta } from "@storybook/react";
 import { Spinner } from "..";
-import { ISpinnerProps } from "../interfaces/interface.Spinner";
+import { ISpinnerProps } from "../interfaces/Spinner.interface";
 
 import { StyledFlex } from "./styles";
 

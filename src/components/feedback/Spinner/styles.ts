@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components";
-import { ISpinnerProps } from "./interfaces/interface.Spinner";
+import { ISpinnerProps } from "./interfaces/Spinner.interface";
 
 import { colors } from "../../../shared/colors/colors";
 
