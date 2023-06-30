@@ -1,10 +1,10 @@
-import { TabProps } from "./interfaces/interface.Tab";
+import { ITabProps } from "./interfaces/Tab.interface";
 
 import { Text } from "../../data/Text";
 
 import { StyledTab } from "./styles";
 
-const Tab = (props: TabProps) => {
+const Tab = (props: ITabProps) => {
   const {
     isDisabled = false,
     isSelected = false,

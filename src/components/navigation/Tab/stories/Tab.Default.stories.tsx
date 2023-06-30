@@ -1,5 +1,5 @@
 import { ElementType } from "react";
-import { TabProps } from "../interfaces/interface.Tab";
+import { ITabProps } from "../interfaces/Tab.interface";
 import { Tab } from "../index";
 import { TabController } from "./TabController";
 
@@ -17,7 +17,7 @@ const story = {
   ],
 };
 
-export const Default = (args: TabProps) => <TabController {...args} />;
+export const Default = (args: ITabProps) => <TabController {...args} />;
 Default.args = {
   id: "thisIsAnId",
   isDisabled: false,

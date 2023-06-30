@@ -1,4 +1,4 @@
-export interface TabProps {
+export interface ITabProps {
   label: string;
   id: string;
   isDisabled: boolean;
