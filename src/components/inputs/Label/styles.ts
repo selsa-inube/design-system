@@ -29,8 +29,6 @@ const getColor = (
   return color;
 };
 
-console.log();
-
 const StyledLabel = styled.label`
   font-family: ${typography.sys.typescale.labelLarge.font};
   font-size: ${({ typo }: LabelProps) =>
@@ -42,9 +40,6 @@ const StyledLabel = styled.label`
   line-height: ${({ typo }: LabelProps) =>
     typo && typography.sys.typescale[typo].lineHeight};
   color: ${({ isDisabled, isFocused, isInvalid }: LabelProps) =>
-    isDisabled &&
-    isFocused &&
-    isInvalid &&
     getColor(isDisabled, isFocused, isInvalid)};
 `;
 
