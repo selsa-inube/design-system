@@ -11,9 +11,4 @@ const StyledModal = styled.div`
   }
 `;
 
-const StyledActionContainer = styled.div`
-  background-color: ${colors.ref.palette.neutral.n10};
-  margin-left: 20px;
-`;
-
-export { StyledActionContainer, StyledModal };
+export { StyledModal };
