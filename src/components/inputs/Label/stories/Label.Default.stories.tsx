@@ -1,4 +1,4 @@
-import React from "react";
+import { ILabelProps } from "../interfaces/Label.interface";
 
 import { Label } from "..";
 
@@ -18,12 +18,8 @@ const story = {
   parameters,
 };
 
-const Default = ({ htmlFor, typo, children }) => {
-  return (
-    <Label htmlFor={htmlFor} typo={typo}>
-      {children}
-    </Label>
-  );
+const Default = (args: ILabelProps) => {
+  return <Label {...args}>{args.children}</Label>;
 };
 Default.args = {
   htmlFor: "LabelText",
