@@ -1,31 +1,43 @@
 import React, { useState, useEffect } from "react";
 import { Tabs } from "../index";
-import { useMediaQueries } from "./../../../../hooks/useMediaQueries";
 
 const TabsResponsiveController = ({ tabs, selectedTab }) => {
   const [selectedTabController, setSelectedTab] = useState(selectedTab);
-  const [type, setType] = useState("select");
+  const [type, setType] = useState("tab");
 
-  const mediaQueries = useMediaQueries([
-    "(min-width: 320px) and (max-width: 768px)",
-    "(min-width: 769px)",
-  ]);
+  const updateTabType = () => {
+    const windowWidth = window.innerWidth;
 
-  useEffect(() => {
-    if (mediaQueries["(min-width: 320px) and (max-width: 768px)"]) {
+    const maxTabsForSmallScreen = 2;
+    const maxTabsForMediumScreen = 6;
+
+    if (windowWidth < 578 && tabs.length > maxTabsForSmallScreen) {
       setType("select");
-    } else if (mediaQueries["(min-width: 769px)"]) {
+    } else if (windowWidth < 768 && tabs.length > maxTabsForMediumScreen) {
+      setType("select");
+    } else {
       setType("tab");
     }
-  }, [mediaQueries]);
+  };
+
+  useEffect(() => {
+    updateTabType();
+    window.addEventListener("resize", updateTabType);
+
+    return () => {
+      window.removeEventListener("resize", updateTabType);
+    };
+  }, [tabs]);
 
   return (
-    <Tabs
-      tabs={tabs}
-      type={type}
-      handleSelectedTab={setSelectedTab}
-      selectedTab={selectedTabController}
-    />
+    <div id="tabs-container">
+      <Tabs
+        tabs={tabs}
+        type={type}
+        handleSelectedTab={setSelectedTab}
+        selectedTab={selectedTabController}
+      />
+    </div>
   );
 };
 
