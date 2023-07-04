@@ -26,7 +26,7 @@ Default.args = {
 Default.argTypes = {
   id,
   isDisabled,
-  isSelected,
+  isSelected: { control: null },
   handleClick,
   label,
 };
