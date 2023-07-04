@@ -2,7 +2,7 @@ import { ElementType } from "react";
 
 import { Spinner } from "..";
 import { ISpinnerProps } from "../interfaces/Spinner.interface";
-import { appearances } from "../types/Spinner.type";
+import { appearances } from "../types/Spinner.Appearance.type";
 import { StyledFlex } from "./styles";
 
 import { size, isTransparent } from "./props";

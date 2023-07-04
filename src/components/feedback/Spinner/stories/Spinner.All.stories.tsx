@@ -1,6 +1,7 @@
 import { ElementType } from "react";
 import { Spinner } from "..";
-import { sizes, appearances } from "../types/Spinner.type";
+import { sizes } from "../types/Spinner.Size.type";
+import { appearances } from "../types/Spinner.Appearance.type";
 import { size, appearance, isTransparent } from "./props";
 
 import { StyledFlex, StyledFlexColumn, StyledGrid } from "./styles";
@@ -15,11 +16,6 @@ const story = {
       </div>
     ),
   ],
-  argTypes: {
-    size,
-    appearance,
-    isTransparent,
-  },
 };
 
 export const All = () => (
@@ -50,5 +46,11 @@ export const All = () => (
     ))}
   </StyledFlex>
 );
+
+All.argTypes = {
+  size,
+  appearance,
+  isTransparent,
+};
 
 export default story;

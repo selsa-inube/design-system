@@ -1,7 +1,8 @@
-import { SizeSoinner, AppearanceSpinner } from "../types/Spinner.type";
+import { Size } from "../types/Spinner.Size.type";
+import { Appearance } from "../types/Spinner.Appearance.type";
 
 export interface ISpinnerProps {
-  size?: SizeSoinner;
-  appearance?: AppearanceSpinner;
-  isTransparent?: boolean;
+  size: Size;
+  appearance: Appearance;
+  isTransparent: boolean;
 }
