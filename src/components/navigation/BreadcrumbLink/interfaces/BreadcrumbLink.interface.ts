@@ -1,10 +1,10 @@
-import { TyposArray } from "../types/BreadcrumbLink.typos.type";
+import { Typos } from "../types/BreadcrumbLink.typos.type";
 
 export interface IBreadcrumbLinkProps {
   isActive?: boolean;
   label: string;
   path: string;
   id: string;
-  typo?: TyposArray;
+  typo?: Typos;
   handleClick?: () => void;
 }
