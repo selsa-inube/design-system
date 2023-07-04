@@ -2,12 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import { BreadcrumbLink } from "../../navigation/BreadcrumbLink";
-import { BreadcrumbEllipsis, typos } from "../../navigation/BreadcrumbEllipsis";
+import { BreadcrumbEllipsis } from "../../navigation/BreadcrumbEllipsis";
 
 import { useMediaQuery } from "../../../hooks/useMediaQuery";
 
 import { StyledBreadcrumbs } from "./styles";
-
+import { typos } from "../BreadcrumbEllipsis/types/BreadcrumbEllipsis.Typos.type";
 function getBreadcrumbItems(crumbs) {
   const breadcrumbItems = [
     { path: "/", label: "Home", isActive: false },
