@@ -1,4 +1,3 @@
-import React from "react";
 import { BreadcrumbMenuLink } from "../index";
 import { BrowserRouter } from "react-router-dom";
 
