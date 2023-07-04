@@ -1,4 +1,3 @@
-import React from "react";
 import { Text } from "..";
 
 import {
@@ -12,6 +11,7 @@ import {
   appearance,
   typo,
 } from "./props";
+import { ITextProps } from "../interfaces/Text.interface";
 
 const story = {
   title: "data/Text/Paragraphs",
@@ -33,7 +33,7 @@ const filteredParagraphs = loremIpsum
   .split("\n")
   .filter((paragraph) => paragraph.trim() !== "");
 
-const Paragraphs = (args) => {
+const Paragraphs = (args: ITextProps) => {
   return (
     <>
       {filteredParagraphs.map((paragraph, index) => (

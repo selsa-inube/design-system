@@ -1,20 +1,10 @@
-import React from "react";
-import PropTypes from "prop-types";
+import { IStackProps } from "./interfaces/Stack.interface";
+import { directionAlignments } from "./types/Stack.DirectionAlignments";
+import { flexAlignments } from "./types/Stack.FlexAlignments";
+import { wrapControls } from "./types/Stack.WrapControl.type";
 
 import { transformedMeasure } from "../../../utilities/transformedMeasure";
 import { StyledFlex } from "./styles";
-
-export const directionAlignments = ["row", "column"];
-export const flexAlignments = [
-  "stretch",
-  "flex-start",
-  "flex-end",
-  "center",
-  "space-around",
-  "space-evenly",
-  "space-between",
-];
-export const wrapControl = ["wrap", "nowrap"];
 
 const defaultDirection = "row";
 const defaultJustifyContent = "flex-start";
@@ -24,7 +14,7 @@ const defaultGap = "0px";
 const defaultMargin = "0px";
 const defaultPadding = "0px";
 
-const Stack = (props) => {
+const Stack = (props: IStackProps) => {
   const {
     children,
     wrap = defaultWrapControl,
@@ -45,7 +35,7 @@ const Stack = (props) => {
   const transformedJustifyContent = flexAlignments.includes(justifyContent)
     ? justifyContent
     : defaultJustifyContent;
-  const transformedWrap = wrapControl.includes(wrap)
+  const transformedWrap = wrapControls.includes(wrap)
     ? wrap
     : defaultWrapControl;
 
@@ -62,21 +52,6 @@ const Stack = (props) => {
       {children}
     </StyledFlex>
   );
-};
-
-Stack.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.element,
-    PropTypes.node,
-    PropTypes.arrayOf(PropTypes.element),
-  ]),
-  wrap: PropTypes.oneOf(wrapControl),
-  direction: PropTypes.oneOf(directionAlignments),
-  justifyContent: PropTypes.oneOf(flexAlignments),
-  alignItems: PropTypes.oneOf(flexAlignments),
-  gap: PropTypes.string,
-  margin: PropTypes.string,
-  padding: PropTypes.string,
 };
 
 export { Stack };
