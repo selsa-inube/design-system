@@ -1,4 +1,6 @@
-import { directionAlignments, flexAlignments, wrapControl } from "../index";
+import { flexAlignments } from "../types/Stack.FlexAlignments";
+import { directionAlignments } from "../types/Stack.DirectionAlignments";
+import { wrapControls } from "../types/Stack.WrapControl.type";
 
 const children = {
   options: "",
@@ -8,7 +10,7 @@ const children = {
 };
 
 const wrap = {
-  options: wrapControl,
+  options: wrapControls,
   control: { type: "select" },
   description:
     "Indicates whether the container should use more than one row/column to organize its children.",
