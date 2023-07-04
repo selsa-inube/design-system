@@ -12,6 +12,22 @@ const StyledTabs = styled.div`
   & > div {
     width: fit-content;
   }
+  & > div > ul {
+    position: absolute;
+    z-index: 1;
+  }
 `;
 
-export { StyledTabs };
+const StyledIconWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  & > svg {
+    width: 24px;
+    height: 24px;
+    color: ${colors.sys.text.dark};
+    cursor: pointer;
+  }
+`;
+
+export { StyledTabs, StyledIconWrapper };
