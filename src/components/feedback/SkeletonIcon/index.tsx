@@ -1,18 +1,12 @@
-import React from "react";
-import PropTypes from "prop-types";
+import { ISkeletonIconProps } from "./interfaces/SkeletonIcon.interface";
 import { StyledSkeletonIcon } from "./styles";
 
 const defaultSize = "24px";
 
-const SkeletonIcon = (props) => {
+const SkeletonIcon = (props: ISkeletonIconProps) => {
   const { size = defaultSize, isAnimated = false } = props;
 
   return <StyledSkeletonIcon size={size} isAnimated={isAnimated} />;
-};
-
-SkeletonIcon.propTypes = {
-  size: PropTypes.string,
-  isAnimated: PropTypes.bool,
 };
 
 export { SkeletonIcon };
