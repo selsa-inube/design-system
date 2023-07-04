@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Tabs } from "../index";
 
 const TabsController = (props) => {
-  const { tabs, selectedTab } = props;
+  const { tabs, type, selectedTab } = props;
   const [selectedTabController, setSelectedTab] = useState(selectedTab);
 
   const handleSelectedTab = (tabId) => {
@@ -12,6 +12,7 @@ const TabsController = (props) => {
   return (
     <Tabs
       tabs={tabs}
+      type={type}
       handleSelectedTab={handleSelectedTab}
       selectedTab={selectedTabController}
     />
