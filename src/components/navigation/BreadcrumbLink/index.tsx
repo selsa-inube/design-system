@@ -31,4 +31,4 @@ const BreadcrumbLink = (props: IBreadcrumbLinkProps) => {
   );
 };
 
-export { BreadcrumbLink, typos };
+export { BreadcrumbLink };
