@@ -1,9 +1,7 @@
-import {
-  alignOptions,
-  htmlElements,
-  appearencesOptions,
-  typosOptions,
-} from "..";
+import { alignOptions } from "../types/Text.AlignOptions.type";
+import { htmlElements } from "../types/Text.HtmlElements.type";
+import { typosOptions } from "../types/Text.TyposOptions.type";
+import { appearancesOptions } from "../types/Text.AppearancesOptions.type";
 
 const parameters = {
   docs: {
@@ -55,7 +53,7 @@ const id = {
 };
 
 const appearance = {
-  options: appearencesOptions,
+  options: appearancesOptions,
   control: { type: "select" },
   description:
     "This prop is used to select one of the color system tokens of the role Text as defined in the Foundations.",
