@@ -8,8 +8,8 @@ import {
   StyledBreadcrumbEllipsis,
   StyledRelativeContainer,
 } from "./styles";
-import { Typos } from "./types/Typos.type";
-import { IBreadcrumbEllipsisProps } from "./interfaces/BreadcrumbEllipsisProps.interface";
+import { Typos } from "./types/BreadcrumbEllipsis.Typos.type";
+import { IBreadcrumbEllipsisProps } from "./interfaces/BreadcrumbEllipsis.interface";
 
 const typos: Typos = ["labelLarge", "labelSmall"];
 const defaultTypo = "labelLarge";

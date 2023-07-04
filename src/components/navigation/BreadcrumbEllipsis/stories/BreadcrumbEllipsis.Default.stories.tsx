@@ -2,7 +2,7 @@ import { BreadcrumbEllipsis } from "../index";
 import { BrowserRouter } from "react-router-dom";
 
 import { routes, typo } from "./props";
-import { IBreadcrumbEllipsisProps } from "../interfaces/BreadcrumbEllipsisProps.interface";
+import { IBreadcrumbEllipsisProps } from "../interfaces/BreadcrumbEllipsis.interface";
 
 const story = {
   title: "navigation/BreadcrumbEllipsis/Default",
