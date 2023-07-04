@@ -1,5 +1,5 @@
-import React from "react";
 import { SkeletonIcon } from "../index";
+import { ISkeletonIconProps } from "../interfaces/SkeletonIcon.interface";
 
 import { size, isAnimated } from "./props";
 
@@ -7,7 +7,7 @@ const story = {
   title: "feedback/SkeletonIcon/Default",
   components: [SkeletonIcon],
   decorators: [
-    (Story) => (
+    (Story: React.ElementType) => (
       <div style={{ margin: "3em" }}>
         <Story />
       </div>
@@ -15,7 +15,7 @@ const story = {
   ],
 };
 
-export const Default = (args) => <SkeletonIcon {...args} />;
+export const Default = (args: ISkeletonIconProps) => <SkeletonIcon {...args} />;
 Default.args = {
   size: "24px",
   isAnimated: false,
