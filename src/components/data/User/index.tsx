@@ -1,14 +1,13 @@
-import React from "react";
-import PropTypes from "prop-types";
+import { IUserProps } from "./interfaces/User.interface";
+import { sizes } from "./types/User.Size.type";
 
 import { Avatar } from "../Avatar";
 import { Text } from "../Text";
 import { Stack } from "../../layouts/Stack";
 
-export const sizes = ["small", "large"];
 const defaultSize = "large";
 
-const User = (props) => {
+const User = (props: IUserProps) => {
   const { userName, businessUnit, size = defaultSize } = props;
   const transformedSize = sizes.includes(size) ? size : defaultSize;
 
@@ -37,12 +36,6 @@ const User = (props) => {
       <Avatar />
     </Stack>
   );
-};
-
-User.propTypes = {
-  userName: PropTypes.string.isRequired,
-  businessUnit: PropTypes.string,
-  size: PropTypes.oneOf(sizes),
 };
 
 export { User };
