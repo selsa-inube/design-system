@@ -1,9 +1,9 @@
 import { AnimationEvent } from "react";
-import { AppearanceType } from "../types/AppearanceType";
+import { Appearance } from "../types/CountdownBar.Appearance.type";
 
 export interface ICountdownBarProps {
   size?: string;
-  appearance?: AppearanceType;
+  appearance?: Appearance;
   duration?: number;
   isPaused?: boolean;
   handleCountdown?: (e: AnimationEvent<HTMLDivElement>) => void;

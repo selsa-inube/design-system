@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { keyframes } from "styled-components";
-import { ICountdownBarProps } from "./interfaces/CountdownBarProps.interface";
+import { ICountdownBarProps } from "./interfaces/CountdownBar.interface";
 
 const CountdownBarAnimation = keyframes`
   0% {

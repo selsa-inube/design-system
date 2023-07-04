@@ -2,7 +2,7 @@ import React from "react";
 import { CountdownBar } from "../index";
 
 import { size, appearance, duration, isPaused, handleCountdown } from "./props";
-import { ICountdownBarProps } from "../interfaces/CountdownBarProps.interface";
+import { ICountdownBarProps } from "../interfaces/CountdownBar.interface";
 
 const story = {
   title: "feedback/CountdownBar/Default",

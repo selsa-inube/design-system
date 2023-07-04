@@ -1,14 +1,15 @@
 import { StyledCountdownBar } from "./styles";
 import { colors } from "../../../shared/colors/colors";
-import { AppearanceType } from "./types/AppearanceType";
-import { ICountdownBarProps } from "./interfaces/CountdownBarProps.interface";
+
+import { ICountdownBarProps } from "./interfaces/CountdownBar.interface";
+import { Appearance } from "./types/CountdownBar.Appearance.type";
 
 const defaultAppearance = "primary";
 const defaultSize = "4px";
 const defaultDuration = 3000;
 export const appearances = Object.keys(colors.sys.actions);
 
-const getCountdownBarColor = (appearance: AppearanceType): string => {
+const getCountdownBarColor = (appearance: Appearance): string => {
   return colors.sys.actions[appearance].filled;
 };
 
