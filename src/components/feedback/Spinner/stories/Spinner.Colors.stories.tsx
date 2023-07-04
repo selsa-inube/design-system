@@ -1,23 +1,29 @@
-import React from "react";
-import { Spinner, appearances } from "../index";
+import { ElementType } from "react";
 
+import { Spinner } from "..";
+import { ISpinnerProps } from "../interfaces/Spinner.interface";
+import { appearances } from "../types/Spinner.Appearance.type";
 import { StyledFlex } from "./styles";
 
 import { size, isTransparent } from "./props";
 
 const story = {
   title: "feedback/Spinner/Colors",
-  components: [Spinner],
+  component: Spinner,
   decorators: [
-    (Story) => (
+    (Story: ElementType) => (
       <div style={{ margin: "3em" }}>
         <Story />
       </div>
     ),
   ],
+  argTypes: {
+    size,
+    isTransparent,
+  },
 };
 
-const ColorsTemplate = ({ ...args }) => (
+const ColorsTemplate = (args: ISpinnerProps) => (
   <StyledFlex>
     {appearances.map((token) => (
       <div key={token}>
@@ -26,11 +32,7 @@ const ColorsTemplate = ({ ...args }) => (
     ))}
   </StyledFlex>
 );
-export const Colors = ColorsTemplate.bind({});
 
-Colors.argTypes = {
-  size,
-  isTransparent,
-};
+export const Colors = ColorsTemplate.bind({});
 
 export default story;

@@ -1,13 +1,16 @@
-import React from "react";
-import { Spinner, sizes, appearances } from "../index";
+import { ElementType } from "react";
+import { Spinner } from "..";
+import { sizes } from "../types/Spinner.Size.type";
+import { appearances } from "../types/Spinner.Appearance.type";
+import { size, appearance, isTransparent } from "./props";
 
 import { StyledFlex, StyledFlexColumn, StyledGrid } from "./styles";
 
 const story = {
   title: "feedback/Spinner/All",
-  components: [Spinner],
+  component: Spinner,
   decorators: [
-    (Story) => (
+    (Story: ElementType) => (
       <div style={{ margin: "3em" }}>
         <Story />
       </div>
@@ -43,5 +46,11 @@ export const All = () => (
     ))}
   </StyledFlex>
 );
+
+All.argTypes = {
+  size,
+  appearance,
+  isTransparent,
+};
 
 export default story;
