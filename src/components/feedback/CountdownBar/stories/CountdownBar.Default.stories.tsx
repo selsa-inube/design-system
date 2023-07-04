@@ -1,4 +1,3 @@
-import React from "react";
 import { CountdownBar } from "../index";
 
 import { size, appearance, duration, isPaused, handleCountdown } from "./props";
