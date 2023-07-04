@@ -1,8 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
 import { StyledSkeletonLine } from "./styles";
+import { ISkeletonLineProps } from "./interfaces/SkeletonLine.interface";
 
-const SkeletonLine = (props) => {
+const SkeletonLine = (props: ISkeletonLineProps) => {
   const { width = "100%", isAnimated = false } = props;
 
   const transformedIsAnimated =
@@ -11,11 +10,6 @@ const SkeletonLine = (props) => {
   return (
     <StyledSkeletonLine width={width} isAnimated={transformedIsAnimated} />
   );
-};
-
-SkeletonLine.propTypes = {
-  width: PropTypes.string,
-  isAnimated: PropTypes.bool,
 };
 
 export { SkeletonLine };
