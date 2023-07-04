@@ -1,5 +1,5 @@
-import React from "react";
 import { User } from "../index";
+import { IUserProps } from "../interfaces/User.interface";
 
 import { userName, businessUnit, size } from "./props";
 
@@ -7,7 +7,7 @@ const story = {
   title: "data/User/Default",
   components: [User],
   decorators: [
-    (Story) => (
+    (Story: React.ElementType) => (
       <div style={{ margin: "3em" }}>
         <Story />
       </div>
@@ -15,7 +15,7 @@ const story = {
   ],
 };
 
-export const Default = (args) => <User {...args} />;
+export const Default = (args: IUserProps) => <User {...args} />;
 Default.args = {
   userName: "Leonardo Garzón",
   businessUnit: "Sistemas Enlínea S.A",

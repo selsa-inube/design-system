@@ -5,11 +5,11 @@ import { WrapControl } from "../types/Stack.WrapControl.type";
 
 export interface IStackProps {
   children?: React.ReactNode;
-  wrap: WrapControl;
-  direction: DirectionAlignment;
-  justifyContent: FlexAlignment;
-  alignItems: AlignItem;
-  gap: string;
-  margin: string;
-  padding: string;
+  wrap?: WrapControl;
+  direction?: DirectionAlignment;
+  justifyContent?: FlexAlignment;
+  alignItems?: AlignItem;
+  gap?: string;
+  margin?: string;
+  padding?: string;
 }
