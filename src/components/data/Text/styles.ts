@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { typography } from "../../../shared/typography/typography";
 import { colors } from "../../../shared/colors/colors";
-import { ITextProps } from "./interfaces/TextProps.interface";
+import { ITextProps } from "./interfaces/Text.interface";
 
 const StyledText = styled.p`
   display: ${({ as }: ITextProps) => (as === "span" ? "inline" : "block")};

@@ -14,7 +14,7 @@ import {
   appearance,
   typo,
 } from "./props";
-import { ITextProps } from "../interfaces/TextProps.interface";
+import { ITextProps } from "../interfaces/Text.interface";
 
 const story = {
   title: "data/Text/Title",

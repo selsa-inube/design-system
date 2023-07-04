@@ -1,7 +1,7 @@
-import { alignOptions } from "../types/AlignOptions.type";
-import { htmlElements } from "../types/HtmlElements.type";
-import { typosOptions } from "../types/TyposOptions.type";
-import { appearancesOptions } from "../types/AppearancesOptions.type";
+import { alignOptions } from "../types/Text.AlignOptions.type";
+import { htmlElements } from "../types/Text.HtmlElements.type";
+import { typosOptions } from "../types/Text.TyposOptions.type";
+import { appearancesOptions } from "../types/Text.AppearancesOptions.type";
 
 const parameters = {
   docs: {

@@ -1,10 +1,10 @@
 import { transformedMeasure } from "../../../utilities/transformedMeasure";
 import { StyledText } from "./styles";
-import { alignOptions } from "./types/AlignOptions.type";
-import { htmlElements } from "./types/HtmlElements.type";
-import { appearancesOptions } from "./types/AppearancesOptions.type";
-import { typosOptions } from "./types/TyposOptions.type";
-import { ITextProps } from "./interfaces/TextProps.interface";
+import { alignOptions } from "./types/Text.AlignOptions.type";
+import { htmlElements } from "./types/Text.HtmlElements.type";
+import { appearancesOptions } from "./types/Text.AppearancesOptions.type";
+import { typosOptions } from "./types/Text.TyposOptions.type";
+import { ITextProps } from "./interfaces/Text.interface";
 
 const defaultAlign = "start";
 const defaultHtmlElement = "p";
