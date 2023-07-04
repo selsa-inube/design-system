@@ -48,8 +48,6 @@ export const Default = {
   args: {
     children: [...Array(6 + 1).keys()].slice(1),
     gap: "10px",
-    margin: "0px",
-    padding: "0px",
   },
   render: (args: IStackProps) => <StackTemplate {...args} />,
 };

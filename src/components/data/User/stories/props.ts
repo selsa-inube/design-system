@@ -1,4 +1,4 @@
-import { sizes } from "./../index";
+import { sizes } from "../types/User.Size.type";
 
 const userName = {
   description: "shall be the displayed username",
