@@ -1,13 +1,13 @@
-import React from "react";
 import { CountdownBar } from "../index";
 
 import { size, appearance, duration, isPaused, handleCountdown } from "./props";
+import { ICountdownBarProps } from "../interfaces/CountdownBar.interface";
 
 const story = {
   title: "feedback/CountdownBar/Default",
   components: [CountdownBar],
   decorators: [
-    (Story) => (
+    (Story: React.ElementType) => (
       <div style={{ margin: "3em" }}>
         <Story />
       </div>
@@ -15,7 +15,7 @@ const story = {
   ],
 };
 
-export const Default = (args) => <CountdownBar {...args} />;
+export const Default = (args: ICountdownBarProps) => <CountdownBar {...args} />;
 
 Default.args = {
   handleCountdown: () => console.log("countdown complete."),
