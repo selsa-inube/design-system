@@ -8,16 +8,16 @@ import {
   StyledBreadcrumbEllipsis,
   StyledRelativeContainer,
 } from "./styles";
-import { Typos } from "./types/BreadcrumbEllipsis.Typos.type";
-import { IBreadcrumbEllipsisProps } from "./interfaces/BreadcrumbEllipsis.interface";
 
-const typos: Typos = ["labelLarge", "labelSmall"];
+import { IBreadcrumbEllipsisProps } from "./interfaces/BreadcrumbEllipsis.interface";
+import { Typos, typos } from "./types/BreadcrumbEllipsis.Typos.type";
+
 const defaultTypo = "labelLarge";
 
 const BreadcrumbEllipsis = (props: IBreadcrumbEllipsisProps) => {
   const { typo = defaultTypo, routes } = props;
   const [showMenu, setShowMenu] = useState(false);
-  const transformedTypos = typos.includes(typo) ? typo : defaultTypo;
+  const transformedTypos: Typos = typos.includes(typo) ? typo : defaultTypo;
 
   const containerRef = useRef<HTMLDivElement | null>(null);
 
@@ -45,7 +45,7 @@ const BreadcrumbEllipsis = (props: IBreadcrumbEllipsisProps) => {
   return (
     <StyledRelativeContainer ref={containerRef} onClick={toggleEllipsisMenu}>
       <StyledContainerEllipsis>
-        <Text typo={typos.includes(typo) ? typo : transformedTypos}>
+        <Text typo={transformedTypos}>
           <StyledBreadcrumbEllipsis>...</StyledBreadcrumbEllipsis>
         </Text>
       </StyledContainerEllipsis>
