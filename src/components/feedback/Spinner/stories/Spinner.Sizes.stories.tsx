@@ -1,23 +1,30 @@
-import React from "react";
-import { Spinner, sizes } from "../index";
+import { ElementType } from "react";
 
+import { Spinner } from "..";
+import { ISpinnerProps } from "../interfaces/Spinner.interface";
+import { sizes } from "../types/Spinner.Size.type";
 import { StyledFlexBetween } from "./styles";
 
-import { appearance, isTransparent } from "./props";
+import { size, appearance, isTransparent } from "./props";
 
 const story = {
   title: "feedback/Spinner/Sizes",
-  components: [Spinner],
+  component: Spinner,
   decorators: [
-    (Story) => (
+    (Story: ElementType) => (
       <div style={{ margin: "3em" }}>
         <Story />
       </div>
     ),
   ],
+  argTypes: {
+    size,
+    appearance,
+    isTransparent,
+  },
 };
 
-const SizesTemplate = ({ ...args }) => (
+const SizesTemplate = (args: ISpinnerProps) => (
   <StyledFlexBetween>
     {sizes.map((size) => (
       <div key={size}>
@@ -27,10 +34,5 @@ const SizesTemplate = ({ ...args }) => (
   </StyledFlexBetween>
 );
 export const Sizes = SizesTemplate.bind({});
-
-Sizes.argTypes = {
-  appearance,
-  isTransparent,
-};
 
 export default story;
