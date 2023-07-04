@@ -54,4 +54,4 @@ const BreadcrumbEllipsis = (props: IBreadcrumbEllipsisProps) => {
   );
 };
 
-export { BreadcrumbEllipsis, typos };
+export { BreadcrumbEllipsis };
