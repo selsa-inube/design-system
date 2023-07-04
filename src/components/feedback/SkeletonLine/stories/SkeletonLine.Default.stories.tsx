@@ -1,5 +1,3 @@
-import React from "react";
-
 import { SkeletonLine } from "..";
 import { parameters, width, isAnimated } from "./props";
 import { ISkeletonLineProps } from "../interfaces/SkeletonLine.interface";
