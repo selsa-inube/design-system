@@ -15,8 +15,6 @@ const NavLink = (props: INavLinkProps) => {
     handleBlur,
   } = props;
 
-  console.log(typeof +isDisabled, "isDisabled");
-
   return (
     <StyledNavList>
       <StyledLink to={path} isdisabled={+isDisabled}>
