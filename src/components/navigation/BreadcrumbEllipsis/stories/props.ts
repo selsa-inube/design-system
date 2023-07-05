@@ -1,4 +1,4 @@
-import { typos } from "..";
+import { typos } from "../types/BreadcrumbEllipsis.Typos.type";
 
 const handleClick = {
   options: ["logState"],
