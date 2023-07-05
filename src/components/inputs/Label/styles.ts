@@ -4,11 +4,8 @@ import { colors } from "../../../shared/colors/colors";
 
 import { ILabelProps } from "./interfaces/Label.interface";
 
-const getColor = (
-  isDisabled: boolean,
-  isFocused: boolean,
-  isInvalid: boolean
-): string => {
+const getColor = (props: ILabelProps): string => {
+  const { isDisabled, isFocused, isInvalid } = props;
   let color = colors.sys.text.dark;
 
   if (isDisabled) {
@@ -39,8 +36,7 @@ const StyledLabel = styled.label`
     typo && typography.sys.typescale[typo].tracking};
   line-height: ${({ typo }: ILabelProps) =>
     typo && typography.sys.typescale[typo].lineHeight};
-  color: ${({ isDisabled, isFocused, isInvalid }: ILabelProps) =>
-    getColor(isDisabled, isFocused, isInvalid)};
+  color: ${(props: ILabelProps) => getColor(props)};
 `;
 
 export { StyledLabel };

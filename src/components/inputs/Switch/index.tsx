@@ -1,5 +1,5 @@
-import React from "react";
-import PropTypes from "prop-types";
+import { ISwitchProps } from "./interfaces/Switch.interface";
+import { sizes, Size } from "./types/Switch.Size.type";
 import { MdDone, MdClose } from "react-icons/md";
 
 import { Stack } from "../../layouts/Stack";
@@ -8,12 +8,11 @@ import { Label } from "../Label";
 import { StyledContainer, StyledInput, StyledSpan, StyledIcon } from "./styles";
 import { transformedMeasure } from "../../../utilities/transformedMeasure";
 
-export const sizes = ["small", "large"];
-const defaultSize = "small";
+const defaultSize: Size = "small";
 const defaultMargin = "0px";
 const defaultPadding = "0px";
 
-const Switch = (props) => {
+const Switch = (props: ISwitchProps) => {
   const {
     isDisabled = false,
     id,
@@ -27,7 +26,7 @@ const Switch = (props) => {
     padding,
   } = props;
 
-  const transformedSize = sizes.includes(size) ? size : defaultSize;
+  const transformedSize: Size = sizes.includes(size) ? size : defaultSize;
   const tranformedGap = label ? "10px" : "0px";
   const transformedJustify = label ? "space-between" : "center";
 
@@ -48,10 +47,10 @@ const Switch = (props) => {
           value={value}
           checked={checked}
           onChange={handleChange}
-          disabled={isDisabled}
+          isDisabled={isDisabled}
           name={name}
         />
-        <StyledSpan size={transformedSize} disabled={isDisabled}>
+        <StyledSpan size={transformedSize} isDisabled={isDisabled}>
           {checked ? (
             <StyledIcon checked={checked} size={transformedSize}>
               <MdDone id="mdIcon" />
@@ -70,19 +69,6 @@ const Switch = (props) => {
       )}
     </Stack>
   );
-};
-
-Switch.propTypes = {
-  isDisabled: PropTypes.bool,
-  id: PropTypes.string,
-  name: PropTypes.string,
-  value: PropTypes.string,
-  size: PropTypes.oneOf(sizes),
-  checked: PropTypes.bool,
-  handleChange: PropTypes.func.isRequired,
-  label: PropTypes.string,
-  margin: PropTypes.string,
-  padding: PropTypes.string,
 };
 
 export { Switch };

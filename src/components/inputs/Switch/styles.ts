@@ -1,3 +1,4 @@
+import { ISwitchProps } from "./interfaces/Switch.interface";
 import styled, { css } from "styled-components";
 
 import { colors } from "../../../shared/colors/colors";
@@ -21,15 +22,16 @@ const StyledSpan = styled.span`
   bottom: 0;
   transition: 0.1s;
   border-radius: 30px;
-  cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
-  background: ${(props) =>
-    props.disabled
+  cursor: ${(props: ISwitchProps) =>
+    props.isDisabled ? "not-allowed" : "pointer"};
+  background: ${(props: ISwitchProps) =>
+    props.isDisabled
       ? colors.ref.palette.neutral.n40
       : colors.ref.palette.neutral.n200};
 
   &:hover {
-    background-color: ${(props) =>
-      props.disabled
+    background-color: ${(props: ISwitchProps) =>
+      props.isDisabled
         ? colors.ref.palette.neutral.n40
         : colors.ref.palette.neutral.n70};
   }
@@ -41,7 +43,7 @@ const StyledSpan = styled.span`
     border-radius: 50%;
     transition: 0.3s;
     background-color: ${colors.ref.palette.neutral.n0};
-    ${(props) =>
+    ${(props: ISwitchProps) =>
       props.size === "small"
         ? css`
             width: 12px;
@@ -59,9 +61,9 @@ const StyledSpan = styled.span`
 const StyledContainer = styled.label`
   position: relative;
   display: inline-block;
-  ${(props) => sizes[props.size]}
-  margin: ${({ margin }) => margin};
-  padding: ${({ padding }) => padding};
+  ${(props: ISwitchProps) => props.size && sizes[props.size]}
+  margin: ${({ margin }: ISwitchProps) => margin};
+  padding: ${({ padding }: ISwitchProps) => padding};
 `;
 
 const StyledInput = styled.input`
@@ -70,21 +72,21 @@ const StyledInput = styled.input`
   height: 0;
 
   &:checked + span {
-    background-color: ${(props) =>
-      props.disabled
+    background-color: ${(props: ISwitchProps) =>
+      props.isDisabled
         ? colors.ref.palette.green.g75
         : colors.ref.palette.green.g400};
 
     &:hover {
-      background-color: ${(props) =>
-        props.disabled
+      background-color: ${(props: ISwitchProps) =>
+        props.isDisabled
           ? colors.ref.palette.green.g75
           : colors.ref.palette.green.g300};
     }
   }
 
   &:checked + span:before {
-    ${(props) =>
+    ${(props: ISwitchProps) =>
       props.size === "small"
         ? "transform: translateX(16px);"
         : "transform: translateX(20px);"};
@@ -95,19 +97,19 @@ const StyledIcon = styled.div`
   & > #mdIcon {
     position: absolute;
     color: ${colors.ref.palette.neutral.n0};
-    ${(props) =>
+    ${(props: ISwitchProps) =>
       props.size === "small"
         ? css`
             width: 10px;
             height: 10px;
             top: 3px;
-            left: ${(props) => (props.checked ? "5px" : "17px")};
+            left: ${(props: ISwitchProps) => (props.checked ? "5px" : "17px")};
           `
         : css`
             width: 14px;
             height: 14px;
             top: 3px;
-            left: ${(props) => (props.checked ? "5px" : "22px")};
+            left: ${(props: ISwitchProps) => (props.checked ? "5px" : "22px")};
           `};
   }
 `;
