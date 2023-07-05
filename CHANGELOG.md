@@ -1,3 +1,41 @@
+# v5.1.0 (Tue Jul 04 2023)
+
+#### 🚀 Enhancement
+
+- Migrate `<SkeletonLine />` to TypeScript [#220](https://github.com/selsa-inube/design-system/pull/220) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- Migrate `<CountdownBar />` to TypeScript [#214](https://github.com/selsa-inube/design-system/pull/214) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- Migrate `<User />` to TypeScript [#222](https://github.com/selsa-inube/design-system/pull/222) ([@Andresbl123](https://github.com/Andresbl123))
+- Migrate `<SkeletonIcon />` to TypeScript [#218](https://github.com/selsa-inube/design-system/pull/218) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- Migrate `<Text />` to TypeScript [#215](https://github.com/selsa-inube/design-system/pull/215) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- Migrate `<Stack />` to `TypeScript` [#219](https://github.com/selsa-inube/design-system/pull/219) ([@Andresbl123](https://github.com/Andresbl123))
+- Migrate component `<Spinner/>` to TypeScript [#217](https://github.com/selsa-inube/design-system/pull/217) ([@Andresbl123](https://github.com/Andresbl123))
+- Extend '<Tabs />' component to responsive display [#207](https://github.com/selsa-inube/design-system/pull/207) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- Migrate `<Tab />` to TypeScript [#213](https://github.com/selsa-inube/design-system/pull/213) ([@Andresbl123](https://github.com/Andresbl123))
+- Migrate component `<Avatar />` to `TypeScript` [#203](https://github.com/selsa-inube/design-system/pull/203) ([@Andresbl123](https://github.com/Andresbl123))
+- migrate the `<Label />` component and its dependencies to `TypeScript` [#209](https://github.com/selsa-inube/design-system/pull/209) ([@Andresbl123](https://github.com/Andresbl123))
+- Migrate `<Blanket />` to TypeScript [#212](https://github.com/selsa-inube/design-system/pull/212) ([@Andresbl123](https://github.com/Andresbl123))
+- Migrate `useMediaQueries` to TypeScript [#210](https://github.com/selsa-inube/design-system/pull/210) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- Migrate useMediaQuery to TypeScript [#208](https://github.com/selsa-inube/design-system/pull/208) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- adjust settings to use styled-components and storybook with TS [#204](https://github.com/selsa-inube/design-system/pull/204) ([@Andresbl123](https://github.com/Andresbl123))
+
+#### 🐛 Bug Fix
+
+- adjust the texts of actions and margins in `<InteractiveModal />` [#211](https://github.com/selsa-inube/design-system/pull/211) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- Release design-system new version 5.0.0 [#202](https://github.com/selsa-inube/design-system/pull/202) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+
+#### ⚠️ Pushed to `main`
+
+- Revert "feat(breadCrumbEllipsis): migrate <BreadcrumbEllipsis /> to TypeScript" (cmarin@sistemasenlinea.com.co)
+- feat(breadCrumbEllipsis): migrate <BreadcrumbEllipsis /> to TypeScript (cmarin@sistemasenlinea.com.co)
+
+#### Authors: 3
+
+- Andres ([@Andresbl123](https://github.com/Andresbl123))
+- cesar.marin (cmarin@sistemasenlinea.com.co)
+- cmarin ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v5.0.0 (Wed Jun 28 2023)
 
 #### 💥 Breaking Change
