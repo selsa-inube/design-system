@@ -1,6 +1,8 @@
 import { BrowserRouter } from "react-router-dom";
 import { MdHouse } from "react-icons/md";
-import { NavLinkController } from "../../NavLink/stories/NavLink.Controller";
+
+import { INavLinkProps } from "../interfaces/NavLink.interface";
+import { NavLinkController } from "./NavLink.Controller";
 import { NavLink } from "..";
 
 import {
@@ -17,7 +19,7 @@ const story = {
   title: "navigation/NavLink/Default",
   components: [NavLink],
   decorators: [
-    (Story) => (
+    (Story: React.ElementType) => (
       <div style={{ margin: "3em" }}>
         <BrowserRouter>
           <Story />
@@ -27,7 +29,7 @@ const story = {
   ],
 };
 
-const Default = (args) => <NavLinkController {...args} />;
+const Default = (args: INavLinkProps) => <NavLinkController {...args} />;
 
 Default.args = {
   id: "privileges",
