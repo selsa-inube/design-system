@@ -1,10 +1,9 @@
-import React from "react";
-import PropTypes from "prop-types";
 import { Stack } from "../../layouts/Stack";
 import { BreadcrumbMenuLink } from "../BreadcrumbMenuLink";
+import { IBreadcrumbMenuProps } from "./interfaces/BreadcrumbMenu.interface";
 import { StyledBreadcrumbMenu } from "./styles";
 
-const BreadcrumbMenu = (props) => {
+const BreadcrumbMenu = (props: IBreadcrumbMenuProps) => {
   const { routes } = props;
 
   return (
@@ -21,16 +20,6 @@ const BreadcrumbMenu = (props) => {
       </Stack>
     </StyledBreadcrumbMenu>
   );
-};
-
-BreadcrumbMenu.propTypes = {
-  routes: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      path: PropTypes.string.isRequired,
-      label: PropTypes.string.isRequired,
-    })
-  ).isRequired,
 };
 
 export { BreadcrumbMenu };
