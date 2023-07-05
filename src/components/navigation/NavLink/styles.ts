@@ -1,10 +1,12 @@
+import { INavLinkProps } from "./interfaces/NavLink.interface";
 import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
 
 import { colors } from "../../../shared/colors/colors";
 import { typography } from "../../../shared/typography/typography";
 
-const getGrid = (icon) => {
+const getGrid = (props: INavLinkProps) => {
+  const { icon } = props;
   if (icon) {
     return "auto 1fr auto";
   }
@@ -12,14 +14,16 @@ const getGrid = (icon) => {
   return "1fr auto";
 };
 
-const getColorLabel = (isDisabled) => {
+const getColorLabel = (props: INavLinkProps) => {
+  const { isDisabled } = props;
   if (isDisabled) {
     return colors.sys.text.disabled;
   }
   return colors.sys.text.dark;
 };
 
-const getBorderLeft = (isDisabled, isSelected) => {
+const getBorderLeft = (props: INavLinkProps) => {
+  const { isDisabled, isSelected } = props;
   if (isSelected && !isDisabled) {
     return `5px solid ${colors.ref.palette.neutral.n900}`;
   }
@@ -27,7 +31,8 @@ const getBorderLeft = (isDisabled, isSelected) => {
   return `0px`;
 };
 
-const getBackgroundColor = (isDisabled, isSelected) => {
+const getBackgroundColor = (props: INavLinkProps) => {
+  const { isDisabled, isSelected } = props;
   let color = "transparent";
   if (isDisabled) {
     return color;
@@ -40,7 +45,8 @@ const getBackgroundColor = (isDisabled, isSelected) => {
   return color;
 };
 
-const getColorIcon = (isDisabled, isSelected) => {
+const getColorIcon = (props: INavLinkProps) => {
+  const { isDisabled, isSelected } = props;
   if (isDisabled) {
     return colors.ref.palette.neutral.n70;
   }
@@ -63,41 +69,40 @@ const StyledNavList = styled.li`
 
 const StyledNavLink = styled.div`
   display: grid;
-  grid-template-columns: ${({ icon, isSelected }) => getGrid(icon, isSelected)};
+  grid-template-columns: ${(props: INavLinkProps) => getGrid(props)};
   width: 100%;
   height: 40px;
   min-width: 180px;
   align-items: center;
   box-sizing: border-box;
-  border-left: ${({ isDisabled, isSelected }) =>
-    getBorderLeft(isDisabled, isSelected)};
-  background-color: ${({ isDisabled, isSelected }) =>
-    getBackgroundColor(isDisabled, isSelected)};
   background-size: cover;
   gap: 24px;
   padding: 0px 16px;
-  color: ${({ isDisabled }) => isDisabled && colors.ref.palette.neutral.n70};
-  pointer-events: ${({ isDisabled }) => isDisabled && "none"};
+
+  border-left: ${(props: INavLinkProps) => getBorderLeft(props)};
+  background-color: ${(props: INavLinkProps) => getBackgroundColor(props)};
+  color: ${({ isDisabled }: INavLinkProps) =>
+    isDisabled && colors.ref.palette.neutral.n70};
 
   & > svg:last-child {
     ${iconStyles};
     color: ${colors.ref.palette.neutral.n900};
-    display: ${({ isDisabled, isSelected }) =>
+    display: ${({ isDisabled, isSelected }: INavLinkProps) =>
       (isDisabled || !isSelected) && "none"};
   }
 
   & > svg:first-child {
     ${iconStyles};
-    color: ${({ isDisabled, isSelected }) =>
-      getColorIcon(isDisabled, isSelected)};
+    color: ${(props: INavLinkProps) => getColorIcon(props)};
   }
 
-  ${({ isDisabled }) =>
+  ${({ isDisabled }: INavLinkProps) =>
     !isDisabled &&
     `
+    cursor: pointer;
       &:hover {
         background-color: ${colors.ref.palette.neutral.n30};
-        cursor: pointer;
+        
       }
 
       &:hover  > svg:first-child {
@@ -118,8 +123,9 @@ const StyledLink = styled(Link)`
   line-height: ${typography.sys.typescale.bodyMedium.lineHeight};
   letter-spacing: ${typography.sys.typescale.bodyMedium.tracking};
   font-weight: ${typography.sys.typescale.bodyMedium.weight};
-  color: ${({ isdisabled }) => getColorLabel(isdisabled)};
-  width: 100%;
+  color: ${(props: INavLinkProps) => getColorLabel(props)};
+
+  cursor: not-allowed;
 `;
 
 export { StyledNavLink, StyledLink, StyledNavList };
