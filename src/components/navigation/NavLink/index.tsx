@@ -1,10 +1,9 @@
-import React from "react";
+import { INavLinkProps } from "./interfaces/NavLink.interface";
 import { MdKeyboardArrowRight } from "react-icons/md";
-import PropTypes from "prop-types";
 
 import { StyledNavLink, StyledLink, StyledNavList } from "./styles";
 
-const NavLink = (props) => {
+const NavLink = (props: INavLinkProps) => {
   const {
     id,
     label,
@@ -29,22 +28,11 @@ const NavLink = (props) => {
         >
           {icon}
           {label}
-          <MdKeyboardArrowRight isdisabled={+isDisabled} />
+          <MdKeyboardArrowRight />
         </StyledNavLink>
       </StyledLink>
     </StyledNavList>
   );
-};
-
-NavLink.propTypes = {
-  id: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
-  path: PropTypes.string.isRequired,
-  isDisabled: PropTypes.bool,
-  isSelected: PropTypes.bool,
-  icon: PropTypes.node,
-  handleClick: PropTypes.func,
-  handleBlur: PropTypes.func,
 };
 
 export { NavLink };

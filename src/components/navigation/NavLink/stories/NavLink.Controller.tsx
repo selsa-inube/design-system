@@ -1,7 +1,8 @@
 import { useState } from "react";
+import { INavLinkProps } from "../interfaces/NavLink.interface";
 import { NavLink } from "..";
 
-const NavLinkController = (props) => {
+const NavLinkController = (props: INavLinkProps) => {
   const [select, setSelect] = useState(false);
 
   const handleClick = () => {
