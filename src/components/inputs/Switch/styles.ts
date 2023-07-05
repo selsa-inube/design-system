@@ -73,13 +73,13 @@ const StyledInput = styled.input`
 
   &:checked + span {
     background-color: ${(props: ISwitchProps) =>
-      props.isDisabled
+      props.disabled
         ? colors.ref.palette.green.g75
         : colors.ref.palette.green.g400};
 
     &:hover {
       background-color: ${(props: ISwitchProps) =>
-        props.isDisabled
+        props.disabled
           ? colors.ref.palette.green.g75
           : colors.ref.palette.green.g300};
     }

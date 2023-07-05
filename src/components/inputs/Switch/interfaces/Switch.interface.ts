@@ -11,4 +11,5 @@ export interface ISwitchProps {
   label: string;
   margin: string;
   padding: string;
+  disabled?: boolean;
 }

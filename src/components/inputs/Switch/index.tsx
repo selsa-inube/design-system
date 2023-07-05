@@ -47,7 +47,7 @@ const Switch = (props: ISwitchProps) => {
           value={value}
           checked={checked}
           onChange={handleChange}
-          isDisabled={isDisabled}
+          disabled={isDisabled}
           name={name}
         />
         <StyledSpan size={transformedSize} isDisabled={isDisabled}>
