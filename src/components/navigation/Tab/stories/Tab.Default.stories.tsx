@@ -22,11 +22,12 @@ Default.args = {
   id: "thisIsAnId",
   isDisabled: false,
   label: "General Information",
+  isSelected: { control: null },
 };
 Default.argTypes = {
   id,
   isDisabled,
-  isSelected: { control: null },
+  isSelected,
   handleClick,
   label,
 };
