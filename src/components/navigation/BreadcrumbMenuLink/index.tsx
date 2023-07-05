@@ -1,18 +1,15 @@
-import React from "react";
-import PropTypes from "prop-types";
-
 import { Stack } from "../../layouts/Stack";
 import { Text } from "../../data/Text";
 
 import { StyledContainerLink, StyledBreadcrumbMenuLink } from "./styles";
+import { IBreadcrumbMenuLinkProps } from "./interfaces/BreadcrumbMenuLink.interface";
+import { Typos, typos } from "./types/BreadcrumbMenuLink.typos.type";
 
-const typos = ["labelLarge", "labelMedium", "labelSmall"];
-const defaultTypo = "labelLarge";
+const defaultTypo: Typos = "labelLarge";
 
-const BreadcrumbMenuLink = (props) => {
+const BreadcrumbMenuLink = (props: IBreadcrumbMenuLinkProps) => {
   const { label, path, id, typo = defaultTypo } = props;
   const transformedTypos = typos.includes(typo) ? typo : defaultTypo;
-
   return (
     <StyledBreadcrumbMenuLink to={path}>
       <StyledContainerLink id={id}>
@@ -30,11 +27,4 @@ const BreadcrumbMenuLink = (props) => {
   );
 };
 
-BreadcrumbMenuLink.propTypes = {
-  label: PropTypes.string.isRequired,
-  path: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
-  typo: PropTypes.oneOf(typos),
-};
-
-export { BreadcrumbMenuLink, typos };
+export { BreadcrumbMenuLink };
