@@ -1,6 +1,5 @@
-import React from "react";
-
-import { Switch } from "../index";
+import { ISwitchProps } from "../interfaces/Switch.interface";
+import { Switch } from "..";
 import { SwitchController } from "./SwitchController";
 import { id, isDisabled, name, handleChange, margin, padding } from "./props";
 
@@ -10,20 +9,28 @@ const story = {
   title: "inputs/Switch/Disabled",
   components: [Switch],
   decorators: [
-    (Story) => (
+    (Story: React.ElementType) => (
       <div style={{ margin: "3em" }}>
         <Story />
       </div>
     ),
   ],
+  argTypes: {
+    id,
+    isDisabled,
+    name,
+    handleChange,
+    margin,
+    padding,
+  },
 };
-const SwitchComponent = (props) => {
+const SwitchComponent = (args: ISwitchProps) => {
   return (
     <Stack alignItems="center" justifyContent="space-evenly">
       {[0, 1].map((item) => (
         <SwitchController
           key={item}
-          {...props}
+          {...args}
           checked={item > 0 ? true : false}
         />
       ))}
@@ -31,22 +38,16 @@ const SwitchComponent = (props) => {
   );
 };
 
-export const Disabled = SwitchComponent.bind({});
-Disabled.args = {
-  id: "idStates",
-  isDisabled: true,
-  name: "nameState",
-  handleChange: () => {},
-  margin: "0px",
-  padding: "0px",
-};
-Disabled.argTypes = {
-  id,
-  isDisabled,
-  name,
-  handleChange,
-  margin,
-  padding,
+export const Disabled = {
+  args: {
+    id: "idStates",
+    isDisabled: true,
+    name: "nameState",
+    handleChange: () => {},
+    margin: "0px",
+    padding: "0px",
+  },
+  render: (args: ISwitchProps) => <SwitchComponent {...args} />,
 };
 
 export default story;

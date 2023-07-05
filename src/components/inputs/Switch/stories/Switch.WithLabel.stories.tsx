@@ -1,4 +1,4 @@
-import React from "react";
+import { ISwitchProps } from "../interfaces/Switch.interface";
 
 import { Switch } from "../index";
 import { SwitchController } from "./SwitchController";
@@ -18,22 +18,31 @@ const story = {
   title: "inputs/Switch/WithLabel",
   components: [Switch],
   decorators: [
-    (Story) => (
+    (Story: React.ElementType) => (
       <div style={{ margin: "3em" }}>
         <Story />
       </div>
     ),
   ],
+  argTypes: {
+    id,
+    isDisabled,
+    name,
+    handleChange,
+    label,
+    margin,
+    padding,
+  },
 };
 
-const SwitchComponent = (props) => {
-  const { checked } = props;
+const SwitchComponent = (args: ISwitchProps) => {
+  const { checked } = args;
   return (
     <Stack alignItems="center" justifyContent="space-evenly">
       {[0, 1].map((item) => (
         <SwitchController
           key={item}
-          {...props}
+          {...args}
           id={String(item)}
           checked={item > 0 ? !checked : checked}
         />
@@ -42,25 +51,18 @@ const SwitchComponent = (props) => {
   );
 };
 
-export const WithLabel = SwitchComponent.bind({});
-WithLabel.args = {
-  id: "idValue",
-  isDisabled: false,
-  name: "nameValue",
-  checked: false,
-  handleChange: () => {},
-  label: "Label",
-  margin: "0px",
-  padding: "0px",
-};
-WithLabel.argTypes = {
-  id,
-  isDisabled,
-  name,
-  handleChange,
-  label,
-  margin,
-  padding,
+export const WithLabel = {
+  args: {
+    id: "idValue",
+    isDisabled: false,
+    name: "nameValue",
+    checked: false,
+    handleChange: () => {},
+    label: "Label",
+    margin: "0px",
+    padding: "0px",
+  },
+  render: (args: ISwitchProps) => <SwitchComponent {...args} />,
 };
 
 export default story;
