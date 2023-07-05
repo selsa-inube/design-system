@@ -1,4 +1,4 @@
-import React from "react";
+import { ISwitchProps } from "../interfaces/Switch.interface";
 
 import { Switch } from "../index";
 import { SwitchController } from "./SwitchController";
@@ -9,15 +9,23 @@ const story = {
   title: "inputs/Switch/Checks",
   components: [Switch],
   decorators: [
-    (Story) => (
+    (Story: React.ElementType) => (
       <div style={{ margin: "3em" }}>
         <Story />
       </div>
     ),
   ],
+  argTypes: {
+    id,
+    isDisabled,
+    name,
+    handleChange,
+    margin,
+    padding,
+  },
 };
 
-const SwitchComponent = (props) => {
+const SwitchComponent = (props: ISwitchProps) => {
   const { checked } = props;
   return (
     <Stack alignItems="center" justifyContent="space-evenly">
@@ -33,23 +41,17 @@ const SwitchComponent = (props) => {
   );
 };
 
-export const Checks = SwitchComponent.bind({});
-Checks.args = {
-  id: "idValue",
-  isDisabled: false,
-  name: "nameValue",
-  checked: false,
-  handleChange: () => {},
-  margin: "0px",
-  padding: "0px",
-};
-Checks.argTypes = {
-  id,
-  isDisabled,
-  name,
-  handleChange,
-  margin,
-  padding,
+export const Checks = {
+  args: {
+    id: "idValue",
+    isDisabled: false,
+    name: "nameValue",
+    checked: false,
+    handleChange: () => {},
+    margin: "0px",
+    padding: "0px",
+  },
+  render: (args: ISwitchProps) => <SwitchComponent {...args} />,
 };
 
 export default story;

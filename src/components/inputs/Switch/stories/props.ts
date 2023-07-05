@@ -1,4 +1,4 @@
-import { sizes } from "./../index";
+import { sizes } from "../types/Switch.Size.type";
 
 const id = {
   options: ["id"],

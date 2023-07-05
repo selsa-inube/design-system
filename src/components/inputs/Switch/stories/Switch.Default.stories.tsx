@@ -1,5 +1,5 @@
-import React from "react";
-import { Switch } from "../index";
+import { ISwitchProps } from "../interfaces/Switch.interface";
+import { Switch } from "..";
 import { SwitchController } from "./SwitchController";
 
 import {
@@ -18,7 +18,7 @@ const story = {
   title: "inputs/Switch/Default",
   components: [Switch],
   decorators: [
-    (Story) => (
+    (Story: React.ElementType) => (
       <div style={{ margin: "3em" }}>
         <Story />
       </div>
@@ -26,7 +26,7 @@ const story = {
   ],
 };
 
-export const Default = (args) => <SwitchController {...args} />;
+export const Default = (args: ISwitchProps) => <SwitchController {...args} />;
 Default.args = {
   id: "thisIsAnId",
   isDisabled: false,

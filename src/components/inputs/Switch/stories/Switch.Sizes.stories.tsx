@@ -1,6 +1,6 @@
-import React from "react";
-
-import { Switch, sizes } from "../index";
+import { ISwitchProps } from "../interfaces/Switch.interface";
+import { sizes } from "../types/Switch.Size.type";
+import { Switch } from "..";
 import { SwitchController } from "./SwitchController";
 import {
   id,
@@ -19,22 +19,32 @@ const story = {
   title: "inputs/Switch/Sizes",
   components: [Switch],
   decorators: [
-    (Story) => (
+    (Story: React.ElementType) => (
       <div style={{ margin: "3em" }}>
         <Story />
       </div>
     ),
   ],
+  argTypes: {
+    id,
+    isDisabled,
+    name,
+    value,
+    checked,
+    handleChange,
+    margin,
+    padding,
+  },
 };
 
-const SwitchComponent = (props) => {
-  const { checked } = props;
+const SwitchComponent = (args: ISwitchProps) => {
+  const { checked } = args;
   return (
     <Stack alignItems="center" justifyContent="space-evenly">
       {sizes.map((size) => (
         <div key={size}>
           <SwitchController
-            {...props}
+            {...args}
             checked={size === "small" ? checked : !checked}
             size={size}
           />
@@ -44,26 +54,18 @@ const SwitchComponent = (props) => {
   );
 };
 
-export const Sizes = SwitchComponent.bind({});
-Sizes.args = {
-  id: "idSize",
-  isDisabled: false,
-  name: "nameSize",
-  value: "as",
-  checked: false,
-  handleChange: () => {},
-  margin: "0px",
-  padding: "0px",
-};
-Sizes.argTypes = {
-  id,
-  isDisabled,
-  name,
-  value,
-  checked,
-  handleChange,
-  margin,
-  padding,
+export const Sizes = {
+  args: {
+    id: "idSize",
+    isDisabled: false,
+    name: "nameSize",
+    value: "as",
+    checked: false,
+    handleChange: () => {},
+    margin: "0px",
+    padding: "0px",
+  },
+  render: (args: ISwitchProps) => <SwitchComponent {...args} />,
 };
 
 export default story;
