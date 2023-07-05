@@ -1,4 +1,5 @@
-import { typos } from "..";
+import { typos } from "../types/BreadcrumbLink.typos.type";
+
 const id = {
   control: { type: "text" },
   description: "shall be the id for the text",

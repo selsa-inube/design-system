@@ -1,15 +1,12 @@
-import React from "react";
-import PropTypes from "prop-types";
-
 import { Text } from "../../data/Text";
-
+import { IBreadcrumbLinkProps } from "./interfaces/BreadcrumbLink.interface";
 import { StyledContainerLink, StyledBreadcrumbLink } from "./styles";
+import { Typos, typos } from "./types/BreadcrumbLink.typos.type";
 
-const typos = ["labelLarge", "labelMedium", "labelSmall"];
-const defaultTypo = "labelLarge";
-const defaultIsActive = false;
+const defaultTypo: Typos = "labelLarge";
+const defaultIsActive: boolean = false;
 
-const BreadcrumbLink = (props) => {
+const BreadcrumbLink = (props: IBreadcrumbLinkProps) => {
   const {
     isActive = defaultIsActive,
     label,
@@ -19,8 +16,8 @@ const BreadcrumbLink = (props) => {
     handleClick,
   } = props;
 
-  const transformedTypos = typos.includes(typo) ? typo : defaultTypo;
-  const transformedIsActive =
+  const transformedTypos: Typos = typos.includes(typo) ? typo : defaultTypo;
+  const transformedIsActive: boolean =
     typeof isActive === "boolean" ? isActive : defaultIsActive;
 
   return (
@@ -34,13 +31,4 @@ const BreadcrumbLink = (props) => {
   );
 };
 
-BreadcrumbLink.propTypes = {
-  isActive: PropTypes.bool,
-  label: PropTypes.string.isRequired,
-  path: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
-  typo: PropTypes.oneOf(typos),
-  handleClick: PropTypes.func,
-};
-
-export { BreadcrumbLink, typos };
+export { BreadcrumbLink };
