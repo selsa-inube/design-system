@@ -8,17 +8,16 @@ import {
   validateArrayNotEmpty,
 } from "./validators";
 
-const initializeState = (
-  mediaQueryList: MediaQueryList
-): Record<string, boolean> => {
-  const initialState: Record<string, boolean> = {};
-  mediaQueryList.forEach((mediaQueryObject) => {
-    initialState[mediaQueryObject.media] = mediaQueryObject.matches;
-  });
-  return initialState;
+type MediaMatches = Array<{ media: string; matches: boolean }>;
+
+const initializeState = (mediaQueryList: MediaQueryList): MediaMatches => {
+  return mediaQueryList.map((mediaQueryObject) => ({
+    media: mediaQueryObject.media,
+    matches: mediaQueryObject.matches,
+  }));
 };
 
-const useMediaQueries = (queries: string[]): Record<string, boolean> => {
+const useMediaQueries = (queries: string[]): MediaMatches => {
   validateArrayType(queries);
   validateQueries(queries);
   validateArrayNotEmpty(queries);
@@ -26,13 +25,17 @@ const useMediaQueries = (queries: string[]): Record<string, boolean> => {
   const mediaQueryList: MediaQueryList = queries.map((query) =>
     window.matchMedia(query)
   );
-  const [matches, setMatches] = useState<Record<string, boolean>>(() =>
+  const [matches, setMatches] = useState<MediaMatches>(() =>
     initializeState(mediaQueryList)
   );
 
   const handleChange = (event: IMediaQueryListEvent): void => {
     setMatches((prevState) => {
-      return { ...prevState, [event.media]: event.matches };
+      return prevState.map((mediaMatch) =>
+        mediaMatch.media === event.media
+          ? { ...mediaMatch, matches: event.matches }
+          : mediaMatch
+      );
     });
   };
 

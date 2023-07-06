@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import { DisplayEntry } from "./DisplayEntry";
 import {
   StyledTable,
@@ -9,22 +9,30 @@ import {
   StyledThTitle,
   StyledTd,
 } from "./styles";
-
 import { useMediaQueries } from "../../../hooks/useMediaQueries";
 import { useMediaQuery } from "../../../hooks/useMediaQuery";
 import { Text } from "../Text";
+import { ITableProps } from "./interfaces/Table.interface";
+import { IAction } from "./interfaces/Table.Action.interface";
+import { IEntry } from "./interfaces/Table.Entry.interface";
+import { ITitle } from "./interfaces/Table.Title.interface";
+import { IBreakpoint } from "./interfaces/Table.Breakpoint.interface";
 
-function findCurrentMediaQuery(currentMediaQuery) {
-  const lastIndexMedia = Object.values(currentMediaQuery).lastIndexOf(true);
+function findCurrentMediaQuery(currentMediaQuery: boolean[]): number {
+  const lastIndexMedia = currentMediaQuery.lastIndexOf(true);
   return lastIndexMedia !== -1 ? lastIndexMedia : 0;
 }
 
-function priorityColumns(titles, numColumns) {
+function priorityColumns(titles: ITitle[], numColumns: number): ITitle[] {
   const maxPriorityToDisplay = numColumns - 1;
   return titles.filter((title) => title.priority <= maxPriorityToDisplay);
 }
 
-function totalTitleColumns(titles, breakpoints, media) {
+function totalTitleColumns(
+  titles: ITitle[],
+  breakpoints: IBreakpoint[],
+  media: any
+): ITitle[] {
   const numColumns = breakpoints[findCurrentMediaQuery(media)].totalColumns;
 
   if (numColumns >= titles.length) return titles;
@@ -32,15 +40,20 @@ function totalTitleColumns(titles, breakpoints, media) {
   return priorityColumns(titles, numColumns);
 }
 
-function showActionTitle(actionTitle, mediaQuery) {
+function showActionTitle(
+  actionTitle: IAction[],
+  mediaQuery: boolean
+): JSX.Element {
   return !mediaQuery ? (
-    actionTitle.map((action) => (
-      <StyledThAction key={`action-${action.id}`}>
-        <Text typo="labelMedium" align="center">
-          {action.actionName}
-        </Text>
-      </StyledThAction>
-    ))
+    <>
+      {actionTitle.map((action) => (
+        <StyledThAction key={`action-${action.id}`}>
+          <Text typo="labelMedium" align="center">
+            {action.actionName}
+          </Text>
+        </StyledThAction>
+      ))}
+    </>
   ) : (
     <StyledThAction>
       <Text typo="labelMedium" align="center">
@@ -49,20 +62,19 @@ function showActionTitle(actionTitle, mediaQuery) {
     </StyledThAction>
   );
 }
-
 function ShowAction(
-  portalId,
-  actionContent,
-  entry,
-  mediaQuery,
-  modalTitle,
-  titleLabels,
-  infoTitle,
-  actionsTitle
-) {
+  id: string,
+  actionContent: IAction[],
+  entry: IEntry,
+  mediaQuery: boolean,
+  modalTitle: string,
+  titleLabels: ITitle[],
+  infoTitle: string,
+  actionsTitle: string
+): JSX.Element {
   return !mediaQuery ? (
     <>
-      {actionContent.map((action) => (
+      {actionContent.map((action: any) => (
         <StyledTd key={`${entry.id}-${action.id}`}>
           {action.content(entry)}
         </StyledTd>
@@ -71,7 +83,7 @@ function ShowAction(
   ) : (
     <StyledTd>
       <DisplayEntry
-        portalId={portalId}
+        portalId={id}
         entry={entry}
         title={modalTitle}
         actions={actionContent}
@@ -83,9 +95,9 @@ function ShowAction(
   );
 }
 
-const TableUI = (props) => {
+const TableUI = (props: ITableProps): JSX.Element => {
   const {
-    portalId,
+    id,
     titles,
     actions,
     entries,
@@ -98,14 +110,14 @@ const TableUI = (props) => {
   const mediaActionOpen = useMediaQuery("(max-width: 850px)");
 
   const queriesArray = useMemo(
-    () => breakpoints.map((breakpoint) => breakpoint.breakpoint),
+    () => breakpoints!.map((breakpoint) => breakpoint.breakpoint),
     [breakpoints]
   );
 
   const media = useMediaQueries(queriesArray);
 
   const TitleColumns = useMemo(
-    () => totalTitleColumns(titles, breakpoints, media),
+    () => totalTitleColumns(titles, breakpoints!, media),
     [titles, breakpoints, media]
   );
 
@@ -136,14 +148,14 @@ const TableUI = (props) => {
               </StyledTd>
             ))}
             {ShowAction(
-              portalId,
+              id,
               actions,
               entry,
               mediaActionOpen,
-              modalTitle,
+              modalTitle!,
               titles,
-              infoTitle,
-              actionsTitle
+              infoTitle!,
+              actionsTitle!
             )}
           </StyledTr>
         ))}

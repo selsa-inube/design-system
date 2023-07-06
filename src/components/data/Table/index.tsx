@@ -1,12 +1,10 @@
-import React, { useMemo } from "react";
-import PropTypes from "prop-types";
-
+import React, { useMemo, useState } from "react";
 import { Pagination } from "./Pagination";
 import { TableUI } from "./interface";
-import { useState } from "react";
 import { Stack } from "../../layouts/Stack";
+import { ITableProps } from "./interfaces/Table.interface";
 
-const Table = (props) => {
+const Table: React.FunctionComponent<ITableProps> = (props) => {
   const {
     id,
     titles,
@@ -77,7 +75,7 @@ const Table = (props) => {
     <div id={id}>
       <Stack direction="column">
         <TableUI
-          portalId={id}
+          id={id}
           titles={titles}
           actions={actions}
           entries={getPageEntries()}
@@ -100,37 +98,6 @@ const Table = (props) => {
       </Stack>
     </div>
   );
-};
-
-Table.propTypes = {
-  id: PropTypes.string.isRequired,
-  titles: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      titleName: PropTypes.string.isRequired,
-      priority: PropTypes.number.isRequired,
-    })
-  ).isRequired,
-  actions: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      actionName: PropTypes.string.isRequired,
-      content: PropTypes.func,
-      type: PropTypes.string,
-    })
-  ).isRequired,
-  entries: PropTypes.arrayOf(PropTypes.shape({ id: PropTypes.string })),
-  filter: PropTypes.string,
-  pageLength: PropTypes.number,
-  breakpoints: PropTypes.arrayOf(
-    PropTypes.shape({
-      breakpoint: PropTypes.string.isRequired,
-      totalColumns: PropTypes.number.isRequired,
-    })
-  ),
-  modalTitle: PropTypes.string,
-  infoTitle: PropTypes.string,
-  actionsTitle: PropTypes.string,
 };
 
 export { Table };
