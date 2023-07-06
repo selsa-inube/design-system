@@ -1,24 +1,30 @@
-import React from "react";
+import { MdAdd } from "react-icons/md";
 import { BrowserRouter } from "react-router-dom";
 
-import { Button, variants } from "../index";
+import { Button } from "../index";
 import { StyledFlex } from "./stories.styles";
 
 import {
+  children,
+  isLoading,
   appearance,
   isDisabled,
+  iconBefore,
+  iconAfter,
   type,
-  spacing,
   variant,
   isFullWidth,
   handleClick,
+  path,
 } from "./props";
+import { IButtonProps } from "../interfaces/Button.interface";
+import { spacings } from "../types/Button.Spacings.type";
 
 const story = {
-  title: "inputs/Button/Loading",
+  title: "inputs/Button/Spacing",
   components: [Button],
   decorators: [
-    (Story) => (
+    (Story: React.ElementType) => (
       <BrowserRouter>
         <div style={{ margin: "3em" }}>
           <Story />
@@ -28,37 +34,43 @@ const story = {
   ],
 };
 
-const ButtonComponent = (props) => {
+const ButtonComponent = (props: IButtonProps) => {
   return (
     <StyledFlex>
-      {variants.map((variant) => (
-        <div key={variant}>
-          <Button {...props} variant={variant} isLoading={true} />
+      {spacings.map((spacing) => (
+        <div key={spacing}>
+          <Button {...props} spacing={spacing} />
         </div>
       ))}
     </StyledFlex>
   );
 };
 
-export const Loading = (args) => <ButtonComponent {...args} />;
-Loading.args = {
+export const Spacing = (args: IButtonProps) => <ButtonComponent {...args} />;
+Spacing.args = {
   children: "Button",
   appearance: "primary",
+  isLoading: false,
   isDisabled: false,
+  iconBefore: <MdAdd />,
   type: "button",
-  spacing: "wide",
   variant: "filled",
   isFullWidth: false,
   handleClick: () => console.log("clicked"),
+  path: "/privileges",
 };
-Loading.argTypes = {
+Spacing.argTypes = {
+  children,
+  isLoading,
   appearance,
   isDisabled,
+  iconBefore,
+  iconAfter,
   type,
-  spacing,
   variant,
   isFullWidth,
   handleClick,
+  path,
 };
 
 export default story;
