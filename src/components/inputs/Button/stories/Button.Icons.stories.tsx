@@ -1,4 +1,3 @@
-import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import { MdAdd } from "react-icons/md";
 
@@ -16,12 +15,13 @@ import {
   isFullWidth,
   handleClick,
 } from "./props";
+import { IButtonProps } from "../interfaces/Button.interface";
 
 const story = {
   title: "inputs/Button/Icons",
   components: [Button],
   decorators: [
-    (Story) => (
+    (Story: React.ElementType) => (
       <BrowserRouter>
         <div style={{ margin: "3em" }}>
           <Story />
@@ -31,15 +31,15 @@ const story = {
   ],
 };
 
-const ButtonComponent = (props) => {
+const ButtonComponent = (props: IButtonProps) => {
   return (
     <StyledFlex>
       {[0, 1, 2].map((item) => (
         <div key={item}>
           <Button
             {...props}
-            iconBefore={item === 0 ? <MdAdd /> : null}
-            iconAfter={item === 1 ? <MdAdd /> : null}
+            iconBefore={item === 0 ? <MdAdd /> : undefined}
+            iconAfter={item === 1 ? <MdAdd /> : undefined}
           />
         </div>
       ))}
@@ -47,7 +47,7 @@ const ButtonComponent = (props) => {
   );
 };
 
-export const Icons = (args) => <ButtonComponent {...args} />;
+export const Icons = (args: IButtonProps) => <ButtonComponent {...args} />;
 Icons.args = {
   children: "Button",
   appearance: "primary",
