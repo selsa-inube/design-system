@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { ITextFieldProps } from "./interfaces/TextField.interface";
 import { colors } from "../../../shared/colors/colors";
 import { typography } from "../../../shared/typography/typography";
 
@@ -11,7 +12,8 @@ const sizeOptions = {
   },
 };
 
-const getGrid = (iconBefore, iconAfter) => {
+const getGrid = (props: ITextFieldProps) => {
+  const { iconBefore, iconAfter } = props;
   if (iconBefore && iconAfter) {
     return "auto 1fr auto";
   }
@@ -27,7 +29,8 @@ const getGrid = (iconBefore, iconAfter) => {
   return "1fr";
 };
 
-const getColors = (isDisabled, state, isFocused) => {
+const getColors = (props: ITextFieldProps) => {
+  const { isDisabled, state, isFocused } = props;
   if (isDisabled) {
     return colors.ref.palette.neutral.n70;
   }
@@ -42,7 +45,8 @@ const getColors = (isDisabled, state, isFocused) => {
   return colors.ref.palette.neutral.n40;
 };
 
-const getIsDisabled = (isDisabled, state) => {
+const getIsDisabled = (props: ITextFieldProps) => {
+  const { isDisabled, state } = props;
   if (isDisabled) {
     return colors.ref.palette.neutral.n70;
   }
@@ -56,7 +60,8 @@ const getIsDisabled = (isDisabled, state) => {
   }
 };
 
-const getPadding = (iconBefore, iconAfter) => {
+const getPadding = (props: ITextFieldProps) => {
+  const { iconBefore, iconAfter } = props;
   const padding = {
     paddingLeft: "16px",
     paddingRight: "16px",
@@ -74,8 +79,9 @@ const getPadding = (iconBefore, iconAfter) => {
 };
 
 const StyledContainer = styled.div`
-  cursor: ${({ isDisabled }) => isDisabled && "not-allowed"};
-  width: ${({ isFullWidth }) => (isFullWidth ? "100%" : "fit-content")};
+  cursor: ${({ isDisabled }: ITextFieldProps) => isDisabled && "not-allowed"};
+  width: ${({ isFullWidth }: ITextFieldProps) =>
+    isFullWidth ? "100%" : "fit-content"};
 `;
 
 const StyledContainerLabel = styled.div`
@@ -83,7 +89,7 @@ const StyledContainerLabel = styled.div`
   align-items: center;
   margin-bottom: 4px;
   padding-left: 16px;
-  pointer-events: ${({ isDisabled }) => isDisabled && "none"};
+  pointer-events: ${({ isDisabled }: ITextFieldProps) => isDisabled && "none"};
 
   & label {
     margin-right: 5px;
@@ -97,12 +103,10 @@ const StyledInputContainer = styled.div`
   border-radius: 8px;
   user-select: none;
   background: ${colors.ref.palette.neutral.n10};
-  grid-template-columns: ${({ iconBefore, iconAfter }) =>
-    getGrid(iconBefore, iconAfter)};
-  border: 1px solid
-    ${({ isDisabled, state, isFocused }) =>
-      getColors(isDisabled, state, isFocused)};
-  ${({ isDisabled }) => isDisabled && "pointer-events: none; opacity: 0.5;"}
+  grid-template-columns: ${(props: ITextFieldProps) => getGrid(props)};
+  border: 1px solid ${(props: ITextFieldProps) => getColors(props)};
+  ${({ isDisabled }: ITextFieldProps) =>
+    isDisabled && "pointer-events: none; opacity: 0.5;"}
 `;
 
 const StyledInput = styled.input`
@@ -112,13 +116,14 @@ const StyledInput = styled.input`
   font-size: ${typography.sys.typescale.bodyLarge.size};
   font-weight: ${typography.sys.typescale.bodyLarge.weight};
   line-height: ${typography.sys.typescale.bodyLarge.lineHeight};
-  letter-spacing: ${typography.sys.typescale.bodyLarge.letterSpacing};
-  color: ${({ isDisabled }) =>
+  letter-spacing: ${typography.sys.typescale.bodyLarge.tracking};
+  color: ${({ isDisabled }: ITextFieldProps) =>
     isDisabled ? colors.ref.palette.neutral.n70 : colors.sys.text.dark};
   background: ${colors.ref.palette.neutral.n10};
-  ${({ iconBefore, iconAfter }) => getPadding(iconBefore, iconAfter)}
-  width: ${({ isFullWidth }) => (isFullWidth ? "calc(100% - 32px)" : "252px")};
-  ${({ size }) => sizeOptions[size]};
+  ${(props: ITextFieldProps) => getPadding(props)}
+  width: ${({ isFullWidth }: ITextFieldProps) =>
+    isFullWidth ? "calc(100% - 32px)" : "252px"};
+  ${({ size }: ITextFieldProps) => size && sizeOptions[size]};
   border: none;
 
   ::placeholder {
@@ -147,11 +152,12 @@ const StyledIcon = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-left: ${({ iconBefore }) => iconBefore && "10px"};
-  padding-right: ${({ iconAfter }) => iconAfter && "10px"};
+  padding-left: ${({ iconBefore }: ITextFieldProps) => iconBefore && "10px"};
+  padding-right: ${({ iconAfter }: ITextFieldProps) => iconAfter && "10px"};
   height: 24px;
   width: 24px;
-  color: ${({ isDisabled }) => isDisabled && colors.ref.palette.neutral.n70};
+  color: ${({ isDisabled }: ITextFieldProps) =>
+    isDisabled && colors.ref.palette.neutral.n70};
 `;
 
 const StyledErrorMessageContainer = styled.div`
@@ -159,7 +165,7 @@ const StyledErrorMessageContainer = styled.div`
   align-items: center;
   margin-left: 12px;
   pointer-events: none;
-  color: ${({ isDisabled, state }) => getIsDisabled(isDisabled, state)};
+  color: ${(props: ITextFieldProps) => getIsDisabled(props)};
 
   & svg {
     width: 14px;
@@ -170,7 +176,7 @@ const StyledErrorMessageContainer = styled.div`
 `;
 
 const StyledValidMessageContainer = styled(StyledErrorMessageContainer)`
-  color: ${({ isDisabled, state }) => getIsDisabled(isDisabled, state)}; ;
+  color: ${(props: ITextFieldProps) => getIsDisabled(props)}; ;
 `;
 
 export {
