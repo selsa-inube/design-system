@@ -13,18 +13,27 @@ import {
 import { useMediaQueries } from "../../../hooks/useMediaQueries";
 import { useMediaQuery } from "../../../hooks/useMediaQuery";
 import { Text } from "../Text";
+import { IAction } from "./interfaces/Table.Action.interface";
+import { IBreakpoint } from "./interfaces/Table.Breakpoint.interface";
+import { IEntry } from "./interfaces/Table.Entry.interface";
+import { ITitle } from "./interfaces/Table.Title.interface";
+import { ITableUIProps } from "./interfaces/Table.UI.interface";
 
-function findCurrentMediaQuery(currentMediaQuery) {
+function findCurrentMediaQuery(currentMediaQuery: Record<string, boolean>) {
   const lastIndexMedia = Object.values(currentMediaQuery).lastIndexOf(true);
   return lastIndexMedia !== -1 ? lastIndexMedia : 0;
 }
 
-function priorityColumns(titles, numColumns) {
+function priorityColumns(titles: ITitle[], numColumns: number) {
   const maxPriorityToDisplay = numColumns - 1;
   return titles.filter((title) => title.priority <= maxPriorityToDisplay);
 }
 
-function totalTitleColumns(titles, breakpoints, media) {
+function totalTitleColumns(
+  titles: ITitle[],
+  breakpoints: IBreakpoint[],
+  media: Record<string, boolean>
+) {
   const numColumns = breakpoints[findCurrentMediaQuery(media)].totalColumns;
 
   if (numColumns >= titles.length) return titles;
@@ -32,7 +41,7 @@ function totalTitleColumns(titles, breakpoints, media) {
   return priorityColumns(titles, numColumns);
 }
 
-function showActionTitle(actionTitle, mediaQuery) {
+function showActionTitle(actionTitle: IAction[], mediaQuery: boolean) {
   return !mediaQuery ? (
     actionTitle.map((action) => (
       <StyledThAction key={`action-${action.id}`}>
@@ -51,14 +60,14 @@ function showActionTitle(actionTitle, mediaQuery) {
 }
 
 function ShowAction(
-  portalId,
-  actionContent,
-  entry,
-  mediaQuery,
-  modalTitle,
-  titleLabels,
-  infoTitle,
-  actionsTitle
+  portalId: string,
+  actionContent: IAction[],
+  entry: IEntry,
+  mediaQuery: boolean,
+  modalTitle: string,
+  titleLabels: ITitle[],
+  infoTitle: string,
+  actionsTitle: string
 ) {
   return !mediaQuery ? (
     <>
@@ -83,7 +92,7 @@ function ShowAction(
   );
 }
 
-const TableUI = (props) => {
+const TableUI = (props: ITableUIProps) => {
   const {
     portalId,
     titles,
