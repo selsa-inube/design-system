@@ -1,29 +1,30 @@
-import React from "react";
-import { MdAdd } from "react-icons/md";
 import { BrowserRouter } from "react-router-dom";
+import { MdAdd } from "react-icons/md";
 
-import { Button, spacings } from "../index";
+import { Button } from "../index";
 import { StyledFlex } from "./stories.styles";
 
 import {
   children,
   isLoading,
   appearance,
-  isDisabled,
   iconBefore,
   iconAfter,
   type,
+  spacing,
   variant,
   isFullWidth,
   handleClick,
   path,
 } from "./props";
+import { appearances } from "../types/Button.Appearances.type";
+import { IButtonProps } from "../interfaces/Button.interface";
 
 const story = {
-  title: "inputs/Button/Spacing",
+  title: "inputs/Button/Disabled",
   components: [Button],
   decorators: [
-    (Story) => (
+    (Story: React.ElementType) => (
       <BrowserRouter>
         <div style={{ margin: "3em" }}>
           <Story />
@@ -33,39 +34,38 @@ const story = {
   ],
 };
 
-const ButtonComponent = (props) => {
+const ButtonComponent = (props: IButtonProps) => {
   return (
     <StyledFlex>
-      {spacings.map((spacing) => (
-        <div key={spacing}>
-          <Button {...props} spacing={spacing} />
+      {appearances.map((appearance) => (
+        <div key={appearance}>
+          <Button {...props} isDisabled={true} />
         </div>
       ))}
     </StyledFlex>
   );
 };
 
-export const Spacing = (args) => <ButtonComponent {...args} />;
-Spacing.args = {
+export const Disabled = (args: IButtonProps) => <ButtonComponent {...args} />;
+Disabled.args = {
   children: "Button",
-  appearance: "primary",
   isLoading: false,
-  isDisabled: false,
   iconBefore: <MdAdd />,
   type: "button",
+  spacing: "wide",
   variant: "filled",
   isFullWidth: false,
   handleClick: () => console.log("clicked"),
   path: "/privileges",
 };
-Spacing.argTypes = {
+Disabled.argTypes = {
   children,
   isLoading,
   appearance,
-  isDisabled,
   iconBefore,
   iconAfter,
   type,
+  spacing,
   variant,
   isFullWidth,
   handleClick,
