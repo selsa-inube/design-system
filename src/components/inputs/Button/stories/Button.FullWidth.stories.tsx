@@ -1,29 +1,29 @@
-import React from "react";
 import { BrowserRouter } from "react-router-dom";
+import { Button } from "../index";
 import { MdAdd } from "react-icons/md";
 
-import { Button, appearances } from "../index";
 import { StyledFlex } from "./stories.styles";
 
 import {
   children,
   isLoading,
   appearance,
+  isDisabled,
   iconBefore,
   iconAfter,
   type,
   spacing,
   variant,
-  isFullWidth,
   handleClick,
   path,
 } from "./props";
+import { IButtonProps } from "../interfaces/Button.interface";
 
 const story = {
-  title: "inputs/Button/Disabled",
+  title: "inputs/Button/FullWidth",
   components: [Button],
   decorators: [
-    (Story) => (
+    (Story: React.ElementType) => (
       <BrowserRouter>
         <div style={{ margin: "3em" }}>
           <Story />
@@ -33,40 +33,37 @@ const story = {
   ],
 };
 
-const ButtonComponent = (props) => {
+const ButtonComponent = (props: IButtonProps) => {
   return (
     <StyledFlex>
-      {appearances.map((appearance) => (
-        <div key={appearance}>
-          <Button {...props} isDisabled={true} />
-        </div>
-      ))}
+      <Button {...props} isFullWidth={true} />
     </StyledFlex>
   );
 };
 
-export const Disabled = (args) => <ButtonComponent {...args} />;
-Disabled.args = {
+export const FullWidth = (args: IButtonProps) => <ButtonComponent {...args} />;
+FullWidth.args = {
   children: "Button",
+  appearance: "primary",
   isLoading: false,
+  isDisabled: false,
   iconBefore: <MdAdd />,
   type: "button",
   spacing: "wide",
   variant: "filled",
-  isFullWidth: false,
   handleClick: () => console.log("clicked"),
   path: "/privileges",
 };
-Disabled.argTypes = {
+FullWidth.argTypes = {
   children,
   isLoading,
   appearance,
+  isDisabled,
   iconBefore,
   iconAfter,
   type,
   spacing,
   variant,
-  isFullWidth,
   handleClick,
   path,
 };
