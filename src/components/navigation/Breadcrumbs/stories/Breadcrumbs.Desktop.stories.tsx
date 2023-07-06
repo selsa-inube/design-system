@@ -1,13 +1,13 @@
-import React from "react";
 import { Breadcrumbs } from "../index";
 import { BrowserRouter } from "react-router-dom";
 import { route } from "./props";
+import { IBreadcrumbsProps } from "../interfaces/Breadcrumbs.interface";
 
 const story = {
   title: "navigation/Breadcrumbs/Desktop",
   components: [Breadcrumbs],
   decorators: [
-    (Story) => (
+    (Story: React.ElementType) => (
       <div style={{ margin: "3em" }}>
         <BrowserRouter>
           <Story />
@@ -17,7 +17,7 @@ const story = {
   ],
 };
 
-export const Desktop = (args) => <Breadcrumbs {...args} />;
+export const Desktop = (args: IBreadcrumbsProps) => <Breadcrumbs {...args} />;
 Desktop.args = {
   route: "Privileges/Users/Edition/Branches/City",
 };
