@@ -1,15 +1,21 @@
-import React from "react";
-import PropTypes from "prop-types";
-
 import { StyledButton, StyledSpan, StyledIcon, StyledLink } from "./styles";
-import { Spinner } from "./../../feedback/Spinner";
+import { Spinner } from "../../feedback/Spinner";
 import { colors } from "../../../shared/colors/colors";
+import { IButtonProps } from "./interfaces/Button.interface";
+import { Appearance, appearances } from "./types/Button.Appearances.type";
+import { Type, types } from "./types/Button.Types.type";
+import { Spacing, spacings } from "./types/Button.Spacings.type";
+import { Variant, variants } from "./types/Button.Variants.type";
+import { SpinnerColorHomologation } from "./types/Button.SpinnerColorHomologation.type";
+import { SpinnerColor } from "./types/Button.SpinnerColor.type";
 
-const fixedColors = Object.assign({}, colors.sys.actions);
+const fixedColors: { [key: string]: any } = Object.assign(
+  {},
+  colors.sys.actions
+);
 delete fixedColors.disabled;
-export const appearances = Object.keys(fixedColors);
 
-const spinnerColorHomologation = {
+const spinnerColorHomologation: SpinnerColorHomologation = {
   filled: {
     primary: "white",
     secondary: "dark",
@@ -36,20 +42,20 @@ const spinnerColorHomologation = {
   },
 };
 
-const getSpinnerColor = (variant, appearance) => {
-  return spinnerColorHomologation[variant][appearance];
+const getSpinnerColor = (
+  variant: Variant,
+  appearance: Appearance
+): SpinnerColor => {
+  return spinnerColorHomologation[variant][appearance] as SpinnerColor;
 };
 
-export const types = ["button", "submit", "reset", "link"];
-export const spacings = ["wide", "compact"];
-export const variants = ["filled", "outlined", "none"];
-const defaultAppearance = "primary";
-const defaultType = "button";
-const defaultSpacing = "wide";
-const defaultVariant = "filled";
+const defaultAppearance: Appearance = "primary";
+const defaultType: Type = "button";
+const defaultSpacing: Spacing = "wide";
+const defaultVariant: Variant = "filled";
 const defaultSpinnerSize = "small";
 
-const Button = (props) => {
+const Button = (props: IButtonProps) => {
   const {
     children,
     appearance = defaultAppearance,
@@ -145,21 +151,6 @@ const Button = (props) => {
       )}
     </StyledButton>
   );
-};
-
-Button.propTypes = {
-  children: PropTypes.node,
-  appearance: PropTypes.oneOf(appearances),
-  isLoading: PropTypes.bool,
-  isDisabled: PropTypes.bool,
-  iconBefore: PropTypes.element,
-  iconAfter: PropTypes.element,
-  type: PropTypes.oneOf(types),
-  spacing: PropTypes.oneOf(spacings),
-  variant: PropTypes.oneOf(variants),
-  isFullWidth: PropTypes.bool,
-  handleClick: PropTypes.func,
-  path: PropTypes.string,
 };
 
 export { Button };

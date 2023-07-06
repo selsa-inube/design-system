@@ -1,4 +1,3 @@
-import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import { MdAdd } from "react-icons/md";
 
@@ -18,12 +17,13 @@ import {
   handleClick,
   path,
 } from "./props";
+import { IButtonProps } from "../interfaces/Button.interface";
 
 const story = {
   title: "inputs/Button/Default",
   components: [Button],
   decorators: [
-    (Story) => (
+    (Story: React.ElementType) => (
       <BrowserRouter>
         <div style={{ margin: "3em" }}>
           <Story />
@@ -33,7 +33,7 @@ const story = {
   ],
 };
 
-export const Default = (args) => <Button {...args} />;
+export const Default = (args: IButtonProps) => <Button {...args} />;
 
 Default.args = {
   children: "Button",

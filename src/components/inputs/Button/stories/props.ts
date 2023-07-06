@@ -1,4 +1,7 @@
-import { appearances, types, spacings, variants } from "./../index";
+import { appearances } from "../types/Button.Appearances.type";
+import { spacings } from "../types/Button.Spacings.type";
+import { types } from "../types/Button.Types.type";
+import { variants } from "../types/Button.Variants.type";
 
 const children = {
   control: { type: "text" },
