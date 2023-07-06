@@ -1,12 +1,12 @@
-import React from "react";
 import { Pagination } from "../Pagination";
+import { ITableProps } from "../interfaces/Table.interface";
 import { PaginationController } from "./PaginationController";
 
 const story = {
   title: "data/Table/Pagination",
   component: [Pagination],
   decorators: [
-    (Story) => (
+    (Story: React.ElementType) => (
       <div style={{ margin: "3em" }}>
         <Story />
       </div>
@@ -14,7 +14,7 @@ const story = {
   ],
 };
 
-const Default = (args) => <PaginationController {...args} />;
+const Default = (args: ITableProps) => <PaginationController {...args} />;
 
 Default.args = {
   entries: [

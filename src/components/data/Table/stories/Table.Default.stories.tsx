@@ -1,4 +1,5 @@
 import { Table } from "../index";
+import { ITableProps } from "../interfaces/Table.interface";
 
 import { titlesMuck, actionsMuck, breakPointsMuck } from "./mucks";
 
@@ -21,7 +22,7 @@ const story = {
   parameters,
 };
 
-const Default = (args) => <Table {...args} />;
+const Default = (args: ITableProps) => <Table {...args} />;
 Default.args = {
   id: "tableId",
   titles: titlesMuck,

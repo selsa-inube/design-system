@@ -1,4 +1,3 @@
-import React from "react";
 import { StyledContainerActions } from "./styles";
 import { MdToggleOff, MdModeEdit, MdDelete } from "react-icons/md";
 
