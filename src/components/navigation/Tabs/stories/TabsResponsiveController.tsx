@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Tabs } from "../index";
-import { TabTypes } from "../types/Tab.types";
+import { TabTypes } from "../types/Tabs.type";
 import { ITabsProps } from "../interfaces/Tabs.interface";
 
 const TabsResponsiveController = (props: ITabsProps) => {

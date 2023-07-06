@@ -1,4 +1,4 @@
-import { TabType } from "../types/Tab.types";
+import { TabType } from "../types/Tabs.type";
 import { ITabItem } from "./Tabs.Item.interface";
 
 export interface ITabsProps {

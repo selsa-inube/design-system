@@ -5,7 +5,7 @@ import { StyledTabs, StyledIconWrapper } from "./styles";
 import { DropDownMenu } from "../../inputs/DropDownMenu";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { ITabsProps } from "./interfaces/Tabs.interface";
-import { TabTypes } from "./types/Tab.types";
+import { TabTypes } from "./types/Tabs.type";
 import { ITabItem } from "./interfaces/Tabs.Item.interface";
 
 const defaultType = TabTypes.TAB;

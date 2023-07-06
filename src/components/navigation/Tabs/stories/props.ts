@@ -1,4 +1,4 @@
-import { TabTypes } from "../types/Tab.types";
+import { TabTypes } from "../types/Tabs.type";
 
 const tabs = {
   control: { type: "func" },
