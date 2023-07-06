@@ -1,19 +1,16 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
+import { useState } from "react";
 import { Tab } from "../Tab";
 import { Stack } from "../../layouts/Stack";
 import { StyledTabs, StyledIconWrapper } from "./styles";
 import { DropDownMenu } from "../../inputs/DropDownMenu";
 import { MdKeyboardArrowDown } from "react-icons/md";
-
-export const TabTypes = Object.freeze({
-  TAB: "tab",
-  SELECT: "select",
-});
+import { ITabsProps } from "./interfaces/Tabs.interface";
+import { TabTypes } from "./types/Tab.types";
+import { ITabItem } from "./interfaces/Tabs.Item.interface";
 
 const defaultType = TabTypes.TAB;
 
-const checkDuplicateTabIds = (tabs) => {
+const checkDuplicateTabIds = (tabs: ITabItem[]) => {
   const ids = tabs.map((tab) => tab.id);
   const duplicateIds = ids.filter((id, index) => ids.indexOf(id) !== index);
   if (duplicateIds.length > 0) {
@@ -24,14 +21,15 @@ const checkDuplicateTabIds = (tabs) => {
   return false;
 };
 
-const Tabs = (props) => {
+const Tabs = (props: ITabsProps) => {
   const { tabs, type, handleSelectedTab, selectedTab } = props;
 
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
 
-  const transformedType = Object.values(TabTypes).includes(type)
-    ? type
-    : defaultType;
+  const transformedType =
+    type && Object.values(TabTypes).includes(type as TabTypes)
+      ? (type as TabTypes)
+      : defaultType;
 
   checkDuplicateTabIds(tabs);
 
@@ -90,19 +88,6 @@ const Tabs = (props) => {
       </Stack>
     </StyledTabs>
   );
-};
-
-Tabs.propTypes = {
-  tabs: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      isDisabled: PropTypes.bool,
-      label: PropTypes.string.isRequired,
-    })
-  ).isRequired,
-  type: PropTypes.oneOf(Object.values(TabTypes)),
-  handleSelectedTab: PropTypes.func.isRequired,
-  selectedTab: PropTypes.string.isRequired,
 };
 
 export { Tabs };
