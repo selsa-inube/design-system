@@ -1,15 +1,17 @@
-import React, { useState } from "react";
+import { useState } from "react";
+
+import { ITextFieldProps } from "../interfaces/TextField.interface";
 import { TextField } from "..";
 
-const TextFieldController = (props) => {
+const TextFieldController = (props: ITextFieldProps) => {
   const { value = "", state = "pending" } = props;
   const [form, setForm] = useState({ value, state });
 
-  function isAlphabetical(value) {
+  function isAlphabetical(value: string) {
     return /^[a-zA-Z]+$/.test(value);
   }
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ value: e.target.value, state: "pending" });
   };
 
@@ -20,7 +22,7 @@ const TextFieldController = (props) => {
     setForm({ ...form, state: "pending" });
   };
 
-  const handleBlur = (e) => {
+  const handleBlur = (e: React.ChangeEvent<HTMLInputElement>) => {
     const isValid = isAlphabetical(e.target.value);
     setForm({ ...form, state: isValid ? "valid" : "invalid" });
   };

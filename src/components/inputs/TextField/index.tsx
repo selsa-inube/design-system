@@ -1,18 +1,17 @@
-import React, { useState } from "react";
-import { TextFieldUI } from "./interface";
-import PropTypes from "prop-types";
+import { useState } from "react";
+import { ITextFieldProps } from "./interfaces/TextField.interface";
+import { InputType, inputTypes } from "./types/TextField.InputType.type";
+import { State, states } from "./types/TextField.State.type";
 
-const inputTypes = ["text", "email", "number", "password", "search", "tel"];
-const states = ["valid", "invalid", "pending"];
-const sizes = ["wide", "compact"];
+import { TextFieldUI } from "./interface";
 
 const defaultIsDisabled = false;
-const defaultType = "text";
+const defaultType: InputType = "text";
 const defaultIsRequired = false;
-const defaultState = "pending";
+const defaultState: State = "pending";
 const defaultIsFullWidth = false;
 
-const TextField = (props) => {
+const TextField = (props: ITextFieldProps) => {
   const {
     label,
     name,
@@ -41,7 +40,7 @@ const TextField = (props) => {
 
   const [isFocused, setIsFocused] = useState(false);
 
-  const interceptFocus = (e) => {
+  const interceptFocus = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!readOnly) {
       setIsFocused(true);
     }
@@ -50,7 +49,7 @@ const TextField = (props) => {
     }
   };
 
-  const interceptBlur = (e) => {
+  const interceptBlur = (e: React.ChangeEvent<HTMLInputElement>) => {
     setIsFocused(false);
     if (typeof handleBlur === "function") {
       handleBlur(e);
@@ -102,30 +101,4 @@ const TextField = (props) => {
   );
 };
 
-TextField.propTypes = {
-  label: PropTypes.string,
-  name: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
-  placeholder: PropTypes.string.isRequired,
-  isDisabled: PropTypes.bool,
-  isFocused: PropTypes.bool,
-  type: PropTypes.oneOf(inputTypes),
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  handleChange: PropTypes.func,
-  iconBefore: PropTypes.node,
-  iconAfter: PropTypes.node,
-  maxLength: PropTypes.number,
-  minLength: PropTypes.number,
-  max: PropTypes.number,
-  min: PropTypes.number,
-  isRequired: PropTypes.bool,
-  errorMessage: PropTypes.string,
-  validMessage: PropTypes.string,
-  size: PropTypes.oneOf(sizes),
-  isFullWidth: PropTypes.bool,
-  handleFocus: PropTypes.func,
-  handleBlur: PropTypes.func,
-  readOnly: PropTypes.bool,
-};
-
-export { TextField, inputTypes, sizes, states };
+export { TextField };
