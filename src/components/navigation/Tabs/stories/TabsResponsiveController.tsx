@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Tabs } from "../index";
+import { TabTypes } from "../types/Tabs.type";
+import { ITabsProps } from "../interfaces/Tabs.interface";
 
-const TabsResponsiveController = ({ tabs, selectedTab }) => {
+const TabsResponsiveController = (props: ITabsProps) => {
+  const { tabs, selectedTab } = props;
   const [selectedTabController, setSelectedTab] = useState(selectedTab);
-  const [type, setType] = useState("tab");
+  const [type, setType] = useState<TabTypes>(TabTypes.TAB);
 
   const updateTabType = () => {
     const windowWidth = window.innerWidth;
@@ -12,11 +15,11 @@ const TabsResponsiveController = ({ tabs, selectedTab }) => {
     const maxTabsForMediumScreen = 6;
 
     if (windowWidth < 578 && tabs.length > maxTabsForSmallScreen) {
-      setType("select");
+      setType(TabTypes.SELECT);
     } else if (windowWidth < 768 && tabs.length > maxTabsForMediumScreen) {
-      setType("select");
+      setType(TabTypes.SELECT);
     } else {
-      setType("tab");
+      setType(TabTypes.TAB);
     }
   };
 

@@ -1,5 +1,5 @@
-import React from "react";
 import { Tabs } from "../index";
+import { ITabsProps } from "../interfaces/Tabs.interface";
 import { TabsResponsiveController } from "./TabsResponsiveController";
 
 import { tabs, selectedTab, handleSelectedTab } from "./props";
@@ -8,7 +8,7 @@ const story = {
   title: "navigation/Tabs/Responsive",
   components: [Tabs],
   decorators: [
-    (Story) => (
+    (Story: React.ElementType) => (
       <div>
         <Story />
       </div>
@@ -16,7 +16,9 @@ const story = {
   ],
 };
 
-export const Responsive = (args) => <TabsResponsiveController {...args} />;
+export const Responsive = (args: ITabsProps) => (
+  <TabsResponsiveController {...args} />
+);
 Responsive.args = {
   tabs: [
     {
