@@ -5,10 +5,11 @@ import { StyledTabs, StyledIconWrapper } from "./styles";
 import { DropDownMenu } from "../../inputs/DropDownMenu";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { ITabsProps } from "./interfaces/Tabs.interface";
-import { TabTypes } from "./types/Tabs.type";
-import { ITabItem } from "./interfaces/Tabs.Item.interface";
 
-const defaultType = TabTypes.TAB;
+import { ITabItem } from "./interfaces/Tabs.Item.interface";
+import { types } from "./types/Tabs.type";
+
+const defaultType = "tabs";
 
 const checkDuplicateTabIds = (tabs: ITabItem[]) => {
   const ids = tabs.map((tab) => tab.id);
@@ -26,14 +27,10 @@ const Tabs = (props: ITabsProps) => {
 
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
 
-  const transformedType =
-    type && Object.values(TabTypes).includes(type as TabTypes)
-      ? (type as TabTypes)
-      : defaultType;
-
+  const transformedType = types.includes(type) ? type : defaultType;
   checkDuplicateTabIds(tabs);
 
-  if (transformedType === TabTypes.SELECT) {
+  if (transformedType === "select") {
     const firstTab = tabs[0];
     const dropDownOptions = tabs.slice(1).map((tab) => ({
       id: tab.id,

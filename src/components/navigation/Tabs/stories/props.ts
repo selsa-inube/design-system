@@ -1,4 +1,4 @@
-import { TabTypes } from "../types/Tabs.type";
+import { types } from "../types/Tabs.type";
 
 const tabs = {
   control: { type: "func" },
@@ -25,7 +25,7 @@ const handleSelectedTab = {
 };
 
 const type = {
-  options: TabTypes,
+  options: types,
   control: { type: "select" },
   description:
     "shall determine the way the tabs will display in order to avoid horizontal scrolling",
