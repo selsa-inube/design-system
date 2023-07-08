@@ -29,7 +29,7 @@ const DropDownMenu = (props) => {
           id={dropDownitem.id}
           isDisabled={dropDownitem.isDisabled}
           isSelected={dropDownitem.isSelected}
-          handleClick={() => handleOptionClick(dropDownitem.label)}
+          handleClick={() => handleOptionClick(dropDownitem.id)}
         >
           {dropDownitem.label}
         </DropDownItem>

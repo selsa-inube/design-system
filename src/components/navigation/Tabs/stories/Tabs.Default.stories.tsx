@@ -31,7 +31,7 @@ Default.args = {
     { id: "payroll", isDisabled: false, label: "Payroll" },
   ],
   selectedTab: "generalInformation",
-  type: "tab",
+  type: "tabs",
 };
 Default.argTypes = {
   tabs,
