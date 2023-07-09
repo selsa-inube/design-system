@@ -1,4 +1,4 @@
-import React from "react";
+import { INavProps } from "./interfaces/Nav.interface";
 import PropTypes from "prop-types";
 import { Stack } from "../../layouts/Stack";
 import { Text } from "../../data/Text";
@@ -64,7 +64,7 @@ const OneSection = ({ navigation, firstSection }) => {
   );
 };
 
-const Nav = (props) => {
+const Nav = (props: INavProps) => {
   const { navigation, logoutPath } = props;
   const sections = Object.keys(navigation.sections);
   const firstSection = sections[0];
