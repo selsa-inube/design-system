@@ -19,6 +19,7 @@ export { Label } from "./components/inputs/Label";
 export { Switch } from "./components/inputs/Switch";
 export { Table } from "./components/data/Table";
 export { TextField } from "./components/inputs/TextField";
+export { Select } from "./components/inputs/Select";
 
 // layouts
 export { Stack } from "./components/layouts/Stack";
