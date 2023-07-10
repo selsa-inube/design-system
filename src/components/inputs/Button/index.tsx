@@ -1,59 +1,14 @@
-import { StyledButton, StyledSpan, StyledIcon, StyledLink } from "./styles";
-import { Spinner } from "../../feedback/Spinner";
-import { colors } from "../../../shared/colors/colors";
 import { IButtonProps } from "./interfaces/Button.interface";
 import { Appearance, appearances } from "./types/Button.Appearances.type";
 import { Type, types } from "./types/Button.Types.type";
 import { Spacing, spacings } from "./types/Button.Spacings.type";
 import { Variant, variants } from "./types/Button.Variants.type";
-import { SpinnerColorHomologation } from "./types/Button.SpinnerColorHomologation.type";
-import { SpinnerColor } from "./types/Button.SpinnerColor.type";
-
-const fixedColors: { [key: string]: any } = Object.assign(
-  {},
-  colors.sys.actions
-);
-delete fixedColors.disabled;
-
-const spinnerColorHomologation: SpinnerColorHomologation = {
-  filled: {
-    primary: "white",
-    secondary: "dark",
-    confirm: "white",
-    warning: "dark",
-    remove: "white",
-    help: "white",
-  },
-  outlined: {
-    primary: "blue",
-    secondary: "dark",
-    confirm: "green",
-    warning: "yellow",
-    remove: "red",
-    help: "purple",
-  },
-  none: {
-    primary: "blue",
-    secondary: "dark",
-    confirm: "green",
-    warning: "yellow",
-    remove: "red",
-    help: "purple",
-  },
-};
-
-const getSpinnerColor = (
-  variant: Variant,
-  appearance: Appearance
-): SpinnerColor => {
-  return spinnerColorHomologation[variant][appearance] as SpinnerColor;
-};
+import { ButtonUI } from "./interfaz";
 
 const defaultAppearance: Appearance = "primary";
 const defaultType: Type = "button";
 const defaultSpacing: Spacing = "wide";
 const defaultVariant: Variant = "filled";
-const defaultSpinnerSize = "small";
 
 const Button = (props: IButtonProps) => {
   const {
@@ -85,43 +40,10 @@ const Button = (props: IButtonProps) => {
     ? variant
     : defaultVariant;
 
-  const transformedTransparentSpinner = transformedVariant === "filled";
-
   const transformedHandleClick = isDisabled ? null : handleClick;
 
-  if (type === "link" && !path) {
-    console.warn("You must provide a path to use a link button");
-  }
-
-  if (type === "link") {
-    return (
-      <StyledLink
-        to={path}
-        isdisabled={+isDisabled}
-        variant={transformedVariant}
-        appearance={transformedAppearance}
-        isfullwidth={+isFullWidth}
-        onClick={transformedHandleClick}
-      >
-        <StyledButton
-          appearance={transformedAppearance}
-          isDisabled={isDisabled}
-          spacing={transformedSpacing}
-          variant={transformedVariant}
-          isFullWidth={isFullWidth}
-        >
-          <StyledSpan isDisabled={isDisabled} variant={transformedVariant}>
-            {iconBefore && <StyledIcon id="mdIcon">{iconBefore}</StyledIcon>}
-            {children}
-            {iconAfter && <StyledIcon id="mdIcon">{iconAfter}</StyledIcon>}
-          </StyledSpan>
-        </StyledButton>
-      </StyledLink>
-    );
-  }
-
   return (
-    <StyledButton
+    <ButtonUI
       appearance={transformedAppearance}
       isLoading={isLoading}
       isDisabled={isDisabled}
@@ -131,25 +53,11 @@ const Button = (props: IButtonProps) => {
       spacing={transformedSpacing}
       variant={transformedVariant}
       isFullWidth={isFullWidth}
-      onClick={transformedHandleClick}
+      handleClick={transformedHandleClick!}
+      path={path}
     >
-      {isLoading && !isDisabled ? (
-        <Spinner
-          appearance={getSpinnerColor(
-            transformedVariant,
-            transformedAppearance
-          )}
-          isTransparent={transformedTransparentSpinner}
-          size={defaultSpinnerSize}
-        />
-      ) : (
-        <StyledSpan isDisabled={isDisabled} variant={transformedVariant}>
-          {iconBefore && <StyledIcon id="mdIcon">{iconBefore}</StyledIcon>}
-          {children}
-          {iconAfter && <StyledIcon id="mdIcon">{iconAfter}</StyledIcon>}
-        </StyledSpan>
-      )}
-    </StyledButton>
+      {children}
+    </ButtonUI>
   );
 };
 

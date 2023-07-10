@@ -17,4 +17,5 @@ export interface IButtonProps {
   isFullWidth?: boolean;
   handleClick?: () => void;
   path?: string;
+  buttonRef?: string;
 }

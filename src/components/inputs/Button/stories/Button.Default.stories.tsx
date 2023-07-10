@@ -40,6 +40,7 @@ Default.args = {
   path: "/privilege",
   iconBefore: <MdAdd />,
   handleClick: () => console.log("clicked from Default-story"),
+  appearance: "remove",
 };
 Default.argTypes = {
   children,
