@@ -1,6 +1,3 @@
-export enum TabTypes {
-  TAB = "TAB",
-  SELECT = "SELECT",
-}
+export const types = ["select", "tabs"] as const;
 
-export type TabType = keyof typeof TabTypes;
+export type Types = typeof types[number];
