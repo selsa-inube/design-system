@@ -1,16 +1,16 @@
-import React from "react";
-import PropTypes from "prop-types";
-
-import { BreadcrumbLink } from "../../navigation/BreadcrumbLink";
-import { BreadcrumbEllipsis } from "../../navigation/BreadcrumbEllipsis";
+import { BreadcrumbLink } from "../BreadcrumbLink";
+import { BreadcrumbEllipsis } from "../BreadcrumbEllipsis";
 
 import { useMediaQuery } from "../../../hooks/useMediaQuery";
 
 import { StyledBreadcrumbs } from "./styles";
-import { typos } from "../BreadcrumbEllipsis/types/BreadcrumbEllipsis.Typos.type";
-function getBreadcrumbItems(crumbs) {
+import { IBreadcrumbItem } from "./interfaces/Breadcrumbs.Item.interface";
+import { IBreadcrumbsProps } from "./interfaces/Breadcrumbs.interface";
+import { Sizes, sizes } from "./types/Breadcrumb.Size.type";
+
+function getBreadcrumbItems(crumbs: string[]): IBreadcrumbItem[] {
   const breadcrumbItems = [
-    { path: "/", label: "Home", isActive: false },
+    { id: "Home", path: "/", label: "Home", isActive: false },
     ...crumbs.map((label, index) => ({
       path: `/${crumbs
         .slice(0, index + 1)
@@ -25,19 +25,18 @@ function getBreadcrumbItems(crumbs) {
   return breadcrumbItems;
 }
 
-function capitalizeString(string) {
+function capitalizeString(string: string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-export const sizes = ["labelLarge", "labelSmall"];
-const Breadcrumbs = (props) => {
+const Breadcrumbs = (props: IBreadcrumbsProps) => {
   const { route } = props;
 
   const crumbs = route.split("/").filter((crumb) => crumb !== "");
   const isDesktop = useMediaQuery("(min-width: 768px)");
   const maxCrumbs = isDesktop ? 5 : 3;
   const breadcrumbItems = getBreadcrumbItems(crumbs);
-  const transformedSize = isDesktop ? sizes[0] : sizes[1];
+  const transformedSize: Sizes = isDesktop ? sizes[0] : sizes[1];
 
   if (breadcrumbItems.length > maxCrumbs) {
     const routesForEllipsis = breadcrumbItems.slice(1, -1);
@@ -53,7 +52,7 @@ const Breadcrumbs = (props) => {
         />
         <BreadcrumbEllipsis
           key={`breadcrumb-ellipsis`}
-          typo={typos[transformedSize]}
+          typo={transformedSize}
           routes={routesForEllipsis}
         />
         <BreadcrumbLink
@@ -80,10 +79,6 @@ const Breadcrumbs = (props) => {
       ))}
     </StyledBreadcrumbs>
   );
-};
-
-Breadcrumbs.propTypes = {
-  route: PropTypes.string.isRequired,
 };
 
 export { Breadcrumbs };
