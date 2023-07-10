@@ -1,8 +1,8 @@
 import { Types } from "../types/Tabs.type";
-import { ITabItem } from "./Tabs.Item.interface";
+import { ITabsItem } from "./Tabs.Item.interface";
 
 export interface ITabsProps {
-  tabs: ITabItem[];
+  tabs: ITabsItem[];
   type?: Types;
   handleSelectedTab: (id: string) => void;
   selectedTab: string;

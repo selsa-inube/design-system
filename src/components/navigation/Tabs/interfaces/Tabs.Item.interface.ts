@@ -1,4 +1,4 @@
-export interface ITabItem {
+export interface ITabsItem {
   id: string;
   label: string;
   isDisabled: boolean;

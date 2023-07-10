@@ -6,12 +6,12 @@ import { DropDownMenu } from "../../inputs/DropDownMenu";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { ITabsProps } from "./interfaces/Tabs.interface";
 
-import { ITabItem } from "./interfaces/Tabs.Item.interface";
+import { ITabsItem } from "./interfaces/Tabs.Item.interface";
 import { types } from "./types/Tabs.type";
 
 const defaultType = "tabs";
 
-const checkDuplicateTabIds = (tabs: ITabItem[]) => {
+const checkDuplicateTabIds = (tabs: ITabsItem[]) => {
   const ids = tabs.map((tab) => tab.id);
   const duplicateIds = ids.filter((id, index) => ids.indexOf(id) !== index);
   if (duplicateIds.length > 0) {
