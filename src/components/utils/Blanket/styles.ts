@@ -8,6 +8,8 @@ const StyledBlanket = styled.div`
   border: none;
   z-index: 1;
   overflow-y: auto;
+  display: grid;
+  place-items: center;
 `;
 
 export { StyledBlanket };

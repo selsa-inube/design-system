@@ -37,63 +37,61 @@ const InteractiveModal = (props) => {
 
   return createPortal(
     <Blanket>
-      <Stack alignItems="center" justifyContent="center">
-        <StyledModal smallScreen={smallScreen}>
-          <Stack direction="column" gap="24px">
-            <Stack direction="column" gap="16px">
-              <Stack alignItems="center" justifyContent="space-between">
-                <Text typo="headlineSmall">{title}</Text>
-                <MdClear size={24} cursor="pointer" onClick={closeModal} />
-              </Stack>
-              {hasActions && <Text typo="titleMedium">{infoTitle}</Text>}
-              {hasLabels
-                ? labels.map(
-                    (field, id) =>
-                      infoData[field.id] && (
-                        <TextField
-                          key={id}
-                          label={field.titleName}
-                          name={field.id}
-                          id={field.id}
-                          placeholder={field.titleName}
-                          value={infoData[field.id]}
-                          isFullWidth={true}
-                          type="text"
-                          size="compact"
-                          readOnly={true}
-                        />
-                      )
-                  )
-                : Object.keys(infoData).map((key, id) => (
-                    <TextField
-                      key={id}
-                      label={key}
-                      name={key}
-                      id={key}
-                      placeholder={key}
-                      value={infoData[key]}
-                      isFullWidth={true}
-                      type="text"
-                      size="compact"
-                      readOnly={true}
-                    />
-                  ))}
+      <StyledModal smallScreen={smallScreen}>
+        <Stack direction="column" gap="24px">
+          <Stack direction="column" gap="16px">
+            <Stack alignItems="center" justifyContent="space-between">
+              <Text typo="headlineSmall">{title}</Text>
+              <MdClear size={24} cursor="pointer" onClick={closeModal} />
             </Stack>
-            {hasActions && (
-              <Stack direction="column" gap="16px">
-                <Text typo="titleMedium">{actionsTitle}</Text>
-                {actions.map((action) => (
-                  <Stack key={action.id} gap="10px">
-                    {typeof action.content === "function"
-                      ? action.content(infoData)
-                      : action.content}
-                  </Stack>
+            {hasActions && <Text typo="titleMedium">{infoTitle}</Text>}
+            {hasLabels
+              ? labels.map(
+                  (field, id) =>
+                    infoData[field.id] && (
+                      <TextField
+                        key={id}
+                        label={field.titleName}
+                        name={field.id}
+                        id={field.id}
+                        placeholder={field.titleName}
+                        value={infoData[field.id]}
+                        isFullWidth={true}
+                        type="text"
+                        size="compact"
+                        readOnly={true}
+                      />
+                    )
+                )
+              : Object.keys(infoData).map((key, id) => (
+                  <TextField
+                    key={id}
+                    label={key}
+                    name={key}
+                    id={key}
+                    placeholder={key}
+                    value={infoData[key]}
+                    isFullWidth={true}
+                    type="text"
+                    size="compact"
+                    readOnly={true}
+                  />
                 ))}
-              </Stack>
-            )}
           </Stack>
-        </StyledModal>
-      </Stack>
+          {hasActions && (
+            <Stack direction="column" gap="16px">
+              <Text typo="titleMedium">{actionsTitle}</Text>
+              {actions.map((action) => (
+                <Stack key={action.id} gap="10px">
+                  {typeof action.content === "function"
+                    ? action.content(infoData)
+                    : action.content}
+                </Stack>
+              ))}
+            </Stack>
+          )}
+        </Stack>
+      </StyledModal>
     </Blanket>,
     node
   );
