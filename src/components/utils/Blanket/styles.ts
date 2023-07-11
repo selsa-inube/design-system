@@ -3,13 +3,13 @@ import { colors } from "../../../shared/colors/colors";
 
 const StyledBlanket = styled.div`
   position: fixed;
+  display: grid;
+  place-items: center;
   inset: 0;
   background-color: ${colors.ref.palette.neutralAlpha.n100A};
   border: none;
   z-index: 1;
   overflow-y: auto;
-  display: grid;
-  place-items: center;
 `;
 
 export { StyledBlanket };
