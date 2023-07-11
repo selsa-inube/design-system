@@ -3,8 +3,10 @@ import { colors } from "../../../shared/colors/colors";
 
 const StyledBlanket = styled.div`
   position: fixed;
-  display: grid;
-  place-items: center;
+  display: ${(props: { isSmallScreen: string }) =>
+    props.isSmallScreen ? "grid" : "block"};
+  place-items: ${(props: { isSmallScreen: string }) =>
+    props.isSmallScreen ? "center" : "initial"};
   inset: 0;
   background-color: ${colors.ref.palette.neutralAlpha.n100A};
   border: none;
