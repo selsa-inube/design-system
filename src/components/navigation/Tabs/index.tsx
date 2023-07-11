@@ -1,19 +1,17 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
+import { useState } from "react";
 import { Tab } from "../Tab";
 import { Stack } from "../../layouts/Stack";
 import { StyledTabs, StyledIconWrapper } from "./styles";
 import { DropDownMenu } from "../../inputs/DropDownMenu";
 import { MdKeyboardArrowDown } from "react-icons/md";
+import { ITabsProps } from "./interfaces/Tabs.interface";
 
-export const TabTypes = Object.freeze({
-  TAB: "tab",
-  SELECT: "select",
-});
+import { ITabsItem } from "./interfaces/Tabs.Item.interface";
+import { types } from "./types/Tabs.type";
 
-const defaultType = TabTypes.TAB;
+const defaultType = "tabs";
 
-const checkDuplicateTabIds = (tabs) => {
+const checkDuplicateTabIds = (tabs: ITabsItem[]) => {
   const ids = tabs.map((tab) => tab.id);
   const duplicateIds = ids.filter((id, index) => ids.indexOf(id) !== index);
   if (duplicateIds.length > 0) {
@@ -24,48 +22,54 @@ const checkDuplicateTabIds = (tabs) => {
   return false;
 };
 
-const Tabs = (props) => {
-  const { tabs, type, handleSelectedTab, selectedTab } = props;
+const Tabs = (props: ITabsProps) => {
+  const { tabs, type = defaultType } = props;
 
+  const [selectedTab, setSelectedTab] = useState(tabs[0]?.id);
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
 
-  const transformedType = Object.values(TabTypes).includes(type)
-    ? type
-    : defaultType;
-
+  const transformedType = types.includes(type) ? type : defaultType;
   checkDuplicateTabIds(tabs);
 
-  if (transformedType === TabTypes.SELECT) {
-    const firstTab = tabs[0];
-    const dropDownOptions = tabs.slice(1).map((tab) => ({
+  const handleTabSelection = (id: string) => {
+    setSelectedTab(id);
+    if (transformedType === "select") {
+      setIsDropDownOpen(false);
+    }
+  };
+
+  if (transformedType === "select") {
+    const dropDownOptions = tabs.map((tab) => ({
       id: tab.id,
       label: tab.label,
       isDisabled: tab.isDisabled,
     }));
-
+    const transformedLabel = tabs.find((tab) => tab.id === selectedTab)?.label!;
+    const transformedIsDisabled = tabs.find((tab) => tab.id === selectedTab)
+      ?.isDisabled!;
     return (
       <>
-        <StyledTabs>
-          <Stack gap="24px">
+        <StyledTabs type={transformedType}>
+          <Stack gap="8px">
             <StyledIconWrapper
               onClick={() => setIsDropDownOpen(!isDropDownOpen)}
             >
               <MdKeyboardArrowDown />
             </StyledIconWrapper>
             <Tab
-              key={firstTab.id}
-              isDisabled={firstTab.isDisabled}
-              isSelected={firstTab.id === selectedTab}
-              id={firstTab.id}
-              handleClick={() => handleSelectedTab(firstTab.id)}
-              label={firstTab.label}
+              key={selectedTab}
+              isDisabled={transformedIsDisabled}
+              isSelected={true}
+              id={selectedTab}
+              handleClick={() => handleTabSelection(selectedTab)}
+              label={transformedLabel}
             />
           </Stack>
         </StyledTabs>
         {isDropDownOpen && (
           <DropDownMenu
             options={dropDownOptions}
-            handleSelect={(value) => handleSelectedTab(value)}
+            handleSelect={(id) => handleTabSelection(id)}
             isOpenOptions={isDropDownOpen}
             onCloseOptions={() => setIsDropDownOpen(false)}
           />
@@ -83,26 +87,13 @@ const Tabs = (props) => {
             isDisabled={tab.isDisabled}
             isSelected={tab.id === selectedTab}
             id={tab.id}
-            handleClick={() => handleSelectedTab(tab.id)}
+            handleClick={() => handleTabSelection(tab.id)}
             label={tab.label}
           />
         ))}
       </Stack>
     </StyledTabs>
   );
-};
-
-Tabs.propTypes = {
-  tabs: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      isDisabled: PropTypes.bool,
-      label: PropTypes.string.isRequired,
-    })
-  ).isRequired,
-  type: PropTypes.oneOf(Object.values(TabTypes)),
-  handleSelectedTab: PropTypes.func.isRequired,
-  selectedTab: PropTypes.string.isRequired,
 };
 
 export { Tabs };

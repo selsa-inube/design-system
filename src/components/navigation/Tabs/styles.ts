@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { colors } from "../../../shared/colors/colors";
+import { ITabsProps } from "./interfaces/Tabs.interface";
 
 const StyledTabs = styled.div`
   box-sizing: border-box;
@@ -11,6 +12,14 @@ const StyledTabs = styled.div`
 
   & > div {
     width: fit-content;
+    ${(props: ITabsProps) =>
+      props.type === "select" &&
+      `
+        & > li > p {
+          position: relative;
+          top: 0.5rem;
+        }
+      `}
   }
   & > div > ul {
     position: absolute;
@@ -22,6 +31,7 @@ const StyledIconWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 4px 0px;
   & > svg {
     width: 24px;
     height: 24px;

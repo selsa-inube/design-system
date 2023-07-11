@@ -1,9 +1,11 @@
-import React from "react";
+import { ITextFieldProps } from "./interfaces/TextField.interface";
+import { IMessageProps } from "./interfaces/TextField.Message.interface";
 
 import { MdOutlineError, MdCheckCircle } from "react-icons/md";
 
 import { Label } from "../Label";
 import { Text } from "../../data/Text";
+import { AppearancesOptions } from "@src/components/data/Text/types/Text.AppearancesOptions.type";
 
 import {
   StyledContainer,
@@ -14,23 +16,27 @@ import {
   StyledErrorMessageContainer,
   StyledValidMessageContainer,
 } from "./styles";
+import { Size } from "./types/TextField.Size.type";
 
-const getTextAppearanceProp = (isDisabled, appearence) => {
+const getTextAppearanceProp = (
+  isDisabled: boolean,
+  appearance: AppearancesOptions
+) => {
   if (isDisabled) {
     return "disabled";
   }
 
-  return appearence;
+  return appearance;
 };
 
-const getTypo = (size) => {
+const getTypo = (size: Size) => {
   if (size === "compact") {
     return "labelMedium";
   }
   return "labelLarge";
 };
 
-const Invalid = (props) => {
+const Invalid = (props: IMessageProps) => {
   const { isDisabled, state, errorMessage } = props;
   const transformedErrorMessage = errorMessage && `(${errorMessage})`;
 
@@ -40,7 +46,7 @@ const Invalid = (props) => {
       <Text
         typo="bodySmall"
         margin="8px 0px 0px 4px"
-        appearance={getTextAppearanceProp(isDisabled, "error")}
+        appearance={getTextAppearanceProp(isDisabled!, "error")}
       >
         {transformedErrorMessage}
       </Text>
@@ -48,7 +54,7 @@ const Invalid = (props) => {
   );
 };
 
-const Success = (props) => {
+const Success = (props: IMessageProps) => {
   const { isDisabled, state, validMessage } = props;
 
   return (
@@ -57,7 +63,7 @@ const Success = (props) => {
       <Text
         typo="bodySmall"
         margin="8px 0px 0px 4px"
-        appearance={getTextAppearanceProp(isDisabled, "success")}
+        appearance={getTextAppearanceProp(isDisabled!, "success")}
       >
         {validMessage}
       </Text>
@@ -65,7 +71,7 @@ const Success = (props) => {
   );
 };
 
-const TextFieldUI = (props) => {
+const TextFieldUI = (props: ITextFieldProps) => {
   const {
     label,
     name,
@@ -109,7 +115,7 @@ const TextFieldUI = (props) => {
             isDisabled={isDisabled}
             isFocused={isFocused}
             isInvalid={transformedIsInvalid}
-            typo={getTypo(size)}
+            typo={getTypo(size!)}
           >
             {label}
           </Label>

@@ -1,9 +1,7 @@
-import React from "react";
+import { ITextFieldProps } from "../interfaces/TextField.interface";
 
 import { TextField } from "..";
 import { TextFieldController } from "./TextfieldController";
-import { sizes } from "..";
-import { Stack } from "../../../layouts/Stack";
 
 import {
   parameters,
@@ -11,9 +9,6 @@ import {
   name,
   id,
   placeholder,
-  isDisabled,
-  type,
-  state,
   value,
   handleChange,
   iconBefore,
@@ -22,55 +17,38 @@ import {
   minLength,
   max,
   min,
-  isRequired,
-  errorMessage,
-  validMessage,
-  isFullWidth,
+  size,
   readOnly,
 } from "./props";
 
 const story = {
-  title: "inputs/TextField/Size",
+  title: "inputs/TextField/Default",
   components: [TextField],
   parameters,
 };
 
-const TextFieldComponent = (args) => {
-  return (
-    <Stack justifyContent="space-evenly">
-      {sizes.map((size) => (
-        <TextFieldController {...args} key={size} size={size} />
-      ))}
-    </Stack>
-  );
-};
-
-const Size = TextFieldComponent.bind({});
-Size.args = {
+const Default = (args: ITextFieldProps) => <TextFieldController {...args} />;
+Default.args = {
   label: "Username",
   name: "Username",
   id: "Username",
-  isDisabled: false,
   placeholder: "Write your full name",
   value: "",
-  state: "pending",
   maxLength: 10,
   minLength: 1,
+  min: 0,
+  max: 0,
   errorMessage: "Please enter only letters in this field",
   validMessage: "The field has been successfully validated",
-  isFullWidth: false,
-  isRequired: false,
+  size: "wide",
   readOnly: false,
 };
 
-Size.argTypes = {
+Default.argTypes = {
   label,
   name,
   id,
   placeholder,
-  isDisabled,
-  type,
-  state,
   value,
   handleChange,
   iconBefore,
@@ -79,13 +57,10 @@ Size.argTypes = {
   minLength,
   max,
   min,
-  isRequired,
-  errorMessage,
-  validMessage,
-  isFullWidth,
+  size,
   readOnly,
 };
 
 export default story;
 
-export { Size };
+export { Default };

@@ -1,23 +1,23 @@
-import React from "react";
 import { Tabs } from "../index";
-import { TabsResponsiveController } from "./TabsResponsiveController";
+import { ITabsProps } from "../interfaces/Tabs.interface";
+import { TabsController } from "./TabsController";
 
-import { tabs, selectedTab, handleSelectedTab } from "./props";
+import { tabs, selectedTab, handleSelectedTab, type } from "./props";
 
 const story = {
-  title: "navigation/Tabs/Responsive",
+  title: "navigation/Tabs/Default",
   components: [Tabs],
   decorators: [
-    (Story) => (
-      <div>
+    (Story: React.ElementType) => (
+      <div style={{ margin: "3em" }}>
         <Story />
       </div>
     ),
   ],
 };
 
-export const Responsive = (args) => <TabsResponsiveController {...args} />;
-Responsive.args = {
+export const Default = (args: ITabsProps) => <TabsController {...args} />;
+Default.args = {
   tabs: [
     {
       id: "generalInformation",
@@ -31,11 +31,13 @@ Responsive.args = {
     { id: "payroll", isDisabled: false, label: "Payroll" },
   ],
   selectedTab: "generalInformation",
+  type: "tabs",
 };
-Responsive.argTypes = {
+Default.argTypes = {
   tabs,
   selectedTab,
   handleSelectedTab,
+  type,
 };
 
 export default story;
