@@ -94,6 +94,16 @@ const Button = (props: IButtonProps) => {
   }
 
   if (type === "link") {
+    const transformedLinkHandleClick = (
+      event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+    ) => {
+      if (isDisabled) {
+        event.preventDefault();
+      } else {
+        handleClick && handleClick();
+      }
+    };
+
     return (
       <StyledLink
         to={path}
@@ -101,7 +111,7 @@ const Button = (props: IButtonProps) => {
         variant={transformedVariant}
         appearance={transformedAppearance}
         isfullwidth={+isFullWidth}
-        onClick={transformedHandleClick}
+        onClick={transformedLinkHandleClick}
       >
         <StyledButton
           appearance={transformedAppearance}
