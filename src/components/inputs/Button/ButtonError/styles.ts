@@ -41,6 +41,20 @@ function getWidth(props: IButtonProps) {
   return "fit-content";
 }
 
+const getBorderColor = (props: IButtonProps) => {
+  const { isDisabled, variant } = props;
+
+  if (isDisabled) {
+    return `1px solid ${colors.sys.actions.disabled.stroke}`;
+  }
+
+  if (variant === "none") {
+    return "none";
+  }
+
+  return `1px solid ${colors.sys.actions.remove.filled}`;
+};
+
 const getSpacing = (props: IButtonProps) => {
   const { spacing } = props;
   if (spacing === "compact") {
@@ -66,13 +80,13 @@ const containerStyles = css`
 `;
 
 const StyledErrorButton = styled.button`
+  ${containerStyles}
   padding: 0px 16px;
   background-color: ${(props: IButtonProps) => getBackgroundColor(props)};
-  ${(props: IButtonProps) => console.log(props)}
   color: ${(props: IButtonProps) => getColor(props)};
-  ${containerStyles}
   width: ${(props: IButtonProps) => getWidth(props)};
   height: ${(props: IButtonProps) => getSpacing(props)};
+  border: ${(props: IButtonProps) => getBorderColor(props)};
 `;
 
 const StyledSpan = styled.span`
