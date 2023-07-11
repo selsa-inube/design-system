@@ -87,9 +87,7 @@ const Button = (props: IButtonProps) => {
 
   const transformedTransparentSpinner = transformedVariant === "filled";
 
-  const validateHandleClick = handleClick ? handleClick : null;
-
-  const transformedHandleClick = isDisabled ? null : validateHandleClick;
+  const transformedHandleClick = isDisabled ? null : handleClick;
 
   if (type === "link" && !path) {
     console.warn("You must provide a path to use a link button");
@@ -102,7 +100,7 @@ const Button = (props: IButtonProps) => {
       if (isDisabled) {
         event.preventDefault();
       } else {
-        validateHandleClick;
+        handleClick && handleClick();
       }
     };
 
