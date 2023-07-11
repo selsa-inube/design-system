@@ -1,19 +1,24 @@
-import { INavProps } from "./interfaces/Nav.interface";
-import PropTypes from "prop-types";
-import { Stack } from "../../layouts/Stack";
-import { Text } from "../../data/Text";
 import { useLocation } from "react-router-dom";
-import { StyledNav, StyledFooter, SeparatorLine } from "./styles";
-import { NavLink } from "../NavLink";
-
 import { MdLogout } from "react-icons/md";
 
-const Links = (props) => {
+import { INavProps } from "./interfaces/Nav.interface";
+import { INavMultiSectionsProps } from "./interfaces/Nav.MultiSections.interface";
+import { INavOneSectionProps } from "./interfaces/Nav.OneSection.interface";
+import { INavLinkProps } from "./interfaces/Nav.Link.interface";
+
+import { Stack } from "../../layouts/Stack";
+import { Text } from "../../data/Text";
+import { NavLink } from "../NavLink";
+
+import { StyledNav, StyledFooter, SeparatorLine } from "./styles";
+
+const Links = (props: INavLinkProps) => {
   const { section } = props;
+
   const location = useLocation();
   const currentUrl = location.pathname;
 
-  const isSelected = (url) => currentUrl.startsWith(url);
+  const isSelected = (url: string) => currentUrl.startsWith(url);
 
   return section.map((sectionObject) => (
     <NavLink
@@ -27,7 +32,7 @@ const Links = (props) => {
   ));
 };
 
-const MultiSections = ({ navigation, sections }) => {
+const MultiSections = ({ navigation, sections }: INavMultiSectionsProps) => {
   return (
     <Stack direction="column" gap="26px">
       {sections.map((section) => (
@@ -50,14 +55,16 @@ const MultiSections = ({ navigation, sections }) => {
   );
 };
 
-const OneSection = ({ navigation, firstSection }) => {
+const OneSection = ({ navigation, firstSection }: INavOneSectionProps) => {
   return (
     <Stack direction="column">
       <Stack key="links" direction="column" justifyContent="center">
         <Stack direction="column">
-          <Links
-            section={Object.values(navigation.sections[firstSection].links)}
-          />
+          {firstSection && (
+            <Links
+              section={Object.values(navigation.sections[firstSection].links)}
+            />
+          )}
         </Stack>
       </Stack>
     </Stack>
@@ -66,6 +73,7 @@ const OneSection = ({ navigation, firstSection }) => {
 
 const Nav = (props: INavProps) => {
   const { navigation, logoutPath } = props;
+
   const sections = Object.keys(navigation.sections);
   const firstSection = sections[0];
   const totalSections = Object.keys(navigation.sections).length;
@@ -104,11 +112,6 @@ const Nav = (props: INavProps) => {
       </StyledFooter>
     </StyledNav>
   );
-};
-
-Nav.propTypes = {
-  navigation: PropTypes.object.isRequired,
-  logoutPath: PropTypes.string.isRequired,
 };
 
 export { Nav };

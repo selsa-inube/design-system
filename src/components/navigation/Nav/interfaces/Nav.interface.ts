@@ -1,19 +1,18 @@
-interface Link {
+export interface Link {
   id: string;
   label: string;
   icon: Element;
   path: string;
 }
 
-interface Section {
+export interface Section {
   name: string;
   links: { [key: string]: Link };
 }
 
-interface Navigation {
+export interface Navigation {
   title: string;
   sections: { [key: string]: Section };
-  logoutPath: string;
 }
 
 export interface INavProps {
