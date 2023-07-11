@@ -2,18 +2,16 @@ import styled from "styled-components";
 import { colors } from "../../../shared/colors/colors";
 
 const StyledBlanket = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 0%;
-  bottom: 0%;
-  left: 0%;
-  right: 0%;
+  position: fixed;
+  display: ${(props: { isSmallScreen: string }) =>
+    props.isSmallScreen ? "grid" : "block"};
+  place-items: ${(props: { isSmallScreen: string }) =>
+    props.isSmallScreen ? "center" : "initial"};
+  inset: 0;
   background-color: ${colors.ref.palette.neutralAlpha.n100A};
   border: none;
   z-index: 1;
-  overflow: auto;
+  overflow-y: auto;
 `;
 
 export { StyledBlanket };
