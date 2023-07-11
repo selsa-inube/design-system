@@ -1,4 +1,4 @@
-import React from "react";
+import { ITextFieldProps } from "../interfaces/TextField.interface";
 
 import { TextField } from "..";
 import { TextFieldController } from "./TextfieldController";
@@ -10,62 +10,64 @@ import {
   id,
   placeholder,
   isDisabled,
-  state,
   type,
+  state,
   value,
   handleChange,
   iconBefore,
   iconAfter,
-  maxLength,
-  minLength,
+  max,
+  min,
+  isRequired,
   errorMessage,
+  validMessage,
   size,
   isFullWidth,
 } from "./props";
 
 const story = {
-  title: "inputs/TextField/Invalid",
+  title: "inputs/TextField/Number",
   components: [TextField],
   parameters,
 };
 
-const Invalid = (args) => <TextFieldController {...args} state="invalid" />;
-Invalid.args = {
-  label: "Username",
-  name: "Username",
-  id: "Username",
-  value: "L-GARZON",
-  placeholder: "Username..",
+const Number = (args: ITextFieldProps) => <TextFieldController {...args} />;
+Number.args = {
+  label: "Quantity",
+  name: "quantity",
+  id: "quantity",
+  placeholder: "Value",
+  type: "number",
+  state: "pending",
   isDisabled: false,
-  type: "text",
-  maxLength: 20,
-  minLength: 1,
-  isRequired: true,
-  errorMessage: "Please enter only letters in this field",
-  validMessage: "The field has been successfully validated",
+  max: 10,
+  min: 0,
+  isRequired: false,
   size: "wide",
   isFullWidth: false,
 };
 
-Invalid.argTypes = {
+Number.argTypes = {
   label,
   name,
   id,
   placeholder,
   isDisabled,
-  state,
   type,
+  state,
   value,
   handleChange,
   iconBefore,
   iconAfter,
-  maxLength,
-  minLength,
+  max,
+  min,
+  isRequired,
   errorMessage,
+  validMessage,
   size,
   isFullWidth,
 };
 
 export default story;
 
-export { Invalid };
+export { Number };

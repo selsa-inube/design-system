@@ -1,4 +1,6 @@
-import { inputTypes, sizes, states } from "../";
+import { inputTypes } from "../types/TextField.InputType.type";
+import { states } from "../types/TextField.State.type";
+import { sizes } from "../types/TextField.Size.type";
 
 const parameters = {
   docs: {
