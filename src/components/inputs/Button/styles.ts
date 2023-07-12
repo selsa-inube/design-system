@@ -6,8 +6,14 @@ import { typography } from "../../../shared/typography/typography";
 import { IButtonProps } from "./interfaces/Button.interface";
 import { Variant } from "./types/Button.Variants.type";
 import { Appearance } from "./types/Button.Appearances.type";
+import { ISpacing } from "./interfaces/Button.Spacing.interface";
+import { ICursors } from "./interfaces/Button.Cursors.interface";
+import { IHoverColors } from "./interfaces/Button.HoverColors.interface";
+import { ITextColors } from "./interfaces/Button.TextColors.interface";
+import { IBorderColors } from "./interfaces/Button.BorderColors.interface";
+import { IBackgroundColors } from "./interfaces/button.BackgroundColors.interface";
 
-const spacing = {
+const spacing: ISpacing = {
   compact: {
     height: "28px",
     minWidth: "93px",
@@ -18,13 +24,13 @@ const spacing = {
   },
 };
 
-const cursors = {
+const cursors: ICursors = {
   pointer: "pointer",
   notAllowed: "not-allowed",
   progress: "progress",
 };
 
-const hoverColors = {
+const hoverColors: IHoverColors = {
   primary: colors.ref.palette.blue.b300,
   secondary: colors.ref.palette.neutral.n20,
   confirm: colors.ref.palette.green.g300,
@@ -33,7 +39,7 @@ const hoverColors = {
   help: colors.ref.palette.purple.p300,
 };
 
-const textColors = {
+const textColors: ITextColors = {
   filled: {
     normal: {
       primary: colors.ref.palette.neutral.n0,
@@ -70,7 +76,7 @@ const textColors = {
   },
 };
 
-const backgroundColor = {
+const backgroundColor: IBackgroundColors = {
   filled: {
     normal: {
       ...colors.sys.actions,
@@ -83,7 +89,7 @@ const backgroundColor = {
   none: colors.ref.palette.neutralAlpha.n0A,
 };
 
-const borderColors = {
+const borderColors: IBorderColors = {
   filled: colors.ref.palette.neutralAlpha.n0A,
   outlined: {
     normal: {
@@ -97,7 +103,10 @@ const borderColors = {
   none: colors.ref.palette.neutralAlpha.n0A,
 };
 
-const getPointer = (isDisabled: boolean | undefined, isLoading = false) => {
+const getPointer = (
+  isDisabled: boolean | undefined,
+  isLoading: boolean = false
+) => {
   if (isDisabled) {
     return cursors.notAllowed;
   }
@@ -113,24 +122,24 @@ const getColor = (
   isDisabled: boolean | undefined,
   variant: Variant,
   appearance: Appearance,
-  isHover = false
+  isHover: boolean = false
 ) => {
   if (isDisabled) {
     return textColors.filled.normal.disabled;
   }
 
   if (isHover) {
-    return textColors[variant].hover;
+    return textColors[variant].hover[appearance];
   }
 
   return textColors[variant].normal[appearance];
 };
 
 const getBorderColor = (
-  isDisabled: boolean,
+  isDisabled: boolean | undefined,
   variant: Variant,
   appearance: Appearance,
-  isHover = false
+  isHover: boolean = false
 ) => {
   if (variant !== "outlined") {
     return borderColors[variant];
@@ -148,10 +157,10 @@ const getBorderColor = (
 };
 
 function getBackgroundColor(
-  isDisabled: boolean,
+  isDisabled: boolean | undefined,
   variant: Variant,
   appearance: Appearance,
-  isHover = false
+  isHover: boolean = false
 ) {
   if (variant !== "filled") {
     return backgroundColor[variant];
@@ -168,7 +177,7 @@ function getBackgroundColor(
   return backgroundColor[variant].normal[appearance].filled;
 }
 
-function getWidth(isFullWidth: boolean) {
+function getWidth(isFullWidth: boolean | undefined) {
   if (isFullWidth) {
     return "100%";
   }
@@ -195,46 +204,29 @@ const containerStyles = css`
 const StyledButton = styled.button`
   padding: 0px 16px;
   ${containerStyles}
-  width: ${(props: IButtonProps) =>
-    props.isFullWidth && getWidth(props.isFullWidth)};
-  background-color: ${(props: IButtonProps) =>
-    props &&
-    getBackgroundColor(props.isDisabled!, props.variant!, props.appearance!)};
+  width: ${({ isFullWidth }: IButtonProps) => getWidth(isFullWidth)};
+  background-color: ${({ isDisabled, variant, appearance }: IButtonProps) =>
+    getBackgroundColor(isDisabled, variant!, appearance!)};
   border-style: ${(props: IButtonProps) =>
     props.type !== "link" ? "solid" : "none"};
-  ${(props: IButtonProps) => props.spacing && spacing[props.spacing]};
+  ${(props: IButtonProps) => spacing[props.spacing!]};
 
-  color: ${(props: IButtonProps) =>
-    props && getColor(props.isDisabled!, props.variant!, props.appearance!)};
-  border-color: ${(props: IButtonProps) =>
-    props &&
-    getBorderColor(props.isDisabled!, props.variant!, props.appearance!)};
-  background-color: ${(props: IButtonProps) =>
-    props &&
-    getBackgroundColor(props.isDisabled!, props.variant!, props.appearance!)};
+  color: ${({ isDisabled, variant, appearance }: IButtonProps) =>
+    getColor(isDisabled, variant!, appearance!)};
+  border-color: ${({ isDisabled, variant, appearance }: IButtonProps) =>
+    getBorderColor(isDisabled, variant!, appearance!)};
+  background-color: ${({ isDisabled, variant, appearance }: IButtonProps) =>
+    getBackgroundColor(isDisabled, variant!, appearance!)};
   cursor: ${({ isDisabled, isLoading }: IButtonProps) =>
     getPointer(isDisabled, isLoading)};
 
   &:hover {
-    color: ${(props: IButtonProps) =>
-      props &&
-      getColor(props.isDisabled, props.variant!, props.appearance!, true)};
-    border-color: ${(props: IButtonProps) =>
-      props &&
-      getBorderColor(
-        props.isDisabled!,
-        props.variant!,
-        props.appearance!,
-        true
-      )};
-    background-color: ${(props: IButtonProps) =>
-      props &&
-      getBackgroundColor(
-        props.isDisabled!,
-        props.variant!,
-        props.appearance!,
-        true
-      )};
+    color: ${({ isDisabled, variant, appearance }: IButtonProps) =>
+      getColor(isDisabled, variant!, appearance!, true)};
+    border-color: ${({ isDisabled, variant, appearance }: IButtonProps) =>
+      getBorderColor(isDisabled, variant!, appearance!, true)};
+    background-color: ${({ isDisabled, variant, appearance }: IButtonProps) =>
+      getBackgroundColor(isDisabled, variant!, appearance!, true)};
   }
 `;
 
@@ -244,37 +236,22 @@ const StyledLink = styled(Link)`
   ${containerStyles}
   border-style: ${(props: IButtonProps) =>
     props.type === "link" ? "solid" : "none"};
-  width: ${(props: any) => props.isfullwidth && getWidth(props.isfullwidth)};
-  color: ${(props: IButtonProps) =>
-    props && getColor(props.isDisabled, props.variant!, props.appearance!)};
-  border-color: ${(props: IButtonProps) =>
-    props &&
-    getBorderColor(props.isDisabled!, props.variant!, props.appearance!)};
-  background-color: ${(props: IButtonProps) =>
-    props &&
-    getBackgroundColor(props.isDisabled!, props.variant!, props.appearance!)};
-  cursor: ${({ isDisabled }: IButtonProps) => getPointer(isDisabled)};
+  width: ${({ isfullwidth }: any) => getWidth(!!isfullwidth)};
+  color: ${({ isdisabled, variant, appearance }: IButtonProps) =>
+    getColor(!!isdisabled, variant!, appearance!)};
+  border-color: ${({ isdisabled, variant, appearance }: IButtonProps) =>
+    getBorderColor(!!isdisabled, variant!, appearance!)};
+  background-color: ${({ isdisabled, variant, appearance }: IButtonProps) =>
+    getBackgroundColor(!!isdisabled, variant!, appearance!)};
+  cursor: ${({ isdisabled }: any) => getPointer(!!isdisabled)};
 
   &:hover {
-    color: ${(props: IButtonProps) =>
-      props &&
-      getColor(props.isDisabled, props.variant!, props.appearance!, true)};
-    border-color: ${(props: IButtonProps) =>
-      props &&
-      getBorderColor(
-        props.isDisabled!,
-        props.variant!,
-        props.appearance!,
-        true
-      )};
-    background-color: ${(props: IButtonProps) =>
-      props &&
-      getBackgroundColor(
-        props.isDisabled!,
-        props.variant!,
-        props.appearance!,
-        true
-      )};
+    color: ${({ isdisabled, variant, appearance }: IButtonProps) =>
+      getColor(!!isdisabled, variant!, appearance!, true)};
+    border-color: ${({ isdisabled, variant, appearance }: IButtonProps) =>
+      getBorderColor(!!isdisabled, variant!, appearance!, true)};
+    background-color: ${({ isdisabled, variant, appearance }: IButtonProps) =>
+      getBackgroundColor(!!isdisabled, variant!, appearance!, true)};
   }
 `;
 

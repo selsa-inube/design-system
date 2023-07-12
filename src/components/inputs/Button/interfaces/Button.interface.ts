@@ -1,4 +1,3 @@
-import React from "react";
 import { Appearance } from "../types/Button.Appearances.type";
 import { Type } from "../types/Button.Types.type";
 import { Spacing } from "../types/Button.Spacings.type";
@@ -9,6 +8,7 @@ export interface IButtonProps {
   appearance?: Appearance;
   isLoading?: boolean;
   isDisabled?: boolean;
+  isdisabled?: number;
   iconBefore?: React.ReactElement;
   iconAfter?: React.ReactElement;
   type?: Type;
