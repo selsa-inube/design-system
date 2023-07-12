@@ -1,25 +1,25 @@
-import React from "react";
 import { BrowserRouter } from "react-router-dom";
 
 import {
-  MdKey,
+  MdVpnKey,
   MdMeetingRoom,
-  MdPhone,
-  MdBadge,
+  MdContacts,
   MdStarBorder,
-  MdAccountBalance,
+  MdBadge,
   MdAccountBalanceWallet,
+  MdAccountBalance,
 } from "react-icons/md";
 
 import { FullscreenNav } from "..";
 import { parameters, portalId, navigation, logoutPath } from "./props";
+import { IFullscreenNavProps } from "../interfaces/FullscreenNav.interface";
 
 const story = {
-  title: "navigation/FullscreenNav/WithoutSections",
+  title: "navigation/FullscreenNav/Default",
   components: [FullscreenNav],
   parameters,
   decorators: [
-    (Story) => (
+    (Story: React.ElementType) => (
       <div style={{ margin: "3em" }}>
         <BrowserRouter>
           <Story />
@@ -29,20 +29,20 @@ const story = {
   ],
 };
 
-const WithoutSections = (args) => <FullscreenNav {...args} />;
+const Default = (args: IFullscreenNavProps) => <FullscreenNav {...args} />;
 
-WithoutSections.args = {
+Default.args = {
   portalId: "portals",
   navigation: {
     title: "MENU",
     sections: {
-      administrate: {
-        name: "Administrate",
+      administrative: {
+        name: "Administrative",
         links: {
           privileges: {
             id: "privileges",
             label: "Privileges",
-            icon: <MdKey />,
+            icon: <MdVpnKey />,
             path: "/privileges",
           },
           accounting: {
@@ -54,9 +54,20 @@ WithoutSections.args = {
           contacts: {
             id: "contacts",
             label: "Contacts",
-            icon: <MdPhone />,
+            icon: <MdContacts />,
             path: "/contacts",
           },
+          crm: {
+            id: "crm",
+            label: "CRM",
+            icon: <MdStarBorder />,
+            path: "/crm",
+          },
+        },
+      },
+      request: {
+        name: "Request",
+        links: {
           documents: {
             id: "documents",
             label: "Documents",
@@ -88,7 +99,7 @@ WithoutSections.args = {
   logoutPath: "/logout",
 };
 
-WithoutSections.argTypes = {
+Default.argTypes = {
   portalId,
   navigation,
   logoutPath,
@@ -96,4 +107,4 @@ WithoutSections.argTypes = {
 
 export default story;
 
-export { WithoutSections };
+export { Default };

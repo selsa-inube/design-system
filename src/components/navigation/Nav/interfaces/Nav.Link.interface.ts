@@ -1,6 +1,6 @@
 export interface ILink {
   id: string;
   label: string;
-  icon: Element;
+  icon: React.ReactNode;
   path: string;
 }
