@@ -1,3 +1,45 @@
+# v5.2.0 (Wed Jul 12 2023)
+
+#### 🚀 Enhancement
+
+- Migrate `<Table />` to TypeScript [#234](https://github.com/selsa-inube/design-system/pull/234) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- Migrate `<Tabs />` to TypeScript [#228](https://github.com/selsa-inube/design-system/pull/228) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- Migrate `<Breadcrumbs />` to TypeScript [#230](https://github.com/selsa-inube/design-system/pull/230) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- Migrate `<TextField />` to TypeScript [#232](https://github.com/selsa-inube/design-system/pull/232) ([@Andresbl123](https://github.com/Andresbl123))
+- Migrate `<Button />` to TypeScript [#231](https://github.com/selsa-inube/design-system/pull/231) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- Migrate `<Switch />` to TypeScript [#227](https://github.com/selsa-inube/design-system/pull/227) ([@Andresbl123](https://github.com/Andresbl123))
+- Migrate `<NavLink />` to `TypeScript` [#226](https://github.com/selsa-inube/design-system/pull/226) ([@Andresbl123](https://github.com/Andresbl123))
+- Migrate `<BreadcrumbMenu />` to TypeScript [#225](https://github.com/selsa-inube/design-system/pull/225) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- Migrate `<BreadcrumbMenuLink />` to TypeScript [#223](https://github.com/selsa-inube/design-system/pull/223) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- Migrate `<BreadcrumbEllipsis />` to TypeScript [#216](https://github.com/selsa-inube/design-system/pull/216) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- Migrate `<BreadcrumbLink />` to TypeScript [#221](https://github.com/selsa-inube/design-system/pull/221) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+
+#### 🐛 Bug Fix
+
+- Adjust `<Button/>` in order to fix the type link because that's includes a wrong spacing [#248](https://github.com/selsa-inube/design-system/pull/248) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- Update src/index.tsx in order to include the exportation of `<InteractiveModal/>` [#247](https://github.com/selsa-inube/design-system/pull/247) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- Adjust `<Blanket/>` to eliminate undesirable characteristics [#244](https://github.com/selsa-inube/design-system/pull/244) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- Adjust `<Button/>` in order to include isDisabled behavior to the type "link" [#243](https://github.com/selsa-inube/design-system/pull/243) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- Adjust `<Tabs/>` in order to review several issues [#240](https://github.com/selsa-inube/design-system/pull/240) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- Update `<TextArea/>` to Incorporate Library Export Functionality [#238](https://github.com/selsa-inube/design-system/pull/238) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- Adjust `<Select/>` in order to add the exportation from the library [#239](https://github.com/selsa-inube/design-system/pull/239) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+
+#### ⚠️ Pushed to `main`
+
+- fix(tab): remove unnecessary code from default.argTypes on the story (cmarin@sistemasenlinea.com.co)
+
+#### 📝 Documentation
+
+- Release design-system new version 5.1.0 [#224](https://github.com/selsa-inube/design-system/pull/224) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 3
+
+- Andres ([@Andresbl123](https://github.com/Andresbl123))
+- cesar.marin (cmarin@sistemasenlinea.com.co)
+- cmarin ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v5.1.0 (Tue Jul 04 2023)
 
 #### 🚀 Enhancement
