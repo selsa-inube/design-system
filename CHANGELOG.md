@@ -1,3 +1,30 @@
+# v5.3.0 (Wed Jul 12 2023)
+
+#### 🚀 Enhancement
+
+- Migrate `<Nav />` to TypeScript [#245](https://github.com/selsa-inube/design-system/pull/245) ([@Andresbl123](https://github.com/Andresbl123))
+- Migrate `<Table />` to TypeScript [#234](https://github.com/selsa-inube/design-system/pull/234) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+
+#### 🐛 Bug Fix
+
+- Adjust `<Tabs/>` in order to set the output 'handleSelectedTab' [#254](https://github.com/selsa-inube/design-system/pull/254) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- Ajust `<Nav /> in compile time [#253](https://github.com/selsa-inube/design-system/pull/253) ([@Andresbl123](https://github.com/Andresbl123))
+- Migrate `<FullscreenNav />` to TypeScript [#250](https://github.com/selsa-inube/design-system/pull/250) ([@Andresbl123](https://github.com/Andresbl123))
+- Adjust `<Button/>` in order to fix the type link because that's includes a wrong spacing [#248](https://github.com/selsa-inube/design-system/pull/248) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- Update src/index.tsx in order to include the exportation of `<InteractiveModal/>` [#247](https://github.com/selsa-inube/design-system/pull/247) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+
+#### 📝 Documentation
+
+- Release design-system new version 5.2.0 [#249](https://github.com/selsa-inube/design-system/pull/249) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 3
+
+- Andres ([@Andresbl123](https://github.com/Andresbl123))
+- cesar.marin (cmarin@sistemasenlinea.com.co)
+- cmarin ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v5.2.0 (Wed Jul 12 2023)
 
 #### 🚀 Enhancement
