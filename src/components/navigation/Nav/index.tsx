@@ -20,7 +20,7 @@ const Links = (props: INavLinkProps) => {
 
   const isSelected = (url: string) => currentUrl.startsWith(url);
 
-  return section.map((sectionObject) => (
+  const linkElements = section.map((sectionObject) => (
     <NavLink
       key={sectionObject.id}
       id={sectionObject.id}
@@ -30,6 +30,7 @@ const Links = (props: INavLinkProps) => {
       isSelected={isSelected(sectionObject.path)}
     />
   ));
+  return <>{linkElements} </>;
 };
 
 const MultiSections = ({ navigation, sections }: INavMultiSectionsProps) => {
