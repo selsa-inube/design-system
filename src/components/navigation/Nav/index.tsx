@@ -4,7 +4,7 @@ import { MdLogout } from "react-icons/md";
 import { INavProps } from "./interfaces/Nav.interface";
 import { INavMultiSectionsProps } from "./interfaces/Nav.MultiSections.interface";
 import { INavOneSectionProps } from "./interfaces/Nav.OneSection.interface";
-import { INavLinkProps } from "./interfaces/Nav.Link.interface";
+import { INavLinkProps } from "./interfaces/Nav.LinkComponet.interface";
 
 import { Stack } from "../../layouts/Stack";
 import { Text } from "../../data/Text";

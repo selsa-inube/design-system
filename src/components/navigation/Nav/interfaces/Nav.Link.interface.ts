@@ -1,5 +1,6 @@
-import { Link } from "./Nav.interface";
-
-export interface INavLinkProps {
-  section: Link[];
+export interface Link {
+  id: string;
+  label: string;
+  icon: Element;
+  path: string;
 }
