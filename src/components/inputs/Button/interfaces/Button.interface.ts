@@ -9,6 +9,7 @@ export interface IButtonProps {
   appearance?: Appearance;
   isLoading?: boolean;
   isDisabled?: boolean;
+  isdisabled?: number;
   iconBefore?: React.ReactElement;
   iconAfter?: React.ReactElement;
   type?: Type;
