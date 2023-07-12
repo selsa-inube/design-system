@@ -8,6 +8,7 @@ export { CountdownBar } from "./components/feedback/CountdownBar";
 export { SkeletonIcon } from "./components/feedback/SkeletonIcon";
 export { SkeletonLine } from "./components/feedback/SkeletonLine";
 export { Spinner } from "./components/feedback/Spinner";
+export { InteractiveModal } from "./components/feedback/InteractiveModal";
 
 //  hooks
 export { useMediaQueries } from "./hooks/useMediaQueries";
