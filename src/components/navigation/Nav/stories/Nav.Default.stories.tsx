@@ -12,12 +12,13 @@ import {
 import { Nav } from "..";
 
 import { navigation, logoutPath } from "./props";
+import { INavProps } from "../interfaces/Nav.interface";
 
 const story = {
-  title: "navigation/Nav/WithoutSections",
+  title: "navigation/Nav/Default",
   components: [Nav],
   decorators: [
-    (Story) => (
+    (Story: React.ElementType) => (
       <div style={{ width: "248px", height: "971px" }}>
         <BrowserRouter>
           <Story />
@@ -30,9 +31,9 @@ const story = {
   },
 };
 
-const WithoutSections = (args) => <Nav {...args} />;
+const Default = (args: INavProps) => <Nav {...args} />;
 
-WithoutSections.args = {
+Default.args = {
   navigation: {
     title: "MENU",
     sections: {
@@ -57,6 +58,17 @@ WithoutSections.args = {
             icon: <MdPhone />,
             path: "/contacts",
           },
+          crm: {
+            id: "crm",
+            label: "CRM",
+            icon: <MdStarBorder />,
+            path: "/crm",
+          },
+        },
+      },
+      request: {
+        name: "Request",
+        links: {
           documents: {
             id: "documents",
             label: "Documents",
@@ -88,11 +100,11 @@ WithoutSections.args = {
   logoutPath: "/logout",
 };
 
-WithoutSections.argTypes = {
+Default.argTypes = {
   navigation,
   logoutPath,
 };
 
 export default story;
 
-export { WithoutSections };
+export { Default };
