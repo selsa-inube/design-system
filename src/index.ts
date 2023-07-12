@@ -8,6 +8,7 @@ export { CountdownBar } from "./components/feedback/CountdownBar";
 export { SkeletonIcon } from "./components/feedback/SkeletonIcon";
 export { SkeletonLine } from "./components/feedback/SkeletonLine";
 export { Spinner } from "./components/feedback/Spinner";
+export { InteractiveModal } from "./components/feedback/InteractiveModal";
 
 //  hooks
 export { useMediaQueries } from "./hooks/useMediaQueries";
@@ -19,6 +20,8 @@ export { Label } from "./components/inputs/Label";
 export { Switch } from "./components/inputs/Switch";
 export { Table } from "./components/data/Table";
 export { TextField } from "./components/inputs/TextField";
+export { TextArea } from "./components/inputs/TextArea";
+export { Select } from "./components/inputs/Select";
 
 // layouts
 export { Stack } from "./components/layouts/Stack";
