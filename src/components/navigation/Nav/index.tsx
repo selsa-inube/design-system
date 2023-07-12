@@ -1,14 +1,14 @@
 import { useLocation } from "react-router-dom";
 import { MdLogout } from "react-icons/md";
 
-import { INavProps } from "./interfaces/Nav.interface";
-import { INavMultiSectionsProps } from "./interfaces/Nav.MultiSections.interface";
-import { INavOneSectionProps } from "./interfaces/Nav.OneSection.interface";
 import { INavLinkProps } from "./interfaces/Nav.LinkComponet.interface";
+import { INavMultiSectionsProps } from "./interfaces/Nav.MultiSections.interface";
+import { INavProps } from "./interfaces/Nav.interface";
+import { INavOneSectionProps } from "./interfaces/Nav.OneSection.interface";
 
+import { NavLink } from "../NavLink";
 import { Stack } from "../../layouts/Stack";
 import { Text } from "../../data/Text";
-import { NavLink } from "../NavLink";
 
 import { StyledNav, StyledFooter, SeparatorLine } from "./styles";
 

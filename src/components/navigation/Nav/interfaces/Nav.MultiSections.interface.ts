@@ -1,6 +1,6 @@
-import { Navigation } from "./Nav.interface";
+import { INavigation } from "./Nav.Navigation.interface";
 
 export interface INavMultiSectionsProps {
-  navigation: Navigation;
+  navigation: INavigation;
   sections: string[];
 }

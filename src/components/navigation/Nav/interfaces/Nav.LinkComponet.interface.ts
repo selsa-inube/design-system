@@ -1,5 +1,5 @@
-import { Link } from "./Nav.Link.interface";
+import { ILink } from "./Nav.Link.interface";
 
 export interface INavLinkProps {
-  section: Link[];
+  section: ILink[];
 }

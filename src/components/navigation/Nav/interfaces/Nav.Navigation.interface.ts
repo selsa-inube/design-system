@@ -1,6 +1,6 @@
-import { Section } from "./Nav.Sections.interface";
+import { ISection } from "./Nav.Sections.interface";
 
-export interface Navigation {
+export interface INavigation {
   title: string;
-  sections: { [key: string]: Section };
+  sections: { [key: string]: ISection };
 }

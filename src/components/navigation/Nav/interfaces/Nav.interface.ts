@@ -1,6 +1,6 @@
-import { Navigation } from "./Nav.Navigation.interface";
+import { INavigation } from "./Nav.Navigation.interface";
 
 export interface INavProps {
-  navigation: Navigation;
+  navigation: INavigation;
   logoutPath: string;
 }

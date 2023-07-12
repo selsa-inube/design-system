@@ -1,6 +1,6 @@
-import { Link } from "./Nav.Link.interface";
+import { ILink } from "./Nav.Link.interface";
 
-export interface Section {
+export interface ISection {
   name: string;
-  links: { [key: string]: Link };
+  links: { [key: string]: ILink };
 }
