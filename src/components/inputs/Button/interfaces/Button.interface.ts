@@ -1,4 +1,3 @@
-import React from "react";
 import { Appearance } from "../types/Button.Appearances.type";
 import { Type } from "../types/Button.Types.type";
 import { Spacing } from "../types/Button.Spacings.type";
