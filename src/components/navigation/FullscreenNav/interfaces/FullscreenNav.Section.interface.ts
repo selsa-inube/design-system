@@ -1,6 +1,6 @@
-import { Link } from "./FullscreenNav.Link.interface";
+import { ILink } from "./FullscreenNav.Link.interface";
 
-export interface Section {
+export interface ISection {
   name: string;
-  links: { [key: string]: Link };
+  links: { [key: string]: ILink };
 }

@@ -1,7 +1,7 @@
-import { Navigation } from "./FullscreenNav.Navigation.interface";
+import { INavigation } from "./FullscreenNav.Navigation.interface";
 
 export interface IFullscreenNavProps {
   portalId: string;
-  navigation: Navigation;
+  navigation: INavigation;
   logoutPath: string;
 }

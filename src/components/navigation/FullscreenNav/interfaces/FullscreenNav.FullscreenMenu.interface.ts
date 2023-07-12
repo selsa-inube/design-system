@@ -1,7 +1,7 @@
-import { Navigation } from "./FullscreenNav.Navigation.interface";
+import { INavigation } from "./FullscreenNav.Navigation.interface";
 
 export interface IFullscreenMenuProps {
-  navigation: Navigation;
+  navigation: INavigation;
   logoutPath: string;
   onClose: () => void;
 }
