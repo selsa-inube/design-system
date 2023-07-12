@@ -14,6 +14,7 @@ import {
   infoTitle,
   actionsTitle,
 } from "./props";
+import { ITableProps } from "../interfaces/Table.interface";
 
 const story = {
   title: "data/Table/Paginations",
@@ -21,7 +22,7 @@ const story = {
   parameters,
 };
 
-const Paginations = (args) => <Table {...args} />;
+const Paginations = (args: ITableProps) => <Table {...args} />;
 Paginations.args = {
   id: "tableId",
   titles: titlesMuck,
