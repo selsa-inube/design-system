@@ -22,21 +22,16 @@ const checkDuplicateTabIds = (tabs: ITabsItem[]) => {
   return false;
 };
 
-const Tabs = (props: ITabsProps) => {
-  const { tabs, type = defaultType } = props;
-
-  const [selectedTab, setSelectedTab] = useState(tabs[0]?.id);
+const Tabs = ({
+  tabs,
+  type = defaultType,
+  selectedTab,
+  handleSelectedTab,
+}: ITabsProps) => {
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
 
   const transformedType = types.includes(type) ? type : defaultType;
   checkDuplicateTabIds(tabs);
-
-  const handleTabSelection = (id: string) => {
-    setSelectedTab(id);
-    if (transformedType === "select") {
-      setIsDropDownOpen(false);
-    }
-  };
 
   if (transformedType === "select") {
     const dropDownOptions = tabs.map((tab) => ({
@@ -61,7 +56,7 @@ const Tabs = (props: ITabsProps) => {
               isDisabled={transformedIsDisabled}
               isSelected={true}
               id={selectedTab}
-              handleClick={() => handleTabSelection(selectedTab)}
+              handleClick={() => handleSelectedTab(selectedTab)}
               label={transformedLabel}
             />
           </Stack>
@@ -69,7 +64,7 @@ const Tabs = (props: ITabsProps) => {
         {isDropDownOpen && (
           <DropDownMenu
             options={dropDownOptions}
-            handleSelect={(id) => handleTabSelection(id)}
+            handleSelect={handleSelectedTab}
             isOpenOptions={isDropDownOpen}
             onCloseOptions={() => setIsDropDownOpen(false)}
           />
@@ -87,7 +82,7 @@ const Tabs = (props: ITabsProps) => {
             isDisabled={tab.isDisabled}
             isSelected={tab.id === selectedTab}
             id={tab.id}
-            handleClick={() => handleTabSelection(tab.id)}
+            handleClick={() => handleSelectedTab(tab.id)}
             label={tab.label}
           />
         ))}
