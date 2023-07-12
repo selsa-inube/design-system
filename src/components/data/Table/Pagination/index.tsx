@@ -1,6 +1,3 @@
-import React from "react";
-import PropTypes from "prop-types";
-
 import {
   MdNavigateBefore,
   MdNavigateNext,
@@ -11,8 +8,9 @@ import {
 import { Text } from "../../Text/index";
 import { Stack } from "../../../layouts/Stack";
 import { StyledButton } from "./styles";
+import { IPaginationProps } from "../interfaces/Table.Pagination.interface";
 
-const Pagination = (props) => {
+const Pagination = (props: IPaginationProps) => {
   const {
     firstEntryInPage,
     lastEntryInPage,
@@ -57,16 +55,6 @@ const Pagination = (props) => {
       </Stack>
     </Stack>
   );
-};
-
-Pagination.propTypes = {
-  firstEntryInPage: PropTypes.number.isRequired,
-  lastEntryInPage: PropTypes.number.isRequired,
-  totalRecords: PropTypes.number.isRequired,
-  handleStartPage: PropTypes.func.isRequired,
-  handlePrevPage: PropTypes.func.isRequired,
-  handleNextPage: PropTypes.func.isRequired,
-  handleEndPage: PropTypes.func.isRequired,
 };
 
 export { Pagination };
