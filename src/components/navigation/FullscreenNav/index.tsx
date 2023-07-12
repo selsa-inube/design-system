@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-
+import { useState } from "react";
 import { createPortal } from "react-dom";
-
-import PropTypes from "prop-types";
-
 import { MdMenu, MdClose, MdLogout } from "react-icons/md";
+
+import { IFullscreenNavProps } from "./interfaces/FullscreenNav.interface";
+import { IFullscreenMenuProps } from "./interfaces/FullscreenNav.FullscreenMenu.interface";
+import { IMenuSectionsProps } from "./interfaces/Fullscreennav.MultiSections.interface";
 
 import { Stack } from "../../layouts/Stack/index";
 import { Text } from "../../data/Text";
@@ -18,7 +18,7 @@ import {
   StyledFooter,
 } from "./styles";
 
-const MultiSections = ({ navigation }) => {
+const MultiSections = ({ navigation }: IMenuSectionsProps) => {
   const navigationSectionValues = Object.values(navigation.sections);
 
   return (
@@ -45,7 +45,7 @@ const MultiSections = ({ navigation }) => {
   );
 };
 
-const OneSection = ({ navigation }) => {
+const OneSection = ({ navigation }: IMenuSectionsProps) => {
   const sectionValue = Object.values(navigation.sections)[0];
 
   return (
@@ -63,7 +63,7 @@ const OneSection = ({ navigation }) => {
   );
 };
 
-const FullscreenMenu = (props) => {
+const FullscreenMenu = (props: IFullscreenMenuProps) => {
   const { navigation, logoutPath, onClose } = props;
   const handleClick = () => {
     onClose();
@@ -99,7 +99,7 @@ const FullscreenMenu = (props) => {
   );
 };
 
-const FullscreenNav = (props) => {
+const FullscreenNav = (props: IFullscreenNavProps) => {
   const { portalId, navigation, logoutPath } = props;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -131,15 +131,6 @@ const FullscreenNav = (props) => {
         )}
     </>
   );
-};
-
-FullscreenNav.propTypes = {
-  portalId: PropTypes.string.isRequired,
-  navigation: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    sections: PropTypes.object.isRequired,
-  }).isRequired,
-  logoutPath: PropTypes.string.isRequired,
 };
 
 export { FullscreenNav };
