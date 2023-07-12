@@ -24,10 +24,6 @@
 - Update `<TextArea/>` to Incorporate Library Export Functionality [#238](https://github.com/selsa-inube/design-system/pull/238) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
 - Adjust `<Select/>` in order to add the exportation from the library [#239](https://github.com/selsa-inube/design-system/pull/239) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
 
-#### ⚠️ Pushed to `main`
-
-- fix(tab): remove unnecessary code from default.argTypes on the story (cmarin@sistemasenlinea.com.co)
-
 #### 📝 Documentation
 
 - Release design-system new version 5.1.0 [#224](https://github.com/selsa-inube/design-system/pull/224) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
