@@ -4,7 +4,7 @@ export interface INavLinkProps {
   path: string;
   isDisabled?: boolean;
   isSelected?: boolean;
-  icon?: Record<string, any>;
+  icon?: React.ReactNode;
   handleClick?: () => void;
   handleBlur?: () => void;
 }
