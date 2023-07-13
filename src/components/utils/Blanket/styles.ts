@@ -12,7 +12,9 @@ const StyledBlanket = styled.div`
   border: none;
   z-index: 1;
   overflow-y: auto;
-  height: 100vh;
+  & > div {
+    height: 100vh;
+  }
 `;
 
 export { StyledBlanket };
