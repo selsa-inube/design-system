@@ -1,16 +1,15 @@
-import React, { useState, useRef } from "react";
-import PropTypes from "prop-types";
+import { useState, useRef, useEffect } from "react";
 
 import { SelectUI } from "./interface";
+import { ISelectProps } from "./interfaces/Select.interface";
+import { states } from "./types/Select.States.type";
 
-const states = ["valid", "invalid", "pending"];
-const sizes = ["wide", "compact"];
 const defaultIsDisabled = false;
 const defaultIsRequired = false;
 const defaultState = "pending";
 const defaultIsFullWidth = false;
 
-const Select = (props) => {
+const Select = (props: ISelectProps) => {
   const {
     label,
     name,
@@ -33,10 +32,9 @@ const Select = (props) => {
 
   const [isFocused, setIsFocused] = useState(false);
   const [open, setOpen] = useState(false);
+  const selectRef = useRef<{ contains: (e: EventTarget) => EventTarget }>(null);
 
-  const selectRef = useRef(null);
-
-  const interceptFocus = (e) => {
+  const interceptFocus = (e: FocusEvent) => {
     setIsFocused(true);
 
     if (typeof handleFocus === "function") {
@@ -44,7 +42,7 @@ const Select = (props) => {
     }
   };
 
-  const interceptBlur = (e) => {
+  const interceptBlur = (e: FocusEvent) => {
     setIsFocused(false);
 
     if (typeof handleBlur === "function") {
@@ -56,13 +54,13 @@ const Select = (props) => {
     setOpen(!open);
   };
 
-  const handleClickOutside = (event) => {
-    if (selectRef.current && !selectRef.current.contains(event.target)) {
+  const handleClickOutside = (event: MouseEvent) => {
+    if (selectRef.current && !selectRef.current.contains(event.target!)) {
       setOpen(false);
     }
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     document.addEventListener("click", handleClickOutside);
 
     return () => {
@@ -108,31 +106,4 @@ const Select = (props) => {
   );
 };
 
-Select.propTypes = {
-  label: PropTypes.string,
-  name: PropTypes.string,
-  id: PropTypes.string,
-  placeholder: PropTypes.string,
-  isDisabled: PropTypes.bool,
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  handleChange: PropTypes.func,
-  isRequired: PropTypes.bool,
-  state: PropTypes.oneOf(states),
-  errorMessage: PropTypes.string,
-  validMessage: PropTypes.string,
-  size: PropTypes.oneOf(sizes),
-  isFullWidth: PropTypes.bool,
-  handleFocus: PropTypes.func,
-  handleBlur: PropTypes.func,
-  handleClick: PropTypes.func,
-  readOnly: PropTypes.bool,
-  options: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string,
-      label: PropTypes.string,
-      isDisabled: PropTypes.bool,
-    })
-  ).isRequired,
-};
-
-export { Select, states, sizes };
+export { Select };

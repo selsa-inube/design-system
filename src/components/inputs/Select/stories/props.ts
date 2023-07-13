@@ -1,4 +1,5 @@
-import { states, sizes } from "..";
+import { sizes } from "../types/Select.Size.type";
+import { states } from "../types/Select.States.type";
 
 const parameters = {
   docs: {
