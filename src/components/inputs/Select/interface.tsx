@@ -5,9 +5,12 @@ import {
   MdOutlineArrowDropDown,
 } from "react-icons/md";
 
+import { ISelectInterfaceProps } from "./interfaces/SelectInterface.interface";
+import { Size } from "./types/Select.Size.type";
+import { ISelectStateProps } from "./interfaces/Select.Success.interface";
+
 import { Label } from "../Label";
 import { Text } from "../../data/Text";
-
 import { DropDownMenu } from "../DropDownMenu/index";
 
 import {
@@ -19,11 +22,6 @@ import {
   StyledErrorMessageContainer,
   StyledValidMessageContainer,
 } from "./styles";
-//import { ISelectProps } from "./interfaces/Select.interface";
-import { ISelectInterfaceProps } from "./interfaces/SelectInterface.interface";
-//import { ISelectOptions } from "./interfaces/Select.Options.interface";
-import { Size } from "./types/Select.Size.type";
-import { ISelectStateProps } from "./interfaces/Select.Success.interface";
 
 const getTextAppearanceProp = (isDisabled: boolean, appearence: string) => {
   if (isDisabled) {

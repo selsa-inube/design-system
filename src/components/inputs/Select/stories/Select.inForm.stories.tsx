@@ -1,6 +1,5 @@
-import React, { useState } from "react";
-
 import { Select } from "../index";
+import { ISelectProps } from "../interfaces/Select.interface";
 import { InForm } from "./Select.form.Controller";
 
 import {
@@ -29,7 +28,7 @@ const story = {
   parameters,
 };
 
-const SelectInForm = (args) => <InForm {...args} />;
+const SelectInForm = (args: ISelectProps) => <InForm {...args} />;
 
 SelectInForm.args = {
   label: "Select",
