@@ -99,8 +99,9 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
 
   const [selectedOption, setSelectedOption] = useState(value);
 
-  const handleOptionClick = (valueOption: string) => {
-    setSelectedOption(valueOption);
+  const handleOptionClick = (idOption: string) => {
+    const option = options.find((option) => option.id === idOption);
+    setSelectedOption(option?.label);
   };
 
   const interceptorOnClick = (e: MouseEvent) => {

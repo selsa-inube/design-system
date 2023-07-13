@@ -7,7 +7,7 @@ import { DropDownItem } from "../DropDownItem/index";
 const DropDownMenu = (props) => {
   const { options, handleClick, onCloseOptions, handleSelect } = props;
 
-  const handleOptionClick = (label) => {
+  const handleOptionClick = (id) => {
     if (typeof handleClick === "function") {
       handleClick();
     }
@@ -17,7 +17,7 @@ const DropDownMenu = (props) => {
     }
 
     if (typeof handleSelect === "function") {
-      handleSelect(label);
+      handleSelect(id);
     }
   };
 
@@ -29,7 +29,7 @@ const DropDownMenu = (props) => {
           id={dropDownitem.id}
           isDisabled={dropDownitem.isDisabled}
           isSelected={dropDownitem.isSelected}
-          handleClick={() => handleOptionClick(dropDownitem.label)}
+          handleClick={() => handleOptionClick(dropDownitem.id)}
         >
           {dropDownitem.label}
         </DropDownItem>
