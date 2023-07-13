@@ -1,3 +1,20 @@
+# v5.3.1 (Thu Jul 13 2023)
+
+#### 🐛 Bug Fix
+
+- Adjust `<Blanket/>` in order to add a height property for blanket-children's vertical aligment [#256](https://github.com/selsa-inube/design-system/pull/256) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+
+#### 📝 Documentation
+
+- Release new version 5.3.0 [#255](https://github.com/selsa-inube/design-system/pull/255) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 2
+
+- cesar.marin (cmarin@sistemasenlinea.com.co)
+- cmarin ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v5.3.0 (Wed Jul 12 2023)
 
 #### 🚀 Enhancement
