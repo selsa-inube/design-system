@@ -34,3 +34,6 @@ export { Header } from "./components/navigation/Header";
 
 // utils
 export { Blanket } from "./components/utils/Blanket";
+
+//tokens
+export { Inube } from "./shared/tokens/index";

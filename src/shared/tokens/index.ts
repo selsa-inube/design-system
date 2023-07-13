@@ -1,7 +1,9 @@
-import { color } from "./color/color";
+import { Color } from "./color/color";
+import { Spacing } from "./spacing/spacing";
 
-const inube = {
-  color,
+const Inube = {
+  Color,
+  Spacing,
 };
 
-export { inube };
+export { Inube };
