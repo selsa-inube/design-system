@@ -18,7 +18,9 @@ const story = {
 };
 
 export const Default = (args: IBreadcrumbMenuProps) => (
-  <BreadcrumbMenu {...args} />
+  <div style={{ height: "100px", transform: "translateZ(0)" }}>
+    <BreadcrumbMenu {...args} />
+  </div>
 );
 Default.args = {
   routes: [

@@ -9,7 +9,7 @@ const story = {
   components: [BreadcrumbEllipsis],
   decorators: [
     (Story: React.ElementType) => (
-      <div style={{ margin: "3em" }}>
+      <div style={{ margin: "2em 2em 7em 2em" }}>
         <BrowserRouter>
           <Story />
         </BrowserRouter>
