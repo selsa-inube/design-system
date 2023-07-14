@@ -1,5 +1,5 @@
-import { BreadcrumbMenu } from "../index";
 import { BrowserRouter } from "react-router-dom";
+import { BreadcrumbMenu } from "../index";
 import { routes } from "./props";
 import { IBreadcrumbMenuProps } from "../interfaces/BreadcrumbMenu.interface";
 

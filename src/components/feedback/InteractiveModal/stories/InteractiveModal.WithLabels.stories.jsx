@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-import { Button } from "@src/components/inputs/Button";
-import { InteractiveModal } from "..";
+import { Button } from "../../../inputs/Button/index";
+import { InteractiveModal } from "../index";
 
 import {
   portalId,
