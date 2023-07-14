@@ -1,6 +1,10 @@
+import { useState } from "react";
 import { BlanketProps } from "../interfaces/interface.Blanket";
 
+import { Button } from "@src/components/inputs/Button";
+
 import { Blanket } from "..";
+import { StyledBackdropBlanket } from "./styles";
 
 const story = {
   title: "utils/Blanket/Default",
@@ -21,7 +25,24 @@ const story = {
   },
 };
 
-const Default = (args: BlanketProps) => <Blanket {...args} />;
+const Default = (args: BlanketProps) => {
+  const [showBlanket, setShowBlanket] = useState(false);
+
+  const handleShowBlanket = () => {
+    setShowBlanket(true);
+  };
+
+  return (
+    <>
+      <Button handleClick={handleShowBlanket}>Show Blanket</Button>
+      {showBlanket && (
+        <Blanket {...args}>
+          <StyledBackdropBlanket onClick={() => setShowBlanket(false)} />
+        </Blanket>
+      )}
+    </>
+  );
+};
 
 export default story;
 export { Default };
