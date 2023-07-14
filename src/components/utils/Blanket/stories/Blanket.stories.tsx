@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { BlanketProps } from "../interfaces/interface.Blanket";
 
-import { Button } from "@src/components/inputs/Button";
+import { Button } from "@src/components/inputs/Button/index";
 
 import { Blanket } from "../index";
 import { StyledBackdropBlanket } from "./styles";
