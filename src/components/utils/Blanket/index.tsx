@@ -3,7 +3,6 @@ import { BlanketProps } from "./interfaces/interface.Blanket";
 import { StyledBlanket } from "./styles";
 import { useMediaQuery } from "@src/hooks/useMediaQuery";
 
-// just a test
 const Blanket = (props: BlanketProps) => {
   const { children } = props;
   const isSmallScreen = useMediaQuery("(max-width: 580px)");
