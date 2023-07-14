@@ -1,3 +1,27 @@
+# v5.4.0 (Fri Jul 14 2023)
+
+#### 🚀 Enhancement
+
+- Create and export new inube spacing tokens [#259](https://github.com/selsa-inube/design-system/pull/259) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- Migrate `<Select />` to TypeScript [#258](https://github.com/selsa-inube/design-system/pull/258) ([@Andresbl123](https://github.com/Andresbl123))
+
+#### 🐛 Bug Fix
+
+- Adjust height property inside of `<Blanket/>` [#261](https://github.com/selsa-inube/design-system/pull/261) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- Create and export new inube color tokens [#252](https://github.com/selsa-inube/design-system/pull/252) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+
+#### 📝 Documentation
+
+- Release new version 5.3.1 [#257](https://github.com/selsa-inube/design-system/pull/257) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 3
+
+- Andres ([@Andresbl123](https://github.com/Andresbl123))
+- cesar.marin (cmarin@sistemasenlinea.com.co)
+- cmarin ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v5.3.1 (Thu Jul 13 2023)
 
 #### 🐛 Bug Fix
