@@ -1,4 +1,5 @@
-import { states, sizes } from "..";
+import { sizes } from "../types/Select.Size.type";
+import { states } from "../types/Select.States.type";
 
 const parameters = {
   docs: {
@@ -6,6 +7,9 @@ const parameters = {
       components:
         "Select allows users to make a single selection or multiple selections from a list of options.",
     },
+  },
+  controls: {
+    exclude: ["value", "state"],
   },
 };
 

@@ -1,13 +1,16 @@
-import React, { useState, forwardRef } from "react";
+import { useState, forwardRef } from "react";
 import {
   MdOutlineError,
   MdCheckCircle,
   MdOutlineArrowDropDown,
 } from "react-icons/md";
 
+import { ISelectInterfaceProps } from "./interfaces/SelectInterface.interface";
+import { Size } from "./types/Select.Size.type";
+import { ISelectStateProps } from "./interfaces/Select.Success.interface";
+
 import { Label } from "../Label";
 import { Text } from "../../data/Text";
-
 import { DropDownMenu } from "../DropDownMenu/index";
 
 import {
@@ -20,7 +23,7 @@ import {
   StyledValidMessageContainer,
 } from "./styles";
 
-const getTextAppearanceProp = (isDisabled, appearence) => {
+const getTextAppearanceProp = (isDisabled: boolean, appearence: string) => {
   if (isDisabled) {
     return "disabled";
   }
@@ -28,14 +31,14 @@ const getTextAppearanceProp = (isDisabled, appearence) => {
   return appearence;
 };
 
-const getTypo = (size) => {
+const getTypo = (size: Size) => {
   if (size === "compact") {
     return "labelMedium";
   }
   return "labelLarge";
 };
 
-const Invalid = (props) => {
+const Invalid = (props: ISelectStateProps) => {
   const { isDisabled, state, errorMessage } = props;
   const transformedErrorMessage = errorMessage && `(${errorMessage})`;
 
@@ -53,7 +56,7 @@ const Invalid = (props) => {
   );
 };
 
-const Success = (props) => {
+const Success = (props: ISelectStateProps) => {
   const { isDisabled, state, validMessage } = props;
 
   return (
@@ -70,7 +73,7 @@ const Success = (props) => {
   );
 };
 
-const SelectUI = forwardRef((props, ref) => {
+const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
   const {
     label,
     name,
@@ -96,11 +99,12 @@ const SelectUI = forwardRef((props, ref) => {
 
   const [selectedOption, setSelectedOption] = useState(value);
 
-  const handleOptionClick = (valueOption) => {
-    setSelectedOption(options[valueOption]?.label);
+  const handleOptionClick = (idOption: string) => {
+    const option = options.find((option) => option.id === idOption);
+    setSelectedOption(option?.label);
   };
 
-  const interceptorOnClick = (e) => {
+  const interceptorOnClick = (e: MouseEvent) => {
     if (typeof handleClick === "function") {
       handleClick(e);
     }
@@ -129,7 +133,7 @@ const SelectUI = forwardRef((props, ref) => {
             isDisabled={isDisabled}
             isFocused={isFocused}
             isInvalid={transformedIsInvalid}
-            typo={getTypo(size)}
+            typo={getTypo(size!)}
           >
             {label}
           </Label>
@@ -159,7 +163,7 @@ const SelectUI = forwardRef((props, ref) => {
           onChange={handleChange}
           onFocus={handleFocus}
           onBlur={handleBlur}
-          onClick={(e) => interceptorOnClick(e)}
+          onClick={(e: MouseEvent) => interceptorOnClick(e)}
         />
         <StyledIcon isDisabled={isDisabled}>
           <MdOutlineArrowDropDown onClick={onCloseOptions} />
@@ -168,14 +172,14 @@ const SelectUI = forwardRef((props, ref) => {
 
       {state === "invalid" && (
         <Invalid
-          isDisabled={isDisabled}
+          isDisabled={isDisabled!}
           state={state}
           errorMessage={errorMessage}
         />
       )}
       {state === "valid" && (
         <Success
-          isDisabled={isDisabled}
+          isDisabled={isDisabled!}
           state={state}
           validMessage={validMessage}
         />

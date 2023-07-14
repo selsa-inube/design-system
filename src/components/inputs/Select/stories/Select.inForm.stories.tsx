@@ -1,6 +1,5 @@
-import React, { useState } from "react";
-
 import { Select } from "../index";
+import { ISelectProps } from "../interfaces/Select.interface";
 import { InForm } from "./Select.form.Controller";
 
 import {
@@ -29,15 +28,15 @@ const story = {
   parameters,
 };
 
-const SelectInForm = (args) => <InForm {...args} />;
+const SelectInForm = (args: ISelectProps) => <InForm {...args} />;
 
 SelectInForm.args = {
   label: "Select",
   name: "select",
   id: "select",
   placeholder: "Select",
-  value: "",
   isRequired: true,
+  isDisabled: false,
   options: [
     { id: "1", label: "Item 1", isDisabled: false },
     { id: "2", label: "123", isDisabled: false },
@@ -45,6 +44,7 @@ SelectInForm.args = {
   ],
   size: "compact",
   errorMessage: "This field can not be blank",
+  validMessage: "This field is valid",
 };
 
 SelectInForm.argTypes = {
