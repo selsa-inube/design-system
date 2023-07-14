@@ -83,7 +83,6 @@ const StyledInput = styled.input`
   outline: none;
   border-radius: 8px;
   padding: 0px 12px 0px 16px;
-
   font-family: ${typography.sys.typescale.bodyLarge.font};
   font-size: ${typography.sys.typescale.bodyLarge.size};
   font-weight: ${typography.sys.typescale.bodyLarge.weight};
@@ -95,9 +94,8 @@ const StyledInput = styled.input`
   cursor: ${({ isDisabled }: ISelectInterfaceProps) =>
     isDisabled ? "not-allowed" : "pointer"};
   caret-color: transparent;
-
   width: ${({ isFullWidth }: ISelectInterfaceProps) =>
-    isFullWidth ? "calc(100% - 32px)" : "252px"};
+    isFullWidth ? "252px" : "calc(100% - 32px)"};
   ${({ size }: ISelectInterfaceProps) => sizeOptions[size!]};
 
   border: none;

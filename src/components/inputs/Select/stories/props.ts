@@ -8,6 +8,9 @@ const parameters = {
         "Select allows users to make a single selection or multiple selections from a list of options.",
     },
   },
+  controls: {
+    exclude: ["value", "state"],
+  },
 };
 
 const label = {

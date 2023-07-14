@@ -16,7 +16,7 @@ const Select = (props: ISelectProps) => {
     id,
     placeholder,
     isDisabled = false,
-    value,
+    value = "",
     handleChange,
     isRequired = false,
     state = "pending",

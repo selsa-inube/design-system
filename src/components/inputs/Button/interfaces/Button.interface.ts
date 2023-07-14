@@ -15,6 +15,6 @@ export interface IButtonProps {
   spacing?: Spacing;
   variant?: Variant;
   isFullWidth?: boolean;
-  handleClick?: () => void;
+  handleClick?: (e?: Event) => void;
   path?: string;
 }

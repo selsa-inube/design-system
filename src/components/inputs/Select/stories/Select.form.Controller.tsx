@@ -1,15 +1,17 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 import { Select } from "../index";
 import { StyledForm } from "./styles";
 import { Button } from "../../Button";
+import { ISelectProps } from "../interfaces/Select.interface";
 
-const InForm = (props) => {
+const InForm = (props: ISelectProps) => {
   const { value = "", state = "pending", isRequired } = props;
   const [form, setForm] = useState({ value, state });
 
-  const handleClick = (e) => {
-    const valueElement = document.getElementById("select").value;
+  const handleClick = (e: Event) => {
+    const element = document.getElementById("select") as HTMLInputElement;
+    const valueElement = element.value;
     if (valueElement === "" && isRequired) {
       setForm({ ...form, state: "invalid" });
       e.preventDefault();
@@ -20,7 +22,7 @@ const InForm = (props) => {
     }
   };
 
-  const handleFocus = () => {
+  const handleFocus = (e?: Event) => {
     if (!value) {
       setForm({ ...form, state: "pending" });
     }
@@ -37,7 +39,7 @@ const InForm = (props) => {
       <Button
         type="submit"
         spacing="compact"
-        handleClick={(e) => handleClick(e)}
+        handleClick={(e) => handleClick(e!)}
       >
         Submit
       </Button>

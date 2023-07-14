@@ -44,10 +44,10 @@ Default.args = {
   ],
   isRequired: false,
   errorMessage: "This field can not be blank",
+  isFullWidth: false,
 };
 
 Default.argTypes = {
-  parameters,
   label,
   name,
   id,
