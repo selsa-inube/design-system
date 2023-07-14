@@ -7,7 +7,7 @@ import {
 } from "react-icons/md";
 
 import { Button } from "@src/components/inputs/Button";
-import { InteractiveModal } from "..";
+import { InteractiveModal } from "../index";
 
 import {
   portalId,
