@@ -1,5 +1,6 @@
-import React from "react";
 import { Select } from "../index";
+
+import { ISelectProps } from "../interfaces/Select.interface";
 import { SelectController } from "./SelectController";
 import {
   parameters,
@@ -27,7 +28,7 @@ const story = {
   parameters,
 };
 
-const Default = (args) => <SelectController {...args} />;
+const Default = (args: ISelectProps) => <SelectController {...args} />;
 
 Default.args = {
   label: "Label",
@@ -43,10 +44,10 @@ Default.args = {
   ],
   isRequired: false,
   errorMessage: "This field can not be blank",
+  isFullWidth: false,
 };
 
 Default.argTypes = {
-  parameters,
   label,
   name,
   id,

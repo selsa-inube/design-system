@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Select } from "..";
+import { ISelectProps } from "../interfaces/Select.interface";
 
-const SelectController = (props) => {
+const SelectController = (props: ISelectProps) => {
   const { value = "", state = "pending" } = props;
   const [form, setForm] = useState({ value, state });
 
-  const handleChange = (e) => {
-    setForm({ value: e.target.value, state: "pending" });
+  const handleChange = (e: Event) => {
+    const target = e.target as HTMLInputElement;
+    const { value } = target;
+
+    setForm({ value, state: "pending" });
   };
 
   const handleFocus = () => {
