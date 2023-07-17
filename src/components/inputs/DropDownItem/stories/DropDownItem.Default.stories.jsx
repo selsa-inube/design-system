@@ -22,6 +22,7 @@ const Default = (args) => <DropDownItem {...args} />;
 Default.args = {
   children: "Item 1",
   isSelected: false,
+  isDisabled: false,
 };
 
 Default.argTypes = {
