@@ -1,15 +1,16 @@
-import { BreadcrumbEllipsis } from "../index";
 import { BrowserRouter } from "react-router-dom";
+import { IBreadcrumbEllipsisProps } from "../interfaces/BreadcrumbEllipsis.interface";
+
+import { BreadcrumbEllipsis } from "../index";
 
 import { routes, typo } from "./props";
-import { IBreadcrumbEllipsisProps } from "../interfaces/BreadcrumbEllipsis.interface";
 
 const story = {
   title: "navigation/BreadcrumbEllipsis/Default",
   components: [BreadcrumbEllipsis],
   decorators: [
     (Story: React.ElementType) => (
-      <div style={{ margin: "3em" }}>
+      <div style={{ margin: "2em 2em 7em 2em" }}>
         <BrowserRouter>
           <Story />
         </BrowserRouter>

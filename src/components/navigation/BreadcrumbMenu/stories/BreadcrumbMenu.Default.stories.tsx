@@ -1,5 +1,5 @@
-import { BreadcrumbMenu } from "../index";
 import { BrowserRouter } from "react-router-dom";
+import { BreadcrumbMenu } from "../index";
 import { routes } from "./props";
 import { IBreadcrumbMenuProps } from "../interfaces/BreadcrumbMenu.interface";
 
@@ -18,7 +18,9 @@ const story = {
 };
 
 export const Default = (args: IBreadcrumbMenuProps) => (
-  <BreadcrumbMenu {...args} />
+  <div style={{ height: "100px", transform: "translateZ(0)" }}>
+    <BreadcrumbMenu {...args} />
+  </div>
 );
 Default.args = {
   routes: [

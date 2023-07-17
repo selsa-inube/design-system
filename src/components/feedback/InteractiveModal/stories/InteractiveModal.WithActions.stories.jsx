@@ -1,9 +1,12 @@
-import { action } from "@storybook/addon-actions";
+import { useState } from "react";
+
 import {
   MdOutlineAssignmentTurnedIn,
   MdOutlineDelete,
   MdOutlineShortcut,
 } from "react-icons/md";
+
+import { Button } from "@src/components/inputs/Button";
 import { InteractiveModal } from "../index";
 
 import {
@@ -38,10 +41,17 @@ const data = {
   status: "Sent",
 };
 
-const Template = (args) => <InteractiveModal {...args} />;
+const Template = (args) => {
+  const [showModal, setShowModal] = useState(false);
 
-const closeInteractiveModal = () => {
-  action("InteractiveModal closed");
+  return (
+    <>
+      <Button handleClick={() => setShowModal(true)}>Show Modal</Button>
+      {showModal && (
+        <InteractiveModal {...args} closeModal={() => setShowModal(false)} />
+      )}
+    </>
+  );
 };
 
 const actionsArray = [
@@ -97,7 +107,6 @@ export const WithActions = Template.bind({});
 WithActions.args = {
   portalId: "portals",
   title: "User Information",
-  closeModal: closeInteractiveModal,
   infoData: data,
   actions: actionsArray,
   labels: labelsArray,
