@@ -6,6 +6,7 @@ import { NavLinkController } from "./NavLink.Controller";
 import { NavLink } from "..";
 
 import {
+  parameters,
   id,
   label,
   path,
@@ -18,6 +19,7 @@ import {
 const story = {
   title: "navigation/NavLink/Default",
   components: [NavLink],
+  parameters,
   decorators: [
     (Story: React.ElementType) => (
       <div style={{ margin: "3em" }}>

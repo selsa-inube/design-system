@@ -9,7 +9,7 @@ const parameters = {
 
 const navigation = {
   description:
-    "The primary object that will organize and store the requisite paths for the correct operation of the <Nav/> component is forthcoming and is required",
+    "The primary object that will organize and store the requisite paths for the correct operation of the Nav component is forthcoming and is required",
 };
 
 const logo = {
