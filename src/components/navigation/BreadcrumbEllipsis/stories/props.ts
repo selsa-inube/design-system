@@ -1,5 +1,14 @@
 import { typos } from "../types/BreadcrumbEllipsis.Typos.type";
 
+const parameters = {
+  docs: {
+    description: {
+      component:
+        "Breadcrumbs are a navigation system used to show a user's location in a site or app.",
+    },
+  },
+};
+
 const handleClick = {
   options: ["logState"],
   control: { type: "func" },
@@ -25,4 +34,4 @@ const routes = {
     },
   },
 };
-export { handleClick, typo, routes };
+export { parameters, handleClick, typo, routes };

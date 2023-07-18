@@ -1,10 +1,11 @@
 import { BrowserRouter } from "react-router-dom";
 import { MdAdd } from "react-icons/md";
 
-import { Button } from "../index";
+import { Button } from "..";
 import { StyledFlex } from "./stories.styles";
 
 import {
+  parameters,
   children,
   isLoading,
   appearance,
@@ -20,6 +21,7 @@ import { IButtonProps } from "../interfaces/Button.interface";
 const story = {
   title: "inputs/Button/Icons",
   components: [Button],
+  parameters,
   decorators: [
     (Story: React.ElementType) => (
       <BrowserRouter>

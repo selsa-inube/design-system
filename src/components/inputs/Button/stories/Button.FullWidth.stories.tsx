@@ -5,6 +5,7 @@ import { MdAdd } from "react-icons/md";
 import { StyledFlex } from "./stories.styles";
 
 import {
+  parameters,
   children,
   isLoading,
   appearance,
@@ -22,6 +23,7 @@ import { IButtonProps } from "../interfaces/Button.interface";
 const story = {
   title: "inputs/Button/FullWidth",
   components: [Button],
+  parameters,
   decorators: [
     (Story: React.ElementType) => (
       <BrowserRouter>

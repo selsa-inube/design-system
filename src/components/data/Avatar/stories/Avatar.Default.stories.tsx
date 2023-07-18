@@ -2,11 +2,12 @@ import { ElementType } from "react";
 
 import { Avatar } from "../index";
 
-import { icon } from "./props";
+import { parameters, icon } from "./props";
 
 const story = {
   title: "data/Avatar/Default",
   components: [Avatar],
+  parameters,
   decorators: [
     (Story: ElementType) => (
       <div style={{ margin: "3em" }}>

@@ -1,11 +1,12 @@
 import { Breadcrumbs } from "../index";
 import { BrowserRouter } from "react-router-dom";
-import { route } from "./props";
+import { parameters, route } from "./props";
 import { IBreadcrumbsProps } from "../interfaces/Breadcrumbs.interface";
 
 const story = {
   title: "navigation/Breadcrumbs/Desktop",
   components: [Breadcrumbs],
+  parameters,
   decorators: [
     (Story: React.ElementType) => (
       <div style={{ margin: "3em" }}>

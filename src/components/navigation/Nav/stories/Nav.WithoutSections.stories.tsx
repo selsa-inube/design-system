@@ -11,12 +11,13 @@ import {
 
 import { Nav } from "..";
 
-import { navigation, logoutPath } from "./props";
+import { parameters, navigation, logoutPath } from "./props";
 import { INavProps } from "../interfaces/Nav.interface";
 
 const story = {
   title: "navigation/Nav/WithoutSections",
   components: [Nav],
+  parameters,
   decorators: [
     (Story: React.ElementType) => (
       <div style={{ width: "248px", height: "971px" }}>
@@ -26,9 +27,6 @@ const story = {
       </div>
     ),
   ],
-  parameters: {
-    layout: "fullscreen",
-  },
 };
 
 const WithoutSections = (args: INavProps) => <Nav {...args} />;

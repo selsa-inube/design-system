@@ -1,5 +1,14 @@
 import { sizes } from "../types/User.Size.type";
 
+const parameters = {
+  docs: {
+    description: {
+      component:
+        "Component that allows the user to identify himself and locate himself next to the business unit",
+    },
+  },
+};
+
 const userName = {
   description: "shall be the displayed username",
   table: {
@@ -21,4 +30,4 @@ const size = {
     defaultValue: { summary: "large" },
   },
 };
-export { userName, businessUnit, size };
+export { parameters, userName, businessUnit, size };

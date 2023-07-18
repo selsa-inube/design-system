@@ -1,5 +1,13 @@
 import { types } from "../types/Tabs.type";
 
+const parameters = {
+  docs: {
+    description: {
+      component: "Use to alternate among related views within the same context",
+    },
+  },
+};
+
 const tabs = {
   control: { type: "func" },
   description:
@@ -34,4 +42,4 @@ const type = {
   },
 };
 
-export { tabs, selectedTab, handleSelectedTab, type };
+export { parameters, tabs, selectedTab, handleSelectedTab, type };

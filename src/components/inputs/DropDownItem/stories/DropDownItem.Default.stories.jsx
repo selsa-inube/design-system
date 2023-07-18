@@ -8,7 +8,7 @@ import {
   isDisabled,
   handleClick,
   isSelected,
-  childre,
+  children,
 } from "./props";
 
 const story = {
@@ -30,7 +30,7 @@ Default.argTypes = {
   isDisabled,
   handleClick,
   isSelected,
-  childre,
+  children,
 };
 export default story;
 

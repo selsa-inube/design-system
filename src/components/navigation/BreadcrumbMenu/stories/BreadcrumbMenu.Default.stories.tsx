@@ -1,11 +1,12 @@
 import { BrowserRouter } from "react-router-dom";
 import { BreadcrumbMenu } from "../index";
-import { routes } from "./props";
+import { parameters, routes } from "./props";
 import { IBreadcrumbMenuProps } from "../interfaces/BreadcrumbMenu.interface";
 
 const story = {
   title: "navigation/BreadcrumbMenu/Default",
   components: [BreadcrumbMenu],
+  parameters,
   decorators: [
     (Story: React.ElementType) => (
       <div style={{ margin: "3em" }}>

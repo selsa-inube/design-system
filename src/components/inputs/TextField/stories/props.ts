@@ -5,7 +5,7 @@ import { sizes } from "../types/TextField.Size.type";
 const parameters = {
   docs: {
     description: {
-      components:
+      component:
         "A text field is an input that allows a user to write or edit text",
     },
   },

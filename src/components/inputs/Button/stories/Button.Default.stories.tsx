@@ -4,6 +4,7 @@ import { MdAdd } from "react-icons/md";
 import { Button } from "../index";
 
 import {
+  parameters,
   children,
   isLoading,
   appearance,
@@ -22,6 +23,7 @@ import { IButtonProps } from "../interfaces/Button.interface";
 const story = {
   title: "inputs/Button/Default",
   components: [Button],
+  parameters,
   decorators: [
     (Story: React.ElementType) => (
       <BrowserRouter>

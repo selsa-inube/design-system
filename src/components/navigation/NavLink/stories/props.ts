@@ -1,3 +1,11 @@
+const parameters = {
+  docs: {
+    description: {
+      component: "Buttons that allow the user to navigate within the side menu",
+    },
+  },
+};
+
 const isDisabled = {
   description:
     "shall be determine if the tab is disabled (by Default is false) and is not required.",
@@ -38,4 +46,13 @@ const label = {
     "shall constitute the content to be displayed within the MenuLink-component and is required",
 };
 
-export { isDisabled, isSelected, path, id, handleClick, icon, label };
+export {
+  parameters,
+  isDisabled,
+  isSelected,
+  path,
+  id,
+  handleClick,
+  icon,
+  label,
+};

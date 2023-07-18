@@ -1,6 +1,15 @@
 import { sizes } from "../types/Spinner.Size.type";
 import { appearances } from "../types/Spinner.Appearance.type";
 
+const parameters = {
+  docs: {
+    description: {
+      component:
+        "This component is used to give feedback to the user that the app is currently loading or trying to save some resource.",
+    },
+  },
+};
+
 const size = {
   options: sizes,
   control: { type: "select" },
@@ -28,4 +37,4 @@ const isTransparent = {
   },
 };
 
-export { size, appearance, isTransparent };
+export { parameters, size, appearance, isTransparent };

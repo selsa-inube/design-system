@@ -1,6 +1,15 @@
+const parameters = {
+  docs: {
+    description: {
+      component:
+        "The header is a user interface element within a web page that contains links to other sections of the website.",
+    },
+  },
+};
+
 const navigation = {
   description:
-    "The primary object that will organize and store the requisite paths for the correct operation of the <Nav/> component is forthcoming and is required",
+    "The primary object that will organize and store the requisite paths for the correct operation of the Nav component is forthcoming and is required",
 };
 
 const logo = {
@@ -37,6 +46,7 @@ const isBusinessUnit = {
 };
 
 export {
+  parameters,
   portalId,
   navigation,
   logo,

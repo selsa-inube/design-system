@@ -3,6 +3,15 @@ import { spacings } from "../types/Button.Spacings.type";
 import { types } from "../types/Button.Types.type";
 import { variants } from "../types/Button.Variants.type";
 
+const parameters = {
+  docs: {
+    description: {
+      component:
+        "Button help people take action, such as sending an email, sharing a document, or liking a comment.",
+    },
+  },
+};
+
 const children = {
   control: { type: "text" },
   description: "the text to be displayed",
@@ -62,6 +71,7 @@ const spacing = {
 const variant = {
   options: variants,
   control: { type: "select" },
+  description: "pass type down to a button",
   table: {
     defaultValue: { summary: "filled" },
   },
@@ -86,6 +96,7 @@ const path = {
 };
 
 export {
+  parameters,
   children,
   isLoading,
   appearance,

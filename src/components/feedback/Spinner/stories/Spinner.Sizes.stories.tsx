@@ -5,11 +5,12 @@ import { ISpinnerProps } from "../interfaces/Spinner.interface";
 import { sizes } from "../types/Spinner.Size.type";
 import { StyledFlexBetween } from "./styles";
 
-import { size, appearance, isTransparent } from "./props";
+import { parameters, size, appearance, isTransparent } from "./props";
 
 const story = {
   title: "feedback/Spinner/Sizes",
   component: Spinner,
+  parameters,
   decorators: [
     (Story: ElementType) => (
       <div style={{ margin: "3em" }}>

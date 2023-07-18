@@ -6,6 +6,7 @@ import {
   parameters,
   options,
   handleClick,
+  isOpenOptions,
   onCloseOptions,
   handleSelect,
 } from "./props";
@@ -29,6 +30,7 @@ Default.args = {
 Default.argTypes = {
   options,
   handleClick,
+  isOpenOptions,
   onCloseOptions,
   handleSelect,
 };

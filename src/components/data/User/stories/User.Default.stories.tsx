@@ -1,11 +1,12 @@
 import { User } from "../index";
 import { IUserProps } from "../interfaces/User.interface";
 
-import { userName, businessUnit, size } from "./props";
+import { parameters, userName, businessUnit, size } from "./props";
 
 const story = {
   title: "data/User/Default",
   components: [User],
+  parameters,
   decorators: [
     (Story: React.ElementType) => (
       <div style={{ margin: "3em" }}>

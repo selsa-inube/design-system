@@ -1,11 +1,12 @@
 import { SkeletonIcon } from "../index";
 import { ISkeletonIconProps } from "../interfaces/SkeletonIcon.interface";
 
-import { size, isAnimated } from "./props";
+import { parameters, size, isAnimated } from "./props";
 
 const story = {
   title: "feedback/SkeletonIcon/Default",
   components: [SkeletonIcon],
+  parameters,
   decorators: [
     (Story: React.ElementType) => (
       <div style={{ margin: "3em" }}>

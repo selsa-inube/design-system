@@ -3,11 +3,12 @@ import { IBreadcrumbEllipsisProps } from "../interfaces/BreadcrumbEllipsis.inter
 
 import { BreadcrumbEllipsis } from "../index";
 
-import { routes, typo } from "./props";
+import { parameters, routes, typo } from "./props";
 
 const story = {
   title: "navigation/BreadcrumbEllipsis/Default",
   components: [BreadcrumbEllipsis],
+  parameters,
   decorators: [
     (Story: React.ElementType) => (
       <div style={{ margin: "2em 2em 7em 2em" }}>

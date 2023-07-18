@@ -1,5 +1,14 @@
 import { sizes } from "../types/Switch.Size.type";
 
+const parameters = {
+  docs: {
+    description: {
+      component:
+        "A switch is used to view or switch between enabled or disabled states.",
+    },
+  },
+};
+
 const id = {
   options: ["id"],
   control: { type: "select" },
@@ -76,6 +85,7 @@ const padding = {
   },
 };
 export {
+  parameters,
   id,
   isDisabled,
   name,
