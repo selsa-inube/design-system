@@ -4,7 +4,7 @@ import { states } from "../types/Select.States.type";
 const parameters = {
   docs: {
     description: {
-      components:
+      component:
         "Select allows users to make a single selection or multiple selections from a list of options.",
     },
   },

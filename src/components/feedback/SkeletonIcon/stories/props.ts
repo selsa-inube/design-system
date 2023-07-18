@@ -1,3 +1,12 @@
+const parameters = {
+  docs: {
+    description: {
+      component:
+        "Skeleton icon is used to provide a low fidelity representation of content before it appears on the page, and improves load times perceived by users.",
+    },
+  },
+};
+
 const size = {
   control: { type: "text" },
   description: "sets the size of the skeleton icon component",
@@ -16,4 +25,4 @@ const isAnimated = {
   },
 };
 
-export { size, isAnimated };
+export { parameters, size, isAnimated };

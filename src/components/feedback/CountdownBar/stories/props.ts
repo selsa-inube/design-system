@@ -1,5 +1,14 @@
 import { appearances as colors } from "../index";
 
+const parameters = {
+  docs: {
+    description: {
+      component:
+        "A countdown bar graphically communicates to the user a countdown",
+    },
+  },
+};
+
 const size = {
   control: { type: "text" },
   description:
@@ -38,4 +47,4 @@ const handleCountdown = {
   description: "function to be executed when the progress bar reaches zero",
 };
 
-export { size, appearance, duration, isPaused, handleCountdown };
+export { parameters, size, appearance, duration, isPaused, handleCountdown };

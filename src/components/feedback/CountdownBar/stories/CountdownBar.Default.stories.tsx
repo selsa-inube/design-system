@@ -1,11 +1,19 @@
 import { CountdownBar } from "../index";
 
-import { size, appearance, duration, isPaused, handleCountdown } from "./props";
+import {
+  parameters,
+  size,
+  appearance,
+  duration,
+  isPaused,
+  handleCountdown,
+} from "./props";
 import { ICountdownBarProps } from "../interfaces/CountdownBar.interface";
 
 const story = {
   title: "feedback/CountdownBar/Default",
   components: [CountdownBar],
+  parameters,
   decorators: [
     (Story: React.ElementType) => (
       <div style={{ margin: "3em" }}>

@@ -3,6 +3,7 @@ import { Switch } from "..";
 import { SwitchController } from "./SwitchController";
 
 import {
+  parameters,
   id,
   isDisabled,
   name,
@@ -17,6 +18,7 @@ import {
 const story = {
   title: "inputs/Switch/Default",
   components: [Switch],
+  parameters,
   decorators: [
     (Story: React.ElementType) => (
       <div style={{ margin: "3em" }}>

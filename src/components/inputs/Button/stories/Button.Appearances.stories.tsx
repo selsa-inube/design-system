@@ -1,14 +1,18 @@
-import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import { MdAdd } from "react-icons/md";
+
+import { IButtonProps } from "../interfaces/Button.interface";
+import { appearances } from "../types/Button.Appearances.type";
 
 import { Button } from "../index";
 import { StyledFlex } from "./stories.styles";
 
 import {
+  parameters,
   children,
   isLoading,
   isDisabled,
+  iconBefore,
   iconAfter,
   type,
   spacing,
@@ -17,12 +21,11 @@ import {
   handleClick,
   path,
 } from "./props";
-import { IButtonProps } from "../interfaces/Button.interface";
-import { appearances } from "../types/Button.Appearances.type";
 
 const story = {
   title: "inputs/Button/Appearances",
   components: [Button],
+  parameters,
   decorators: [
     (Story: React.ElementType) => (
       <BrowserRouter>
@@ -72,6 +75,7 @@ Appearances.argTypes = {
   isFullWidth,
   handleClick,
   path,
+  iconBefore,
 };
 
 export default story;

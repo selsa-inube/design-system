@@ -1,5 +1,14 @@
 import { typos } from "../types/BreadcrumbMenuLink.typos.type";
 
+const parameters = {
+  docs: {
+    description: {
+      component:
+        "Breadcrumbs are a navigation system used to show a user's location in a site or app.",
+    },
+  },
+};
+
 const id = {
   control: { type: "text" },
   description: "shall be the id for the text",
@@ -18,4 +27,4 @@ const path = {
   description: "is the path where the BreadcrumbLink is going to navigate",
 };
 
-export { id, label, typo, path };
+export { parameters, id, label, typo, path };

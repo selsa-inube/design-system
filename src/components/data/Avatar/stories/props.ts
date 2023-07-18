@@ -1,3 +1,11 @@
+const parameters = {
+  docs: {
+    description: {
+      component: "An avatar is a visual representation of a user or entity.",
+    },
+  },
+};
+
 const icon = {
   description: "icon that will be displayed inside of avatar-component",
   table: {
@@ -5,4 +13,4 @@ const icon = {
   },
 };
 
-export { icon };
+export { parameters, icon };

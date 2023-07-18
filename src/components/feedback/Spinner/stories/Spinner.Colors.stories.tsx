@@ -5,11 +5,12 @@ import { ISpinnerProps } from "../interfaces/Spinner.interface";
 import { appearances } from "../types/Spinner.Appearance.type";
 import { StyledFlex } from "./styles";
 
-import { size, isTransparent } from "./props";
+import { parameters, size, isTransparent } from "./props";
 
 const story = {
   title: "feedback/Spinner/Colors",
   component: Spinner,
+  parameters,
   decorators: [
     (Story: ElementType) => (
       <div style={{ margin: "3em" }}>

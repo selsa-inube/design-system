@@ -1,7 +1,7 @@
 const parameters = {
   docs: {
     description: {
-      components:
+      component:
         "Select allows users to make a single selection or multiple selections from a list of options.",
     },
   },
@@ -33,8 +33,8 @@ const isSelected = {
   },
 };
 
-const childre = {
+const children = {
   description: "The content of the component.",
 };
 
-export { parameters, id, isDisabled, handleClick, isSelected, childre };
+export { parameters, id, isDisabled, handleClick, isSelected, children };

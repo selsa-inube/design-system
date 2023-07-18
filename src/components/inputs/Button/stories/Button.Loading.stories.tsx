@@ -4,6 +4,7 @@ import { Button } from "../index";
 import { StyledFlex } from "./stories.styles";
 
 import {
+  parameters,
   appearance,
   isDisabled,
   type,
@@ -18,6 +19,7 @@ import { variants } from "../types/Button.Variants.type";
 const story = {
   title: "inputs/Button/Loading",
   components: [Button],
+  parameters,
   decorators: [
     (Story: React.ElementType) => (
       <BrowserRouter>

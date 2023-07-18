@@ -1,5 +1,5 @@
 const parameters = {
-  doc: {
+  docs: {
     description: {
       component:
         "A versatile side navigation component, which allows you to nest links, from a full screen perspective",
