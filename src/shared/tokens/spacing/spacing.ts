@@ -1,4 +1,4 @@
-const Spacing = {
+const spacing = {
   s0: "0px",
   s025: "2px",
   s050: "4px",
@@ -17,4 +17,4 @@ const Spacing = {
   s1000: "80px",
 };
 
-export { Spacing };
+export { spacing };

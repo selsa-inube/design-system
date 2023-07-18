@@ -36,4 +36,4 @@ export { Tabs } from "./components/navigation/Tabs";
 export { Blanket } from "./components/utils/Blanket";
 
 //tokens
-export { Inube } from "./shared/tokens/index";
+export { inube } from "./shared/tokens/index";

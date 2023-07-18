@@ -1,4 +1,4 @@
-const Title = {
+const title = {
   large: {
     font: "Roboto",
     lineHeight: "28px",
@@ -22,4 +22,4 @@ const Title = {
   },
 };
 
-export { Title };
+export { title };

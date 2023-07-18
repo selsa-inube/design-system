@@ -1,11 +1,11 @@
-import { Color } from "./color/color";
-import { Spacing } from "./spacing/spacing";
-import { Typography } from "./typography/typography";
+import { color } from "./color/color";
+import { spacing } from "./spacing/spacing";
+import { typography } from "./typography/typography";
 
-const Inube = {
-  Color,
-  Spacing,
-  Typography,
+const inube = {
+  color,
+  spacing,
+  typography,
 };
 
-export { Inube };
+export { inube };

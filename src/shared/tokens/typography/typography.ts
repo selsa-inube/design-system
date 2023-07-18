@@ -1,15 +1,15 @@
-import { Body } from "./blocks/Body";
-import { Display } from "./blocks/Display";
-import { Headline } from "./blocks/Headline";
-import { Label } from "./blocks/Label";
-import { Title } from "./blocks/Title";
+import { body } from "./blocks/body";
+import { display } from "./blocks/display";
+import { headline } from "./blocks/headline";
+import { label } from "./blocks/label";
+import { title } from "./blocks/title";
 
-const Typography = {
-  Display,
-  Headline,
-  Title,
-  Label,
-  Body,
+const typography = {
+  display,
+  headline,
+  title,
+  label,
+  body,
 };
 
-export { Typography };
+export { typography };
