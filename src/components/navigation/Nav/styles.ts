@@ -3,7 +3,7 @@ import { colors } from "../../../shared/colors/colors";
 
 const StyledNav = styled.div`
   box-sizing: border-box;
-  width: 100%;
+  width: 248px;
   height: 100%;
   display: flex;
   flex-direction: column;

@@ -20,7 +20,7 @@ const story = {
   parameters,
   decorators: [
     (Story: React.ElementType) => (
-      <div style={{ width: "248px", height: "971px" }}>
+      <div style={{ height: "971px" }}>
         <BrowserRouter>
           <Story />
         </BrowserRouter>
