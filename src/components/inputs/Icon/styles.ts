@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 import { inube } from "../../../shared/tokens";
-import { IIconProps } from "./interfaces/Icon.interface";
 
 const filledAppearancesWithGrayIcon = ["gray", "light"];
 
@@ -54,7 +53,8 @@ const StyledIcon = styled.figure`
       if (parentHover) {
         return (
           theme.color?.surface?.[appearance]?.hover ||
-          inube.color.surface[appearance].hover
+          inube.color.surface[appearance as keyof typeof inube.color.surface]
+            .hover
         );
       }
 
@@ -142,7 +142,9 @@ const StyledIcon = styled.figure`
           if (cursorHover) {
             return (
               theme.color?.surface?.[appearance]?.hover ||
-              inube.color.surface[appearance].hover
+              inube.color.surface[
+                appearance as keyof typeof inube.color.surface
+              ].hover
             );
           }
         }
