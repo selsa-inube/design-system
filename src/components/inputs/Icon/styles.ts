@@ -101,6 +101,21 @@ const StyledIcon = styled.figure`
       inube.color.text &&
       Object.getOwnPropertyDescriptor(inube.color.text, appearance);
 
+    const themeColorDisable =
+      theme.color &&
+      theme.color.surface &&
+      Object.getOwnPropertyDescriptor(theme.color.surface, appearance);
+    const inubeColorDisable =
+      inube.color &&
+      inube.color.surface &&
+      Object.getOwnPropertyDescriptor(inube.color.surface, appearance);
+
+    if (isDisabled && variant === "filled") {
+      return (
+        themeColorDisable?.value?.disabled || inubeColorDisable?.value?.disabled
+      );
+    }
+
     if (variant !== "filled") {
       return (
         theme?.color?.palette?.neutralAlpha?.N0A ||
@@ -110,8 +125,8 @@ const StyledIcon = styled.figure`
 
     if (isDisabled) {
       return (
-        themeColorDescriptor?.value?.disabled ||
-        inubeColorDescriptor?.value?.disabled
+        theme?.color?.palette?.neutralAlpha?.N0A ||
+        inube.color.palette.neutralAlpha.N0A
       );
     }
 
