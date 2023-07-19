@@ -1,4 +1,4 @@
-import { appearances } from "../../Button/types/Button.Appearances.type";
+import { appearances } from "../types/Icon.Appearance.type";
 import { shapes } from "../types/Icon.Shape.type";
 import { spacings } from "../types/Icon.Spacing.type";
 import { variants } from "../types/Icon.Variant.type";

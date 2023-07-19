@@ -3,14 +3,15 @@ import { StyledIcon } from "./styles";
 
 const Icon = (props: IIconProps) => {
   const {
-    appearance = "black",
+    appearance = "primary",
     cursorHover = false,
     parentHover = false,
     children,
     isDisabled = false,
     spacing = "wide",
     variant = "filled",
-    shape = "circle",
+    shape = "square",
+    size = "small",
     handleClick,
   } = props;
 
@@ -23,6 +24,7 @@ const Icon = (props: IIconProps) => {
       spacing={spacing}
       variant={variant}
       shape={shape}
+      size={size}
       onClick={handleClick}
     >
       {children}
