@@ -1,4 +1,4 @@
-import { alignOptions } from "../types/Text.AlignOptions.type";
+import { textAlignOptions } from "../types/Text.AlignOptions.type";
 import { htmlElements } from "../types/Text.HtmlElements.type";
 import { typosOptions } from "../types/Text.TyposOptions.type";
 import { appearancesOptions } from "../types/Text.AppearancesOptions.type";
@@ -12,8 +12,8 @@ const parameters = {
   },
 };
 
-const align = {
-  options: alignOptions,
+const textAlign = {
+  options: textAlignOptions,
   control: { type: "select" },
   description: "This prop controls the text-align style property.",
   table: {
@@ -79,7 +79,7 @@ const children = {
 
 export {
   parameters,
-  align,
+  textAlign,
   margin,
   padding,
   as,

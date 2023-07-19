@@ -8,7 +8,7 @@ import {
   children,
   id,
   as,
-  align,
+  textAlign,
   margin,
   padding,
   appearance,
@@ -24,7 +24,7 @@ const story = {
 
 const TypoRoleProperties = ({
   typo,
-  align,
+  textAlign,
   appearance,
   margin,
   padding,
@@ -34,7 +34,7 @@ const TypoRoleProperties = ({
     color: `${(colors.sys.text as Record<string, string>)[appearance!]}`,
     margin: `${margin}`,
     padding: `${padding}`,
-    "text-align": `${align}`,
+    "text-align": `${textAlign}`,
     "font-size": `${
       (typography.sys.typescale as Record<string, any>)[typo!].size
     }`,
@@ -73,7 +73,7 @@ const Title = (args: ITextProps) => {
         <TypoRoleProperties
           typo={args.typo}
           appearance={args.appearance}
-          align={args.align}
+          textAlign={args.textAlign}
           margin={args.margin}
           padding={args.padding}
         />
@@ -98,7 +98,7 @@ Title.argTypes = {
   margin,
   padding,
   as,
-  align,
+  textAlign,
   appearance,
   typo,
 };

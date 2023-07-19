@@ -5,11 +5,10 @@ import { TyposOptions } from "../types/Text.TyposOptions.type";
 
 export interface ITextProps {
   children?: React.ReactNode;
-  align?: AlignOptions;
+  textAlign?: AlignOptions;
   margin?: string;
   padding?: string;
   as?: HtmlElements;
-  id?: string;
   appearance?: AppearancesOptions;
   typo?: TyposOptions;
 }
