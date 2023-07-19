@@ -6,6 +6,7 @@ const StyledIcon = styled.figure`
   display: inline-block;
   cursor: ${(props: IIconProps) => (props.cursorHover ? "pointer" : "default")};
 
+  margin: 0px;
   pointer-events: ${(props: IIconProps) =>
     props.isDisabled ? "none" : "auto"};
 
@@ -34,7 +35,8 @@ const StyledIcon = styled.figure`
 
     if (variant !== "outlined") {
       return (
-        theme?.color?.text?.light?.regular || inube.color.text.light.regular
+        theme?.color?.palette?.neutralAlpha?.N0A ||
+        inube.color.palette.neutralAlpha.N0A
       );
     }
 
@@ -71,7 +73,8 @@ const StyledIcon = styled.figure`
 
     if (variant === "filled") {
       return (
-        theme?.color?.text?.light?.regular || inube.color.text.light.regular
+        theme?.color?.palette?.neutralAlpha?.N0A ||
+        inube.color.palette.neutralAlpha.N0A
       );
     }
 
@@ -100,7 +103,8 @@ const StyledIcon = styled.figure`
 
     if (variant !== "filled") {
       return (
-        theme?.color?.text?.light?.regular || inube.color.text.light.regular
+        theme?.color?.palette?.neutralAlpha?.N0A ||
+        inube.color.palette.neutralAlpha.N0A
       );
     }
 
@@ -118,9 +122,7 @@ const StyledIcon = styled.figure`
   }};
 
   &:hover {
-    color: ${({ theme, isDisabled, variant, appearance, cursorHover }: any) => {
-      if (!cursorHover) return;
-      const colorKey = "hover";
+    color: ${({ theme, isDisabled, variant, appearance }: any) => {
       const themeColorDescriptor =
         theme.color &&
         theme.color.text &&
@@ -139,25 +141,17 @@ const StyledIcon = styled.figure`
 
       if (variant === "filled") {
         return (
-          theme?.color?.text?.light?.regular || inube.color.text.light.regular
+          theme?.color?.palette?.neutralAlpha?.N0A ||
+          inube.color.palette.neutralAlpha.N0A
         );
       }
 
       return (
-        themeColorDescriptor?.value?.[colorKey] ||
-        inubeColorDescriptor?.value?.[colorKey]
+        themeColorDescriptor?.value?.hover || inubeColorDescriptor?.value?.hover
       );
     }};
 
-    background-color: ${({
-      theme,
-      isDisabled,
-      variant,
-      appearance,
-      cursorHover,
-    }: any) => {
-      if (!cursorHover) return;
-      const colorKey = "hover";
+    background-color: ${({ theme, isDisabled, variant, appearance }: any) => {
       const themeColorDescriptor =
         theme.color &&
         theme.color.text &&
@@ -169,7 +163,8 @@ const StyledIcon = styled.figure`
 
       if (variant !== "filled") {
         return (
-          theme?.color?.text?.light?.regular || inube.color.text.light.regular
+          theme?.color?.palette?.neutralAlpha?.N0A ||
+          inube.color.palette.neutralAlpha.N0A
         );
       }
 
@@ -181,20 +176,11 @@ const StyledIcon = styled.figure`
       }
 
       return (
-        themeColorDescriptor?.value?.[colorKey] ||
-        inubeColorDescriptor?.value?.[colorKey]
+        themeColorDescriptor?.value?.hover || inubeColorDescriptor?.value?.hover
       );
     }};
 
-    border-color: ${({
-      theme,
-      isDisabled,
-      variant,
-      appearance,
-      cursorHover,
-    }: any) => {
-      if (!cursorHover) return;
-      const colorKey = "hover";
+    border-color: ${({ theme, isDisabled, variant, appearance }: any) => {
       const themeColorDescriptor =
         theme.color &&
         theme.color.text &&
@@ -206,7 +192,8 @@ const StyledIcon = styled.figure`
 
       if (variant !== "outlined") {
         return (
-          theme?.color?.text?.light?.regular || inube.color.text.light.regular
+          theme?.color?.palette?.neutralAlpha?.N0A ||
+          inube.color.palette.neutralAlpha.N0A
         );
       }
 
@@ -218,8 +205,7 @@ const StyledIcon = styled.figure`
       }
 
       return (
-        themeColorDescriptor?.value?.[colorKey] ||
-        inubeColorDescriptor?.value?.[colorKey]
+        themeColorDescriptor?.value?.hover || inubeColorDescriptor?.value?.hover
       );
     }};
   }
@@ -239,26 +225,26 @@ const StyledIcon = styled.figure`
 
     width: ${({ size }: any) => {
       if (size === "large") {
-        return "40px";
-      }
-
-      if (size === "medium") {
         return "32px";
       }
 
-      return "24px";
+      if (size === "medium") {
+        return "24px";
+      }
+
+      return "20px";
     }};
 
     height: ${({ size }: any) => {
       if (size === "large") {
-        return "40px";
-      }
-
-      if (size === "medium") {
         return "32px";
       }
 
-      return "24px";
+      if (size === "medium") {
+        return "24px";
+      }
+
+      return "20px";
     }};
   }
 `;
