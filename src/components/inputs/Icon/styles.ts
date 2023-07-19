@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 import { inube } from "../../../shared/tokens";
+import { IIconProps } from "./interfaces/Icon.interface";
 
 const filledAppearancesWithGrayIcon = ["gray", "light"];
 
@@ -17,20 +18,20 @@ const StyledIcon = styled.figure`
     if (isDisabled) {
       return (
         theme.color?.stroke?.[appearance]?.disabled ||
-        inube.color.stroke[appearance].disabled
+        inube.color.stroke[appearance as keyof typeof inube.color.text].disabled
       );
     }
 
     if (parentHover) {
       return (
         theme.color?.stroke?.[appearance]?.hover ||
-        inube.color.stroke[appearance].hover
+        inube.color.stroke[appearance as keyof typeof inube.color.text].hover
       );
     }
 
     return (
       theme.color?.stroke?.[appearance]?.regular ||
-      inube.color.stroke[appearance].regular
+      inube.color.stroke[appearance as keyof typeof inube.color.text].regular
     );
   }};
 
@@ -45,7 +46,8 @@ const StyledIcon = styled.figure`
       if (isDisabled) {
         return (
           theme.color?.surface?.[appearance]?.disabled ||
-          inube.color.surface[appearance].disabled
+          inube.color.surface[appearance as keyof typeof inube.color.surface]
+            .disabled
         );
       }
 
@@ -58,7 +60,8 @@ const StyledIcon = styled.figure`
 
       return (
         theme.color?.surface?.[appearance]?.regular ||
-        inube.color.surface[appearance].regular
+        inube.color.surface[appearance as keyof typeof inube.color.surface]
+          .regular
       );
     }
   }};
@@ -82,13 +85,13 @@ const StyledIcon = styled.figure`
     if (parentHover) {
       return (
         theme.color?.text?.[appearance]?.hover ||
-        inube.color.text[appearance].hover
+        inube.color.text[appearance as keyof typeof inube.color.text].hover
       );
     }
 
     return (
       theme.color?.text?.[appearance]?.regular ||
-      inube.color.text[appearance].regular
+      inube.color.text[appearance as keyof typeof inube.color.text].regular
     );
   }};
 
@@ -121,7 +124,7 @@ const StyledIcon = styled.figure`
         if (cursorHover) {
           return (
             theme.color?.text?.[appearance]?.hover ||
-            inube.color.text[appearance].hover
+            inube.color.text[appearance as keyof typeof inube.color.text].hover
           );
         }
       }
@@ -163,7 +166,8 @@ const StyledIcon = styled.figure`
           } else {
             return (
               theme.color?.text?.[appearance]?.hover ||
-              inube.color.text[appearance].hover
+              inube.color.text[appearance as keyof typeof inube.color.text]
+                .hover
             );
           }
         }
