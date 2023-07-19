@@ -9,9 +9,9 @@ const Icon = (props: IIconProps) => {
     children,
     isDisabled = false,
     spacing = "wide",
-    variant = "filled",
-    shape = "square",
-    size = "small",
+    variant,
+    shape = "rectangle",
+    size = "24px",
     handleClick,
   } = props;
 

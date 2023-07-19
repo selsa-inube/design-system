@@ -1,2 +1,2 @@
-export const shapes = ["circle", "square"] as const;
+export const shapes = ["circle", "rectangle"] as const;
 export type Shape = typeof shapes[number];

@@ -25,7 +25,6 @@ export const Default = (args: IIconProps) => <Icon {...args} />;
 
 Default.args = {
   appearance: "primary",
-  size: "small",
   children: <MdAdb />,
   handleClick: () => console.log("clicked from Icon-story"),
 };

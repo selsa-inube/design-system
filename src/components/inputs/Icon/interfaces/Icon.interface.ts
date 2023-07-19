@@ -11,6 +11,6 @@ export interface IIconProps {
   spacing?: Spacing;
   variant?: Variant;
   shape?: Shape;
-  size?: Spacing;
+  size?: string;
   handleClick?: () => void;
 }

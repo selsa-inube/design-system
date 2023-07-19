@@ -1,265 +1,173 @@
 import styled from "styled-components";
-import { IIconProps } from "./interfaces/Icon.interface";
+
 import { inube } from "../../../shared/tokens";
+
+const filledAppearancesWithGrayIcon = ["gray", "light"];
 
 const StyledIcon = styled.figure`
   display: inline-block;
-  cursor: ${(props: IIconProps) => (props.cursorHover ? "pointer" : "default")};
+  padding: 0;
+  margin: 0;
 
-  margin: 0px;
-  pointer-events: ${(props: IIconProps) =>
-    props.isDisabled ? "none" : "auto"};
-
-  border-style: ${(props: IIconProps) =>
-    props.variant === "filled" ? "none" : "solid"};
-  border-width: 2px;
-  border-radius: ${(props: IIconProps) =>
-    props.shape === "circle" ? "50%" : "5px"};
-
-  border-color: ${({
-    theme,
-    isDisabled,
-    variant,
-    appearance,
-    cursorHover,
-  }: any) => {
-    const colorKey = cursorHover ? "hover" : "regular";
-    const themeColorDescriptor =
-      theme.color &&
-      theme.color.text &&
-      Object.getOwnPropertyDescriptor(theme.color.text, appearance);
-    const inubeColorDescriptor =
-      inube.color &&
-      inube.color.text &&
-      Object.getOwnPropertyDescriptor(inube.color.text, appearance);
-
-    if (variant !== "outlined") {
+  border-radius: ${({ shape }: any) => (shape === "circle" ? "50%" : "8px")};
+  border-width: ${({ variant }: any) =>
+    variant === "outlined" ? "1px" : "0px"};
+  border-style: solid;
+  border-color: ${({ theme, appearance, parentHover, isDisabled }: any) => {
+    if (isDisabled) {
       return (
-        theme?.color?.palette?.neutralAlpha?.N0A ||
-        inube.color.palette.neutralAlpha.N0A
+        theme.color?.stroke?.[appearance]?.disabled ||
+        inube.color.stroke[appearance].disabled
       );
     }
 
-    if (isDisabled) {
+    if (parentHover) {
       return (
-        themeColorDescriptor?.value?.disabled ||
-        inubeColorDescriptor?.value?.disabled
+        theme.color?.stroke?.[appearance]?.hover ||
+        inube.color.stroke[appearance].hover
       );
     }
 
     return (
-      themeColorDescriptor?.value?.[colorKey] ||
-      inubeColorDescriptor?.value?.[colorKey]
-    );
-  }};
-
-  color: ${({ theme, isDisabled, variant, appearance, cursorHover }: any) => {
-    const colorKey = cursorHover ? "hover" : "regular";
-    const themeColorDescriptor =
-      theme.color &&
-      theme.color.text &&
-      Object.getOwnPropertyDescriptor(theme.color.text, appearance);
-    const inubeColorDescriptor =
-      inube.color &&
-      inube.color.text &&
-      Object.getOwnPropertyDescriptor(inube.color.text, appearance);
-
-    if (isDisabled) {
-      return (
-        themeColorDescriptor?.value?.disabled ||
-        inubeColorDescriptor?.value?.disabled
-      );
-    }
-
-    if (variant === "filled") {
-      return (
-        theme?.color?.palette?.neutralAlpha?.N0A ||
-        inube.color.palette.neutralAlpha.N0A
-      );
-    }
-
-    return (
-      themeColorDescriptor?.value?.[colorKey] ||
-      inubeColorDescriptor?.value?.[colorKey]
+      theme.color?.stroke?.[appearance]?.regular ||
+      inube.color.stroke[appearance].regular
     );
   }};
 
   background-color: ${({
     theme,
-    isDisabled,
     variant,
     appearance,
-    cursorHover,
+    parentHover,
+    isDisabled,
   }: any) => {
-    const colorKey = cursorHover ? "hover" : "regular";
-    const themeColorDescriptor =
-      theme.color &&
-      theme.color.text &&
-      Object.getOwnPropertyDescriptor(theme.color.text, appearance);
-    const inubeColorDescriptor =
-      inube.color &&
-      inube.color.text &&
-      Object.getOwnPropertyDescriptor(inube.color.text, appearance);
+    if (variant === "filled") {
+      if (isDisabled) {
+        return (
+          theme.color?.surface?.[appearance]?.disabled ||
+          inube.color.surface[appearance].disabled
+        );
+      }
 
-    const themeColorDisable =
-      theme.color &&
-      theme.color.surface &&
-      Object.getOwnPropertyDescriptor(theme.color.surface, appearance);
-    const inubeColorDisable =
-      inube.color &&
-      inube.color.surface &&
-      Object.getOwnPropertyDescriptor(inube.color.surface, appearance);
+      if (parentHover) {
+        return (
+          theme.color?.surface?.[appearance]?.hover ||
+          inube.color.surface[appearance].hover
+        );
+      }
 
-    if (isDisabled && variant === "filled") {
       return (
-        themeColorDisable?.value?.disabled || inubeColorDisable?.value?.disabled
+        theme.color?.surface?.[appearance]?.regular ||
+        inube.color.surface[appearance].regular
       );
     }
+  }};
 
-    if (variant !== "filled") {
-      return (
-        theme?.color?.palette?.neutralAlpha?.N0A ||
-        inube.color.palette.neutralAlpha.N0A
-      );
-    }
-
+  color: ${({ theme, variant, appearance, parentHover, isDisabled }: any) => {
     if (isDisabled) {
       return (
-        theme?.color?.palette?.neutralAlpha?.N0A ||
-        inube.color.palette.neutralAlpha.N0A
+        theme.color?.text?.light?.disabled || inube.color.text.light.disabled
+      );
+    }
+
+    if (variant === "filled") {
+      if (!filledAppearancesWithGrayIcon.includes(appearance)) {
+        return (
+          theme.color?.text?.light?.regular || inube.color.text.light.regular
+        );
+      }
+      return theme.color?.text?.gray?.regular || inube.color.text.gray.regular;
+    }
+
+    if (parentHover) {
+      return (
+        theme.color?.text?.[appearance]?.hover ||
+        inube.color.text[appearance].hover
       );
     }
 
     return (
-      themeColorDescriptor?.value?.[colorKey] ||
-      inubeColorDescriptor?.value?.[colorKey]
+      theme.color?.text?.[appearance]?.regular ||
+      inube.color.text[appearance].regular
     );
   }};
 
-  &:hover {
-    color: ${({ theme, isDisabled, variant, appearance }: any) => {
-      const themeColorDescriptor =
-        theme.color &&
-        theme.color.text &&
-        Object.getOwnPropertyDescriptor(theme.color.text, appearance);
-      const inubeColorDescriptor =
-        inube.color &&
-        inube.color.text &&
-        Object.getOwnPropertyDescriptor(inube.color.text, appearance);
-
-      if (isDisabled) {
-        return (
-          themeColorDescriptor?.value?.disabled ||
-          inubeColorDescriptor?.value?.disabled
-        );
-      }
-
-      if (variant === "filled") {
-        return (
-          theme?.color?.palette?.neutralAlpha?.N0A ||
-          inube.color.palette.neutralAlpha.N0A
-        );
-      }
-
-      return (
-        themeColorDescriptor?.value?.hover || inubeColorDescriptor?.value?.hover
-      );
-    }};
-
-    background-color: ${({ theme, isDisabled, variant, appearance }: any) => {
-      const themeColorDescriptor =
-        theme.color &&
-        theme.color.text &&
-        Object.getOwnPropertyDescriptor(theme.color.text, appearance);
-      const inubeColorDescriptor =
-        inube.color &&
-        inube.color.text &&
-        Object.getOwnPropertyDescriptor(inube.color.text, appearance);
-
-      if (variant !== "filled") {
-        return (
-          theme?.color?.palette?.neutralAlpha?.N0A ||
-          inube.color.palette.neutralAlpha.N0A
-        );
-      }
-
-      if (isDisabled) {
-        return (
-          themeColorDescriptor?.value?.disabled ||
-          inubeColorDescriptor?.value?.disabled
-        );
-      }
-
-      return (
-        themeColorDescriptor?.value?.hover || inubeColorDescriptor?.value?.hover
-      );
-    }};
-
-    border-color: ${({ theme, isDisabled, variant, appearance }: any) => {
-      const themeColorDescriptor =
-        theme.color &&
-        theme.color.text &&
-        Object.getOwnPropertyDescriptor(theme.color.text, appearance);
-      const inubeColorDescriptor =
-        inube.color &&
-        inube.color.text &&
-        Object.getOwnPropertyDescriptor(inube.color.text, appearance);
-
-      if (variant !== "outlined") {
-        return (
-          theme?.color?.palette?.neutralAlpha?.N0A ||
-          inube.color.palette.neutralAlpha.N0A
-        );
-      }
-
-      if (isDisabled) {
-        return (
-          themeColorDescriptor?.value?.disabled ||
-          inubeColorDescriptor?.value?.disabled
-        );
-      }
-
-      return (
-        themeColorDescriptor?.value?.hover || inubeColorDescriptor?.value?.hover
-      );
-    }};
-  }
-
-  & > svg {
-    padding: ${({ spacing }: IIconProps) => {
+  & svg {
+    display: block;
+    width: ${({ size }: any) => size};
+    height: ${({ size }: any) => size};
+    padding: ${({ spacing }: any) => {
       if (spacing === "wide") {
         return inube.spacing.s100;
       }
-
       if (spacing === "compact") {
         return inube.spacing.s050;
       }
-
       return inube.spacing.s025;
     }};
+  }
 
-    width: ${({ size }: any) => {
-      if (size === "large") {
-        return "32px";
+  &:hover {
+    cursor: ${({ cursorHover, isDisabled }: any) => {
+      if (!isDisabled) {
+        if (cursorHover) {
+          return "pointer";
+        }
       }
-
-      if (size === "medium") {
-        return "24px";
-      }
-
-      return "20px";
     }};
 
-    height: ${({ size }: any) => {
-      if (size === "large") {
-        return "32px";
+    border-color: ${({ theme, cursorHover, appearance, isDisabled }: any) => {
+      if (!isDisabled) {
+        if (cursorHover) {
+          return (
+            theme.color?.text?.[appearance]?.hover ||
+            inube.color.text[appearance].hover
+          );
+        }
       }
+    }};
 
-      if (size === "medium") {
-        return "24px";
+    background-color: ${({
+      theme,
+      variant,
+      appearance,
+      cursorHover,
+      isDisabled,
+    }: any) => {
+      if (!isDisabled) {
+        if (variant === "filled") {
+          if (cursorHover) {
+            return (
+              theme.color?.surface?.[appearance]?.hover ||
+              inube.color.surface[appearance].hover
+            );
+          }
+        }
       }
+    }};
+  }
 
-      return "20px";
+  &:hover svg {
+    color: ${({ theme, cursorHover, variant, appearance, isDisabled }: any) => {
+      if (!isDisabled) {
+        if (cursorHover) {
+          if (variant === "filled") {
+            if (!filledAppearancesWithGrayIcon.includes(appearance)) {
+              return (
+                theme.color?.text?.light?.hover || inube.color.text.light.hover
+              );
+            }
+            return (
+              theme.color?.text?.gray?.hover || inube.color.text.gray.hover
+            );
+          } else {
+            return (
+              theme.color?.text?.[appearance]?.hover ||
+              inube.color.text[appearance].hover
+            );
+          }
+        }
+      }
     }};
   }
 `;

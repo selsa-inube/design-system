@@ -1,6 +1,5 @@
 import { appearances } from "../types/Icon.Appearance.type";
 import { shapes } from "../types/Icon.Shape.type";
-import { sizes } from "../types/Icon.Size.type";
 import { spacings } from "../types/Icon.Spacing.type";
 import { variants } from "../types/Icon.Variant.type";
 
@@ -87,8 +86,7 @@ const handleClick = {
 };
 
 const size = {
-  options: sizes,
-  control: { type: "select" },
+  control: { type: "text" },
   description: "size of the icon in pixels",
 };
 
