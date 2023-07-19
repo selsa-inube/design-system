@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { inube } from "../../../shared/tokens";
 
 const filledAppearancesWithGrayIcon = ["gray", "light"];
+const homologationColorSurfaceTokens: any = inube.color.surface;
 
 const StyledIcon = styled.figure`
   display: inline-block;
@@ -45,16 +46,14 @@ const StyledIcon = styled.figure`
       if (isDisabled) {
         return (
           theme.color?.surface?.[appearance]?.disabled ||
-          inube.color.surface[appearance as keyof typeof inube.color.surface]
-            .disabled
+          homologationColorSurfaceTokens[appearance].disabled
         );
       }
 
       if (parentHover) {
         return (
           theme.color?.surface?.[appearance]?.hover ||
-          inube.color.surface[appearance as keyof typeof inube.color.surface]
-            .hover
+          homologationColorSurfaceTokens[appearance].hover
         );
       }
 
@@ -142,15 +141,12 @@ const StyledIcon = styled.figure`
           if (cursorHover) {
             return (
               theme.color?.surface?.[appearance]?.hover ||
-              inube.color.surface[
-                appearance as keyof typeof inube.color.surface
-              ].hover
+              homologationColorSurfaceTokens[appearance].hover
             );
           }
         }
       }
     }};
-  }
 
   &:hover svg {
     color: ${({ theme, cursorHover, variant, appearance, isDisabled }: any) => {
