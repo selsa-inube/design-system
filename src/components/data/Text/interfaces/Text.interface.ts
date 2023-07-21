@@ -14,7 +14,7 @@ export interface ITextProps {
   isDisabled?: boolean;
   type?: TyposOptions;
   size?: SizesOptions;
-  cursorHover: boolean;
+  cursorHover?: boolean;
   parentHover?: boolean;
   ellipsis?: boolean;
 }
