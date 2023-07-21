@@ -64,7 +64,7 @@ const OneSection = ({ navigation }: IMenuSectionsProps) => {
 };
 
 const FullscreenMenu = (props: IFullscreenMenuProps) => {
-  const { navigation, logoutPath, onClose } = props;
+  const { navigation, logoutTitle, logoutPath, onClose } = props;
   const handleClick = () => {
     onClose();
   };
@@ -86,7 +86,7 @@ const FullscreenMenu = (props: IFullscreenMenuProps) => {
       <StyledSeparatorLine />
       <NavLink
         id="logoutPath"
-        label="Logout"
+        label={logoutTitle}
         icon={<MdLogout />}
         path={logoutPath}
       />
@@ -100,7 +100,7 @@ const FullscreenMenu = (props: IFullscreenMenuProps) => {
 };
 
 const FullscreenNav = (props: IFullscreenNavProps) => {
-  const { portalId, navigation, logoutPath } = props;
+  const { portalId, navigation, logoutTitle, logoutPath } = props;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const node = document.getElementById(portalId);
@@ -125,6 +125,7 @@ const FullscreenNav = (props: IFullscreenNavProps) => {
           <FullscreenMenu
             navigation={navigation}
             logoutPath={logoutPath}
+            logoutTitle={logoutTitle}
             onClose={handleClose}
           />,
           node
