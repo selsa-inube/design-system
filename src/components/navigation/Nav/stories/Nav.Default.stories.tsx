@@ -96,6 +96,7 @@ Default.args = {
     },
   },
   logoutPath: "/logout",
+  logoutTitle: "logout",
 };
 
 Default.argTypes = {

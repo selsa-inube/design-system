@@ -88,6 +88,7 @@ WithoutSections.args = {
     },
   },
   logoutPath: "/logout",
+  logoutTitle: "logout",
 };
 
 WithoutSections.argTypes = {
