@@ -42,7 +42,13 @@ const MultiSections = ({ navigation, sections }: INavMultiSectionsProps) => {
           direction="column"
           justifyContent="center"
         >
-          <Text padding="16px" as="h2" appearance="secondary" typo="titleSmall">
+          <Text
+            padding="16px"
+            as="h2"
+            appearance="gray"
+            type="title"
+            size="small"
+          >
             {navigation.sections[section].name}
           </Text>
           <Stack direction="column">
@@ -86,8 +92,9 @@ const Nav = (props: INavProps) => {
           padding="0px"
           margin="32px 16px 16px 16px"
           as="h2"
-          appearance="secondary"
-          typo="titleSmall"
+          appearance="gray"
+          type="title"
+          size="small"
         >
           {navigation.title}
         </Text>
@@ -106,7 +113,7 @@ const Nav = (props: INavProps) => {
       </Stack>
       <StyledFooter>
         <Stack justifyContent="center">
-          <Text typo="labelMedium" appearance="disabled" padding="24px">
+          <Text type="label" size="medium" appearance="gray" padding="24px">
             ©2023 - Inube
           </Text>
         </Stack>
