@@ -3,7 +3,7 @@ import { IBreadcrumbLinkProps } from "./interfaces/BreadcrumbLink.interface";
 import { StyledContainerLink, StyledBreadcrumbLink } from "./styles";
 import { Typos, typos } from "./types/BreadcrumbLink.typos.type";
 
-const defaultTypo: Typos = "labelLarge";
+const defaultTypo: Typos = "large";
 const defaultIsActive: boolean = false;
 
 const BreadcrumbLink = (props: IBreadcrumbLinkProps) => {
@@ -22,7 +22,7 @@ const BreadcrumbLink = (props: IBreadcrumbLinkProps) => {
 
   return (
     <StyledContainerLink id={id} onClick={handleClick}>
-      <Text typo={transformedTypos} appearance="secondary">
+      <Text type="label" size={transformedTypos} appearance="gray">
         <StyledBreadcrumbLink to={path} data-is-active={transformedIsActive}>
           {label}
         </StyledBreadcrumbLink>

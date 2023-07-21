@@ -5,7 +5,7 @@ import { StyledContainerLink, StyledBreadcrumbMenuLink } from "./styles";
 import { IBreadcrumbMenuLinkProps } from "./interfaces/BreadcrumbMenuLink.interface";
 import { Typos, typos } from "./types/BreadcrumbMenuLink.typos.type";
 
-const defaultTypo: Typos = "labelLarge";
+const defaultTypo: Typos = "large";
 
 const BreadcrumbMenuLink = (props: IBreadcrumbMenuLinkProps) => {
   const { label, path, id, typo = defaultTypo } = props;
@@ -15,8 +15,9 @@ const BreadcrumbMenuLink = (props: IBreadcrumbMenuLinkProps) => {
       <StyledContainerLink id={id}>
         <Stack alignItems="center">
           <Text
-            typo={transformedTypos}
-            appearance="secondary"
+            type="label"
+            size={transformedTypos}
+            appearance="gray"
             padding="8px 12px"
           >
             {label}

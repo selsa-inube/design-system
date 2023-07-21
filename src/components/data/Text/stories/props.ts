@@ -1,7 +1,7 @@
 import { textAlignOptions } from "../types/Text.AlignOptions.type";
 import { htmlElements } from "../types/Text.HtmlElements.type";
 
-import { appearancesOptions } from "../types/Text.AppearancesOptions.type";
+//import { appearancesOptions } from "../types/Text.AppearancesOptions.type";
 import { inube } from "@src/shared/tokens";
 
 const typesOptions = Object.keys(inube.typography);
@@ -59,7 +59,7 @@ const isDisabled = {
 };
 
 const appearance = {
-  options: appearancesOptions,
+  options: Object.keys(inube.color.text),
   control: { type: "select" },
   description:
     "This prop is used to select one of the color system tokens of the role Text as defined in the Foundations.",
