@@ -1,4 +1,4 @@
-const Body = {
+const body = {
   large: {
     font: "Roboto",
     lineHeight: "24px",
@@ -22,4 +22,4 @@ const Body = {
   },
 };
 
-export { Body };
+export { body };

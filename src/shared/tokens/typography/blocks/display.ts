@@ -1,25 +1,25 @@
-const Headline = {
+const display = {
   large: {
     font: "Roboto",
-    lineHeight: "40px",
-    size: "32px",
-    tracking: "0px",
+    lineHeight: "64px",
+    size: "57px",
+    tracking: "-0.25px",
     weight: "400",
   },
   medium: {
     font: "Roboto",
-    lineHeight: "36px",
-    size: "28px",
+    lineHeight: "52px",
+    size: "45px",
     tracking: "0px",
     weight: "400",
   },
   small: {
     font: "Roboto",
-    lineHeight: "32px",
-    size: "24px",
+    lineHeight: "44px",
+    size: "36px",
     tracking: "0px",
     weight: "400",
   },
 };
 
-export { Headline };
+export { display };

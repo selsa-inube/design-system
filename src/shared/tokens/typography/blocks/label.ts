@@ -1,4 +1,4 @@
-const Label = {
+const label = {
   large: {
     font: "Roboto",
     lineHeight: "20px",
@@ -22,4 +22,4 @@ const Label = {
   },
 };
 
-export { Label };
+export { label };
