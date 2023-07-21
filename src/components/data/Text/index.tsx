@@ -3,14 +3,13 @@ import { StyledText } from "./styles";
 
 import { ITextProps } from "./interfaces/Text.interface";
 
-const defaultAlign = "start";
 const defaultHtmlElement = "p";
 const defaultAppearance = "dark";
 
 const Text = (props: ITextProps) => {
   const {
     children,
-    textAlign = defaultAlign,
+    textAlign,
     margin,
     padding,
     as = defaultHtmlElement,
