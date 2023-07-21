@@ -4,8 +4,6 @@ import { StyledContainer } from "./styles";
 import { parameters, props } from "./props";
 import { ITextProps } from "../interfaces/Text.interface";
 
-console.log(props);
-
 const story = {
   title: "data/Text/Default",
   components: [Text],
