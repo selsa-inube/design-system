@@ -6,7 +6,7 @@ import { ITextProps } from "./interfaces/Text.interface";
 const defaultAlign = "start";
 const defaultHtmlElement = "p";
 const defaultAppearance = "dark";
-const defaultTypo = "bodyLarge";
+
 const defaultMargin = "0px";
 const defaultPadding = "0px";
 
@@ -18,17 +18,28 @@ const Text = (props: ITextProps) => {
     padding = defaultPadding,
     as = defaultHtmlElement,
     appearance = defaultAppearance,
-    typo = defaultTypo,
+    type,
+    size,
+    cursorHover,
+    parentHover,
+    ellipsis,
+    isDisabled,
   } = props;
 
+  console.log(cursorHover, "cursorHoverindex");
   return (
     <StyledText
       as={as}
       textAlign={textAlign}
       appearance={appearance}
-      typo={typo}
+      type={type}
+      size={size}
       margin={transformedMeasure(margin, defaultMargin)}
       padding={transformedMeasure(padding, defaultPadding)}
+      cursorHover={cursorHover}
+      parentHover={parentHover}
+      ellipsis={ellipsis}
+      isDisabled={isDisabled}
     >
       {children}
     </StyledText>

@@ -1,3 +1,4 @@
-import { typography } from "../../../../shared/typography/typography";
-export const typosOptions = Object.keys(typography.sys.typescale);
+import { Inube } from "@src/shared/tokens";
+
+export const typosOptions = Object.keys(Inube.typography);
 export type TyposOptions = typeof typosOptions[number];

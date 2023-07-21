@@ -4,7 +4,7 @@ import { Headline } from "./blocks/Headline";
 import { Label } from "./blocks/Label";
 import { Title } from "./blocks/Title";
 
-const Typography = {
+const typography = {
   Display,
   Headline,
   Title,
@@ -12,4 +12,4 @@ const Typography = {
   Body,
 };
 
-export { Typography };
+export { typography };

@@ -1,3 +1,4 @@
-import { colors } from "../../../../shared/colors/colors";
-export const appearancesOptions = Object.keys(colors.sys.text);
+import { Inube } from "@src/shared/tokens";
+
+export const appearancesOptions = Object.keys(Inube.Color.Text);
 export type AppearancesOptions = typeof appearancesOptions[number];

@@ -1,6 +1,7 @@
 import { AlignOptions } from "../types/Text.AlignOptions.type";
 import { AppearancesOptions } from "../types/Text.AppearancesOptions.type";
 import { HtmlElements } from "../types/Text.HtmlElements.type";
+import { SizesOptions } from "../types/Text.Size.type";
 import { TyposOptions } from "../types/Text.TyposOptions.type";
 
 export interface ITextProps {
@@ -10,5 +11,10 @@ export interface ITextProps {
   padding?: string;
   as?: HtmlElements;
   appearance?: AppearancesOptions;
-  typo?: TyposOptions;
+  isDisabled?: boolean;
+  type?: TyposOptions;
+  size?: SizesOptions;
+  cursorHover: boolean;
+  parentHover?: boolean;
+  ellipsis?: boolean;
 }

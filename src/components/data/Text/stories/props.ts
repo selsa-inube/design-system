@@ -47,9 +47,12 @@ const as = {
   },
 };
 
-const id = {
+const isDisabled = {
   description:
-    "This prop is useful when we want to create navigation inside a page an the url points to a specific title or subtitle",
+    "(boolean): Add the “disabled” prop, which will control if the text should display a disabled state. For this you can make use of the disabled modifiers you find in the color.text tokens.",
+  table: {
+    defaultValue: { summary: "false" },
+  },
 };
 
 const appearance = {
@@ -62,7 +65,31 @@ const appearance = {
   },
 };
 
-const typo = {
+const cursorHover = {
+  description:
+    "(boolean): prop to allow the text to use the hover modifier you find in color.text tokens and activate the cursor: pointer CSS property.",
+  table: {
+    defaultValue: { summary: "false" },
+  },
+};
+
+const parentHover = {
+  description:
+    "(boolean): prop to force the text to always appear in its hover state. This works when the parent is being hover (not the text), but the parent must display as if all the component is",
+  table: {
+    defaultValue: { summary: "false" },
+  },
+};
+
+const ellipsis = {
+  description:
+    "(boolean): Add the ellipsis prop to control that the text cannot overflow or resize the parent.Instead, the text will be shown as much as possible in the available space and the rest of it will be replaced with an ellipsis.To make this work you must use the overflow, white - space and text - overflow CSS properties.",
+  table: {
+    defaultValue: { summary: "false" },
+  },
+};
+
+const type = {
   options: typosOptions,
   control: { type: "select" },
   description:
@@ -83,8 +110,11 @@ export {
   margin,
   padding,
   as,
-  id,
+  isDisabled,
+  cursorHover,
+  parentHover,
+  ellipsis,
   appearance,
-  typo,
+  type,
   children,
 };

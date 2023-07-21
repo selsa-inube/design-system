@@ -1,24 +1,46 @@
 import styled from "styled-components";
-import { typography } from "../../../shared/typography/typography";
-import { colors } from "../../../shared/colors/colors";
+
+import { Inube } from "@src/shared/tokens";
 import { ITextProps } from "./interfaces/Text.interface";
 
 const StyledText = styled.p`
-  display: ${({ as }: ITextProps) => (as === "span" ? "inline" : "block")};
-  font-family: ${typography.ref.typeface.brand};
-  color: ${({ appearance }: ITextProps) =>
-    (colors.sys.text as Record<string, string>)[appearance!]};
+  font-family: ${({ type, size }: ITextProps) =>
+    (Inube.typography as Record<string, any>)[type!][size!].font};
+  line-height: ${({ type, size }: ITextProps) =>
+    (Inube.typography as Record<string, any>)[type!][size!].lineHeight};
+  font-size: ${({ type, size }: ITextProps) =>
+    (Inube.typography as Record<string, any>)[type!][size!].size};
+  letter-spacing: ${({ type, size }: ITextProps) =>
+    (Inube.typography as Record<string, any>)[type!][size!].tracking};
+  font-weight: ${({ type, size }: ITextProps) =>
+    (Inube.typography as Record<string, any>)[type!][size!].weight};
   margin: ${({ margin }: ITextProps) => margin};
   padding: ${({ padding }: ITextProps) => padding};
-  text-align: ${({ align }: ITextProps) => align};
-  font-size: ${({ typo }: ITextProps) =>
-    (typography.sys.typescale as Record<string, any>)[typo!].size};
-  letter-spacing: ${({ typo }: ITextProps) =>
-    (typography.sys.typescale as Record<string, any>)[typo!].tracking};
-  line-height: ${({ typo }: ITextProps) =>
-    (typography.sys.typescale as Record<string, any>)[typo!].lineHeight};
-  font-weight: ${({ typo }: ITextProps) =>
-    (typography.sys.typescale as Record<string, any>)[typo!].weight};
-`;
+  text-align: ${({ textAlign }: ITextProps) => textAlign};
+  color: ${({ appearance, isDisabled }: ITextProps) =>
+    !isDisabled
+      ? (Inube.Color.Text as Record<string, any>)[appearance!].regular
+      : (Inube.Color.Text as Record<string, any>)[appearance!].disabled};
 
+  ${({ ellipsis }: ITextProps) =>
+    ellipsis &&
+    `
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  `};
+
+  ${({ cursorHover, appearance, isDisabled }: ITextProps) =>
+    cursorHover &&
+    `
+    cursor: pointer;
+    &:hover {
+      color: ${
+        !isDisabled &&
+        appearance &&
+        (Inube.Color.Text as Record<string, any>)[appearance].hover
+      };
+    }
+  `};
+`;
 export { StyledText };

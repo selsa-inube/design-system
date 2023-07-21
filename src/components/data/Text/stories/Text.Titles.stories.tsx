@@ -1,18 +1,15 @@
 import { Text } from "..";
 
-import { typography } from "../../../../shared/typography/typography";
-import { colors } from "../../../../shared/colors/colors";
 import { StyledContainer } from "./styles";
 import {
   parameters,
   children,
-  id,
   as,
   textAlign,
   margin,
   padding,
   appearance,
-  typo,
+  type,
 } from "./props";
 import { ITextProps } from "../interfaces/Text.interface";
 
@@ -22,8 +19,8 @@ const story = {
   parameters,
 };
 
-const TypoRoleProperties = ({
-  typo,
+/* const TypoRoleProperties = ({
+  type,
   textAlign,
   appearance,
   margin,
@@ -36,16 +33,16 @@ const TypoRoleProperties = ({
     padding: `${padding}`,
     "text-align": `${textAlign}`,
     "font-size": `${
-      (typography.sys.typescale as Record<string, any>)[typo!].size
+      (typography.sys.typescale as Record<string, any>)[type!].size
     }`,
     "letter-spacing": `${
-      (typography.sys.typescale as Record<string, any>)[typo!].tracking
+      (typography.sys.typescale as Record<string, any>)[type!].tracking
     }`,
     "line-height": `${
-      (typography.sys.typescale as Record<string, any>)[typo!].lineHeight
+      (typography.sys.typescale as Record<string, any>)[type!].lineHeight
     }`,
     "font-weight": `${
-      (typography.sys.typescale as Record<string, any>)[typo!].weight
+      (typography.sys.typescale as Record<string, any>)[type!].weight
     }`,
   };
   if (margin !== "0px") {
@@ -64,20 +61,11 @@ const TypoRoleProperties = ({
     </>
   );
 };
-
+ */
 const Title = (args: ITextProps) => {
   return (
     <StyledContainer>
       <Text {...args}>{args.children}</Text>
-      <ul>
-        <TypoRoleProperties
-          typo={args.typo}
-          appearance={args.appearance}
-          textAlign={args.textAlign}
-          margin={args.margin}
-          padding={args.padding}
-        />
-      </ul>
     </StyledContainer>
   );
 };
@@ -85,22 +73,25 @@ const Title = (args: ITextProps) => {
 Title.args = {
   children: "Title with the Text component",
   as: "h1",
-  align: "start",
+  textAlign: "start",
   margin: "20px 22px 23px 24px",
   padding: "5px",
   appearance: "dark",
-  typo: "bodyMedium",
+  type: "Body",
+  size: "large",
+  isDisabled: false,
+  cursorHover: true,
+  ellipsis: false,
 };
 
 Title.argTypes = {
   children,
-  id,
   margin,
   padding,
   as,
   textAlign,
   appearance,
-  typo,
+  type,
 };
 
 export default story;
