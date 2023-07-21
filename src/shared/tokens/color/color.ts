@@ -1,13 +1,13 @@
-import { Stroke } from "./blocks/stroke";
-import { Surface } from "./blocks/surface";
-import { Text } from "./blocks/text";
-import { Palette } from "./palette/palette";
+import { stroke } from "./blocks/stroke";
+import { surface } from "./blocks/surface";
+import { text } from "./blocks/text";
+import { palette } from "./palette/palette";
 
-const Color = {
-  Palette,
-  Text,
-  Stroke,
-  Surface,
+const color = {
+  palette,
+  text,
+  stroke,
+  surface,
 };
 
-export { Color };
+export { color };

@@ -1,56 +1,56 @@
-import { Palette } from "../palette/palette";
+import { palette } from "../palette/palette";
 
-const Text = {
+const text = {
   primary: {
-    regular: Palette.blue.B400,
-    hover: Palette.blue.B300,
-    disabled: Palette.neutral.N70,
+    regular: palette.blue.B400,
+    hover: palette.blue.B300,
+    disabled: palette.neutral.N70,
   },
   error: {
-    regular: Palette.red.R400,
-    hover: Palette.red.R300,
-    disabled: Palette.neutral.N70,
+    regular: palette.red.R400,
+    hover: palette.red.R300,
+    disabled: palette.neutral.N70,
   },
   warning: {
-    regular: Palette.yellow.Y400,
-    hover: Palette.yellow.Y300,
-    disabled: Palette.neutral.N70,
+    regular: palette.yellow.Y400,
+    hover: palette.yellow.Y300,
+    disabled: palette.neutral.N70,
   },
   success: {
-    regular: Palette.green.G400,
-    hover: Palette.green.G300,
-    disabled: Palette.neutral.N70,
+    regular: palette.green.G400,
+    hover: palette.green.G300,
+    disabled: palette.neutral.N70,
   },
   help: {
-    regular: Palette.purple.P400,
-    hover: Palette.purple.P300,
-    disabled: Palette.neutral.N70,
+    regular: palette.purple.P400,
+    hover: palette.purple.P300,
+    disabled: palette.neutral.N70,
   },
   information: {
-    regular: Palette.blue.B400,
-    hover: Palette.blue.B300,
-    disabled: Palette.neutral.N70,
+    regular: palette.blue.B400,
+    hover: palette.blue.B300,
+    disabled: palette.neutral.N70,
   },
   dark: {
-    regular: Palette.neutral.N900,
-    hover: Palette.neutral.N500,
-    disabled: Palette.neutral.N70,
+    regular: palette.neutral.N900,
+    hover: palette.neutral.N500,
+    disabled: palette.neutral.N70,
   },
   gray: {
-    regular: Palette.neutral.N400,
-    hover: Palette.neutral.N200,
-    disabled: Palette.neutral.N70,
+    regular: palette.neutral.N400,
+    hover: palette.neutral.N200,
+    disabled: palette.neutral.N70,
   },
   light: {
-    regular: Palette.neutral.N10,
-    hover: Palette.neutral.N0,
-    disabled: Palette.neutral.N70,
+    regular: palette.neutral.N10,
+    hover: palette.neutral.N0,
+    disabled: palette.neutral.N70,
   },
   link: {
-    regular: Palette.blue.B400,
-    hover: Palette.blue.B300,
-    disabled: Palette.neutral.N70,
+    regular: palette.blue.B400,
+    hover: palette.blue.B300,
+    disabled: palette.neutral.N70,
   },
 };
 
-export { Text };
+export { text };
