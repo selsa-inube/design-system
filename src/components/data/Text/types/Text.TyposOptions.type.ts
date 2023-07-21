@@ -1,4 +1,3 @@
-import { Inube } from "@src/shared/tokens";
+import { inube } from "@src/shared/tokens";
 
-export const typosOptions = Object.keys(Inube.typography);
-export type TyposOptions = typeof typosOptions[number];
+export type TyposOptions = keyof typeof inube.typography;

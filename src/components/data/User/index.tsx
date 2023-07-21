@@ -20,14 +20,21 @@ const User = (props: IUserProps) => {
           alignItems="center"
           gap="4px"
         >
-          <Text id="userName" as="span" appearance="dark" type="labelMedium">
+          <Text
+            id="userName"
+            as="span"
+            appearance="dark"
+            type="label"
+            size="medium"
+          >
             {userName}
           </Text>
           <Text
             id="businessUnit"
             as="span"
-            appearance="secondary"
-            type="bodySmall"
+            appearance="gray"
+            type="body"
+            size="small"
           >
             {businessUnit}
           </Text>

@@ -77,7 +77,7 @@ Title.args = {
   margin: "20px 22px 23px 24px",
   padding: "5px",
   appearance: "dark",
-  type: "Body",
+  type: "body",
   size: "large",
   isDisabled: false,
   cursorHover: true,

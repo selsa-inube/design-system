@@ -41,10 +41,16 @@ const InteractiveModal = (props) => {
         <Stack direction="column" gap="24px">
           <Stack direction="column" gap="16px">
             <Stack alignItems="center" justifyContent="space-between">
-              <Text typo="headlineSmall">{title}</Text>
+              <Text type="headline" size="small">
+                {title}
+              </Text>
               <MdClear size={24} cursor="pointer" onClick={closeModal} />
             </Stack>
-            {hasActions && <Text typo="titleMedium">{infoTitle}</Text>}
+            {hasActions && (
+              <Text type="title" size="medium">
+                {infoTitle}
+              </Text>
+            )}
             {hasLabels
               ? labels.map(
                   (field, id) =>
@@ -80,7 +86,9 @@ const InteractiveModal = (props) => {
           </Stack>
           {hasActions && (
             <Stack direction="column" gap="16px">
-              <Text typo="titleMedium">{actionsTitle}</Text>
+              <Text type="title" size="medium">
+                {actionsTitle}
+              </Text>
               {actions.map((action) => (
                 <Stack key={action.id} gap="10px">
                   {typeof action.content === "function"

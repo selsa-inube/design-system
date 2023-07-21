@@ -1,7 +1,10 @@
 import { textAlignOptions } from "../types/Text.AlignOptions.type";
 import { htmlElements } from "../types/Text.HtmlElements.type";
-import { typosOptions } from "../types/Text.TyposOptions.type";
+
 import { appearancesOptions } from "../types/Text.AppearancesOptions.type";
+import { inube } from "@src/shared/tokens";
+
+const typesOptions = Object.keys(inube.typography);
 
 const parameters = {
   docs: {
@@ -90,7 +93,7 @@ const ellipsis = {
 };
 
 const type = {
-  options: typosOptions,
+  options: typesOptions,
   control: { type: "select" },
   description:
     "This prop is used to select one of the typography roles defined in the Foundations.",
