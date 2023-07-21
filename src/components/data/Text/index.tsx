@@ -7,15 +7,12 @@ const defaultAlign = "start";
 const defaultHtmlElement = "p";
 const defaultAppearance = "dark";
 
-const defaultMargin = "0px";
-const defaultPadding = "0px";
-
 const Text = (props: ITextProps) => {
   const {
     children,
     textAlign = defaultAlign,
-    margin = defaultMargin,
-    padding = defaultPadding,
+    margin,
+    padding,
     as = defaultHtmlElement,
     appearance = defaultAppearance,
     type,
@@ -26,7 +23,6 @@ const Text = (props: ITextProps) => {
     isDisabled,
   } = props;
 
-  console.log(cursorHover, "cursorHoverindex");
   return (
     <StyledText
       as={as}
@@ -34,8 +30,8 @@ const Text = (props: ITextProps) => {
       appearance={appearance}
       type={type}
       size={size}
-      margin={transformedMeasure(margin, defaultMargin)}
-      padding={transformedMeasure(padding, defaultPadding)}
+      margin={transformedMeasure(margin)}
+      padding={transformedMeasure(padding)}
       cursorHover={cursorHover}
       parentHover={parentHover}
       ellipsis={ellipsis}
