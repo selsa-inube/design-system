@@ -23,14 +23,6 @@ import {
   StyledValidMessageContainer,
 } from "./styles";
 
-const getTextAppearanceProp = (isDisabled: boolean, appearence: string) => {
-  if (isDisabled) {
-    return "disabled";
-  }
-
-  return appearence;
-};
-
 const getTypo = (size: Size) => {
   if (size === "compact") {
     return "labelMedium";
@@ -46,9 +38,11 @@ const Invalid = (props: ISelectStateProps) => {
     <StyledErrorMessageContainer isDisabled={isDisabled} state={state}>
       <MdOutlineError />
       <Text
-        typo="bodySmall"
+        type="body"
+        size="small"
         margin="8px 0px 0px 4px"
-        appearance={getTextAppearanceProp(isDisabled, "error")}
+        appearance={"error"}
+        isDisabled={isDisabled}
       >
         {transformedErrorMessage}
       </Text>
@@ -63,9 +57,11 @@ const Success = (props: ISelectStateProps) => {
     <StyledValidMessageContainer isDisabled={isDisabled} state={state}>
       <MdCheckCircle />
       <Text
-        typo="bodySmall"
+        type="body"
+        size="small"
         margin="8px 0px 0px 4px"
-        appearance={getTextAppearanceProp(isDisabled, "success")}
+        appearance={"success"}
+        isDisabled={isDisabled}
       >
         {validMessage}
       </Text>
@@ -139,7 +135,11 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
           </Label>
         )}
 
-        {isRequired && !isDisabled && <Text typo="bodySmall">(Required)</Text>}
+        {isRequired && !isDisabled && (
+          <Text type="body" size="small">
+            (Required)
+          </Text>
+        )}
       </StyledContainerLabel>
 
       <StyledInputContainer
