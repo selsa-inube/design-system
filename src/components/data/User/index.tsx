@@ -5,6 +5,8 @@ import { Avatar } from "../Avatar";
 import { Text } from "../Text";
 import { Stack } from "../../layouts/Stack";
 
+import { MdPersonOutline } from "react-icons/md";
+
 const defaultSize = "large";
 
 const User = (props: IUserProps) => {
@@ -33,7 +35,7 @@ const User = (props: IUserProps) => {
           </Text>
         </Stack>
       )}
-      <Avatar />
+      <Avatar icon={<MdPersonOutline />} />
     </Stack>
   );
 };
