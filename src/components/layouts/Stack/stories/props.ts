@@ -70,6 +70,24 @@ const gap = {
   },
 };
 
+const height = {
+  type: { name: "string", required: false },
+  description:
+    "Sets the margin in px or global values for all four sides of the component",
+  table: {
+    defaultValue: { summary: "0px" },
+  },
+};
+
+const width = {
+  type: { name: "string", required: false },
+  description:
+    "Sets the margin in px or global values for all four sides of the component",
+  table: {
+    defaultValue: { summary: "0px" },
+  },
+};
+
 const margin = {
   type: { name: "string", required: false },
   description:
@@ -96,6 +114,8 @@ export {
   alignItems,
   alignContent,
   gap,
+  height,
+  width,
   margin,
   padding,
 };

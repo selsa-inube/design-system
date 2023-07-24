@@ -1,11 +1,7 @@
+import { transformedMeasure } from "@src/utilities/transformedMeasure";
 import { IStackProps } from "./interfaces/Stack.interface";
 
-import { transformedMeasure } from "../../../utilities/transformedMeasure";
 import { StyledFlex } from "./styles";
-
-const defaultGap = "0px";
-const defaultMargin = "0px";
-const defaultPadding = "0px";
 
 const Stack = (props: IStackProps) => {
   const {
@@ -28,12 +24,12 @@ const Stack = (props: IStackProps) => {
       justifyContent={justifyContent}
       alignItems={alignItems}
       alignContent={alignContent}
-      height={height}
-      width={width}
+      height={transformedMeasure(height)}
+      width={transformedMeasure(width)}
       wrap={wrap}
-      gap={transformedMeasure(gap, defaultGap)}
-      margin={transformedMeasure(margin, defaultMargin)}
-      padding={transformedMeasure(padding, defaultPadding)}
+      gap={gap}
+      margin={transformedMeasure(margin)}
+      padding={transformedMeasure(padding)}
     >
       {children}
     </StyledFlex>

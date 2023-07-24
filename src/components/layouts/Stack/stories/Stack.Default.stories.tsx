@@ -8,6 +8,8 @@ import {
   justifyContent,
   alignItems,
   gap,
+  height,
+  width,
   margin,
   padding,
 } from "./props";
@@ -28,8 +30,8 @@ const story = {
 
 export const Default = (args: any) => (
   <Stack {...args}>
-    {[args.children].map((item) => (
-      <Squares key={item} item={item}></Squares>
+    {args.children.map((item: any, index: number) => (
+      <Squares key={index} item={item} />
     ))}
   </Stack>
 );
@@ -46,6 +48,8 @@ Default.argTypes = {
   justifyContent,
   alignItems,
   gap,
+  height,
+  width,
   margin,
   padding,
 };

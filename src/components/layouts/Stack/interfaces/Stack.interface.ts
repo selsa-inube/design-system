@@ -11,9 +11,9 @@ export interface IStackProps {
   justifyContent?: JustifyContent;
   alignItems?: AlignItem;
   alignContent?: AlignContent;
-  height: string;
-  width: string;
+  height?: string;
+  width?: string;
   gap?: string;
-  margin: string;
-  padding: string;
+  margin?: string;
+  padding?: string;
 }
