@@ -1,4 +1,4 @@
-import { appearances } from "../../../inputs/Icon/types/Icon.Appearance.type";
+import { appearances } from "../../../feedback/Icon/types/Icon.Appearance.type";
 
 const parameters = {
   docs: {

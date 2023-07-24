@@ -35,7 +35,7 @@ const User = (props: IUserProps) => {
           </Text>
         </Stack>
       )}
-      <Avatar icon={<MdPersonOutline />} />
+      <Avatar />
     </Stack>
   );
 };
