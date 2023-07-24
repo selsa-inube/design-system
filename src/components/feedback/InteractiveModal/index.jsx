@@ -41,13 +41,13 @@ const InteractiveModal = (props) => {
         <Stack direction="column" gap="24px">
           <Stack direction="column" gap="16px">
             <Stack alignItems="center" justifyContent="space-between">
-              <Text type="headline" size="small">
+              <Text type="headline" size="small" appearance="dark">
                 {title}
               </Text>
               <MdClear size={24} cursor="pointer" onClick={closeModal} />
             </Stack>
             {hasActions && (
-              <Text type="title" size="medium">
+              <Text type="title" size="medium" appearance="dark">
                 {infoTitle}
               </Text>
             )}
@@ -86,7 +86,7 @@ const InteractiveModal = (props) => {
           </Stack>
           {hasActions && (
             <Stack direction="column" gap="16px">
-              <Text type="title" size="medium">
+              <Text type="title" size="medium" appearance="dark">
                 {actionsTitle}
               </Text>
               {actions.map((action) => (

@@ -27,7 +27,7 @@ const Pagination = (props: IPaginationProps) => {
       alignItems="center"
       aria-label="Pagination"
     >
-      <Text type="body" size="small" padding="16px 0px">
+      <Text type="body" size="small" padding="16px 0px" appearance="dark">
         {firstEntryInPage + 1} - {lastEntryInPage} of {totalRecords}
       </Text>
 

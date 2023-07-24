@@ -136,7 +136,7 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
         )}
 
         {isRequired && !isDisabled && (
-          <Text type="body" size="small">
+          <Text type="body" size="small" appearance="dark">
             (Required)
           </Text>
         )}

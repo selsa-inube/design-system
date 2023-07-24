@@ -140,7 +140,7 @@ const TextAreaUI = (props) => {
         )}
 
         {isRequired && !isDisabled && (
-          <Text type="body" size="small">
+          <Text type="body" size="small" appearance="dark">
             (Required)
           </Text>
         )}
