@@ -5,8 +5,8 @@ const StyledHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0px 1px 2px ${colors.ref.palette.neutral.n10},
-    0px 1px 3px 1px ${colors.ref.palette.neutral.n20};
+  box-shadow: 0px 1px 3px 1px ${colors.ref.palette.neutral.n40},
+    0px 1px 2px 0px ${colors.ref.palette.neutral.n10};
 
   & > div > div {
     position: unset;

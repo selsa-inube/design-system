@@ -4,4 +4,5 @@ export interface IFullscreenNavProps {
   portalId: string;
   navigation: INavigation;
   logoutPath: string;
+  logoutTitle: string;
 }

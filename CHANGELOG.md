@@ -1,3 +1,32 @@
+# v5.5.0 (Fri Jul 21 2023)
+
+#### 🚀 Enhancement
+
+- Create the `<Icon />` component [#268](https://github.com/selsa-inube/design-system/pull/268) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- Create and export new inube `typography` tokens [#264](https://github.com/selsa-inube/design-system/pull/264) ([@Andresbl123](https://github.com/Andresbl123))
+
+#### 🐛 Bug Fix
+
+- Adjust `<Nav/>` in order to allow to the logout has a dynamic text [#274](https://github.com/selsa-inube/design-system/pull/274) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- Adjust `<Header/>` in order to make the box-shadow be more tick [#273](https://github.com/selsa-inube/design-system/pull/273) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- Adjust tokens in order to remove the capital letters to the start of each one [#269](https://github.com/selsa-inube/design-system/pull/269) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- Adjust `<Nav/>` component such that it autonomously manages its own width property [#267](https://github.com/selsa-inube/design-system/pull/267) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- Identify & adjust the stories in order to complete the documentation for the whole design-system [#266](https://github.com/selsa-inube/design-system/pull/266) ([@Andresbl123](https://github.com/Andresbl123))
+- Adjust `<DropdowItem/>` in order to make it more accuracy to the design [#263](https://github.com/selsa-inube/design-system/pull/263) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+
+#### 📝 Documentation
+
+- Add autodocs to all Storybook stories [#260](https://github.com/selsa-inube/design-system/pull/260) ([@Andresbl123](https://github.com/Andresbl123))
+- Release design-system new version 5.4.0 [#262](https://github.com/selsa-inube/design-system/pull/262) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 3
+
+- Andres ([@Andresbl123](https://github.com/Andresbl123))
+- cesar.marin (cmarin@sistemasenlinea.com.co)
+- cmarin ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v5.4.0 (Fri Jul 14 2023)
 
 #### 🚀 Enhancement

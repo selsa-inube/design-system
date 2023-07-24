@@ -79,7 +79,7 @@ const OneSection = ({ navigation, firstSection }: INavOneSectionProps) => {
 };
 
 const Nav = (props: INavProps) => {
-  const { navigation, logoutPath } = props;
+  const { navigation, logoutTitle, logoutPath } = props;
 
   const sections = Object.keys(navigation.sections);
   const firstSection = sections[0];
@@ -106,7 +106,7 @@ const Nav = (props: INavProps) => {
         <SeparatorLine />
         <NavLink
           id="logout"
-          label="Logout"
+          label={logoutTitle}
           icon={<MdLogout />}
           path={logoutPath}
         />
