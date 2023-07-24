@@ -2,7 +2,7 @@ import { ElementType } from "react";
 
 import { Avatar } from "../index";
 
-import { parameters, icon, appearance } from "./props";
+import { parameters, icon } from "./props";
 
 const story = {
   title: "data/Avatar/Default",
@@ -21,7 +21,6 @@ export const Default = () => <Avatar />;
 
 Default.argTypes = {
   icon,
-  appearance,
 };
 
 export default story;

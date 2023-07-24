@@ -1,5 +1,3 @@
-import { appearances } from "../../../feedback/Icon/types/Icon.Appearance.type";
-
 const parameters = {
   docs: {
     description: {
@@ -15,13 +13,4 @@ const icon = {
   },
 };
 
-const appearance = {
-  options: appearances,
-  control: { type: "select" },
-  description: "the base styling to apply to the icon",
-  table: {
-    defaultValue: { summary: "black" },
-  },
-};
-
-export { parameters, icon, appearance };
+export { parameters, icon };
