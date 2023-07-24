@@ -1,5 +1,5 @@
-import { flexAlignments } from "../types/Stack.FlexAlignments";
-import { directionAlignments } from "../types/Stack.DirectionAlignments";
+import { flexAlignments } from "../types/Stack.AlignContent.type";
+import { directionAlignments } from "../types/Stack.DirectionAlignment.type";
 import { wrapControls } from "../types/Stack.WrapControl.type";
 
 const children = {
