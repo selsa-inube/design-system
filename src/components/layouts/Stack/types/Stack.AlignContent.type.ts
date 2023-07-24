@@ -1,4 +1,4 @@
-export const alignContent = [
+export const alignContentProperties = [
   "baseline",
   "flex-start",
   "flex-end",
@@ -16,4 +16,4 @@ export const alignContent = [
   "normal",
 ] as const;
 
-export type AlignContent = typeof alignContent[number];
+export type AlignContent = typeof alignContentProperties[number];

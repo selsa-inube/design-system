@@ -1,7 +1,10 @@
 import styled from "styled-components";
 import { colors } from "../../../../shared/colors/colors";
 
-const StyledDiv = styled.div`
+const StyledSquare = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: ${colors.ref.palette.neutral.n80};
   border-radius: 4px;
   padding: 3px;
@@ -9,4 +12,4 @@ const StyledDiv = styled.div`
   width: 70px;
 `;
 
-export { StyledDiv };
+export { StyledSquare };

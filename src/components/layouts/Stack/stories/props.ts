@@ -1,6 +1,8 @@
-import { flexAlignments } from "../types/Stack.AlignContent.type";
 import { directionAlignments } from "../types/Stack.DirectionAlignment.type";
 import { wrapControls } from "../types/Stack.WrapControl.type";
+import { justifyContentProperties } from "../types/Stack.JustifyContent.type";
+import { alignItemsProperties } from "../types/Stack.AlignItems.type";
+import { alignContentProperties } from "../types/Stack.AlignContent.type";
 
 const children = {
   options: "",
@@ -30,7 +32,7 @@ const direction = {
 };
 
 const justifyContent = {
-  options: flexAlignments,
+  options: justifyContentProperties,
   control: { type: "select" },
   description:
     "Defines the horizontal alignment of elements when the direction is row or the vertical alignment of elements when direction is column. ",
@@ -40,10 +42,20 @@ const justifyContent = {
 };
 
 const alignItems = {
-  options: flexAlignments,
+  options: alignItemsProperties,
   control: { type: "select" },
   description:
     "Defines the horizontal alignment of elements when the direction is column or the vertical alignment of elements when direction is row. ",
+  table: {
+    defaultValue: { summary: "flex-start" },
+  },
+};
+
+const alignContent = {
+  options: alignContentProperties,
+  control: { type: "select" },
+  description:
+    "This property aligns a flex container’s lines within it when there is extra space in the cross-axis, similar to how justify-content aligns individual items within the main-axis  ",
   table: {
     defaultValue: { summary: "flex-start" },
   },
@@ -82,6 +94,7 @@ export {
   direction,
   justifyContent,
   alignItems,
+  alignContent,
   gap,
   margin,
   padding,
