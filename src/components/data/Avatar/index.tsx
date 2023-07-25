@@ -1,6 +1,6 @@
 import { IAvatarProps } from "./interfaces/Avatar.interface";
 
-import { Icon } from "../../feedback/Icon";
+import { Icon } from "../Icon";
 import { MdPersonOutline } from "react-icons/md";
 
 export const defaultIcon = <MdPersonOutline />;
