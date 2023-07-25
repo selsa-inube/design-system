@@ -16,7 +16,7 @@ import {
 import { IIconProps } from "../interfaces/Icon.interface";
 
 const story = {
-  title: "feedback/Icon/Default",
+  title: "data/Icon/Default",
   component: Icon,
   decorators: [(Story: React.ElementType) => <Story />],
 };

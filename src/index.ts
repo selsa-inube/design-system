@@ -2,6 +2,8 @@
 export { Avatar } from "./components/data/Avatar";
 export { Text } from "./components/data/Text";
 export { User } from "./components/data/User";
+export { Table } from "./components/data/Table";
+export { Icon } from "./components/data/Icon";
 
 // feedback
 export { CountdownBar } from "./components/feedback/CountdownBar";
@@ -19,7 +21,6 @@ export { Button } from "./components/inputs/Button";
 export { Label } from "./components/inputs/Label";
 export { Select } from "./components/inputs/Select";
 export { Switch } from "./components/inputs/Switch";
-export { Table } from "./components/data/Table";
 export { TextArea } from "./components/inputs/TextArea";
 export { TextField } from "./components/inputs/TextField";
 
