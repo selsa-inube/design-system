@@ -1,2 +1,2 @@
-export const typos = ["labelLarge", "labelSmall"] as const;
-export type Typos = typeof typos[number];
+export const sizes = ["large", "small"] as const;
+export type Typos = typeof sizes[number];

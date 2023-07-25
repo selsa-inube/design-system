@@ -25,7 +25,13 @@ const MultiSections = ({ navigation }: IMenuSectionsProps) => {
     <Stack direction="column">
       {navigationSectionValues.map((sectionValue) => (
         <Stack key={sectionValue.name} direction="column">
-          <Text as="h2" typo="titleSmall" appearance="secondary" padding="16px">
+          <Text
+            as="h2"
+            type="title"
+            size="small"
+            appearance="gray"
+            padding="16px"
+          >
             {sectionValue.name}
           </Text>
           <Stack direction="column">
@@ -73,7 +79,7 @@ const FullscreenMenu = (props: IFullscreenMenuProps) => {
   return (
     <StyledFullscreenNav>
       <StyledCloseMenu>
-        <Text typo="titleSmall" appearance="secondary">
+        <Text type="title" size="small" appearance="gray">
           {navigation.title}
         </Text>
         <MdClose onClick={handleClick} />
@@ -91,7 +97,7 @@ const FullscreenMenu = (props: IFullscreenMenuProps) => {
         path={logoutPath}
       />
       <StyledFooter>
-        <Text typo="labelMedium" appearance="disabled">
+        <Text type="label" size="medium" appearance="gray">
           ©2023 - Inube
         </Text>
       </StyledFooter>

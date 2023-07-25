@@ -5,7 +5,6 @@ import { MdOutlineError, MdCheckCircle } from "react-icons/md";
 
 import { Label } from "../Label";
 import { Text } from "../../data/Text";
-import { AppearancesOptions } from "@src/components/data/Text/types/Text.AppearancesOptions.type";
 
 import {
   StyledContainer,
@@ -17,17 +16,6 @@ import {
   StyledValidMessageContainer,
 } from "./styles";
 import { Size } from "./types/TextField.Size.type";
-
-const getTextAppearanceProp = (
-  isDisabled: boolean,
-  appearance: AppearancesOptions
-) => {
-  if (isDisabled) {
-    return "disabled";
-  }
-
-  return appearance;
-};
 
 const getTypo = (size: Size) => {
   if (size === "compact") {
@@ -44,9 +32,11 @@ const Invalid = (props: IMessageProps) => {
     <StyledErrorMessageContainer isDisabled={isDisabled} state={state}>
       <MdOutlineError />
       <Text
-        typo="bodySmall"
+        type="body"
+        size="small"
         margin="8px 0px 0px 4px"
-        appearance={getTextAppearanceProp(isDisabled!, "error")}
+        appearance="error"
+        isDisabled={isDisabled}
       >
         {transformedErrorMessage}
       </Text>
@@ -61,9 +51,11 @@ const Success = (props: IMessageProps) => {
     <StyledValidMessageContainer isDisabled={isDisabled} state={state}>
       <MdCheckCircle />
       <Text
-        typo="bodySmall"
+        type="body"
+        size="small"
         margin="8px 0px 0px 4px"
-        appearance={getTextAppearanceProp(isDisabled!, "success")}
+        appearance="success"
+        isDisabled={isDisabled}
       >
         {validMessage}
       </Text>
@@ -121,7 +113,11 @@ const TextFieldUI = (props: ITextFieldProps) => {
           </Label>
         )}
 
-        {isRequired && !isDisabled && <Text typo="bodySmall">(Required)</Text>}
+        {isRequired && !isDisabled && (
+          <Text type="body" size="small" appearance="dark">
+            (Required)
+          </Text>
+        )}
       </StyledContainerLabel>
 
       <StyledInputContainer
