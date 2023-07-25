@@ -1,19 +1,6 @@
 import { ElementType } from "react";
 import { Stack } from "..";
-
-import {
-  children,
-  wrap,
-  direction,
-  justifyContent,
-  alignItems,
-  gap,
-  height,
-  width,
-  margin,
-  padding,
-} from "./props";
-
+import { props } from "./props";
 import { Squares } from "./Squares";
 
 const story = {
@@ -42,16 +29,7 @@ Default.args = {
 };
 
 Default.argTypes = {
-  children,
-  wrap,
-  direction,
-  justifyContent,
-  alignItems,
-  gap,
-  height,
-  width,
-  margin,
-  padding,
+  ...props,
 };
 
 export default story;
