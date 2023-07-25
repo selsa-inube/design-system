@@ -1,6 +1,6 @@
 import { validateBoxModelMeasure } from "../utilities/validateBoxModelMeasure";
 
-const transformedMeasure = (valueBoxModel, defaultValue) => {
+const transformedMeasure = (valueBoxModel, defaultValue = "0px") => {
   if (!valueBoxModel) {
     return defaultValue;
   }

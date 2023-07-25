@@ -52,7 +52,7 @@ const Breadcrumbs = (props: IBreadcrumbsProps) => {
         />
         <BreadcrumbEllipsis
           key={`breadcrumb-ellipsis`}
-          typo={transformedSize}
+          size={transformedSize}
           routes={routesForEllipsis}
         />
         <BreadcrumbLink

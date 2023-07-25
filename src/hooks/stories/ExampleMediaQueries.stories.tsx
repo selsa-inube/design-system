@@ -20,10 +20,12 @@ export const ExampleMediaQueries = (args: IArgs) => {
   const matches = useMediaQueries(initialQueries);
   return (
     <>
-      <Text>Media queries matches:</Text>
+      <Text appearance="dark" type="body" size="large">
+        Media queries matches:
+      </Text>
       <ul>
         {Object.keys(matches).map((query) => (
-          <Text key={query}>
+          <Text key={query} appearance="dark" type="body" size="large">
             {query}: {matches[query] ? "true" : "false"}
           </Text>
         ))}

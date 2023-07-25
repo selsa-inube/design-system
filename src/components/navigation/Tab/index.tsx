@@ -13,16 +13,6 @@ const Tab = (props: ITabProps) => {
     label,
   } = props;
 
-  const appearance = (isSelected: boolean, isDisabled: boolean) => {
-    if (isSelected && !isDisabled) {
-      return "primary";
-    }
-    if (isDisabled) {
-      return "disabled";
-    }
-    return "dark";
-  };
-
   return (
     <StyledTab
       onClick={handleClick}
@@ -31,8 +21,10 @@ const Tab = (props: ITabProps) => {
     >
       <Text
         id={id}
-        typo="labelMedium"
-        appearance={appearance(isSelected, isDisabled)}
+        type="label"
+        size="medium"
+        appearance={isSelected ? "primary" : "dark"}
+        isDisabled={isDisabled}
       >
         {label}
       </Text>

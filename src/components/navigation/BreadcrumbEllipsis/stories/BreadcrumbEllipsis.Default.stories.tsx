@@ -3,7 +3,7 @@ import { IBreadcrumbEllipsisProps } from "../interfaces/BreadcrumbEllipsis.inter
 
 import { BreadcrumbEllipsis } from "../index";
 
-import { parameters, routes, typo } from "./props";
+import { parameters, routes, size } from "./props";
 
 const story = {
   title: "navigation/BreadcrumbEllipsis/Default",
@@ -40,7 +40,7 @@ Default.args = {
 };
 Default.argTypes = {
   routes,
-  typo,
+  size,
 };
 
 export default story;
