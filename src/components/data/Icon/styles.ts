@@ -148,29 +148,37 @@ const StyledIcon = styled.figure`
       }
     }};
 
-  &:hover svg {
-    color: ${({ theme, cursorHover, variant, appearance, isDisabled }: any) => {
-      if (!isDisabled) {
-        if (cursorHover) {
-          if (variant === "filled") {
-            if (!filledAppearancesWithGrayIcon.includes(appearance)) {
+    &:hover svg {
+      color: ${({
+        theme,
+        cursorHover,
+        variant,
+        appearance,
+        isDisabled,
+      }: any) => {
+        if (!isDisabled) {
+          if (cursorHover) {
+            if (variant === "filled") {
+              if (!filledAppearancesWithGrayIcon.includes(appearance)) {
+                return (
+                  theme.color?.text?.light?.hover ||
+                  inube.color.text.light.hover
+                );
+              }
               return (
-                theme.color?.text?.light?.hover || inube.color.text.light.hover
+                theme.color?.text?.gray?.hover || inube.color.text.gray.hover
+              );
+            } else {
+              return (
+                theme.color?.text?.[appearance]?.hover ||
+                inube.color.text[appearance as keyof typeof inube.color.text]
+                  .hover
               );
             }
-            return (
-              theme.color?.text?.gray?.hover || inube.color.text.gray.hover
-            );
-          } else {
-            return (
-              theme.color?.text?.[appearance]?.hover ||
-              inube.color.text[appearance as keyof typeof inube.color.text]
-                .hover
-            );
           }
         }
-      }
-    }};
+      }};
+    }
   }
 `;
 
