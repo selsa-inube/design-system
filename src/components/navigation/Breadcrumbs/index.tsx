@@ -1,5 +1,5 @@
 import { IBreadcrumbsProps } from "./interfaces/Breadcrumbs.interface";
-import { Sizes, sizes } from "./types/Breadcrumb.Size.type";
+import { Sizes } from "./types/Breadcrumb.Size.type";
 
 import { BreadcrumbLink } from "../BreadcrumbLink";
 import { BreadcrumbEllipsis } from "../BreadcrumbEllipsis";
