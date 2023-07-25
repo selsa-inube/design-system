@@ -1,7 +1,8 @@
+import { inube } from "@src/shared/tokens";
+
 import { textAlignOptions } from "../types/Text.AlignOptions.type";
 import { htmlElements } from "../types/Text.HtmlElements.type";
-
-import { inube } from "@src/shared/tokens";
+import { sizes } from "../types/Text.Size.type";
 
 const typesOptions = Object.keys(inube.typography);
 
@@ -92,6 +93,13 @@ const props = {
       defaultValue: { summary: "bodyLarge" },
     },
   },
+  size: {
+    options: sizes,
+    control: { type: "select" },
+    description:
+      "This prop is used to select one of the typography roles defined in the Foundations.",
+  },
+
   children: {
     description:
       "This prop allows the component to get and print text in the screen.",

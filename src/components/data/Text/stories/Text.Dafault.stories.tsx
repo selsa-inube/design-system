@@ -31,6 +31,7 @@ Default.args = {
   isDisabled: false,
   cursorHover: true,
   ellipsis: false,
+  parentHover: false,
 };
 
 export default story;

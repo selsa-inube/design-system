@@ -42,5 +42,13 @@ const StyledText = styled.p`
       };
     }
   `};
+
+  ${({ parentHover, appearance, isDisabled }: ITextProps) =>
+    parentHover &&
+    `cursor: pointer; color: ${
+      !isDisabled &&
+      appearance &&
+      (inube.color.text as Record<string, any>)[appearance].hover
+    };`}
 `;
 export { StyledText };
