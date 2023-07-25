@@ -11,7 +11,7 @@ const body = {
     lineHeight: "20px",
     size: "14px",
     tracking: "0.25px",
-    weight: "500",
+    weight: "400",
   },
   small: {
     font: "Roboto",
