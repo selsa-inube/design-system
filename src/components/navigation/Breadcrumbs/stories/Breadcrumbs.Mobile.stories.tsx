@@ -37,6 +37,12 @@ Mobile.args = {
       path: "/home/users/invitation",
       label: "Invitación",
       id: "/home/users/invitation",
+      isActive: false,
+    },
+    {
+      path: "/home/users/invitation/edition",
+      label: "Edición",
+      id: "/home/users/invitation/edition",
       isActive: true,
     },
   ],

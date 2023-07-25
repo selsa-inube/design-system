@@ -37,7 +37,7 @@ Desktop.args = {
       path: "/home/users/invitation",
       label: "Invitación",
       id: "/home/users/invitation",
-      isActive: true,
+      isActive: false,
     },
     {
       path: "/home/users/invitation/edition",
