@@ -1,4 +1,4 @@
-import { appearances } from "../types/Icon.Appearance.type";
+import { inube } from "@src/shared/tokens";
 import { shapes } from "../types/Icon.Shape.type";
 import { spacings } from "../types/Icon.Spacing.type";
 import { variants } from "../types/Icon.Variant.type";
@@ -12,7 +12,7 @@ const parameters = {
 };
 
 const appearance = {
-  options: appearances,
+  options: Object.keys(inube.color.text),
   control: { type: "select" },
   description: "the base styling to apply to the icon",
   table: {
