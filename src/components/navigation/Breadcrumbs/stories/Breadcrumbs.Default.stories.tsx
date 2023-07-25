@@ -37,7 +37,7 @@ Default.args = {
       path: "/home/users/invitation",
       label: "invitación",
       id: "/home/users/invitation",
-      isActive: true,
+      isActive: false,
     },
   ],
 };

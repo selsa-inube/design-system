@@ -8,7 +8,6 @@ const parameters = {
 };
 
 const crumbs = {
-  control: { type: "text" },
   description:
     "An array of objects that contain the path, label, id, and isActive properties.",
 };

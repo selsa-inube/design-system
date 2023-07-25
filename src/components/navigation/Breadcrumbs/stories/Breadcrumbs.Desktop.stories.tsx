@@ -23,20 +23,38 @@ Desktop.args = {
   crumbs: [
     {
       path: "/home",
-      label: "inicio",
+      label: "Inicio",
       id: "/home",
       isActive: false,
     },
     {
       path: "/home/users",
-      label: "usuarios",
+      label: "Usuarios",
       id: "/home/users",
       isActive: false,
     },
     {
       path: "/home/users/invitation",
-      label: "invitación",
+      label: "Invitación",
       id: "/home/users/invitation",
+      isActive: true,
+    },
+    {
+      path: "/home/users/invitation/edition",
+      label: "Edición",
+      id: "/home/users/invitation/edition",
+      isActive: false,
+    },
+    {
+      path: "/home/users/invitation/branches",
+      label: "Ramas",
+      id: "/home/users/invitation/branches",
+      isActive: false,
+    },
+    {
+      path: "/home/users/invitation/Branches/city",
+      label: "Ciudad",
+      id: "/home/users/invitation/Branches/city",
       isActive: true,
     },
   ],

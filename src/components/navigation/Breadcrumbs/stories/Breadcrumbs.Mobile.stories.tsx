@@ -23,19 +23,19 @@ Mobile.args = {
   crumbs: [
     {
       path: "/home",
-      label: "inicio",
+      label: "Inicio",
       id: "/home",
       isActive: false,
     },
     {
       path: "/home/users",
-      label: "usuarios",
+      label: "Usuarios",
       id: "/home/users",
       isActive: false,
     },
     {
       path: "/home/users/invitation",
-      label: "invitación",
+      label: "Invitación",
       id: "/home/users/invitation",
       isActive: true,
     },
