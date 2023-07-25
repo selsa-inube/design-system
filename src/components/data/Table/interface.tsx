@@ -45,14 +45,14 @@ function showActionTitle(actionTitle: IAction[], mediaQuery: boolean) {
   return !mediaQuery ? (
     actionTitle.map((action) => (
       <StyledThAction key={`action-${action.id}`}>
-        <Text type="label" size="medium" textAlign="center">
+        <Text type="label" size="medium" textAlign="center" appearance="dark">
           {action.actionName}
         </Text>
       </StyledThAction>
     ))
   ) : (
     <StyledThAction>
-      <Text type="label" size="medium" textAlign="center">
+      <Text type="label" size="medium" textAlign="center" appearance="dark">
         Open
       </Text>
     </StyledThAction>
@@ -127,7 +127,7 @@ const TableUI = (props: ITableUIProps) => {
               key={`title-${title.id}`}
               aria-label={title.titleName}
             >
-              <Text type="label" size="medium">
+              <Text type="label" size="medium" appearance="dark">
                 {title.titleName}
               </Text>
             </StyledThTitle>
@@ -143,7 +143,7 @@ const TableUI = (props: ITableUIProps) => {
           >
             {TitleColumns.map((title) => (
               <StyledTd key={`e-${entry[title.id]}`}>
-                <Text type="body" size="small">
+                <Text type="body" size="small" appearance="dark">
                   {entry[title.id]}
                 </Text>
               </StyledTd>

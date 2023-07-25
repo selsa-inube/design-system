@@ -11,10 +11,10 @@ export interface ITextProps extends ComponentPropsWithRef<"p"> {
   margin?: string;
   padding?: string;
   as?: HtmlElements;
-  appearance?: AppearancesOptions;
+  appearance: AppearancesOptions;
   isDisabled?: boolean;
-  type?: TyposOptions;
-  size?: SizesOptions;
+  type: TyposOptions;
+  size: SizesOptions;
   cursorHover?: boolean;
   parentHover?: boolean;
   ellipsis?: boolean;
