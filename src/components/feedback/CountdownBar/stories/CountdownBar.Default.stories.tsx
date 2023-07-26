@@ -11,7 +11,7 @@ import {
 import { ICountdownBarProps } from "../interfaces/CountdownBar.interface";
 
 const story = {
-  title: "feedback/CountdownBar/Default",
+  title: "feedback/CountdownBar",
   components: [CountdownBar],
   parameters,
   decorators: [

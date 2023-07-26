@@ -12,7 +12,7 @@ import {
 } from "./props";
 
 const story = {
-  title: "Inputs/DropDownItem/Default",
+  title: "Inputs/DropDownItem",
   component: [DropDownItem],
   parameters,
 };

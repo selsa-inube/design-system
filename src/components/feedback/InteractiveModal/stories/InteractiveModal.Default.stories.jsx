@@ -12,7 +12,7 @@ import {
   actionsTitle,
 } from "./props";
 const story = {
-  title: "feedback/InteractiveModal/Default",
+  title: "feedback/InteractiveModal",
   components: [InteractiveModal],
   decorators: [
     (Story) => (

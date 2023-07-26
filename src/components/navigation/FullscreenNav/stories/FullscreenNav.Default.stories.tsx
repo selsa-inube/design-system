@@ -15,7 +15,7 @@ import { parameters, portalId, navigation, logoutPath } from "./props";
 import { IFullscreenNavProps } from "../interfaces/FullscreenNav.interface";
 
 const story = {
-  title: "navigation/FullscreenNav/Default",
+  title: "navigation/FullscreenNav",
   components: [FullscreenNav],
   parameters,
   decorators: [

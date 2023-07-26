@@ -30,7 +30,7 @@ import {
 } from "./props";
 
 const story = {
-  title: "inputs/TextField/Size",
+  title: "inputs/TextField",
   components: [TextField],
   parameters,
   argTypes: {

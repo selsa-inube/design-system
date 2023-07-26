@@ -8,7 +8,7 @@ import { StyledFlexBetween } from "./styles";
 import { parameters, size, appearance, isTransparent } from "./props";
 
 const story = {
-  title: "feedback/Spinner/Sizes",
+  title: "feedback/Spinner",
   component: Spinner,
   parameters,
   decorators: [

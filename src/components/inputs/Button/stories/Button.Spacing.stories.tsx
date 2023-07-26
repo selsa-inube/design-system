@@ -22,7 +22,7 @@ import { IButtonProps } from "../interfaces/Button.interface";
 import { spacings } from "../types/Button.Spacings.type";
 
 const story = {
-  title: "inputs/Button/Spacing",
+  title: "inputs/Button",
   components: [Button],
   parameters,
   decorators: [

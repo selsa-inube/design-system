@@ -3,7 +3,7 @@ import { parameters, width, isAnimated } from "./props";
 import { ISkeletonLineProps } from "../interfaces/SkeletonLine.interface";
 
 const story = {
-  title: "feedback/SkeletonLine/Default",
+  title: "feedback/SkeletonLine",
   components: [SkeletonLine],
   parameters,
   decorators: [

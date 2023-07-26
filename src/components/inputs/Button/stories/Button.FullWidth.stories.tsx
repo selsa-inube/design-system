@@ -21,7 +21,7 @@ import {
 import { IButtonProps } from "../interfaces/Button.interface";
 
 const story = {
-  title: "inputs/Button/FullWidth",
+  title: "inputs/Button",
   components: [Button],
   parameters,
   decorators: [

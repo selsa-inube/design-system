@@ -23,7 +23,7 @@ import {
 } from "./props";
 
 const story = {
-  title: "inputs/Button/Appearances",
+  title: "inputs/Button",
   components: [Button],
   parameters,
   decorators: [
