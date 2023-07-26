@@ -1,6 +1,6 @@
 import { Breadcrumbs } from "../index";
 import { BrowserRouter } from "react-router-dom";
-import { parameters, route } from "./props";
+import { parameters, crumbs } from "./props";
 import { IBreadcrumbsProps } from "../interfaces/Breadcrumbs.interface";
 
 const story = {
@@ -20,10 +20,47 @@ const story = {
 
 export const Desktop = (args: IBreadcrumbsProps) => <Breadcrumbs {...args} />;
 Desktop.args = {
-  route: "Privileges/Users/Edition/Branches/City",
+  crumbs: [
+    {
+      path: "/home",
+      label: "Inicio",
+      id: "/home",
+      isActive: false,
+    },
+    {
+      path: "/home/users",
+      label: "Usuarios",
+      id: "/home/users",
+      isActive: false,
+    },
+    {
+      path: "/home/users/invitation",
+      label: "Invitación",
+      id: "/home/users/invitation",
+      isActive: false,
+    },
+    {
+      path: "/home/users/invitation/edition",
+      label: "Edición",
+      id: "/home/users/invitation/edition",
+      isActive: false,
+    },
+    {
+      path: "/home/users/invitation/branches",
+      label: "Ramas",
+      id: "/home/users/invitation/branches",
+      isActive: false,
+    },
+    {
+      path: "/home/users/invitation/Branches/city",
+      label: "Ciudad",
+      id: "/home/users/invitation/Branches/city",
+      isActive: true,
+    },
+  ],
 };
 Desktop.argTypes = {
-  route,
+  crumbs,
 };
 
 export default story;

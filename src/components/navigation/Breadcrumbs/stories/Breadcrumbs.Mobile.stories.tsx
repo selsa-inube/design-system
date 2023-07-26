@@ -1,6 +1,6 @@
 import { Breadcrumbs } from "../index";
 import { BrowserRouter } from "react-router-dom";
-import { parameters, route } from "./props";
+import { parameters, crumbs } from "./props";
 import { IBreadcrumbsProps } from "../interfaces/Breadcrumbs.interface";
 
 const story = {
@@ -20,10 +20,35 @@ const story = {
 
 export const Mobile = (args: IBreadcrumbsProps) => <Breadcrumbs {...args} />;
 Mobile.args = {
-  route: "Privileges/Users/Registration",
+  crumbs: [
+    {
+      path: "/home",
+      label: "Inicio",
+      id: "/home",
+      isActive: false,
+    },
+    {
+      path: "/home/users",
+      label: "Usuarios",
+      id: "/home/users",
+      isActive: false,
+    },
+    {
+      path: "/home/users/invitation",
+      label: "Invitación",
+      id: "/home/users/invitation",
+      isActive: false,
+    },
+    {
+      path: "/home/users/invitation/edition",
+      label: "Edición",
+      id: "/home/users/invitation/edition",
+      isActive: true,
+    },
+  ],
 };
 Mobile.argTypes = {
-  route,
+  crumbs,
 };
 
 export default story;

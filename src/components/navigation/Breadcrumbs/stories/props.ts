@@ -7,10 +7,9 @@ const parameters = {
   },
 };
 
-const route = {
-  control: { type: "text" },
+const crumbs = {
   description:
-    "The breadcrumb-component will utilize this route for display, and consequently, it can be employed to locate the source of breadcrumbLinks present within this component.",
+    "An array of objects that contain the path, label, id, and isActive properties.",
 };
 
-export { parameters, route };
+export { parameters, crumbs };
