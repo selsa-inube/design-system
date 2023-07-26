@@ -5,7 +5,7 @@ import { PaginationController } from "./PaginationController";
 import { parameters, entries, pageLength } from "./props";
 
 const story = {
-  title: "data/Table",
+  title: "data/Table/Pagination",
   component: [Pagination],
   parameters,
   decorators: [
@@ -17,22 +17,20 @@ const story = {
   ],
 };
 
-const PaginationIsolate = (args: ITableProps) => (
-  <PaginationController {...args} />
-);
+const Default = (args: ITableProps) => <PaginationController {...args} />;
 
-PaginationIsolate.args = {
+Default.args = {
   entries: [
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
   ],
   pageLength: 5,
 };
 
-PaginationIsolate.argTypes = {
+Default.argTypes = {
   entries,
   pageLength,
 };
 
 export default story;
 
-export { PaginationIsolate };
+export { Default };
