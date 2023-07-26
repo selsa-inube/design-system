@@ -1,18 +1,7 @@
 import { ElementType } from "react";
 import { Stack } from "..";
-import { StyledDiv } from "./stories.styles";
-
-import {
-  children,
-  wrap,
-  direction,
-  justifyContent,
-  alignItems,
-  gap,
-  margin,
-  padding,
-} from "./props";
-import { IStackProps } from "../interfaces/Stack.interface";
+import { props } from "./props";
+import { Squares } from "./Squares";
 
 const story = {
   title: "layout/Stack/Default",
@@ -24,32 +13,20 @@ const story = {
       </div>
     ),
   ],
-  argTypes: {
-    children,
-    wrap,
-    direction,
-    justifyContent,
-    alignItems,
-    gap,
-    margin,
-    padding,
-  },
+  argTypes: props,
 };
 
-const StackTemplate = (args: IStackProps) => (
-  <Stack {...args}>
-    {[args.children].map((item) => (
-      <StyledDiv key={item} />
+export const Default = (args: any) => (
+  <Stack width="100%" {...args}>
+    {args.children.map((item: any, index: number) => (
+      <Squares key={index} item={item} />
     ))}
   </Stack>
 );
 
-export const Default = {
-  args: {
-    children: [...Array(6 + 1).keys()].slice(1),
-    gap: "10px",
-  },
-  render: (args: IStackProps) => <StackTemplate {...args} />,
+Default.args = {
+  children: [...Array(6 + 1).keys()].slice(1),
+  gap: "10px",
 };
 
 export default story;
