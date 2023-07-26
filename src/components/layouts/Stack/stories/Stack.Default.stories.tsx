@@ -13,9 +13,7 @@ const story = {
       </div>
     ),
   ],
-  argTypes: {
-    ...props,
-  },
+  argTypes: props,
 };
 
 export const Default = (args: any) => (
