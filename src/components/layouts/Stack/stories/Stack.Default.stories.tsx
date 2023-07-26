@@ -14,7 +14,7 @@ const story = {
     ),
   ],
   argTypes: {
-    props,
+    ...props,
   },
 };
 
