@@ -1,3 +1,28 @@
+# v5.6.0 (Wed Jul 26 2023)
+
+#### 🚀 Enhancement
+
+- Refactor `<Breadcrumbs />` to decouple paths from text [#279](https://github.com/selsa-inube/design-system/pull/279) ([@Andresbl123](https://github.com/Andresbl123))
+- Refactor the `<Stack/>` component with new props [#277](https://github.com/selsa-inube/design-system/pull/277) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- Refactor `<Text />` component with new tokens and props [#272](https://github.com/selsa-inube/design-system/pull/272) ([@Andresbl123](https://github.com/Andresbl123))
+- Refactor `<Avatar />` using the `<Icon />` component [#276](https://github.com/selsa-inube/design-system/pull/276) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+
+#### 🐛 Bug Fix
+
+- Move `<Icon />` to /data folder [#278](https://github.com/selsa-inube/design-system/pull/278) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+
+#### 📝 Documentation
+
+- Release new version 5.5.0 [#275](https://github.com/selsa-inube/design-system/pull/275) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 3
+
+- Andres ([@Andresbl123](https://github.com/Andresbl123))
+- cesar.marin (cmarin@sistemasenlinea.com.co)
+- cmarin ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v5.5.0 (Fri Jul 21 2023)
 
 #### 🚀 Enhancement
