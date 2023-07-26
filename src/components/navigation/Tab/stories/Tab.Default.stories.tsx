@@ -6,7 +6,7 @@ import { TabController } from "./TabController";
 import { id, isDisabled, isSelected, handleClick, label } from "./props";
 
 const story = {
-  title: "navigation/Tab/Default",
+  title: "navigation/Tab",
   components: [Tab],
   decorators: [
     (Story: ElementType) => (

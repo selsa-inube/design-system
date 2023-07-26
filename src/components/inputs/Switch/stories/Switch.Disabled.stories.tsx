@@ -6,7 +6,7 @@ import { id, name, handleChange, margin, padding } from "./props";
 import { Stack } from "../../../layouts/Stack";
 
 const story = {
-  title: "inputs/Switch/Disabled",
+  title: "inputs/Switch",
   components: [Switch],
   decorators: [
     (Story: React.ElementType) => (

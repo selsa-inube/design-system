@@ -23,7 +23,7 @@ import {
 } from "./props";
 
 const story = {
-  title: "Inputs/Select/Default",
+  title: "Inputs/Select",
   component: [Select],
   parameters,
 };

@@ -4,7 +4,7 @@ import { props } from "./props";
 import { Squares } from "./Squares";
 
 const story = {
-  title: "layout/Stack/Default",
+  title: "layout/Stack",
   components: [Stack],
   decorators: [
     (Story: ElementType) => (
@@ -17,7 +17,7 @@ const story = {
 };
 
 export const Default = (args: any) => (
-  <Stack width="100%" {...args}>
+  <Stack {...args}>
     {args.children.map((item: any, index: number) => (
       <Squares key={index} item={item} />
     ))}
@@ -27,6 +27,7 @@ export const Default = (args: any) => (
 Default.args = {
   children: [...Array(6 + 1).keys()].slice(1),
   gap: "10px",
+  width: "100%",
 };
 
 export default story;

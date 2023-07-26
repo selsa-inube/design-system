@@ -11,7 +11,7 @@ import {
 } from "./props";
 
 const story = {
-  title: "inputs/Label/IsFocused",
+  title: "inputs/Label",
   components: [Label],
   parameters,
 };

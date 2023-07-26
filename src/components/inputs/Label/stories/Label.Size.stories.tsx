@@ -7,7 +7,7 @@ import { Stack } from "../../../layouts/Stack";
 import { parameters, isDisabled, isFocused, htmlFor, isInvalid } from "./props";
 
 const story = {
-  title: "inputs/Label/Size",
+  title: "inputs/Label",
   components: [Label],
   parameters,
 };

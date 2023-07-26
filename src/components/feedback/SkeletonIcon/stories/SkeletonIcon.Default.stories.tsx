@@ -4,7 +4,7 @@ import { ISkeletonIconProps } from "../interfaces/SkeletonIcon.interface";
 import { parameters, size, isAnimated } from "./props";
 
 const story = {
-  title: "feedback/SkeletonIcon/Default",
+  title: "feedback/SkeletonIcon",
   components: [SkeletonIcon],
   parameters,
   decorators: [

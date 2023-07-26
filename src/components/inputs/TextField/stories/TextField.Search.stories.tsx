@@ -25,7 +25,7 @@ import {
 } from "./props";
 
 const story = {
-  title: "inputs/TextField/Search",
+  title: "inputs/TextField",
   components: [TextField],
   parameters,
 };

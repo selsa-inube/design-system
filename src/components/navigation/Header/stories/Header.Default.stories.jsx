@@ -24,7 +24,7 @@ import {
 import { Logo } from "./logo";
 
 const story = {
-  title: "navigation/Header/Default",
+  title: "navigation/Header",
   components: [Header],
   decorators: [
     (Story) => (

@@ -27,7 +27,7 @@ import {
 } from "./props";
 
 const story = {
-  title: "inputs/TextArea/Default",
+  title: "inputs/TextArea",
   components: [TextArea],
   parameters,
 };
