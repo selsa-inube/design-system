@@ -7,7 +7,7 @@ export interface IIconProps {
   cursorHover?: boolean;
   parentHover?: boolean;
   children: React.ReactNode;
-  isDisabled?: boolean;
+  disabled?: boolean;
   spacing?: Spacing;
   variant?: Variant;
   shape?: Shape;

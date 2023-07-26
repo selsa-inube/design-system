@@ -14,8 +14,8 @@ const StyledIcon = styled.figure`
   border-width: ${({ variant }: any) =>
     variant === "outlined" ? "1px" : "0px"};
   border-style: solid;
-  border-color: ${({ theme, appearance, parentHover, isDisabled }: any) => {
-    if (isDisabled) {
+  border-color: ${({ theme, appearance, parentHover, disabled }: any) => {
+    if (disabled) {
       return (
         theme.color?.stroke?.[appearance]?.disabled ||
         inube.color.stroke[appearance as keyof typeof inube.color.text].disabled
@@ -40,10 +40,10 @@ const StyledIcon = styled.figure`
     variant,
     appearance,
     parentHover,
-    isDisabled,
+    disabled,
   }: any) => {
     if (variant === "filled") {
-      if (isDisabled) {
+      if (disabled) {
         return (
           theme.color?.surface?.[appearance]?.disabled ||
           homologationColorSurfaceTokens[appearance].disabled
@@ -65,8 +65,8 @@ const StyledIcon = styled.figure`
     }
   }};
 
-  color: ${({ theme, variant, appearance, parentHover, isDisabled }: any) => {
-    if (isDisabled) {
+  color: ${({ theme, variant, appearance, parentHover, disabled }: any) => {
+    if (disabled) {
       return (
         theme.color?.text?.light?.disabled || inube.color.text.light.disabled
       );
@@ -110,16 +110,16 @@ const StyledIcon = styled.figure`
   }
 
   &:hover {
-    cursor: ${({ cursorHover, isDisabled }: any) => {
-      if (!isDisabled) {
+    cursor: ${({ cursorHover, disabled }: any) => {
+      if (!disabled) {
         if (cursorHover) {
           return "pointer";
         }
       }
     }};
 
-    border-color: ${({ theme, cursorHover, appearance, isDisabled }: any) => {
-      if (!isDisabled) {
+    border-color: ${({ theme, cursorHover, appearance, disabled }: any) => {
+      if (!disabled) {
         if (cursorHover) {
           return (
             theme.color?.text?.[appearance]?.hover ||
@@ -134,9 +134,9 @@ const StyledIcon = styled.figure`
       variant,
       appearance,
       cursorHover,
-      isDisabled,
+      disabled,
     }: any) => {
-      if (!isDisabled) {
+      if (!disabled) {
         if (variant === "filled") {
           if (cursorHover) {
             return (
@@ -149,14 +149,8 @@ const StyledIcon = styled.figure`
     }};
 
     &:hover svg {
-      color: ${({
-        theme,
-        cursorHover,
-        variant,
-        appearance,
-        isDisabled,
-      }: any) => {
-        if (!isDisabled) {
+      color: ${({ theme, cursorHover, variant, appearance, disabled }: any) => {
+        if (!disabled) {
           if (cursorHover) {
             if (variant === "filled") {
               if (!filledAppearancesWithGrayIcon.includes(appearance)) {
