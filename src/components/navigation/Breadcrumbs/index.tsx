@@ -17,7 +17,7 @@ const Breadcrumbs = (props: IBreadcrumbsProps) => {
   const isDesktop = useMediaQuery("(min-width: 768px)");
   const maxCrumbs = isDesktop ? 5 : 3;
 
-  const transformedSize: Sizes = isDesktop ? "labelLarge" : "labelSmall";
+  const transformedSize: Sizes = isDesktop ? "large" : "small";
 
   if (crumbs.length > maxCrumbs) {
     const transformedLastElement = crumbs[crumbs.length - 1];
@@ -32,7 +32,7 @@ const Breadcrumbs = (props: IBreadcrumbsProps) => {
         />
         <BreadcrumbEllipsis
           key={`breadcrumb-ellipsis`}
-          typo={transformedSize}
+          size={transformedSize}
           routes={crumbs.slice(1, -1)}
         />
         <BreadcrumbLink

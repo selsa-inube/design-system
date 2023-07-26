@@ -1,2 +1,2 @@
-export const alignOptions = ["start", "center", "end", "justify"];
-export type AlignOptions = typeof alignOptions[number];
+export const textAlignOptions = ["start", "center", "end", "justify"];
+export type AlignOptions = typeof textAlignOptions[number];

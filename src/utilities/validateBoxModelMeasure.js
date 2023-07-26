@@ -1,5 +1,5 @@
-/**it is validated that the values entered are in pixels and valid according to the css property margin and padding. */
-const regex = /^[0-9]+px$/;
+/**it is validated that the values entered are valid according to the css property margin, padding, and width. */
+const regex = /^[0-9]+(px|em|rem|vh|vw|%)$/;
 
 const nonPixelValues = ["inherit", "initial", "unset", "auto"];
 

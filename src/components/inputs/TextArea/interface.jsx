@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 import { MdOutlineError, MdCheckCircle } from "react-icons/md";
 
@@ -13,24 +13,7 @@ import {
   StyledValidMessageContainer,
 } from "./styles";
 
-const getTextAppearanceProp = (isDisabled, appearence) => {
-  if (isDisabled) {
-    return "disabled";
-  }
-
-  return appearence;
-};
-
-const getAppearanceCounter = (
-  valueLength,
-  maxLength = 0,
-  lengthThreshold,
-  isDisabled
-) => {
-  if (isDisabled) {
-    return "disabled";
-  }
-
+const getAppearanceCounter = (valueLength, maxLength = 0, lengthThreshold) => {
   if (maxLength - valueLength <= lengthThreshold && valueLength <= maxLength) {
     return "warning";
   }
@@ -39,7 +22,7 @@ const getAppearanceCounter = (
     return "error";
   }
 
-  return "secondary";
+  return "gray";
 };
 
 const Counter = (props) => {
@@ -63,13 +46,10 @@ const Counter = (props) => {
 
   return (
     <Text
-      typo="bodySmall"
-      appearance={getAppearanceCounter(
-        valueLength,
-        maxLength,
-        lengthThreshold,
-        isDisabled
-      )}
+      type="body"
+      size="small"
+      isDisabled={isDisabled}
+      appearance={getAppearanceCounter(valueLength, maxLength, lengthThreshold)}
     >{`${valueLength}/${maxLength}`}</Text>
   );
 };
@@ -82,8 +62,10 @@ const Invalid = (props) => {
     <StyledErrorMessageContainer isDisabled={isDisabled} state={state}>
       <MdOutlineError />
       <Text
-        typo="bodySmall"
-        appearance={getTextAppearanceProp(isDisabled, "error")}
+        type="body"
+        size="small"
+        appearance={"error"}
+        isDisabled={isDisabled}
       >
         {transformedErrorMessage}
       </Text>
@@ -98,8 +80,10 @@ const Success = (props) => {
     <StyledValidMessageContainer isDisabled={isDisabled} state={state}>
       <MdCheckCircle />
       <Text
-        typo="bodySmall"
-        appearance={getTextAppearanceProp(isDisabled, "success")}
+        type="body"
+        size="small"
+        appearance={"success"}
+        isDisabled={isDisabled}
       >
         {validMessage}
       </Text>
@@ -155,7 +139,11 @@ const TextAreaUI = (props) => {
           </Label>
         )}
 
-        {isRequired && !isDisabled && <Text typo="bodySmall">(Required)</Text>}
+        {isRequired && !isDisabled && (
+          <Text type="body" size="small" appearance="dark">
+            (Required)
+          </Text>
+        )}
         {counter && !isDisabled && (
           <Counter
             id={id}

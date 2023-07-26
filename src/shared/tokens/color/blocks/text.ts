@@ -37,7 +37,7 @@ const text = {
     disabled: palette.neutral.N70,
   },
   gray: {
-    regular: palette.neutral.N400,
+    regular: palette.neutral.N300,
     hover: palette.neutral.N200,
     disabled: palette.neutral.N70,
   },

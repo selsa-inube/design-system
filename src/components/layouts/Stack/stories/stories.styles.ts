@@ -1,12 +1,16 @@
 import styled from "styled-components";
-import { colors } from "../../../../shared/colors/colors";
+import { inube } from "@src/shared/tokens";
 
-const StyledDiv = styled.div`
-  background-color: ${colors.ref.palette.neutral.n80};
+const StyledSquare = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: ${inube.color.surface.gray.regular};
   border-radius: 4px;
   padding: 3px;
   height: 50px;
   width: 70px;
+  color: ${inube.color.text.light.regular};
 `;
 
-export { StyledDiv };
+export { StyledSquare };

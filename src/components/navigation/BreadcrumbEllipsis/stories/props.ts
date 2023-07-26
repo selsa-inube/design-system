@@ -1,4 +1,4 @@
-import { typos } from "../types/BreadcrumbEllipsis.Typos.type";
+import { sizes } from "../types/BreadcrumbEllipsis.Typos.type";
 
 const parameters = {
   docs: {
@@ -14,8 +14,8 @@ const handleClick = {
   control: { type: "func" },
   description: "shall be determine the behavior of the click event",
 };
-const typo = {
-  options: typos,
+const size = {
+  options: sizes,
   control: { type: "select" },
   description: "indicates the font size used in the component",
   table: {
@@ -34,4 +34,4 @@ const routes = {
     },
   },
 };
-export { parameters, handleClick, typo, routes };
+export { parameters, handleClick, size, routes };
