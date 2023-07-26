@@ -6,7 +6,7 @@ export interface IIconProps {
   appearance?: string;
   cursorHover?: boolean;
   parentHover?: boolean;
-  children: React.ReactNode;
+  icon: React.ReactNode;
   isDisabled?: boolean;
   spacing?: Spacing;
   variant?: Variant;
