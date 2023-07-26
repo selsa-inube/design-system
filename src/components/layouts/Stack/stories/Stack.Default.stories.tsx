@@ -13,10 +13,13 @@ const story = {
       </div>
     ),
   ],
+  argTypes: {
+    ...props,
+  },
 };
 
 export const Default = (args: any) => (
-  <Stack {...args}>
+  <Stack width="100%" {...args}>
     {args.children.map((item: any, index: number) => (
       <Squares key={index} item={item} />
     ))}
@@ -26,10 +29,6 @@ export const Default = (args: any) => (
 Default.args = {
   children: [...Array(6 + 1).keys()].slice(1),
   gap: "10px",
-};
-
-Default.argTypes = {
-  ...props,
 };
 
 export default story;
