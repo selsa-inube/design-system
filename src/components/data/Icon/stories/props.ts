@@ -43,7 +43,7 @@ const icon = {
   description: "icon to be displayed inside the Icon component",
 };
 
-const isDisabled = {
+const disabled = {
   options: [false, true],
   control: { type: "boolean" },
   description: "set if the icon is disabled",
@@ -96,7 +96,7 @@ export {
   cursorHover,
   parentHover,
   icon,
-  isDisabled,
+  disabled,
   spacing,
   variant,
   shape,

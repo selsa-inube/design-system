@@ -7,7 +7,7 @@ const Icon = (props: IIconProps) => {
     cursorHover = false,
     parentHover = false,
     icon,
-    isDisabled = false,
+    disabled = false,
     spacing = "wide",
     variant,
     shape = "rectangle",
@@ -20,7 +20,7 @@ const Icon = (props: IIconProps) => {
       appearance={appearance}
       cursorHover={cursorHover}
       parentHover={parentHover}
-      isDisabled={isDisabled}
+      disabled={disabled}
       spacing={spacing}
       variant={variant}
       shape={shape}
