@@ -72,6 +72,9 @@ const Valid = {
     errorMessage: "Please enter only letters in this field",
     validMessage: "Field validation is successful",
     isRequired: true,
+    state: "pending",
+    type: "text",
+    size: "wide",
   },
   render: (args: ITextFieldProps) => <TextFieldComponent {...args} />,
 };

@@ -26,6 +26,13 @@ export const Default = (args: IIconProps) => <Icon {...args} />;
 Default.args = {
   appearance: "primary",
   icon: <MdAdb />,
+  cursorHover: false,
+  parentHover: false,
+  disabled: false,
+  spacing: "wide",
+  variant: "none",
+  shape: "rectangle",
+  size: "24px",
   handleClick: () => console.log("clicked from Default Icon-story"),
 };
 

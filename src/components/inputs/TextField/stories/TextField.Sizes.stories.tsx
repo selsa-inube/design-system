@@ -76,6 +76,7 @@ const Size = {
     placeholder: "Write your full name",
     value: "",
     state: "pending",
+    type: "text",
     maxLength: 10,
     minLength: 1,
     errorMessage: "Please enter only letters in this field",

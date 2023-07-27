@@ -53,9 +53,9 @@ const SwitchComponent = (args: ISwitchProps) => {
 
 export const WithLabel = {
   args: {
-    id: "idValue",
+    id: "id",
     isDisabled: false,
-    name: "nameValue",
+    name: "name",
     checked: false,
     handleChange: () => {},
     label: "Label",

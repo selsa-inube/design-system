@@ -17,7 +17,7 @@ const Stack = (props: IStackProps) => {
     margin,
     padding,
   } = props;
-  console.log("stack: ", width, transformedMeasure(width));
+
   return (
     <StyledFlex
       direction={direction}

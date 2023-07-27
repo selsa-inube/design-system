@@ -30,10 +30,10 @@ const story = {
 
 export const Default = (args: ISwitchProps) => <SwitchController {...args} />;
 Default.args = {
-  id: "thisIsAnId",
+  id: "id",
   isDisabled: false,
-  name: "thisIsAName",
-  value: "as",
+  name: "name",
+  value: "switchTest1",
   checked: false,
   size: "small",
   handleChange: () => {},

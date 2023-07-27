@@ -51,6 +51,7 @@ const ButtonComponent = (props: IButtonProps) => {
 export const Disabled = (args: IButtonProps) => <ButtonComponent {...args} />;
 Disabled.args = {
   children: "Button",
+  appearance: "primary",
   isLoading: false,
   iconBefore: <MdAdd />,
   type: "button",

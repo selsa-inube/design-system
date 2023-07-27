@@ -60,6 +60,7 @@ const Disabled = {
     name: "Username",
     id: "Username",
     value: "",
+    type: "text",
     placeholder: "Write your full name",
     maxLength: 10,
     minLength: 1,

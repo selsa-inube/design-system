@@ -52,9 +52,9 @@ const SwitchComponent = (props: ISwitchProps) => {
 
 export const Checks = {
   args: {
-    id: "idValue",
+    id: "id",
     isDisabled: false,
-    name: "nameValue",
+    name: "name",
     checked: false,
     handleChange: () => {},
     margin: "0px",
