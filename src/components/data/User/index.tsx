@@ -8,7 +8,7 @@ import { Stack } from "../../layouts/Stack";
 const defaultSize = "large";
 
 const User = (props: IUserProps) => {
-  const { userName, businessUnit, size = defaultSize } = props;
+  const { userName, client, size = defaultSize } = props;
   const transformedSize = sizes.includes(size) ? size : defaultSize;
 
   return (
@@ -36,7 +36,7 @@ const User = (props: IUserProps) => {
             type="body"
             size="small"
           >
-            {businessUnit}
+            {client}
           </Text>
         </Stack>
       )}

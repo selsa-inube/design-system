@@ -1,7 +1,7 @@
 import { User } from "../index";
 import { IUserProps } from "../interfaces/User.interface";
 
-import { parameters, userName, businessUnit, size } from "./props";
+import { parameters, userName, client, size } from "./props";
 
 const story = {
   title: "data/User",
@@ -12,12 +12,12 @@ const story = {
 export const Default = (args: IUserProps) => <User {...args} />;
 Default.args = {
   userName: "Leonardo Garzón",
-  businessUnit: "Sistemas Enlínea S.A",
+  client: "Sistemas Enlínea S.A",
   size: "large",
 };
 Default.argTypes = {
   userName,
-  businessUnit,
+  client,
   size,
 };
 
