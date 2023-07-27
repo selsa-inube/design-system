@@ -8,9 +8,7 @@ const Avatar = (props: IAvatarProps) => {
   const { icon = defaultIcon } = props;
 
   return (
-    <Icon appearance="primary" variant="filled" shape="circle">
-      {icon}
-    </Icon>
+    <Icon appearance="primary" variant="filled" shape="circle" icon={icon} />
   );
 };
 
