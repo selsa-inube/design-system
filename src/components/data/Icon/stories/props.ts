@@ -38,9 +38,9 @@ const parentHover = {
   },
 };
 
-const children = {
+const icon = {
   control: { type: "object" },
-  description: "children to be displayed inside the Icon component",
+  description: "icon to be displayed inside the Icon component",
 };
 
 const disabled = {
@@ -95,7 +95,7 @@ export {
   appearance,
   cursorHover,
   parentHover,
-  children,
+  icon,
   disabled,
   spacing,
   variant,
