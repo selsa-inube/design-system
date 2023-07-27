@@ -25,7 +25,7 @@ export const Default = (args: IIconProps) => <Icon {...args} />;
 
 Default.args = {
   appearance: "primary",
-  children: <MdAdb />,
+  icon: <MdAdb />,
   cursorHover: false,
   parentHover: false,
   disabled: false,
@@ -40,7 +40,7 @@ Default.argTypes = {
   appearance,
   cursorHover,
   parentHover,
-  children: { control: "object" },
+  icon: { control: "object" },
   disabled,
   spacing,
   variant,

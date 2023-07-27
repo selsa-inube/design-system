@@ -6,7 +6,7 @@ const Icon = (props: IIconProps) => {
     appearance,
     cursorHover,
     parentHover,
-    children,
+    icon,
     disabled,
     spacing,
     variant,
@@ -27,7 +27,7 @@ const Icon = (props: IIconProps) => {
       size={size}
       onClick={handleClick}
     >
-      {children}
+      {icon}
     </StyledIcon>
   );
 };
