@@ -48,6 +48,12 @@ export const All = () => (
   </StyledFlex>
 );
 
+All.args = {
+  size: "large",
+  appearance: "blue",
+  isTransparent: false,
+};
+
 All.argTypes = {
   size,
   appearance,

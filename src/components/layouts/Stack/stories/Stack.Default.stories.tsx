@@ -27,7 +27,15 @@ export const Default = (args: any) => (
 Default.args = {
   children: [...Array(6 + 1).keys()].slice(1),
   gap: "10px",
+  wrap: "wrap",
+  direction: "row",
+  justifyContent: "unset",
+  alignItems: "initial",
+  alignContent: "unset",
+  height: "100%",
   width: "100%",
+  margin: "0px",
+  padding: "0px",
 };
 
 export default story;

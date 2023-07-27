@@ -46,6 +46,7 @@ Search.args = {
   max: 10,
   min: 1,
   size: "wide",
+  type: "text",
   isFullWidth: false,
 };
 
