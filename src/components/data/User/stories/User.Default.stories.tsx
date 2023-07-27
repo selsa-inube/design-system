@@ -7,13 +7,6 @@ const story = {
   title: "data/User",
   components: [User],
   parameters,
-  decorators: [
-    (Story: React.ElementType) => (
-      <div style={{ margin: "3em" }}>
-        <Story />
-      </div>
-    ),
-  ],
 };
 
 export const Default = (args: IUserProps) => <User {...args} />;
