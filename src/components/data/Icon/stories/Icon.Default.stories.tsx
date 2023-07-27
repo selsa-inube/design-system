@@ -9,9 +9,7 @@ const story = {
   title: "data/Icon",
   component: Icon,
   decorators: [(Story: React.ElementType) => <Story />],
-  argTypes: {
-    props,
-  },
+  argTypes: props,
 };
 
 export const Default = (args: IIconProps) => <Icon {...args} />;
