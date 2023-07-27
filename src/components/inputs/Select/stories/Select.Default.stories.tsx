@@ -43,6 +43,7 @@ Default.args = {
     { id: "3", label: "Item", isDisabled: false },
   ],
   isRequired: false,
+  size: "wide",
   errorMessage: "This field can not be blank",
   isFullWidth: false,
 };
