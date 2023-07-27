@@ -6,11 +6,13 @@ const parameters = {
   },
 };
 
-const icon = {
-  description: "icon that will be displayed inside of avatar-component",
-  table: {
-    defaultValue: { summary: "MdPersonOutline" },
+const props = {
+  icon: {
+    description: "icon that will be displayed inside of avatar-component",
+    table: {
+      defaultValue: { summary: "MdPersonOutline" },
+    },
   },
 };
 
-export { parameters, icon };
+export { parameters, props };
