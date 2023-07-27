@@ -17,7 +17,7 @@ import {
 import { ITableProps } from "../interfaces/Table.interface";
 
 const story = {
-  title: "data/Table/Paginations",
+  title: "data/Table",
   component: Table,
   parameters,
 };

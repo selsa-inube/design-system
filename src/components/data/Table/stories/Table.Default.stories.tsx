@@ -17,7 +17,7 @@ import {
 } from "./props";
 
 const story = {
-  title: "data/Table/Default",
+  title: "data/Table",
   component: [Table],
   parameters,
 };

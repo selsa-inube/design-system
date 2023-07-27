@@ -17,7 +17,7 @@ import {
 } from "./props";
 
 const story = {
-  title: "navigation/NavLink/Default",
+  title: "navigation/NavLink",
   components: [NavLink],
   parameters,
   decorators: [

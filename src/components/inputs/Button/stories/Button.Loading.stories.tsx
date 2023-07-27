@@ -17,7 +17,7 @@ import { IButtonProps } from "../interfaces/Button.interface";
 import { variants } from "../types/Button.Variants.type";
 
 const story = {
-  title: "inputs/Button/Loading",
+  title: "inputs/Button",
   components: [Button],
   parameters,
   decorators: [

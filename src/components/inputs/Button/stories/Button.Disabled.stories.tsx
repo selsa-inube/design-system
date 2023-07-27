@@ -22,7 +22,7 @@ import { appearances } from "../types/Button.Appearances.type";
 import { IButtonProps } from "../interfaces/Button.interface";
 
 const story = {
-  title: "inputs/Button/Disabled",
+  title: "inputs/Button",
   components: [Button],
   parameters,
   decorators: [

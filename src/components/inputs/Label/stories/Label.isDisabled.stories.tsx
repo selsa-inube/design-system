@@ -4,7 +4,7 @@ import { Label } from "..";
 import { parameters, isFocused, htmlFor, isInvalid } from "./props";
 
 const story = {
-  title: "inputs/Label/IsDisabled",
+  title: "inputs/Label",
   components: [Label],
   parameters,
 };

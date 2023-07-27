@@ -15,7 +15,7 @@ import {
 import { Stack } from "../../../layouts/Stack";
 
 const story = {
-  title: "inputs/Switch/WithLabel",
+  title: "inputs/Switch",
   components: [Switch],
   decorators: [
     (Story: React.ElementType) => (

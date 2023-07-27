@@ -4,7 +4,7 @@ import { parameters, crumbs } from "./props";
 import { IBreadcrumbsProps } from "../interfaces/Breadcrumbs.interface";
 
 const story = {
-  title: "navigation/Breadcrumbs/Default",
+  title: "navigation/Breadcrumbs",
   components: [Breadcrumbs],
   parameters,
   decorators: [

@@ -4,7 +4,7 @@ import { IUserProps } from "../interfaces/User.interface";
 import { parameters, userName, businessUnit, size } from "./props";
 
 const story = {
-  title: "data/User/Default",
+  title: "data/User",
   components: [User],
   parameters,
   decorators: [

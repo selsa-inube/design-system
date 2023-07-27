@@ -7,7 +7,7 @@ import { Blanket } from "../index";
 import { StyledBackdropBlanket } from "./styles";
 
 const story = {
-  title: "utils/Blanket/Default",
+  title: "utils/Blanket",
   components: Blanket,
   parameters: {
     docs: {

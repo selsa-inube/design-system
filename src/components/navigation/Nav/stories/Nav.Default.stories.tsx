@@ -15,7 +15,7 @@ import { parameters, navigation, logoutPath } from "./props";
 import { INavProps } from "../interfaces/Nav.interface";
 
 const story = {
-  title: "navigation/Nav/Default",
+  title: "navigation/Nav",
   components: [Nav],
   parameters,
   decorators: [
