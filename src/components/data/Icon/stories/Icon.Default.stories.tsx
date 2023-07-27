@@ -33,7 +33,7 @@ Default.argTypes = {
   appearance,
   cursorHover,
   parentHover,
-  children: { control: "object" },
+  icon: { control: "object" },
   disabled,
   spacing,
   variant,
