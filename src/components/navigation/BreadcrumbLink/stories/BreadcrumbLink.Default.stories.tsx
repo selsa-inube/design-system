@@ -14,7 +14,7 @@ import {
 import { IBreadcrumbLinkProps } from "../interfaces/BreadcrumbLink.interface";
 
 const story = {
-  title: "navigation/BreadcrumbLink/Default",
+  title: "navigation/BreadcrumbLink",
   components: [BreadcrumbLink],
   parameters,
   decorators: [

@@ -11,7 +11,7 @@ import {
 } from "./props";
 
 const story = {
-  title: "navigation/Tabs/Default",
+  title: "navigation/Tabs",
   components: [Tabs],
   parameters,
   decorators: [

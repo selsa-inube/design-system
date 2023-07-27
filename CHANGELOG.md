@@ -1,3 +1,26 @@
+# v5.7.0 (Wed Jul 26 2023)
+
+#### 🚀 Enhancement
+
+- Refactor `<Icon />` and change isDisabled prop for just disabled [#284](https://github.com/selsa-inube/design-system/pull/284) ([@Andresbl123](https://github.com/Andresbl123))
+- Create Presente theme [#283](https://github.com/selsa-inube/design-system/pull/283) ([@Andresbl123](https://github.com/Andresbl123))
+
+#### 🐛 Bug Fix
+
+- Rename story title for all components [#285](https://github.com/selsa-inube/design-system/pull/285) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+
+#### 📝 Documentation
+
+- Release new version v5.6.0 [#280](https://github.com/selsa-inube/design-system/pull/280) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 3
+
+- Andres ([@Andresbl123](https://github.com/Andresbl123))
+- cesar.marin (cmarin@sistemasenlinea.com.co)
+- cmarin ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v5.6.0 (Wed Jul 26 2023)
 
 #### 🚀 Enhancement

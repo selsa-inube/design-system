@@ -4,7 +4,7 @@ import { parameters, routes } from "./props";
 import { IBreadcrumbMenuProps } from "../interfaces/BreadcrumbMenu.interface";
 
 const story = {
-  title: "navigation/BreadcrumbMenu/Default",
+  title: "navigation/BreadcrumbMenu",
   components: [BreadcrumbMenu],
   parameters,
   decorators: [

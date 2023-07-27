@@ -5,7 +5,7 @@ import { parameters, id, label, typo, path } from "./props";
 import { IBreadcrumbMenuLinkProps } from "../interfaces/BreadcrumbMenuLink.interface";
 
 const story = {
-  title: "navigation/BreadcrumbMenuLink/Default",
+  title: "navigation/BreadcrumbMenuLink",
   components: [BreadcrumbMenuLink],
   parameters,
   decorators: [

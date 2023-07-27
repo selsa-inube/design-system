@@ -6,7 +6,7 @@ import { BreadcrumbEllipsis } from "../index";
 import { parameters, routes, size } from "./props";
 
 const story = {
-  title: "navigation/BreadcrumbEllipsis/Default",
+  title: "navigation/BreadcrumbEllipsis",
   components: [BreadcrumbEllipsis],
   parameters,
   decorators: [

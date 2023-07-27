@@ -16,7 +16,7 @@ import {
 } from "./props";
 
 const story = {
-  title: "inputs/Switch/Default",
+  title: "inputs/Switch",
   components: [Switch],
   parameters,
   decorators: [

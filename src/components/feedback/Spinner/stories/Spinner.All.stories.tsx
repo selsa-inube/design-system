@@ -7,7 +7,7 @@ import { parameters, size, appearance, isTransparent } from "./props";
 import { StyledFlex, StyledFlexColumn, StyledGrid } from "./styles";
 
 const story = {
-  title: "feedback/Spinner/All",
+  title: "feedback/Spinner",
   component: Spinner,
   parameters,
   decorators: [

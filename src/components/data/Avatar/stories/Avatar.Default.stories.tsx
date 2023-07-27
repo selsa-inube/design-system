@@ -5,7 +5,7 @@ import { Avatar } from "../index";
 import { parameters, icon } from "./props";
 
 const story = {
-  title: "data/Avatar/Default",
+  title: "data/Avatar",
   components: [Avatar],
   parameters,
   decorators: [

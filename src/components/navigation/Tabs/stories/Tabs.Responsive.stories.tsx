@@ -5,7 +5,7 @@ import { TabsResponsiveController } from "./TabsResponsiveController";
 import { tabs, selectedTab, handleSelectedTab } from "./props";
 
 const story = {
-  title: "navigation/Tabs/Responsive",
+  title: "navigation/Tabs",
   components: [Tabs],
   decorators: [
     (Story: React.ElementType) => (

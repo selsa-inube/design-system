@@ -5,7 +5,7 @@ import { ISpinnerProps } from "../interfaces/Spinner.interface";
 import { parameters, size, appearance, isTransparent } from "./props";
 
 const story = {
-  title: "feedback/Spinner/Default",
+  title: "feedback/Spinner",
   component: Spinner,
   parameters,
   decorators: [
