@@ -7,8 +7,8 @@ const homologationColorSurfaceTokens: any = inube.color.surface;
 
 const StyledIcon = styled.figure`
   display: inline-block;
-  padding: 0;
-  margin: 0;
+  padding: ${inube.spacing.s0};
+  margin: ${inube.spacing.s0};
 
   border-radius: ${({ shape }: any) => (shape === "circle" ? "50%" : "8px")};
   border-width: ${({ variant }: any) =>
