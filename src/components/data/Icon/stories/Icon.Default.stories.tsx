@@ -18,7 +18,6 @@ import { IIconProps } from "../interfaces/Icon.interface";
 const story = {
   title: "data/Icon",
   component: Icon,
-  decorators: [(Story: React.ElementType) => <Story />],
 };
 
 export const Default = (args: IIconProps) => <Icon {...args} />;
