@@ -52,6 +52,7 @@ Required.args = {
   isDisabled: false,
   type: "text",
   state: "pending",
+  size: "wide",
   maxLength: 20,
   minLength: 1,
   max: 10,

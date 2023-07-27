@@ -18,8 +18,11 @@ const story = {
       </div>
     ),
   ],
+  args: {
+    appearance: "blue",
+    isTransparent: false,
+  },
   argTypes: {
-    size,
     appearance,
     isTransparent,
   },

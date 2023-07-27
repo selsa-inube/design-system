@@ -39,8 +39,15 @@ export const Default = (args: IButtonProps) => <Button {...args} />;
 
 Default.args = {
   children: "Button",
+  appearance: "primary",
   path: "/privilege",
   iconBefore: <MdAdd />,
+  isLoading: false,
+  isDisabled: false,
+  type: "button",
+  spacing: "wide",
+  variant: "filled",
+  isFullWidth: false,
   handleClick: () => console.log("clicked from Default-story"),
 };
 Default.argTypes = {

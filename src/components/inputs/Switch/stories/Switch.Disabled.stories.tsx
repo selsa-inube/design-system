@@ -39,9 +39,9 @@ const SwitchComponent = (args: ISwitchProps) => {
 
 export const Disabled = {
   args: {
-    id: "idStates",
+    id: "id",
     isDisabled: true,
-    name: "nameState",
+    name: "name",
     handleChange: () => {},
     margin: "0px",
     padding: "0px",

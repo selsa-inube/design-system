@@ -37,6 +37,7 @@ Default.args = {
       id: "usersEdition",
     },
   ],
+  size: "large",
 };
 Default.argTypes = {
   routes,

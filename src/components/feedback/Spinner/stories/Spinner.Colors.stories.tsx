@@ -5,7 +5,7 @@ import { ISpinnerProps } from "../interfaces/Spinner.interface";
 import { appearances } from "../types/Spinner.Appearance.type";
 import { StyledFlex } from "./styles";
 
-import { parameters, size, isTransparent } from "./props";
+import { parameters, size, isTransparent, appearance } from "./props";
 
 const story = {
   title: "feedback/Spinner",
@@ -18,8 +18,14 @@ const story = {
       </div>
     ),
   ],
+  args: {
+    size: "medium",
+    appearance: "blue",
+    isTransparent: false,
+  },
   argTypes: {
     size,
+    appearance,
     isTransparent,
   },
 };
