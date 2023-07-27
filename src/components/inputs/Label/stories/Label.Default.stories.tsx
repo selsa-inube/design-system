@@ -22,8 +22,12 @@ const Default = (args: ILabelProps) => {
   return <Label {...args}>{args.children}</Label>;
 };
 Default.args = {
-  htmlFor: "LabelText",
+  htmlFor: "id",
   children: "Label Text",
+  typo: "labelLarge",
+  isDisabled: false,
+  isFocused: false,
+  isInvalid: false,
 };
 Default.argTypes = {
   isDisabled,

@@ -56,10 +56,10 @@ const SwitchComponent = (args: ISwitchProps) => {
 
 export const Sizes = {
   args: {
-    id: "idSize",
+    id: "id",
     isDisabled: false,
-    name: "nameSize",
-    value: "as",
+    name: "name",
+    value: "switchTest2",
     checked: false,
     handleChange: () => {},
     margin: "0px",

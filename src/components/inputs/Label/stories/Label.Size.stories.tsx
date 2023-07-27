@@ -51,7 +51,7 @@ const Size = ({
 };
 
 Size.args = {
-  htmlFor: "LabelText",
+  htmlFor: "id",
   children: "Text Label",
   isDisabled: false,
   isFocused: false,

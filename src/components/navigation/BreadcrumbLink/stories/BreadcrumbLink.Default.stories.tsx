@@ -35,6 +35,8 @@ Default.args = {
   label: "Privileges",
   path: "/privileges",
   id: "privileges",
+  isActive: false,
+  typo: "large",
 };
 Default.argTypes = {
   id,
