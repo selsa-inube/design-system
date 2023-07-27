@@ -14,6 +14,8 @@ import {
   size,
 } from "./props";
 import { IIconProps } from "../interfaces/Icon.interface";
+import { presente } from "@src/shared/themes/presente";
+import { ThemeProvider } from "styled-components";
 
 const story = {
   title: "data/Icon",
@@ -47,6 +49,20 @@ Default.argTypes = {
   shape,
   handleClick,
   size,
+};
+
+const theme = {
+  ...presente,
+};
+
+export const Themed = (args: any) => (
+  <ThemeProvider theme={theme}>
+    <Icon {...args} />
+  </ThemeProvider>
+);
+
+Themed.args = {
+  ...Default.args,
 };
 
 export default story;
