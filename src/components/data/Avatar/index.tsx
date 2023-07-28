@@ -14,7 +14,7 @@ const Avatar = (props: IAvatarProps) => {
       shape="circle"
       icon={icon}
       spacing="wide"
-      size="16px"
+      size="24px"
     />
   );
 };
