@@ -16,7 +16,6 @@ const theme = {
   ...presente,
 };
 
-console.log("theme", theme);
 export const Themed = (args: IAvatarProps) => (
   <ThemeProvider theme={theme}>
     <Avatar {...args} />
