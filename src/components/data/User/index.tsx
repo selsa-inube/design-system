@@ -4,6 +4,7 @@ import { sizes } from "./types/User.Size.type";
 import { Avatar } from "../Avatar";
 import { Text } from "../Text";
 import { Stack } from "../../layouts/Stack";
+import { spacing } from "@src/shared/tokens/spacing/spacing";
 
 const defaultSize = "large";
 
@@ -12,13 +13,13 @@ const User = (props: IUserProps) => {
   const transformedSize = sizes.includes(size) ? size : defaultSize;
 
   return (
-    <Stack justifyContent="flex-start" alignItems="center" gap="16px">
+    <Stack justifyContent="flex-start" alignItems="center" gap={spacing.s200}>
       {transformedSize === "large" && (
         <Stack
           direction="column"
           justifyContent="center"
           alignItems="center"
-          gap="4px"
+          gap={spacing.s050}
         >
           <Text
             id="userName"
