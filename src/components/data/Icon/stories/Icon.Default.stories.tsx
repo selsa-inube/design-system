@@ -8,7 +8,6 @@ import { props } from "./props";
 const story = {
   title: "data/Icon",
   component: Icon,
-  decorators: [(Story: React.ElementType) => <Story />],
   argTypes: props,
 };
 
