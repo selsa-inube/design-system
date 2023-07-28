@@ -3,15 +3,15 @@ import { shapes } from "../types/Icon.Shape.type";
 import { spacings } from "../types/Icon.Spacing.type";
 import { variants } from "../types/Icon.Variant.type";
 
-const parameters = {
-  docs: {
-    description: {
-      component: "Icon component is used to display different icons.",
+const props = {
+  parameters: {
+    docs: {
+      description: {
+        component: "Icon component is used to display different icons.",
+      },
     },
   },
-};
 
-const props = {
   appearance: {
     options: Object.keys(inube.color.text),
     control: { type: "select" },
@@ -92,4 +92,4 @@ const props = {
   },
 };
 
-export { parameters, props };
+export { props };
