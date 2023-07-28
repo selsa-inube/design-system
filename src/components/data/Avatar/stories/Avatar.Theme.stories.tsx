@@ -2,13 +2,13 @@ import { ThemeProvider } from "styled-components";
 import { presente } from "@src/shared/themes/presente";
 import { Avatar } from "..";
 
-import { parameters, props } from "./props";
+import { props } from "./props";
 import { IAvatarProps } from "../interfaces/Avatar.interface";
 
 const story = {
   title: "data/Avatar",
   components: [Avatar],
-  parameters,
+  parameters: props.parameters,
   argTypes: props,
 };
 
