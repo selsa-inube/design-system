@@ -80,9 +80,8 @@ const props = {
     },
   },
 
-  handleClick: {
-    options: ["logState"],
-    control: { type: "func" },
+  onClick: {
+    control: { action: "clicked" },
     description: "function to handle icon click",
   },
 
