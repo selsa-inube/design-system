@@ -1,5 +1,4 @@
 import { IUserProps } from "./interfaces/User.interface";
-import { sizes } from "./types/User.Size.type";
 
 import { Avatar } from "../Avatar";
 import { Text } from "../Text";
@@ -10,11 +9,10 @@ const defaultSize = "large";
 
 const User = (props: IUserProps) => {
   const { userName, businessUnit, size = defaultSize } = props;
-  const transformedSize = sizes.includes(size) ? size : defaultSize;
 
   return (
     <Stack justifyContent="flex-start" alignItems="center" gap={spacing.s200}>
-      {transformedSize === "large" && (
+      {size === "large" && (
         <Stack
           direction="column"
           justifyContent="center"
