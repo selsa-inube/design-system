@@ -1,11 +1,11 @@
 import { Avatar } from "../index";
 
-import { parameters, props } from "./props";
+import { props } from "./props";
 
 const story = {
   title: "data/Avatar",
   components: [Avatar],
-  parameters,
+  parameters: props.parameters,
   argTypes: props,
 };
 
