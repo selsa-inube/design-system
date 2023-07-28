@@ -1,4 +1,3 @@
-import React from "react";
 import PropTypes from "prop-types";
 import { FullscreenNav } from "../FullscreenNav";
 import { User } from "../../data/User";
@@ -57,7 +56,7 @@ const Header = (props) => {
       />
       <User
         userName={userName}
-        businessUnit={transformedBusinessUnit}
+        client={transformedBusinessUnit}
         size={getScreenSize(matches)}
       />
     </StyledHeader>

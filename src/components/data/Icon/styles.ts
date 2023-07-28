@@ -7,9 +7,9 @@ const filledAppearancesWithGrayIcon = ["gray", "light"];
 
 const StyledIcon = styled.figure`
   display: inline-block;
+
   padding: ${inube.spacing.s0};
   margin: ${inube.spacing.s0};
-
   border-radius: ${({ shape }: IIconProps) =>
     shape === "circle" ? "50%" : "8px"};
   border-width: ${({ variant }: IIconProps) =>
