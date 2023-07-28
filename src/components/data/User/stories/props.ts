@@ -15,7 +15,7 @@ const userName = {
     defaultValue: { summary: "MdPersonOutline" },
   },
 };
-const businessUnit = {
+const client = {
   description: "shall be the displayed business Unit",
   table: {
     defaultValue: { summary: "MdPersonOutline" },
@@ -30,4 +30,4 @@ const size = {
     defaultValue: { summary: "large" },
   },
 };
-export { parameters, userName, businessUnit, size };
+export { parameters, userName, client, size };
