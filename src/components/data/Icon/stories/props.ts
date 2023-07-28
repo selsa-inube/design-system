@@ -4,14 +4,6 @@ import { spacings } from "../types/Icon.Spacing.type";
 import { variants } from "../types/Icon.Variant.type";
 
 const props = {
-  parameters: {
-    docs: {
-      description: {
-        component: "Icon component is used to display different icons.",
-      },
-    },
-  },
-
   appearance: {
     options: Object.keys(inube.color.text),
     control: { type: "select" },
