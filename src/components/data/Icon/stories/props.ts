@@ -1,7 +1,13 @@
 import { inube } from "@src/shared/tokens";
-import { shapes } from "../types/Icon.Shape.type";
-import { spacings } from "../types/Icon.Spacing.type";
-import { variants } from "../types/Icon.Variant.type";
+
+export const shapes = ["circle", "rectangle"] as const;
+export type Shape = typeof shapes[number];
+
+export const spacings = ["none", "compact", "wide"] as const;
+export type Spacing = typeof spacings[number];
+
+export const variants = ["filled", "outlined", "none"] as const;
+export type Variant = typeof variants[number];
 
 const props = {
   parameters: {
