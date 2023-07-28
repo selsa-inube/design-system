@@ -1,7 +1,7 @@
 import { inube } from "@src/shared/tokens";
-import { shapes } from "../types/Icon.Shape.type";
-import { spacings } from "../types/Icon.Spacing.type";
-import { variants } from "../types/Icon.Variant.type";
+import { shapes } from "./types/Icon.Shape.type";
+import { spacings } from "./types/Icon.Spacing.type";
+import { variants } from "./types/Icon.Variant.type";
 
 const props = {
   parameters: {
