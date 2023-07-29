@@ -1,7 +1,4 @@
-import { Appearance } from "../types/Button.Appearances.type";
-import { Type } from "../types/Button.Types.type";
-import { Spacing } from "../types/Button.Spacings.type";
-import { Variant } from "../types/Button.Variants.type";
+import { Appearance, Spacing, Type, Variant } from "../props";
 
 export interface IButtonProps {
   children: React.ReactNode;

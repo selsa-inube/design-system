@@ -15,7 +15,7 @@ import {
   StyledErrorMessageContainer,
   StyledValidMessageContainer,
 } from "./styles";
-import { Size } from "./types/TextField.Size.type";
+import { Size } from "./props";
 
 const getTypo = (size: Size) => {
   if (size === "compact") {

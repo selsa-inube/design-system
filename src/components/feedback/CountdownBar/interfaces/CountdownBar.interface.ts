@@ -1,5 +1,5 @@
+import { Appearance } from "@src/shared/types/Appearance.type";
 import { AnimationEvent } from "react";
-import { Appearance } from "../types/CountdownBar.Appearance.type";
 
 export interface ICountdownBarProps {
   size?: string;

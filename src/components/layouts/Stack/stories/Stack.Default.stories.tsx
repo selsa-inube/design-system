@@ -1,6 +1,6 @@
 import { ElementType } from "react";
 import { Stack } from "..";
-import { props } from "./props";
+import { props } from "../props";
 import { Squares } from "./Squares";
 
 const story = {

@@ -1,4 +1,4 @@
-import { Size } from "../types/User.Size.type";
+import { Size } from "../props";
 
 export interface IUserProps {
   userName: string;

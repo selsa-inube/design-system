@@ -1,4 +1,4 @@
-import { TypographyLabel } from "../types/Label.type";
+import { TypographyLabel } from "../props";
 
 export interface ILabelProps {
   isDisabled?: boolean;

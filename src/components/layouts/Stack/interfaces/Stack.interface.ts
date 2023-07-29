@@ -1,8 +1,10 @@
-import { AlignContent } from "../types/Stack.AlignContent.type";
-import { AlignItem } from "../types/Stack.AlignItems.type";
-import { DirectionAlignment } from "../types/Stack.DirectionAlignment.type";
-import { JustifyContent } from "../types/Stack.JustifyContent.type";
-import { WrapControl } from "../types/Stack.WrapControl.type";
+import {
+  AlignContent,
+  AlignItem,
+  DirectionAlignment,
+  JustifyContent,
+  WrapControl,
+} from "../props";
 
 export interface IStackProps {
   children?: React.ReactNode;

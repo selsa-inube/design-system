@@ -1,13 +1,12 @@
 import { Text } from "..";
 
 import { StyledContainer } from "./styles";
-import { parameters, props } from "./props";
+import { props } from "../props";
 import { ITextProps } from "../interfaces/Text.interface";
 
 const story = {
   title: "data/Text",
   components: [Text],
-  parameters,
   argTypes: props,
 };
 

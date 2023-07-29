@@ -1,4 +1,4 @@
-import { State } from "../types/TextField.State.type";
+import { State } from "../props";
 
 export interface IMessageProps {
   state?: State;

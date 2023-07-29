@@ -1,6 +1,4 @@
-import { InputType } from "../types/TextField.InputType.type";
-import { Size } from "../types/TextField.Size.type";
-import { State } from "../types/TextField.State.type";
+import { InputType, Size, State } from "../props";
 
 export interface ITextFieldProps {
   label?: string;

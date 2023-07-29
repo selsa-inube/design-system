@@ -1,6 +1,5 @@
 import { ISpinnerProps } from "./interfaces/Spinner.interface";
-import { sizes } from "./types/Spinner.Size.type";
-import { appearances } from "./types/Spinner.Appearance.type";
+import { appearances, sizes } from "./props";
 
 import { StyledSpinner } from "./styles";
 

@@ -1,8 +1,81 @@
-import { directionAlignments } from "../types/Stack.DirectionAlignment.type";
-import { wrapControls } from "../types/Stack.WrapControl.type";
-import { justifyContentProperties } from "../types/Stack.JustifyContent.type";
-import { alignItemsProperties } from "../types/Stack.AlignItems.type";
-import { alignContentProperties } from "../types/Stack.AlignContent.type";
+export const alignContentProperties = [
+  "baseline",
+  "flex-start",
+  "flex-end",
+  "center",
+  "space-between",
+  "space-around",
+  "space-evenly",
+  "start",
+  "end",
+  "inherit",
+  "initial",
+  "revert",
+  "unset",
+  "stretch",
+  "normal",
+] as const;
+export type AlignContent = typeof alignContentProperties[number];
+
+export const alignItemsProperties = [
+  "baseline",
+  "normal",
+  "flex-start",
+  "flex-end",
+  "center",
+  "stretch",
+  "self-start",
+  "self-end",
+  "initial",
+  "revert",
+  "unset",
+  "start",
+  "end",
+] as const;
+export type AlignItem = typeof alignItemsProperties[number];
+
+export const directionAlignments = [
+  "row",
+  "column",
+  "row-reverse",
+  "column-reverse",
+  "inherit",
+  "initial",
+  "revert",
+  "unset",
+] as const;
+export type DirectionAlignment = typeof directionAlignments[number];
+
+export const justifyContentProperties = [
+  "flex-start",
+  "flex-end",
+  "center",
+  "space-between",
+  "space-around",
+  "space-evenly",
+  "start",
+  "end",
+  "left",
+  "right",
+  "inherit",
+  "initial",
+  "revert",
+  "unset",
+  "stretch",
+  "normal",
+] as const;
+export type JustifyContent = typeof justifyContentProperties[number];
+
+export const wrapControls = [
+  "wrap",
+  "nowrap",
+  "wrap-reverse",
+  "inherit",
+  "initial",
+  "revert",
+  "unset",
+] as const;
+export type WrapControl = typeof wrapControls[number];
 
 export const props = {
   children: {

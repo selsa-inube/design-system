@@ -3,19 +3,12 @@ import { ILabelProps } from "../interfaces/Label.interface";
 import { Label } from "..";
 import { Stack } from "../../../layouts/Stack";
 
-import {
-  parameters,
-  isDisabled,
-  isFocused,
-  htmlFor,
-  children,
-  typo,
-} from "./props";
+import { props } from "../props";
 
 const story = {
   title: "inputs/Label",
   components: [Label],
-  parameters,
+  argTypes: props,
 };
 
 const States = ({
@@ -49,14 +42,6 @@ States.args = {
   htmlFor: "id",
   typo: "labelLarge",
   children: "Label Text",
-};
-
-States.argTypes = {
-  isDisabled,
-  isFocused,
-  htmlFor,
-  typo,
-  children,
 };
 
 export default story;

@@ -1,4 +1,4 @@
-import { Size } from "../types/Switch.Size.type";
+import { Size } from "../props";
 
 export interface ISwitchProps {
   isDisabled?: boolean;

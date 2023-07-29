@@ -3,28 +3,12 @@ import { ITextFieldProps } from "../interfaces/TextField.interface";
 import { TextField } from "..";
 import { TextFieldController } from "./TextfieldController";
 
-import {
-  parameters,
-  label,
-  name,
-  id,
-  placeholder,
-  value,
-  handleChange,
-  iconBefore,
-  iconAfter,
-  maxLength,
-  minLength,
-  max,
-  min,
-  size,
-  readOnly,
-} from "./props";
+import { props } from "../props";
 
 const story = {
   title: "inputs/TextField",
   components: [TextField],
-  parameters,
+  argTypes: props,
 };
 
 const Default = (args: ITextFieldProps) => <TextFieldController {...args} />;
@@ -42,23 +26,6 @@ Default.args = {
   validMessage: "The field has been successfully validated",
   size: "wide",
   readOnly: false,
-};
-
-Default.argTypes = {
-  label,
-  name,
-  id,
-  placeholder,
-  value,
-  handleChange,
-  iconBefore,
-  iconAfter,
-  maxLength,
-  minLength,
-  max,
-  min,
-  size,
-  readOnly,
 };
 
 export default story;

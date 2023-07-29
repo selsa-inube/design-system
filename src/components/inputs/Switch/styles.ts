@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 
 import { colors } from "../../../shared/colors/colors";
 
-const sizes = {
+const sizes: any = {
   large: {
     width: "40px",
     height: "20px",

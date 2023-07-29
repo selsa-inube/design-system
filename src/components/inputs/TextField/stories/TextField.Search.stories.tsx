@@ -5,29 +5,12 @@ import { MdSearch } from "react-icons/md";
 import { TextField } from "..";
 import { TextFieldController } from "./TextfieldController";
 
-import {
-  parameters,
-  name,
-  id,
-  placeholder,
-  isDisabled,
-  type,
-  handleChange,
-  iconBefore,
-  iconAfter,
-  maxLength,
-  minLength,
-  max,
-  min,
-  isRequired,
-  size,
-  isFullWidth,
-} from "./props";
+import { props } from "../props";
 
 const story = {
   title: "inputs/TextField",
   components: [TextField],
-  parameters,
+  argTypes: props,
 };
 
 const Search = (args: ITextFieldProps) => (
@@ -48,24 +31,6 @@ Search.args = {
   size: "wide",
   type: "text",
   isFullWidth: false,
-};
-
-Search.argTypes = {
-  name,
-  id,
-  placeholder,
-  isDisabled,
-  type,
-  handleChange,
-  iconBefore,
-  iconAfter,
-  maxLength,
-  minLength,
-  max,
-  min,
-  isRequired,
-  size,
-  isFullWidth,
 };
 
 export default story;

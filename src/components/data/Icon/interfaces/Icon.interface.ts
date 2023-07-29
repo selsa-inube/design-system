@@ -1,7 +1,7 @@
 import { Appearance } from "@src/shared/types/Appearance.type";
 
 import { inube } from "@src/shared/tokens";
-import { Shape, Spacing, Variant } from "../stories/props";
+import { Shape, Spacing, Variant } from "../props";
 
 export interface IIconProps {
   appearance: Appearance;

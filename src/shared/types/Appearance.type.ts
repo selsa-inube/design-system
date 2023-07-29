@@ -1,3 +1,4 @@
 import { inube } from "@src/shared/tokens";
 
-export type Appearance = keyof typeof inube.color.text;
+export const appearances = typeof inube.color.text;
+export type Appearance = keyof typeof appearances;

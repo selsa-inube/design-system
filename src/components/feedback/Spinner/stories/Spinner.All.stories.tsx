@@ -1,15 +1,13 @@
 import { ElementType } from "react";
 import { Spinner } from "..";
-import { sizes } from "../types/Spinner.Size.type";
-import { appearances } from "../types/Spinner.Appearance.type";
-import { parameters, size, appearance, isTransparent } from "./props";
+import { appearances, props, sizes } from "../props";
 
 import { StyledFlex, StyledFlexColumn, StyledGrid } from "./styles";
 
 const story = {
   title: "feedback/Spinner",
   component: Spinner,
-  parameters,
+  argTypes: props,
   decorators: [
     (Story: ElementType) => (
       <div style={{ margin: "3em" }}>
@@ -52,12 +50,6 @@ All.args = {
   size: "large",
   appearance: "blue",
   isTransparent: false,
-};
-
-All.argTypes = {
-  size,
-  appearance,
-  isTransparent,
 };
 
 export default story;

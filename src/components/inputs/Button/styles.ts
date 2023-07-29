@@ -4,14 +4,14 @@ import styled, { css } from "styled-components";
 import { colors } from "../../../shared/colors/colors";
 import { typography } from "../../../shared/typography/typography";
 import { IButtonProps } from "./interfaces/Button.interface";
-import { Variant } from "./types/Button.Variants.type";
-import { Appearance } from "./types/Button.Appearances.type";
+
 import { ISpacing } from "./interfaces/Button.Spacing.interface";
 import { ICursors } from "./interfaces/Button.Cursors.interface";
 import { IHoverColors } from "./interfaces/Button.HoverColors.interface";
 import { ITextColors } from "./interfaces/Button.TextColors.interface";
 import { IBorderColors } from "./interfaces/Button.BorderColors.interface";
 import { IBackgroundColors } from "./interfaces/button.BackgroundColors.interface";
+import { Appearance, Variant } from "./props";
 
 const spacing: ISpacing = {
   compact: {

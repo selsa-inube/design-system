@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 
 import { SelectUI } from "./interface";
 import { ISelectProps } from "./interfaces/Select.interface";
-import { states } from "./types/Select.States.type";
+import { states } from "./props";
 
 const defaultIsDisabled = false;
 const defaultIsRequired = false;

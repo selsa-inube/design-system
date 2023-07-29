@@ -3,23 +3,13 @@ import { BrowserRouter } from "react-router-dom";
 import { Button } from "../index";
 import { StyledFlex } from "./stories.styles";
 
-import {
-  parameters,
-  appearance,
-  isDisabled,
-  type,
-  spacing,
-  variant,
-  isFullWidth,
-  handleClick,
-} from "./props";
+import { props, variants } from "../props";
 import { IButtonProps } from "../interfaces/Button.interface";
-import { variants } from "../types/Button.Variants.type";
 
 const story = {
   title: "inputs/Button",
   components: [Button],
-  parameters,
+  argTypes: props,
   decorators: [
     (Story: React.ElementType) => (
       <BrowserRouter>
@@ -53,15 +43,6 @@ Loading.args = {
   variant: "filled",
   isFullWidth: false,
   handleClick: () => console.log("clicked"),
-};
-Loading.argTypes = {
-  appearance,
-  isDisabled,
-  type,
-  spacing,
-  variant,
-  isFullWidth,
-  handleClick,
 };
 
 export default story;

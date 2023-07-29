@@ -2,59 +2,14 @@ import { ITextFieldProps } from "../interfaces/TextField.interface";
 
 import { TextField } from "..";
 import { TextFieldController } from "./TextfieldController";
-import { sizes } from "../types/TextField.Size.type";
 import { Stack } from "../../../layouts/Stack";
 
-import {
-  parameters,
-  label,
-  name,
-  id,
-  placeholder,
-  isDisabled,
-  type,
-  state,
-  value,
-  handleChange,
-  iconBefore,
-  iconAfter,
-  maxLength,
-  minLength,
-  max,
-  min,
-  isRequired,
-  errorMessage,
-  validMessage,
-  isFullWidth,
-  readOnly,
-} from "./props";
+import { props, sizes } from "../props";
 
 const story = {
   title: "inputs/TextField",
   components: [TextField],
-  parameters,
-  argTypes: {
-    label,
-    name,
-    id,
-    placeholder,
-    isDisabled,
-    type,
-    state,
-    value,
-    handleChange,
-    iconBefore,
-    iconAfter,
-    maxLength,
-    minLength,
-    max,
-    min,
-    isRequired,
-    errorMessage,
-    validMessage,
-    isFullWidth,
-    readOnly,
-  },
+  argTypes: props,
 };
 
 const TextFieldComponent = (args: ITextFieldProps) => {

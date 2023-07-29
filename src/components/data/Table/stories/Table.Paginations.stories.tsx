@@ -2,24 +2,13 @@ import { titlesMuck, actionsMuck, breakPointsMuck } from "./mucks";
 
 import { Table } from "../index";
 
-import {
-  parameters,
-  id,
-  titles,
-  actions,
-  entries,
-  breakpoints,
-  filter,
-  pageLength,
-  infoTitle,
-  actionsTitle,
-} from "./props";
 import { ITableProps } from "../interfaces/Table.interface";
+import { props } from "../props";
 
 const story = {
   title: "data/Table",
   component: Table,
-  parameters,
+  argTypes: props,
 };
 
 const Paginations = (args: ITableProps) => <Table {...args} />;
@@ -245,18 +234,6 @@ Paginations.args = {
   modalTitle: "Form",
   infoTitle: "Information",
   actionsTitle: "Actions",
-};
-
-Paginations.argTypes = {
-  id,
-  titles,
-  actions,
-  entries,
-  filter,
-  pageLength,
-  breakpoints,
-  infoTitle,
-  actionsTitle,
 };
 
 export default story;

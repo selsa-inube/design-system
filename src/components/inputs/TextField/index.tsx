@@ -1,9 +1,8 @@
 import { useState } from "react";
 import { ITextFieldProps } from "./interfaces/TextField.interface";
-import { InputType, inputTypes } from "./types/TextField.InputType.type";
-import { State, states } from "./types/TextField.State.type";
 
 import { TextFieldUI } from "./interface";
+import { InputType, State, inputTypes, states } from "./props";
 
 const defaultIsDisabled = false;
 const defaultType: InputType = "text";

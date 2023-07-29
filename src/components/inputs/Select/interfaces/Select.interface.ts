@@ -1,5 +1,4 @@
-import { Size } from "../types/Select.Size.type";
-import { States } from "../types/Select.States.type";
+import { Size, States } from "../props";
 import { ISelectOptions } from "./Select.Options.interface";
 
 export interface ISelectProps {

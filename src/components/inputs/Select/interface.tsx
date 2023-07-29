@@ -6,7 +6,7 @@ import {
 } from "react-icons/md";
 
 import { ISelectInterfaceProps } from "./interfaces/SelectInterface.interface";
-import { Size } from "./types/Select.Size.type";
+
 import { ISelectStateProps } from "./interfaces/Select.Success.interface";
 
 import { Label } from "../Label";
@@ -22,6 +22,7 @@ import {
   StyledErrorMessageContainer,
   StyledValidMessageContainer,
 } from "./styles";
+import { Size } from "./props";
 
 const getTypo = (size: Size) => {
   if (size === "compact") {

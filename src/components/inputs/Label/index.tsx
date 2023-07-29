@@ -1,5 +1,5 @@
 import { ILabelProps } from "./interfaces/Label.interface";
-import { typos } from "./types/Label.type";
+import { typos } from "./props";
 
 import { StyledLabel } from "./styles";
 

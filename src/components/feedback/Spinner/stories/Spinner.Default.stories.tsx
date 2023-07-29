@@ -2,12 +2,12 @@ import { ElementType } from "react";
 import { Spinner } from "..";
 import { ISpinnerProps } from "../interfaces/Spinner.interface";
 
-import { parameters, size, appearance, isTransparent } from "./props";
+import { props } from "../props";
 
 const story = {
   title: "feedback/Spinner",
   component: Spinner,
-  parameters,
+
   decorators: [
     (Story: ElementType) => (
       <div style={{ margin: "3em" }}>
@@ -20,11 +20,7 @@ const story = {
     appearance: "blue",
     isTransparent: false,
   },
-  argTypes: {
-    size,
-    appearance,
-    isTransparent,
-  },
+  argTypes: props,
 };
 
 export const Default = (args: ISpinnerProps) => <Spinner {...args} />;

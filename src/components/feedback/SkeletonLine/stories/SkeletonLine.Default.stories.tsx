@@ -1,11 +1,11 @@
 import { SkeletonLine } from "..";
-import { parameters, width, isAnimated } from "./props";
+import { props } from "../props";
 import { ISkeletonLineProps } from "../interfaces/SkeletonLine.interface";
 
 const story = {
   title: "feedback/SkeletonLine",
   components: [SkeletonLine],
-  parameters,
+  argTypes: props,
   decorators: [
     (Story: React.ElementType) => (
       <div style={{ margin: "3em" }}>
@@ -18,10 +18,6 @@ const Default = (args: ISkeletonLineProps) => <SkeletonLine {...args} />;
 Default.args = {
   width: "100%",
   isAnimated: false,
-};
-Default.argTypes = {
-  width,
-  isAnimated,
 };
 
 export default story;
