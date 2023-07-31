@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { INavLinkProps } from "../interfaces/NavLink.interface";
+import { INavLinkProps } from "..";
 import { NavLink } from "..";
 
 const NavLinkController = (props: INavLinkProps) => {
