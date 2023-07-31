@@ -1,7 +1,25 @@
 import { transformedMeasure } from "@src/utilities/transformedMeasure";
-import { IStackProps } from "./interfaces/Stack.interface";
 
 import { StyledFlex } from "./styles";
+import { WrapControl } from "./types/Stack.WrapControl.type";
+import { DirectionAlignment } from "./types/Stack.DirectionAlignment.type";
+import { JustifyContent } from "./types/Stack.JustifyContent.type";
+import { AlignItem } from "./types/Stack.AlignItems.type";
+import { AlignContent } from "./types/Stack.AlignContent.type";
+
+export interface IStackProps {
+  children?: React.ReactNode;
+  wrap?: WrapControl;
+  direction?: DirectionAlignment;
+  justifyContent?: JustifyContent;
+  alignItems?: AlignItem;
+  alignContent?: AlignContent;
+  height?: string;
+  width?: string;
+  gap?: string;
+  margin?: string;
+  padding?: string;
+}
 
 const Stack = (props: IStackProps) => {
   const {
