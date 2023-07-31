@@ -2,7 +2,7 @@ import { BreadcrumbMenuLink } from "../index";
 import { BrowserRouter } from "react-router-dom";
 
 import { parameters, id, label, typo, path } from "./props";
-import { IBreadcrumbMenuLinkProps } from "../interfaces/BreadcrumbMenuLink.interface";
+import { IBreadcrumbMenuLinkProps } from "..";
 
 const story = {
   title: "navigation/BreadcrumbMenuLink",
