@@ -1,5 +1,5 @@
 import { Table } from "../index";
-import { ITableProps } from "../interfaces/Table.interface";
+import { ITableProps } from "..";
 
 import { titlesMuck, actionsMuck, breakPointsMuck } from "./mucks";
 
