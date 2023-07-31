@@ -1,8 +1,13 @@
-import { ISpinnerProps } from "./interfaces/Spinner.interface";
-import { sizes } from "./types/Spinner.Size.type";
-import { appearances } from "./types/Spinner.Appearance.type";
+import { Size, sizes } from "./types/Spinner.Size.type";
+import { Appearance, appearances } from "./types/Spinner.Appearance.type";
 
 import { StyledSpinner } from "./styles";
+
+export interface ISpinnerProps {
+  size: Size;
+  appearance: Appearance;
+  isTransparent: boolean;
+}
 
 const defaultAppearance = "blue";
 const defaultSize = "medium";
