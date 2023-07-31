@@ -9,10 +9,9 @@ import {
   MdAccountBalanceWallet,
 } from "react-icons/md";
 
-import { Nav } from "..";
+import { Nav, INavProps } from "..";
 
 import { parameters, navigation, logoutPath } from "./props";
-import { INavProps } from "../interfaces/Nav.interface";
 
 const story = {
   title: "navigation/Nav",
