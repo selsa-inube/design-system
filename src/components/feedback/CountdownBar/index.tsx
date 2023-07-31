@@ -1,8 +1,16 @@
-import { StyledCountdownBar } from "./styles";
-import { colors } from "../../../shared/colors/colors";
+import { AnimationEvent } from "react";
 
-import { ICountdownBarProps } from "./interfaces/CountdownBar.interface";
+import { colors } from "../../../shared/colors/colors";
 import { Appearance } from "./types/CountdownBar.Appearance.type";
+import { StyledCountdownBar } from "./styles";
+
+export interface ICountdownBarProps {
+  size?: string;
+  appearance?: Appearance;
+  duration?: number;
+  isPaused?: boolean;
+  handleCountdown?: (e: AnimationEvent<HTMLDivElement>) => void;
+}
 
 const defaultAppearance = "primary";
 const defaultSize = "4px";
