@@ -1,6 +1,4 @@
-import { ITextFieldProps } from "..";
-
-import { TextField } from "..";
+import { TextField, ITextFieldProps } from "..";
 import { TextFieldController } from "./TextfieldController";
 
 import {

@@ -1,5 +1,4 @@
-import { Table } from "../index";
-import { ITableProps } from "..";
+import { Table, ITableProps } from "../index";
 
 import { titlesMuck, actionsMuck, breakPointsMuck } from "./mucks";
 

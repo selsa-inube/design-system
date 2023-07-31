@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { ISwitchProps } from "../index";
-import { Switch } from "../index";
+import { Switch, ISwitchProps } from "../index";
 
 const SwitchController = (props: ISwitchProps) => {
   const { checked = false } = props;

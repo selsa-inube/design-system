@@ -1,7 +1,6 @@
-import { Breadcrumbs } from "../index";
 import { BrowserRouter } from "react-router-dom";
 import { parameters, crumbs } from "./props";
-import { IBreadcrumbsProps } from "..";
+import { Breadcrumbs, IBreadcrumbsProps } from "..";
 
 const story = {
   title: "navigation/Breadcrumbs",

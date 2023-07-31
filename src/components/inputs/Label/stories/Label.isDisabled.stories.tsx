@@ -1,6 +1,4 @@
-import { ILabelProps } from "../index";
-
-import { Label } from "..";
+import { Label, ILabelProps } from "..";
 import { parameters, isFocused, htmlFor, isInvalid } from "./props";
 
 const story = {

@@ -1,9 +1,8 @@
 import { useState } from "react";
 
-import { Select } from "../index";
+import { Select, ISelectProps } from "..";
 import { StyledForm } from "./styles";
 import { Button } from "../../Button";
-import { ISelectProps } from "..";
 
 const InForm = (props: ISelectProps) => {
   const { value = "", state = "pending", isRequired } = props;

@@ -1,7 +1,6 @@
 import { BrowserRouter } from "react-router-dom";
-import { BreadcrumbLink } from "../index";
+import { BreadcrumbLink, IBreadcrumbLinkProps } from "..";
 import { BreadcrumbLinkController } from "./BreadcrumbLinkController";
-import { IBreadcrumbLinkProps } from "..";
 
 import {
   parameters,

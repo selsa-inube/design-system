@@ -1,7 +1,6 @@
 import { useState } from "react";
 
-import { ITextFieldProps } from "..";
-import { TextField } from "..";
+import { TextField, ITextFieldProps } from "..";
 
 const TextFieldController = (props: ITextFieldProps) => {
   const { value = "", state = "pending" } = props;

@@ -1,9 +1,8 @@
 import { useState } from "react";
-import { BlanketProps } from "..";
+import { Blanket, BlanketProps } from "..";
 
 import { Button } from "@src/components/inputs/Button/index";
 
-import { Blanket } from "../index";
 import { StyledBackdropBlanket } from "./styles";
 
 const story = {

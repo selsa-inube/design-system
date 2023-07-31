@@ -1,7 +1,6 @@
 import { ElementType } from "react";
 
-import { Spinner } from "..";
-import { ISpinnerProps } from "../interfaces/Spinner.interface";
+import { Spinner, ISpinnerProps } from "..";
 
 import { StyledFlex } from "./styles";
 

@@ -1,5 +1,4 @@
-import { User } from "../index";
-import { IUserProps } from "../interfaces/User.interface";
+import { User, IUserProps } from "..";
 
 import { parameters, userName, client, size } from "./props";
 
