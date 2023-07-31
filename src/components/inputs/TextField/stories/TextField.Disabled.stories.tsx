@@ -1,4 +1,4 @@
-import { ITextFieldProps } from "../interfaces/TextField.interface";
+import { ITextFieldProps } from "..";
 import { sizes } from "../types/TextField.Size.type";
 
 import { TextField } from "..";

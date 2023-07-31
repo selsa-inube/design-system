@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { ITextFieldProps } from "../interfaces/TextField.interface";
+import { ITextFieldProps } from "..";
 import { TextField } from "..";
 
 const TextFieldController = (props: ITextFieldProps) => {
