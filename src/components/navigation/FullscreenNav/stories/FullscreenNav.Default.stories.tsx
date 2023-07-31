@@ -1,5 +1,4 @@
 import { BrowserRouter } from "react-router-dom";
-
 import {
   MdVpnKey,
   MdMeetingRoom,
@@ -10,9 +9,9 @@ import {
   MdAccountBalance,
 } from "react-icons/md";
 
-import { FullscreenNav } from "..";
+import { FullscreenNav, IFullscreenNavProps } from "..";
+
 import { parameters, portalId, navigation, logoutPath } from "./props";
-import { IFullscreenNavProps } from "../interfaces/FullscreenNav.interface";
 
 const story = {
   title: "navigation/FullscreenNav",
