@@ -1,4 +1,4 @@
-import { ILabelProps } from "../interfaces/Label.interface";
+import { ILabelProps } from "../index";
 
 import { Label } from "..";
 import { parameters, isFocused, htmlFor, isInvalid } from "./props";

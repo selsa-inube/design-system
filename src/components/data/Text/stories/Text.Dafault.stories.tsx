@@ -2,7 +2,7 @@ import { Text } from "..";
 
 import { StyledContainer } from "./styles";
 import { parameters, props } from "./props";
-import { ITextProps } from "../interfaces/Text.interface";
+import { ITextProps } from "../index";
 
 const story = {
   title: "data/Text",

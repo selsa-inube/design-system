@@ -1,6 +1,6 @@
 import { ThemeProvider } from "styled-components";
 
-import { IAvatarProps } from "../interfaces/Avatar.interface";
+import { IAvatarProps } from "../index";
 import { presente } from "@src/shared/themes/presente";
 import { Avatar } from "..";
 

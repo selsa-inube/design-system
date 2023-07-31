@@ -1,4 +1,4 @@
-import { ISwitchProps } from "../interfaces/Switch.interface";
+import { ISwitchProps } from "../index";
 import { sizes } from "../types/Switch.Size.type";
 import { Switch } from "..";
 import { SwitchController } from "./SwitchController";
