@@ -1,5 +1,4 @@
-import { ISwitchProps } from "../index";
-import { Switch } from "..";
+import { Switch, ISwitchProps } from "..";
 import { SwitchController } from "./SwitchController";
 import { id, name, handleChange, margin, padding } from "./props";
 

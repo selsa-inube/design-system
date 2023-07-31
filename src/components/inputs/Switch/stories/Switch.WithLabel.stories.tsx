@@ -1,6 +1,5 @@
-import { ISwitchProps } from "../index";
+import { Switch, ISwitchProps } from "../index";
 
-import { Switch } from "../index";
 import { SwitchController } from "./SwitchController";
 import {
   id,
