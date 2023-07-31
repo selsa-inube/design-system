@@ -1,5 +1,5 @@
 import { BrowserRouter } from "react-router-dom";
-import { IBreadcrumbEllipsisProps } from "../interfaces/BreadcrumbEllipsis.interface";
+import { IBreadcrumbEllipsisProps } from "..";
 
 import { BreadcrumbEllipsis } from "../index";
 
