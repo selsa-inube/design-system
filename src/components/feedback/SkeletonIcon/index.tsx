@@ -1,5 +1,9 @@
-import { ISkeletonIconProps } from "./interfaces/SkeletonIcon.interface";
 import { StyledSkeletonIcon } from "./styles";
+
+export interface ISkeletonIconProps {
+  size?: string;
+  isAnimated?: boolean;
+}
 
 const defaultSize = "24px";
 
