@@ -1,6 +1,6 @@
 import { Select } from "../index";
 
-import { ISelectProps } from "../interfaces/Select.interface";
+import { ISelectProps } from "..";
 import { SelectController } from "./SelectController";
 import {
   parameters,

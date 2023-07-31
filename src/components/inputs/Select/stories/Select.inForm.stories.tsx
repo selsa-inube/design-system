@@ -1,5 +1,5 @@
 import { Select } from "../index";
-import { ISelectProps } from "../interfaces/Select.interface";
+import { ISelectProps } from "..";
 import { InForm } from "./Select.form.Controller";
 
 import {
