@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { colors } from "../../../shared/colors/colors";
-import { ITabsProps } from "./interfaces/Tabs.interface";
+import { ITabsProps } from ".";
 
 const StyledTabs = styled.div`
   box-sizing: border-box;
