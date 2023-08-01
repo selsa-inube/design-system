@@ -10,14 +10,6 @@ export const variants = ["filled", "outlined", "none"] as const;
 export type Variant = typeof variants[number];
 
 const props = {
-  parameters: {
-    docs: {
-      description: {
-        component: "Icon component is used to display different icons.",
-      },
-    },
-  },
-
   appearance: {
     options: Object.keys(inube.color.text),
     control: { type: "select" },
@@ -86,9 +78,8 @@ const props = {
     },
   },
 
-  handleClick: {
-    options: ["logState"],
-    control: { type: "func" },
+  onClick: {
+    control: { action: "clicked" },
     description: "function to handle icon click",
   },
 
