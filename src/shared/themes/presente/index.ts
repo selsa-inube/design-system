@@ -1,7 +1,7 @@
-import { colors } from "./colors/colors";
+import { color } from "./color/color";
 
 const presente = {
-  colors,
+  color,
 };
 
 export { presente };

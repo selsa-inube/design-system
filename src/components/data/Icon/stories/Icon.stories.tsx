@@ -3,12 +3,13 @@ import { MdAdb } from "react-icons/md";
 import { Icon } from "../index";
 
 import { IIconProps } from "../interfaces/Icon.interface";
-import { props } from "./props";
+import { props } from "../props";
+import { presente } from "@src/shared/themes/presente";
+import { ThemeProvider } from "styled-components";
 
 const story = {
   title: "data/Icon",
   component: Icon,
-  decorators: [(Story: React.ElementType) => <Story />],
   argTypes: props,
 };
 
@@ -24,7 +25,20 @@ Default.args = {
   variant: "none",
   shape: "rectangle",
   size: "24px",
-  handleClick: () => console.log("clicked from Default Icon-story"),
+};
+
+const theme = {
+  ...presente,
+};
+
+export const Themed = (args: any) => (
+  <ThemeProvider theme={theme}>
+    <Icon {...args} />
+  </ThemeProvider>
+);
+
+Themed.args = {
+  ...Default.args,
 };
 
 export default story;
