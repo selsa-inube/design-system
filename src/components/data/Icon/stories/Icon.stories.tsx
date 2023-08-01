@@ -1,11 +1,10 @@
+import { ThemeProvider } from "styled-components";
 import { MdAdb } from "react-icons/md";
 
-import { Icon } from "../index";
+import { Icon, IIconProps } from "..";
 
-import { IIconProps } from "../interfaces/Icon.interface";
-import { props } from "./props";
+import { props } from "../props";
 import { presente } from "@src/shared/themes/presente";
-import { ThemeProvider } from "styled-components";
 
 const story = {
   title: "data/Icon",
@@ -25,14 +24,13 @@ Default.args = {
   variant: "none",
   shape: "rectangle",
   size: "24px",
-  handleClick: () => console.log("clicked from Default Icon-story"),
 };
 
 const theme = {
   ...presente,
 };
-
-export const Themed = (args: any) => (
+type IThemedProps = IIconProps & { theme: typeof theme };
+export const Themed = (args: IThemedProps) => (
   <ThemeProvider theme={theme}>
     <Icon {...args} />
   </ThemeProvider>

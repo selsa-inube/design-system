@@ -1,7 +1,7 @@
 import { ThemeProvider } from "styled-components";
 
 import { presente } from "@src/shared/themes/presente";
-import { Avatar, IAvatarProps } from "..";
+import { Avatar, IAvatarProps } from ".";
 
 import { props } from "./props";
 
