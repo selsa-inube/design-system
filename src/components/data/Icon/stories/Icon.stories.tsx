@@ -29,8 +29,8 @@ Default.args = {
 const theme = {
   ...presente,
 };
-
-export const Themed = (args: any) => (
+type IThemedProps = IIconProps & { theme: typeof theme };
+export const Themed = (args: IThemedProps) => (
   <ThemeProvider theme={theme}>
     <Icon {...args} />
   </ThemeProvider>

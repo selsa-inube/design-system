@@ -3,9 +3,9 @@ import { Spacing } from "./types/Icon.Spacing.type";
 import { Variant } from "./types/Icon.Variant.type";
 import { Shape } from "./types/Icon.Shape.type";
 import { StyledIcon } from "./styles";
-import { inube } from "@src/shared/tokens";
+import { Themed } from "./types/Icon.Theme";
 
-export interface IIconProps {
+export interface IIconProps extends Themed {
   appearance: Appearance;
   cursorHover?: boolean;
   parentHover?: boolean;
@@ -15,7 +15,6 @@ export interface IIconProps {
   variant?: Variant;
   shape?: Shape;
   size?: string;
-  theme?: typeof inube;
   onClick?: () => void;
 }
 
