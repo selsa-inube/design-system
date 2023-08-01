@@ -13,5 +13,5 @@ export interface IIconProps {
   variant?: Variant;
   shape?: Shape;
   size?: string;
-  handleClick?: () => void;
+  onClick?: () => void;
 }

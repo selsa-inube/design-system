@@ -8,7 +8,7 @@ import { spacing } from "@src/shared/tokens/spacing/spacing";
 const defaultSize = "large";
 
 const User = (props: IUserProps) => {
-  const { userName, businessUnit, size = defaultSize } = props;
+  const { userName, client, size = defaultSize } = props;
 
   return (
     <Stack justifyContent="flex-start" alignItems="center" gap={spacing.s200}>
@@ -28,15 +28,17 @@ const User = (props: IUserProps) => {
           >
             {userName}
           </Text>
-          <Text
-            id="businessUnit"
-            as="span"
-            appearance="gray"
-            type="body"
-            size="small"
-          >
-            {businessUnit}
-          </Text>
+          {client && (
+            <Text
+              id="businessUnit"
+              as="span"
+              appearance="gray"
+              type="body"
+              size="small"
+            >
+              {client}
+            </Text>
+          )}
         </Stack>
       )}
       <Avatar />
