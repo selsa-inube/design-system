@@ -25,7 +25,6 @@ Default.args = {
   variant: "none",
   shape: "rectangle",
   size: "24px",
-  handleClick: () => console.log("clicked from Default Icon-story"),
 };
 
 const theme = {
