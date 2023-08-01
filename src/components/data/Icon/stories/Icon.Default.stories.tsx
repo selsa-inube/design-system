@@ -6,7 +6,6 @@ import { IIconProps } from "../interfaces/Icon.interface";
 import { props } from "../props";
 import { presente } from "@src/shared/themes/presente";
 import { ThemeProvider } from "styled-components";
-import { inube } from "@src/shared/tokens";
 
 const story = {
   title: "data/Icon",
@@ -14,15 +13,7 @@ const story = {
   argTypes: props,
 };
 
-const themeInube = {
-  ...inube,
-};
-
-export const Default = (args: IIconProps) => (
-  <ThemeProvider theme={themeInube}>
-    <Icon {...args} />
-  </ThemeProvider>
-);
+export const Default = (args: IIconProps) => <Icon {...args} />;
 
 Default.args = {
   appearance: "primary",

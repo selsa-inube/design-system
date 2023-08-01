@@ -22,14 +22,23 @@ const StyledIcon = styled.figure`
     disabled,
   }: IIconProps) => {
     if (disabled) {
-      return theme?.color?.stroke?.[appearance]?.disabled;
+      return (
+        theme?.color?.stroke?.[appearance]?.disabled ||
+        inube.color.stroke[appearance].disabled
+      );
     }
 
     if (parentHover) {
-      return theme?.color?.stroke?.[appearance]?.hover;
+      return (
+        theme?.color?.stroke?.[appearance]?.hover ||
+        inube.color.stroke[appearance].hover
+      );
     }
 
-    return theme?.color?.stroke?.[appearance]?.regular;
+    return (
+      theme?.color?.stroke?.[appearance]?.regular ||
+      inube.color.stroke[appearance].regular
+    );
   }};
 
   background-color: ${({
@@ -41,14 +50,23 @@ const StyledIcon = styled.figure`
   }: IIconProps) => {
     if (variant === "filled") {
       if (disabled) {
-        return theme?.color?.text?.[appearance]?.disabled;
+        return (
+          theme?.color?.text?.[appearance]?.disabled ||
+          inube.color.text[appearance].disabled
+        );
       }
 
       if (parentHover) {
-        return theme?.color?.text?.[appearance]?.hover;
+        return (
+          theme?.color?.text?.[appearance]?.hover ||
+          inube.color.text[appearance].hover
+        );
       }
 
-      return theme?.color?.text?.[appearance]?.regular;
+      return (
+        theme?.color?.text?.[appearance]?.regular ||
+        inube.color.text[appearance].regular
+      );
     }
   }};
 
@@ -60,21 +78,31 @@ const StyledIcon = styled.figure`
     disabled,
   }: IIconProps) => {
     if (disabled) {
-      return theme?.color?.text?.light?.disabled;
+      return (
+        theme?.color?.text?.light?.disabled || inube.color.text.light.disabled
+      );
     }
 
     if (variant === "filled") {
       if (!filledAppearancesWithGrayIcon.includes(appearance)) {
-        return theme?.color?.text?.light?.regular;
+        return (
+          theme?.color?.text?.light?.regular || inube.color.text.light.regular
+        );
       }
-      return theme?.color?.text?.gray?.regular;
+      return theme?.color?.text?.gray?.regular || inube.color.text.gray.regular;
     }
 
     if (parentHover) {
-      return theme?.color?.text?.[appearance]?.hover;
+      return (
+        theme?.color?.text?.[appearance]?.hover ||
+        inube.color.text[appearance].hover
+      );
     }
 
-    return theme?.color?.text?.[appearance]?.regular;
+    return (
+      theme?.color?.text?.[appearance]?.regular ||
+      inube.color.text[appearance].regular
+    );
   }};
 
   & svg {
@@ -109,7 +137,10 @@ const StyledIcon = styled.figure`
     }: IIconProps) => {
       if (!disabled) {
         if (cursorHover) {
-          return theme?.color?.text?.[appearance]?.hover;
+          return (
+            theme?.color?.text?.[appearance]?.hover ||
+            inube.color.text[appearance].hover
+          );
         }
       }
     }};
@@ -124,7 +155,10 @@ const StyledIcon = styled.figure`
       if (!disabled) {
         if (variant === "filled") {
           if (cursorHover) {
-            return theme?.color?.text?.[appearance]?.hover;
+            return (
+              theme?.color?.text?.[appearance]?.hover ||
+              inube.color.text[appearance].hover
+            );
           }
         }
       }
@@ -142,11 +176,19 @@ const StyledIcon = styled.figure`
           if (cursorHover) {
             if (variant === "filled") {
               if (!filledAppearancesWithGrayIcon.includes(appearance)) {
-                return theme?.color?.text?.light?.hover;
+                return (
+                  theme?.color?.text?.light?.hover ||
+                  inube.color.text.light.hover
+                );
               }
-              return theme?.color?.text?.gray?.hover;
+              return (
+                theme?.color?.text?.gray?.hover || inube.color.text.gray.hover
+              );
             } else {
-              return theme?.color?.text?.[appearance]?.hover;
+              return (
+                theme?.color?.text?.[appearance]?.hover ||
+                inube.color.text[appearance].hover
+              );
             }
           }
         }
