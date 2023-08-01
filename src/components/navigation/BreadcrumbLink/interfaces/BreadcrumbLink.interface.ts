@@ -1,4 +1,4 @@
-import { Typos } from "../types/BreadcrumbLink.typos.type";
+import { Typos } from "../props";
 
 export interface IBreadcrumbLinkProps {
   isActive?: boolean;

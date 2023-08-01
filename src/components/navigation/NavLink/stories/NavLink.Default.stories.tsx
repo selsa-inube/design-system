@@ -5,21 +5,12 @@ import { INavLinkProps } from "../interfaces/NavLink.interface";
 import { NavLinkController } from "./NavLink.Controller";
 import { NavLink } from "..";
 
-import {
-  parameters,
-  id,
-  label,
-  path,
-  isDisabled,
-  isSelected,
-  icon,
-  handleClick,
-} from "./props";
+import { props } from "../props";
 
 const story = {
   title: "navigation/NavLink",
   components: [NavLink],
-  parameters,
+  argTypes: props,
   decorators: [
     (Story: React.ElementType) => (
       <div style={{ margin: "3em" }}>
@@ -39,16 +30,6 @@ Default.args = {
   path: "/privileges",
   isDisabled: false,
   icon: <MdHouse />,
-};
-
-Default.argTypes = {
-  id,
-  label,
-  path,
-  isDisabled,
-  isSelected,
-  icon,
-  handleClick,
 };
 
 export default story;

@@ -2,18 +2,12 @@ import { Tabs } from "../index";
 import { ITabsProps } from "../interfaces/Tabs.interface";
 import { TabsController } from "./TabsController";
 
-import {
-  parameters,
-  tabs,
-  selectedTab,
-  handleSelectedTab,
-  type,
-} from "./props";
+import { props } from "../props";
 
 const story = {
   title: "navigation/Tabs",
   components: [Tabs],
-  parameters,
+  argTypes: props,
   decorators: [
     (Story: React.ElementType) => (
       <div style={{ margin: "3em" }}>
@@ -39,12 +33,6 @@ Default.args = {
   ],
   selectedTab: "generalInformation",
   type: "tabs",
-};
-Default.argTypes = {
-  tabs,
-  selectedTab,
-  handleSelectedTab,
-  type,
 };
 
 export default story;

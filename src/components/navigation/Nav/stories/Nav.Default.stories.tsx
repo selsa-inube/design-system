@@ -11,13 +11,13 @@ import {
 
 import { Nav } from "..";
 
-import { parameters, navigation, logoutPath } from "./props";
+import { props } from "../props";
 import { INavProps } from "../interfaces/Nav.interface";
 
 const story = {
   title: "navigation/Nav",
   components: [Nav],
-  parameters,
+  argTypes: props,
   decorators: [
     (Story: React.ElementType) => (
       <div style={{ height: "971px" }}>
@@ -97,11 +97,6 @@ Default.args = {
   },
   logoutPath: "/logout",
   logoutTitle: "logout",
-};
-
-Default.argTypes = {
-  navigation,
-  logoutPath,
 };
 
 export default story;

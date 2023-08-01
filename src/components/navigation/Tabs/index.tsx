@@ -7,7 +7,7 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 import { ITabsProps } from "./interfaces/Tabs.interface";
 
 import { ITabsItem } from "./interfaces/Tabs.Item.interface";
-import { types } from "./types/Tabs.type";
+import { types } from "./props";
 
 const defaultType = "tabs";
 

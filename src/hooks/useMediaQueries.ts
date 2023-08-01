@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { IMediaQueryListEvent } from "./interfaces/MediaQueryListEvent.interface";
-import { MediaQueryList } from "./types/MediaQueryList.type";
+import { MediaQueryList } from "./props";
 
 import {
   validateArrayType,

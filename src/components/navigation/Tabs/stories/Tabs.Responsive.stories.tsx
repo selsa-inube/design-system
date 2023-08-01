@@ -2,11 +2,12 @@ import { Tabs } from "../index";
 import { ITabsProps } from "../interfaces/Tabs.interface";
 import { TabsResponsiveController } from "./TabsResponsiveController";
 
-import { tabs, selectedTab, handleSelectedTab } from "./props";
+import { props } from "../props";
 
 const story = {
   title: "navigation/Tabs",
   components: [Tabs],
+  argTypes: props,
   decorators: [
     (Story: React.ElementType) => (
       <div>
@@ -33,11 +34,6 @@ Responsive.args = {
     { id: "payroll", isDisabled: false, label: "Payroll" },
   ],
   selectedTab: "generalInformation",
-};
-Responsive.argTypes = {
-  tabs,
-  selectedTab,
-  handleSelectedTab,
 };
 
 export default story;

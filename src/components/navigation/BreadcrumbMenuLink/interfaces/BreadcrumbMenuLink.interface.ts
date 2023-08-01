@@ -1,4 +1,4 @@
-import { Typos } from "../types/BreadcrumbMenuLink.typos.type";
+import { Typos } from "../props";
 
 export interface IBreadcrumbMenuLinkProps {
   label: string;

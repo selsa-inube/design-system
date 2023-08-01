@@ -2,21 +2,13 @@ import { BreadcrumbLink } from "../index";
 import { BreadcrumbLinkController } from "./BreadcrumbLinkController";
 import { BrowserRouter } from "react-router-dom";
 
-import {
-  parameters,
-  id,
-  isActive,
-  handleClick,
-  label,
-  typo,
-  path,
-} from "./props";
+import { props } from "../props";
 import { IBreadcrumbLinkProps } from "../interfaces/BreadcrumbLink.interface";
 
 const story = {
   title: "navigation/BreadcrumbLink",
   components: [BreadcrumbLink],
-  parameters,
+  argTypes: props,
   decorators: [
     (Story: React.ElementType) => (
       <div style={{ margin: "3em" }}>
@@ -37,14 +29,6 @@ Default.args = {
   id: "privileges",
   isActive: false,
   typo: "large",
-};
-Default.argTypes = {
-  id,
-  isActive,
-  handleClick,
-  label,
-  typo,
-  path,
 };
 
 export default story;

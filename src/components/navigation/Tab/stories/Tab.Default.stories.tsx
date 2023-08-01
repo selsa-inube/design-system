@@ -3,11 +3,12 @@ import { ITabProps } from "../interfaces/Tab.interface";
 import { Tab } from "../index";
 import { TabController } from "./TabController";
 
-import { id, isDisabled, isSelected, handleClick, label } from "./props";
+import { props } from "../props";
 
 const story = {
   title: "navigation/Tab",
   components: [Tab],
+  argTypes: props,
   decorators: [
     (Story: ElementType) => (
       <div style={{ margin: "3em" }}>
@@ -23,13 +24,6 @@ Default.args = {
   isDisabled: false,
   label: "General Information",
   isSelected: { control: null },
-};
-Default.argTypes = {
-  id,
-  isDisabled,
-  isSelected,
-  handleClick,
-  label,
 };
 
 export default story;

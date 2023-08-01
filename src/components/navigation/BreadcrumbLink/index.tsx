@@ -1,7 +1,7 @@
 import { Text } from "../../data/Text";
 import { IBreadcrumbLinkProps } from "./interfaces/BreadcrumbLink.interface";
+import { Typos, typos } from "./props";
 import { StyledContainerLink, StyledBreadcrumbLink } from "./styles";
-import { Typos, typos } from "./types/BreadcrumbLink.typos.type";
 
 const defaultTypo: Typos = "large";
 const defaultIsActive: boolean = false;

@@ -1,4 +1,4 @@
-import { Typos } from "../types/BreadcrumbEllipsis.Typos.type";
+import { Typos } from "../props";
 import { IRoute } from "./BreadcrumbEllipsis.Route.interface";
 
 export interface IBreadcrumbEllipsisProps {

@@ -3,7 +3,7 @@ import { Text } from "../../data/Text";
 
 import { StyledContainerLink, StyledBreadcrumbMenuLink } from "./styles";
 import { IBreadcrumbMenuLinkProps } from "./interfaces/BreadcrumbMenuLink.interface";
-import { Typos, typos } from "./types/BreadcrumbMenuLink.typos.type";
+import { Typos, typos } from "./props";
 
 const defaultTypo: Typos = "large";
 
