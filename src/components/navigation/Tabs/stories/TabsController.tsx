@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { Tabs } from "../index";
-import { ITabsProps } from "../interfaces/Tabs.interface";
+import { Tabs, ITabsProps } from "..";
 
 const TabsController = (props: ITabsProps) => {
   const { tabs, type, selectedTab } = props;

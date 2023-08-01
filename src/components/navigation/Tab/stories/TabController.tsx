@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
-import { ITabProps } from "../interfaces/Tab.interface";
-import { Tab } from "../index";
+import { Tab, ITabProps } from "../index";
 
 const TabController = (props: ITabProps) => {
   const { isDisabled = false } = props;

@@ -1,7 +1,16 @@
 import { Text } from "../../data/Text";
-import { IBreadcrumbLinkProps } from "./interfaces/BreadcrumbLink.interface";
+
 import { StyledContainerLink, StyledBreadcrumbLink } from "./styles";
 import { Typos, typos } from "./types/BreadcrumbLink.typos.type";
+
+export interface IBreadcrumbLinkProps {
+  isActive?: boolean;
+  label: string;
+  path: string;
+  id: string;
+  typo?: Typos;
+  handleClick?: () => void;
+}
 
 const defaultTypo: Typos = "large";
 const defaultIsActive: boolean = false;

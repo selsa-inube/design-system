@@ -1,6 +1,4 @@
-import { ITextFieldProps } from "../interfaces/TextField.interface";
-
-import { TextField } from "..";
+import { TextField, ITextFieldProps } from "..";
 import { TextFieldController } from "./TextfieldController";
 import { sizes } from "../types/TextField.Size.type";
 import { Stack } from "../../../layouts/Stack";

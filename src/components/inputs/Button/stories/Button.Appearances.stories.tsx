@@ -1,10 +1,9 @@
 import { BrowserRouter } from "react-router-dom";
 import { MdAdd } from "react-icons/md";
 
-import { IButtonProps } from "../interfaces/Button.interface";
+import { Button, IButtonProps } from "..";
 import { appearances } from "../types/Button.Appearances.type";
 
-import { Button } from "../index";
 import { StyledFlex } from "./stories.styles";
 
 import {

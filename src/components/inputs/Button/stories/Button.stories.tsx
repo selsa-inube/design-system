@@ -1,7 +1,7 @@
 import { BrowserRouter } from "react-router-dom";
 import { MdAdd } from "react-icons/md";
 
-import { Button } from "../index";
+import { Button, IButtonProps } from "..";
 
 import {
   parameters,
@@ -18,7 +18,6 @@ import {
   handleClick,
   path,
 } from "./props";
-import { IButtonProps } from "../interfaces/Button.interface";
 
 const story = {
   title: "inputs/Button",

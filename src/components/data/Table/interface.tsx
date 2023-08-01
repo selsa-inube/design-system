@@ -13,11 +13,35 @@ import {
 import { useMediaQueries } from "../../../hooks/useMediaQueries";
 import { useMediaQuery } from "../../../hooks/useMediaQuery";
 import { Text } from "../Text";
-import { IAction } from "./interfaces/Table.Action.interface";
-import { IBreakpoint } from "./interfaces/Table.Breakpoint.interface";
-import { IEntry } from "./interfaces/Table.Entry.interface";
-import { ITitle } from "./interfaces/Table.Title.interface";
-import { ITableUIProps } from "./interfaces/Table.UI.interface";
+import { IEntry } from "./DisplayEntry/index";
+
+export interface ITitle {
+  id: string;
+  titleName: string;
+  priority: number;
+}
+
+export interface IAction {
+  id: string;
+  actionName: string;
+  content: (entry: any) => JSX.Element;
+}
+
+export interface IBreakpoint {
+  breakpoint: string;
+  totalColumns: number;
+}
+
+export interface ITableUIProps {
+  portalId: string;
+  titles: ITitle[];
+  actions: IAction[];
+  entries: IEntry[];
+  breakpoints: IBreakpoint[];
+  modalTitle: string;
+  infoTitle: string;
+  actionsTitle: string;
+}
 
 function findCurrentMediaQuery(currentMediaQuery: Record<string, boolean>) {
   const lastIndexMedia = Object.values(currentMediaQuery).lastIndexOf(true);

@@ -1,7 +1,10 @@
 import { Stack } from "@src/components/layouts/Stack";
-import { BlanketProps } from "./interfaces/interface.Blanket";
 import { StyledBlanket } from "./styles";
 import { useMediaQuery } from "@src/hooks/useMediaQuery";
+
+export interface BlanketProps {
+  children?: React.ReactNode;
+}
 
 const Blanket = (props: BlanketProps) => {
   const { children } = props;

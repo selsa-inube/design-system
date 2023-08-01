@@ -1,5 +1,9 @@
 import { StyledSkeletonLine } from "./styles";
-import { ISkeletonLineProps } from "./interfaces/SkeletonLine.interface";
+
+export interface ISkeletonLineProps {
+  width?: string;
+  isAnimated?: boolean;
+}
 
 const SkeletonLine = (props: ISkeletonLineProps) => {
   const { width = "100%", isAnimated = false } = props;

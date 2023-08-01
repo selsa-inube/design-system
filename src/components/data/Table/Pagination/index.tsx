@@ -8,7 +8,16 @@ import {
 import { Text } from "../../Text/index";
 import { Stack } from "../../../layouts/Stack";
 import { StyledButton } from "./styles";
-import { IPaginationProps } from "../interfaces/Table.Pagination.interface";
+
+export interface IPaginationProps {
+  firstEntryInPage: number;
+  lastEntryInPage: number;
+  totalRecords: number;
+  handleStartPage: () => void;
+  handlePrevPage: () => void;
+  handleNextPage: () => void;
+  handleEndPage: () => void;
+}
 
 const Pagination = (props: IPaginationProps) => {
   const {

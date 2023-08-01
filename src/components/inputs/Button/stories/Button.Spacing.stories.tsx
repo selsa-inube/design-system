@@ -1,7 +1,8 @@
 import { MdAdd } from "react-icons/md";
 import { BrowserRouter } from "react-router-dom";
 
-import { Button } from "../index";
+import { spacings } from "../types/Button.Spacings.type";
+import { Button, IButtonProps } from "..";
 import { StyledFlex } from "./stories.styles";
 
 import {
@@ -18,8 +19,6 @@ import {
   handleClick,
   path,
 } from "./props";
-import { IButtonProps } from "../interfaces/Button.interface";
-import { spacings } from "../types/Button.Spacings.type";
 
 const story = {
   title: "inputs/Button",

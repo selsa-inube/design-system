@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { BreadcrumbLink } from "../index";
-import { IBreadcrumbLinkProps } from "../interfaces/BreadcrumbLink.interface";
+import { BreadcrumbLink, IBreadcrumbLinkProps } from "..";
 
 const BreadcrumbLinkController = (props: IBreadcrumbLinkProps) => {
   const [isActive, setIsActive] = useState(false);

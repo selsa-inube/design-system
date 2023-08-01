@@ -1,9 +1,23 @@
 import { useMemo, useState } from "react";
 
 import { Pagination } from "./Pagination";
-import { TableUI } from "./interface";
+import { IAction, IBreakpoint, TableUI } from "./interface";
 import { Stack } from "../../layouts/Stack";
-import { ITableProps } from "./interfaces/Table.interface";
+import { ITitle } from "./interface";
+import { IEntry } from "./DisplayEntry";
+
+export interface ITableProps {
+  id: string;
+  titles: ITitle[];
+  actions: IAction[];
+  entries: IEntry[];
+  filter?: string;
+  pageLength?: number;
+  breakpoints?: IBreakpoint[];
+  modalTitle?: string;
+  infoTitle?: string;
+  actionsTitle?: string;
+}
 
 const Table = (props: ITableProps) => {
   const {

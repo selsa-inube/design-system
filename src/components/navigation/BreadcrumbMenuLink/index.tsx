@@ -2,8 +2,14 @@ import { Stack } from "../../layouts/Stack";
 import { Text } from "../../data/Text";
 
 import { StyledContainerLink, StyledBreadcrumbMenuLink } from "./styles";
-import { IBreadcrumbMenuLinkProps } from "./interfaces/BreadcrumbMenuLink.interface";
 import { Typos, typos } from "./types/BreadcrumbMenuLink.typos.type";
+
+export interface IBreadcrumbMenuLinkProps {
+  label: string;
+  path: string;
+  id: string;
+  typo?: Typos;
+}
 
 const defaultTypo: Typos = "large";
 
