@@ -1,10 +1,10 @@
+import { ThemeProvider } from "styled-components";
 import { MdAdb } from "react-icons/md";
 
 import { Icon, IIconProps } from "..";
 
 import { props } from "../props";
 import { presente } from "@src/shared/themes/presente";
-import { ThemeProvider } from "styled-components";
 
 const story = {
   title: "data/Icon",
