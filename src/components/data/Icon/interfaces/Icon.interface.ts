@@ -1,9 +1,8 @@
 import { Appearance } from "@src/shared/types/Appearance.type";
 
-import { inube } from "@src/shared/tokens";
-import { Shape, Spacing, Variant } from "../props";
+import { Themed, Shape, Spacing, Variant } from "../props";
 
-export interface IIconProps {
+export interface IIconProps extends Themed {
   appearance: Appearance;
   cursorHover?: boolean;
   parentHover?: boolean;
@@ -13,6 +12,5 @@ export interface IIconProps {
   variant?: Variant;
   shape?: Shape;
   size?: string;
-  theme?: typeof inube;
   onClick?: () => void;
 }
