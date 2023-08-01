@@ -2,7 +2,7 @@ import { MdAdb } from "react-icons/md";
 
 import { Icon, IIconProps } from "..";
 
-import { props } from "./props";
+import { props } from "../props";
 import { presente } from "@src/shared/themes/presente";
 import { ThemeProvider } from "styled-components";
 
@@ -24,7 +24,6 @@ Default.args = {
   variant: "none",
   shape: "rectangle",
   size: "24px",
-  handleClick: () => console.log("clicked from Default Icon-story"),
 };
 
 const theme = {
