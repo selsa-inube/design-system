@@ -15,5 +15,5 @@ export interface IIconProps {
   shape?: Shape;
   size?: string;
   theme?: typeof inube;
-  handleClick?: () => void;
+  onClick?: () => void;
 }

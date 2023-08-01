@@ -28,15 +28,17 @@ const User = (props: IUserProps) => {
           >
             {userName}
           </Text>
-          <Text
-            id="businessUnit"
-            as="span"
-            appearance="gray"
-            type="body"
-            size="small"
-          >
-            {client}
-          </Text>
+          {client && (
+            <Text
+              id="businessUnit"
+              as="span"
+              appearance="gray"
+              type="body"
+              size="small"
+            >
+              {client}
+            </Text>
+          )}
         </Stack>
       )}
       <Avatar />

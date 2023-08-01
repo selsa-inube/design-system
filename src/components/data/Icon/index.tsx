@@ -12,7 +12,7 @@ const Icon = (props: IIconProps) => {
     variant,
     shape,
     size,
-    handleClick,
+    onClick,
   } = props;
 
   return (
@@ -25,7 +25,7 @@ const Icon = (props: IIconProps) => {
       variant={variant}
       shape={shape}
       size={size}
-      onClick={handleClick}
+      onClick={onClick}
     >
       {icon}
     </StyledIcon>
