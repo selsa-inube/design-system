@@ -2,11 +2,8 @@ import styled from "styled-components";
 
 import { inube } from "../../../shared/tokens";
 import { IIconProps } from ".";
-import { Themed } from "./types/Icon.Theme";
 
 const filledAppearancesWithGrayIcon = ["gray", "light"];
-const filledBackgroundHomologation: any = inube.color.surface;
-const filledBackgroundHomologationTheme: any = (theme: Themed) => theme;
 
 const StyledIcon = styled.figure`
   display: inline-block;
@@ -51,8 +48,8 @@ const StyledIcon = styled.figure`
     if (variant === "filled") {
       if (disabled)
         return (
-          filledBackgroundHomologationTheme(theme)?.color?.surface?.[appearance]
-            ?.disabled || filledBackgroundHomologation[appearance].disabled
+          theme?.color?.text?.[appearance]?.disabled ||
+          inube.color.text[appearance].disabled
         );
       if (parentHover)
         return (
