@@ -1,13 +1,13 @@
 import { ThemeProvider } from "styled-components";
 import { User, IUserProps } from "..";
 
-import { parameters, userName, client, size } from "./props";
+import { props } from "../props";
 import { presente } from "@src/shared/themes/presente";
 
 const story = {
   title: "data/User",
   components: [User],
-  parameters,
+  argTypes: props,
 };
 
 export const Default = (args: IUserProps) => <User {...args} />;
@@ -28,12 +28,6 @@ export const Themed = (args: IUserProps) => (
 );
 Themed.args = {
   ...Default.args,
-};
-
-Default.argTypes = {
-  userName,
-  client,
-  size,
 };
 
 export default story;

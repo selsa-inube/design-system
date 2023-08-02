@@ -1,15 +1,7 @@
 import { Switch, ISwitchProps } from "..";
 
 import { SwitchController } from "./SwitchController";
-import {
-  id,
-  isDisabled,
-  name,
-  handleChange,
-  label,
-  margin,
-  padding,
-} from "./props";
+import { props } from "../props";
 
 import { Stack } from "../../../layouts/Stack";
 
@@ -23,15 +15,7 @@ const story = {
       </div>
     ),
   ],
-  argTypes: {
-    id,
-    isDisabled,
-    name,
-    handleChange,
-    label,
-    margin,
-    padding,
-  },
+  argTypes: props,
 };
 
 const SwitchComponent = (args: ISwitchProps) => {

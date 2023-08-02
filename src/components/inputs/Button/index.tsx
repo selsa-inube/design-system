@@ -1,12 +1,18 @@
 import { StyledButton, StyledSpan, StyledIcon, StyledLink } from "./styles";
 import { Spinner } from "../../feedback/Spinner";
 import { colors } from "../../../shared/colors/colors";
-import { Appearance, appearances } from "./types/Button.Appearances.type";
-import { Type, types } from "./types/Button.Types.type";
-import { Spacing, spacings } from "./types/Button.Spacings.type";
-import { Variant, variants } from "./types/Button.Variants.type";
-import { SpinnerColorHomologation } from "./types/Button.SpinnerColorHomologation.type";
-import { SpinnerColor } from "./types/Button.SpinnerColor.type";
+import {
+  Appearance,
+  Type,
+  Spacing,
+  Variant,
+  SpinnerColorHomologation,
+  SpinnerColor,
+  appearances,
+  types,
+  spacings,
+  variants,
+} from "./props";
 
 export interface IButtonProps {
   children: React.ReactNode;

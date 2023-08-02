@@ -1,11 +1,11 @@
 import { BrowserRouter } from "react-router-dom";
 import { Breadcrumbs, IBreadcrumbsProps } from "..";
-import { parameters, crumbs } from "./props";
+import { props } from "../props";
 
 const story = {
   title: "navigation/Breadcrumbs",
   components: [Breadcrumbs],
-  parameters,
+  argTypes: props,
   decorators: [
     (Story: React.ElementType) => (
       <div style={{ margin: "3em" }}>
@@ -57,9 +57,6 @@ Desktop.args = {
       isActive: true,
     },
   ],
-};
-Desktop.argTypes = {
-  crumbs,
 };
 
 export default story;

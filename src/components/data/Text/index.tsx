@@ -3,11 +3,7 @@ import type { ComponentPropsWithRef } from "react";
 import { transformedMeasure } from "../../../utilities/transformedMeasure";
 import { Appearance } from "../../../shared/types/Appearance.type";
 
-import { AlignOptions } from "./types/Text.AlignOptions.type";
-import { HtmlElements } from "./types/Text.HtmlElements.type";
-import { TyposOptions } from "./types/Text.TyposOptions.type";
-import { SizesOptions } from "./types/Text.Size.type";
-
+import {AlignOptions,HtmlElements,TyposOptions,SizesOptions} from "./props";
 import { StyledText } from "./styles";
 
 export interface ITextProps extends ComponentPropsWithRef<"p"> {

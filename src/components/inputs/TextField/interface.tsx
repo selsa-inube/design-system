@@ -3,8 +3,6 @@ import { MdOutlineError, MdCheckCircle } from "react-icons/md";
 import { Label } from "../Label";
 import { Text } from "../../data/Text";
 
-import { Size } from "./types/TextField.Size.type";
-import { State } from "./types/TextField.State.type";
 import { ITextFieldProps } from ".";
 
 import {
@@ -16,6 +14,7 @@ import {
   StyledErrorMessageContainer,
   StyledValidMessageContainer,
 } from "./styles";
+import { Size, State } from "./props";
 
 export interface IMessageProps {
   state?: State;

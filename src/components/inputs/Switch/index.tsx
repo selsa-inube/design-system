@@ -1,4 +1,3 @@
-import { sizes, Size } from "./types/Switch.Size.type";
 import { MdDone, MdClose } from "react-icons/md";
 
 import { Stack } from "../../layouts/Stack";
@@ -6,6 +5,7 @@ import { Label } from "../Label";
 
 import { StyledContainer, StyledInput, StyledSpan, StyledIcon } from "./styles";
 import { transformedMeasure } from "../../../utilities/transformedMeasure";
+import { Size, sizes } from "./props";
 
 export interface ISwitchProps {
   isDisabled?: boolean;

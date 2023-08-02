@@ -1,11 +1,8 @@
 import { transformedMeasure } from "@src/utilities/transformedMeasure";
 
 import { StyledFlex } from "./styles";
-import { WrapControl } from "./types/Stack.WrapControl.type";
-import { DirectionAlignment } from "./types/Stack.DirectionAlignment.type";
-import { JustifyContent } from "./types/Stack.JustifyContent.type";
-import { AlignItem } from "./types/Stack.AlignItems.type";
-import { AlignContent } from "./types/Stack.AlignContent.type";
+import { WrapControl, DirectionAlignment, JustifyContent, AlignItem, AlignContent } from "./props";
+
 
 export interface IStackProps {
   children?: React.ReactNode;

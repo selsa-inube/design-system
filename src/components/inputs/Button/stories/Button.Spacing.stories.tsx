@@ -1,29 +1,15 @@
 import { MdAdd } from "react-icons/md";
 import { BrowserRouter } from "react-router-dom";
 
-import { spacings } from "../types/Button.Spacings.type";
 import { Button, IButtonProps } from "..";
 import { StyledFlex } from "./stories.styles";
 
-import {
-  parameters,
-  children,
-  isLoading,
-  appearance,
-  isDisabled,
-  iconBefore,
-  iconAfter,
-  type,
-  variant,
-  isFullWidth,
-  handleClick,
-  path,
-} from "./props";
+import { props, spacings } from "../props";
 
 const story = {
   title: "inputs/Button",
   components: [Button],
-  parameters,
+  argTypes: props,
   decorators: [
     (Story: React.ElementType) => (
       <BrowserRouter>
@@ -59,19 +45,6 @@ Spacing.args = {
   isFullWidth: false,
   handleClick: () => console.log("clicked"),
   path: "/privileges",
-};
-Spacing.argTypes = {
-  children,
-  isLoading,
-  appearance,
-  isDisabled,
-  iconBefore,
-  iconAfter,
-  type,
-  variant,
-  isFullWidth,
-  handleClick,
-  path,
 };
 
 export default story;
