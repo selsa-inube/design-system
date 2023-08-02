@@ -6,7 +6,7 @@ import {
 } from "react-icons/md";
 
 import { Text } from "../../Text/index";
-import { Stack } from "../../../layouts/Stack";
+import { Stack } from "@layouts/Stack";
 import { StyledButton } from "./styles";
 
 export interface IPaginationProps {

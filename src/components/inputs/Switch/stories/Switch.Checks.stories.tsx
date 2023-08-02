@@ -3,7 +3,7 @@ import { SwitchController } from "./SwitchController";
 
 import { props } from "../props";
 
-import { Stack } from "../../../layouts/Stack";
+import { Stack } from "@layouts/Stack";
 const story = {
   title: "inputs/Switch",
   components: [Switch],
