@@ -1,5 +1,4 @@
-import { SkeletonIcon } from "../index";
-import { ISkeletonIconProps } from "../interfaces/SkeletonIcon.interface";
+import { SkeletonIcon, ISkeletonIconProps } from "..";
 
 import { props } from "../props";
 

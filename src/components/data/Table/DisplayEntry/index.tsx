@@ -1,7 +1,23 @@
 import { InteractiveModal } from "../../../feedback/InteractiveModal";
 import { useState } from "react";
 import { MdOpenInNew } from "react-icons/md";
-import { IDisplayEntryProps } from "../interfaces/Table.DisplayEntry.interface";
+import { IAction } from "../interface";
+import { ITitle } from "../interface";
+
+export interface IEntry {
+  id: string;
+  [key: string]: any;
+}
+
+export interface IDisplayEntryProps {
+  portalId: string;
+  entry: IEntry;
+  actions: IAction[];
+  title: string;
+  titleLabels: ITitle[];
+  infoTitle?: string;
+  actionsTitle?: string;
+}
 
 const DisplayEntry = ({
   portalId,

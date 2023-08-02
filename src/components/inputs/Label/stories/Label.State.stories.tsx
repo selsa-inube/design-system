@@ -1,6 +1,4 @@
-import { ILabelProps } from "../interfaces/Label.interface";
-
-import { Label } from "..";
+import { Label, ILabelProps } from "..";
 import { Stack } from "../../../layouts/Stack";
 
 import { props } from "../props";

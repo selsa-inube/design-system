@@ -1,5 +1,3 @@
-import { ISwitchProps } from "./interfaces/Switch.interface";
-
 import { MdDone, MdClose } from "react-icons/md";
 
 import { Stack } from "../../layouts/Stack";
@@ -8,6 +6,20 @@ import { Label } from "../Label";
 import { StyledContainer, StyledInput, StyledSpan, StyledIcon } from "./styles";
 import { transformedMeasure } from "../../../utilities/transformedMeasure";
 import { Size, sizes } from "./props";
+
+export interface ISwitchProps {
+  isDisabled?: boolean;
+  id: string;
+  name?: string;
+  value?: string;
+  size?: Size;
+  checked?: boolean;
+  handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  label: string;
+  margin: string;
+  padding: string;
+  disabled?: boolean;
+}
 
 const defaultSize: Size = "small";
 const defaultMargin = "0px";

@@ -1,5 +1,4 @@
-import { Tabs } from "../index";
-import { ITabsProps } from "../interfaces/Tabs.interface";
+import { Tabs, ITabsProps } from "..";
 import { TabsResponsiveController } from "./TabsResponsiveController";
 
 import { props } from "../props";

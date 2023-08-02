@@ -1,7 +1,25 @@
+import type { ComponentPropsWithRef } from "react";
+
 import { transformedMeasure } from "../../../utilities/transformedMeasure";
+import { Appearance } from "../../../shared/types/Appearance.type";
+
+import {AlignOptions,HtmlElements,TyposOptions,SizesOptions} from "./props";
 import { StyledText } from "./styles";
 
-import { ITextProps } from "./interfaces/Text.interface";
+export interface ITextProps extends ComponentPropsWithRef<"p"> {
+  children?: React.ReactNode;
+  textAlign?: AlignOptions;
+  margin?: string;
+  padding?: string;
+  as?: HtmlElements;
+  appearance: Appearance;
+  isDisabled?: boolean;
+  type: TyposOptions;
+  size: SizesOptions;
+  cursorHover?: boolean;
+  parentHover?: boolean;
+  ellipsis?: boolean;
+}
 
 const Text = (props: ITextProps) => {
   const {

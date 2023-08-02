@@ -1,16 +1,48 @@
 import { useLocation } from "react-router-dom";
 import { MdLogout } from "react-icons/md";
 
-import { INavLinkProps } from "./interfaces/Nav.LinkComponet.interface";
-import { INavMultiSectionsProps } from "./interfaces/Nav.MultiSections.interface";
-import { INavProps } from "./interfaces/Nav.interface";
-import { INavOneSectionProps } from "./interfaces/Nav.OneSection.interface";
-
 import { NavLink } from "../NavLink";
 import { Stack } from "../../layouts/Stack";
 import { Text } from "../../data/Text";
 
 import { StyledNav, StyledFooter, SeparatorLine } from "./styles";
+
+export interface INavOneSectionProps {
+  navigation: INavigation;
+  firstSection: string;
+}
+
+export interface INavMultiSectionsProps {
+  navigation: INavigation;
+  sections: string[];
+}
+
+export interface INavLinkProps {
+  section: ILink[];
+}
+
+export interface ILink {
+  id: string;
+  label: string;
+  icon: React.ReactNode;
+  path: string;
+}
+
+export interface ISection {
+  name: string;
+  links: { [key: string]: ILink };
+}
+
+export interface INavigation {
+  title: string;
+  sections: { [key: string]: ISection };
+}
+
+export interface INavProps {
+  navigation: INavigation;
+  logoutPath: string;
+  logoutTitle: string;
+}
 
 const Links = (props: INavLinkProps) => {
   const { section } = props;

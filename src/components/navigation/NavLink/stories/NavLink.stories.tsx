@@ -1,9 +1,8 @@
 import { BrowserRouter } from "react-router-dom";
 import { MdHouse } from "react-icons/md";
 
-import { INavLinkProps } from "../interfaces/NavLink.interface";
+import { NavLink, INavLinkProps } from "..";
 import { NavLinkController } from "./NavLink.Controller";
-import { NavLink } from "..";
 
 import { props } from "../props";
 

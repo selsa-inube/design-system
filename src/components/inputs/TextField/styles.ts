@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ITextFieldProps } from "./interfaces/TextField.interface";
+import { ITextFieldProps } from ".";
 import { colors } from "../../../shared/colors/colors";
 import { typography } from "../../../shared/typography/typography";
 

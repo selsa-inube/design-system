@@ -1,8 +1,8 @@
-import { Table } from "../index";
-import { ITableProps } from "../interfaces/Table.interface";
-import { props } from "../props";
+import { Table, ITableProps } from "../index";
 
 import { titlesMuck, actionsMuck, breakPointsMuck } from "./mucks";
+
+import { props } from "../props";
 
 const story = {
   title: "data/Table",

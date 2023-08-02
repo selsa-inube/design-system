@@ -1,6 +1,5 @@
-import { SkeletonLine } from "..";
+import { SkeletonLine, ISkeletonLineProps } from "..";
 import { props } from "../props";
-import { ISkeletonLineProps } from "../interfaces/SkeletonLine.interface";
 
 const story = {
   title: "feedback/SkeletonLine",

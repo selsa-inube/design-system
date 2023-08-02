@@ -8,8 +8,18 @@ import {
   StyledBreadcrumbEllipsis,
   StyledRelativeContainer,
 } from "./styles";
+import { Typos } from "./props";
 
-import { IBreadcrumbEllipsisProps } from "./interfaces/BreadcrumbEllipsis.interface";
+export interface IRoute {
+  label: string;
+  path: string;
+  id: string;
+}
+
+export interface IBreadcrumbEllipsisProps {
+  size?: Typos;
+  routes: IRoute[];
+}
 
 const defaultTypo = "large";
 

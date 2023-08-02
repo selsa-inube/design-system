@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { Select } from "..";
-import { ISelectProps } from "../interfaces/Select.interface";
+import { Select, ISelectProps } from "..";
 
 const SelectController = (props: ISelectProps) => {
   const { value = "", state = "pending" } = props;

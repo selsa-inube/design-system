@@ -1,4 +1,4 @@
-import { ISwitchProps } from "./interfaces/Switch.interface";
+import { ISwitchProps } from "./index";
 import styled, { css } from "styled-components";
 
 import { colors } from "../../../shared/colors/colors";

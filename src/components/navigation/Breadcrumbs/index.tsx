@@ -1,11 +1,21 @@
-import { IBreadcrumbsProps } from "./interfaces/Breadcrumbs.interface";
+import { useMediaQuery } from "../../../hooks/useMediaQuery";
 
 import { BreadcrumbLink } from "../BreadcrumbLink";
 import { BreadcrumbEllipsis } from "../BreadcrumbEllipsis";
-import { useMediaQuery } from "../../../hooks/useMediaQuery";
 
 import { StyledBreadcrumbs } from "./styles";
 import { Sizes } from "./props";
+
+export interface IBreadcrumbItem {
+  path: string;
+  label: string;
+  id: string;
+  isActive: boolean;
+}
+
+export interface IBreadcrumbsProps {
+  crumbs: IBreadcrumbItem[];
+}
 
 function capitalizeString(string: string) {
   return string.charAt(0).toUpperCase() + string.slice(1);

@@ -1,10 +1,9 @@
 import { BrowserRouter } from "react-router-dom";
 
-import { Button } from "../index";
+import { Button, IButtonProps } from "..";
 import { StyledFlex } from "./stories.styles";
 
 import { props, variants } from "../props";
-import { IButtonProps } from "../interfaces/Button.interface";
 
 const story = {
   title: "inputs/Button",

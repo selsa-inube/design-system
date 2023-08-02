@@ -1,6 +1,4 @@
-import { Select } from "../index";
-
-import { ISelectProps } from "../interfaces/Select.interface";
+import { Select, ISelectProps } from "..";
 import { SelectController } from "./SelectController";
 import { props } from "../props";
 

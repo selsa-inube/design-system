@@ -1,10 +1,9 @@
-import { ITextFieldProps } from "./interfaces/TextField.interface";
-import { IMessageProps } from "./interfaces/TextField.Message.interface";
-
 import { MdOutlineError, MdCheckCircle } from "react-icons/md";
 
 import { Label } from "../Label";
 import { Text } from "../../data/Text";
+
+import { ITextFieldProps } from ".";
 
 import {
   StyledContainer,
@@ -15,7 +14,14 @@ import {
   StyledErrorMessageContainer,
   StyledValidMessageContainer,
 } from "./styles";
-import { Size } from "./props";
+import { Size, State } from "./props";
+
+export interface IMessageProps {
+  state?: State;
+  isDisabled?: boolean;
+  errorMessage?: string;
+  validMessage?: string;
+}
 
 const getTypo = (size: Size) => {
   if (size === "compact") {

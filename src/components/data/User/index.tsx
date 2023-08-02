@@ -1,9 +1,14 @@
-import { IUserProps } from "./interfaces/User.interface";
-
 import { Avatar } from "../Avatar";
 import { Text } from "../Text";
 import { Stack } from "../../layouts/Stack";
 import { spacing } from "@src/shared/tokens/spacing/spacing";
+import { Size } from "./props";
+
+export interface IUserProps {
+  userName: string;
+  client: string;
+  size: Size;
+}
 
 const defaultSize = "large";
 

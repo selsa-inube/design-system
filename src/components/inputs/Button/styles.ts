@@ -3,15 +3,90 @@ import styled, { css } from "styled-components";
 
 import { colors } from "../../../shared/colors/colors";
 import { typography } from "../../../shared/typography/typography";
-import { IButtonProps } from "./interfaces/Button.interface";
-
-import { ISpacing } from "./interfaces/Button.Spacing.interface";
-import { ICursors } from "./interfaces/Button.Cursors.interface";
-import { IHoverColors } from "./interfaces/Button.HoverColors.interface";
-import { ITextColors } from "./interfaces/Button.TextColors.interface";
-import { IBorderColors } from "./interfaces/Button.BorderColors.interface";
-import { IBackgroundColors } from "./interfaces/button.BackgroundColors.interface";
+import { IButtonProps } from ".";
 import { Appearance, Variant } from "./props";
+
+export interface ICursors {
+  pointer: string;
+  notAllowed: string;
+  progress: string;
+}
+
+export interface ISpacingDetail {
+  height: string;
+  minWidth: string;
+}
+
+export interface ISpacing {
+  compact: ISpacingDetail;
+  wide: ISpacingDetail;
+}
+
+export interface IHoverColors {
+  primary: string;
+  secondary: string;
+  confirm: string;
+  warning: string;
+  remove: string;
+  help: string;
+}
+
+export interface IColorPalette {
+  primary: string;
+  secondary: string;
+  confirm: string;
+  warning: string;
+  remove: string;
+  help: string;
+  disabled?: string;
+}
+
+export interface IVariantStyle {
+  normal: IColorPalette;
+  hover: Partial<IColorPalette> | any;
+}
+
+export interface ITextColors {
+  filled: IVariantStyle;
+  outlined: IVariantStyle;
+  none: IVariantStyle;
+}
+
+export interface IActionStyle {
+  filled: string;
+  stroke: string;
+}
+
+export interface IActions {
+  primary: IActionStyle;
+  secondary: IActionStyle;
+  confirm: IActionStyle;
+  warning: IActionStyle;
+  remove: IActionStyle;
+  help: IActionStyle;
+  disabled: IActionStyle;
+}
+
+export interface IBackgroundColorVariant {
+  normal: Partial<IActions> | any;
+  hover: Partial<IActions> | any;
+}
+
+export interface IBorderColorVariant {
+  normal: Partial<IActions> | any;
+  hover: Partial<IActions> | any;
+}
+
+export interface IBackgroundColors {
+  filled: IBackgroundColorVariant;
+  outlined: string;
+  none: string;
+}
+export interface IBorderColors {
+  filled: IVariantStyle | string;
+  outlined: IVariantStyle | IBorderColorVariant;
+  none: IVariantStyle | string;
+}
 
 const spacing: ISpacing = {
   compact: {

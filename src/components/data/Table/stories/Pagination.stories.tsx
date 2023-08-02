@@ -1,4 +1,4 @@
-import { ITableProps } from "../interfaces/Table.interface";
+import { ITableProps } from "../";
 
 import { Pagination } from "../Pagination";
 import { props } from "../props";

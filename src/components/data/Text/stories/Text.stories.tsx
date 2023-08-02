@@ -1,8 +1,7 @@
-import { Text } from "..";
+import { Text, ITextProps } from "..";
 
 import { StyledContainer } from "./styles";
 import { props } from "../props";
-import { ITextProps } from "../interfaces/Text.interface";
 
 const story = {
   title: "data/Text",

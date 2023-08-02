@@ -1,7 +1,15 @@
-import { ILabelProps } from "./interfaces/Label.interface";
-import { typos } from "./props";
-
+import { TypographyLabel, typos } from "./props";
 import { StyledLabel } from "./styles";
+
+export interface ILabelProps {
+  isDisabled?: boolean;
+  isFocused?: boolean;
+  htmlFor: string;
+  isInvalid?: boolean;
+  typo?: TypographyLabel;
+  children?: React.ReactNode;
+  onClick?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}
 
 const defaultIsDisabled = false;
 const defaultIsFocused = false;

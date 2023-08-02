@@ -1,8 +1,6 @@
-import { ITextFieldProps } from "../interfaces/TextField.interface";
-
 import { MdSearch } from "react-icons/md";
 
-import { TextField } from "..";
+import { TextField, ITextFieldProps } from "..";
 import { TextFieldController } from "./TextfieldController";
 
 import { props } from "../props";
