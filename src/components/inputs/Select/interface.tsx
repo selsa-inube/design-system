@@ -5,8 +5,6 @@ import {
   MdOutlineArrowDropDown,
 } from "react-icons/md";
 
-import { Size } from "./types/Select.Size.type";
-
 import { Label } from "../Label";
 import { Text } from "../../data/Text";
 import { DropDownMenu } from "../DropDownMenu/index";
@@ -21,6 +19,7 @@ import {
   StyledValidMessageContainer,
 } from "./styles";
 import { ISelectProps } from ".";
+import { Size } from "./props";
 
 export interface ISelectStateProps {
   isDisabled: boolean;

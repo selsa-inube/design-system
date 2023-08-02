@@ -1,17 +1,10 @@
 import { Label, ILabelProps } from "..";
-import {
-  parameters,
-  isDisabled,
-  htmlFor,
-  isInvalid,
-  typo,
-  children,
-} from "./props";
+import { props } from "../props";
 
 const story = {
   title: "inputs/Label",
   components: [Label],
-  parameters,
+  argTypes: props,
 };
 
 const IsFocused = ({
@@ -39,14 +32,6 @@ IsFocused.args = {
   htmlFor: "id",
   isInvalid: false,
   typo: "labelLarge",
-};
-
-IsFocused.argTypes = {
-  isDisabled,
-  children,
-  htmlFor,
-  isInvalid,
-  typo,
 };
 
 export default story;

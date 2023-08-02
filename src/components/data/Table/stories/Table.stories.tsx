@@ -2,23 +2,12 @@ import { Table, ITableProps } from "../index";
 
 import { titlesMuck, actionsMuck, breakPointsMuck } from "./mucks";
 
-import {
-  parameters,
-  id,
-  titles,
-  actions,
-  entries,
-  breakpoints,
-  filter,
-  pageLength,
-  infoTitle,
-  actionsTitle,
-} from "./props";
+import { props } from "../props";
 
 const story = {
   title: "data/Table",
   component: [Table],
-  parameters,
+  argTypes: props,
 };
 
 const Default = (args: ITableProps) => <Table {...args} />;
@@ -62,18 +51,6 @@ Default.args = {
   modalTitle: "Form",
   infoTitle: "Information",
   actionsTitle: "Actions",
-};
-
-Default.argTypes = {
-  id,
-  titles,
-  actions,
-  entries,
-  breakpoints,
-  filter,
-  pageLength,
-  infoTitle,
-  actionsTitle,
 };
 
 export default story;

@@ -2,19 +2,12 @@ import React from "react";
 
 import { DropDownItem } from "../index";
 
-import {
-  parameters,
-  id,
-  isDisabled,
-  handleClick,
-  isSelected,
-  children,
-} from "./props";
+import { props } from "../props";
 
 const story = {
   title: "Inputs/DropDownItem",
   component: [DropDownItem],
-  parameters,
+  argTypes: props,
 };
 
 const Default = (args) => <DropDownItem {...args} />;
@@ -25,13 +18,6 @@ Default.args = {
   isDisabled: false,
 };
 
-Default.argTypes = {
-  id,
-  isDisabled,
-  handleClick,
-  isSelected,
-  children,
-};
 export default story;
 
 export { Default };

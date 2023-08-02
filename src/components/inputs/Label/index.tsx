@@ -1,5 +1,4 @@
-import { TypographyLabel, typos } from "./types/Label.type";
-
+import { TypographyLabel, typos } from "./props";
 import { StyledLabel } from "./styles";
 
 export interface ILabelProps {

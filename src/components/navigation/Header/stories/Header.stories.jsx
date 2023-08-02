@@ -12,20 +12,13 @@ import {
 
 import { Header } from "..";
 
-import {
-  portalId,
-  navigation,
-  logo,
-  logoutPath,
-  userName,
-  businessUnit,
-  isBusinessUnit,
-} from "./props";
+import { props } from "../props";
 import { Logo } from "./logo";
 
 const story = {
   title: "navigation/Header",
   components: [Header],
+  argTypes: props,
   decorators: [
     (Story) => (
       <div>
@@ -105,20 +98,11 @@ Default.args = {
     },
   },
   logoutPath: "/logout",
+  logoutTitle: "Logout",
   logo: <Logo />,
   userName: "Leonardo Garzón",
   businessUnit: "Sistemas Enlínea S.A",
   isBusinessUnit: true,
-};
-
-Default.argTypes = {
-  portalId,
-  navigation,
-  logo,
-  logoutPath,
-  userName,
-  businessUnit,
-  isBusinessUnit,
 };
 
 export default story;

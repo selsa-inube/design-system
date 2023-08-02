@@ -1,11 +1,11 @@
 import { BrowserRouter } from "react-router-dom";
 import { BreadcrumbMenu, IBreadcrumbMenuProps } from "..";
-import { parameters, routes } from "./props";
+import { props } from "../props";
 
 const story = {
   title: "navigation/BreadcrumbMenu",
   components: [BreadcrumbMenu],
-  parameters,
+  argTypes: props,
   decorators: [
     (Story: React.ElementType) => (
       <div style={{ margin: "3em" }}>
@@ -36,9 +36,6 @@ Default.args = {
       id: "usersEdition",
     },
   ],
-};
-Default.argTypes = {
-  routes,
 };
 
 export default story;

@@ -2,7 +2,7 @@ import { Avatar } from "../Avatar";
 import { Text } from "../Text";
 import { Stack } from "../../layouts/Stack";
 import { spacing } from "@src/shared/tokens/spacing/spacing";
-import { Size } from "./types/User.Size.type";
+import { Size } from "./props";
 
 export interface IUserProps {
   userName: string;

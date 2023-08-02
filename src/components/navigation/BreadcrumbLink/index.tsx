@@ -1,7 +1,6 @@
 import { Text } from "../../data/Text";
-
+import { Typos, typos } from "./props";
 import { StyledContainerLink, StyledBreadcrumbLink } from "./styles";
-import { Typos, typos } from "./types/BreadcrumbLink.typos.type";
 
 export interface IBreadcrumbLinkProps {
   isActive?: boolean;

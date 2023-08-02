@@ -1,15 +1,13 @@
 import { ElementType } from "react";
 
 import { Spinner, ISpinnerProps } from "..";
-import { sizes } from "../types/Spinner.Size.type";
 import { StyledFlexBetween } from "./styles";
 
-import { parameters, appearance, isTransparent } from "./props";
+import { props, sizes } from "../props";
 
 const story = {
   title: "feedback/Spinner",
   component: Spinner,
-  parameters,
   decorators: [
     (Story: ElementType) => (
       <div style={{ margin: "3em" }}>
@@ -21,10 +19,7 @@ const story = {
     appearance: "blue",
     isTransparent: false,
   },
-  argTypes: {
-    appearance,
-    isTransparent,
-  },
+  argTypes: props,
 };
 
 const SizesTemplate = (args: ISpinnerProps) => (

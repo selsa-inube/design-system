@@ -11,12 +11,12 @@ import {
 
 import { FullscreenNav, IFullscreenNavProps } from "..";
 
-import { parameters, portalId, navigation, logoutPath } from "./props";
+import { props } from "../props";
 
 const story = {
   title: "navigation/FullscreenNav",
   components: [FullscreenNav],
-  parameters,
+  argTypes: props,
   decorators: [
     (Story: React.ElementType) => (
       <div style={{ margin: "3em" }}>
@@ -97,12 +97,6 @@ Default.args = {
   },
   logoutPath: "/logout",
   logoutTitle: "logout",
-};
-
-Default.argTypes = {
-  portalId,
-  navigation,
-  logoutPath,
 };
 
 export default story;

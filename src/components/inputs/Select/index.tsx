@@ -1,8 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 
 import { SelectUI } from "./interface";
-import { States, states } from "./types/Select.States.type";
-import { Size } from "./types/Select.Size.type";
+import { Size, States, states } from "./props";
 
 export interface ISelectOptions {
   id: string;

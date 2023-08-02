@@ -4,8 +4,7 @@ import styled, { css } from "styled-components";
 import { colors } from "../../../shared/colors/colors";
 import { typography } from "../../../shared/typography/typography";
 import { IButtonProps } from ".";
-import { Variant } from "./types/Button.Variants.type";
-import { Appearance } from "./types/Button.Appearances.type";
+import { Appearance, Variant } from "./props";
 
 export interface ICursors {
   pointer: string;

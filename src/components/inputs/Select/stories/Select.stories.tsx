@@ -1,29 +1,11 @@
 import { Select, ISelectProps } from "..";
 import { SelectController } from "./SelectController";
-import {
-  parameters,
-  label,
-  name,
-  id,
-  placeholder,
-  value,
-  isDisabled,
-  handleChange,
-  isRequired,
-  state,
-  errorMessage,
-  validMessage,
-  size,
-  isFullWidth,
-  handleFocus,
-  handleBlur,
-  options,
-} from "./props";
+import { props } from "../props";
 
 const story = {
   title: "Inputs/Select",
   component: [Select],
-  parameters,
+  argTypes: props,
 };
 
 const Default = (args: ISelectProps) => <SelectController {...args} />;
@@ -44,25 +26,6 @@ Default.args = {
   size: "wide",
   errorMessage: "This field can not be blank",
   isFullWidth: false,
-};
-
-Default.argTypes = {
-  label,
-  name,
-  id,
-  placeholder,
-  value,
-  isDisabled,
-  handleChange,
-  isRequired,
-  state,
-  errorMessage,
-  validMessage,
-  size,
-  isFullWidth,
-  handleFocus,
-  handleBlur,
-  options,
 };
 
 export default story;

@@ -1,11 +1,11 @@
 import { BrowserRouter } from "react-router-dom";
-import { parameters, crumbs } from "./props";
+import { props } from "../props";
 import { Breadcrumbs, IBreadcrumbsProps } from "..";
 
 const story = {
   title: "navigation/Breadcrumbs",
   components: [Breadcrumbs],
-  parameters,
+  argTypes: props,
   decorators: [
     (Story: React.ElementType) => (
       <div style={{ margin: "3em" }}>
@@ -45,9 +45,6 @@ Mobile.args = {
       isActive: true,
     },
   ],
-};
-Mobile.argTypes = {
-  crumbs,
 };
 
 export default story;

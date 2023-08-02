@@ -1,6 +1,4 @@
-import { Size, sizes } from "./types/Spinner.Size.type";
-import { Appearance, appearances } from "./types/Spinner.Appearance.type";
-
+import { Size, Appearance, sizes, appearances } from "./props";
 import { StyledSpinner } from "./styles";
 
 export interface ISpinnerProps {
