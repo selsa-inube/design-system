@@ -11,6 +11,14 @@ export type Variant = typeof variants[number];
 
 export type Themed = { theme: typeof inube };
 
+const parameters = {
+  docs: {
+    description: {
+      component: "Icons used to communicate actions and decisions graphically",
+    },
+  },
+};
+
 const props = {
   appearance: {
     options: Object.keys(inube.color.text),
@@ -91,4 +99,4 @@ const props = {
   },
 };
 
-export { props };
+export { props, parameters };

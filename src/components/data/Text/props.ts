@@ -27,6 +27,15 @@ export type TyposOptions = keyof typeof inube.typography;
 
 const typesOptions = Object.keys(inube.typography);
 
+const parameters = {
+  docs: {
+    description: {
+      component:
+        "The Text component that allows the use of typographic tokens decoupled from HTML text tags such as h1, h2, ..., p, span, legend, figcaption, blockquote",
+    },
+  },
+};
+
 const props = {
   textAlign: {
     options: textAlignOptions,
@@ -118,4 +127,4 @@ const props = {
   },
 };
 
-export { props };
+export { props, parameters };
