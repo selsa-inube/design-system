@@ -21,20 +21,16 @@ const StyledIcon = styled.figure`
     parentHover,
     disabled,
   }: IIconProps) => {
-    if (disabled) {
+    if (disabled)
       return (
         theme?.color?.stroke?.[appearance]?.disabled ||
         inube.color.stroke[appearance].disabled
       );
-    }
-
-    if (parentHover) {
+    if (parentHover)
       return (
         theme?.color?.stroke?.[appearance]?.hover ||
         inube.color.stroke[appearance].hover
       );
-    }
-
     return (
       theme?.color?.stroke?.[appearance]?.regular ||
       inube.color.stroke[appearance].regular
@@ -49,20 +45,16 @@ const StyledIcon = styled.figure`
     disabled,
   }: IIconProps) => {
     if (variant === "filled") {
-      if (disabled) {
+      if (disabled)
         return (
           theme?.color?.text?.[appearance]?.disabled ||
           inube.color.text[appearance].disabled
         );
-      }
-
-      if (parentHover) {
+      if (parentHover)
         return (
           theme?.color?.text?.[appearance]?.hover ||
           inube.color.text[appearance].hover
         );
-      }
-
       return (
         theme?.color?.text?.[appearance]?.regular ||
         inube.color.text[appearance].regular
@@ -77,32 +69,26 @@ const StyledIcon = styled.figure`
     parentHover,
     disabled,
   }: IIconProps) => {
-    if (disabled) {
+    if (disabled)
       return (
         theme?.color?.text?.light?.disabled || inube.color.text.light.disabled
       );
-    }
-
-    if (variant === "filled") {
-      if (!filledAppearancesWithGrayIcon.includes(appearance)) {
+    if (variant !== "filled") {
+      if (parentHover)
         return (
-          theme?.color?.text?.light?.regular || inube.color.text.light.regular
+          theme?.color?.text?.[appearance]?.hover ||
+          inube.color.text[appearance].hover
         );
-      }
-      return theme?.color?.text?.gray?.regular || inube.color.text.gray.regular;
-    }
-
-    if (parentHover) {
       return (
-        theme?.color?.text?.[appearance]?.hover ||
-        inube.color.text[appearance].hover
+        theme?.color?.text?.[appearance]?.regular ||
+        inube.color.text[appearance].regular
       );
     }
-
-    return (
-      theme?.color?.text?.[appearance]?.regular ||
-      inube.color.text[appearance].regular
-    );
+    if (!filledAppearancesWithGrayIcon.includes(appearance))
+      return (
+        theme?.color?.text?.light?.regular || inube.color.text.light.regular
+      );
+    return theme?.color?.text?.gray?.regular || inube.color.text.gray.regular;
   }};
 
   & svg {
@@ -110,23 +96,15 @@ const StyledIcon = styled.figure`
     width: ${({ size }: IIconProps) => size};
     height: ${({ size }: IIconProps) => size};
     padding: ${({ spacing }: IIconProps) => {
-      if (spacing === "wide") {
-        return inube.spacing.s100;
-      }
-      if (spacing === "compact") {
-        return inube.spacing.s050;
-      }
+      if (spacing === "wide") return inube.spacing.s100;
+      if (spacing === "compact") return inube.spacing.s050;
       return inube.spacing.s025;
     }};
   }
 
   &:hover {
     cursor: ${({ cursorHover, disabled }: IIconProps) => {
-      if (!disabled) {
-        if (cursorHover) {
-          return "pointer";
-        }
-      }
+      if (!disabled && cursorHover) return "pointer";
     }};
 
     border-color: ${({
@@ -135,14 +113,11 @@ const StyledIcon = styled.figure`
       appearance,
       disabled,
     }: IIconProps) => {
-      if (!disabled) {
-        if (cursorHover) {
-          return (
-            theme?.color?.text?.[appearance]?.hover ||
-            inube.color.text[appearance].hover
-          );
-        }
-      }
+      if (!disabled && cursorHover)
+        return (
+          theme?.color?.text?.[appearance]?.hover ||
+          inube.color.text[appearance].hover
+        );
     }};
 
     background-color: ${({
@@ -152,48 +127,12 @@ const StyledIcon = styled.figure`
       cursorHover,
       disabled,
     }: IIconProps) => {
-      if (!disabled) {
-        if (variant === "filled") {
-          if (cursorHover) {
-            return (
-              theme?.color?.text?.[appearance]?.hover ||
-              inube.color.text[appearance].hover
-            );
-          }
-        }
-      }
+      if (!disabled && variant === "filled" && cursorHover)
+        return (
+          theme?.color?.text?.[appearance]?.hover ||
+          inube.color.text[appearance].hover
+        );
     }};
-
-    &:hover svg {
-      color: ${({
-        theme,
-        cursorHover,
-        variant,
-        appearance,
-        disabled,
-      }: IIconProps) => {
-        if (!disabled) {
-          if (cursorHover) {
-            if (variant === "filled") {
-              if (!filledAppearancesWithGrayIcon.includes(appearance)) {
-                return (
-                  theme?.color?.text?.light?.hover ||
-                  inube.color.text.light.hover
-                );
-              }
-              return (
-                theme?.color?.text?.gray?.hover || inube.color.text.gray.hover
-              );
-            } else {
-              return (
-                theme?.color?.text?.[appearance]?.hover ||
-                inube.color.text[appearance].hover
-              );
-            }
-          }
-        }
-      }};
-    }
   }
 `;
 
