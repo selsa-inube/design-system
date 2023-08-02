@@ -7,13 +7,6 @@ const story = {
   title: "navigation/Tabs",
   components: [Tabs],
   argTypes: props,
-  decorators: [
-    (Story: React.ElementType) => (
-      <div>
-        <Story />
-      </div>
-    ),
-  ],
 };
 
 export const Responsive = (args: ITabsProps) => (

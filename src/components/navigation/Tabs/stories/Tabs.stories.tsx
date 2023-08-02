@@ -7,13 +7,6 @@ const story = {
   title: "navigation/Tabs",
   components: [Tabs],
   argTypes: props,
-  decorators: [
-    (Story: React.ElementType) => (
-      <div style={{ margin: "3em" }}>
-        <Story />
-      </div>
-    ),
-  ],
 };
 
 export const Default = (args: ITabsProps) => <TabsController {...args} />;

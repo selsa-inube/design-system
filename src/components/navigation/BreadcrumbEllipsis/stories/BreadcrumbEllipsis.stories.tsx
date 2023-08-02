@@ -10,11 +10,9 @@ const story = {
   argTypes: props,
   decorators: [
     (Story: React.ElementType) => (
-      <div style={{ margin: "2em 2em 7em 2em" }}>
-        <BrowserRouter>
-          <Story />
-        </BrowserRouter>
-      </div>
+      <BrowserRouter>
+        <Story />
+      </BrowserRouter>
     ),
   ],
 };

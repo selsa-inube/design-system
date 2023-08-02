@@ -1,4 +1,3 @@
-import { ElementType } from "react";
 import { Tab, ITabProps } from "../index";
 import { TabController } from "./TabController";
 
@@ -8,13 +7,6 @@ const story = {
   title: "navigation/Tab",
   components: [Tab],
   argTypes: props,
-  decorators: [
-    (Story: ElementType) => (
-      <div style={{ margin: "3em" }}>
-        <Story />
-      </div>
-    ),
-  ],
 };
 
 export const Default = (args: ITabProps) => <TabController {...args} />;

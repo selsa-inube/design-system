@@ -5,13 +5,6 @@ const story = {
   title: "feedback/SkeletonLine",
   components: [SkeletonLine],
   argTypes: props,
-  decorators: [
-    (Story: React.ElementType) => (
-      <div style={{ margin: "3em" }}>
-        <Story />
-      </div>
-    ),
-  ],
 };
 const Default = (args: ISkeletonLineProps) => <SkeletonLine {...args} />;
 Default.args = {

@@ -21,11 +21,9 @@ const story = {
   argTypes: props,
   decorators: [
     (Story) => (
-      <div>
-        <BrowserRouter>
-          <Story />
-        </BrowserRouter>
-      </div>
+      <BrowserRouter>
+        <Story />
+      </BrowserRouter>
     ),
   ],
 };

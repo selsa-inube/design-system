@@ -1,4 +1,3 @@
-import React from "react";
 import { Switch } from "../../components/inputs/Switch";
 
 import { useMediaQuery } from "../useMediaQuery";
@@ -10,13 +9,6 @@ const story = {
   title: "hooks/useMediaQuery",
   components: [Switch],
   argTypes: props,
-  decorators: [
-    (Story: React.ElementType) => (
-      <div style={{ margin: "3em" }}>
-        <Story />
-      </div>
-    ),
-  ],
 };
 
 export const Example = (args: IExampleSwitch) => {

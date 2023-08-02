@@ -1,4 +1,3 @@
-import { ElementType } from "react";
 import { Spinner } from "..";
 import { appearances, props, sizes } from "../props";
 
@@ -8,13 +7,6 @@ const story = {
   title: "feedback/Spinner",
   component: Spinner,
   argTypes: props,
-  decorators: [
-    (Story: ElementType) => (
-      <div style={{ margin: "3em" }}>
-        <Story />
-      </div>
-    ),
-  ],
 };
 
 export const All = () => (

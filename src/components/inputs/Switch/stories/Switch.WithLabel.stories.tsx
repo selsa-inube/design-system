@@ -8,13 +8,6 @@ import { Stack } from "../../../layouts/Stack";
 const story = {
   title: "inputs/Switch",
   components: [Switch],
-  decorators: [
-    (Story: React.ElementType) => (
-      <div style={{ margin: "3em" }}>
-        <Story />
-      </div>
-    ),
-  ],
   argTypes: props,
 };
 
