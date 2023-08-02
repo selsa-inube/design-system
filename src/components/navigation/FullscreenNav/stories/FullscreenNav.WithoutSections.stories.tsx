@@ -11,12 +11,12 @@ import {
 } from "react-icons/md";
 
 import { FullscreenNav, IFullscreenNavProps } from "..";
-import { parameters, portalId, navigation, logoutPath } from "./props";
+import { props } from "../props";
 
 const story = {
   title: "navigation/FullscreenNav",
   components: [FullscreenNav],
-  parameters,
+  argTypes: props,
   decorators: [
     (Story: React.ElementType) => (
       <div style={{ margin: "3em" }}>
@@ -88,12 +88,6 @@ WithoutSections.args = {
   },
   logoutPath: "/logout",
   logoutTitle: "logout",
-};
-
-WithoutSections.argTypes = {
-  portalId,
-  navigation,
-  logoutPath,
 };
 
 export default story;

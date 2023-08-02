@@ -1,8 +1,9 @@
 import { AnimationEvent } from "react";
 
 import { colors } from "../../../shared/colors/colors";
-import { Appearance } from "./types/CountdownBar.Appearance.type";
+import { Appearance } from "@src/shared/types/Appearance.type";
 import { StyledCountdownBar } from "./styles";
+import { inube } from "@src/shared/tokens";
 
 export interface ICountdownBarProps {
   size?: string;
@@ -18,7 +19,7 @@ const defaultDuration = 3000;
 export const appearances = Object.keys(colors.sys.actions);
 
 const getCountdownBarColor = (appearance: Appearance): string => {
-  return colors.sys.actions[appearance].filled;
+  return inube.color.text[appearance].regular;
 };
 
 const isValidCssPixelMeasure = (size: string): boolean => {

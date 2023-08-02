@@ -2,10 +2,12 @@ import React from "react";
 import { useMediaQueries } from "../useMediaQueries";
 import { Text } from "../../components/data/Text";
 import { IArgs } from "./ExampleMediaQueries.interface";
+import { props } from "../props";
 
 const story = {
   title: "hooks/useMediaQueries",
   components: [useMediaQueries],
+  argTypes: props,
   decorators: [
     (Story: React.ComponentType) => (
       <div style={{ margin: "3em" }}>

@@ -1,17 +1,6 @@
-import { sizes } from "../types/Switch.Size.type";
-
 import { Switch, ISwitchProps } from "..";
 import { SwitchController } from "./SwitchController";
-import {
-  id,
-  isDisabled,
-  name,
-  value,
-  checked,
-  handleChange,
-  margin,
-  padding,
-} from "./props";
+import { props, sizes } from "../props";
 
 import { Stack } from "../../../layouts/Stack";
 
@@ -25,16 +14,7 @@ const story = {
       </div>
     ),
   ],
-  argTypes: {
-    id,
-    isDisabled,
-    name,
-    value,
-    checked,
-    handleChange,
-    margin,
-    padding,
-  },
+  argTypes: props,
 };
 
 const SwitchComponent = (args: ISwitchProps) => {

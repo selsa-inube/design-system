@@ -1,9 +1,7 @@
 import { useState } from "react";
 
-import { InputType, inputTypes } from "./types/TextField.InputType.type";
-import { State, states } from "./types/TextField.State.type";
-import { Size } from "./types/TextField.Size.type";
 import { TextFieldUI } from "./interface";
+import { InputType, Size, State, inputTypes, states } from "./props";
 
 export interface ITextFieldProps {
   label?: string;

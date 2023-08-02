@@ -16,7 +16,8 @@ const shouldDisplayNav = (matches) =>
   matches[SMALL_SCREEN] || matches[MEDIUM_SCREEN];
 
 const LogoAndNav = (props) => {
-  const { portalId, navigation, logoutPath, logo, shouldDisplay } = props;
+  const { portalId, navigation, logoutPath, logoutTitle, logo, shouldDisplay } =
+    props;
   return (
     <Stack justifyContent="space-between" gap="23px">
       {shouldDisplay && (
@@ -24,6 +25,7 @@ const LogoAndNav = (props) => {
           portalId={portalId}
           navigation={navigation}
           logoutPath={logoutPath}
+          logoutTitle={logoutTitle}
         />
       )}
       {logo}
@@ -36,6 +38,7 @@ const Header = (props) => {
     portalId,
     navigation,
     logoutPath,
+    logoutTitle,
     logo,
     userName,
     businessUnit,
@@ -51,6 +54,7 @@ const Header = (props) => {
         portalId={portalId}
         navigation={navigation}
         logoutPath={logoutPath}
+        logoutTitle={logoutTitle}
         logo={logo}
         shouldDisplay={shouldDisplayLogoAndNav}
       />

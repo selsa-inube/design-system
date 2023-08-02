@@ -2,18 +2,12 @@ import { useState } from "react";
 
 import { Button } from "@src/components/inputs/Button";
 import { InteractiveModal } from "../index";
+import { props } from "../props";
 
-import {
-  portalId,
-  title,
-  closeModal,
-  infoData,
-  infoTitle,
-  actionsTitle,
-} from "./props";
 const story = {
   title: "feedback/InteractiveModal",
   components: [InteractiveModal],
+  argTypes: props,
   decorators: [
     (Story) => (
       <div style={{ margin: "3em" }}>
@@ -52,14 +46,6 @@ Default.args = {
   infoData: data,
   infoTitle: "Información",
   actionsTitle: "Acciones",
-};
-Default.argTypes = {
-  portalId,
-  title,
-  closeModal,
-  infoData,
-  infoTitle,
-  actionsTitle,
 };
 
 export default story;

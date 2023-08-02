@@ -2,12 +2,12 @@ import { BrowserRouter } from "react-router-dom";
 
 import { BreadcrumbEllipsis, IBreadcrumbEllipsisProps } from "../index";
 
-import { parameters, routes, size } from "./props";
+import { props } from "../props";
 
 const story = {
   title: "navigation/BreadcrumbEllipsis",
   components: [BreadcrumbEllipsis],
-  parameters,
+  argTypes: props,
   decorators: [
     (Story: React.ElementType) => (
       <div style={{ margin: "2em 2em 7em 2em" }}>
@@ -37,10 +37,6 @@ Default.args = {
     },
   ],
   size: "large",
-};
-Default.argTypes = {
-  routes,
-  size,
 };
 
 export default story;

@@ -3,7 +3,7 @@ import { ISpinnerProps } from "./index";
 
 import { colors } from "../../../shared/colors/colors";
 
-const colorHomologation = {
+const colorHomologation: any = {
   blue: colors.ref.palette.blue.b400,
   green: colors.ref.palette.green.g400,
   yellow: colors.ref.palette.yellow.y400,
@@ -13,7 +13,7 @@ const colorHomologation = {
   dark: colors.ref.palette.neutral.n900,
 };
 
-const sizes = {
+const sizes: any = {
   large: {
     width: "40px",
     height: "40px",

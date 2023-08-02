@@ -1,11 +1,10 @@
 import { useMediaQuery } from "../../../hooks/useMediaQuery";
 
-import { Sizes } from "./types/Breadcrumb.Size.type";
-
 import { BreadcrumbLink } from "../BreadcrumbLink";
 import { BreadcrumbEllipsis } from "../BreadcrumbEllipsis";
 
 import { StyledBreadcrumbs } from "./styles";
+import { Sizes } from "./props";
 
 export interface IBreadcrumbItem {
   path: string;

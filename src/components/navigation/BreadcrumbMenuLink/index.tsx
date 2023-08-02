@@ -2,7 +2,7 @@ import { Stack } from "../../layouts/Stack";
 import { Text } from "../../data/Text";
 
 import { StyledContainerLink, StyledBreadcrumbMenuLink } from "./styles";
-import { Typos, typos } from "./types/BreadcrumbMenuLink.typos.type";
+import { Typos, typos } from "./props";
 
 export interface IBreadcrumbMenuLinkProps {
   label: string;

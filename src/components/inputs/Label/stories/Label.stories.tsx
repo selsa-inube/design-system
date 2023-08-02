@@ -1,19 +1,11 @@
 import { Label, ILabelProps } from "..";
 
-import {
-  parameters,
-  isDisabled,
-  isFocused,
-  htmlFor,
-  isInvalid,
-  typo,
-  children,
-} from "./props";
+import { props } from "../props";
 
 const story = {
   title: "inputs/Label",
   components: [Label],
-  parameters,
+  argTypes: props,
 };
 
 const Default = (args: ILabelProps) => {
@@ -26,14 +18,6 @@ Default.args = {
   isDisabled: false,
   isFocused: false,
   isInvalid: false,
-};
-Default.argTypes = {
-  isDisabled,
-  isFocused,
-  htmlFor,
-  isInvalid,
-  typo,
-  children,
 };
 
 export default story;

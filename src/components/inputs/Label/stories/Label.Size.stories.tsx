@@ -1,15 +1,14 @@
 import { ReactNode } from "react";
 
-import { TypographyLabel, typos } from "../types/Label.type";
 import { Label } from "../";
 import { Stack } from "../../../layouts/Stack";
 
-import { parameters, isDisabled, isFocused, htmlFor, isInvalid } from "./props";
+import { TypographyLabel, props, typos } from "../props";
 
 const story = {
   title: "inputs/Label",
   components: [Label],
-  parameters,
+  argTypes: props,
 };
 
 interface LabelArgs {
@@ -56,13 +55,6 @@ Size.args = {
   isDisabled: false,
   isFocused: false,
   isInvalid: false,
-};
-
-Size.argTypes = {
-  isDisabled,
-  isFocused,
-  htmlFor,
-  isInvalid,
 };
 
 export default story;

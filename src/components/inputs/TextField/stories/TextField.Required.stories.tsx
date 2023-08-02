@@ -3,31 +3,12 @@ import { TextFieldController } from "./TextfieldController";
 
 import { Stack } from "../../../layouts/Stack";
 
-import {
-  parameters,
-  label,
-  name,
-  id,
-  placeholder,
-  isDisabled,
-  state,
-  type,
-  value,
-  handleChange,
-  iconBefore,
-  iconAfter,
-  maxLength,
-  minLength,
-  max,
-  min,
-  size,
-  isFullWidth,
-} from "./props";
+import { props } from "../props";
 
 const story = {
   title: "inputs/TextField",
   components: [TextField],
-  parameters,
+  argTypes: props,
 };
 
 const RequiredComponent = (args: ITextFieldProps) => {
@@ -58,26 +39,6 @@ Required.args = {
   isFullWidth: false,
   errorMessage: "This field can not be blank",
   validMessage: "Field validation is successful",
-};
-
-Required.argTypes = {
-  label,
-  name,
-  id,
-  placeholder,
-  isDisabled,
-  type,
-  state,
-  value,
-  handleChange,
-  iconBefore,
-  iconAfter,
-  maxLength,
-  minLength,
-  max,
-  min,
-  size,
-  isFullWidth,
 };
 
 export default story;

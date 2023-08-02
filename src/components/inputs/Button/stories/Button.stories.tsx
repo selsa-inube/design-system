@@ -3,26 +3,12 @@ import { MdAdd } from "react-icons/md";
 
 import { Button, IButtonProps } from "..";
 
-import {
-  parameters,
-  children,
-  isLoading,
-  appearance,
-  isDisabled,
-  iconBefore,
-  iconAfter,
-  type,
-  spacing,
-  variant,
-  isFullWidth,
-  handleClick,
-  path,
-} from "./props";
+import { props } from "../props";
 
 const story = {
   title: "inputs/Button",
   components: [Button],
-  parameters,
+  argTypes: props,
   decorators: [
     (Story: React.ElementType) => (
       <BrowserRouter>
@@ -48,20 +34,6 @@ Default.args = {
   variant: "filled",
   isFullWidth: false,
   handleClick: () => console.log("clicked from Default-story"),
-};
-Default.argTypes = {
-  children,
-  isLoading,
-  appearance,
-  isDisabled,
-  iconBefore,
-  iconAfter,
-  type,
-  spacing,
-  variant,
-  isFullWidth,
-  handleClick,
-  path,
 };
 
 export default story;
