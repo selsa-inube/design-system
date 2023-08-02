@@ -1,6 +1,7 @@
 import { BrowserRouter } from "react-router-dom";
 
-import { Button } from "../index";
+import { variants } from "../types/Button.Variants.type";
+import { Button, IButtonProps } from "..";
 import { StyledFlex } from "./stories.styles";
 
 import {
@@ -13,8 +14,6 @@ import {
   isFullWidth,
   handleClick,
 } from "./props";
-import { IButtonProps } from "../interfaces/Button.interface";
-import { variants } from "../types/Button.Variants.type";
 
 const story = {
   title: "inputs/Button",

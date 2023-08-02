@@ -1,8 +1,14 @@
-import { ITabProps } from "./interfaces/Tab.interface";
-
 import { Text } from "../../data/Text";
 
 import { StyledTab } from "./styles";
+
+export interface ITabProps {
+  label: string;
+  id: string;
+  isDisabled: boolean;
+  isSelected: boolean;
+  handleClick: () => void;
+}
 
 const Tab = (props: ITabProps) => {
   const {

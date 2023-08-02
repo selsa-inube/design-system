@@ -1,4 +1,4 @@
-import { INavLinkProps } from "./interfaces/NavLink.interface";
+import { INavLinkProps } from ".";
 import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
 

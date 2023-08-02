@@ -1,7 +1,7 @@
 import styled, { keyframes } from "styled-components";
 
 import { colors } from "../../../shared/colors/colors";
-import { ISkeletonIconProps } from "./interfaces/SkeletonIcon.interface";
+import { ISkeletonIconProps } from "./index";
 
 const shimmer = keyframes`
 0% {

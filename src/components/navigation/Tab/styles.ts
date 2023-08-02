@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { ITabProps } from "./interfaces/Tab.interface";
+import { ITabProps } from ".";
 import { colors } from "../../../shared/colors/colors";
 
 const StyledTab = styled.li`

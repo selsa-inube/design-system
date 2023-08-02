@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import { inube } from "@src/shared/tokens";
-import { ITextProps } from "./interfaces/Text.interface";
+import { ITextProps } from "./index";
 
 const StyledText = styled.p`
   font-family: ${({ type, size }: ITextProps) =>

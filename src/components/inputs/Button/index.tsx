@@ -1,13 +1,28 @@
 import { StyledButton, StyledSpan, StyledIcon, StyledLink } from "./styles";
 import { Spinner } from "../../feedback/Spinner";
 import { colors } from "../../../shared/colors/colors";
-import { IButtonProps } from "./interfaces/Button.interface";
 import { Appearance, appearances } from "./types/Button.Appearances.type";
 import { Type, types } from "./types/Button.Types.type";
 import { Spacing, spacings } from "./types/Button.Spacings.type";
 import { Variant, variants } from "./types/Button.Variants.type";
 import { SpinnerColorHomologation } from "./types/Button.SpinnerColorHomologation.type";
 import { SpinnerColor } from "./types/Button.SpinnerColor.type";
+
+export interface IButtonProps {
+  children: React.ReactNode;
+  appearance?: Appearance;
+  isLoading?: boolean;
+  isDisabled?: boolean;
+  isdisabled?: number;
+  iconBefore?: React.ReactElement;
+  iconAfter?: React.ReactElement;
+  type?: Type;
+  spacing?: Spacing;
+  variant?: Variant;
+  isFullWidth?: boolean;
+  handleClick?: (e?: Event) => void;
+  path?: string;
+}
 
 const fixedColors: { [key: string]: any } = Object.assign(
   {},

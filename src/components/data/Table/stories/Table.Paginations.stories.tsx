@@ -1,6 +1,6 @@
 import { titlesMuck, actionsMuck, breakPointsMuck } from "./mucks";
 
-import { Table } from "../index";
+import { Table, ITableProps } from "..";
 
 import {
   parameters,
@@ -14,7 +14,6 @@ import {
   infoTitle,
   actionsTitle,
 } from "./props";
-import { ITableProps } from "../interfaces/Table.interface";
 
 const story = {
   title: "data/Table",

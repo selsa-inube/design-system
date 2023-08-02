@@ -5,9 +5,7 @@ import {
   MdOutlineArrowDropDown,
 } from "react-icons/md";
 
-import { ISelectInterfaceProps } from "./interfaces/SelectInterface.interface";
 import { Size } from "./types/Select.Size.type";
-import { ISelectStateProps } from "./interfaces/Select.Success.interface";
 
 import { Label } from "../Label";
 import { Text } from "../../data/Text";
@@ -22,6 +20,20 @@ import {
   StyledErrorMessageContainer,
   StyledValidMessageContainer,
 } from "./styles";
+import { ISelectProps } from ".";
+
+export interface ISelectStateProps {
+  isDisabled: boolean;
+  state: string;
+  validMessage?: string;
+  errorMessage?: string;
+}
+
+export interface ISelectInterfaceProps extends ISelectProps {
+  isFocused?: boolean;
+  openOptions: boolean;
+  onCloseOptions: () => void;
+}
 
 const getTypo = (size: Size) => {
   if (size === "compact") {

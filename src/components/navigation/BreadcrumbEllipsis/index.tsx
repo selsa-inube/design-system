@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 
+import { Typos } from "./types/BreadcrumbEllipsis.Typos.type";
+
 import { BreadcrumbMenu } from "../../navigation/BreadcrumbMenu";
 import { Text } from "../../data/Text/index";
 
@@ -9,7 +11,16 @@ import {
   StyledRelativeContainer,
 } from "./styles";
 
-import { IBreadcrumbEllipsisProps } from "./interfaces/BreadcrumbEllipsis.interface";
+export interface IRoute {
+  label: string;
+  path: string;
+  id: string;
+}
+
+export interface IBreadcrumbEllipsisProps {
+  size?: Typos;
+  routes: IRoute[];
+}
 
 const defaultTypo = "large";
 

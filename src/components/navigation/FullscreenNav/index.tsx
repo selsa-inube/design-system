@@ -2,10 +2,6 @@ import { useState } from "react";
 import { createPortal } from "react-dom";
 import { MdMenu, MdClose, MdLogout } from "react-icons/md";
 
-import { IFullscreenNavProps } from "./interfaces/FullscreenNav.interface";
-import { IFullscreenMenuProps } from "./interfaces/FullscreenNav.FullscreenMenu.interface";
-import { IMenuSectionsProps } from "./interfaces/Fullscreennav.MultiSections.interface";
-
 import { Stack } from "../../layouts/Stack/index";
 import { Text } from "../../data/Text";
 import { NavLink } from "../NavLink/index";
@@ -17,6 +13,41 @@ import {
   StyledSeparatorLine,
   StyledFooter,
 } from "./styles";
+
+export interface ILink {
+  id: string;
+  label: string;
+  icon: React.ReactNode;
+  path: string;
+}
+
+export interface ISection {
+  name: string;
+  links: { [key: string]: ILink };
+}
+
+export interface IMenuSectionsProps {
+  navigation: INavigation;
+}
+
+export interface INavigation {
+  title: string;
+  sections: { [key: string]: ISection };
+}
+
+export interface IFullscreenMenuProps {
+  navigation: INavigation;
+  logoutPath: string;
+  logoutTitle: string;
+  onClose: () => void;
+}
+
+export interface IFullscreenNavProps {
+  portalId: string;
+  navigation: INavigation;
+  logoutPath: string;
+  logoutTitle: string;
+}
 
 const MultiSections = ({ navigation }: IMenuSectionsProps) => {
   const navigationSectionValues = Object.values(navigation.sections);

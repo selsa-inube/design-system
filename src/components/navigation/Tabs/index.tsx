@@ -1,13 +1,24 @@
 import { useState } from "react";
+import { MdKeyboardArrowDown } from "react-icons/md";
+
+import { Types, types } from "./types/Tabs.type";
 import { Tab } from "../Tab";
 import { Stack } from "../../layouts/Stack";
-import { StyledTabs, StyledIconWrapper } from "./styles";
 import { DropDownMenu } from "../../inputs/DropDownMenu";
-import { MdKeyboardArrowDown } from "react-icons/md";
-import { ITabsProps } from "./interfaces/Tabs.interface";
+import { StyledTabs, StyledIconWrapper } from "./styles";
 
-import { ITabsItem } from "./interfaces/Tabs.Item.interface";
-import { types } from "./types/Tabs.type";
+export interface ITabsItem {
+  id: string;
+  label: string;
+  isDisabled: boolean;
+}
+
+export interface ITabsProps {
+  tabs: ITabsItem[];
+  type?: Types;
+  handleSelectedTab: (id: string) => void;
+  selectedTab: string;
+}
 
 const defaultType = "tabs";
 

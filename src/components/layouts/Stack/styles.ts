@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { IStackProps } from "./interfaces/Stack.interface";
+import { IStackProps } from "./index";
 
 const StyledFlex = styled.div`
   display: flex;
