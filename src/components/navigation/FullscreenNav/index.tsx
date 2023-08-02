@@ -3,7 +3,7 @@ import { createPortal } from "react-dom";
 import { MdMenu, MdClose, MdLogout } from "react-icons/md";
 
 import { Stack } from "../../layouts/Stack/index";
-import { Text } from "../../data/Text";
+import { Text } from "@data/Text";
 import { NavLink } from "../NavLink/index";
 
 import {

@@ -1,5 +1,5 @@
 import { Stack } from "../../layouts/Stack";
-import { Text } from "../../data/Text";
+import { Text } from "@data/Text";
 
 import { StyledContainerLink, StyledBreadcrumbMenuLink } from "./styles";
 import { Typos, typos } from "./props";

@@ -1,9 +1,9 @@
 // data
-export { Avatar } from "./components/data/Avatar";
-export { Text } from "./components/data/Text";
-export { User } from "./components/data/User";
-export { Table } from "./components/data/Table";
-export { Icon } from "./components/data/Icon";
+export { Avatar } from "@data/Avatar";
+export { Icon } from "@data/Icon";
+export { Table } from "@data/Table";
+export { Text } from "@data/Text";
+export { User } from "@data/User";
 
 // feedback
 export { CountdownBar } from "./components/feedback/CountdownBar";
