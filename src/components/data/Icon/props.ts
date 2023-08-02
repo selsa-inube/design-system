@@ -3,6 +3,19 @@ import { shapes } from "./types/Icon.Shape.type";
 import { spacings } from "./types/Icon.Spacing.type";
 import { variants } from "./types/Icon.Variant.type";
 
+const appearances = [
+  "primary",
+  "error",
+  "warning",
+  "success",
+  "information",
+  "help",
+  "light",
+  "gray",
+] as const;
+
+export type Appearance = typeof appearances[number];
+
 const props = {
   appearance: {
     options: Object.keys(inube.color.text),
