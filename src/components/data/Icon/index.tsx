@@ -1,6 +1,5 @@
 import { StyledIcon } from "./styles";
-import { Themed, Spacing, Variant, Shape } from "./props";
-import { Appearance } from "@src/shared/types/Appearance.type";
+import { Themed, Spacing, Variant, Shape, Appearance } from "./props";
 
 export interface IIconProps extends Themed {
   appearance: Appearance;

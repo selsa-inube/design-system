@@ -11,6 +11,19 @@ export type Variant = typeof variants[number];
 
 export type Themed = { theme: typeof inube };
 
+const appearances = [
+  "primary",
+  "error",
+  "warning",
+  "success",
+  "information",
+  "help",
+  "light",
+  "gray",
+] as const;
+
+export type Appearance = typeof appearances[number];
+
 const props = {
   appearance: {
     options: Object.keys(inube.color.text),

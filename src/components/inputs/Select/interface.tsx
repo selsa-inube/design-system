@@ -52,7 +52,7 @@ const Invalid = (props: ISelectStateProps) => {
         type="body"
         size="small"
         margin="8px 0px 0px 4px"
-        appearance={"error"}
+        appearance="error"
         isDisabled={isDisabled}
       >
         {transformedErrorMessage}
@@ -71,7 +71,7 @@ const Success = (props: ISelectStateProps) => {
         type="body"
         size="small"
         margin="8px 0px 0px 4px"
-        appearance={"success"}
+        appearance="success"
         isDisabled={isDisabled}
       >
         {validMessage}

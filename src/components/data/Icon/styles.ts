@@ -48,17 +48,17 @@ const StyledIcon = styled.figure`
     if (variant === "filled") {
       if (disabled)
         return (
-          theme?.color?.text?.[appearance]?.disabled ||
-          inube.color.text[appearance].disabled
+          theme?.color?.surface?.[appearance]?.disabled ||
+          inube.color.surface[appearance].disabled
         );
       if (parentHover)
         return (
-          theme?.color?.text?.[appearance]?.hover ||
-          inube.color.text[appearance].hover
+          theme?.color?.surface?.[appearance]?.hover ||
+          inube.color.surface[appearance].hover
         );
       return (
-        theme?.color?.text?.[appearance]?.regular ||
-        inube.color.text[appearance].regular
+        theme?.color?.surface?.[appearance]?.regular ||
+        inube.color.surface[appearance].regular
       );
     }
   }};
@@ -132,8 +132,8 @@ const StyledIcon = styled.figure`
     }: IIconProps) => {
       if (!disabled && cursorHover && variant !== "filled")
         return (
-          theme?.color?.text?.[appearance]?.hover ||
-          inube.color.text[appearance].hover
+          theme?.color?.stroke?.[appearance]?.hover ||
+          inube.color.stroke[appearance].hover
         );
     }};
 
@@ -146,8 +146,8 @@ const StyledIcon = styled.figure`
     }: IIconProps) => {
       if (!disabled && variant === "filled" && cursorHover)
         return (
-          theme?.color?.text?.[appearance]?.hover ||
-          inube.color.text[appearance].hover
+          theme?.color?.surface?.[appearance]?.hover ||
+          inube.color.surface[appearance].hover
         );
     }};
   }
