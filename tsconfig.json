@@ -22,15 +22,15 @@
       "@src/*": ["./src/*"],
       "@components/*": ["./src/components/*"],
       "@styles/*": ["./src/styles/*"],
-      "@data/*": ["./src/components/data"],
-      "@feedback/*": ["./src/components/feedback"],
-      "@inputs/*": ["./src/components/inputs"],
-      "@layouts/*": ["./src/components/layouts"],
-      "@navigation/*": ["./src/components/navigation"],
-      "@utils/*": ["./src/components/utils"],
-      "@hooks/*": ["./src/hooks"],
-      "@shared/*": ["./src/shared"],
-      "@utilities/*": ["./src/utilities"]
+      "@data/*": ["./src/components/data/*"],
+      "@feedback/*": ["./src/components/feedback/*"],
+      "@inputs/*": ["./src/components/inputs/*"],
+      "@layouts/*": ["./src/components/layouts/*"],
+      "@navigation/*": ["./src/components/navigation/*"],
+      "@utils/*": ["./src/components/utils/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@shared/*": ["./src/shared/*"],
+      "@utilities/*": ["./src/utilities/*"]
     }
   },
 
