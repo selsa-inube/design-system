@@ -4,7 +4,7 @@ import { MdClear } from "react-icons/md";
 import PropTypes from "prop-types";
 import { Blanket } from "../../utils/Blanket";
 import { Stack } from "../../layouts/Stack";
-import { Text } from "@data/Text";
+import { Text } from "../../data/Text";
 import { TextField } from "../../inputs/TextField";
 import { useMediaQuery } from "../../../hooks/useMediaQuery";
 import { StyledModal } from "./styles";
