@@ -20,10 +20,17 @@
     "baseUrl": ".",
     "paths": {
       "@src/*": ["./src/*"],
-      "@mocks/*": ["./src/mocks/*"],
       "@components/*": ["./src/components/*"],
-      "@pages/*": ["./src/pages/*"],
-      "@styles/*": ["./src/styles/*"]
+      "@styles/*": ["./src/styles/*"],
+      "@data/*": ["./src/components/data/*"],
+      "@feedback/*": ["./src/components/feedback/*"],
+      "@inputs/*": ["./src/components/inputs/*"],
+      "@layouts/*": ["./src/components/layouts/*"],
+      "@navigation/*": ["./src/components/navigation/*"],
+      "@utils/*": ["./src/components/utils/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@shared/*": ["./src/shared/*"],
+      "@utilities/*": ["./src/utilities/*"]
     }
   },
 
