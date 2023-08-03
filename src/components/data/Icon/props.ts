@@ -20,9 +20,18 @@ const appearances = [
   "help",
   "light",
   "gray",
+  "dark",
 ] as const;
 
 export type Appearance = typeof appearances[number];
+
+const parameters = {
+  docs: {
+    description: {
+      component: "Icons used to communicate actions and decisions graphically",
+    },
+  },
+};
 
 const props = {
   appearance: {
@@ -104,4 +113,4 @@ const props = {
   },
 };
 
-export { props };
+export { props, parameters };
