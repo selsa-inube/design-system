@@ -1,6 +1,6 @@
 import { TextField, ITextFieldProps } from "..";
 import { TextFieldController } from "./TextfieldController";
-import { Stack } from "../../../layouts/Stack";
+import { Stack } from "@layouts/Stack";
 import { props, sizes } from "../props";
 
 const story = {

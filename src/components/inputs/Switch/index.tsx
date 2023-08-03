@@ -1,6 +1,6 @@
 import { MdDone, MdClose } from "react-icons/md";
 
-import { Stack } from "../../layouts/Stack";
+import { Stack } from "@layouts/Stack";
 import { Label } from "../Label";
 
 import { StyledContainer, StyledInput, StyledSpan, StyledIcon } from "./styles";
