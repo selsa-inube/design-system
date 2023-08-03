@@ -2,11 +2,12 @@ import { Table, ITableProps } from "../index";
 
 import { titlesMuck, actionsMuck, breakPointsMuck } from "./mucks";
 
-import { props } from "../props";
+import { props, parameters } from "../props";
 
 const story = {
   title: "data/Table",
   component: [Table],
+  parameters,
   argTypes: props,
 };
 

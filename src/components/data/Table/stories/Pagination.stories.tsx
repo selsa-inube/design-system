@@ -1,12 +1,13 @@
 import { ITableProps } from "../";
 
 import { Pagination } from "../Pagination";
-import { props } from "../props";
+import { props, parameters } from "../props";
 import { PaginationController } from "./PaginationController";
 
 const story = {
   title: "data/Table/Pagination",
   component: [Pagination],
+  parameters,
   argTypes: props,
   decorators: [
     (Story: React.ElementType) => (

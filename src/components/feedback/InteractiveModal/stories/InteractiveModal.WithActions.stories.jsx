@@ -6,7 +6,7 @@ import {
   MdOutlineShortcut,
 } from "react-icons/md";
 
-import { Button } from "@src/components/inputs/Button";
+import { Button } from "@inputs/Button";
 import { InteractiveModal } from "../index";
 
 import { props } from "../props";

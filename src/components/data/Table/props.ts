@@ -1,12 +1,13 @@
-const props = {
-  parameters: {
-    docs: {
-      description: {
-        component:
-          "A versatile side navigation component, which allows you to nest links, from a full screen perspective",
-      },
+const parameters = {
+  docs: {
+    description: {
+      component:
+        "A versatile side navigation component, which allows you to nest links, from a full screen perspective",
     },
   },
+};
+
+const props = {
   id: {
     description: "uniquely identifies the **Table Component**.",
   },
@@ -83,4 +84,4 @@ const props = {
   },
 };
 
-export { props };
+export { props, parameters };

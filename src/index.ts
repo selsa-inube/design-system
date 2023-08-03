@@ -17,12 +17,12 @@ export { useMediaQueries } from "./hooks/useMediaQueries";
 export { useMediaQuery } from "./hooks/useMediaQuery";
 
 // inputs
-export { Button } from "./components/inputs/Button";
-export { Label } from "./components/inputs/Label";
-export { Select } from "./components/inputs/Select";
-export { Switch } from "./components/inputs/Switch";
-export { TextArea } from "./components/inputs/TextArea";
-export { TextField } from "./components/inputs/TextField";
+export { Button } from "@inputs/Button";
+export { Label } from "@inputs/Label";
+export { Select } from "@inputs/Select";
+export { Switch } from "@inputs/Switch";
+export { TextArea } from "@inputs/TextArea";
+export { TextField } from "@inputs/TextField";
 
 // layouts
 export { Stack } from "@layouts/Stack";
