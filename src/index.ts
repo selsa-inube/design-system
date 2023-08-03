@@ -25,7 +25,7 @@ export { TextArea } from "./components/inputs/TextArea";
 export { TextField } from "./components/inputs/TextField";
 
 // layouts
-export { Stack } from "./components/layouts/Stack";
+export { Stack } from "@layouts/Stack";
 
 // navigation
 export { Breadcrumbs } from "./components/navigation/Breadcrumbs";
