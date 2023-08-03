@@ -1,6 +1,6 @@
+import { useMediaQuery } from "@src/hooks/useMediaQuery";
 import { Stack } from "@layouts/Stack";
 import { StyledBlanket } from "./styles";
-import { useMediaQuery } from "@src/hooks/useMediaQuery";
 
 export interface BlanketProps {
   children?: React.ReactNode;
