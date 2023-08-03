@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { FullscreenNav } from "../FullscreenNav";
-import { User } from "../../data/User";
+import { User } from "@data/User";
 import { Stack } from "@layouts/Stack";
 import { useMediaQueries } from "../../../hooks/useMediaQueries";
 import { StyledHeader } from "./styles";
