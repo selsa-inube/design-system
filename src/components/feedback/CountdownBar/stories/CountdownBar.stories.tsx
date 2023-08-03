@@ -6,13 +6,6 @@ const story = {
   title: "feedback/CountdownBar",
   components: [CountdownBar],
   argTypes: props,
-  decorators: [
-    (Story: React.ElementType) => (
-      <div style={{ margin: "3em" }}>
-        <Story />
-      </div>
-    ),
-  ],
 };
 
 export const Default = (args: ICountdownBarProps) => <CountdownBar {...args} />;

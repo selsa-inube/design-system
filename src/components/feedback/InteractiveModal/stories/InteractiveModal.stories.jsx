@@ -8,13 +8,6 @@ const story = {
   title: "feedback/InteractiveModal",
   components: [InteractiveModal],
   argTypes: props,
-  decorators: [
-    (Story) => (
-      <div style={{ margin: "3em" }}>
-        <Story />
-      </div>
-    ),
-  ],
 };
 
 const data = {

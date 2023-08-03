@@ -9,13 +9,6 @@ const story = {
   title: "hooks/useMediaQuery",
   components: [Switch],
   argTypes: props,
-  decorators: [
-    (Story: React.ElementType) => (
-      <div style={{ margin: "3em" }}>
-        <Story />
-      </div>
-    ),
-  ],
 };
 
 export const Example = (args: IExampleSwitch) => {

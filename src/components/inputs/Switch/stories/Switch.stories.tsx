@@ -7,13 +7,6 @@ const story = {
   title: "inputs/Switch",
   components: [Switch],
   argTypes: props,
-  decorators: [
-    (Story: React.ElementType) => (
-      <div style={{ margin: "3em" }}>
-        <Story />
-      </div>
-    ),
-  ],
 };
 
 export const Default = (args: ISwitchProps) => <SwitchController {...args} />;

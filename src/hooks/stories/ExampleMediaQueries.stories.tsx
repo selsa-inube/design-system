@@ -7,13 +7,6 @@ const story = {
   title: "hooks/useMediaQueries",
   components: [useMediaQueries],
   argTypes: props,
-  decorators: [
-    (Story: React.ComponentType) => (
-      <div style={{ margin: "3em" }}>
-        <Story />
-      </div>
-    ),
-  ],
 };
 
 export const ExampleMediaQueries = (args: IArgs) => {

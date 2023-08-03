@@ -1,5 +1,3 @@
-import { ElementType } from "react";
-
 import { Spinner, ISpinnerProps } from "..";
 import { StyledFlex } from "./styles";
 
@@ -9,13 +7,6 @@ const story = {
   title: "feedback/Spinner",
   component: Spinner,
   argTypes: props,
-  decorators: [
-    (Story: ElementType) => (
-      <div style={{ margin: "3em" }}>
-        <Story />
-      </div>
-    ),
-  ],
   args: {
     size: "medium",
     appearance: "blue",

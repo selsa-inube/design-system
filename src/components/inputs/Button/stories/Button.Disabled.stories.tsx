@@ -13,9 +13,7 @@ const story = {
   decorators: [
     (Story: React.ElementType) => (
       <BrowserRouter>
-        <div style={{ margin: "3em" }}>
-          <Story />
-        </div>
+        <Story />
       </BrowserRouter>
     ),
   ],

@@ -9,13 +9,6 @@ const story = {
   component: [Pagination],
   parameters,
   argTypes: props,
-  decorators: [
-    (Story: React.ElementType) => (
-      <div style={{ margin: "3em" }}>
-        <Story />
-      </div>
-    ),
-  ],
 };
 
 const Default = (args: ITableProps) => <PaginationController {...args} />;

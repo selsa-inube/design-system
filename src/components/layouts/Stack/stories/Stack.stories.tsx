@@ -1,4 +1,3 @@
-import { ElementType } from "react";
 import { Stack } from "..";
 import { props } from "../props";
 import { Squares } from "./Squares";
@@ -6,13 +5,6 @@ import { Squares } from "./Squares";
 const story = {
   title: "layout/Stack",
   components: [Stack],
-  decorators: [
-    (Story: ElementType) => (
-      <div style={{ margin: "3em", width: "430px" }}>
-        <Story />
-      </div>
-    ),
-  ],
   argTypes: props,
 };
 
