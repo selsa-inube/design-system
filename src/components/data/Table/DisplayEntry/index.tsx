@@ -1,4 +1,4 @@
-import { InteractiveModal } from "../../../feedback/InteractiveModal";
+import { InteractiveModal } from "@feedback/InteractiveModal";
 import { useState } from "react";
 import { MdOpenInNew } from "react-icons/md";
 import { IAction } from "../interface";

@@ -1,9 +1,9 @@
-import { Switch } from "../../components/inputs/Switch";
+import { Switch } from "@inputs/Switch";
 
 import { useMediaQuery } from "../useMediaQuery";
 import { IExampleSwitch } from "./IExampleSwitch.interface";
-import { SwitchController } from "@src/components/inputs/Switch/stories/SwitchController";
-import { props } from "@src/components/inputs/Switch/props";
+import { SwitchController } from "@inputs/Switch/stories/SwitchController";
+import { props } from "@inputs/Switch/props";
 
 const story = {
   title: "hooks/useMediaQuery",

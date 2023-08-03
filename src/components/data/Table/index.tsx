@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 
 import { Pagination } from "./Pagination";
 import { IAction, IBreakpoint, TableUI } from "./interface";
-import { Stack } from "../../layouts/Stack";
+import { Stack } from "@layouts/Stack";
 import { ITitle } from "./interface";
 import { IEntry } from "./DisplayEntry";
 

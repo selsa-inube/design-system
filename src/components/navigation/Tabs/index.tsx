@@ -3,8 +3,8 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 
 import { Types, types } from "./props";
 import { Tab } from "../Tab";
-import { Stack } from "../../layouts/Stack";
-import { DropDownMenu } from "../../inputs/DropDownMenu";
+import { Stack } from "@layouts/Stack";
+import { DropDownMenu } from "@inputs/DropDownMenu";
 import { StyledTabs, StyledIconWrapper } from "./styles";
 
 export interface ITabsItem {

@@ -1,4 +1,4 @@
-import { Stack } from "../../layouts/Stack";
+import { Stack } from "@layouts/Stack";
 import { BreadcrumbMenuLink } from "../BreadcrumbMenuLink";
 import { StyledBreadcrumbMenu } from "./styles";
 

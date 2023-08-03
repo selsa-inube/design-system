@@ -10,9 +10,9 @@ import {
   StyledTd,
 } from "./styles";
 
-import { useMediaQueries } from "../../../hooks/useMediaQueries";
-import { useMediaQuery } from "../../../hooks/useMediaQuery";
-import { Text } from "../Text";
+import { useMediaQueries } from "@hooks/useMediaQueries";
+import { useMediaQuery } from "@hooks/useMediaQuery";
+import { Text } from "@data/Text";
 import { IEntry } from "./DisplayEntry/index";
 
 export interface ITitle {

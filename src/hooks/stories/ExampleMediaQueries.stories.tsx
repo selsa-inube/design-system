@@ -1,5 +1,5 @@
-import { useMediaQueries } from "../useMediaQueries";
-import { Text } from "../../components/data/Text";
+import { useMediaQueries } from "@hooks/useMediaQueries";
+import { Text } from "@data/Text";
 import { IArgs } from "./ExampleMediaQueries.interface";
 import { props } from "../props";
 
