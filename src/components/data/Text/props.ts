@@ -3,7 +3,7 @@ import { inube } from "@src/shared/tokens";
 export const textAlignOptions = ["start", "center", "end", "justify"];
 export type AlignOptions = typeof textAlignOptions[number];
 
-export type AppearancesOptions = keyof typeof inube.color.text;
+export type Appearance = keyof typeof inube.color.text;
 
 export const htmlElements = [
   "h1",

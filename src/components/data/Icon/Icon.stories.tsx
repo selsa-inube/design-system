@@ -1,9 +1,9 @@
 import { ThemeProvider } from "styled-components";
 import { MdAdb } from "react-icons/md";
 
-import { Icon, IIconProps } from "..";
+import { Icon, IIconProps } from ".";
 
-import { props, parameters } from "../props";
+import { props, parameters } from "./props";
 import { presente } from "@src/shared/themes/presente";
 
 const story = {
