@@ -9,7 +9,7 @@ export type Spacing = typeof spacings[number];
 export const variants = ["filled", "outlined", "none"] as const;
 export type Variant = typeof variants[number];
 
-export type Themed = { theme: typeof inube };
+export type Themed = { theme?: typeof inube };
 
 const appearances = [
   "primary",
@@ -20,9 +20,18 @@ const appearances = [
   "help",
   "light",
   "gray",
+  "dark",
 ] as const;
 
 export type Appearance = typeof appearances[number];
+
+const parameters = {
+  docs: {
+    description: {
+      component: "Icons used to communicate actions and decisions graphically",
+    },
+  },
+};
 
 const props = {
   appearance: {
@@ -104,4 +113,4 @@ const props = {
   },
 };
 
-export { props };
+export { props, parameters };

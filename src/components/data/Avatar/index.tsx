@@ -1,5 +1,5 @@
 import { MdPersonOutline } from "react-icons/md";
-import { Icon } from "../Icon";
+import { Icon } from "@data/Icon";
 
 export interface IAvatarProps {
   icon?: React.ReactElement;

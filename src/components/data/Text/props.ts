@@ -3,7 +3,7 @@ import { inube } from "@src/shared/tokens";
 export const textAlignOptions = ["start", "center", "end", "justify"];
 export type AlignOptions = typeof textAlignOptions[number];
 
-export type AppearancesOptions = keyof typeof inube.color.text;
+export type Appearance = keyof typeof inube.color.text;
 
 export const htmlElements = [
   "h1",
@@ -26,6 +26,15 @@ export type SizesOptions = typeof sizes[number];
 export type TyposOptions = keyof typeof inube.typography;
 
 const typesOptions = Object.keys(inube.typography);
+
+const parameters = {
+  docs: {
+    description: {
+      component:
+        "The Text component that allows the use of typographic tokens decoupled from HTML text tags such as h1, h2, ..., p, span, legend, figcaption, blockquote",
+    },
+  },
+};
 
 const props = {
   textAlign: {
@@ -118,4 +127,4 @@ const props = {
   },
 };
 
-export { props };
+export { props, parameters };

@@ -1,7 +1,7 @@
 import { MdOutlineError, MdCheckCircle } from "react-icons/md";
 
 import { Label } from "../Label";
-import { Text } from "../../data/Text";
+import { Text } from "@data/Text";
 
 import { ITextFieldProps } from ".";
 

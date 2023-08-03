@@ -1,13 +1,13 @@
 import type { ComponentPropsWithRef } from "react";
 
 import { transformedMeasure } from "../../../utilities/transformedMeasure";
-import { Appearance } from "../../../shared/types/Appearance.type";
 
 import {
   AlignOptions,
   HtmlElements,
   TyposOptions,
   SizesOptions,
+  Appearance,
 } from "./props";
 import { StyledText } from "./styles";
 

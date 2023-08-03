@@ -1,6 +1,6 @@
-import { Avatar } from "../Avatar";
-import { Text } from "../Text";
-import { Stack } from "../../layouts/Stack";
+import { Avatar } from "@data/Avatar";
+import { Text } from "@data/Text";
+import { Stack } from "@layouts/Stack";
 import { spacing } from "@src/shared/tokens/spacing/spacing";
 import { Size } from "./props";
 

@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 
 import { BreadcrumbMenu } from "../../navigation/BreadcrumbMenu";
-import { Text } from "../../data/Text/index";
+import { Text } from "@data/Text";
 
 import {
   StyledContainerEllipsis,

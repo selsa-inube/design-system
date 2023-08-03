@@ -2,8 +2,8 @@ import { useLocation } from "react-router-dom";
 import { MdLogout } from "react-icons/md";
 
 import { NavLink } from "../NavLink";
-import { Stack } from "../../layouts/Stack";
-import { Text } from "../../data/Text";
+import { Stack } from "@layouts/Stack";
+import { Text } from "@data/Text";
 
 import { StyledNav, StyledFooter, SeparatorLine } from "./styles";
 

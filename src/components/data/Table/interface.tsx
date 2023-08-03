@@ -12,7 +12,7 @@ import {
 
 import { useMediaQueries } from "@hooks/useMediaQueries";
 import { useMediaQuery } from "@hooks/useMediaQuery";
-import { Text } from "../Text";
+import { Text } from "@data/Text";
 import { IEntry } from "./DisplayEntry/index";
 
 export interface ITitle {
