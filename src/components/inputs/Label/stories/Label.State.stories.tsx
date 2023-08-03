@@ -1,5 +1,5 @@
 import { Label, ILabelProps } from "..";
-import { Stack } from "../../../layouts/Stack";
+import { Stack } from "@layouts/Stack";
 
 import { props } from "../props";
 

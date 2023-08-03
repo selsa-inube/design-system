@@ -20,13 +20,14 @@ const StyledIcon = styled.figure`
     appearance,
     parentHover,
     disabled,
+    variant,
   }: IIconProps) => {
     if (disabled)
       return (
         theme?.color?.stroke?.[appearance]?.disabled ||
         inube.color.stroke[appearance].disabled
       );
-    if (parentHover)
+    if (parentHover && variant !== "filled")
       return (
         theme?.color?.stroke?.[appearance]?.hover ||
         inube.color.stroke[appearance].hover
@@ -71,7 +72,8 @@ const StyledIcon = styled.figure`
   }: IIconProps) => {
     if (disabled)
       return (
-        theme?.color?.text?.light?.disabled || inube.color.text.light.disabled
+        theme?.color?.text?.[appearance]?.disabled ||
+        inube.color.text[appearance].disabled
       );
     if (variant !== "filled") {
       if (parentHover)
@@ -103,8 +105,8 @@ const StyledIcon = styled.figure`
   }
 
   &:hover {
-    cursor: ${({ cursorHover, disabled }: IIconProps) => {
-      if (!disabled && cursorHover) return "pointer";
+    cursor: ${({ cursorHover, disabled, variant }: IIconProps) => {
+      if (!disabled && cursorHover && variant !== "filled") return "pointer";
     }};
 
     border-color: ${({
@@ -112,8 +114,23 @@ const StyledIcon = styled.figure`
       cursorHover,
       appearance,
       disabled,
+      variant,
     }: IIconProps) => {
-      if (!disabled && cursorHover)
+      if (!disabled && cursorHover && variant !== "filled")
+        return (
+          theme?.color?.text?.[appearance]?.hover ||
+          inube.color.text[appearance].hover
+        );
+    }};
+
+    color: ${({
+      theme,
+      cursorHover,
+      appearance,
+      disabled,
+      variant,
+    }: IIconProps) => {
+      if (!disabled && cursorHover && variant !== "filled")
         return (
           theme?.color?.stroke?.[appearance]?.hover ||
           inube.color.stroke[appearance].hover
