@@ -5,8 +5,8 @@ import {
   MdLastPage,
 } from "react-icons/md";
 
-import { Text } from "../../Text/index";
-import { Stack } from "../../../layouts/Stack";
+import { Text } from "@data/Text";
+import { Stack } from "@layouts/Stack";
 import { StyledButton } from "./styles";
 
 export interface IPaginationProps {

@@ -1,4 +1,4 @@
-import { Text } from "../../data/Text";
+import { Text } from "@data/Text";
 import { Typos, typos } from "./props";
 import { StyledContainerLink, StyledBreadcrumbLink } from "./styles";
 

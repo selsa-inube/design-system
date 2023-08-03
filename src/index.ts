@@ -1,16 +1,16 @@
 // data
-export { Avatar } from "./components/data/Avatar";
-export { Text } from "./components/data/Text";
-export { User } from "./components/data/User";
-export { Table } from "./components/data/Table";
-export { Icon } from "./components/data/Icon";
+export { Avatar } from "@data/Avatar";
+export { Icon } from "@data/Icon";
+export { Table } from "@data/Table";
+export { Text } from "@data/Text";
+export { User } from "@data/User";
 
 // feedback
-export { CountdownBar } from "./components/feedback/CountdownBar";
-export { InteractiveModal } from "./components/feedback/InteractiveModal";
-export { SkeletonIcon } from "./components/feedback/SkeletonIcon";
-export { SkeletonLine } from "./components/feedback/SkeletonLine";
-export { Spinner } from "./components/feedback/Spinner";
+export { CountdownBar } from "@feedback/CountdownBar";
+export { InteractiveModal } from "@feedback/InteractiveModal";
+export { SkeletonIcon } from "@feedback/SkeletonIcon";
+export { SkeletonLine } from "@feedback/SkeletonLine";
+export { Spinner } from "@feedback/Spinner";
 
 //  hooks
 export { useMediaQueries } from "./hooks/useMediaQueries";
@@ -25,7 +25,7 @@ export { TextArea } from "@inputs/TextArea";
 export { TextField } from "@inputs/TextField";
 
 // layouts
-export { Stack } from "./components/layouts/Stack";
+export { Stack } from "@layouts/Stack";
 
 // navigation
 export { Breadcrumbs } from "./components/navigation/Breadcrumbs";

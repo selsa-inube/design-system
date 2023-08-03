@@ -1,4 +1,4 @@
-import { Text } from "../../data/Text";
+import { Text } from "@data/Text";
 
 import { StyledTab } from "./styles";
 
