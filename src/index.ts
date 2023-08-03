@@ -13,8 +13,8 @@ export { SkeletonLine } from "./components/feedback/SkeletonLine";
 export { Spinner } from "./components/feedback/Spinner";
 
 //  hooks
-export { useMediaQueries } from "./hooks/useMediaQueries";
-export { useMediaQuery } from "./hooks/useMediaQuery";
+export { useMediaQueries } from "@hooks/useMediaQueries";
+export { useMediaQuery } from "@hooks/useMediaQuery";
 
 // inputs
 export { Button } from "./components/inputs/Button";

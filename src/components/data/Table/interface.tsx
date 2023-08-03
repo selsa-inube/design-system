@@ -10,8 +10,8 @@ import {
   StyledTd,
 } from "./styles";
 
-import { useMediaQueries } from "../../../hooks/useMediaQueries";
-import { useMediaQuery } from "../../../hooks/useMediaQuery";
+import { useMediaQueries } from "@hooks/useMediaQueries";
+import { useMediaQuery } from "@hooks/useMediaQuery";
 import { Text } from "../Text";
 import { IEntry } from "./DisplayEntry/index";
 

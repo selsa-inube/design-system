@@ -1,5 +1,5 @@
 import React from "react";
-import { useMediaQueries } from "../useMediaQueries";
+import { useMediaQueries } from "@hooks/useMediaQueries";
 import { Text } from "../../components/data/Text";
 import { IArgs } from "./ExampleMediaQueries.interface";
 import { props } from "../props";
