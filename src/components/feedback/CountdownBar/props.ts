@@ -1,4 +1,6 @@
-import { appearances } from "@src/shared/types/Appearance.type";
+import { inube } from "@src/shared/tokens";
+
+export type Appearance = keyof typeof inube.color.surface;
 
 const props = {
   size: {
@@ -10,7 +12,7 @@ const props = {
     },
   },
   appearance: {
-    options: appearances,
+    options: Object.keys(inube.color.surface),
     control: { type: "select" },
     description: "colors used to identify the state of the component",
     table: {

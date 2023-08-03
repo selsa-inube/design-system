@@ -1,8 +1,13 @@
 import { transformedMeasure } from "@src/utilities/transformedMeasure";
 
 import { StyledFlex } from "./styles";
-import { WrapControl, DirectionAlignment, JustifyContent, AlignItem, AlignContent } from "./props";
-
+import {
+  WrapControl,
+  DirectionAlignment,
+  JustifyContent,
+  AlignItem,
+  AlignContent,
+} from "./props";
 
 export interface IStackProps {
   children?: React.ReactNode;
