@@ -1,8 +1,9 @@
 import PropTypes from "prop-types";
-import { FullscreenNav } from "../FullscreenNav";
+
 import { User } from "@data/User";
+import { useMediaQueries } from "@hooks/useMediaQueries";
 import { Stack } from "@layouts/Stack";
-import { useMediaQueries } from "../../../hooks/useMediaQueries";
+import { FullscreenNav } from "../FullscreenNav";
 import { StyledHeader } from "./styles";
 
 const SMALL_SCREEN = "(min-width: 320px)";
