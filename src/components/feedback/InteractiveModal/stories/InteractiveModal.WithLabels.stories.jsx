@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-import { Button } from "../../../inputs/Button/index";
-import { InteractiveModal } from "../index";
+import { Button } from "@inputs/Button";
+import { InteractiveModal } from "..";
 
 import { props } from "../props";
 

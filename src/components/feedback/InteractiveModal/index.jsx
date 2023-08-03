@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Blanket } from "../../utils/Blanket";
 import { Stack } from "../../layouts/Stack";
 import { Text } from "../../data/Text";
-import { TextField } from "../../inputs/TextField";
+import { TextField } from "@inputs/TextField";
 import { useMediaQuery } from "../../../hooks/useMediaQuery";
 import { createPortal } from "react-dom";
 import { MdClear } from "react-icons/md";
