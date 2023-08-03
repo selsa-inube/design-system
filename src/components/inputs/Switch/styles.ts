@@ -1,7 +1,7 @@
 import { ISwitchProps } from "./index";
 import styled, { css } from "styled-components";
 
-import { colors } from "../../../shared/colors/colors";
+import { colors } from "@shared/colors/colors";
 
 const sizes: any = {
   large: {

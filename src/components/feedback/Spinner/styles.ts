@@ -1,7 +1,7 @@
 import styled, { keyframes } from "styled-components";
 import { ISpinnerProps } from "./index";
 
-import { colors } from "../../../shared/colors/colors";
+import { colors } from "@shared/colors/colors";
 
 const colorHomologation: any = {
   blue: colors.ref.palette.blue.b400,

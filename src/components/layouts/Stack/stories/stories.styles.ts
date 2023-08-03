@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { inube } from "@src/shared/tokens";
+import { inube } from "@shared/tokens";
 
 const StyledSquare = styled.div`
   display: flex;

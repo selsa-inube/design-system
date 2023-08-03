@@ -4,7 +4,7 @@ import { MdAdb } from "react-icons/md";
 import { Icon, IIconProps } from ".";
 
 import { props, parameters } from "./props";
-import { presente } from "@src/shared/themes/presente";
+import { presente } from "@shared/themes/presente";
 
 const story = {
   title: "data/Icon",

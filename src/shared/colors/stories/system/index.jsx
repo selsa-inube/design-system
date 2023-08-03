@@ -6,7 +6,7 @@ import {
   StyledColor,
   StyledSpan,
 } from "./styles";
-import { colors } from "../../colors";
+import { colors } from "@shared/colors/colors";
 
 function getRefTokenFromHex(value, obj = colors.ref) {
   for (const [key, val] of Object.entries(obj)) {

@@ -2,8 +2,8 @@ import { INavLinkProps } from ".";
 import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
 
-import { colors } from "../../../shared/colors/colors";
-import { typography } from "../../../shared/typography/typography";
+import { colors } from "@shared/colors/colors";
+import { typography } from "@shared/typography/typography";
 
 const getGrid = (props: INavLinkProps) => {
   const { icon } = props;

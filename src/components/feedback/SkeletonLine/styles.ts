@@ -1,6 +1,6 @@
 import styled, { keyframes } from "styled-components";
 
-import { colors } from "../../../shared/colors/colors";
+import { colors } from "@shared/colors/colors";
 import { ISkeletonLineProps } from "./index";
 
 const shimmer = keyframes`

@@ -1,6 +1,6 @@
 import { StyledButton, StyledSpan, StyledIcon, StyledLink } from "./styles";
 import { Spinner } from "@feedback/Spinner";
-import { colors } from "../../../shared/colors/colors";
+import { colors } from "@shared/colors/colors";
 import {
   Appearance,
   Type,

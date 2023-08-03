@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { colors } from "../../colors";
+import { colors } from "@shared/colors/colors";
 
 const StyledGlobalFlex = styled.div`
   display: flex;

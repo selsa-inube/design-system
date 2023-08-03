@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
 
-import { colors } from "../../../shared/colors/colors";
-import { typography } from "../../../shared/typography/typography";
+import { colors } from "@shared/colors/colors";
+import { typography } from "@shared/typography/typography";
 import { IButtonProps } from ".";
 import { Appearance, Variant } from "./props";
 

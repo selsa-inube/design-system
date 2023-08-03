@@ -9,7 +9,7 @@ import {
   StyledSpanColorName,
 } from "./styles";
 
-import { colors } from "../../colors";
+import { colors } from "@shared/colors/colors";
 
 const CardColor = (props) => {
   const { colorGroupWrap, colorName } = props;

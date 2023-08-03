@@ -1,4 +1,4 @@
-import { validateBoxModelMeasure } from "../utilities/validateBoxModelMeasure";
+import { validateBoxModelMeasure } from "@utilities/validateBoxModelMeasure";
 
 const transformedMeasure = (valueBoxModel, defaultValue) => {
   if (!valueBoxModel) {

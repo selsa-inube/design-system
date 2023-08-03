@@ -1,4 +1,4 @@
-import { useMediaQuery } from "../../../hooks/useMediaQuery";
+import { useMediaQuery } from "@hooks/useMediaQuery";
 
 import { BreadcrumbLink } from "../BreadcrumbLink";
 import { BreadcrumbEllipsis } from "../BreadcrumbEllipsis";

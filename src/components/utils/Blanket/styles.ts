@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors } from "../../../shared/colors/colors";
+import { colors } from "@shared/colors/colors";
 
 const StyledBlanket = styled.div`
   position: fixed;

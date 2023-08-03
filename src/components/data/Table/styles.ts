@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors } from "../../../shared/colors/colors";
+import { colors } from "@shared/colors/colors";
 
 const StyledTable = styled.table`
   box-sizing: border-box;
