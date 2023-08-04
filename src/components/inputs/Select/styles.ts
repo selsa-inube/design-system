@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 import { ISelectInterfaceProps } from "./interface";
-import { colors } from "../../../shared/colors/colors";
-import { typography } from "../../../shared/typography/typography";
+import { colors } from "@shared/colors/colors";
+import { typography } from "@shared/typography/typography";
 
 const sizeOptions = {
   compact: {

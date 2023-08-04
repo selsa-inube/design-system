@@ -1,6 +1,6 @@
 import { AnimationEvent } from "react";
 
-import { inube } from "@src/shared/tokens";
+import { inube } from "@shared/tokens";
 import { StyledCountdownBar } from "./styles";
 import { Appearance } from "./props";
 

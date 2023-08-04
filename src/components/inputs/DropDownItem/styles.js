@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-import { colors } from "../../../shared/colors/colors";
-import { typography } from "../../../shared/typography/typography";
+import { colors } from "@shared/colors/colors";
+import { typography } from "@shared/typography/typography";
 
 const getColor = (isDisabled, isSelected) => {
   if (isDisabled) {

@@ -1,4 +1,4 @@
-import { transformedMeasure } from "@src/utilities/transformedMeasure";
+import { transformedMeasure } from "@utilities/transformedMeasure";
 
 import { StyledFlex } from "./styles";
 import {

@@ -1,4 +1,4 @@
-import { colors } from "../../../shared/colors/colors";
+import { colors } from "@shared/colors/colors";
 import styled from "styled-components";
 
 const StyledModal = styled.div`

@@ -1,10 +1,10 @@
 import { MdDone, MdClose } from "react-icons/md";
 
 import { Stack } from "@layouts/Stack";
-import { Label } from "../Label";
+import { Label } from "@inputs/Label";
 
 import { StyledContainer, StyledInput, StyledSpan, StyledIcon } from "./styles";
-import { transformedMeasure } from "../../../utilities/transformedMeasure";
+import { transformedMeasure } from "@utilities/transformedMeasure";
 import { Size, sizes } from "./props";
 
 export interface ISwitchProps {

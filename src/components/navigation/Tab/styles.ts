@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import { ITabProps } from ".";
-import { colors } from "../../../shared/colors/colors";
+import { colors } from "@shared/colors/colors";
 
 const StyledTab = styled.li`
   width: fit-content;

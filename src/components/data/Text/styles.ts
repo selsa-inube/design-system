@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { inube } from "@src/shared/tokens";
+import { inube } from "@shared/tokens";
 import { ITextProps } from ".";
 
 const StyledText = styled.p`
