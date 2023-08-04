@@ -1,5 +1,5 @@
 import { Stack } from "@layouts/Stack";
-import { BreadcrumbMenuLink } from "../BreadcrumbMenuLink";
+import { BreadcrumbMenuLink } from "@navigation/BreadcrumbMenuLink";
 import { StyledBreadcrumbMenu } from "./styles";
 
 export interface IBreadcrumbRoute {

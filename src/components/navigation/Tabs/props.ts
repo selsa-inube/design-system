@@ -1,15 +1,15 @@
 export const types = ["select", "tabs"] as const;
 export type Types = typeof types[number];
 
-const props = {
-  parameters: {
-    docs: {
-      description: {
-        component:
-          "Use to alternate among related views within the same context",
-      },
+const parameters = {
+  docs: {
+    description: {
+      component: "Use to alternate among related views within the same context",
     },
   },
+};
+
+const props = {
   tabs: {
     control: { type: "func" },
     description:
@@ -43,4 +43,4 @@ const props = {
   },
 };
 
-export { props };
+export { props, parameters };
