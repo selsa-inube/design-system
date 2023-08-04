@@ -18,7 +18,7 @@ export interface ITextProps extends ComponentPropsWithRef<"p"> {
   padding?: string;
   as?: HtmlElements;
   appearance: Appearance;
-  isDisabled?: boolean;
+  disabled?: boolean;
   type: TyposOptions;
   size: SizesOptions;
   cursorHover?: boolean;
@@ -39,7 +39,7 @@ const Text = (props: ITextProps) => {
     cursorHover,
     parentHover,
     ellipsis,
-    isDisabled,
+    disabled,
   } = props;
 
   return (
@@ -54,7 +54,7 @@ const Text = (props: ITextProps) => {
       cursorHover={cursorHover}
       parentHover={parentHover}
       ellipsis={ellipsis}
-      isDisabled={isDisabled}
+      disabled={disabled}
     >
       {children}
     </StyledText>
