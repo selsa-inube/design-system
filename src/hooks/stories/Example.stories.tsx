@@ -1,6 +1,6 @@
 import { Switch } from "@inputs/Switch";
 
-import { useMediaQuery } from "../useMediaQuery";
+import { useMediaQuery } from "@hooks/useMediaQuery";
 import { IExampleSwitch } from "./IExampleSwitch.interface";
 import { SwitchController } from "@inputs/Switch/stories/SwitchController";
 import { props } from "@inputs/Switch/props";
