@@ -1,4 +1,4 @@
-import { useMediaQuery } from "@src/hooks/useMediaQuery";
+import { useMediaQuery } from "@hooks/useMediaQuery";
 import { Stack } from "@layouts/Stack";
 import { StyledBlanket } from "./styles";
 
