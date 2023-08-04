@@ -1,7 +1,5 @@
 import type { ComponentPropsWithRef } from "react";
 
-import { transformedMeasure } from "../../../utilities/transformedMeasure";
-
 import {
   AlignOptions,
   HtmlElements,
@@ -49,8 +47,8 @@ const Text = (props: ITextProps) => {
       appearance={appearance}
       type={type}
       size={size}
-      margin={transformedMeasure(margin)}
-      padding={transformedMeasure(padding)}
+      margin={margin}
+      padding={padding}
       cursorHover={cursorHover}
       parentHover={parentHover}
       ellipsis={ellipsis}

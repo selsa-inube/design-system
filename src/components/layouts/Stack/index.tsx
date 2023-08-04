@@ -1,5 +1,3 @@
-import { transformedMeasure } from "@utilities/transformedMeasure";
-
 import { StyledFlex } from "./styles";
 import {
   WrapControl,
@@ -34,8 +32,8 @@ const Stack = (props: IStackProps) => {
     height,
     width,
     gap,
-    margin,
-    padding,
+    margin = "0px",
+    padding = "0px",
   } = props;
 
   return (
@@ -44,12 +42,12 @@ const Stack = (props: IStackProps) => {
       justifyContent={justifyContent}
       alignItems={alignItems}
       alignContent={alignContent}
-      height={transformedMeasure(height)}
-      width={transformedMeasure(width)}
+      height={height}
+      width={width}
       wrap={wrap}
       gap={gap}
-      margin={transformedMeasure(margin)}
-      padding={transformedMeasure(padding)}
+      margin={margin}
+      padding={padding}
     >
       {children}
     </StyledFlex>

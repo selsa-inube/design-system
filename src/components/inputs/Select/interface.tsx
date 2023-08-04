@@ -5,9 +5,9 @@ import {
   MdOutlineArrowDropDown,
 } from "react-icons/md";
 
-import { Label } from "../Label";
+import { Label } from "@inputs/Label";
 import { Text } from "@data/Text";
-import { DropDownMenu } from "../DropDownMenu/index";
+import { DropDownMenu } from "@inputs/DropDownMenu/index";
 
 import {
   StyledContainer,

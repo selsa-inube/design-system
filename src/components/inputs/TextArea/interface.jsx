@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 import { MdOutlineError, MdCheckCircle } from "react-icons/md";
 
-import { Label } from "../Label";
+import { Label } from "@inputs/Label";
 import { Text } from "@data/Text";
 
 import {
