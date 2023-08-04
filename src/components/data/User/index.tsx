@@ -24,23 +24,11 @@ const User = (props: IUserProps) => {
           alignItems="center"
           gap={spacing.s050}
         >
-          <Text
-            id="userName"
-            as="span"
-            appearance="dark"
-            type="label"
-            size="medium"
-          >
+          <Text as="span" appearance="dark" type="label" size="medium">
             {userName}
           </Text>
           {client && (
-            <Text
-              id="businessUnit"
-              as="span"
-              appearance="gray"
-              type="body"
-              size="small"
-            >
+            <Text as="span" appearance="gray" type="body" size="small">
               {client}
             </Text>
           )}

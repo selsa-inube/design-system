@@ -1,5 +1,3 @@
-import type { ComponentPropsWithRef } from "react";
-
 import {
   AlignOptions,
   HtmlElements,
@@ -9,7 +7,7 @@ import {
 } from "./props";
 import { StyledText } from "./styles";
 
-export interface ITextProps extends ComponentPropsWithRef<"p"> {
+export interface ITextProps {
   children?: React.ReactNode;
   textAlign?: AlignOptions;
   margin?: string;
