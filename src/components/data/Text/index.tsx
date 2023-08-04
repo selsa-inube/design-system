@@ -5,8 +5,8 @@ import { transformedMeasure } from "../../../utilities/transformedMeasure";
 import {
   AlignOptions,
   HtmlElements,
-  TyposOptions,
-  SizesOptions,
+  TypeOptions,
+  SizeOptions,
   Appearance,
 } from "./props";
 import { StyledText } from "./styles";
@@ -19,8 +19,8 @@ export interface ITextProps extends ComponentPropsWithRef<"p"> {
   as?: HtmlElements;
   appearance: Appearance;
   isDisabled?: boolean;
-  type: TyposOptions;
-  size: SizesOptions;
+  type: TypeOptions;
+  size: SizeOptions;
   cursorHover?: boolean;
   parentHover?: boolean;
   ellipsis?: boolean;
