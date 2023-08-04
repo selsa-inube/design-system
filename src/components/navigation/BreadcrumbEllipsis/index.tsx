@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 
-import { BreadcrumbMenu } from "../../navigation/BreadcrumbMenu";
+import { BreadcrumbMenu } from "@navigation/BreadcrumbMenu";
 import { Text } from "@data/Text";
 
 import {

@@ -28,10 +28,10 @@ export { TextField } from "@inputs/TextField";
 export { Stack } from "@layouts/Stack";
 
 // navigation
-export { Breadcrumbs } from "./components/navigation/Breadcrumbs";
-export { Header } from "./components/navigation/Header";
-export { Nav } from "./components/navigation/Nav";
-export { Tabs } from "./components/navigation/Tabs";
+export { Breadcrumbs } from "@navigation/Breadcrumbs";
+export { Header } from "@navigation/Header";
+export { Nav } from "@navigation/Nav";
+export { Tabs } from "@navigation/Tabs";
 
 // utils
 export { Blanket } from "./components/utils/Blanket";
