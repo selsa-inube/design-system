@@ -1,11 +1,12 @@
 import { Tabs, ITabsProps } from "..";
 import { TabsResponsiveController } from "./TabsResponsiveController";
 
-import { props } from "../props";
+import { props, parameters } from "../props";
 
 const story = {
   title: "navigation/Tabs",
   components: [Tabs],
+  parameters,
   argTypes: props,
 };
 

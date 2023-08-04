@@ -4,7 +4,7 @@ import { MdMenu, MdClose, MdLogout } from "react-icons/md";
 
 import { Stack } from "@layouts/Stack/index";
 import { Text } from "@data/Text";
-import { NavLink } from "../NavLink/index";
+import { NavLink } from "@navigation/NavLink";
 
 import {
   StyledContDropMenu,
