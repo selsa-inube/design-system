@@ -21,9 +21,9 @@ export const htmlElements = [
 export type HtmlElements = typeof htmlElements[number];
 
 export const sizes = ["large", "medium", "small"] as const;
-export type SizeOptions = typeof sizes[number]; // Renamed to SizeOptions
+export type SizeOptions = typeof sizes[number];
 
-export type TypeOptions = keyof typeof inube.typography; // Renamed to TypeOptions
+export type TypeOptions = keyof typeof inube.typography;
 
 const typesOptions = Object.keys(inube.typography);
 
