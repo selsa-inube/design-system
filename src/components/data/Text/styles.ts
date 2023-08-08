@@ -22,27 +22,25 @@ const StyledText = styled.p`
       ? inube.color.text[appearance].regular
       : inube.color.text[appearance].disabled};
 
-  ${({ ellipsis }: ITextProps) =>
-    ellipsis &&
-    `
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  `};
+  white-space: ${({ ellipsis }: ITextProps) => ellipsis && "nowrap"};
+  overflow: ${({ ellipsis }: ITextProps) => ellipsis && "hidden"};
+  text-overflow: ${({ ellipsis }: ITextProps) => ellipsis && "ellipsis"};
 
-  ${({ cursorHover, appearance, disabled }: ITextProps) =>
-    cursorHover &&
-    `
-    cursor: pointer;
-    &:hover {
-      color: ${!disabled && appearance && inube.color.text[appearance].hover};
-    }
-  `};
+  cursor: ${({ cursorHover, parentHover }: ITextProps) =>
+    (cursorHover || parentHover) && "pointer"};
+  &:hover {
+    color: ${({ cursorHover, appearance, disabled }: ITextProps) =>
+      cursorHover &&
+      !disabled &&
+      appearance &&
+      inube.color.text[appearance].hover};
+  }
 
-  ${({ parentHover, appearance, disabled }: ITextProps) =>
+  color: ${({ parentHover, appearance, disabled }: ITextProps) =>
     parentHover &&
-    `cursor: pointer; color: ${
-      !disabled && appearance && inube.color.text[appearance].hover
-    };`}
+    !disabled &&
+    appearance &&
+    inube.color.text[appearance].hover};
 `;
+
 export { StyledText };
