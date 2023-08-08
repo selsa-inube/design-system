@@ -29,8 +29,7 @@
       "@navigation/*": ["./src/components/navigation/*"],
       "@utils/*": ["./src/components/utils/*"],
       "@hooks/*": ["./src/hooks/*"],
-      "@shared/*": ["./src/shared/*"],
-      "@utilities/*": ["./src/utilities/*"]
+      "@shared/*": ["./src/shared/*"]
     }
   },
 

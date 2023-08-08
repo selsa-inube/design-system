@@ -1,10 +1,8 @@
-import { transformedMeasure } from "../../../utilities/transformedMeasure";
-
 import {
   AlignOptions,
   HtmlElements,
-  TyposOptions,
-  SizesOptions,
+  TypeOptions,
+  SizeOptions,
   Appearance,
 } from "./props";
 import { StyledText } from "./styles";
@@ -16,9 +14,9 @@ export interface ITextProps {
   padding?: string;
   as?: HtmlElements;
   appearance: Appearance;
-  isDisabled?: boolean;
-  type: TyposOptions;
-  size: SizesOptions;
+  disabled?: boolean;
+  type: TypeOptions;
+  size: SizeOptions;
   cursorHover?: boolean;
   parentHover?: boolean;
   ellipsis?: boolean;
@@ -37,7 +35,7 @@ const Text = (props: ITextProps) => {
     cursorHover = false,
     parentHover = false,
     ellipsis = false,
-    isDisabled = false,
+    disabled = false,
   } = props;
 
   return (
@@ -47,12 +45,12 @@ const Text = (props: ITextProps) => {
       appearance={appearance}
       type={type}
       size={size}
-      margin={transformedMeasure(margin)}
-      padding={transformedMeasure(padding)}
+      margin={margin}
+      padding={padding}
       cursorHover={cursorHover}
       parentHover={parentHover}
       ellipsis={ellipsis}
-      isDisabled={isDisabled}
+      disabled={disabled}
     >
       {children}
     </StyledText>

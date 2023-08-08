@@ -21,9 +21,9 @@ export const htmlElements = [
 export type HtmlElements = typeof htmlElements[number];
 
 export const sizes = ["large", "medium", "small"] as const;
-export type SizesOptions = typeof sizes[number];
+export type SizeOptions = typeof sizes[number];
 
-export type TyposOptions = keyof typeof inube.typography;
+export type TypeOptions = keyof typeof inube.typography;
 
 const typesOptions = Object.keys(inube.typography);
 
@@ -68,7 +68,7 @@ const props = {
       defaultValue: { summary: "<p>" },
     },
   },
-  isDisabled: {
+  disabled: {
     description:
       "(boolean): Add the “disabled” prop, which will control if the text should display a disabled state. For this you can make use of the disabled modifiers you find in the color.text tokens.",
     table: {
