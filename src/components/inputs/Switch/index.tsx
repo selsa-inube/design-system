@@ -4,7 +4,6 @@ import { Stack } from "@layouts/Stack";
 import { Label } from "@inputs/Label";
 
 import { StyledContainer, StyledInput, StyledSpan, StyledIcon } from "./styles";
-import { transformedMeasure } from "@utilities/transformedMeasure";
 import { Size, sizes } from "./props";
 
 export interface ISwitchProps {
@@ -22,8 +21,6 @@ export interface ISwitchProps {
 }
 
 const defaultSize: Size = "small";
-const defaultMargin = "0px";
-const defaultPadding = "0px";
 
 const Switch = (props: ISwitchProps) => {
   const {
@@ -35,8 +32,8 @@ const Switch = (props: ISwitchProps) => {
     checked = false,
     handleChange,
     label,
-    margin,
-    padding,
+    margin = "0px",
+    padding = "0px",
   } = props;
 
   const transformedSize: Size = sizes.includes(size) ? size : defaultSize;
@@ -49,8 +46,8 @@ const Switch = (props: ISwitchProps) => {
       justifyContent={transformedJustify}
       alignItems="center"
       gap={tranformedGap}
-      margin={transformedMeasure(margin, defaultMargin)}
-      padding={transformedMeasure(padding, defaultPadding)}
+      margin={margin}
+      padding={padding}
     >
       <StyledContainer size={transformedSize}>
         <StyledInput
