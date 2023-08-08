@@ -1,7 +1,7 @@
 import { ThemeProvider } from "styled-components";
-import { User, IUserProps } from "..";
+import { User, IUserProps } from ".";
 
-import { props } from "../props";
+import { props } from "./props";
 import { presente } from "@shared/themes/presente";
 
 const story = {
