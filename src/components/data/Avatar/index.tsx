@@ -13,6 +13,7 @@ const Avatar = (props: IAvatarProps) => {
   return (
     <Icon
       appearance="primary"
+      cursorHover={true}
       variant="filled"
       shape="circle"
       icon={icon}

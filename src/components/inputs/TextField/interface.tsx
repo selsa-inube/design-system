@@ -1,6 +1,6 @@
 import { MdOutlineError, MdCheckCircle } from "react-icons/md";
 
-import { Label } from "../Label";
+import { Label } from "@inputs/Label";
 import { Text } from "@data/Text";
 
 import { ITextFieldProps } from ".";
@@ -42,7 +42,7 @@ const Invalid = (props: IMessageProps) => {
         size="small"
         margin="8px 0px 0px 4px"
         appearance="error"
-        isDisabled={isDisabled}
+        disabled={isDisabled}
       >
         {transformedErrorMessage}
       </Text>
@@ -61,7 +61,7 @@ const Success = (props: IMessageProps) => {
         size="small"
         margin="8px 0px 0px 4px"
         appearance="success"
-        isDisabled={isDisabled}
+        disabled={isDisabled}
       >
         {validMessage}
       </Text>

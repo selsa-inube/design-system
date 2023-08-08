@@ -1,5 +1,3 @@
-import { transformedMeasure } from "../../../utilities/transformedMeasure";
-
 import {
   AlignOptions,
   HtmlElements,
@@ -16,7 +14,7 @@ export interface ITextProps {
   padding?: string;
   as?: HtmlElements;
   appearance: Appearance;
-  isDisabled?: boolean;
+  disabled?: boolean;
   type: TypeOptions;
   size: SizeOptions;
   cursorHover?: boolean;
@@ -37,7 +35,7 @@ const Text = (props: ITextProps) => {
     cursorHover,
     parentHover,
     ellipsis,
-    isDisabled,
+    disabled,
   } = props;
 
   return (
@@ -47,12 +45,12 @@ const Text = (props: ITextProps) => {
       appearance={appearance}
       type={type}
       size={size}
-      margin={transformedMeasure(margin)}
-      padding={transformedMeasure(padding)}
+      margin={margin}
+      padding={padding}
       cursorHover={cursorHover}
       parentHover={parentHover}
       ellipsis={ellipsis}
-      isDisabled={isDisabled}
+      disabled={disabled}
     >
       {children}
     </StyledText>

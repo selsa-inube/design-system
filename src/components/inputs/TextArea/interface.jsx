@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 import { MdOutlineError, MdCheckCircle } from "react-icons/md";
 
-import { Label } from "../Label";
+import { Label } from "@inputs/Label";
 import { Text } from "@data/Text";
 
 import {
@@ -48,7 +48,7 @@ const Counter = (props) => {
     <Text
       type="body"
       size="small"
-      isDisabled={isDisabled}
+      disabled={isDisabled}
       appearance={getAppearanceCounter(valueLength, maxLength, lengthThreshold)}
     >{`${valueLength}/${maxLength}`}</Text>
   );
@@ -61,12 +61,7 @@ const Invalid = (props) => {
   return (
     <StyledErrorMessageContainer isDisabled={isDisabled} state={state}>
       <MdOutlineError />
-      <Text
-        type="body"
-        size="small"
-        appearance={"error"}
-        isDisabled={isDisabled}
-      >
+      <Text type="body" size="small" appearance={"error"} disabled={isDisabled}>
         {transformedErrorMessage}
       </Text>
     </StyledErrorMessageContainer>
@@ -83,7 +78,7 @@ const Success = (props) => {
         type="body"
         size="small"
         appearance={"success"}
-        isDisabled={isDisabled}
+        disabled={isDisabled}
       >
         {validMessage}
       </Text>

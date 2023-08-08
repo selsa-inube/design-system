@@ -30,7 +30,7 @@ const Tab = (props: ITabProps) => {
         type="label"
         size="medium"
         appearance={isSelected ? "primary" : "dark"}
-        isDisabled={isDisabled}
+        disabled={isDisabled}
       >
         {label}
       </Text>
