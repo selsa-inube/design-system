@@ -1,7 +1,5 @@
-import { Text, ITextProps } from "..";
-
-import { StyledContainer } from "./styles";
-import { props, parameters } from "../props";
+import { Text, ITextProps } from ".";
+import { props, parameters } from "./props";
 
 const story = {
   title: "data/Text",
@@ -11,11 +9,7 @@ const story = {
 };
 
 const Default = (args: ITextProps) => {
-  return (
-    <StyledContainer>
-      <Text {...args}>{args.children}</Text>
-    </StyledContainer>
-  );
+  return <Text {...args}>{args.children}</Text>;
 };
 
 Default.args = {
