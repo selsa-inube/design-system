@@ -17,8 +17,8 @@ const StyledText = styled.p`
   margin: ${({ margin }: ITextProps) => margin};
   padding: ${({ padding }: ITextProps) => padding};
   text-align: ${({ textAlign }: ITextProps) => textAlign};
-  color: ${({ appearance, isDisabled }: ITextProps) =>
-    !isDisabled
+  color: ${({ appearance, disabled }: ITextProps) =>
+    !disabled
       ? inube.color.text[appearance].regular
       : inube.color.text[appearance].disabled};
 
@@ -30,19 +30,19 @@ const StyledText = styled.p`
     text-overflow: ellipsis;
   `};
 
-  ${({ cursorHover, appearance, isDisabled }: ITextProps) =>
+  ${({ cursorHover, appearance, disabled }: ITextProps) =>
     cursorHover &&
     `
     cursor: pointer;
     &:hover {
-      color: ${!isDisabled && appearance && inube.color.text[appearance].hover};
+      color: ${!disabled && appearance && inube.color.text[appearance].hover};
     }
   `};
 
-  ${({ parentHover, appearance, isDisabled }: ITextProps) =>
+  ${({ parentHover, appearance, disabled }: ITextProps) =>
     parentHover &&
     `cursor: pointer; color: ${
-      !isDisabled && appearance && inube.color.text[appearance].hover
+      !disabled && appearance && inube.color.text[appearance].hover
     };`}
 `;
 export { StyledText };

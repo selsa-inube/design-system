@@ -68,7 +68,7 @@ const props = {
       defaultValue: { summary: "<p>" },
     },
   },
-  isDisabled: {
+  disabled: {
     description:
       "(boolean): Add the “disabled” prop, which will control if the text should display a disabled state. For this you can make use of the disabled modifiers you find in the color.text tokens.",
     table: {

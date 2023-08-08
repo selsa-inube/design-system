@@ -14,7 +14,6 @@ export default defineConfig({
       "@utils": resolve(__dirname, "src/components/utils"),
       "@hooks": resolve(__dirname, "src/hooks"),
       "@shared": resolve(__dirname, "src/shared"),
-      "@utilities": resolve(__dirname, "src/utilities"),
     },
   },
   build: {
