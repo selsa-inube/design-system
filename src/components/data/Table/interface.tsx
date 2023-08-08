@@ -1,5 +1,11 @@
 import { useMemo } from "react";
 import { DisplayEntry } from "./DisplayEntry";
+
+import { useMediaQueries } from "@hooks/useMediaQueries";
+import { useMediaQuery } from "@hooks/useMediaQuery";
+import { Text } from "@data/Text";
+import { IEntry } from "./DisplayEntry";
+
 import {
   StyledTable,
   StyledThead,
@@ -9,11 +15,6 @@ import {
   StyledThTitle,
   StyledTd,
 } from "./styles";
-
-import { useMediaQueries } from "@hooks/useMediaQueries";
-import { useMediaQuery } from "@hooks/useMediaQuery";
-import { Text } from "@data/Text";
-import { IEntry } from "./DisplayEntry/index";
 
 export interface ITitle {
   id: string;

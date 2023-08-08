@@ -1,4 +1,3 @@
-import React from "react";
 import { createPortal } from "react-dom";
 import { MdClear } from "react-icons/md";
 import PropTypes from "prop-types";

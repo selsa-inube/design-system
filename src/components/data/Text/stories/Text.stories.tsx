@@ -27,7 +27,7 @@ Default.args = {
   appearance: "dark",
   type: "body",
   size: "large",
-  isDisabled: false,
+  disabled: false,
   cursorHover: true,
   ellipsis: false,
   parentHover: false,
