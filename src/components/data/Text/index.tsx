@@ -25,17 +25,17 @@ export interface ITextProps {
 const Text = (props: ITextProps) => {
   const {
     children,
-    textAlign,
-    margin,
-    padding,
-    as,
-    appearance,
-    type,
-    size,
-    cursorHover,
-    parentHover,
-    ellipsis,
-    disabled,
+    textAlign = "start",
+    margin = "0px",
+    padding = "0px",
+    as = "p",
+    appearance = "dark",
+    type = "body",
+    size = "large",
+    cursorHover = false,
+    parentHover = false,
+    ellipsis = false,
+    disabled = false,
   } = props;
 
   return (
