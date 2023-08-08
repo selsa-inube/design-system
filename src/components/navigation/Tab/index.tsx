@@ -24,9 +24,9 @@ const Tab = (props: ITabProps) => {
       onClick={handleClick}
       isDisabled={isDisabled}
       isSelected={isSelected}
+      id={id}
     >
       <Text
-        id={id}
         type="label"
         size="medium"
         appearance={isSelected ? "primary" : "dark"}
