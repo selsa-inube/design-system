@@ -1,8 +1,8 @@
 import {
   AlignOptions,
   HtmlElements,
-  TyposOptions,
-  SizesOptions,
+  TypeOptions,
+  SizeOptions,
   Appearance,
 } from "./props";
 import { StyledText } from "./styles";
@@ -15,8 +15,8 @@ export interface ITextProps {
   as?: HtmlElements;
   appearance: Appearance;
   disabled?: boolean;
-  type: TyposOptions;
-  size: SizesOptions;
+  type: TypeOptions;
+  size: SizeOptions;
   cursorHover?: boolean;
   parentHover?: boolean;
   ellipsis?: boolean;
