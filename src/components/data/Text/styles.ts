@@ -35,13 +35,9 @@ const StyledText = styled.p`
     }
   }};
 
-  ${({ ellipsis }: ITextProps) =>
-    ellipsis &&
-    `
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  `};
+  white-space: ${({ ellipsis }: ITextProps) => ellipsis && "nowrap"};
+  overflow: ${({ ellipsis }: ITextProps) => ellipsis && "hidden"};
+  text-overflow: ${({ ellipsis }: ITextProps) => ellipsis && "ellipsis"};
 
   ${({ cursorHover, appearance, disabled, theme }: ITextProps) =>
     cursorHover &&
@@ -59,11 +55,13 @@ const StyledText = styled.p`
 
   ${({ parentHover, appearance, disabled, theme }: ITextProps) =>
     parentHover &&
-    `cursor: pointer; color: ${
-      !disabled &&
-      appearance &&
-      (theme?.color?.text?.[appearance]?.hover ||
-        inube.color.text[appearance].hover)
-    };`}
+    `cursor: pointer; 
+     color: ${
+       !disabled &&
+       appearance &&
+       (theme?.color?.text?.[appearance]?.hover ||
+         inube.color.text[appearance].hover)
+     };`}
 `;
+
 export { StyledText };
