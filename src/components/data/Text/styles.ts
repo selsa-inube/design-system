@@ -5,22 +5,22 @@ import { ITextProps } from ".";
 
 const StyledText = styled.p`
   font-family: ${({ type, size }: ITextProps) =>
-    (inube.typography as Record<string, any>)[type!][size!].font};
+    inube.typography[type!][size!].font};
   line-height: ${({ type, size }: ITextProps) =>
-    (inube.typography as Record<string, any>)[type!][size!].lineHeight};
+    inube.typography[type!][size!].lineHeight};
   font-size: ${({ type, size }: ITextProps) =>
-    (inube.typography as Record<string, any>)[type!][size!].size};
+    inube.typography[type!][size!].size};
   letter-spacing: ${({ type, size }: ITextProps) =>
-    (inube.typography as Record<string, any>)[type!][size!].tracking};
+    inube.typography[type!][size!].tracking};
   font-weight: ${({ type, size }: ITextProps) =>
-    (inube.typography as Record<string, any>)[type!][size!].weight};
+    inube.typography[type!][size!].weight};
   margin: ${({ margin }: ITextProps) => margin};
   padding: ${({ padding }: ITextProps) => padding};
   text-align: ${({ textAlign }: ITextProps) => textAlign};
   color: ${({ appearance, isDisabled }: ITextProps) =>
     !isDisabled
-      ? (inube.color.text as Record<string, any>)[appearance!].regular
-      : (inube.color.text as Record<string, any>)[appearance!].disabled};
+      ? inube.color.text[appearance!].regular
+      : inube.color.text[appearance!].disabled};
 
   ${({ ellipsis }: ITextProps) =>
     ellipsis &&
@@ -35,20 +35,14 @@ const StyledText = styled.p`
     `
     cursor: pointer;
     &:hover {
-      color: ${
-        !isDisabled &&
-        appearance &&
-        (inube.color.text as Record<string, any>)[appearance].hover
-      };
+      color: ${!isDisabled && appearance && inube.color.text[appearance].hover};
     }
   `};
 
   ${({ parentHover, appearance, isDisabled }: ITextProps) =>
     parentHover &&
     `cursor: pointer; color: ${
-      !isDisabled &&
-      appearance &&
-      (inube.color.text as Record<string, any>)[appearance].hover
+      !isDisabled && appearance && inube.color.text[appearance].hover
     };`}
 `;
 export { StyledText };
