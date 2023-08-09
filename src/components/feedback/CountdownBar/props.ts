@@ -5,7 +5,7 @@ export type Appearance = keyof typeof inube.color.stroke;
 export type Themed = { theme?: typeof inube };
 
 const props = {
-  heigth: {
+  height: {
     control: { type: "text" },
     description:
       "which allows it to be given a custom thickness, according to the need.",

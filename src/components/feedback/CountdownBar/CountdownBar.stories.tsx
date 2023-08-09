@@ -11,7 +11,7 @@ const story = {
 export const Default = (args: ICountdownBarProps) => <CountdownBar {...args} />;
 
 Default.args = {
-  heigth: "4px",
+  height: "4px",
   appearance: "primary",
   duration: 3000,
   isPaused: false,
