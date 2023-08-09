@@ -14,7 +14,7 @@ const CountdownBarAnimation = keyframes`
 
 const StyledCountdownBar = styled.div`
   width: 100%;
-  height: ${(props: ICountdownBarProps) => props.size};
+  height: ${(props: ICountdownBarProps) => props.heigth};
   transform-origin: left;
   animation: ${CountdownBarAnimation}
     ${(props: ICountdownBarProps) => props.duration}ms linear;

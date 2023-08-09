@@ -3,33 +3,35 @@ import { StyledCountdownBar } from "./styles";
 import { Appearance, Themed } from "./props";
 
 export interface ICountdownBarProps extends Themed {
-  size?: string;
+  heigth?: string;
   appearance?: Appearance;
   duration?: number;
   isPaused?: boolean;
   handleCountdown?: (e: AnimationEvent<HTMLDivElement>) => void;
 }
 
-const defaultSize = "4px";
+const defaultHeigth = "4px";
 
-const isValidCssPixelMeasure = (size: string): boolean => {
-  return /^[0-9]+px$/.test(size);
+const isValidCssPixelMeasure = (heigth: string): boolean => {
+  return /^[0-9]+px$/.test(heigth);
 };
 
 const CountdownBar = ({
-  size = defaultSize,
+  heigth = defaultHeigth,
   appearance = "primary",
   duration = 3000,
   isPaused = false,
   handleCountdown,
 }: ICountdownBarProps) => {
-  const transformedSize = isValidCssPixelMeasure(size) ? size : defaultSize;
+  const transformedHeigth = isValidCssPixelMeasure(heigth)
+    ? heigth
+    : defaultHeigth;
 
   return (
     <StyledCountdownBar
       id="progress-bar"
       appearance={appearance}
-      size={transformedSize}
+      heigth={transformedHeigth}
       duration={duration}
       isPaused={isPaused}
       onAnimationEnd={handleCountdown}
