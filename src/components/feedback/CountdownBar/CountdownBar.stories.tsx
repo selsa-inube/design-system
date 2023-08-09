@@ -15,7 +15,7 @@ Default.args = {
   appearance: "primary",
   duration: 3000,
   paused: false,
-  handleCountdown: () => console.log("countdown complete."),
+  onCountdown: () => console.log("countdown complete."),
 };
 
 export default story;

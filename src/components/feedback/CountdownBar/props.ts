@@ -35,7 +35,7 @@ const props = {
       defaultValue: { summary: false },
     },
   },
-  handleCountdown: {
+  onCountdown: {
     description: "function to be executed when the progress bar reaches zero",
   },
 };
