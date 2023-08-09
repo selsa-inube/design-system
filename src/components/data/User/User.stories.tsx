@@ -1,12 +1,13 @@
 import { ThemeProvider } from "styled-components";
 import { User, IUserProps } from ".";
 
-import { props } from "./props";
+import { props, parameters } from "./props";
 import { presente } from "@shared/themes/presente";
 
 const story = {
   title: "data/User",
   components: [User],
+  parameters,
   argTypes: props,
 };
 
