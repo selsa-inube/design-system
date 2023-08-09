@@ -3,13 +3,14 @@ export type Size = typeof sizes[number];
 
 const props = {
   userName: {
-    description: "shall be the displayed username",
+    description:
+      "the description is not well formed in English. Better to say that this props contains the name of the user that is connected.",
     table: {
       defaultValue: { summary: "MdPersonOutline" },
     },
   },
   client: {
-    description: "shall be the displayed business Unit",
+    description: "the same problem as username.",
     table: {
       defaultValue: { summary: "MdPersonOutline" },
     },
@@ -18,7 +19,7 @@ const props = {
     options: sizes,
     control: { type: "select" },
     description:
-      "determine if the User-component displays the Avatar-component",
+      "this prop doesn’t control that the component display the Avatar, the prop controls if the component must show the text and the avatar, or only the avatar (the avatar is always visible)",
     table: {
       defaultValue: { summary: "large" },
     },
