@@ -17,7 +17,7 @@ Default.args = {
   size: "4px",
   appearance: "primary",
   duration: 3000,
-  isPaused: false,
+  paused: false,
   onCountdown: action("onAnimationEnd"),
 };
 
