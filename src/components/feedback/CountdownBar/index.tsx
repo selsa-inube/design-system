@@ -1,10 +1,8 @@
 import { AnimationEvent } from "react";
-
-import { inube } from "@shared/tokens";
 import { StyledCountdownBar } from "./styles";
-import { Appearance } from "./props";
+import { Appearance, Themed } from "./props";
 
-export interface ICountdownBarProps {
+export interface ICountdownBarProps extends Themed {
   size?: string;
   appearance?: Appearance;
   duration?: number;
@@ -12,13 +10,7 @@ export interface ICountdownBarProps {
   handleCountdown?: (e: AnimationEvent<HTMLDivElement>) => void;
 }
 
-const defaultAppearance = "primary";
 const defaultSize = "4px";
-const defaultDuration = 3000;
-
-const getCountdownBarColor = (appearance: Appearance): string => {
-  return inube.color.surface[appearance].regular;
-};
 
 const isValidCssPixelMeasure = (size: string): boolean => {
   return /^[0-9]+px$/.test(size);
@@ -26,8 +18,8 @@ const isValidCssPixelMeasure = (size: string): boolean => {
 
 const CountdownBar = ({
   size = defaultSize,
-  appearance = defaultAppearance,
-  duration = defaultDuration,
+  appearance = "primary",
+  duration = 3000,
   isPaused = false,
   handleCountdown,
 }: ICountdownBarProps) => {
@@ -36,7 +28,7 @@ const CountdownBar = ({
   return (
     <StyledCountdownBar
       id="progress-bar"
-      appearance={getCountdownBarColor(appearance)}
+      appearance={appearance}
       size={transformedSize}
       duration={duration}
       isPaused={isPaused}
