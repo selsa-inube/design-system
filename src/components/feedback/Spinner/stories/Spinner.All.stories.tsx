@@ -1,11 +1,12 @@
 import { Spinner } from "..";
-import { appearances, props, sizes } from "../props";
+import { appearances, props, sizes, parameters } from "../props";
 
 import { StyledFlex, StyledFlexColumn, StyledGrid } from "./styles";
 
 const story = {
   title: "feedback/Spinner",
   component: Spinner,
+  parameters,
   argTypes: props,
 };
 
