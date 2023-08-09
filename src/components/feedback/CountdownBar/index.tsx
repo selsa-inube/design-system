@@ -6,7 +6,7 @@ export interface ICountdownBarProps extends Themed {
   size?: string;
   appearance?: Appearance;
   duration?: number;
-  isPaused?: boolean;
+  paused?: boolean;
   handleCountdown?: (e: AnimationEvent<HTMLDivElement>) => void;
 }
 
@@ -14,7 +14,7 @@ const CountdownBar = ({
   size = "4px",
   appearance = "primary",
   duration = 3000,
-  isPaused = false,
+  paused = false,
   handleCountdown,
 }: ICountdownBarProps) => {
   return (
@@ -23,7 +23,7 @@ const CountdownBar = ({
       appearance={appearance}
       size={size}
       duration={duration}
-      isPaused={isPaused}
+      paused={paused}
       onAnimationEnd={handleCountdown}
     />
   );
