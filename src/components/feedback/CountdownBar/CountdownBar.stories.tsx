@@ -1,6 +1,6 @@
-import { CountdownBar, ICountdownBarProps } from "..";
+import { CountdownBar, ICountdownBarProps } from ".";
 
-import { props } from "../props";
+import { props } from "./props";
 
 const story = {
   title: "feedback/CountdownBar",

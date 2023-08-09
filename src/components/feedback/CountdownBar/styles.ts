@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { keyframes } from "styled-components";
 import { ICountdownBarProps } from "./index";
+import { inube } from "@src/shared/tokens";
 
 const CountdownBarAnimation = keyframes`
   0% {
@@ -17,7 +18,12 @@ const StyledCountdownBar = styled.div`
   transform-origin: left;
   animation: ${CountdownBarAnimation}
     ${(props: ICountdownBarProps) => props.duration}ms linear;
-  background-color: ${(props: ICountdownBarProps) => props.appearance};
+  background-color: ${({ theme, appearance }: ICountdownBarProps) => {
+    return (
+      theme?.color?.stroke?.[appearance!]?.regular ||
+      inube.color.stroke[appearance!].regular
+    );
+  }};
   animation-fill-mode: forwards;
   animation-play-state: ${(props: ICountdownBarProps) =>
     props.isPaused ? "paused" : "running"};
