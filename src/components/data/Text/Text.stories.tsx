@@ -8,6 +8,13 @@ const story = {
   title: "data/Text",
   components: [Text],
   parameters,
+  decoreitors: [
+    (Story: any) => (
+      <ThemeProvider style={{ margin: "3em" }}>
+        <Story />
+      </ThemeProvider>
+    ),
+  ],
   argTypes: props,
 };
 
@@ -21,7 +28,7 @@ Default.args = {
   textAlign: "start",
   margin: "20px 22px 23px 24px",
   padding: "5px",
-  appearance: "dark",
+  appearance: "primary",
   type: "body",
   size: "large",
   disabled: false,

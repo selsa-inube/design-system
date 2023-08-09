@@ -21,28 +21,34 @@ const StyledText = styled.p`
   margin: ${({ margin }: ITextProps) => margin};
   padding: ${({ padding }: ITextProps) => padding};
   text-align: ${({ textAlign }: ITextProps) => textAlign};
-  color: ${({ appearance, disabled, theme }: ITextProps) => {
+  color: ${({ appearance, disabled, parentHover, theme }: ITextProps) => {
     if (!disabled) {
       return (
         theme?.color?.text?.[appearance]?.regular ||
         inube.color.text[appearance].regular
       );
-    } else {
+    }
+    if (parentHover) {
       return (
-        theme?.color?.text?.[appearance]?.disabled ||
-        inube.color.text[appearance].disabled
+        theme?.color?.text?.[appearance]?.hover ||
+        inube.color.text[appearance].hover
       );
     }
+    return (
+      theme?.color?.text?.[appearance]?.disabled ||
+      inube.color.text[appearance].disabled
+    );
   }};
 
   white-space: ${({ ellipsis }: ITextProps) => ellipsis && "nowrap"};
   overflow: ${({ ellipsis }: ITextProps) => ellipsis && "hidden"};
   text-overflow: ${({ ellipsis }: ITextProps) => ellipsis && "ellipsis"};
+  cursor: ${({ cursorHover, parentHover }: ITextProps) =>
+    (cursorHover || parentHover) && "pointer"};
 
   ${({ cursorHover, appearance, disabled, theme }: ITextProps) =>
     cursorHover &&
     `
-    cursor: pointer;
     &:hover {
       color: ${
         !disabled &&
@@ -52,16 +58,6 @@ const StyledText = styled.p`
       };
     }
   `};
-
-  ${({ parentHover, appearance, disabled, theme }: ITextProps) =>
-    parentHover &&
-    `cursor: pointer; 
-     color: ${
-       !disabled &&
-       appearance &&
-       (theme?.color?.text?.[appearance]?.hover ||
-         inube.color.text[appearance].hover)
-     };`}
 `;
 
 export { StyledText };
