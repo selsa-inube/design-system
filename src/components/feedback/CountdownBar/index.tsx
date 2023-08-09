@@ -6,32 +6,24 @@ export interface ICountdownBarProps extends Themed {
   size?: string;
   appearance?: Appearance;
   duration?: number;
-  isPaused?: boolean;
+  paused?: boolean;
   onCountdown?: (e: AnimationEvent<HTMLDivElement>) => void;
 }
 
-const defaultSize = "4px";
-
-const isValidCssPixelMeasure = (size: string): boolean => {
-  return /^[0-9]+px$/.test(size);
-};
-
 const CountdownBar = ({
-  size = defaultSize,
+  size = "4px",
   appearance = "primary",
   duration = 3000,
-  isPaused = false,
+  paused = false,
   onCountdown,
 }: ICountdownBarProps) => {
-  const transformedSize = isValidCssPixelMeasure(size) ? size : defaultSize;
-
   return (
     <StyledCountdownBar
       id="progress-bar"
       appearance={appearance}
-      size={transformedSize}
+      size={size}
       duration={duration}
-      isPaused={isPaused}
+      paused={paused}
       onAnimationEnd={onCountdown}
     />
   );

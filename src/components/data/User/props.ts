@@ -1,6 +1,15 @@
 export const sizes = ["small", "large"] as const;
 export type Size = typeof sizes[number];
 
+const parameters = {
+  docs: {
+    description: {
+      component:
+        "Component that allows the user to identify himself and locate himself next to the business unit",
+    },
+  },
+};
+
 const props = {
   userName: {
     description: "shall be the displayed username",
@@ -25,4 +34,4 @@ const props = {
   },
 };
 
-export { props };
+export { props, parameters };

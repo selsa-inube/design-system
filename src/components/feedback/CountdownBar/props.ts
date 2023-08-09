@@ -28,7 +28,7 @@ const props = {
       defaultValue: { summary: 1000 },
     },
   },
-  isPaused: {
+  paused: {
     control: { type: "boolean" },
     description: "pause or start the animation",
     table: {
