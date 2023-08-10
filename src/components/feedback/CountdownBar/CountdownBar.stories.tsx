@@ -1,3 +1,4 @@
+import { ThemeProvider } from "styled-components";
 import { CountdownBar, ICountdownBarProps } from ".";
 import { action } from "@storybook/addon-actions";
 import { props } from "./props";
@@ -20,5 +21,11 @@ Default.args = {
   paused: false,
   onCountdown: action("onAnimationEnd"),
 };
+
+export const Themed = (args: ICountdownBarProps) => (
+  <ThemeProvider>
+    <CountdownBar {...args} />
+  </ThemeProvider>
+);
 
 export default story;
