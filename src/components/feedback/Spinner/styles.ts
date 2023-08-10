@@ -34,8 +34,10 @@ const StyledSpinner = styled.div`
       props.isTransparent === true
         ? inube.color.stroke.spinner.transparent
         : inube.color.stroke.spinner.regular};
-  border-bottom-color: ${(props: ISpinnerProps) =>
-    props.appearance && inube?.color?.stroke?.[props.appearance]?.regular};
+  border-bottom-color: ${({ appearance, theme }: ISpinnerProps) =>
+    appearance &&
+    (theme?.color?.stroke?.[appearance]?.regular ||
+      inube?.color?.stroke?.[appearance]?.regular)};
   border-radius: 50%;
   ${(props: ISpinnerProps) => props.size && sizes[props.size]}
   box-sizing: border-box;
