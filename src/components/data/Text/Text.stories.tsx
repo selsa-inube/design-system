@@ -8,13 +8,6 @@ const story = {
   title: "data/Text",
   components: [Text],
   parameters,
-  decoreitors: [
-    (Story: any) => (
-      <ThemeProvider style={{ margin: "3em" }}>
-        <Story />
-      </ThemeProvider>
-    ),
-  ],
   argTypes: props,
 };
 
