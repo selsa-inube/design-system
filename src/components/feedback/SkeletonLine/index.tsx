@@ -1,6 +1,7 @@
+import { Themed } from "./props";
 import { StyledSkeletonLine } from "./styles";
 
-export interface ISkeletonLineProps {
+export interface ISkeletonLineProps extends Themed {
   width?: string;
   isAnimated?: boolean;
 }
