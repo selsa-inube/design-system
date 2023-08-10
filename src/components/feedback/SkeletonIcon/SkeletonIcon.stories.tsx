@@ -1,6 +1,6 @@
-import { SkeletonIcon, ISkeletonIconProps } from "..";
+import { SkeletonIcon, ISkeletonIconProps } from ".";
 
-import { props, parameters } from "../props";
+import { props, parameters } from "./props";
 
 const story = {
   title: "feedback/SkeletonIcon",
