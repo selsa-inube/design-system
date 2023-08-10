@@ -1,8 +1,8 @@
-import { SkeletonIcon, ISkeletonIconProps } from "..";
+import { SkeletonIcon, ISkeletonIconProps } from ".";
 import { ThemeProvider } from "styled-components";
 
 import { presente } from "@shared/themes/presente";
-import { props } from "../props";
+import { props } from "./props";
 
 const story = {
   title: "feedback/SkeletonIcon",
