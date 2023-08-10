@@ -38,7 +38,7 @@ const props = {
       defaultValue: { summary: "blue" },
     },
   },
-  isTransparent: {
+  transparent: {
     options: [true, false],
     control: { type: "boolean" },
     description:

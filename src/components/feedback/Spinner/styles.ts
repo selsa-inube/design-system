@@ -42,7 +42,7 @@ const StyledSpinner = styled.div`
   animation: 0.8s linear infinite ${spinner};
   border: solid 4px
     ${(props: ISpinnerProps) =>
-      props.isTransparent === true
+      props.transparent === true
         ? colors.ref.palette.neutralAlpha.n0A
         : colors.ref.palette.neutral.n30};
   border-bottom-color: ${(props: ISpinnerProps) =>

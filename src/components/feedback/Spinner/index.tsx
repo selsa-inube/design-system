@@ -4,7 +4,7 @@ import { StyledSpinner } from "./styles";
 export interface ISpinnerProps {
   size: Size;
   appearance: Appearance;
-  isTransparent: boolean;
+  transparent: boolean;
 }
 
 const defaultAppearance = "blue";
@@ -15,7 +15,7 @@ const Spinner = (props: ISpinnerProps) => {
   const {
     size = defaultSize,
     appearance = defaultAppearance,
-    isTransparent = defaultTransparent,
+    transparent = defaultTransparent,
   } = props;
 
   const transformedSize = sizes.includes(size) ? size : defaultSize;
@@ -23,7 +23,7 @@ const Spinner = (props: ISpinnerProps) => {
     ? appearance
     : defaultAppearance;
   const transformedIsTransparent =
-    typeof isTransparent === "boolean" ? isTransparent : defaultTransparent;
+    typeof transparent === "boolean" ? transparent : defaultTransparent;
 
   return (
     <StyledSpinner
