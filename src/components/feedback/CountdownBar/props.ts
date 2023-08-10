@@ -28,14 +28,14 @@ const props = {
       defaultValue: { summary: 1000 },
     },
   },
-  isPaused: {
+  paused: {
     control: { type: "boolean" },
     description: "pause or start the animation",
     table: {
       defaultValue: { summary: false },
     },
   },
-  handleCountdown: {
+  onCountdown: {
     description: "function to be executed when the progress bar reaches zero",
   },
 };
