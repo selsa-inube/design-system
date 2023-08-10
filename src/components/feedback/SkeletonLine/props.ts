@@ -1,3 +1,7 @@
+import { inube } from "@shared/tokens";
+
+export type Themed = { theme?: typeof inube };
+
 const props = {
   parameters: {
     docs: {
@@ -13,7 +17,7 @@ const props = {
       defaultValue: { summary: "100px" },
     },
   },
-  isAnimated: {
+  animated: {
     description: "enable loading effect animation",
     table: {
       defaultValue: { summary: false },
