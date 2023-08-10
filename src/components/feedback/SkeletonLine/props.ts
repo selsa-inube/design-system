@@ -1,3 +1,7 @@
+import { inube } from "@shared/tokens";
+
+export type Themed = { theme?: typeof inube };
+
 const parameters = {
   docs: {
     description: {
@@ -6,6 +10,7 @@ const parameters = {
     },
   },
 };
+
 const props = {
   width: {
     description: "indicates the width that the component should take",
@@ -13,7 +18,7 @@ const props = {
       defaultValue: { summary: "100px" },
     },
   },
-  isAnimated: {
+  animated: {
     description: "enable loading effect animation",
     table: {
       defaultValue: { summary: false },

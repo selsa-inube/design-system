@@ -1,14 +1,15 @@
+import { Themed } from "./props";
 import { StyledSkeletonLine } from "./styles";
 
-export interface ISkeletonLineProps {
+export interface ISkeletonLineProps extends Themed {
   width?: string;
-  isAnimated?: boolean;
+  animated?: boolean;
 }
 
 const SkeletonLine = (props: ISkeletonLineProps) => {
-  const { width = "100%", isAnimated = false } = props;
+  const { width = "100%", animated = false } = props;
 
-  return <StyledSkeletonLine width={width} isAnimated={isAnimated} />;
+  return <StyledSkeletonLine width={width} animated={animated} />;
 };
 
 export { SkeletonLine };
