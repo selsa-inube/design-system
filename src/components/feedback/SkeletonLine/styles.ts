@@ -40,8 +40,8 @@ const StyledSkeletonLine = styled.div`
           theme?.color?.surface?.gray?.clear || inube.color.surface.gray.clear}
         80%
     );
-    animation: ${({ isAnimated }: ISkeletonLineProps) => isAnimated && shimmer}
-      2s linear infinite;
+    animation: ${({ animated }: ISkeletonLineProps) => animated && shimmer} 2s
+      linear infinite;
   }
 `;
 
