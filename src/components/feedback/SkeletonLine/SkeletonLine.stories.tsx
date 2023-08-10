@@ -1,5 +1,5 @@
-import { SkeletonLine, ISkeletonLineProps } from "..";
-import { props } from "../props";
+import { SkeletonLine, ISkeletonLineProps } from ".";
+import { props } from "./props";
 
 const story = {
   title: "feedback/SkeletonLine",
@@ -9,7 +9,7 @@ const story = {
 const Default = (args: ISkeletonLineProps) => <SkeletonLine {...args} />;
 Default.args = {
   width: "100%",
-  isAnimated: false,
+  animated: false,
 };
 
 export default story;

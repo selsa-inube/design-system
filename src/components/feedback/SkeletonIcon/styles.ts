@@ -30,8 +30,8 @@ const StyledSkeletonIcon = styled.div`
       ${inube.color.palette.neutral.N20} 50%,
       ${inube.color.palette.neutral.N30} 80%
     );
-    animation: ${({ isAnimated }: ISkeletonIconProps) => isAnimated && shimmer}
-      2s linear infinite;
+    animation: ${({ animated }: ISkeletonIconProps) => animated && shimmer} 2s
+      linear infinite;
   }
 `;
 
