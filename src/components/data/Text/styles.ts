@@ -46,18 +46,13 @@ const StyledText = styled.p`
   cursor: ${({ cursorHover, parentHover }: ITextProps) =>
     (cursorHover || parentHover) && "pointer"};
 
-  ${({ cursorHover, appearance, disabled, theme }: ITextProps) =>
-    cursorHover &&
-    `
-    &:hover {
-      color: ${
-        !disabled &&
-        appearance &&
-        (theme?.color?.text?.[appearance]?.hover ||
-          inube.color.text[appearance].hover)
-      };
-    }
-  `};
+  :hover {
+    color: ${({ appearance, disabled, cursorHover, theme }: ITextProps) =>
+      !disabled &&
+      cursorHover &&
+      (theme?.color?.text?.[appearance]?.hover ||
+        inube.color.text[appearance].hover)};
+  }
 `;
 
 export { StyledText };
