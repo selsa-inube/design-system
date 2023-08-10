@@ -30,10 +30,12 @@ const StyledSpinner = styled.div`
   display: inline-block;
   animation: 0.8s linear infinite ${spinner};
   border: solid 4px
-    ${(props: ISpinnerProps) =>
-      props.isTransparent === true
-        ? inube.color.stroke.spinner.transparent
-        : inube.color.stroke.spinner.regular};
+    ${({ isTransparent, theme }: ISpinnerProps) =>
+      isTransparent === true
+        ? theme?.color?.stroke.spinner?.transparent ||
+          inube.color.stroke.spinner.transparent
+        : theme?.color?.stroke?.spinner?.regular ||
+          inube.color.stroke.spinner.regular};
   border-bottom-color: ${({ appearance, theme }: ISpinnerProps) =>
     appearance &&
     (theme?.color?.stroke?.[appearance]?.regular ||
