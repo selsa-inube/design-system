@@ -1,5 +1,5 @@
-import { SkeletonLine, ISkeletonLineProps } from "..";
-import { props } from "../props";
+import { SkeletonLine, ISkeletonLineProps } from ".";
+import { props } from "./props";
 
 const story = {
   title: "feedback/SkeletonLine",
