@@ -1,12 +1,12 @@
-const props = {
-  parameters: {
-    docs: {
-      description: {
-        component:
-          "Skeleton line is used to provide a low fidelity representation of content before it appears on the page, and improves load times perceived by users.",
-      },
+const parameters = {
+  docs: {
+    description: {
+      component:
+        "Skeleton line is used to provide a low fidelity representation of content before it appears on the page, and improves load times perceived by users.",
     },
   },
+};
+const props = {
   width: {
     description: "indicates the width that the component should take",
     table: {
@@ -21,4 +21,4 @@ const props = {
   },
 };
 
-export { props };
+export { props, parameters };

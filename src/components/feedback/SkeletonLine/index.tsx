@@ -8,12 +8,7 @@ export interface ISkeletonLineProps {
 const SkeletonLine = (props: ISkeletonLineProps) => {
   const { width = "100%", isAnimated = false } = props;
 
-  const transformedIsAnimated =
-    typeof isAnimated === "boolean" ? isAnimated : false;
-
-  return (
-    <StyledSkeletonLine width={width} isAnimated={transformedIsAnimated} />
-  );
+  return <StyledSkeletonLine width={width} isAnimated={isAnimated} />;
 };
 
 export { SkeletonLine };

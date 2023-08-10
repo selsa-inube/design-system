@@ -1,9 +1,10 @@
 import { SkeletonLine, ISkeletonLineProps } from "..";
-import { props } from "../props";
+import { props, parameters } from "../props";
 
 const story = {
   title: "feedback/SkeletonLine",
   components: [SkeletonLine],
+  parameters,
   argTypes: props,
 };
 const Default = (args: ISkeletonLineProps) => <SkeletonLine {...args} />;
