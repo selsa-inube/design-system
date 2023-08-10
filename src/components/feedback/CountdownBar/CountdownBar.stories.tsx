@@ -1,11 +1,14 @@
 import { CountdownBar, ICountdownBarProps } from ".";
-
+import { action } from "@storybook/addon-actions";
 import { props } from "./props";
 
 const story = {
   title: "feedback/CountdownBar",
   components: [CountdownBar],
-  argTypes: props,
+  argTypes: {
+    ...props,
+    onCountdown: { action: "onAnimationEnd" },
+  },
 };
 
 export const Default = (args: ICountdownBarProps) => <CountdownBar {...args} />;
@@ -14,8 +17,8 @@ Default.args = {
   size: "4px",
   appearance: "primary",
   duration: 3000,
-  isPaused: false,
-  handleCountdown: () => console.log("countdown complete."),
+  paused: false,
+  onCountdown: action("onAnimationEnd"),
 };
 
 export default story;

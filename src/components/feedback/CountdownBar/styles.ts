@@ -26,7 +26,7 @@ const StyledCountdownBar = styled.div`
   }};
   animation-fill-mode: forwards;
   animation-play-state: ${(props: ICountdownBarProps) =>
-    props.isPaused ? "paused" : "running"};
+    props.paused ? "paused" : "running"};
 `;
 
 export { StyledCountdownBar };
