@@ -10,10 +10,8 @@ export interface IUserProps {
   size: Size;
 }
 
-const defaultSize = "large";
-
 const User = (props: IUserProps) => {
-  const { userName, client, size = defaultSize } = props;
+  const { userName, client, size = "large" } = props;
 
   return (
     <Stack justifyContent="flex-start" alignItems="center" gap={spacing.s200}>

@@ -1,11 +1,10 @@
-import { Spinner, ISpinnerProps } from "..";
+import { Spinner, ISpinnerProps } from ".";
 
-import { props, parameters } from "../props";
+import { props } from "./props";
 
 const story = {
   title: "feedback/Spinner",
   component: Spinner,
-  parameters,
   args: {
     size: "medium",
     appearance: "blue",
