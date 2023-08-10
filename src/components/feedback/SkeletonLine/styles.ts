@@ -33,8 +33,8 @@ const StyledSkeletonLine = styled.div`
       ${colors.ref.palette.neutralAlpha.n20A} 50%,
       ${colors.ref.palette.neutralAlpha.n0A} 80%
     );
-    animation: ${({ isAnimated }: ISkeletonLineProps) => isAnimated && shimmer}
-      2s linear infinite;
+    animation: ${({ animated }: ISkeletonLineProps) => animated && shimmer} 2s
+      linear infinite;
   }
 `;
 
