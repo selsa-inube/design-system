@@ -17,14 +17,14 @@ const isValidCssPixelMeasure = (height: string): boolean => {
 };
 
 const CountdownBar = ({
-  height: heigth = defaultHeight,
+  height = defaultHeight,
   appearance = "primary",
   duration = 3000,
   isPaused = false,
   handleCountdown,
 }: ICountdownBarProps) => {
-  const transformedHeight = isValidCssPixelMeasure(heigth)
-    ? heigth
+  const transformedHeight = isValidCssPixelMeasure(height)
+    ? height
     : defaultHeight;
 
   return (
