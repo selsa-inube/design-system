@@ -1,7 +1,7 @@
 import styled, { keyframes } from "styled-components";
 
-import { colors } from "@shared/colors/colors";
 import { ISkeletonIconProps } from "./index";
+import { inube } from "@src/shared/tokens";
 
 const shimmer = keyframes`
 0% {
@@ -17,7 +17,7 @@ const StyledSkeletonIcon = styled.div`
   overflow: hidden;
   width: ${({ size }: ISkeletonIconProps) => size};
   height: ${({ size }: ISkeletonIconProps) => size};
-  background: ${colors.sys.actions.secondary.filled};
+  background: ${inube.color.surface.dark.clear};
 
   &::after {
     content: "";
@@ -25,10 +25,10 @@ const StyledSkeletonIcon = styled.div`
     height: 100%;
     width: 100%;
     background: linear-gradient(
-      100deg,
-      ${colors.ref.palette.neutralAlpha.n0A} 20%,
-      ${colors.ref.palette.neutralAlpha.n20A} 50%,
-      ${colors.ref.palette.neutralAlpha.n0A} 80%
+      90deg,
+      ${inube.color.palette.neutral.N30} 20%,
+      ${inube.color.palette.neutral.N20} 50%,
+      ${inube.color.palette.neutral.N30} 80%
     );
     animation: ${({ isAnimated }: ISkeletonIconProps) => isAnimated && shimmer}
       2s linear infinite;
