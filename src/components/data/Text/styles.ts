@@ -22,10 +22,10 @@ const StyledText = styled.p`
   padding: ${({ padding }: ITextProps) => padding};
   text-align: ${({ textAlign }: ITextProps) => textAlign};
   color: ${({ appearance, disabled, parentHover, theme }: ITextProps) => {
-    if (!disabled) {
+    if (disabled) {
       return (
-        theme?.color?.text?.[appearance]?.regular ||
-        inube.color.text[appearance].regular
+        theme?.color?.text?.[appearance]?.disabled ||
+        inube.color.text[appearance].disabled
       );
     }
     if (parentHover) {
@@ -35,8 +35,8 @@ const StyledText = styled.p`
       );
     }
     return (
-      theme?.color?.text?.[appearance]?.disabled ||
-      inube.color.text[appearance].disabled
+      theme?.color?.text?.[appearance]?.regular ||
+      inube.color.text[appearance].regular
     );
   }};
 
@@ -46,7 +46,7 @@ const StyledText = styled.p`
   cursor: ${({ cursorHover, parentHover }: ITextProps) =>
     (cursorHover || parentHover) && "pointer"};
 
-  :hover {
+  &:hover {
     color: ${({ appearance, disabled, cursorHover, theme }: ITextProps) =>
       !disabled &&
       cursorHover &&
