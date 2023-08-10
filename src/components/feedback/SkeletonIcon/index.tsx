@@ -2,15 +2,13 @@ import { StyledSkeletonIcon } from "./styles";
 
 export interface ISkeletonIconProps {
   size?: string;
-  isAnimated?: boolean;
+  animated?: boolean;
 }
 
-const defaultSize = "24px";
-
 const SkeletonIcon = (props: ISkeletonIconProps) => {
-  const { size = defaultSize, isAnimated = false } = props;
+  const { size = "24px", animated = false } = props;
 
-  return <StyledSkeletonIcon size={size} isAnimated={isAnimated} />;
+  return <StyledSkeletonIcon size={size} animated={animated} />;
 };
 
 export { SkeletonIcon };

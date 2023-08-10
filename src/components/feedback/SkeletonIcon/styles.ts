@@ -30,8 +30,8 @@ const StyledSkeletonIcon = styled.div`
       ${colors.ref.palette.neutralAlpha.n20A} 50%,
       ${colors.ref.palette.neutralAlpha.n0A} 80%
     );
-    animation: ${({ isAnimated }: ISkeletonIconProps) => isAnimated && shimmer}
-      2s linear infinite;
+    animation: ${({ animated }: ISkeletonIconProps) => animated && shimmer} 2s
+      linear infinite;
   }
 `;
 
