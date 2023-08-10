@@ -29,7 +29,7 @@ const Spinner = (props: ISpinnerProps) => {
     <StyledSpinner
       appearance={transformedAppearance}
       size={transformedSize}
-      isTransparent={transformedIsTransparent}
+      transparent={transformedIsTransparent}
     />
   );
 };
