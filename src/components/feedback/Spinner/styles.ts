@@ -2,16 +2,6 @@ import styled, { keyframes } from "styled-components";
 import { inube } from "@src/shared/tokens";
 import { ISpinnerProps } from ".";
 
-const colorHomologation: any = {
-  blue: inube.color.palette.blue.B400,
-  green: inube.color.palette.green.G400,
-  yellow: inube.color.palette.yellow.Y400,
-  red: inube.color.palette.red.R400,
-  purple: inube.color.palette.purple.P400,
-  white: inube.color.palette.neutral.N0,
-  dark: inube.color.palette.neutral.N900,
-};
-
 const sizes: any = {
   large: {
     width: "40px",
@@ -42,10 +32,10 @@ const StyledSpinner = styled.div`
   border: solid 4px
     ${(props: ISpinnerProps) =>
       props.isTransparent === true
-        ? inube.color.palette.neutralAlpha.N0A
-        : inube.color.palette.neutral.N30};
+        ? inube.color.stroke.spinner.transparent
+        : inube.color.stroke.spinner.regular};
   border-bottom-color: ${(props: ISpinnerProps) =>
-    props.appearance && colorHomologation[props.appearance]};
+    props.appearance && inube?.color?.stroke?.[props.appearance]?.regular};
   border-radius: 50%;
   ${(props: ISpinnerProps) => props.size && sizes[props.size]}
   box-sizing: border-box;

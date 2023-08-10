@@ -1,13 +1,6 @@
-export const appearances = [
-  "blue",
-  "green",
-  "yellow",
-  "red",
-  "purple",
-  "dark",
-  "white",
-] as const;
-export type Appearance = typeof appearances[number];
+import { inube } from "@src/shared/tokens";
+
+export type Appearance = keyof typeof inube.color.stroke;
 
 export const sizes = ["large", "medium", "small"] as const;
 export type Size = typeof sizes[number];
@@ -32,11 +25,11 @@ const props = {
     },
   },
   appearance: {
-    options: appearances,
+    options: Object.keys(inube.color.stroke),
     control: { type: "select" },
     description: "colors used to identify the state of the component",
     table: {
-      defaultValue: { summary: "blue" },
+      defaultValue: { summary: "primary" },
     },
   },
   isTransparent: {
