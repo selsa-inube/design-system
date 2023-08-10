@@ -13,7 +13,7 @@ const props = {
       defaultValue: { summary: "100px" },
     },
   },
-  isAnimated: {
+  animated: {
     description: "enable loading effect animation",
     table: {
       defaultValue: { summary: false },
