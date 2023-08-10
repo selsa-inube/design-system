@@ -1,7 +1,6 @@
 import styled, { keyframes } from "styled-components";
-
-import { colors } from "@shared/colors/colors";
 import { ISkeletonLineProps } from "./index";
+import { inube } from "@shared/tokens";
 
 const shimmer = keyframes`
 0% {
@@ -14,7 +13,9 @@ const shimmer = keyframes`
 
 const StyledSkeletonLine = styled.div`
   position: relative;
-  background: ${colors.sys.actions.secondary.filled};
+  background: ${({ theme }: ISkeletonLineProps) => {
+    return theme?.color?.surface?.gray?.clear || inube.color.surface.gray.clear;
+  }};
   height: 16px;
   width: ${({ width }: ISkeletonLineProps) => width};
   border-radius: 6px;
@@ -29,9 +30,15 @@ const StyledSkeletonLine = styled.div`
     width: 100%;
     background: linear-gradient(
       100deg,
-      ${colors.ref.palette.neutralAlpha.n0A} 20%,
-      ${colors.ref.palette.neutralAlpha.n20A} 50%,
-      ${colors.ref.palette.neutralAlpha.n0A} 80%
+      ${({ theme }: ISkeletonLineProps) =>
+          theme?.color?.surface?.gray?.clear || inube.color.surface.gray.clear}
+        20%,
+      ${({ theme }: ISkeletonLineProps) =>
+          theme?.color?.surface?.dark?.clear || inube.color.surface.dark.clear}
+        50%,
+      ${({ theme }: ISkeletonLineProps) =>
+          theme?.color?.surface?.gray?.clear || inube.color.surface.gray.clear}
+        80%
     );
     animation: ${({ animated }: ISkeletonLineProps) => animated && shimmer} 2s
       linear infinite;

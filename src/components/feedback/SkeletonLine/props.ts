@@ -1,3 +1,7 @@
+import { inube } from "@shared/tokens";
+
+export type Themed = { theme?: typeof inube };
+
 const props = {
   parameters: {
     docs: {
