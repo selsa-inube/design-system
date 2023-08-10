@@ -5,10 +5,8 @@ export interface ISkeletonIconProps {
   isAnimated?: boolean;
 }
 
-const defaultSize = "24px";
-
 const SkeletonIcon = (props: ISkeletonIconProps) => {
-  const { size = defaultSize, isAnimated = false } = props;
+  const { size = "24px", isAnimated = false } = props;
 
   return <StyledSkeletonIcon size={size} isAnimated={isAnimated} />;
 };
