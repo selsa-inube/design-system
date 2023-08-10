@@ -3,7 +3,7 @@ import { StyledCountdownBar } from "./styles";
 import { Appearance, Themed } from "./props";
 
 export interface ICountdownBarProps extends Themed {
-  size?: string;
+  height?: string;
   appearance?: Appearance;
   duration?: number;
   paused?: boolean;
@@ -11,7 +11,7 @@ export interface ICountdownBarProps extends Themed {
 }
 
 const CountdownBar = ({
-  size = "4px",
+  height = "4px",
   appearance = "primary",
   duration = 3000,
   paused = false,
@@ -21,7 +21,7 @@ const CountdownBar = ({
     <StyledCountdownBar
       id="progress-bar"
       appearance={appearance}
-      size={size}
+      height={height}
       duration={duration}
       paused={paused}
       onAnimationEnd={onCountdown}
