@@ -1,7 +1,7 @@
 import styled, { keyframes } from "styled-components";
 
 import { ISkeletonIconProps } from "./index";
-import { inube } from "@src/shared/tokens";
+import { inube } from "@shared/tokens";
 
 const shimmer = keyframes`
 0% {
