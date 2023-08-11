@@ -53,7 +53,7 @@ Size.args = {
   htmlFor: "id",
   children: "Text Label",
   isDisabled: false,
-  isFocused: false,
+  focused: false,
   isInvalid: false,
 };
 
