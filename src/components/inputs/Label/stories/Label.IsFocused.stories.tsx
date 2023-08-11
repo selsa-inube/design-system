@@ -30,7 +30,7 @@ IsFocused.args = {
   children: "Label Text",
   isDisabled: false,
   htmlFor: "id",
-  isInvalid: false,
+  invalid: false,
   typo: "labelLarge",
 };
 
