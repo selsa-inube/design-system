@@ -9,7 +9,7 @@ const story = {
   args: {
     size: "medium",
     appearance: "primary",
-    isTransparent: false,
+    transparent: false,
   },
   argTypes: props,
 };

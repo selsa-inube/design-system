@@ -33,7 +33,7 @@ const props = {
       defaultValue: { summary: "primary" },
     },
   },
-  isTransparent: {
+  transparent: {
     options: [true, false],
     control: { type: "boolean" },
     description:
