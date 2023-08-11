@@ -2,7 +2,7 @@ import styled, { keyframes } from "styled-components";
 import { inube } from "@src/shared/tokens";
 import { ISpinnerProps } from ".";
 
-const sizes: any = {
+const sizes = {
   large: {
     width: "40px",
     height: "40px",
