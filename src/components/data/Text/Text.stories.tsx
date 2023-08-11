@@ -1,5 +1,8 @@
+import { ThemeProvider } from "styled-components";
 import { Text, ITextProps } from ".";
+
 import { props, parameters } from "./props";
+import { presente } from "@src/shared/themes/presente";
 
 const story = {
   title: "data/Text",
@@ -27,6 +30,18 @@ Default.args = {
   parentHover: false,
 };
 
+const theme = {
+  ...presente,
+};
+
+const Themed = (args: ITextProps) => (
+  <ThemeProvider theme={theme}>
+    <Text {...args} />
+  </ThemeProvider>
+);
+Themed.args = {
+  ...Default.args,
+};
 export default story;
 
-export { Default };
+export { Default, Themed };
