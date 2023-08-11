@@ -21,7 +21,7 @@ const IsDisabled = ({ focused, htmlFor, isInvalid, children }: ILabelProps) => {
 };
 IsDisabled.args = {
   children: "Label Text",
-  isFocused: false,
+  focused: false,
   htmlFor: "id",
   isInvalid: false,
 };

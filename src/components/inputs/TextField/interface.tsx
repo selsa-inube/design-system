@@ -111,7 +111,7 @@ const TextFieldUI = (props: ITextFieldProps) => {
           <Label
             htmlFor={id}
             isDisabled={isDisabled}
-            isFocused={isFocused}
+            focused={isFocused}
             isInvalid={transformedIsInvalid}
             typo={getTypo(size!)}
           >

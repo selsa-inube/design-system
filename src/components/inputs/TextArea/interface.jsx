@@ -127,7 +127,7 @@ const TextAreaUI = (props) => {
           <Label
             htmlFor={id}
             isDisabled={isDisabled}
-            isFocused={isFocused}
+            focused={isFocused}
             isInvalid={transformedIsInvalid}
           >
             {label}
