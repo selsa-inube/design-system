@@ -1,19 +1,24 @@
-const props = {
-  parameters: {
-    docs: {
-      description: {
-        component:
-          "Skeleton line is used to provide a low fidelity representation of content before it appears on the page, and improves load times perceived by users.",
-      },
+import { inube } from "@shared/tokens";
+
+export type Themed = { theme?: typeof inube };
+
+const parameters = {
+  docs: {
+    description: {
+      component:
+        "Skeleton line is used to provide a low fidelity representation of content before it appears on the page, and improves load times perceived by users.",
     },
   },
+};
+
+const props = {
   width: {
     description: "indicates the width that the component should take",
     table: {
       defaultValue: { summary: "100px" },
     },
   },
-  isAnimated: {
+  animated: {
     description: "enable loading effect animation",
     table: {
       defaultValue: { summary: false },
@@ -21,4 +26,4 @@ const props = {
   },
 };
 
-export { props };
+export { props, parameters };
