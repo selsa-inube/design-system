@@ -1,16 +1,17 @@
 export const typos = ["labelLarge", "labelMedium", "labelSmall"] as const;
 export type TypographyLabel = typeof typos[number];
 
-const props = {
-  parameters: {
-    docs: {
-      description: {
-        component:
-          "Represent a label for an elemenent in a user interface. This can be associated with a control either by using the for attribute",
-      },
+const parameters = {
+  docs: {
+    description: {
+      component:
+        "Represent a label for an elemenent in a user interface. This can be associated with a control either by using the for attribute",
     },
   },
-  isDisabled: {
+};
+
+const props = {
+  disabled: {
     description: "indicates wheter the text is in its disabled state",
     table: {
       defaultValue: { summary: false },
@@ -43,4 +44,4 @@ const props = {
   },
 };
 
-export { props };
+export { props, parameters };

@@ -3,11 +3,12 @@ import { ReactNode } from "react";
 import { Label } from "../";
 import { Stack } from "@layouts/Stack";
 
-import { TypographyLabel, props, typos } from "../props";
+import { TypographyLabel, props, typos, parameters } from "../props";
 
 const story = {
   title: "inputs/Label",
   components: [Label],
+  parameters,
   argTypes: props,
 };
 
@@ -35,7 +36,7 @@ const Size = ({
     >
       {typos.map((typo) => (
         <Label
-          isDisabled={isDisabled}
+          disabled={isDisabled}
           isFocused={isFocused}
           htmlFor={htmlFor}
           typo={typo}
@@ -52,7 +53,7 @@ const Size = ({
 Size.args = {
   htmlFor: "id",
   children: "Text Label",
-  isDisabled: false,
+  disabled: false,
   isFocused: false,
   isInvalid: false,
 };

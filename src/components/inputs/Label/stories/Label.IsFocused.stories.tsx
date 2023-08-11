@@ -1,9 +1,10 @@
 import { Label, ILabelProps } from "..";
-import { props } from "../props";
+import { props, parameters } from "../props";
 
 const story = {
   title: "inputs/Label",
   components: [Label],
+  parameters,
   argTypes: props,
 };
 
@@ -12,11 +13,11 @@ const IsFocused = ({
   isInvalid,
   htmlFor,
   typo,
-  isDisabled,
+  disabled,
 }: ILabelProps) => {
   return (
     <Label
-      isDisabled={isDisabled}
+      disabled={disabled}
       isFocused={true}
       isInvalid={isInvalid}
       htmlFor={htmlFor}
@@ -28,7 +29,7 @@ const IsFocused = ({
 };
 IsFocused.args = {
   children: "Label Text",
-  isDisabled: false,
+  disabled: false,
   htmlFor: "id",
   isInvalid: false,
   typo: "labelLarge",

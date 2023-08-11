@@ -1,16 +1,17 @@
 import { Label, ILabelProps } from "..";
 import { Stack } from "@layouts/Stack";
 
-import { props } from "../props";
+import { props, parameters } from "../props";
 
 const story = {
   title: "inputs/Label",
   components: [Label],
+  parameters,
   argTypes: props,
 };
 
 const States = ({
-  isDisabled,
+  disabled,
   isFocused,
   children,
   typo,
@@ -20,7 +21,7 @@ const States = ({
     <Stack justifyContent="space-evenly">
       {[false, true].map((isInvalid) => (
         <Label
-          isDisabled={isDisabled}
+          disabled={disabled}
           isFocused={isFocused}
           isInvalid={isInvalid}
           htmlFor={htmlFor}
@@ -35,7 +36,7 @@ const States = ({
 };
 
 States.args = {
-  isDisabled: false,
+  disabled: false,
   isFocused: false,
   htmlFor: "id",
   typo: "labelLarge",
