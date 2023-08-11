@@ -37,8 +37,8 @@ const StyledSkeletonIcon = styled.div`
         theme?.color?.palette?.neutral?.N30 || inube.color.palette.neutral.N30
       } 80%
     );`};
-    animation: ${({ isAnimated }: ISkeletonIconProps) => isAnimated && shimmer}
-      2s linear infinite;
+    animation: ${({ animated }: ISkeletonIconProps) => animated && shimmer} 2s
+      linear infinite;
   }
 `;
 

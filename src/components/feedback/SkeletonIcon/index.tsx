@@ -3,13 +3,13 @@ import { StyledSkeletonIcon } from "./styles";
 
 export interface ISkeletonIconProps extends Themed {
   size?: string;
-  isAnimated?: boolean;
+  animated?: boolean;
 }
 
 const SkeletonIcon = (props: ISkeletonIconProps) => {
-  const { size = "24px", isAnimated = false } = props;
+  const { size = "24px", animated = false } = props;
 
-  return <StyledSkeletonIcon size={size} isAnimated={isAnimated} />;
+  return <StyledSkeletonIcon size={size} animated={animated} />;
 };
 
 export { SkeletonIcon };

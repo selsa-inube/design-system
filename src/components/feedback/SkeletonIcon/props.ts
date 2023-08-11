@@ -2,15 +2,16 @@ import { inube } from "@src/shared/tokens";
 
 export type Themed = { theme?: typeof inube };
 
-const props = {
-  parameters: {
-    docs: {
-      description: {
-        component:
-          "Skeleton icon is used to provide a low fidelity representation of content before it appears on the page, and improves load times perceived by users.",
-      },
+const parameters = {
+  docs: {
+    description: {
+      component:
+        "Skeleton icon is used to provide a low fidelity representation of content before it appears on the page, and improves load times perceived by users.",
     },
   },
+};
+
+const props = {
   size: {
     control: { type: "text" },
     description: "sets the size of the skeleton icon component",
@@ -18,7 +19,7 @@ const props = {
       defaultValue: { summary: "24px" },
     },
   },
-  isAnimated: {
+  animated: {
     options: [false, true],
     control: { type: "boolean" },
     description:
@@ -29,4 +30,4 @@ const props = {
   },
 };
 
-export { props };
+export { props, parameters };
