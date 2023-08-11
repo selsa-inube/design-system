@@ -21,7 +21,7 @@ Default.args = {
   textAlign: "start",
   margin: "20px 22px 23px 24px",
   padding: "5px",
-  appearance: "primary",
+  appearance: "dark",
   type: "body",
   size: "large",
   disabled: false,
