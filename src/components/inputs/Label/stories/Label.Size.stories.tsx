@@ -13,7 +13,7 @@ const story = {
 };
 
 interface LabelArgs {
-  isDisabled: boolean;
+  disabled: boolean;
   htmlFor: string;
   isFocused: boolean;
   isInvalid: boolean;
@@ -22,7 +22,7 @@ interface LabelArgs {
 }
 
 const Size = ({
-  isDisabled,
+  disabled,
   isFocused,
   htmlFor,
   isInvalid,
@@ -36,7 +36,7 @@ const Size = ({
     >
       {typos.map((typo) => (
         <Label
-          disabled={isDisabled}
+          disabled={disabled}
           isFocused={isFocused}
           htmlFor={htmlFor}
           typo={typo}
