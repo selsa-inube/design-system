@@ -31,7 +31,7 @@ IsFocused.args = {
   isDisabled: false,
   htmlFor: "id",
   isInvalid: false,
-  typo: "labelLarge",
+  typo: "large",
 };
 
 export default story;

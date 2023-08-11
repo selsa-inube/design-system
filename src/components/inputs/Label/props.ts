@@ -1,5 +1,8 @@
-export const typos = ["labelLarge", "labelMedium", "labelSmall"] as const;
+import { inube } from "@shared/tokens";
+
+export const typos = ["large", "medium", "small"] as const;
 export type TypographyLabel = typeof typos[number];
+export type Themed = { theme?: typeof inube };
 
 const props = {
   parameters: {

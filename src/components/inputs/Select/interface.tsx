@@ -36,9 +36,9 @@ export interface ISelectInterfaceProps extends ISelectProps {
 
 const getTypo = (size: Size) => {
   if (size === "compact") {
-    return "labelMedium";
+    return "medium";
   }
-  return "labelLarge";
+  return "large";
 };
 
 const Invalid = (props: ISelectStateProps) => {

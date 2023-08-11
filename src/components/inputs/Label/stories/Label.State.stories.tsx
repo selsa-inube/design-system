@@ -38,7 +38,7 @@ States.args = {
   isDisabled: false,
   isFocused: false,
   htmlFor: "id",
-  typo: "labelLarge",
+  typo: "large",
   children: "Label Text",
 };
 

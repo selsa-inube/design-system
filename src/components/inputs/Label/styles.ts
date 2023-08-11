@@ -1,25 +1,28 @@
 import styled from "styled-components";
-import { typography } from "@shared/typography/typography";
-import { colors } from "@shared/colors/colors";
 
 import { ILabelProps } from "./index";
+import { inube } from "@shared/tokens";
 
 const getColor = (props: ILabelProps): string => {
-  const { isDisabled, isFocused, isInvalid } = props;
-  let color = colors.sys.text.dark;
+  const { theme, isDisabled, isFocused, isInvalid } = props;
+  let color =
+    theme?.color?.text?.dark?.regular || inube.color.text.dark.regular;
 
   if (isDisabled) {
-    color = colors.sys.text.disabled;
+    color =
+      theme?.color?.text?.dark?.disabled || inube.color.text.dark.disabled;
     return color;
   }
 
   if (isInvalid) {
-    color = colors.sys.text.error;
+    color =
+      theme?.color?.text?.error?.regular || inube.color.text.error.regular;
     return color;
   }
 
   if (isFocused) {
-    color = colors.sys.text.primary;
+    color =
+      theme?.color?.text?.primary?.hover || inube.color.text.primary.hover;
     return color;
   }
 
@@ -27,15 +30,27 @@ const getColor = (props: ILabelProps): string => {
 };
 
 const StyledLabel = styled.label`
-  font-family: ${typography.sys.typescale.labelLarge.font};
-  font-size: ${({ typo }: ILabelProps) =>
-    typo && typography.sys.typescale[typo].size};
-  font-weight: ${({ typo }: ILabelProps) =>
-    typo && typography.sys.typescale[typo].weight};
-  letter-spacing: ${({ typo }: ILabelProps) =>
-    typo && typography.sys.typescale[typo].tracking};
-  line-height: ${({ typo }: ILabelProps) =>
-    typo && typography.sys.typescale[typo].lineHeight};
+  font-family: ${({ theme }: any) => {
+    return (
+      theme?.typography?.label?.large?.font || inube.typography.label.large.font
+    );
+  }};
+  font-size: ${({ typo, theme }: ILabelProps) =>
+    typo &&
+    (theme?.typography?.label?.[typo]?.size ||
+      inube.typography.label[typo].size)};
+  font-weight: ${({ typo, theme }: ILabelProps) =>
+    typo &&
+    (theme?.typography?.label?.[typo]?.weight ||
+      inube.typography.label[typo].weight)};
+  letter-spacing: ${({ typo, theme }: ILabelProps) =>
+    typo &&
+    (theme?.typography?.label?.[typo]?.tracking ||
+      inube.typography.label[typo].tracking)};
+  line-height: ${({ typo, theme }: ILabelProps) =>
+    typo &&
+    (theme?.typography?.label?.[typo]?.lineHeight ||
+      inube.typography.label[typo].lineHeight)};
   color: ${(props: ILabelProps) => getColor(props)};
 `;
 
