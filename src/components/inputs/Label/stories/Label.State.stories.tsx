@@ -11,7 +11,7 @@ const story = {
 
 const States = ({
   isDisabled,
-  isFocused,
+  focused,
   children,
   typo,
   htmlFor,
@@ -21,7 +21,7 @@ const States = ({
       {[false, true].map((isInvalid) => (
         <Label
           isDisabled={isDisabled}
-          isFocused={isFocused}
+          focused={focused}
           isInvalid={isInvalid}
           htmlFor={htmlFor}
           typo={typo}
@@ -36,7 +36,7 @@ const States = ({
 
 States.args = {
   isDisabled: false,
-  isFocused: false,
+  focused: false,
   htmlFor: "id",
   typo: "labelLarge",
   children: "Label Text",

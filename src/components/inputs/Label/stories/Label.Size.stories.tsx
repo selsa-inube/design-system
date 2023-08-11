@@ -14,7 +14,7 @@ const story = {
 interface LabelArgs {
   isDisabled: boolean;
   htmlFor: string;
-  isFocused: boolean;
+  focused: boolean;
   isInvalid: boolean;
   typo: TypographyLabel;
   children: ReactNode;
@@ -22,7 +22,7 @@ interface LabelArgs {
 
 const Size = ({
   isDisabled,
-  isFocused,
+  focused,
   htmlFor,
   isInvalid,
   children,
@@ -36,7 +36,7 @@ const Size = ({
       {typos.map((typo) => (
         <Label
           isDisabled={isDisabled}
-          isFocused={isFocused}
+          focused={focused}
           htmlFor={htmlFor}
           typo={typo}
           isInvalid={isInvalid}

@@ -17,7 +17,7 @@ const IsFocused = ({
   return (
     <Label
       isDisabled={isDisabled}
-      isFocused={true}
+      focused={true}
       isInvalid={isInvalid}
       htmlFor={htmlFor}
       typo={typo}

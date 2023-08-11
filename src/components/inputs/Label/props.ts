@@ -16,7 +16,7 @@ const props = {
       defaultValue: { summary: false },
     },
   },
-  isFocused: {
+  focused: {
     description: "indicates wheter the text is in its focused state",
     table: {
       defaultValue: { summary: false },
