@@ -17,19 +17,26 @@ const StyledSkeletonIcon = styled.div`
   overflow: hidden;
   width: ${({ size }: ISkeletonIconProps) => size};
   height: ${({ size }: ISkeletonIconProps) => size};
-  background: ${inube.color.surface.dark.clear};
+  background: ${({ theme }: ISkeletonIconProps) =>
+    theme?.color?.surface?.dark?.clear || inube.color.surface.dark.clear};
 
   &::after {
     content: "";
     position: absolute;
     height: 100%;
     width: 100%;
-    background: linear-gradient(
-      90deg,
-      ${inube.color.palette.neutral.N30} 20%,
-      ${inube.color.palette.neutral.N20} 50%,
-      ${inube.color.palette.neutral.N30} 80%
-    );
+    background: ${({ theme }: ISkeletonIconProps) => `linear-gradient(
+      100deg,
+      ${
+        theme?.color?.palette?.neutral?.N30 || inube.color.palette.neutral.N30
+      } 20%,
+      ${
+        theme?.color?.palette?.neutral?.N20 || inube.color.palette.neutral.N0
+      } 50%,
+      ${
+        theme?.color?.palette?.neutral?.N30 || inube.color.palette.neutral.N30
+      } 80%
+    );`};
     animation: ${({ isAnimated }: ISkeletonIconProps) => isAnimated && shimmer}
       2s linear infinite;
   }

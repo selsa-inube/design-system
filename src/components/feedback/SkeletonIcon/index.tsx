@@ -1,6 +1,7 @@
+import { Themed } from "./props";
 import { StyledSkeletonIcon } from "./styles";
 
-export interface ISkeletonIconProps {
+export interface ISkeletonIconProps extends Themed {
   size?: string;
   isAnimated?: boolean;
 }
