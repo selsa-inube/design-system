@@ -8,7 +8,6 @@ export interface ILabelProps {
   isInvalid?: boolean;
   typo?: TypographyLabel;
   children?: React.ReactNode;
-  onClick?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const defaultIsDisabled = false;

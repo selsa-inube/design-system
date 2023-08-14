@@ -1,4 +1,4 @@
-import { inube } from "@src/shared/tokens";
+import { inube } from "@shared/tokens";
 
 export type Appearance = keyof typeof inube.color.stroke;
 
@@ -33,7 +33,7 @@ const props = {
       defaultValue: { summary: "primary" },
     },
   },
-  isTransparent: {
+  transparent: {
     options: [true, false],
     control: { type: "boolean" },
     description:

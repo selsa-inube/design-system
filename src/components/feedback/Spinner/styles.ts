@@ -1,8 +1,8 @@
 import styled, { keyframes } from "styled-components";
-import { inube } from "@src/shared/tokens";
+import { inube } from "@shared/tokens";
 import { ISpinnerProps } from ".";
 
-const sizes: any = {
+const sizes = {
   large: {
     width: "40px",
     height: "40px",
@@ -30,8 +30,8 @@ const StyledSpinner = styled.div`
   display: inline-block;
   animation: 0.8s linear infinite ${spinner};
   border: solid 4px
-    ${({ isTransparent, theme }: ISpinnerProps) =>
-      isTransparent === true
+    ${({ transparent, theme }: ISpinnerProps) =>
+      transparent === true
         ? theme?.color?.stroke.spinner?.transparent ||
           inube.color.stroke.spinner.transparent
         : theme?.color?.stroke?.spinner?.regular ||
