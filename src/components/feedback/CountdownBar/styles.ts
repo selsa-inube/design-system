@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { keyframes } from "styled-components";
-import { ICountdownBarProps } from "./index";
-import { inube } from "@src/shared/tokens";
+import { ICountdownBarProps } from ".";
+import { inube } from "@shared/tokens";
 
 const CountdownBarAnimation = keyframes`
   0% {
