@@ -36,9 +36,9 @@ export interface ISelectInterfaceProps extends ISelectProps {
 
 const getTypo = (size: Size) => {
   if (size === "compact") {
-    return "labelMedium";
+    return "medium";
   }
-  return "labelLarge";
+  return "large";
 };
 
 const Invalid = (props: ISelectStateProps) => {
@@ -120,7 +120,7 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
     }
   };
 
-  const transformedIsInvalid = state === "invalid" ? true : false;
+  const transformedInvalid = state === "invalid" ? true : false;
 
   return (
     <StyledContainer
@@ -137,9 +137,9 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
         {label && (
           <Label
             htmlFor={id}
-            isDisabled={isDisabled}
-            isFocused={isFocused}
-            isInvalid={transformedIsInvalid}
+            disabled={isDisabled}
+            focused={isFocused}
+            invalid={transformedInvalid}
             typo={getTypo(size!)}
           >
             {label}

@@ -25,9 +25,9 @@ export interface IMessageProps {
 
 const getTypo = (size: Size) => {
   if (size === "compact") {
-    return "labelMedium";
+    return "medium";
   }
-  return "labelLarge";
+  return "large";
 };
 
 const Invalid = (props: IMessageProps) => {
@@ -97,7 +97,7 @@ const TextFieldUI = (props: ITextFieldProps) => {
     readOnly,
   } = props;
 
-  const transformedIsInvalid = state === "invalid" ? true : false;
+  const transformedInvalid = state === "invalid" ? true : false;
 
   return (
     <StyledContainer isFullWidth={isFullWidth} isDisabled={isDisabled}>
@@ -110,9 +110,9 @@ const TextFieldUI = (props: ITextFieldProps) => {
         {label && (
           <Label
             htmlFor={id}
-            isDisabled={isDisabled}
-            isFocused={isFocused}
-            isInvalid={transformedIsInvalid}
+            disabled={isDisabled}
+            focused={isFocused}
+            invalid={transformedInvalid}
             typo={getTypo(size!)}
           >
             {label}
