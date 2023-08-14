@@ -12,21 +12,21 @@ const story = {
 
 const States = ({
   disabled,
-  isFocused,
+  focused,
   children,
   typo,
   htmlFor,
 }: ILabelProps) => {
   return (
     <Stack justifyContent="space-evenly">
-      {[false, true].map((isInvalid) => (
+      {[false, true].map((invalid) => (
         <Label
           disabled={disabled}
-          isFocused={isFocused}
-          isInvalid={isInvalid}
+          focused={focused}
+          invalid={invalid}
           htmlFor={htmlFor}
           typo={typo}
-          key={isInvalid.toString()}
+          key={invalid.toString()}
         >
           {children}
         </Label>
@@ -37,7 +37,7 @@ const States = ({
 
 States.args = {
   disabled: false,
-  isFocused: false,
+  focused: false,
   htmlFor: "id",
   typo: "labelLarge",
   children: "Label Text",

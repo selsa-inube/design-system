@@ -3,20 +3,19 @@ import { StyledLabel } from "./styles";
 
 export interface ILabelProps {
   disabled?: boolean;
-  isFocused?: boolean;
+  focused?: boolean;
   htmlFor: string;
-  isInvalid?: boolean;
+  invalid?: boolean;
   typo?: TypographyLabel;
   children?: React.ReactNode;
-  onClick?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const Label = (props: ILabelProps) => {
   const {
     disabled = false,
-    isFocused = false,
+    focused = false,
     htmlFor,
-    isInvalid = false,
+    invalid = false,
     typo = "labelLarge",
     children,
   } = props;
@@ -24,9 +23,9 @@ const Label = (props: ILabelProps) => {
   return (
     <StyledLabel
       disabled={disabled}
-      isFocused={isFocused}
+      focused={focused}
       htmlFor={htmlFor}
-      isInvalid={isInvalid}
+      invalid={invalid}
       typo={typo}
     >
       {children}

@@ -73,7 +73,7 @@ const Switch = (props: ISwitchProps) => {
         </StyledSpan>
       </StyledContainer>
       {label && (
-        <Label htmlFor={id} disabled={isDisabled} onClick={handleChange}>
+        <Label htmlFor={id} disabled={isDisabled}>
           {label}
         </Label>
       )}

@@ -5,7 +5,7 @@ import { colors } from "@shared/colors/colors";
 import { ILabelProps } from "./index";
 
 const getColor = (props: ILabelProps): string => {
-  const { disabled, isFocused, isInvalid } = props;
+  const { disabled, focused, invalid } = props;
   let color = colors.sys.text.dark;
 
   if (disabled) {
@@ -13,12 +13,12 @@ const getColor = (props: ILabelProps): string => {
     return color;
   }
 
-  if (isInvalid) {
+  if (invalid) {
     color = colors.sys.text.error;
     return color;
   }
 
-  if (isFocused) {
+  if (focused) {
     color = colors.sys.text.primary;
     return color;
   }

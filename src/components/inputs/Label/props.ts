@@ -17,7 +17,7 @@ const props = {
       defaultValue: { summary: false },
     },
   },
-  isFocused: {
+  focused: {
     description: "indicates wheter the text is in its focused state",
     table: {
       defaultValue: { summary: false },
@@ -28,7 +28,7 @@ const props = {
     control: { type: "select" },
     description: "Useful to match this label with the id of a specific entry",
   },
-  isInvalid: {
+  invalid: {
     description: "Indicates the possible states in witch the label could be",
     table: {
       defaultValue: { summary: false },

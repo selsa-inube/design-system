@@ -15,19 +15,13 @@ const story = {
 interface LabelArgs {
   disabled: boolean;
   htmlFor: string;
-  isFocused: boolean;
-  isInvalid: boolean;
+  focused: boolean;
+  invalid: boolean;
   typo: TypographyLabel;
   children: ReactNode;
 }
 
-const Size = ({
-  disabled,
-  isFocused,
-  htmlFor,
-  isInvalid,
-  children,
-}: LabelArgs) => {
+const Size = ({ disabled, focused, htmlFor, invalid, children }: LabelArgs) => {
   return (
     <Stack
       direction="row"
@@ -37,10 +31,10 @@ const Size = ({
       {typos.map((typo) => (
         <Label
           disabled={disabled}
-          isFocused={isFocused}
+          focused={focused}
           htmlFor={htmlFor}
           typo={typo}
-          isInvalid={isInvalid}
+          invalid={invalid}
           key={typo}
         >
           {children}
@@ -54,8 +48,8 @@ Size.args = {
   htmlFor: "id",
   children: "Text Label",
   disabled: false,
-  isFocused: false,
-  isInvalid: false,
+  focused: false,
+  invalid: false,
 };
 
 export default story;

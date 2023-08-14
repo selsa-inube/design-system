@@ -17,8 +17,8 @@ Default.args = {
   children: "Label Text",
   typo: "labelLarge",
   disabled: false,
-  isFocused: false,
-  isInvalid: false,
+  focused: false,
+  invalid: false,
 };
 
 export default story;

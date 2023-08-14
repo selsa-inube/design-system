@@ -10,7 +10,7 @@ const story = {
 
 const IsFocused = ({
   children,
-  isInvalid,
+  invalid,
   htmlFor,
   typo,
   disabled,
@@ -18,8 +18,8 @@ const IsFocused = ({
   return (
     <Label
       disabled={disabled}
-      isFocused={true}
-      isInvalid={isInvalid}
+      focused={true}
+      invalid={invalid}
       htmlFor={htmlFor}
       typo={typo}
     >
@@ -31,7 +31,7 @@ IsFocused.args = {
   children: "Label Text",
   disabled: false,
   htmlFor: "id",
-  isInvalid: false,
+  invalid: false,
   typo: "labelLarge",
 };
 
