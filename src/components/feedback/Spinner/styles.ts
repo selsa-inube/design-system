@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components";
-import { inube } from "@src/shared/tokens";
+import { inube } from "@shared/tokens";
 import { ISpinnerProps } from ".";
 
 const sizes = {
