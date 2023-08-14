@@ -23,7 +23,7 @@ IsDisabled.args = {
   children: "Label Text",
   isFocused: false,
   htmlFor: "id",
-  isInvalid: false,
+  invalid: false,
 };
 
 export default story;

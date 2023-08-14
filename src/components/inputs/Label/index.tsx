@@ -13,7 +13,7 @@ export interface ILabelProps {
 
 const defaultIsDisabled = false;
 const defaultIsFocused = false;
-const defaultIsInvalid = false;
+const defaultInvalid = false;
 const defaultTypo = "labelLarge";
 
 const Label = (props: ILabelProps) => {
@@ -21,7 +21,7 @@ const Label = (props: ILabelProps) => {
     isDisabled = defaultIsDisabled,
     isFocused = defaultIsFocused,
     htmlFor,
-    invalid = defaultIsInvalid,
+    invalid = defaultInvalid,
     typo = "labelLarge",
     children,
   } = props;
@@ -32,8 +32,8 @@ const Label = (props: ILabelProps) => {
   const transformedIsFocused =
     typeof isFocused === "boolean" ? isFocused : defaultIsFocused;
 
-  const transformedIsInvalid =
-    typeof invalid === "boolean" ? invalid : defaultIsInvalid;
+  const transformedInvalid =
+    typeof invalid === "boolean" ? invalid : defaultInvalid;
 
   const transformedTypo = typos.includes(typo) ? typo : defaultTypo;
 
@@ -42,7 +42,7 @@ const Label = (props: ILabelProps) => {
       isDisabled={transformedIsDisabled}
       isFocused={transformedIsFocused}
       htmlFor={htmlFor}
-      invalid={transformedIsInvalid}
+      invalid={transformedInvalid}
       typo={transformedTypo}
     >
       {children}
