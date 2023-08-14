@@ -1,9 +1,9 @@
 import React, { useState, useRef } from "react";
 import PropTypes from "prop-types";
 
-import { StyledDropDownItem } from "./styles";
+import { StyledDropdownItem } from "./styles";
 
-const DropDownItem = (props) => {
+const DropdownItem = (props) => {
   const {
     id,
     isDisabled,
@@ -31,7 +31,7 @@ const DropDownItem = (props) => {
   };
 
   return (
-    <StyledDropDownItem
+    <StyledDropdownItem
       id={id}
       isDisabled={isDisabled}
       isSelected={select}
@@ -41,11 +41,11 @@ const DropDownItem = (props) => {
       tabIndex={0}
     >
       {children}
-    </StyledDropDownItem>
+    </StyledDropdownItem>
   );
 };
 
-DropDownItem.propTypes = {
+DropdownItem.propTypes = {
   id: PropTypes.string,
   isDisabled: PropTypes.bool,
   children: PropTypes.string,
@@ -53,4 +53,4 @@ DropDownItem.propTypes = {
   handleSelect: PropTypes.func,
 };
 
-export { DropDownItem };
+export { DropdownItem };
