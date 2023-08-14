@@ -30,8 +30,8 @@ Default.args = {
 const theme = {
   ...presente,
 };
-type IThemedProps = IIconProps & { theme: typeof theme };
-export const Themed = (args: IThemedProps) => (
+
+export const Themed = (args: IIconProps) => (
   <ThemeProvider theme={theme}>
     <Icon {...args} />
   </ThemeProvider>

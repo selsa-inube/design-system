@@ -170,7 +170,7 @@ const Button = (props: IButtonProps) => {
             transformedVariant,
             transformedAppearance
           )}
-          isTransparent={transformedTransparentSpinner}
+          transparent={transformedTransparentSpinner}
           size={defaultSpinnerSize}
         />
       ) : (

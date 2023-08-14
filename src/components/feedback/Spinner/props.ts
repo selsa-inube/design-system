@@ -1,26 +1,21 @@
-export const appearances = [
-  "blue",
-  "green",
-  "yellow",
-  "red",
-  "purple",
-  "dark",
-  "white",
-] as const;
-export type Appearance = typeof appearances[number];
+import { inube } from "@shared/tokens";
+
+export type Appearance = keyof typeof inube.color.stroke;
 
 export const sizes = ["large", "medium", "small"] as const;
 export type Size = typeof sizes[number];
+export type Themed = { theme?: typeof inube };
 
-const props = {
-  parameters: {
-    docs: {
-      description: {
-        component:
-          "This component is used to give feedback to the user that the app is currently loading or trying to save some resource.",
-      },
+const parameters = {
+  docs: {
+    description: {
+      component:
+        "This component is used to give feedback to the user that the app is currently loading or trying to save some resource.",
     },
   },
+};
+
+const props = {
   size: {
     options: sizes,
     control: { type: "select" },
@@ -31,14 +26,14 @@ const props = {
     },
   },
   appearance: {
-    options: appearances,
+    options: Object.keys(inube.color.stroke),
     control: { type: "select" },
     description: "colors used to identify the state of the component",
     table: {
-      defaultValue: { summary: "blue" },
+      defaultValue: { summary: "primary" },
     },
   },
-  isTransparent: {
+  transparent: {
     options: [true, false],
     control: { type: "boolean" },
     description:
@@ -49,4 +44,4 @@ const props = {
   },
 };
 
-export { props };
+export { props, parameters };
