@@ -4,6 +4,15 @@ export type Appearance = keyof typeof inube.color.stroke;
 
 export type Themed = { theme?: typeof inube };
 
+const parameters = {
+  docs: {
+    description: {
+      component:
+        "A countdown bar graphically communicates to the user a countdown",
+    },
+  },
+};
+
 const props = {
   height: {
     control: { type: "text" },
@@ -40,4 +49,4 @@ const props = {
   },
 };
 
-export { props };
+export { props, parameters };
