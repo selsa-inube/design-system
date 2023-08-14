@@ -37,6 +37,20 @@ const props = {
       defaultValue: { summary: false },
     },
   },
+  margin: {
+    description:
+      "Sets the margin in px or global values for all four sides of the component.",
+    table: {
+      defaultValue: { summary: "0px" },
+    },
+  },
+  padding: {
+    description:
+      "Sets the padding in px or global values for all four sides of the component",
+    table: {
+      defaultValue: { summary: "0px" },
+    },
+  },
   typo: {
     options: typos,
     control: { type: "select" },
