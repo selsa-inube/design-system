@@ -2,6 +2,7 @@ import { ThemeProvider } from "styled-components";
 import { CountdownBar, ICountdownBarProps } from ".";
 import { action } from "@storybook/addon-actions";
 import { props } from "./props";
+import { presente } from "@shared/themes/presente";
 
 const story = {
   title: "feedback/CountdownBar",
@@ -22,8 +23,12 @@ Default.args = {
   onCountdown: action("onAnimationEnd"),
 };
 
+const theme = {
+  ...presente,
+};
+
 export const Themed = (args: ICountdownBarProps) => (
-  <ThemeProvider>
+  <ThemeProvider theme={theme}>
     <CountdownBar {...args} />
   </ThemeProvider>
 );
