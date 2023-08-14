@@ -28,13 +28,13 @@ const StyledSkeletonIcon = styled.div`
     background: ${({ theme }: ISkeletonIconProps) => `linear-gradient(
       100deg,
       ${
-        theme?.color?.palette?.neutral?.N30 || inube.color.palette.neutral.N30
+        theme?.color?.surface?.dark?.clear || inube.color.surface.dark.clear
       } 20%,
       ${
         theme?.color?.palette?.neutral?.N20 || inube.color.palette.neutral.N0
       } 50%,
       ${
-        theme?.color?.palette?.neutral?.N30 || inube.color.palette.neutral.N30
+        theme?.color?.surface?.dark?.clear || inube.color.surface.dark.clear
       } 80%
     );`};
     animation: ${({ animated }: ISkeletonIconProps) => animated && shimmer} 2s
