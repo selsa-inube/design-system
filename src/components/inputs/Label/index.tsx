@@ -1,7 +1,7 @@
-import { TypographyLabel } from "./props";
+import { Themed, TypographyLabel } from "./props";
 import { StyledLabel } from "./styles";
 
-export interface ILabelProps {
+export interface ILabelProps extends Themed {
   disabled?: boolean;
   focused?: boolean;
   htmlFor: string;
@@ -16,7 +16,7 @@ const Label = (props: ILabelProps) => {
     focused = false,
     htmlFor,
     invalid = false,
-    typo = "labelLarge",
+    typo = "large",
     children,
   } = props;
 

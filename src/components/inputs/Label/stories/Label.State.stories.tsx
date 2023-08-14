@@ -39,7 +39,7 @@ States.args = {
   disabled: false,
   focused: false,
   htmlFor: "id",
-  typo: "labelLarge",
+  typo: "large",
   children: "Label Text",
 };
 

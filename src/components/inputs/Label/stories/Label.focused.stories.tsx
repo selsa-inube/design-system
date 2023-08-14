@@ -32,7 +32,7 @@ Focused.args = {
   disabled: false,
   htmlFor: "id",
   invalid: false,
-  typo: "labelLarge",
+  typo: "large",
 };
 
 export default story;
