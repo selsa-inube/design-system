@@ -8,7 +8,7 @@ const story = {
   argTypes: props,
 };
 
-const IsFocused = ({
+const Focused = ({
   children,
   invalid,
   htmlFor,
@@ -27,7 +27,7 @@ const IsFocused = ({
     </Label>
   );
 };
-IsFocused.args = {
+Focused.args = {
   children: "Label Text",
   disabled: false,
   htmlFor: "id",
@@ -36,4 +36,4 @@ IsFocused.args = {
 };
 
 export default story;
-export { IsFocused };
+export { Focused };

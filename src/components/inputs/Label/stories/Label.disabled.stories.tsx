@@ -8,7 +8,7 @@ const story = {
   argTypes: props,
 };
 
-const disabled = ({ focused, htmlFor, invalid, children }: ILabelProps) => {
+const Disabled = ({ focused, htmlFor, invalid, children }: ILabelProps) => {
   return (
     <Label
       disabled={true}
@@ -20,7 +20,7 @@ const disabled = ({ focused, htmlFor, invalid, children }: ILabelProps) => {
     </Label>
   );
 };
-disabled.args = {
+Disabled.args = {
   children: "Label Text",
   focused: false,
   htmlFor: "id",
@@ -29,4 +29,4 @@ disabled.args = {
 
 export default story;
 
-export { disabled };
+export { Disabled };
