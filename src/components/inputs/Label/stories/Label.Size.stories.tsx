@@ -15,7 +15,7 @@ interface LabelArgs {
   isDisabled: boolean;
   htmlFor: string;
   isFocused: boolean;
-  isInvalid: boolean;
+  invalid: boolean;
   typo: TypographyLabel;
   children: ReactNode;
 }
@@ -24,7 +24,7 @@ const Size = ({
   isDisabled,
   isFocused,
   htmlFor,
-  isInvalid,
+  invalid,
   children,
 }: LabelArgs) => {
   return (
@@ -39,7 +39,7 @@ const Size = ({
           isFocused={isFocused}
           htmlFor={htmlFor}
           typo={typo}
-          isInvalid={isInvalid}
+          invalid={invalid}
           key={typo}
         >
           {children}
@@ -54,7 +54,7 @@ Size.args = {
   children: "Text Label",
   isDisabled: false,
   isFocused: false,
-  isInvalid: false,
+  invalid: false,
 };
 
 export default story;

@@ -17,7 +17,7 @@ Default.args = {
   typo: "labelLarge",
   isDisabled: false,
   isFocused: false,
-  isInvalid: false,
+  invalid: false,
 };
 
 export default story;

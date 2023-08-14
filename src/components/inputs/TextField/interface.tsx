@@ -112,7 +112,7 @@ const TextFieldUI = (props: ITextFieldProps) => {
             htmlFor={id}
             isDisabled={isDisabled}
             isFocused={isFocused}
-            isInvalid={transformedIsInvalid}
+            invalid={transformedIsInvalid}
             typo={getTypo(size!)}
           >
             {label}
