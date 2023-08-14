@@ -1,4 +1,4 @@
-import { inube } from "@src/shared/tokens";
+import { inube } from "@shared/tokens";
 
 export type Appearance = keyof typeof inube.color.stroke;
 

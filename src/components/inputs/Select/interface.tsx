@@ -120,7 +120,7 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
     }
   };
 
-  const transformedIsInvalid = state === "invalid" ? true : false;
+  const transformedInvalid = state === "invalid" ? true : false;
 
   return (
     <StyledContainer
@@ -139,7 +139,7 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
             htmlFor={id}
             isDisabled={isDisabled}
             focused={isFocused}
-            isInvalid={transformedIsInvalid}
+            invalid={transformedInvalid}
             typo={getTypo(size!)}
           >
             {label}

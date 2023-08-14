@@ -112,7 +112,7 @@ const TextAreaUI = (props) => {
     lengthThreshold,
   } = props;
 
-  const transformedIsInvalid = state === "invalid" ? true : false;
+  const transformedInvalid = state === "invalid" ? true : false;
 
   return (
     <StyledContainer isFullWidth={isFullWidth} isDisabled={isDisabled}>
@@ -128,7 +128,7 @@ const TextAreaUI = (props) => {
             htmlFor={id}
             isDisabled={isDisabled}
             focused={isFocused}
-            isInvalid={transformedIsInvalid}
+            invalid={transformedInvalid}
           >
             {label}
           </Label>

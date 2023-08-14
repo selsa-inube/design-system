@@ -5,15 +5,14 @@ export interface ILabelProps {
   isDisabled?: boolean;
   focused?: boolean;
   htmlFor: string;
-  isInvalid?: boolean;
+  invalid?: boolean;
   typo?: TypographyLabel;
   children?: React.ReactNode;
-  onClick?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const defaultIsDisabled = false;
 const defaultIsFocused = false;
-const defaultIsInvalid = false;
+const defaultInvalid = false;
 const defaultTypo = "labelLarge";
 
 const Label = (props: ILabelProps) => {
@@ -21,7 +20,7 @@ const Label = (props: ILabelProps) => {
     isDisabled = defaultIsDisabled,
     focused = defaultIsFocused,
     htmlFor,
-    isInvalid = defaultIsInvalid,
+    invalid = defaultInvalid,
     typo = "labelLarge",
     children,
   } = props;
@@ -32,8 +31,8 @@ const Label = (props: ILabelProps) => {
   const transformedIsFocused =
     typeof focused === "boolean" ? focused : defaultIsFocused;
 
-  const transformedIsInvalid =
-    typeof isInvalid === "boolean" ? isInvalid : defaultIsInvalid;
+  const transformedInvalid =
+    typeof invalid === "boolean" ? invalid : defaultInvalid;
 
   const transformedTypo = typos.includes(typo) ? typo : defaultTypo;
 
@@ -42,7 +41,7 @@ const Label = (props: ILabelProps) => {
       isDisabled={transformedIsDisabled}
       focused={transformedIsFocused}
       htmlFor={htmlFor}
-      isInvalid={transformedIsInvalid}
+      invalid={transformedInvalid}
       typo={transformedTypo}
     >
       {children}

@@ -18,14 +18,14 @@ const States = ({
 }: ILabelProps) => {
   return (
     <Stack justifyContent="space-evenly">
-      {[false, true].map((isInvalid) => (
+      {[false, true].map((invalid) => (
         <Label
           isDisabled={isDisabled}
           focused={focused}
-          isInvalid={isInvalid}
+          invalid={invalid}
           htmlFor={htmlFor}
           typo={typo}
-          key={isInvalid.toString()}
+          key={invalid.toString()}
         >
           {children}
         </Label>
