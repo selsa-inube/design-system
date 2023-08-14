@@ -1,48 +1,32 @@
-import { TypographyLabel, typos } from "./props";
+import { Themed, TypographyLabel } from "./props";
 import { StyledLabel } from "./styles";
 
-export interface ILabelProps {
-  isDisabled?: boolean;
-  isFocused?: boolean;
+export interface ILabelProps extends Themed {
+  disabled?: boolean;
+  focused?: boolean;
   htmlFor: string;
-  isInvalid?: boolean;
+  invalid?: boolean;
   typo?: TypographyLabel;
   children?: React.ReactNode;
 }
 
-const defaultIsDisabled = false;
-const defaultIsFocused = false;
-const defaultIsInvalid = false;
-const defaultTypo = "labelLarge";
-
 const Label = (props: ILabelProps) => {
   const {
-    isDisabled = defaultIsDisabled,
-    isFocused = defaultIsFocused,
+    disabled = false,
+    focused = false,
     htmlFor,
-    isInvalid = defaultIsInvalid,
-    typo = "labelLarge",
+    invalid = false,
+    typo = "large",
     children,
   } = props;
 
-  const transformedIsDisabled =
-    typeof isDisabled === "boolean" ? isDisabled : defaultIsDisabled;
-
-  const transformedIsFocused =
-    typeof isFocused === "boolean" ? isFocused : defaultIsFocused;
-
-  const transformedIsInvalid =
-    typeof isInvalid === "boolean" ? isInvalid : defaultIsInvalid;
-
-  const transformedTypo = typos.includes(typo) ? typo : defaultTypo;
-
   return (
     <StyledLabel
-      isDisabled={transformedIsDisabled}
-      isFocused={transformedIsFocused}
+      disabled={disabled}
+      focused={focused}
       htmlFor={htmlFor}
-      isInvalid={transformedIsInvalid}
-      typo={transformedTypo}
+      invalid={invalid}
+      typo={typo}
     >
       {children}
     </StyledLabel>

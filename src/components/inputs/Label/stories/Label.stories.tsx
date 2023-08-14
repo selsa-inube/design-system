@@ -1,10 +1,11 @@
 import { Label, ILabelProps } from "..";
 
-import { props } from "../props";
+import { props, parameters } from "../props";
 
 const story = {
   title: "inputs/Label",
   components: [Label],
+  parameters,
   argTypes: props,
 };
 
@@ -14,10 +15,10 @@ const Default = (args: ILabelProps) => {
 Default.args = {
   htmlFor: "id",
   children: "Label Text",
-  typo: "labelLarge",
-  isDisabled: false,
-  isFocused: false,
-  isInvalid: false,
+  typo: "large",
+  disabled: false,
+  focused: false,
+  invalid: false,
 };
 
 export default story;

@@ -1,36 +1,39 @@
 import { Label, ILabelProps } from "..";
-import { props } from "../props";
+import { props, parameters } from "../props";
 
 const story = {
   title: "inputs/Label",
   components: [Label],
+  parameters,
   argTypes: props,
 };
 
-const IsDisabled = ({
-  isFocused,
-  htmlFor,
-  isInvalid,
+const Focused = ({
   children,
+  invalid,
+  htmlFor,
+  typo,
+  disabled,
 }: ILabelProps) => {
   return (
     <Label
-      isDisabled={true}
-      isFocused={isFocused}
+      disabled={disabled}
+      focused={true}
+      invalid={invalid}
       htmlFor={htmlFor}
-      isInvalid={isInvalid}
+      typo={typo}
     >
       {children}
     </Label>
   );
 };
-IsDisabled.args = {
+Focused.args = {
   children: "Label Text",
-  isFocused: false,
+  disabled: false,
   htmlFor: "id",
-  isInvalid: false,
+  invalid: false,
+  typo: "large",
 };
 
 export default story;
-
-export { IsDisabled };
+export { Focused };
