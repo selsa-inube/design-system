@@ -31,7 +31,8 @@ const StyledSkeletonIcon = styled.div`
         theme?.color?.surface?.dark?.clear || inube.color.surface.dark.clear
       } 20%,
       ${
-        theme?.color?.palette?.neutral?.N20 || inube.color.palette.neutral.N0
+        theme?.color?.surface?.dark?.disabled ||
+        inube.color.surface.dark.disabled
       } 50%,
       ${
         theme?.color?.surface?.dark?.clear || inube.color.surface.dark.clear
