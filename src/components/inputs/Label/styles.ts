@@ -5,23 +5,23 @@ import { inube } from "@shared/tokens";
 import { Themed } from "./props";
 
 const getColor = (props: ILabelProps): string => {
-  const { theme, isDisabled, isFocused, isInvalid } = props;
+  const { theme, disabled, focused, invalid } = props;
   let color =
     theme?.color?.text?.dark?.regular || inube.color.text.dark.regular;
 
-  if (isDisabled) {
+  if (disabled) {
     color =
       theme?.color?.text?.dark?.disabled || inube.color.text.dark.disabled;
     return color;
   }
 
-  if (isInvalid) {
+  if (invalid) {
     color =
       theme?.color?.text?.error?.regular || inube.color.text.error.regular;
     return color;
   }
 
-  if (isFocused) {
+  if (focused) {
     color =
       theme?.color?.text?.primary?.hover || inube.color.text.primary.hover;
     return color;
