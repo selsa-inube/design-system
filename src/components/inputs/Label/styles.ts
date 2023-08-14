@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 import { ILabelProps } from "./index";
 import { inube } from "@shared/tokens";
+import { Themed } from "./props";
 
 const getColor = (props: ILabelProps): string => {
   const { theme, isDisabled, isFocused, isInvalid } = props;
@@ -30,7 +31,7 @@ const getColor = (props: ILabelProps): string => {
 };
 
 const StyledLabel = styled.label`
-  font-family: ${({ theme }: any) => {
+  font-family: ${({ theme }: Themed) => {
     return (
       theme?.typography?.label?.large?.font || inube.typography.label.large.font
     );
