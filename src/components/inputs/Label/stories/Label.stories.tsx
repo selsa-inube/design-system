@@ -16,7 +16,7 @@ Default.args = {
   children: "Label Text",
   typo: "labelLarge",
   isDisabled: false,
-  isFocused: false,
+  focused: false,
   invalid: false,
 };
 

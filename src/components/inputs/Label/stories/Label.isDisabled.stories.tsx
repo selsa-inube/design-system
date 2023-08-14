@@ -7,11 +7,11 @@ const story = {
   argTypes: props,
 };
 
-const IsDisabled = ({ isFocused, htmlFor, invalid, children }: ILabelProps) => {
+const IsDisabled = ({ focused, htmlFor, invalid, children }: ILabelProps) => {
   return (
     <Label
       isDisabled={true}
-      isFocused={isFocused}
+      focused={focused}
       htmlFor={htmlFor}
       invalid={invalid}
     >
@@ -21,7 +21,7 @@ const IsDisabled = ({ isFocused, htmlFor, invalid, children }: ILabelProps) => {
 };
 IsDisabled.args = {
   children: "Label Text",
-  isFocused: false,
+  focused: false,
   htmlFor: "id",
   invalid: false,
 };

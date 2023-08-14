@@ -97,7 +97,7 @@ const TextFieldUI = (props: ITextFieldProps) => {
     readOnly,
   } = props;
 
-  const transformedIsInvalid = state === "invalid" ? true : false;
+  const transformedInvalid = state === "invalid" ? true : false;
 
   return (
     <StyledContainer isFullWidth={isFullWidth} isDisabled={isDisabled}>
@@ -111,8 +111,8 @@ const TextFieldUI = (props: ITextFieldProps) => {
           <Label
             htmlFor={id}
             isDisabled={isDisabled}
-            isFocused={isFocused}
-            invalid={transformedIsInvalid}
+            focused={isFocused}
+            invalid={transformedInvalid}
             typo={getTypo(size!)}
           >
             {label}

@@ -3,7 +3,7 @@ import { StyledLabel } from "./styles";
 
 export interface ILabelProps {
   isDisabled?: boolean;
-  isFocused?: boolean;
+  focused?: boolean;
   htmlFor: string;
   invalid?: boolean;
   typo?: TypographyLabel;
@@ -18,7 +18,7 @@ const defaultTypo = "labelLarge";
 const Label = (props: ILabelProps) => {
   const {
     isDisabled = defaultIsDisabled,
-    isFocused = defaultIsFocused,
+    focused = defaultIsFocused,
     htmlFor,
     invalid = defaultInvalid,
     typo = "labelLarge",
@@ -29,7 +29,7 @@ const Label = (props: ILabelProps) => {
     typeof isDisabled === "boolean" ? isDisabled : defaultIsDisabled;
 
   const transformedIsFocused =
-    typeof isFocused === "boolean" ? isFocused : defaultIsFocused;
+    typeof focused === "boolean" ? focused : defaultIsFocused;
 
   const transformedInvalid =
     typeof invalid === "boolean" ? invalid : defaultInvalid;
@@ -39,7 +39,7 @@ const Label = (props: ILabelProps) => {
   return (
     <StyledLabel
       isDisabled={transformedIsDisabled}
-      isFocused={transformedIsFocused}
+      focused={transformedIsFocused}
       htmlFor={htmlFor}
       invalid={transformedInvalid}
       typo={transformedTypo}
