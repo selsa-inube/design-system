@@ -1,4 +1,4 @@
-import { Themed, TypographyLabel } from "./props";
+import { Size, Themed } from "./props";
 import { StyledLabel } from "./styles";
 
 export interface ILabelProps extends Themed {
@@ -6,7 +6,7 @@ export interface ILabelProps extends Themed {
   focused?: boolean;
   htmlFor: string;
   invalid?: boolean;
-  typo?: TypographyLabel;
+  size?: Size;
   children?: React.ReactNode;
 }
 
@@ -16,7 +16,7 @@ const Label = (props: ILabelProps) => {
     focused = false,
     htmlFor,
     invalid = false,
-    typo = "large",
+    size = "large",
     children,
   } = props;
 
@@ -26,7 +26,7 @@ const Label = (props: ILabelProps) => {
       focused={focused}
       htmlFor={htmlFor}
       invalid={invalid}
-      typo={typo}
+      size={size}
     >
       {children}
     </StyledLabel>
