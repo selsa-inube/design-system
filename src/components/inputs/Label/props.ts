@@ -1,7 +1,7 @@
 import { inube } from "@shared/tokens";
 
-export const typos = ["large", "medium", "small"] as const;
-export type TypographyLabel = typeof typos[number];
+export const sizes = ["large", "medium", "small"] as const;
+export type Size = typeof sizes[number];
 export type Themed = { theme?: typeof inube };
 
 const parameters = {
@@ -37,8 +37,8 @@ const props = {
       defaultValue: { summary: false },
     },
   },
-  typo: {
-    options: typos,
+  size: {
+    options: sizes,
     control: { type: "select" },
     description: "indicates the font size used in the component",
   },

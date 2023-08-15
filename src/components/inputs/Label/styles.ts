@@ -36,22 +36,22 @@ const StyledLabel = styled.label`
       theme?.typography?.label?.large?.font || inube.typography.label.large.font
     );
   }};
-  font-size: ${({ typo, theme }: ILabelProps) =>
-    typo &&
-    (theme?.typography?.label?.[typo]?.size ||
-      inube.typography.label[typo].size)};
-  font-weight: ${({ typo, theme }: ILabelProps) =>
-    typo &&
-    (theme?.typography?.label?.[typo]?.weight ||
-      inube.typography.label[typo].weight)};
-  letter-spacing: ${({ typo, theme }: ILabelProps) =>
-    typo &&
-    (theme?.typography?.label?.[typo]?.tracking ||
-      inube.typography.label[typo].tracking)};
-  line-height: ${({ typo, theme }: ILabelProps) =>
-    typo &&
-    (theme?.typography?.label?.[typo]?.lineHeight ||
-      inube.typography.label[typo].lineHeight)};
+  font-size: ${({ size, theme }: ILabelProps) =>
+    size &&
+    (theme?.typography?.label?.[size]?.size ||
+      inube.typography.label[size].size)};
+  font-weight: ${({ size, theme }: ILabelProps) =>
+    size &&
+    (theme?.typography?.label?.[size]?.weight ||
+      inube.typography.label[size].weight)};
+  letter-spacing: ${({ size, theme }: ILabelProps) =>
+    size &&
+    (theme?.typography?.label?.[size]?.tracking ||
+      inube.typography.label[size].tracking)};
+  line-height: ${({ size, theme }: ILabelProps) =>
+    size &&
+    (theme?.typography?.label?.[size]?.lineHeight ||
+      inube.typography.label[size].lineHeight)};
   color: ${(props: ILabelProps) => getColor(props)};
 `;
 

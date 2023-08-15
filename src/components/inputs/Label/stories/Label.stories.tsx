@@ -15,7 +15,7 @@ const Default = (args: ILabelProps) => {
 Default.args = {
   htmlFor: "id",
   children: "Label Text",
-  typo: "large",
+  size: "large",
   disabled: false,
   focused: false,
   invalid: false,

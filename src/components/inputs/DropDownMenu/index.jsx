@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import { StyledDropDownMenu } from "./styled";
-import { DropDownItem } from "../DropDownItem/index";
+import { DropdownItem } from "@inputs/Select/DropdownItem";
 
 const DropDownMenu = (props) => {
   const { options, handleClick, onCloseOptions, handleSelect } = props;
@@ -24,7 +24,7 @@ const DropDownMenu = (props) => {
   return (
     <StyledDropDownMenu>
       {options.map((dropDownitem) => (
-        <DropDownItem
+        <DropdownItem
           key={dropDownitem.id}
           id={dropDownitem.id}
           isDisabled={dropDownitem.isDisabled}
@@ -32,7 +32,7 @@ const DropDownMenu = (props) => {
           handleClick={() => handleOptionClick(dropDownitem.id)}
         >
           {dropDownitem.label}
-        </DropDownItem>
+        </DropdownItem>
       ))}
     </StyledDropDownMenu>
   );
