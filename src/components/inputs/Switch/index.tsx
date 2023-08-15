@@ -7,7 +7,6 @@ import { StyledContainer, StyledInput, StyledSpan, StyledIcon } from "./styles";
 import { Size } from "./props";
 
 export interface ISwitchProps {
-  isDisabled?: boolean;
   id: string;
   name?: string;
   value?: string;
@@ -22,7 +21,7 @@ export interface ISwitchProps {
 
 const Switch = (props: ISwitchProps) => {
   const {
-    isDisabled = false,
+    disabled = false,
     id,
     name,
     value,
@@ -54,10 +53,10 @@ const Switch = (props: ISwitchProps) => {
           value={value}
           checked={checked}
           onChange={handleChange}
-          disabled={isDisabled}
+          disabled={disabled}
           name={name}
         />
-        <StyledSpan size={size} isDisabled={isDisabled}>
+        <StyledSpan size={size} disabled={disabled}>
           {checked ? (
             <StyledIcon checked={checked} size={size}>
               <MdDone id="mdIcon" />
@@ -70,7 +69,7 @@ const Switch = (props: ISwitchProps) => {
         </StyledSpan>
       </StyledContainer>
       {label && (
-        <Label htmlFor={id} disabled={isDisabled}>
+        <Label htmlFor={id} disabled={disabled}>
           {label}
         </Label>
       )}
