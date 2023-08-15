@@ -2,6 +2,7 @@ import { ISwitchProps } from "./index";
 import styled, { css } from "styled-components";
 
 import { colors } from "@shared/colors/colors";
+import { spacing } from "@shared/tokens/spacing/spacing";
 
 const sizes: any = {
   large: {
@@ -39,7 +40,7 @@ const StyledSpan = styled.span`
   &:before {
     position: absolute;
     content: "";
-    left: 2px;
+    left: ${spacing.s025};
     border-radius: 50%;
     transition: 0.3s;
     background-color: ${colors.ref.palette.neutral.n0};
@@ -102,14 +103,16 @@ const StyledIcon = styled.div`
         ? css`
             width: 10px;
             height: 10px;
-            top: 3px;
-            left: ${(props: ISwitchProps) => (props.checked ? "5px" : "17px")};
+            top: ${spacing.s050};
+            left: ${(props: ISwitchProps) =>
+              props.checked ? spacing.s075 : spacing.s200};
           `
         : css`
             width: 14px;
             height: 14px;
-            top: 3px;
-            left: ${(props: ISwitchProps) => (props.checked ? "5px" : "22px")};
+            top: ${spacing.s050};
+            left: ${(props: ISwitchProps) =>
+              props.checked ? spacing.s075 : "22px"};
           `};
   }
 `;
