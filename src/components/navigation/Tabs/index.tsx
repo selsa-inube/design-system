@@ -4,7 +4,7 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 import { Types, types } from "./props";
 import { Tab } from "@navigation/Tab";
 import { Stack } from "@layouts/Stack";
-import { DropDownMenu } from "@inputs/DropDownMenu";
+import { DropDownMenu } from "@src/components/inputs/Select/DropdownMenu";
 import { StyledTabs, StyledIconWrapper } from "./styles";
 
 export interface ITabsItem {
