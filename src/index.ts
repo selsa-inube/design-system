@@ -22,7 +22,7 @@ export { Label } from "@inputs/Label";
 export { Select } from "@inputs/Select";
 export { Switch } from "@inputs/Switch";
 export { TextArea } from "@inputs/TextArea";
-export { TextField } from "@inputs/TextField";
+export { Textfield } from "@inputs/Textfield";
 
 // layouts
 export { Stack } from "@layouts/Stack";
