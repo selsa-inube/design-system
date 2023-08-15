@@ -21,6 +21,8 @@ Default.args = {
   disabled: false,
   focused: false,
   invalid: false,
+  margin: "0px",
+  padding: "0px",
 };
 
 const theme = {
@@ -42,6 +44,8 @@ Themed.args = {
   disabled: false,
   focused: false,
   invalid: false,
+  margin: "0px",
+  padding: "0px",
 };
 
 export default story;
