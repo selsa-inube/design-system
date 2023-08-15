@@ -6,6 +6,8 @@ export interface ILabelProps extends Themed {
   focused?: boolean;
   htmlFor: string;
   invalid?: boolean;
+  margin?: string;
+  padding?: string;
   size?: Size;
   children?: React.ReactNode;
 }
@@ -16,6 +18,8 @@ const Label = (props: ILabelProps) => {
     focused = false,
     htmlFor,
     invalid = false,
+    margin = "0px",
+    padding = "0px",
     size = "large",
     children,
   } = props;
@@ -26,6 +30,8 @@ const Label = (props: ILabelProps) => {
       focused={focused}
       htmlFor={htmlFor}
       invalid={invalid}
+      margin={margin}
+      padding={padding}
       size={size}
     >
       {children}
