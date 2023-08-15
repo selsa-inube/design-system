@@ -4,32 +4,6 @@ import { ILabelProps } from ".";
 import { inube } from "@shared/tokens";
 import { Themed } from "./props";
 
-/* const getColor = (props: ILabelProps): string => {
-  const { theme, disabled, focused, invalid } = props;
-  let color =
-    theme?.color?.text?.dark?.regular || inube.color.text.dark.regular;
-
-  if (disabled) {
-    color =
-      theme?.color?.text?.dark?.disabled || inube.color.text.dark.disabled;
-    return color;
-  }
-
-  if (invalid) {
-    color =
-      theme?.color?.text?.error?.regular || inube.color.text.error.regular;
-    return color;
-  }
-
-  if (focused) {
-    color =
-      theme?.color?.text?.primary?.hover || inube.color.text.primary.hover;
-    return color;
-  }
-
-  return color;
-};
- */
 const StyledLabel = styled.label`
   font-family: ${({ theme }: Themed) => {
     return (
