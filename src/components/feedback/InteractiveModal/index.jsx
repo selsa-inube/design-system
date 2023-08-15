@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { Blanket } from "@utils/Blanket";
 import { Stack } from "@layouts/Stack";
 import { Text } from "@data/Text";
-import { TextField } from "@inputs/TextField";
+import { Textfield } from "@inputs/TextField";
 import { useMediaQuery } from "@hooks/useMediaQuery";
 import { StyledModal } from "./styles";
 
@@ -54,7 +54,7 @@ const InteractiveModal = (props) => {
               ? labels.map(
                   (field, id) =>
                     infoData[field.id] && (
-                      <TextField
+                      <Textfield
                         key={id}
                         label={field.titleName}
                         name={field.id}
@@ -69,7 +69,7 @@ const InteractiveModal = (props) => {
                     )
                 )
               : Object.keys(infoData).map((key, id) => (
-                  <TextField
+                  <Textfield
                     key={id}
                     label={key}
                     name={key}

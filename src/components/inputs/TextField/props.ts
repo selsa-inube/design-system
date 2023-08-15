@@ -14,15 +14,16 @@ export type Size = typeof sizes[number];
 export const states = ["valid", "invalid", "pending"] as const;
 export type State = typeof states[number];
 
-const props = {
-  parameters: {
-    docs: {
-      description: {
-        component:
-          "A text field is an input that allows a user to write or edit text",
-      },
+const parameters = {
+  docs: {
+    description: {
+      component:
+        "A text field is an input that allows a user to write or edit text",
     },
   },
+};
+
+const props = {
   label: {
     description: "prompts the user what value to enter",
   },
@@ -121,4 +122,4 @@ const props = {
   },
 };
 
-export { props };
+export { props, parameters };
