@@ -14,7 +14,7 @@ const States = ({
   disabled,
   focused,
   children,
-  typo,
+  size,
   htmlFor,
 }: ILabelProps) => {
   return (
@@ -25,7 +25,7 @@ const States = ({
           focused={focused}
           invalid={invalid}
           htmlFor={htmlFor}
-          typo={typo}
+          size={size}
           key={invalid.toString()}
         >
           {children}
@@ -39,7 +39,7 @@ States.args = {
   disabled: false,
   focused: false,
   htmlFor: "id",
-  typo: "large",
+  size: "large",
   children: "Label Text",
 };
 
