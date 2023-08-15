@@ -45,7 +45,7 @@ const props = {
     control: { type: "select" },
     description: "value to be submitted in a form",
   },
-  handleChange: {
+  onChange: {
     options: ["logState"],
     control: { type: "func" },
     description:

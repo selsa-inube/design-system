@@ -28,7 +28,7 @@ export const Disabled = {
     id: "id",
     isDisabled: true,
     name: "name",
-    handleChange: () => {},
+    onChange: () => {},
     margin: "0px",
     padding: "0px",
   },

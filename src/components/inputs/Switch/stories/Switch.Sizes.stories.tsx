@@ -34,7 +34,7 @@ export const Sizes = {
     name: "name",
     value: "switchTest2",
     checked: false,
-    handleChange: () => {},
+    onChange: () => {},
     margin: "0px",
     padding: "0px",
   },

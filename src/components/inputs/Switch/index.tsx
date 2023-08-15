@@ -13,7 +13,7 @@ export interface ISwitchProps {
   value?: string;
   size?: Size;
   checked?: boolean;
-  handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   label: string;
   margin: string;
   padding: string;
@@ -28,7 +28,7 @@ const Switch = (props: ISwitchProps) => {
     value,
     size = "small",
     checked = false,
-    handleChange,
+    onChange,
     label,
     margin = "0px",
     padding = "0px",
@@ -53,7 +53,7 @@ const Switch = (props: ISwitchProps) => {
           size={size}
           value={value}
           checked={checked}
-          onChange={handleChange}
+          onChange={onChange}
           disabled={isDisabled}
           name={name}
         />
