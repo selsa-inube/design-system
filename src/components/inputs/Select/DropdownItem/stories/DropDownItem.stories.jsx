@@ -1,16 +1,16 @@
 import React from "react";
 
-import { DropDownItem } from "../index";
+import { DropdownItem } from "../index";
 
 import { props } from "../props";
 
 const story = {
-  title: "Inputs/DropDownItem",
-  component: [DropDownItem],
+  title: "Inputs/DropdownItem",
+  component: [DropdownItem],
   argTypes: props,
 };
 
-const Default = (args) => <DropDownItem {...args} />;
+const Default = (args) => <DropdownItem {...args} />;
 
 Default.args = {
   children: "Item 1",
