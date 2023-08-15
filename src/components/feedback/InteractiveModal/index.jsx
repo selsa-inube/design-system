@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { Blanket } from "@utils/Blanket";
 import { Stack } from "@layouts/Stack";
 import { Text } from "@data/Text";
-import { Textfield } from "../../inputs/Textfield";
+import { Textfield } from "@inputs/Textfield";
 import { useMediaQuery } from "@hooks/useMediaQuery";
 import { StyledModal } from "./styles";
 
