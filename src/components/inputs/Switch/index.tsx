@@ -4,7 +4,7 @@ import { Stack } from "@layouts/Stack";
 import { Label } from "@inputs/Label";
 
 import { StyledContainer, StyledInput, StyledSpan, StyledIcon } from "./styles";
-import { Size, sizes } from "./props";
+import { Size } from "./props";
 
 export interface ISwitchProps {
   isDisabled?: boolean;
@@ -20,15 +20,13 @@ export interface ISwitchProps {
   disabled?: boolean;
 }
 
-const defaultSize: Size = "small";
-
 const Switch = (props: ISwitchProps) => {
   const {
     isDisabled = false,
     id,
     name,
     value,
-    size = defaultSize,
+    size = "small",
     checked = false,
     handleChange,
     label,
@@ -36,7 +34,6 @@ const Switch = (props: ISwitchProps) => {
     padding = "0px",
   } = props;
 
-  const transformedSize: Size = sizes.includes(size) ? size : defaultSize;
   const tranformedGap = label ? "10px" : "0px";
   const transformedJustify = label ? "space-between" : "center";
 
@@ -49,24 +46,24 @@ const Switch = (props: ISwitchProps) => {
       margin={margin}
       padding={padding}
     >
-      <StyledContainer size={transformedSize}>
+      <StyledContainer size={size}>
         <StyledInput
           id={id}
           type="checkbox"
-          size={transformedSize}
+          size={size}
           value={value}
           checked={checked}
           onChange={handleChange}
           disabled={isDisabled}
           name={name}
         />
-        <StyledSpan size={transformedSize} isDisabled={isDisabled}>
+        <StyledSpan size={size} isDisabled={isDisabled}>
           {checked ? (
-            <StyledIcon checked={checked} size={transformedSize}>
+            <StyledIcon checked={checked} size={size}>
               <MdDone id="mdIcon" />
             </StyledIcon>
           ) : (
-            <StyledIcon checked={checked} size={transformedSize}>
+            <StyledIcon checked={checked} size={size}>
               <MdClose id="mdIcon" />
             </StyledIcon>
           )}
