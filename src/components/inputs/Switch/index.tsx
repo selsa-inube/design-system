@@ -34,15 +34,12 @@ const Switch = (props: ISwitchProps) => {
     padding = "0px",
   } = props;
 
-  const tranformedGap = label ? "10px" : "0px";
-  const transformedJustify = label ? "space-between" : "center";
-
   return (
     <Stack
       direction={"row"}
-      justifyContent={transformedJustify}
+      justifyContent={label ? "space-between" : "center"}
       alignItems="center"
-      gap={tranformedGap}
+      gap={label ? "10px" : "0px"}
       margin={margin}
       padding={padding}
     >
@@ -58,15 +55,9 @@ const Switch = (props: ISwitchProps) => {
           name={name}
         />
         <StyledSpan size={size} isDisabled={isDisabled}>
-          {checked ? (
-            <StyledIcon checked={checked} size={size}>
-              <MdDone id="mdIcon" />
-            </StyledIcon>
-          ) : (
-            <StyledIcon checked={checked} size={size}>
-              <MdClose id="mdIcon" />
-            </StyledIcon>
-          )}
+          <StyledIcon checked={checked} size={size}>
+            {checked ? <MdDone id="mdIcon" /> : <MdClose id="mdIcon" />}
+          </StyledIcon>
         </StyledSpan>
       </StyledContainer>
       {label && (
