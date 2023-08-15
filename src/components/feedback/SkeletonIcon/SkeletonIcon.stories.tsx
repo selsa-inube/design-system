@@ -27,7 +27,7 @@ export const Themed = (args: ISkeletonIconProps) => (
 );
 Themed.args = {
   size: "24px",
-  isAnimated: false,
+  animated: false,
 };
 
 export default story;

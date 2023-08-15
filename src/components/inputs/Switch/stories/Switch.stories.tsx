@@ -1,11 +1,12 @@
 import { Switch, ISwitchProps } from "..";
 import { SwitchController } from "./SwitchController";
 
-import { props } from "../props";
+import { props, parameters } from "../props";
 
 const story = {
   title: "inputs/Switch",
   components: [Switch],
+  parameters,
   argTypes: props,
 };
 
