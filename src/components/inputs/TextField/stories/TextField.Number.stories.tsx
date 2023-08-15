@@ -4,7 +4,7 @@ import { TextfieldController } from "./TextfieldController";
 import { props, parameters } from "../props";
 
 const story = {
-  title: "inputs/TextField",
+  title: "inputs/Textfield",
   components: [Textfield],
   parameters,
   argTypes: props,

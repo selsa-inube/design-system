@@ -6,7 +6,7 @@ import { Stack } from "@layouts/Stack";
 import { props, sizes, parameters } from "../props";
 
 const story = {
-  title: "inputs/TextField",
+  title: "inputs/Textfield",
   components: [Textfield],
   parameters,
   argTypes: props,

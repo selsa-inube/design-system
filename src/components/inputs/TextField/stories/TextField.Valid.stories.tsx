@@ -4,12 +4,12 @@ import { Stack } from "@layouts/Stack";
 import { props, sizes } from "../props";
 
 const story = {
-  title: "inputs/TextField",
+  title: "inputs/Textfield",
   components: [Textfield],
   argTypes: props,
 };
 
-const TextFieldComponent = (args: ITextfieldProps) => {
+const TextfieldComponent = (args: ITextfieldProps) => {
   return (
     <Stack justifyContent="space-evenly">
       {sizes.map((size) => (
@@ -34,7 +34,7 @@ const Valid = {
     type: "text",
     size: "wide",
   },
-  render: (args: ITextfieldProps) => <TextFieldComponent {...args} />,
+  render: (args: ITextfieldProps) => <TextfieldComponent {...args} />,
 };
 
 export default story;
