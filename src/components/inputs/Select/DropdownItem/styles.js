@@ -34,7 +34,7 @@ const getBackgroundColor = (isDisabled, isSelected) => {
   return color;
 };
 
-const StyledDropDownItem = styled.li`
+const StyledDropdownItem = styled.li`
   display: flex;
   width: auto;
   height: 40px;
@@ -59,4 +59,4 @@ const StyledDropDownItem = styled.li`
   }
 `;
 
-export { StyledDropDownItem };
+export { StyledDropdownItem };
