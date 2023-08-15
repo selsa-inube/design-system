@@ -1,6 +1,8 @@
 import { Switch, ISwitchProps } from "..";
 import { SwitchController } from "./SwitchController";
+import { ThemeProvider } from "styled-components";
 
+import { presente } from "@shared/themes/presente";
 import { props, parameters } from "../props";
 
 const story = {
@@ -21,6 +23,20 @@ Default.args = {
   handleChange: () => {},
   margin: "0px",
   padding: "0px",
+};
+
+const theme = {
+  ...presente,
+};
+
+export const Themed = (args: ISwitchProps) => (
+  <ThemeProvider theme={theme}>
+    <SwitchController {...args} />
+  </ThemeProvider>
+);
+
+Themed.args = {
+  ...Default.args,
 };
 
 export default story;
