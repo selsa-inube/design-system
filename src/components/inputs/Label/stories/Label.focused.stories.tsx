@@ -12,7 +12,7 @@ const Focused = ({
   children,
   invalid,
   htmlFor,
-  typo,
+  size,
   disabled,
 }: ILabelProps) => {
   return (
@@ -21,7 +21,7 @@ const Focused = ({
       focused={true}
       invalid={invalid}
       htmlFor={htmlFor}
-      typo={typo}
+      size={size}
     >
       {children}
     </Label>
@@ -32,7 +32,7 @@ Focused.args = {
   disabled: false,
   htmlFor: "id",
   invalid: false,
-  typo: "large",
+  size: "large",
 };
 
 export default story;

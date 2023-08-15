@@ -140,7 +140,7 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
             disabled={isDisabled}
             focused={isFocused}
             invalid={transformedInvalid}
-            typo={getTypo(size!)}
+            size={getTypo(size!)}
           >
             {label}
           </Label>
