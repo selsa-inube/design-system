@@ -1,15 +1,16 @@
 export const sizes = ["small", "large"] as const;
 export type Size = typeof sizes[number];
 
-const props = {
-  parameters: {
-    docs: {
-      description: {
-        component:
-          "A switch is used to view or switch between enabled or disabled states.",
-      },
+const parameters = {
+  docs: {
+    description: {
+      component:
+        "A switch is used to view or switch between enabled or disabled states.",
     },
   },
+};
+
+const props = {
   id: {
     options: ["id"],
     control: { type: "select" },
@@ -79,4 +80,4 @@ const props = {
   },
 };
 
-export { props };
+export { props, parameters };
