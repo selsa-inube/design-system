@@ -2,11 +2,12 @@ import React from "react";
 
 import { DropdownMenu } from "../index";
 
-import { props } from "../props";
+import { props, parameters } from "../props";
 
 const story = {
   title: "Inputs/DropdownMenu",
   component: [DropdownMenu],
+  parameters,
   argTypes: props,
 };
 

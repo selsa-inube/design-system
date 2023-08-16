@@ -1,12 +1,11 @@
-const props = {
-  parameters: {
-    docs: {
-      description: {
-        component:
-          "container of the options to be used in component <Select />",
-      },
+const parameters = {
+  docs: {
+    description: {
+      component: "container of the options to be used in component <Select />",
     },
   },
+};
+const props = {
   options: {
     description:
       "(array): shall be designed to accept an array of objects with a predetermined structure.",
@@ -28,4 +27,4 @@ const props = {
   },
 };
 
-export { props };
+export { props, parameters };
