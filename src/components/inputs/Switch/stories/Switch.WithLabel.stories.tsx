@@ -33,7 +33,7 @@ export const WithLabel = {
     disabled: false,
     name: "name",
     checked: false,
-    handleChange: () => {},
+    onChange: () => {},
     label: "Label",
     margin: "0px",
     padding: "0px",

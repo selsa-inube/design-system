@@ -34,7 +34,7 @@ Example.args = {
   value: "switchTest4",
   checked: false,
   size: "small",
-  handleChange: () => {},
+  onChange: () => {},
   margin: "0px",
   padding: "0px",
 };

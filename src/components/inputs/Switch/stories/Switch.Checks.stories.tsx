@@ -32,7 +32,7 @@ export const Checks = {
     disabled: false,
     name: "name",
     checked: false,
-    handleChange: () => {},
+    onChange: () => {},
     margin: "0px",
     padding: "0px",
   },
