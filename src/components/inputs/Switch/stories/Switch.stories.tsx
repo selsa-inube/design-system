@@ -21,8 +21,8 @@ Default.args = {
   checked: false,
   size: "small",
   onChange: () => {},
-  margin: "0px",
-  padding: "0px",
+  margin: "s0",
+  padding: "s0",
 };
 
 const theme = {
