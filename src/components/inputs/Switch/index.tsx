@@ -7,13 +7,12 @@ import { StyledContainer, StyledInput, StyledSpan, StyledIcon } from "./styles";
 import { Size } from "./props";
 
 export interface ISwitchProps {
-  isDisabled?: boolean;
   id: string;
   name?: string;
   value?: string;
   size?: Size;
   checked?: boolean;
-  handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   label: string;
   margin: string;
   padding: string;
@@ -22,27 +21,24 @@ export interface ISwitchProps {
 
 const Switch = (props: ISwitchProps) => {
   const {
-    isDisabled = false,
+    disabled = false,
     id,
     name,
     value,
     size = "small",
     checked = false,
-    handleChange,
+    onChange,
     label,
     margin = "0px",
     padding = "0px",
   } = props;
 
-  const tranformedGap = label ? "10px" : "0px";
-  const transformedJustify = label ? "space-between" : "center";
-
   return (
     <Stack
       direction={"row"}
-      justifyContent={transformedJustify}
+      justifyContent={label ? "space-between" : "center"}
       alignItems="center"
-      gap={tranformedGap}
+      gap={label ? "10px" : "0px"}
       margin={margin}
       padding={padding}
     >
@@ -53,11 +49,11 @@ const Switch = (props: ISwitchProps) => {
           size={size}
           value={value}
           checked={checked}
-          onChange={handleChange}
-          disabled={isDisabled}
+          onChange={onChange}
+          disabled={disabled}
           name={name}
         />
-        <StyledSpan size={size} isDisabled={isDisabled}>
+        <StyledSpan size={size} disabled={disabled}>
           {checked ? (
             <StyledIcon checked={checked} size={size}>
               <MdDone id="mdIcon" />
@@ -70,7 +66,7 @@ const Switch = (props: ISwitchProps) => {
         </StyledSpan>
       </StyledContainer>
       {label && (
-        <Label htmlFor={id} disabled={isDisabled}>
+        <Label htmlFor={id} disabled={disabled}>
           {label}
         </Label>
       )}

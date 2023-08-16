@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { colors } from "@shared/colors/colors";
+import { inube } from "@shared/tokens";
+import { IBlanketProps } from ".";
 
 const StyledBlanket = styled.div`
   position: fixed;
@@ -7,7 +8,9 @@ const StyledBlanket = styled.div`
   place-items: ${(props: { isSmallScreen: string }) =>
     props.isSmallScreen ? "center" : "initial"};
   inset: 0;
-  background-color: ${colors.ref.palette.neutralAlpha.n100A};
+  background-color: ${({ theme }: IBlanketProps) =>
+    theme?.color?.surface?.blanket?.regular ||
+    inube.color.surface.blanket.regular};
   border: none;
   z-index: 1;
   overflow-y: auto;
