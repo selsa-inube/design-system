@@ -24,15 +24,15 @@ const StyledSpan = styled.span`
   transition: 0.1s;
   border-radius: 30px;
   cursor: ${(props: ISwitchProps) =>
-    props.isDisabled ? "not-allowed" : "pointer"};
+    props.disabled ? "not-allowed" : "pointer"};
   background: ${(props: ISwitchProps) =>
-    props.isDisabled
+    props.disabled
       ? colors.ref.palette.neutral.n40
       : colors.ref.palette.neutral.n200};
 
   &:hover {
     background-color: ${(props: ISwitchProps) =>
-      props.isDisabled
+      props.disabled
         ? colors.ref.palette.neutral.n40
         : colors.ref.palette.neutral.n70};
   }

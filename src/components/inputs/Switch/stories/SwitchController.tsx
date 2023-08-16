@@ -5,13 +5,11 @@ const SwitchController = (props: ISwitchProps) => {
   const { checked = false } = props;
   const [switchChecked, setSwitchChecked] = useState(checked);
 
-  const handleChenge = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSwitchChecked(e.target.checked);
   };
 
-  return (
-    <Switch {...props} checked={switchChecked} handleChange={handleChenge} />
-  );
+  return <Switch {...props} checked={switchChecked} onChange={onChange} />;
 };
 
 export { SwitchController };
