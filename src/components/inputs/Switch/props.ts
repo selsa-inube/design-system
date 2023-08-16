@@ -1,5 +1,25 @@
+//import { inube } from "@shared/tokens";
+
 export const sizes = ["small", "large"] as const;
 export type Size = typeof sizes[number];
+
+export type Spacing =
+  | "0px"
+  | "2px"
+  | "4px"
+  | "6px"
+  | "8px"
+  | "12px"
+  | "16px"
+  | "20px"
+  | "24px"
+  | "28px"
+  | "32px"
+  | "36px"
+  | "40px"
+  | "48px"
+  | "64px"
+  | "80px";
 
 const parameters = {
   docs: {
