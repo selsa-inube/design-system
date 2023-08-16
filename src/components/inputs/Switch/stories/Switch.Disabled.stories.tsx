@@ -26,9 +26,9 @@ const SwitchComponent = (args: ISwitchProps) => {
 export const Disabled = {
   args: {
     id: "id",
-    isDisabled: true,
+    disabled: true,
     name: "name",
-    handleChange: () => {},
+    onChange: () => {},
     margin: "0px",
     padding: "0px",
   },

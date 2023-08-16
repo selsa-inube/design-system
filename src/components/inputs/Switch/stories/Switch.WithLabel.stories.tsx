@@ -30,10 +30,10 @@ const SwitchComponent = (args: ISwitchProps) => {
 export const WithLabel = {
   args: {
     id: "id",
-    isDisabled: false,
+    disabled: false,
     name: "name",
     checked: false,
-    handleChange: () => {},
+    onChange: () => {},
     label: "Label",
     margin: "0px",
     padding: "0px",

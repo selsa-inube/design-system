@@ -29,10 +29,10 @@ const SwitchComponent = (props: ISwitchProps) => {
 export const Checks = {
   args: {
     id: "id",
-    isDisabled: false,
+    disabled: false,
     name: "name",
     checked: false,
-    handleChange: () => {},
+    onChange: () => {},
     margin: "0px",
     padding: "0px",
   },

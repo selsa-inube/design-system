@@ -17,7 +17,7 @@ const props = {
     description:
       "this element can have a label on it, so this id allows us to connect the label with the switch",
   },
-  isDisabled: {
+  disabled: {
     options: [true, false],
     control: { type: "boolean" },
     description:
@@ -45,7 +45,7 @@ const props = {
     control: { type: "select" },
     description: "value to be submitted in a form",
   },
-  handleChange: {
+  onChange: {
     options: ["logState"],
     control: { type: "func" },
     description:
