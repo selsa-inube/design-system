@@ -1,7 +1,7 @@
 const parameters = {
   docs: {
     description: {
-      component: "container of the options to be used in component <Select />",
+      component: "container of the options to be used in component Select",
     },
   },
 };
