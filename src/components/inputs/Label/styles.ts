@@ -26,6 +26,8 @@ const StyledLabel = styled.label`
     size &&
     (theme?.typography?.label?.[size]?.lineHeight ||
       inube.typography.label[size].lineHeight)};
+  margin: ${({ margin }: ILabelProps) => margin};
+  padding: ${({ padding }: ILabelProps) => padding};
   color: ${({ theme, disabled, focused, invalid }: ILabelProps) => {
     if (disabled) {
       return (
