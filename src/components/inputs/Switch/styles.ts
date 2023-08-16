@@ -1,7 +1,8 @@
-import { ISwitchProps } from "./index";
 import styled, { css } from "styled-components";
 
 import { colors } from "@shared/colors/colors";
+import { inube } from "@shared/tokens";
+import { ISwitchProps } from ".";
 
 const sizes: any = {
   large: {
@@ -16,10 +17,10 @@ const sizes: any = {
 
 const StyledSpan = styled.span`
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  top: ${inube.spacing.s0};
+  left: ${inube.spacing.s0};
+  right: ${inube.spacing.s0};
+  bottom: ${inube.spacing.s0};
   transition: 0.1s;
   border-radius: 30px;
   cursor: ${(props: ISwitchProps) =>
@@ -39,7 +40,7 @@ const StyledSpan = styled.span`
   &:before {
     position: absolute;
     content: "";
-    left: 2px;
+    left: ${inube.spacing.s025};
     border-radius: 50%;
     transition: 0.3s;
     background-color: ${colors.ref.palette.neutral.n0};
@@ -48,12 +49,12 @@ const StyledSpan = styled.span`
         ? css`
             width: 12px;
             height: 12px;
-            bottom: calc((16px - 12px) / 2);
+            bottom: calc((${inube.spacing.s200} - ${inube.spacing.s150}) / 2);
           `
         : css`
             width: 16px;
             height: 16px;
-            bottom: calc((20px - 16px) / 2);
+            bottom: calc((${inube.spacing.s250} - ${inube.spacing.s200}) / 2);
           `};
   }
 `;
