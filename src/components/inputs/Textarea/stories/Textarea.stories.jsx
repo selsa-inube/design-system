@@ -1,23 +1,22 @@
-import React from "react";
+import { Textarea } from "..";
+import { TextareaController } from "./Textarea.controller";
 
-import { TextArea } from "..";
-import { TextAreaController } from "./TextArea.controller";
-
-import { props } from "../props";
+import { props, parameters } from "../props";
 
 const story = {
-  title: "inputs/TextArea",
-  components: [TextArea],
+  title: "inputs/Textarea",
+  components: [Textarea],
+  parameters,
   argTypes: props,
 };
 
-const Default = (args) => <TextAreaController {...args} />;
+const Default = (args) => <TextareaController {...args} />;
 Default.args = {
-  label: "TextArea",
+  label: "Textarea",
   name: "textarea",
   id: "textarea",
   state: "pending",
-  placeholder: "Storybook TextArea",
+  placeholder: "Storybook Textarea",
   isDisabled: false,
   counter: true,
   lengthThreshold: 20,
