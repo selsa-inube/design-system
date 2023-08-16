@@ -33,15 +33,12 @@ const Switch = (props: ISwitchProps) => {
     padding = "0px",
   } = props;
 
-  const tranformedGap = label ? "10px" : "0px";
-  const transformedJustify = label ? "space-between" : "center";
-
   return (
     <Stack
       direction={"row"}
-      justifyContent={transformedJustify}
+      justifyContent={label ? "space-between" : "center"}
       alignItems="center"
-      gap={tranformedGap}
+      gap={label ? "10px" : "0px"}
       margin={margin}
       padding={padding}
     >
