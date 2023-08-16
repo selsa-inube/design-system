@@ -1,12 +1,14 @@
 import { useMediaQuery } from "@hooks/useMediaQuery";
 import { Stack } from "@layouts/Stack";
 import { StyledBlanket } from "./styles";
+import { inube } from "@shared/tokens";
 
-export interface BlanketProps {
+export type Themed = { theme?: typeof inube };
+export interface IBlanketProps extends Themed {
   children?: React.ReactNode;
 }
 
-const Blanket = (props: BlanketProps) => {
+const Blanket = (props: IBlanketProps) => {
   const { children } = props;
   const isSmallScreen = useMediaQuery("(max-width: 580px)");
 

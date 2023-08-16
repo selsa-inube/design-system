@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Blanket, BlanketProps } from "..";
+import { Blanket, IBlanketProps } from "..";
 
 import { Button } from "@inputs/Button/index";
 
@@ -24,7 +24,7 @@ const story = {
   },
 };
 
-const Default = (args: BlanketProps) => {
+const Default = (args: IBlanketProps) => {
   const [showBlanket, setShowBlanket] = useState(false);
 
   const handleShowBlanket = () => {
