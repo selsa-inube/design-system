@@ -29,7 +29,7 @@ export const Example = (args: IExampleSwitch) => {
 
 Example.args = {
   id: "id",
-  isDisabled: false,
+  disabled: false,
   name: "name",
   value: "switchTest4",
   checked: false,
