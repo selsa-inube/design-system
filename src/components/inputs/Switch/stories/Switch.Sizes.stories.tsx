@@ -30,7 +30,7 @@ const SwitchComponent = (args: ISwitchProps) => {
 export const Sizes = {
   args: {
     id: "id",
-    isDisabled: false,
+    disabled: false,
     name: "name",
     value: "switchTest2",
     checked: false,
