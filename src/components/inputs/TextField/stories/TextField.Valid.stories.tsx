@@ -26,7 +26,7 @@ const Valid = {
     id: "Username",
     placeholder: "Write your full name",
     value: "LGARZON",
-    isDisabled: false,
+    disabled: false,
     errorMessage: "Please enter only letters in this field",
     validMessage: "Field validation is successful",
     isRequired: true,

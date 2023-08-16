@@ -28,7 +28,7 @@ Required.args = {
   name: "Username",
   id: "Username",
   placeholder: "Write your full name",
-  isDisabled: false,
+  disabled: false,
   type: "text",
   state: "pending",
   size: "wide",
