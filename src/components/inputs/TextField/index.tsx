@@ -50,8 +50,6 @@ const TextField = (props: ITextFieldProps) => {
     iconAfter,
     maxLength,
     minLength,
-    max,
-    min,
     isRequired = false,
     state = "pending",
     errorMessage,
@@ -110,8 +108,6 @@ const TextField = (props: ITextFieldProps) => {
       iconAfter={iconAfter}
       maxLength={maxLength}
       minLength={minLength}
-      max={max}
-      min={min}
       isRequired={transformedIsRequired}
       size={size}
       state={transformedState}

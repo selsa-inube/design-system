@@ -24,8 +24,6 @@ Search.args = {
   errorMessage: "",
   maxLength: 10,
   minLength: 1,
-  max: 10,
-  min: 1,
   size: "wide",
   type: "text",
   isFullWidth: false,

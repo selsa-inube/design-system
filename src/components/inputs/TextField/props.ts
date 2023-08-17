@@ -74,14 +74,6 @@ const props = {
     description:
       "defines how many minimum characters the component receives as a value",
   },
-  max: {
-    description:
-      "defines the maximum value that can be inserted (useful for components of type number)",
-  },
-  min: {
-    description:
-      "defines the minimum value that can be inserted (useful for components of type number)",
-  },
   isRequired: {
     description: "defines if the field is required or not",
     table: {

@@ -18,8 +18,6 @@ Number.args = {
   type: "number",
   state: "pending",
   isDisabled: false,
-  max: 10,
-  min: 0,
   isRequired: false,
   size: "wide",
   isFullWidth: false,

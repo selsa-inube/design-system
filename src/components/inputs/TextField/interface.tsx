@@ -83,8 +83,6 @@ const TextFieldUI = (props: ITextFieldProps) => {
     iconAfter,
     maxLength,
     minLength,
-    max,
-    min,
     isRequired,
     state,
     errorMessage,
@@ -151,8 +149,6 @@ const TextFieldUI = (props: ITextFieldProps) => {
           iconAfter={iconAfter}
           maxLength={maxLength}
           minLength={minLength}
-          max={max}
-          min={min}
           isRequired={isRequired}
           size={size}
           state={state}
