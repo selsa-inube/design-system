@@ -1,7 +1,7 @@
-import { ISwitchProps } from "./index";
 import styled, { css } from "styled-components";
+import { ISwitchProps } from "./index";
 
-import { colors } from "@shared/colors/colors";
+import { inube } from "@shared/tokens";
 
 const sizes: any = {
   large: {
@@ -21,19 +21,19 @@ const StyledSpan = styled.span`
   right: 0;
   bottom: 0;
   transition: 0.1s;
-  border-radius: 30px;
+  border-radius: 10px;
   cursor: ${(props: ISwitchProps) =>
     props.disabled ? "not-allowed" : "pointer"};
-  background: ${(props: ISwitchProps) =>
-    props.disabled
-      ? colors.ref.palette.neutral.n40
-      : colors.ref.palette.neutral.n200};
+  background: ${({ disabled }: ISwitchProps) =>
+    disabled
+      ? inube.color.surface.gray.disabled
+      : inube.color.surface.gray.regular};
 
   &:hover {
-    background-color: ${(props: ISwitchProps) =>
-      props.disabled
-        ? colors.ref.palette.neutral.n40
-        : colors.ref.palette.neutral.n70};
+    background-color: ${({ disabled }: ISwitchProps) =>
+      disabled
+        ? inube.color.surface.gray.disabled
+        : inube.color.surface.gray.hover};
   }
 
   &:before {
@@ -42,7 +42,9 @@ const StyledSpan = styled.span`
     left: 2px;
     border-radius: 50%;
     transition: 0.3s;
-    background-color: ${colors.ref.palette.neutral.n0};
+    background-color: ${inube.color.surface.light.clear};
+    border: ${({ disabled }: ISwitchProps) =>
+      disabled && `1px solid ${inube.color.stroke.gray.disabled}`};
     ${(props: ISwitchProps) =>
       props.size === "small"
         ? css`
@@ -72,16 +74,16 @@ const StyledInput = styled.input`
   height: 0;
 
   &:checked + span {
-    background-color: ${(props: ISwitchProps) =>
-      props.disabled
-        ? colors.ref.palette.green.g75
-        : colors.ref.palette.green.g400};
+    background-color: ${({ disabled }: ISwitchProps) =>
+      disabled
+        ? inube.color.surface.gray.disabled
+        : inube.color.surface.success.regular};
 
     &:hover {
-      background-color: ${(props: ISwitchProps) =>
-        props.disabled
-          ? colors.ref.palette.green.g75
-          : colors.ref.palette.green.g300};
+      background-color: ${({ disabled }: ISwitchProps) =>
+        disabled
+          ? inube.color.surface.gray.disabled
+          : inube.color.surface.success.hover};
     }
   }
 
@@ -96,14 +98,17 @@ const StyledInput = styled.input`
 const StyledIcon = styled.div`
   & > #mdIcon {
     position: absolute;
-    color: ${colors.ref.palette.neutral.n0};
+    color: ${({ disabled }: ISwitchProps) =>
+      !disabled
+        ? inube.color.surface.light.regular
+        : inube.color.stroke.gray.disabled};
     ${(props: ISwitchProps) =>
       props.size === "small"
         ? css`
-            width: 10px;
-            height: 10px;
-            top: 3px;
-            left: ${(props: ISwitchProps) => (props.checked ? "5px" : "17px")};
+            width: 14px;
+            height: 14px;
+            top: 1px;
+            left: ${(props: ISwitchProps) => (props.checked ? "2px" : "17px")};
           `
         : css`
             width: 14px;
