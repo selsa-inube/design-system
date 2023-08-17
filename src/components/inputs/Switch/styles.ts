@@ -2,6 +2,7 @@ import styled, { css } from "styled-components";
 import { ISwitchProps } from "./index";
 
 import { inube } from "@shared/tokens";
+import { Themed } from "./props";
 
 const sizes: any = {
   large: {
@@ -24,16 +25,19 @@ const StyledSpan = styled.span`
   border-radius: 10px;
   cursor: ${(props: ISwitchProps) =>
     props.disabled ? "not-allowed" : "pointer"};
-  background: ${({ disabled }: ISwitchProps) =>
+  background: ${({ disabled, theme }: ISwitchProps) =>
     disabled
-      ? inube.color.surface.gray.disabled
-      : inube.color.surface.gray.regular};
+      ? theme?.color?.surface?.gray?.disabled ||
+        inube.color.surface.gray.disabled
+      : theme?.color?.surface?.gray?.regular ||
+        inube.color.surface.gray.regular};
 
   &:hover {
-    background-color: ${({ disabled }: ISwitchProps) =>
+    background-color: ${({ disabled, theme }: ISwitchProps) =>
       disabled
-        ? inube.color.surface.gray.disabled
-        : inube.color.surface.gray.hover};
+        ? theme?.color?.surface?.gray?.disabled ||
+          inube.color.surface.gray.disabled
+        : theme?.color?.surface?.gray?.hover || inube.color.surface.gray.hover};
   }
 
   &:before {
@@ -42,9 +46,13 @@ const StyledSpan = styled.span`
     left: 2px;
     border-radius: 50%;
     transition: 0.3s;
-    background-color: ${inube.color.surface.light.clear};
-    border: ${({ disabled }: ISwitchProps) =>
-      disabled && `1px solid ${inube.color.stroke.gray.disabled}`};
+    background-color: ${({ theme }: Themed) =>
+      theme?.color?.surface?.light?.clear || inube.color.surface.light.clear};
+    border: ${({ disabled, theme }: ISwitchProps) =>
+      disabled &&
+      `1px solid ${
+        theme?.color?.stroke?.gray?.disabled || inube.color.stroke.gray.disabled
+      }`};
     ${(props: ISwitchProps) =>
       props.size === "small"
         ? css`
@@ -74,16 +82,20 @@ const StyledInput = styled.input`
   height: 0;
 
   &:checked + span {
-    background-color: ${({ disabled }: ISwitchProps) =>
+    background-color: ${({ disabled, theme }: ISwitchProps) =>
       disabled
-        ? inube.color.surface.gray.disabled
-        : inube.color.surface.success.regular};
+        ? theme?.color?.surface?.gray?.disabled ||
+          inube.color.surface.gray.disabled
+        : theme?.color?.surface?.success?.regular ||
+          inube.color.surface.success.regular};
 
     &:hover {
-      background-color: ${({ disabled }: ISwitchProps) =>
+      background-color: ${({ disabled, theme }: ISwitchProps) =>
         disabled
-          ? inube.color.surface.gray.disabled
-          : inube.color.surface.success.hover};
+          ? theme?.color?.surface?.gray?.disabled ||
+            inube.color.surface.gray.disabled
+          : theme?.color?.surface?.success?.hover ||
+            inube.color.surface.success.hover};
     }
   }
 
