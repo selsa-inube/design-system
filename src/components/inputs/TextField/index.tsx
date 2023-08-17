@@ -18,7 +18,7 @@ export interface ITextFieldProps {
   minLength?: number;
   max?: number;
   min?: number;
-  isRequired: boolean;
+  required: boolean;
   state?: State;
   errorMessage?: string;
   validMessage?: string;
@@ -32,7 +32,7 @@ export interface ITextFieldProps {
 
 const defaultIsDisabled = false;
 const defaultType: InputType = "text";
-const defaultIsRequired = false;
+const defaultRequired = false;
 const defaultState: State = "pending";
 const defaultIsFullWidth = false;
 
@@ -52,7 +52,7 @@ const TextField = (props: ITextFieldProps) => {
     minLength,
     max,
     min,
-    isRequired = false,
+    required = false,
     state = "pending",
     errorMessage,
     validMessage,
@@ -88,8 +88,8 @@ const TextField = (props: ITextFieldProps) => {
 
   const transformedTypes = inputTypes.includes(type) ? type : defaultType;
 
-  const transformedIsRequired =
-    typeof isRequired === "boolean" ? isRequired : defaultIsRequired;
+  const transformedRequired =
+    typeof required === "boolean" ? required : defaultRequired;
 
   const transformedIsFullWidth =
     typeof isFullWidth === "boolean" ? isFullWidth : defaultIsFullWidth;
@@ -112,7 +112,7 @@ const TextField = (props: ITextFieldProps) => {
       minLength={minLength}
       max={max}
       min={min}
-      isRequired={transformedIsRequired}
+      required={transformedRequired}
       size={size}
       state={transformedState}
       errorMessage={errorMessage}

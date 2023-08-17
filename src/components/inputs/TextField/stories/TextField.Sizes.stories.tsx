@@ -35,7 +35,7 @@ const Size = {
     errorMessage: "Please enter only letters in this field",
     validMessage: "The field has been successfully validated",
     isFullWidth: false,
-    isRequired: false,
+    required: false,
     readOnly: false,
   },
   render: (args: ITextFieldProps) => <TextFieldComponent {...args} />,

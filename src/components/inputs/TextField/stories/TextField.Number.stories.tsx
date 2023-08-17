@@ -20,7 +20,7 @@ Number.args = {
   isDisabled: false,
   max: 10,
   min: 0,
-  isRequired: false,
+  required: false,
   size: "wide",
   isFullWidth: false,
 };
