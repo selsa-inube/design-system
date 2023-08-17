@@ -25,7 +25,7 @@ const Size = {
     label: "Username",
     name: "Username",
     id: "Username",
-    isDisabled: false,
+    disabled: false,
     placeholder: "Write your full name",
     value: "",
     state: "pending",
