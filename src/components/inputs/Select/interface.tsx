@@ -7,7 +7,7 @@ import {
 
 import { Label } from "@inputs/Label";
 import { Text } from "@data/Text";
-import { DropDownMenu } from "@inputs/DropDownMenu/index";
+import { DropdownMenu } from "@inputs/Select/DropdownMenu";
 
 import {
   StyledContainer,
@@ -196,7 +196,7 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
         />
       )}
       {openOptions && !isDisabled && (
-        <DropDownMenu
+        <DropdownMenu
           options={options}
           isOpenOptions={openOptions}
           handleClick={handleOptionClick}
