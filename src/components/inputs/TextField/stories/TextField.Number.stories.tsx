@@ -17,10 +17,10 @@ Number.args = {
   placeholder: "Value",
   type: "number",
   state: "pending",
-  isDisabled: false,
-  isRequired: false,
+  disabled: false,
+  required: false,
   size: "wide",
-  isFullWidth: false,
+  fullwidth: false,
 };
 
 export default story;

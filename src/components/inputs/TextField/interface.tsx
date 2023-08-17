@@ -18,7 +18,7 @@ import { Size, State } from "./props";
 
 export interface IMessageProps {
   state?: State;
-  isDisabled?: boolean;
+  disabled?: boolean;
   errorMessage?: string;
   validMessage?: string;
 }
@@ -31,18 +31,18 @@ const getTypo = (size: Size) => {
 };
 
 const Invalid = (props: IMessageProps) => {
-  const { isDisabled, state, errorMessage } = props;
+  const { disabled, state, errorMessage } = props;
   const transformedErrorMessage = errorMessage && `(${errorMessage})`;
 
   return (
-    <StyledErrorMessageContainer isDisabled={isDisabled} state={state}>
+    <StyledErrorMessageContainer disabled={disabled} state={state}>
       <MdOutlineError />
       <Text
         type="body"
         size="small"
         margin="8px 0px 0px 4px"
         appearance="error"
-        disabled={isDisabled}
+        disabled={disabled}
       >
         {transformedErrorMessage}
       </Text>
@@ -51,17 +51,17 @@ const Invalid = (props: IMessageProps) => {
 };
 
 const Success = (props: IMessageProps) => {
-  const { isDisabled, state, validMessage } = props;
+  const { disabled, state, validMessage } = props;
 
   return (
-    <StyledValidMessageContainer isDisabled={isDisabled} state={state}>
+    <StyledValidMessageContainer disabled={disabled} state={state}>
       <MdCheckCircle />
       <Text
         type="body"
         size="small"
         margin="8px 0px 0px 4px"
         appearance="success"
-        disabled={isDisabled}
+        disabled={disabled}
       >
         {validMessage}
       </Text>
@@ -75,20 +75,20 @@ const TextFieldUI = (props: ITextFieldProps) => {
     name,
     id,
     placeholder,
-    isDisabled,
+    disabled,
     type,
     value,
-    handleChange,
+    onChange,
     iconBefore,
     iconAfter,
     maxLength,
     minLength,
-    isRequired,
+    required,
     state,
     errorMessage,
     validMessage,
     size,
-    isFullWidth,
+    fullwidth,
     isFocused,
     handleFocus,
     handleBlur,
@@ -98,17 +98,17 @@ const TextFieldUI = (props: ITextFieldProps) => {
   const transformedInvalid = state === "invalid" ? true : false;
 
   return (
-    <StyledContainer isFullWidth={isFullWidth} isDisabled={isDisabled}>
+    <StyledContainer fullwidth={fullwidth} disabled={disabled}>
       <StyledContainerLabel
         alignItems="center"
         wrap="wrap"
         size={size}
-        isDisabled={isDisabled}
+        disabled={disabled}
       >
         {label && (
           <Label
             htmlFor={id}
-            disabled={isDisabled}
+            disabled={disabled}
             focused={isFocused}
             invalid={transformedInvalid}
             size={getTypo(size!)}
@@ -117,7 +117,7 @@ const TextFieldUI = (props: ITextFieldProps) => {
           </Label>
         )}
 
-        {isRequired && !isDisabled && (
+        {required && !disabled && (
           <Text type="body" size="small" appearance="dark">
             (Required)
           </Text>
@@ -125,14 +125,14 @@ const TextFieldUI = (props: ITextFieldProps) => {
       </StyledContainerLabel>
 
       <StyledInputContainer
-        isDisabled={isDisabled}
+        disabled={disabled}
         isFocused={isFocused}
         state={state}
         iconBefore={iconBefore}
         iconAfter={iconAfter}
       >
         {iconBefore && (
-          <StyledIcon isDisabled={isDisabled} iconBefore={iconBefore}>
+          <StyledIcon disabled={disabled} iconBefore={iconBefore}>
             {iconBefore}
           </StyledIcon>
         )}
@@ -142,26 +142,26 @@ const TextFieldUI = (props: ITextFieldProps) => {
           name={name}
           id={id}
           placeholder={placeholder}
-          isDisabled={isDisabled}
+          disabled={disabled}
           type={type}
           value={value}
           iconBefore={iconBefore}
           iconAfter={iconAfter}
           maxLength={maxLength}
           minLength={minLength}
-          isRequired={isRequired}
+          required={required}
           size={size}
           state={state}
-          isFullWidth={isFullWidth}
+          fullwidth={fullwidth}
           isFocused={isFocused}
-          onChange={handleChange}
+          onChange={onChange}
           onFocus={handleFocus}
           onBlur={handleBlur}
           readOnly={readOnly}
         />
 
         {iconAfter && (
-          <StyledIcon iconAfter={iconAfter} isDisabled={isDisabled}>
+          <StyledIcon iconAfter={iconAfter} disabled={disabled}>
             {iconAfter}
           </StyledIcon>
         )}
@@ -169,14 +169,14 @@ const TextFieldUI = (props: ITextFieldProps) => {
 
       {state === "invalid" && (
         <Invalid
-          isDisabled={isDisabled}
+          disabled={disabled}
           state={state}
           errorMessage={errorMessage}
         />
       )}
       {state === "valid" && (
         <Success
-          isDisabled={isDisabled}
+          disabled={disabled}
           state={state}
           validMessage={validMessage}
         />

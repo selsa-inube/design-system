@@ -16,7 +16,7 @@ const TextFieldComponent = (args: ITextFieldProps) => {
     <Stack justifyContent="space-evenly">
       {sizes.map((size) => (
         <div key={size}>
-          <TextFieldController {...args} size={size} isDisabled={true} />
+          <TextFieldController {...args} size={size} disabled={true} />
         </div>
       ))}
     </Stack>

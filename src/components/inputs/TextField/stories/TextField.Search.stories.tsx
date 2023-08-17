@@ -18,15 +18,15 @@ Search.args = {
   name: "searchField",
   id: "searchField",
   placeholder: "Search...",
-  isDisabled: false,
+  disabled: false,
   iconAfter: <MdSearch />,
-  isRequired: false,
+  required: false,
   errorMessage: "",
   maxLength: 10,
   minLength: 1,
   size: "wide",
   type: "text",
-  isFullWidth: false,
+  fullwidth: false,
 };
 
 export default story;

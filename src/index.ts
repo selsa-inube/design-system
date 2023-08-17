@@ -7,7 +7,6 @@ export { User } from "@data/User";
 
 // feedback
 export { CountdownBar } from "@feedback/CountdownBar";
-export { InteractiveModal } from "@feedback/InteractiveModal";
 export { SkeletonIcon } from "@feedback/SkeletonIcon";
 export { SkeletonLine } from "@feedback/SkeletonLine";
 export { Spinner } from "@feedback/Spinner";
