@@ -34,12 +34,11 @@ export interface IBreakpoint {
 }
 
 export interface ITableUIProps {
-  portalId: string;
   titles: ITitle[];
   actions: IAction[];
   entries: IEntry[];
   breakpoints: IBreakpoint[];
-  modalTitle: string;
+  content?: React.ReactElement;
   infoTitle: string;
   actionsTitle: string;
 }
@@ -85,14 +84,10 @@ function showActionTitle(actionTitle: IAction[], mediaQuery: boolean) {
 }
 
 function ShowAction(
-  portalId: string,
   actionContent: IAction[],
   entry: IEntry,
   mediaQuery: boolean,
-  modalTitle: string,
-  titleLabels: ITitle[],
-  infoTitle: string,
-  actionsTitle: string
+  content: React.ReactElement
 ) {
   return !mediaQuery ? (
     <>
@@ -104,30 +99,13 @@ function ShowAction(
     </>
   ) : (
     <StyledTd>
-      <DisplayEntry
-        portalId={portalId}
-        entry={entry}
-        title={modalTitle}
-        actions={actionContent}
-        titleLabels={titleLabels}
-        infoTitle={infoTitle}
-        actionsTitle={actionsTitle}
-      />
+      <DisplayEntry content={content} />
     </StyledTd>
   );
 }
 
 const TableUI = (props: ITableUIProps) => {
-  const {
-    portalId,
-    titles,
-    actions,
-    entries,
-    breakpoints,
-    modalTitle,
-    infoTitle,
-    actionsTitle,
-  } = props;
+  const { titles, actions, entries, breakpoints, content } = props;
 
   const mediaActionOpen = useMediaQuery("(max-width: 850px)");
 
@@ -173,16 +151,7 @@ const TableUI = (props: ITableUIProps) => {
                 </Text>
               </StyledTd>
             ))}
-            {ShowAction(
-              portalId,
-              actions,
-              entry,
-              mediaActionOpen,
-              modalTitle,
-              titles,
-              infoTitle,
-              actionsTitle
-            )}
+            {ShowAction(actions, entry, mediaActionOpen, content!)}
           </StyledTr>
         ))}
       </StyledTbody>

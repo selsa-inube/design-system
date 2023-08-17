@@ -1,14 +1,44 @@
+import { useState, useEffect } from "react";
 import { Table, ITableProps } from "../index";
-
+import { MdClose } from "react-icons/md";
 import { titlesMuck, actionsMuck, breakPointsMuck } from "./mucks";
-
+import { StyledModal } from "./styles";
 import { props, parameters } from "../props";
+import { Blanket } from "@utils/Blanket";
+import { Stack } from "@layouts/Stack";
+import { Text } from "@data/Text";
 
 const story = {
   title: "data/Table",
   component: [Table],
   parameters,
   argTypes: props,
+};
+
+const LoremModal = () => {
+  const [isVisible, setIsVisible] = useState(true);
+
+  useEffect(() => {
+    if (!isVisible) {
+    }
+  }, [isVisible]);
+
+  if (!isVisible) return null;
+
+  return (
+    <Blanket>
+      <StyledModal>
+        <Stack justifyContent="space-between">
+          <Text as="h3" appearance={"primary"} type="title" size="large">
+            Lorem ipsum
+          </Text>
+          <MdClose onClick={() => setIsVisible(false)} />
+        </Stack>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia
+        odio vitae vestibulum.
+      </StyledModal>
+    </Blanket>
+  );
 };
 
 const Default = (args: ITableProps) => <Table {...args} />;
@@ -52,6 +82,7 @@ Default.args = {
   modalTitle: "Form",
   infoTitle: "Information",
   actionsTitle: "Actions",
+  content: <LoremModal />,
 };
 
 export default story;

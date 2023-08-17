@@ -1,8 +1,5 @@
-import { InteractiveModal } from "@feedback/InteractiveModal";
 import { useState } from "react";
 import { MdOpenInNew } from "react-icons/md";
-import { IAction } from "../interface";
-import { ITitle } from "../interface";
 
 export interface IEntry {
   id: string;
@@ -10,24 +7,10 @@ export interface IEntry {
 }
 
 export interface IDisplayEntryProps {
-  portalId: string;
-  entry: IEntry;
-  actions: IAction[];
-  title: string;
-  titleLabels: ITitle[];
-  infoTitle?: string;
-  actionsTitle?: string;
+  content?: React.ReactElement;
 }
 
-const DisplayEntry = ({
-  portalId,
-  entry,
-  actions,
-  title,
-  titleLabels,
-  infoTitle,
-  actionsTitle,
-}: IDisplayEntryProps) => {
+const DisplayEntry = ({ content }: IDisplayEntryProps) => {
   const [showModal, setShowModal] = useState(false);
 
   const handleToggleModal = () => {
@@ -37,18 +20,7 @@ const DisplayEntry = ({
   return (
     <>
       <MdOpenInNew onClick={handleToggleModal} />
-      {showModal && (
-        <InteractiveModal
-          portalId={portalId}
-          title={title}
-          closeModal={handleToggleModal}
-          infoData={entry}
-          actions={actions}
-          labels={titleLabels}
-          infoTitle={infoTitle}
-          actionsTitle={actionsTitle}
-        />
-      )}
+      {showModal && content}
     </>
   );
 };

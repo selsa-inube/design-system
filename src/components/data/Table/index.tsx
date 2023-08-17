@@ -14,7 +14,7 @@ export interface ITableProps {
   filter?: string;
   pageLength?: number;
   breakpoints?: IBreakpoint[];
-  modalTitle?: string;
+  content?: React.ReactElement;
   infoTitle?: string;
   actionsTitle?: string;
 }
@@ -28,7 +28,7 @@ const Table = (props: ITableProps) => {
     filter = "",
     pageLength = 10,
     breakpoints,
-    modalTitle,
+    content,
     infoTitle,
     actionsTitle,
   } = props;
@@ -90,12 +90,11 @@ const Table = (props: ITableProps) => {
     <div id={id}>
       <Stack direction="column">
         <TableUI
-          portalId={id}
           titles={titles}
           actions={actions}
           entries={getPageEntries()}
           breakpoints={breakpoints!}
-          modalTitle={modalTitle!}
+          content={content}
           infoTitle={infoTitle!}
           actionsTitle={actionsTitle!}
         />
