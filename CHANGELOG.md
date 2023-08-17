@@ -150,7 +150,7 @@
 - Migrate `<Table />` to TypeScript [#234](https://github.com/selsa-inube/design-system/pull/234) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
 - Migrate `<Tabs />` to TypeScript [#228](https://github.com/selsa-inube/design-system/pull/228) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
 - Migrate `<Breadcrumbs />` to TypeScript [#230](https://github.com/selsa-inube/design-system/pull/230) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
-- Migrate `<Textfield />` to TypeScript [#232](https://github.com/selsa-inube/design-system/pull/232) ([@Andresbl123](https://github.com/Andresbl123))
+- Migrate `<TextField />` to TypeScript [#232](https://github.com/selsa-inube/design-system/pull/232) ([@Andresbl123](https://github.com/Andresbl123))
 - Migrate `<Button />` to TypeScript [#231](https://github.com/selsa-inube/design-system/pull/231) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
 - Migrate `<Switch />` to TypeScript [#227](https://github.com/selsa-inube/design-system/pull/227) ([@Andresbl123](https://github.com/Andresbl123))
 - Migrate `<NavLink />` to `TypeScript` [#226](https://github.com/selsa-inube/design-system/pull/226) ([@Andresbl123](https://github.com/Andresbl123))
@@ -329,7 +329,7 @@
 
 - Adjust the `<Button/>` to ensure that, when the isDisabled property is enabled, the button won't allow click interactions [#166](https://github.com/selsa-inube/design-system/pull/166) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
 - Add Storybook URL of main branch in `README.md` [#163](https://github.com/selsa-inube/design-system/pull/163) ([@Andresbl123](https://github.com/Andresbl123))
-- Adjust the `<Textfield/>` `blur`; it only works when the 'required' property is enabled. [#165](https://github.com/selsa-inube/design-system/pull/165) ([@Andresbl123](https://github.com/Andresbl123))
+- Adjust the `<TextField/>` `blur`; it only works when the 'required' property is enabled. [#165](https://github.com/selsa-inube/design-system/pull/165) ([@Andresbl123](https://github.com/Andresbl123))
 
 #### 📝 Documentation
 
@@ -413,8 +413,8 @@
 
 #### 🐛 Bug Fix
 
-- Fix `<Textfield />` component to implement new `readOnly` property [#143](https://github.com/selsa-inube/design-system/pull/143) ([@Andresbl123](https://github.com/Andresbl123))
-- Fix the font-weight property in `<Textfield />` styles [#141](https://github.com/selsa-inube/design-system/pull/141) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- Fix `<TextField />` component to implement new `readOnly` property [#143](https://github.com/selsa-inube/design-system/pull/143) ([@Andresbl123](https://github.com/Andresbl123))
+- Fix the font-weight property in `<TextField />` styles [#141](https://github.com/selsa-inube/design-system/pull/141) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
 - Fix the menu positioning when the `<ellipsisBreadCrumb/>` is clicked [#142](https://github.com/selsa-inube/design-system/pull/142) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
 - Release new version 3.1.0 [#135](https://github.com/selsa-inube/design-system/pull/135) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
 
@@ -435,7 +435,7 @@
 
 #### 🐛 Bug Fix
 
-- Fix font-size in `<Textfield />` [#133](https://github.com/selsa-inube/design-system/pull/133) ([@Andresbl123](https://github.com/Andresbl123))
+- Fix font-size in `<TextField />` [#133](https://github.com/selsa-inube/design-system/pull/133) ([@Andresbl123](https://github.com/Andresbl123))
 - Release design-System v3.0.1 [#130](https://github.com/selsa-inube/design-system/pull/130) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
 
 #### Authors: 3
@@ -476,7 +476,7 @@
 #### 🐛 Bug Fix
 
 - When re-sizing the screen to test responsive, there is an error about a wrong prop type in `<User />` [#120](https://github.com/selsa-inube/design-system/pull/120) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
-- Adjust height of `<Textfield />` for "wide" and "compact" sizes [#121](https://github.com/selsa-inube/design-system/pull/121) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
+- Adjust height of `<TextField />` for "wide" and "compact" sizes [#121](https://github.com/selsa-inube/design-system/pull/121) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
 - Release v2.0.1 [#119](https://github.com/selsa-inube/design-system/pull/119) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
 - `<Blanket />` should tend to be on top when rendered [#117](https://github.com/selsa-inube/design-system/pull/117) ([@Andresbl123](https://github.com/Andresbl123))
 - `<Tabs />` are starting without left-padding for first `<Tab />` [#111](https://github.com/selsa-inube/design-system/pull/111) ([@Andresbl123](https://github.com/Andresbl123))
@@ -510,7 +510,7 @@
 
 #### 💥 Breaking Change
 
-- Sync Label and Textfield so there is no state homologation [#98](https://github.com/selsa-inube/design-system/pull/98) ([@Andresbl123](https://github.com/Andresbl123))
+- Sync Label and TextField so there is no state homologation [#98](https://github.com/selsa-inube/design-system/pull/98) ([@Andresbl123](https://github.com/Andresbl123))
 
 #### 🚀 Enhancement
 
@@ -519,7 +519,7 @@
 #### 🐛 Bug Fix
 
 - Remove pointer-events: none from `Blanket` [#107](https://github.com/selsa-inube/design-system/pull/107) ([@Andresbl123](https://github.com/Andresbl123))
-- Export the `Textfield` from the library [#106](https://github.com/selsa-inube/design-system/pull/106) ([@Andresbl123](https://github.com/Andresbl123))
+- Export the `TextField` from the library [#106](https://github.com/selsa-inube/design-system/pull/106) ([@Andresbl123](https://github.com/Andresbl123))
 - release v1.1.0 [#102](https://github.com/selsa-inube/design-system/pull/102) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
 
 #### Authors: 3
@@ -536,7 +536,7 @@
 
 - Create `<Breadcrumbs/>` [#95](https://github.com/selsa-inube/design-system/pull/95) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
 - Create `<Tabs/>` [#89](https://github.com/selsa-inube/design-system/pull/89) (cmarin@sistemasenlinea.com.co [@Andresbl123](https://github.com/Andresbl123) [@cmarin001](https://github.com/cmarin001))
-- Create `<Textfield />` [#55](https://github.com/selsa-inube/design-system/pull/55) ([@Andresbl123](https://github.com/Andresbl123))
+- Create `<TextField />` [#55](https://github.com/selsa-inube/design-system/pull/55) ([@Andresbl123](https://github.com/Andresbl123))
 - Simplify the `<Switch />` stories using `<Stack />` [#93](https://github.com/selsa-inube/design-system/pull/93) ([@Andresbl123](https://github.com/Andresbl123) cmarin@sistemasenlinea.com.co)
 - Create `<BreadcrumbLink/>` [#90](https://github.com/selsa-inube/design-system/pull/90) (cmarin@sistemasenlinea.com.co [@Andresbl123](https://github.com/Andresbl123) [@cmarin001](https://github.com/cmarin001))
 
