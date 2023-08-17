@@ -36,7 +36,7 @@ const props = {
   placeholder: {
     description: "text to display in the text field whenever it is empty",
   },
-  isDisabled: {
+  disabled: {
     description:
       "sets the field as to appear disabled, users will not be able to interact with the text field",
     table: {
@@ -107,7 +107,7 @@ const props = {
     control: { type: "select" },
     description: "defines the size of the component",
   },
-  isFullWidth: {
+  fullwidth: {
     description: "option to fit field width to its parent width",
     table: {
       defaultValue: { summary: false },

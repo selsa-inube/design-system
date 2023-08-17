@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { colors } from "@shared/colors/colors";
 
-const StyledDropDownMenu = styled.ul`
+const StyledDropdownMenu = styled.ul`
   display: flex;
   flex-direction: column;
   padding: 4px 0px;
@@ -11,4 +11,4 @@ const StyledDropDownMenu = styled.ul`
   border-radius: 4px;
 `;
 
-export { StyledDropDownMenu };
+export { StyledDropdownMenu };
