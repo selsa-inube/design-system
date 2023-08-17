@@ -1,5 +1,5 @@
 export interface IExampleSwitch {
-  handleChange: () => void;
+  onChange: () => void;
   id: string;
   size?: string;
 }

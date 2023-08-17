@@ -18,12 +18,12 @@ Number.args = {
   placeholder: "Value",
   type: "number",
   state: "pending",
-  isDisabled: false,
+  disabled: false,
   max: 10,
   min: 0,
-  isRequired: false,
+  required: false,
   size: "wide",
-  isFullWidth: false,
+  fullwidth: false,
 };
 
 export default story;

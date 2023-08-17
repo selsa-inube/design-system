@@ -30,8 +30,8 @@ const getGrid = (props: ITextfieldProps) => {
 };
 
 const getColors = (props: ITextfieldProps) => {
-  const { isDisabled, state, isFocused } = props;
-  if (isDisabled) {
+  const { disabled, state, isFocused } = props;
+  if (disabled) {
     return colors.ref.palette.neutral.n70;
   }
 
@@ -45,9 +45,9 @@ const getColors = (props: ITextfieldProps) => {
   return colors.ref.palette.neutral.n40;
 };
 
-const getIsDisabled = (props: ITextfieldProps) => {
-  const { isDisabled, state } = props;
-  if (isDisabled) {
+const getdisabled = (props: ITextfieldProps) => {
+  const { disabled, state } = props;
+  if (disabled) {
     return colors.ref.palette.neutral.n70;
   }
 
@@ -79,9 +79,9 @@ const getPadding = (props: ITextfieldProps) => {
 };
 
 const StyledContainer = styled.div`
-  cursor: ${({ isDisabled }: ITextfieldProps) => isDisabled && "not-allowed"};
-  width: ${({ isFullWidth }: ITextfieldProps) =>
-    isFullWidth ? "100%" : "fit-content"};
+  cursor: ${({ disabled }: ITextfieldProps) => disabled && "not-allowed"};
+  width: ${({ fullwidth }: ITextfieldProps) =>
+    fullwidth ? "100%" : "fit-content"};
 `;
 
 const StyledContainerLabel = styled.div`
@@ -89,7 +89,7 @@ const StyledContainerLabel = styled.div`
   align-items: center;
   margin-bottom: 4px;
   padding-left: 16px;
-  pointer-events: ${({ isDisabled }: ITextfieldProps) => isDisabled && "none"};
+  pointer-events: ${({ disabled }: ITextfieldProps) => disabled && "none"};
 
   & label {
     margin-right: 5px;
@@ -105,8 +105,8 @@ const StyledInputContainer = styled.div`
   background: ${colors.ref.palette.neutral.n10};
   grid-template-columns: ${(props: ITextfieldProps) => getGrid(props)};
   border: 1px solid ${(props: ITextfieldProps) => getColors(props)};
-  ${({ isDisabled }: ITextfieldProps) =>
-    isDisabled && "pointer-events: none; opacity: 0.5;"}
+  ${({ disabled }: ITextfieldProps) =>
+    disabled && "pointer-events: none; opacity: 0.5;"}
 `;
 
 const StyledInput = styled.input`
@@ -117,12 +117,12 @@ const StyledInput = styled.input`
   font-weight: ${typography.sys.typescale.bodyLarge.weight};
   line-height: ${typography.sys.typescale.bodyLarge.lineHeight};
   letter-spacing: ${typography.sys.typescale.bodyLarge.tracking};
-  color: ${({ isDisabled }: ITextfieldProps) =>
-    isDisabled ? colors.ref.palette.neutral.n70 : colors.sys.text.dark};
+  color: ${({ disabled }: ITextfieldProps) =>
+    disabled ? colors.ref.palette.neutral.n70 : colors.sys.text.dark};
   background: ${colors.ref.palette.neutral.n10};
   ${(props: ITextfieldProps) => getPadding(props)}
-  width: ${({ isFullWidth }: ITextfieldProps) =>
-    isFullWidth ? "calc(100% - 32px)" : "252px"};
+  width: ${({ fullwidth }: ITextfieldProps) =>
+    fullwidth ? "calc(100% - 32px)" : "252px"};
   ${({ size }: ITextfieldProps) => size && sizeOptions[size]};
   border: none;
 
@@ -156,8 +156,8 @@ const StyledIcon = styled.div`
   padding-right: ${({ iconAfter }: ITextfieldProps) => iconAfter && "10px"};
   height: 24px;
   width: 24px;
-  color: ${({ isDisabled }: ITextfieldProps) =>
-    isDisabled && colors.ref.palette.neutral.n70};
+  color: ${({ disabled }: ITextfieldProps) =>
+    disabled && colors.ref.palette.neutral.n70};
 `;
 
 const StyledErrorMessageContainer = styled.div`
@@ -165,7 +165,7 @@ const StyledErrorMessageContainer = styled.div`
   align-items: center;
   margin-left: 12px;
   pointer-events: none;
-  color: ${(props: ITextfieldProps) => getIsDisabled(props)};
+  color: ${(props: ITextfieldProps) => getdisabled(props)};
 
   & svg {
     width: 14px;
@@ -176,7 +176,7 @@ const StyledErrorMessageContainer = styled.div`
 `;
 
 const StyledValidMessageContainer = styled(StyledErrorMessageContainer)`
-  color: ${(props: ITextfieldProps) => getIsDisabled(props)}; ;
+  color: ${(props: ITextfieldProps) => getdisabled(props)}; ;
 `;
 
 export {
