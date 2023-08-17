@@ -20,7 +20,7 @@ export { Button } from "@inputs/Button";
 export { Label } from "@inputs/Label";
 export { Select } from "@inputs/Select";
 export { Switch } from "@inputs/Switch";
-export { TextArea } from "@inputs/TextArea";
+export { Textarea } from "@inputs/Textarea";
 export { TextField } from "@inputs/TextField";
 
 // layouts
