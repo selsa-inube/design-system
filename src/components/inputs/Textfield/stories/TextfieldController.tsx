@@ -10,7 +10,7 @@ const TextfieldController = (props: ITextfieldProps) => {
     return /^[a-zA-Z]+$/.test(value);
   }
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ value: e.target.value, state: "pending" });
   };
 
@@ -30,7 +30,7 @@ const TextfieldController = (props: ITextfieldProps) => {
     <Textfield
       {...props}
       value={form.value}
-      handleChange={handleChange}
+      onChange={onChange}
       state={form.state}
       handleFocus={handleFocus}
       handleBlur={handleBlur}

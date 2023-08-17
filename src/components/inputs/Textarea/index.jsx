@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { TextAreaUI } from "./interface";
+import { TextareaUI } from "./interface";
 import PropTypes from "prop-types";
 
 const states = ["valid", "invalid", "pending"];
@@ -9,7 +9,7 @@ const defaultIsRequired = false;
 const defaultState = "pending";
 const defaultIsFullWidth = false;
 
-const TextArea = (props) => {
+export const Textarea = (props) => {
   const {
     label,
     name,
@@ -66,7 +66,7 @@ const TextArea = (props) => {
   const transformedReadOnly = typeof readOnly === "boolean" ? readOnly : false;
 
   return (
-    <TextAreaUI
+    <TextareaUI
       label={label}
       name={name}
       id={id}
@@ -93,7 +93,7 @@ const TextArea = (props) => {
   );
 };
 
-TextArea.propTypes = {
+Textarea.propTypes = {
   label: PropTypes.string,
   name: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
@@ -116,4 +116,4 @@ TextArea.propTypes = {
   counter: PropTypes.bool,
 };
 
-export { TextArea, states };
+export { states };

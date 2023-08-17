@@ -11,7 +11,7 @@ export interface ITextfieldProps {
   disabled?: boolean;
   type?: InputType;
   value?: string | number;
-  handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   iconBefore?: React.ReactNode;
   iconAfter?: React.ReactNode;
   maxLength?: number;
@@ -45,7 +45,7 @@ const Textfield = (props: ITextfieldProps) => {
     disabled = false,
     type = "text",
     value,
-    handleChange,
+    onChange,
     iconBefore,
     iconAfter,
     maxLength,
@@ -105,7 +105,7 @@ const Textfield = (props: ITextfieldProps) => {
       disabled={transformeddisabled}
       type={transformedTypes}
       value={value}
-      handleChange={handleChange}
+      onChange={onChange}
       iconBefore={iconBefore}
       iconAfter={iconAfter}
       maxLength={maxLength}

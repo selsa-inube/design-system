@@ -78,7 +78,7 @@ const TextfieldUI = (props: ITextfieldProps) => {
     disabled,
     type,
     value,
-    handleChange,
+    onChange,
     iconBefore,
     iconAfter,
     maxLength,
@@ -158,7 +158,7 @@ const TextfieldUI = (props: ITextfieldProps) => {
           state={state}
           fullwidth={fullwidth}
           isFocused={isFocused}
-          onChange={handleChange}
+          onChange={onChange}
           onFocus={handleFocus}
           onBlur={handleBlur}
           readOnly={readOnly}

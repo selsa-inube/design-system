@@ -1,23 +1,24 @@
 import { states } from ".";
 
-const props = {
-  parameters: {
-    docs: {
-      description: {
-        component:
-          "A text field is an input that allows a user to write or edit text",
-      },
+const parameters = {
+  docs: {
+    description: {
+      component:
+        "A text field is an input that allows a user to write or edit text",
     },
   },
+};
+
+const props = {
   label: {
     description: "prompts the user what value to enter",
   },
   name: {
-    description: "name of the TextArea element",
+    description: "name of the Textarea element",
   },
   id: {
     description:
-      "uniquely identifies the **TextArea Component**, it will also allow the **label element** to be connected to the **TextArea element** through the htmlFor of the label",
+      "uniquely identifies the **Textarea Component**, it will also allow the **label element** to be connected to the **Textarea element** through the htmlFor of the label",
   },
   placeholder: {
     description: "text to display in the text field whenever it is empty",
@@ -96,4 +97,4 @@ const props = {
   },
 };
 
-export { props };
+export { props, parameters };

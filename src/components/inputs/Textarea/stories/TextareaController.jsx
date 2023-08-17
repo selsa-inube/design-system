@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { TextArea } from "..";
+import { Textarea } from "..";
 
-const TextAreaController = (props) => {
+const TextareaController = (props) => {
   const { value = "", state = "pending" } = props;
   const [form, setForm] = useState({ value, state });
 
@@ -22,7 +22,7 @@ const TextAreaController = (props) => {
     } else setForm({ ...form, state: "valid" });
   };
   return (
-    <TextArea
+    <Textarea
       {...props}
       value={form.value}
       state={form.state}
@@ -35,4 +35,4 @@ const TextAreaController = (props) => {
   );
 };
 
-export { TextAreaController };
+export { TextareaController };

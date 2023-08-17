@@ -55,7 +55,7 @@ const props = {
   value: {
     description: "component initial value",
   },
-  handleChange: {
+  onChange: {
     description:
       "allows you to control what to do when the user changes the value of the component",
   },
