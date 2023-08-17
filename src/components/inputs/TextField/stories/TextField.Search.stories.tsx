@@ -28,7 +28,7 @@ Search.args = {
   min: 1,
   size: "wide",
   type: "text",
-  isFullWidth: false,
+  fullwidth: false,
 };
 
 export default story;

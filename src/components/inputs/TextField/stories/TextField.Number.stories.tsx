@@ -22,7 +22,7 @@ Number.args = {
   min: 0,
   isRequired: false,
   size: "wide",
-  isFullWidth: false,
+  fullwidth: false,
 };
 
 export default story;

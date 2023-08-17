@@ -80,8 +80,8 @@ const getPadding = (props: ITextFieldProps) => {
 
 const StyledContainer = styled.div`
   cursor: ${({ isDisabled }: ITextFieldProps) => isDisabled && "not-allowed"};
-  width: ${({ isFullWidth }: ITextFieldProps) =>
-    isFullWidth ? "100%" : "fit-content"};
+  width: ${({ fullwidth }: ITextFieldProps) =>
+    fullwidth ? "100%" : "fit-content"};
 `;
 
 const StyledContainerLabel = styled.div`
@@ -121,8 +121,8 @@ const StyledInput = styled.input`
     isDisabled ? colors.ref.palette.neutral.n70 : colors.sys.text.dark};
   background: ${colors.ref.palette.neutral.n10};
   ${(props: ITextFieldProps) => getPadding(props)}
-  width: ${({ isFullWidth }: ITextFieldProps) =>
-    isFullWidth ? "calc(100% - 32px)" : "252px"};
+  width: ${({ fullwidth }: ITextFieldProps) =>
+    fullwidth ? "calc(100% - 32px)" : "252px"};
   ${({ size }: ITextFieldProps) => size && sizeOptions[size]};
   border: none;
 

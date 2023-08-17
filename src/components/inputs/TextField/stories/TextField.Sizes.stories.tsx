@@ -34,7 +34,7 @@ const Size = {
     minLength: 1,
     errorMessage: "Please enter only letters in this field",
     validMessage: "The field has been successfully validated",
-    isFullWidth: false,
+    fullwidth: false,
     isRequired: false,
     readOnly: false,
   },
