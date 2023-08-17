@@ -1,9 +1,9 @@
 import { useState } from "react";
 
-import { TextFieldUI } from "./interface";
+import { TextfieldUI } from "./interface";
 import { InputType, Size, State, inputTypes, states } from "./props";
 
-export interface ITextFieldProps {
+export interface ITextfieldProps {
   label?: string;
   name: string;
   id: string;
@@ -11,7 +11,7 @@ export interface ITextFieldProps {
   disabled?: boolean;
   type?: InputType;
   value?: string | number;
-  handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   iconBefore?: React.ReactNode;
   iconAfter?: React.ReactNode;
   maxLength?: number;
@@ -36,7 +36,7 @@ const defaultRequired = false;
 const defaultState: State = "pending";
 const defaultfullwidth = false;
 
-const TextField = (props: ITextFieldProps) => {
+const Textfield = (props: ITextfieldProps) => {
   const {
     label,
     name,
@@ -45,7 +45,7 @@ const TextField = (props: ITextFieldProps) => {
     disabled = false,
     type = "text",
     value,
-    handleChange,
+    onChange,
     iconBefore,
     iconAfter,
     maxLength,
@@ -97,7 +97,7 @@ const TextField = (props: ITextFieldProps) => {
   const transformedReadOnly = typeof readOnly === "boolean" ? readOnly : false;
 
   return (
-    <TextFieldUI
+    <TextfieldUI
       label={label}
       name={name}
       id={id}
@@ -105,7 +105,7 @@ const TextField = (props: ITextFieldProps) => {
       disabled={transformeddisabled}
       type={transformedTypes}
       value={value}
-      handleChange={handleChange}
+      onChange={onChange}
       iconBefore={iconBefore}
       iconAfter={iconAfter}
       maxLength={maxLength}
@@ -126,4 +126,4 @@ const TextField = (props: ITextFieldProps) => {
   );
 };
 
-export { TextField };
+export { Textfield };

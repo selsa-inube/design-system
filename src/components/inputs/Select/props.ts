@@ -24,7 +24,7 @@ const props = {
   },
   id: {
     description:
-      "uniquely identifies the **TextField Component**, it will also allow the **label element** to be connected to the **input element** through the htmlFor of the label",
+      "uniquely identifies the **Textfield Component**, it will also allow the **label element** to be connected to the **input element** through the htmlFor of the label",
   },
   placeholder: {
     description: "text to display in the text field whenever it is empty",

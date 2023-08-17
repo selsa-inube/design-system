@@ -86,7 +86,7 @@ const Success = (props) => {
   );
 };
 
-const TextAreaUI = (props) => {
+const TextareaUI = (props) => {
   const {
     label,
     name,
@@ -186,4 +186,4 @@ const TextAreaUI = (props) => {
   );
 };
 
-export { TextAreaUI };
+export { TextareaUI };

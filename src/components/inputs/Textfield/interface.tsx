@@ -3,7 +3,7 @@ import { MdOutlineError, MdCheckCircle } from "react-icons/md";
 import { Label } from "@inputs/Label";
 import { Text } from "@data/Text";
 
-import { ITextFieldProps } from ".";
+import { ITextfieldProps } from ".";
 
 import {
   StyledContainer,
@@ -69,7 +69,7 @@ const Success = (props: IMessageProps) => {
   );
 };
 
-const TextFieldUI = (props: ITextFieldProps) => {
+const TextfieldUI = (props: ITextfieldProps) => {
   const {
     label,
     name,
@@ -78,7 +78,7 @@ const TextFieldUI = (props: ITextFieldProps) => {
     disabled,
     type,
     value,
-    handleChange,
+    onChange,
     iconBefore,
     iconAfter,
     maxLength,
@@ -158,7 +158,7 @@ const TextFieldUI = (props: ITextFieldProps) => {
           state={state}
           fullwidth={fullwidth}
           isFocused={focused}
-          onChange={handleChange}
+          onChange={onChange}
           onFocus={handleFocus}
           onBlur={handleBlur}
           readOnly={readOnly}
@@ -189,4 +189,4 @@ const TextFieldUI = (props: ITextFieldProps) => {
   );
 };
 
-export { TextFieldUI };
+export { TextfieldUI };

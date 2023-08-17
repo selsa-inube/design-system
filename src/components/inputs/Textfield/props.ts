@@ -14,15 +14,16 @@ export type Size = typeof sizes[number];
 export const states = ["valid", "invalid", "pending"] as const;
 export type State = typeof states[number];
 
-const props = {
-  parameters: {
-    docs: {
-      description: {
-        component:
-          "A text field is an input that allows a user to write or edit text",
-      },
+const parameters = {
+  docs: {
+    description: {
+      component:
+        "A text field is an input that allows a user to write or edit text",
     },
   },
+};
+
+const props = {
   label: {
     description: "prompts the user what value to enter",
   },
@@ -31,7 +32,7 @@ const props = {
   },
   id: {
     description:
-      "uniquely identifies the **TextField Component**, it will also allow the **label element** to be connected to the **input element** through the htmlFor of the label",
+      "uniquely identifies the **Textfield Component**, it will also allow the **label element** to be connected to the **input element** through the htmlFor of the label",
   },
   placeholder: {
     description: "text to display in the text field whenever it is empty",
@@ -54,7 +55,7 @@ const props = {
   value: {
     description: "component initial value",
   },
-  handleChange: {
+  onChange: {
     description:
       "allows you to control what to do when the user changes the value of the component",
   },
@@ -121,4 +122,4 @@ const props = {
   },
 };
 
-export { props };
+export { props, parameters };
