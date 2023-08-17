@@ -8,7 +8,7 @@ export interface ITextFieldProps {
   name: string;
   id: string;
   placeholder: string;
-  isDisabled?: boolean;
+  disabled?: boolean;
   type?: InputType;
   value?: string | number;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -18,23 +18,23 @@ export interface ITextFieldProps {
   minLength?: number;
   max?: number;
   min?: number;
-  isRequired: boolean;
+  required: boolean;
   state?: State;
   errorMessage?: string;
   validMessage?: string;
   size?: Size;
-  isFullWidth?: boolean;
+  fullwidth?: boolean;
   handleFocus?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   handleBlur?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   readOnly?: boolean;
   isFocused?: boolean;
 }
 
-const defaultIsDisabled = false;
+const defaultdisabled = false;
 const defaultType: InputType = "text";
-const defaultIsRequired = false;
+const defaultRequired = false;
 const defaultState: State = "pending";
-const defaultIsFullWidth = false;
+const defaultfullwidth = false;
 
 const TextField = (props: ITextFieldProps) => {
   const {
@@ -42,7 +42,7 @@ const TextField = (props: ITextFieldProps) => {
     name,
     id,
     placeholder,
-    isDisabled = false,
+    disabled = false,
     type = "text",
     value,
     onChange,
@@ -52,12 +52,12 @@ const TextField = (props: ITextFieldProps) => {
     minLength,
     max,
     min,
-    isRequired = false,
+    required = false,
     state = "pending",
     errorMessage,
     validMessage,
     size = "wide",
-    isFullWidth = false,
+    fullwidth = false,
     handleFocus,
     handleBlur,
     readOnly,
@@ -81,18 +81,18 @@ const TextField = (props: ITextFieldProps) => {
     }
   };
 
-  const transformedIsDisabled =
-    typeof isDisabled === "boolean" ? isDisabled : defaultIsDisabled;
+  const transformeddisabled =
+    typeof disabled === "boolean" ? disabled : defaultdisabled;
 
   const transformedState = states.includes(state) ? state : defaultState;
 
   const transformedTypes = inputTypes.includes(type) ? type : defaultType;
 
-  const transformedIsRequired =
-    typeof isRequired === "boolean" ? isRequired : defaultIsRequired;
+  const transformedRequired =
+    typeof required === "boolean" ? required : defaultRequired;
 
-  const transformedIsFullWidth =
-    typeof isFullWidth === "boolean" ? isFullWidth : defaultIsFullWidth;
+  const transformedfullwidth =
+    typeof fullwidth === "boolean" ? fullwidth : defaultfullwidth;
 
   const transformedReadOnly = typeof readOnly === "boolean" ? readOnly : false;
 
@@ -102,7 +102,7 @@ const TextField = (props: ITextFieldProps) => {
       name={name}
       id={id}
       placeholder={placeholder}
-      isDisabled={transformedIsDisabled}
+      disabled={transformeddisabled}
       type={transformedTypes}
       value={value}
       onChange={onChange}
@@ -112,12 +112,12 @@ const TextField = (props: ITextFieldProps) => {
       minLength={minLength}
       max={max}
       min={min}
-      isRequired={transformedIsRequired}
+      required={transformedRequired}
       size={size}
       state={transformedState}
       errorMessage={errorMessage}
       validMessage={validMessage}
-      isFullWidth={transformedIsFullWidth}
+      fullwidth={transformedfullwidth}
       isFocused={isFocused}
       handleFocus={interceptFocus}
       handleBlur={interceptBlur}
