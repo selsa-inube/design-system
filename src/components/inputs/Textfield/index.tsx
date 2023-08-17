@@ -1,9 +1,9 @@
 import { useState } from "react";
 
-import { TextFieldUI } from "./interface";
+import { TextfieldUI } from "./interface";
 import { InputType, Size, State, inputTypes, states } from "./props";
 
-export interface ITextFieldProps {
+export interface ITextfieldProps {
   label?: string;
   name: string;
   id: string;
@@ -36,7 +36,7 @@ const defaultRequired = false;
 const defaultState: State = "pending";
 const defaultfullwidth = false;
 
-const TextField = (props: ITextFieldProps) => {
+const Textfield = (props: ITextfieldProps) => {
   const {
     label,
     name,
@@ -97,7 +97,7 @@ const TextField = (props: ITextFieldProps) => {
   const transformedReadOnly = typeof readOnly === "boolean" ? readOnly : false;
 
   return (
-    <TextFieldUI
+    <TextfieldUI
       label={label}
       name={name}
       id={id}
@@ -126,4 +126,4 @@ const TextField = (props: ITextFieldProps) => {
   );
 };
 
-export { TextField };
+export { Textfield };

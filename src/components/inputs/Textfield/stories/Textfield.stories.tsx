@@ -1,15 +1,16 @@
-import { TextField, ITextFieldProps } from "..";
-import { TextFieldController } from "./TextfieldController";
+import { Textfield, ITextfieldProps } from "..";
+import { TextfieldController } from "./TextfieldController";
 
-import { props } from "../props";
+import { props, parameters } from "../props";
 
 const story = {
-  title: "inputs/TextField",
-  components: [TextField],
+  title: "inputs/Textfield",
+  components: [Textfield],
+  parameters,
   argTypes: props,
 };
 
-const Default = (args: ITextFieldProps) => <TextFieldController {...args} />;
+const Default = (args: ITextfieldProps) => <TextfieldController {...args} />;
 Default.args = {
   label: "Username",
   name: "Username",
