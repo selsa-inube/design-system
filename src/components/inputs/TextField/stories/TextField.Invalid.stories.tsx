@@ -18,7 +18,7 @@ Invalid.args = {
   id: "Username",
   value: "L-GARZON",
   placeholder: "Username..",
-  isDisabled: false,
+  disabled: false,
   type: "text",
   maxLength: 20,
   minLength: 1,

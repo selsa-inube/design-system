@@ -18,7 +18,7 @@ Search.args = {
   name: "searchField",
   id: "searchField",
   placeholder: "Search...",
-  isDisabled: false,
+  disabled: false,
   iconAfter: <MdSearch />,
   isRequired: false,
   errorMessage: "",
