@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { StyledDropDownMenu } from "./styled";
+import { StyledDropdownMenu } from "./styled";
 import { DropdownItem } from "@inputs/Select/DropdownItem";
 
-const DropDownMenu = (props) => {
+const DropdownMenu = (props) => {
   const { options, handleClick, onCloseOptions, handleSelect } = props;
 
   const handleOptionClick = (id) => {
@@ -22,7 +22,7 @@ const DropDownMenu = (props) => {
   };
 
   return (
-    <StyledDropDownMenu>
+    <StyledDropdownMenu>
       {options.map((dropDownitem) => (
         <DropdownItem
           key={dropDownitem.id}
@@ -34,11 +34,11 @@ const DropDownMenu = (props) => {
           {dropDownitem.label}
         </DropdownItem>
       ))}
-    </StyledDropDownMenu>
+    </StyledDropdownMenu>
   );
 };
 
-DropDownMenu.propTypes = {
+DropdownMenu.propTypes = {
   options: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string,
@@ -52,4 +52,4 @@ DropDownMenu.propTypes = {
   handleSelect: PropTypes.func,
 };
 
-export { DropDownMenu };
+export { DropdownMenu };
