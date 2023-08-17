@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Table, ITableProps } from "../index";
+import { Table, ITableProps } from "..";
 import { MdClose } from "react-icons/md";
 import { titlesMuck, actionsMuck, breakPointsMuck } from "./mucks";
 import { StyledModal } from "./styles";

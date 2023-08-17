@@ -3,7 +3,7 @@ import { MdOpenInNew } from "react-icons/md";
 
 export interface IEntry {
   id: string;
-  [key: string]: any;
+  [key: string]: string;
 }
 
 export interface IDisplayEntryProps {
