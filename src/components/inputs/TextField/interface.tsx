@@ -90,7 +90,7 @@ const TextFieldUI = (props: ITextFieldProps) => {
     errorMessage,
     validMessage,
     size,
-    isFullWidth,
+    fullwidth,
     isFocused,
     handleFocus,
     handleBlur,
@@ -100,7 +100,7 @@ const TextFieldUI = (props: ITextFieldProps) => {
   const transformedInvalid = state === "invalid" ? true : false;
 
   return (
-    <StyledContainer isFullWidth={isFullWidth} disabled={disabled}>
+    <StyledContainer fullwidth={fullwidth} disabled={disabled}>
       <StyledContainerLabel
         alignItems="center"
         wrap="wrap"
@@ -156,7 +156,7 @@ const TextFieldUI = (props: ITextFieldProps) => {
           isRequired={isRequired}
           size={size}
           state={state}
-          isFullWidth={isFullWidth}
+          fullwidth={fullwidth}
           isFocused={isFocused}
           onChange={handleChange}
           onFocus={handleFocus}

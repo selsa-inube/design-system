@@ -23,7 +23,7 @@ export interface ITextFieldProps {
   errorMessage?: string;
   validMessage?: string;
   size?: Size;
-  isFullWidth?: boolean;
+  fullwidth?: boolean;
   handleFocus?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   handleBlur?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   readOnly?: boolean;
@@ -34,7 +34,7 @@ const defaultdisabled = false;
 const defaultType: InputType = "text";
 const defaultIsRequired = false;
 const defaultState: State = "pending";
-const defaultIsFullWidth = false;
+const defaultfullwidth = false;
 
 const TextField = (props: ITextFieldProps) => {
   const {
@@ -57,7 +57,7 @@ const TextField = (props: ITextFieldProps) => {
     errorMessage,
     validMessage,
     size = "wide",
-    isFullWidth = false,
+    fullwidth = false,
     handleFocus,
     handleBlur,
     readOnly,
@@ -91,8 +91,8 @@ const TextField = (props: ITextFieldProps) => {
   const transformedIsRequired =
     typeof isRequired === "boolean" ? isRequired : defaultIsRequired;
 
-  const transformedIsFullWidth =
-    typeof isFullWidth === "boolean" ? isFullWidth : defaultIsFullWidth;
+  const transformedfullwidth =
+    typeof fullwidth === "boolean" ? fullwidth : defaultfullwidth;
 
   const transformedReadOnly = typeof readOnly === "boolean" ? readOnly : false;
 
@@ -117,7 +117,7 @@ const TextField = (props: ITextFieldProps) => {
       state={transformedState}
       errorMessage={errorMessage}
       validMessage={validMessage}
-      isFullWidth={transformedIsFullWidth}
+      fullwidth={transformedfullwidth}
       isFocused={isFocused}
       handleFocus={interceptFocus}
       handleBlur={interceptBlur}
