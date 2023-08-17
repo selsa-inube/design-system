@@ -5,6 +5,7 @@ import {
   JustifyContent,
   AlignItem,
   AlignContent,
+  Spacing,
 } from "./props";
 
 export interface IStackProps {
@@ -17,8 +18,8 @@ export interface IStackProps {
   height?: string;
   width?: string;
   gap?: string;
-  margin?: string;
-  padding?: string;
+  margin?: Spacing;
+  padding?: Spacing;
 }
 
 const Stack = (props: IStackProps) => {
@@ -32,8 +33,8 @@ const Stack = (props: IStackProps) => {
     height,
     width,
     gap,
-    margin = "0px",
-    padding = "0px",
+    margin = "s0",
+    padding = "s0",
   } = props;
 
   return (

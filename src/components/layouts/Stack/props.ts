@@ -1,3 +1,7 @@
+import { spacing } from "@shared/tokens/spacing/spacing";
+
+const optionBoxModel = Object.keys(spacing);
+
 export const alignContentProperties = [
   "baseline",
   "flex-start",
@@ -75,7 +79,10 @@ export const wrapControls = [
   "revert",
   "unset",
 ] as const;
+
 export type WrapControl = typeof wrapControls[number];
+
+export type Spacing = keyof typeof spacing;
 
 export const props = {
   children: {
@@ -163,20 +170,22 @@ export const props = {
   },
 
   margin: {
-    type: { name: "string", required: false },
+    options: optionBoxModel,
+    control: { type: "select" },
     description:
       "Sets the margin in px or global values for all four sides of the component",
     table: {
-      defaultValue: { summary: "0px" },
+      defaultValue: { summary: "s0" },
     },
   },
 
   padding: {
-    type: { name: "string", required: false },
+    options: optionBoxModel,
+    control: { type: "select" },
     description:
       "Sets the padding in px p global values for all four sides of the component",
     table: {
-      defaultValue: { summary: "0px" },
+      defaultValue: { summary: "s0" },
     },
   },
 };

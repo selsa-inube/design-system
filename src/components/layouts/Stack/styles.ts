@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { IStackProps } from "./index";
+import { inube } from "@shared/tokens";
 
 const StyledFlex = styled.div`
   display: flex;
@@ -11,8 +12,8 @@ const StyledFlex = styled.div`
   height: ${({ height }: IStackProps) => height};
   width: ${({ width }: IStackProps) => width};
   gap: ${({ gap }: IStackProps) => gap};
-  margin: ${({ margin }: IStackProps) => margin};
-  padding: ${({ padding }: IStackProps) => padding};
+  margin: ${({ margin }: IStackProps) => inube.spacing[margin!]};
+  padding: ${({ padding }: IStackProps) => inube.spacing[padding!]};
 `;
 
 export { StyledFlex };
