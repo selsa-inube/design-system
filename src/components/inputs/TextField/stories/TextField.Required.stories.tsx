@@ -21,14 +21,14 @@ const RequiredComponent = (args: ITextFieldProps) => {
 };
 
 const Required = (args: ITextFieldProps) => (
-  <RequiredComponent {...args} isRequired={true} />
+  <RequiredComponent {...args} required={true} />
 );
 Required.args = {
   label: "Username",
   name: "Username",
   id: "Username",
   placeholder: "Write your full name",
-  isDisabled: false,
+  disabled: false,
   type: "text",
   state: "pending",
   size: "wide",
@@ -36,7 +36,7 @@ Required.args = {
   minLength: 1,
   max: 10,
   min: 1,
-  isFullWidth: false,
+  fullwidth: false,
   errorMessage: "This field can not be blank",
   validMessage: "Field validation is successful",
 };

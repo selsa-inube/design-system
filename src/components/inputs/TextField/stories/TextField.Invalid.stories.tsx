@@ -18,15 +18,15 @@ Invalid.args = {
   id: "Username",
   value: "L-GARZON",
   placeholder: "Username..",
-  isDisabled: false,
+  disabled: false,
   type: "text",
   maxLength: 20,
   minLength: 1,
-  isRequired: true,
+  required: true,
   errorMessage: "Please enter only letters in this field",
   validMessage: "The field has been successfully validated",
   size: "wide",
-  isFullWidth: false,
+  fullwidth: false,
 };
 
 export default story;

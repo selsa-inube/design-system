@@ -1,16 +1,17 @@
 import React from "react";
 
-import { DropDownMenu } from "../index";
+import { DropdownMenu } from "../index";
 
-import { props } from "../props";
+import { props, parameters } from "../props";
 
 const story = {
-  title: "Inputs/DropDownMenu",
-  component: [DropDownMenu],
+  title: "Inputs/DropdownMenu",
+  component: [DropdownMenu],
+  parameters,
   argTypes: props,
 };
 
-const Default = (args) => <DropDownMenu {...args} />;
+const Default = (args) => <DropdownMenu {...args} />;
 Default.args = {
   options: [
     { id: "1", label: "Item 1", isDisabled: true, isSelected: false },
