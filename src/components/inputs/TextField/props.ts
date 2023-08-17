@@ -82,7 +82,7 @@ const props = {
     description:
       "defines the minimum value that can be inserted (useful for components of type number)",
   },
-  isRequired: {
+  required: {
     description: "defines if the field is required or not",
     table: {
       defaultValue: { summary: false },

@@ -20,7 +20,7 @@ Search.args = {
   placeholder: "Search...",
   disabled: false,
   iconAfter: <MdSearch />,
-  isRequired: false,
+  required: false,
   errorMessage: "",
   maxLength: 10,
   minLength: 1,

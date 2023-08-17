@@ -85,7 +85,7 @@ const TextFieldUI = (props: ITextFieldProps) => {
     minLength,
     max,
     min,
-    isRequired,
+    required,
     state,
     errorMessage,
     validMessage,
@@ -119,7 +119,7 @@ const TextFieldUI = (props: ITextFieldProps) => {
           </Label>
         )}
 
-        {isRequired && !disabled && (
+        {required && !disabled && (
           <Text type="body" size="small" appearance="dark">
             (Required)
           </Text>
@@ -153,7 +153,7 @@ const TextFieldUI = (props: ITextFieldProps) => {
           minLength={minLength}
           max={max}
           min={min}
-          isRequired={isRequired}
+          required={required}
           size={size}
           state={state}
           fullwidth={fullwidth}
