@@ -1,5 +1,5 @@
 import { Textarea } from "..";
-import { TextareaController } from "./Textarea.controller";
+import { TextareaController } from "./TextareaController";
 
 import { props, parameters } from "../props";
 
