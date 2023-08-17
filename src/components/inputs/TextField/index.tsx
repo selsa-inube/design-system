@@ -27,7 +27,7 @@ export interface ITextFieldProps {
   handleFocus?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   handleBlur?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   readOnly?: boolean;
-  isFocused?: boolean;
+  focused?: boolean;
 }
 
 const defaultdisabled = false;
@@ -63,11 +63,11 @@ const TextField = (props: ITextFieldProps) => {
     readOnly,
   } = props;
 
-  const [isFocused, setIsFocused] = useState(false);
+  const [focused, setFocused] = useState(false);
 
   const interceptFocus = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!readOnly) {
-      setIsFocused(true);
+      setFocused(true);
     }
     if (typeof handleFocus === "function") {
       handleFocus(e);
@@ -75,7 +75,7 @@ const TextField = (props: ITextFieldProps) => {
   };
 
   const interceptBlur = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setIsFocused(false);
+    setFocused(false);
     if (typeof handleBlur === "function") {
       handleBlur(e);
     }
@@ -118,7 +118,7 @@ const TextField = (props: ITextFieldProps) => {
       errorMessage={errorMessage}
       validMessage={validMessage}
       fullwidth={transformedfullwidth}
-      isFocused={isFocused}
+      focused={focused}
       handleFocus={interceptFocus}
       handleBlur={interceptBlur}
       readOnly={transformedReadOnly}

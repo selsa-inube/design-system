@@ -30,7 +30,7 @@ const getGrid = (props: ITextFieldProps) => {
 };
 
 const getColors = (props: ITextFieldProps) => {
-  const { disabled, state, isFocused } = props;
+  const { disabled, state, focused } = props;
   if (disabled) {
     return colors.ref.palette.neutral.n70;
   }
@@ -39,7 +39,7 @@ const getColors = (props: ITextFieldProps) => {
     return colors.sys.actions.remove.filled;
   }
 
-  if (isFocused) {
+  if (focused) {
     return colors.ref.palette.blue.b300;
   }
   return colors.ref.palette.neutral.n40;
