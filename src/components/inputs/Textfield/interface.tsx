@@ -93,7 +93,7 @@ const TextfieldUI = (props: ITextfieldProps) => {
     fullwidth,
     isFocused,
     handleFocus,
-    handleBlur,
+    onBlur,
     readOnly,
   } = props;
 
@@ -160,7 +160,7 @@ const TextfieldUI = (props: ITextfieldProps) => {
           isFocused={isFocused}
           onChange={onChange}
           onFocus={handleFocus}
-          onBlur={handleBlur}
+          onBlur={onBlur}
           readOnly={readOnly}
         />
 
