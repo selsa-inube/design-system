@@ -16,15 +16,13 @@ export interface ITextfieldProps {
   iconAfter?: React.ReactNode;
   maxLength?: number;
   minLength?: number;
-  max?: number;
-  min?: number;
   required: boolean;
   state?: State;
   errorMessage?: string;
   validMessage?: string;
   size?: Size;
   fullwidth?: boolean;
-  handleFocus?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onFocus?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   handleBlur?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   readOnly?: boolean;
   focused?: boolean;
@@ -50,15 +48,13 @@ const Textfield = (props: ITextfieldProps) => {
     iconAfter,
     maxLength,
     minLength,
-    max,
-    min,
     required = false,
     state = "pending",
     errorMessage,
     validMessage,
     size = "wide",
     fullwidth = false,
-    handleFocus,
+    onFocus,
     handleBlur,
     readOnly,
   } = props;
@@ -69,8 +65,8 @@ const Textfield = (props: ITextfieldProps) => {
     if (!readOnly) {
       setFocused(true);
     }
-    if (typeof handleFocus === "function") {
-      handleFocus(e);
+    if (typeof onFocus === "function") {
+      onFocus(e);
     }
   };
 
@@ -110,8 +106,6 @@ const Textfield = (props: ITextfieldProps) => {
       iconAfter={iconAfter}
       maxLength={maxLength}
       minLength={minLength}
-      max={max}
-      min={min}
       required={transformedRequired}
       size={size}
       state={transformedState}
@@ -119,7 +113,7 @@ const Textfield = (props: ITextfieldProps) => {
       validMessage={validMessage}
       fullwidth={transformedfullwidth}
       focused={focused}
-      handleFocus={interceptFocus}
+      onFocus={interceptFocus}
       handleBlur={interceptBlur}
       readOnly={transformedReadOnly}
     />
