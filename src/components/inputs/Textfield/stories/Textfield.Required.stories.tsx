@@ -1,26 +1,26 @@
-import { TextField, ITextFieldProps } from "..";
-import { TextFieldController } from "./TextfieldController";
+import { Textfield, ITextfieldProps } from "..";
+import { TextfieldController } from "./TextfieldController";
 
 import { Stack } from "@layouts/Stack";
 
 import { props } from "../props";
 
 const story = {
-  title: "inputs/TextField",
-  components: [TextField],
+  title: "inputs/Textfield",
+  components: [Textfield],
   argTypes: props,
 };
 
-const RequiredComponent = (args: ITextFieldProps) => {
+const RequiredComponent = (args: ITextfieldProps) => {
   return (
     <Stack justifyContent="space-evenly">
-      <TextFieldController {...args} />
-      <TextFieldController {...args} size="compact" state="invalid" />
+      <TextfieldController {...args} />
+      <TextfieldController {...args} size="compact" state="invalid" />
     </Stack>
   );
 };
 
-const Required = (args: ITextFieldProps) => (
+const Required = (args: ITextfieldProps) => (
   <RequiredComponent {...args} required={true} />
 );
 Required.args = {

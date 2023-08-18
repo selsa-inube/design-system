@@ -1,19 +1,19 @@
-import { TextField, ITextFieldProps } from "..";
-import { TextFieldController } from "./TextfieldController";
+import { Textfield, ITextfieldProps } from "..";
+import { TextfieldController } from "./TextfieldController";
 import { Stack } from "@layouts/Stack";
 import { props, sizes } from "../props";
 
 const story = {
-  title: "inputs/TextField",
-  components: [TextField],
+  title: "inputs/Textfield",
+  components: [Textfield],
   argTypes: props,
 };
 
-const TextFieldComponent = (args: ITextFieldProps) => {
+const TextfieldComponent = (args: ITextfieldProps) => {
   return (
     <Stack justifyContent="space-evenly">
       {sizes.map((size) => (
-        <TextFieldController {...args} key={size} size={size} state="valid" />
+        <TextfieldController {...args} key={size} size={size} state="valid" />
       ))}
     </Stack>
   );
@@ -34,7 +34,7 @@ const Valid = {
     type: "text",
     size: "wide",
   },
-  render: (args: ITextFieldProps) => <TextFieldComponent {...args} />,
+  render: (args: ITextfieldProps) => <TextfieldComponent {...args} />,
 };
 
 export default story;
