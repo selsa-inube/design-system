@@ -50,8 +50,7 @@ const props = {
     description: "value to be submitted in a form",
   },
   onChange: {
-    options: ["logState"],
-    control: { type: "func" },
+    control: { action: "changed" },
     description:
       "is a function that the component receives and that can be executed every time the switch state is modified",
   },

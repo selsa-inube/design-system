@@ -1,18 +1,23 @@
 import { Switch, ISwitchProps } from "..";
 import { SwitchController } from "./SwitchController";
 import { ThemeProvider } from "styled-components";
-
+import { action } from "@storybook/addon-actions";
 import { presente } from "@shared/themes/presente";
 import { props, parameters } from "../props";
 
 const story = {
   title: "inputs/Switch",
-  components: [Switch],
+  components: Switch,
   parameters,
-  argTypes: props,
+  argTypes: {
+    ...props,
+    onChange: { action: "changed" },
+  },
 };
 
-export const Default = (args: ISwitchProps) => <SwitchController {...args} />;
+export const Default = (args: ISwitchProps) => (
+  <SwitchController {...args} onSwitchChange={args.onChange} />
+);
 Default.args = {
   id: "id",
   disabled: false,
@@ -20,7 +25,7 @@ Default.args = {
   value: "switchTest1",
   checked: false,
   size: "small",
-  onChange: () => {},
+  onChange: action("onChange action"),
   margin: "s0",
   padding: "s0",
 };
