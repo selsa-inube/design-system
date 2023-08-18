@@ -22,8 +22,6 @@ Search.args = {
   iconAfter: <MdSearch />,
   required: false,
   errorMessage: "",
-  maxLength: 10,
-  minLength: 1,
   size: "wide",
   type: "text",
   fullwidth: false,

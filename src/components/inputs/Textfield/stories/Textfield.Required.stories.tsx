@@ -32,8 +32,6 @@ Required.args = {
   type: "text",
   state: "pending",
   size: "wide",
-  maxLength: 20,
-  minLength: 1,
   fullwidth: false,
   errorMessage: "This field can not be blank",
   validMessage: "Field validation is successful",

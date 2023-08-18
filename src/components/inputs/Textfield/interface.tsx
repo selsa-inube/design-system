@@ -81,8 +81,6 @@ const TextfieldUI = (props: ITextfieldProps) => {
     onChange,
     iconBefore,
     iconAfter,
-    maxLength,
-    minLength,
     required,
     state,
     errorMessage,
@@ -147,8 +145,6 @@ const TextfieldUI = (props: ITextfieldProps) => {
           value={value}
           iconBefore={iconBefore}
           iconAfter={iconAfter}
-          maxLength={maxLength}
-          minLength={minLength}
           required={required}
           size={size}
           state={state}
