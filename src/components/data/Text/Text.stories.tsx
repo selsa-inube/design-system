@@ -2,7 +2,7 @@ import { ThemeProvider } from "styled-components";
 import { Text, ITextProps } from ".";
 
 import { props, parameters } from "./props";
-import { presente } from "@src/shared/themes/presente";
+import { presente } from "@shared/themes/presente";
 
 const story = {
   title: "data/Text",

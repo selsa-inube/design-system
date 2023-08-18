@@ -1,30 +1,24 @@
-export const sizes = ["wide", "compact"] as const;
-export type Size = typeof sizes[number];
+import { states } from ".";
 
-export const states = ["valid", "invalid", "pending"] as const;
-export type States = typeof states[number];
-
-const props = {
-  parameters: {
-    docs: {
-      description: {
-        component:
-          "Select allows users to make a single selection or multiple selections from a list of options.",
-      },
-    },
-    controls: {
-      exclude: ["value", "state"],
+const parameters = {
+  docs: {
+    description: {
+      component:
+        "A text field is an input that allows a user to write or edit text",
     },
   },
+};
+
+const props = {
   label: {
     description: "prompts the user what value to enter",
   },
   name: {
-    description: "name of the input element",
+    description: "name of the Textarea element",
   },
   id: {
     description:
-      "uniquely identifies the **Textfield Component**, it will also allow the **label element** to be connected to the **input element** through the htmlFor of the label",
+      "uniquely identifies the **Textarea Component**, it will also allow the **label element** to be connected to the **Textarea element** through the htmlFor of the label",
   },
   placeholder: {
     description: "text to display in the text field whenever it is empty",
@@ -42,6 +36,22 @@ const props = {
   handleChange: {
     description:
       "allows you to control what to do when the user changes the value of the component",
+  },
+  maxLength: {
+    description:
+      "defines how many characters maximum are received in the component value",
+  },
+  minLength: {
+    description:
+      "defines how many minimum characters the component receives as a value",
+  },
+  max: {
+    description:
+      "defines the maximum value that can be inserted (useful for components of type number)",
+  },
+  min: {
+    description:
+      "defines the minimum value that can be inserted (useful for components of type number)",
   },
   isRequired: {
     description: "defines if the field is required or not",
@@ -63,29 +73,28 @@ const props = {
   validMessage: {
     description: "show when the field is validated without errors",
   },
-  size: {
-    options: sizes,
-    control: { type: "select" },
-    description: "defines the size of the component",
-  },
   isFullWidth: {
     description: "option to fit field width to its parent width",
     table: {
       defaultValue: { summary: false },
     },
   },
-  handleFocus: {
-    description:
-      "allows you to control what to do when the onfocus event occurs.",
+  readOnly: {
+    descriptions: "option to make the field read only",
+    table: {
+      defaultValue: { summary: false },
+    },
   },
-  handleBlur: {
-    description:
-      "allows you to control what to do when the onblur event occurs.",
+  counter: {
+    description: "option to show a counter of characters",
+    table: {
+      defaultValue: { summary: false },
+    },
   },
-  options: {
+  lengthThreshold: {
     description:
-      "(array): shall be designed to accept an array of objects with a predetermined structure.",
+      "defines the minimum number of characters for displaying counter alerts",
   },
 };
 
-export { props };
+export { props, parameters };

@@ -7,7 +7,6 @@ export { User } from "@data/User";
 
 // feedback
 export { CountdownBar } from "@feedback/CountdownBar";
-export { InteractiveModal } from "@feedback/InteractiveModal";
 export { SkeletonIcon } from "@feedback/SkeletonIcon";
 export { SkeletonLine } from "@feedback/SkeletonLine";
 export { Spinner } from "@feedback/Spinner";
@@ -21,8 +20,8 @@ export { Button } from "@inputs/Button";
 export { Label } from "@inputs/Label";
 export { Select } from "@inputs/Select";
 export { Switch } from "@inputs/Switch";
-export { TextArea } from "@inputs/TextArea";
-export { TextField } from "@inputs/TextField";
+export { Textarea } from "@inputs/Textarea";
+export { Textfield } from "@inputs/Textfield";
 
 // layouts
 export { Stack } from "@layouts/Stack";
