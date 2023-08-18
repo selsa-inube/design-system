@@ -1,4 +1,4 @@
-import { Textfield, ITextfieldProps } from "..";
+import { Textfield, ITextfieldProps, IMessage } from "..";
 import { TextfieldController } from "./TextfieldController";
 import { Stack } from "@layouts/Stack";
 
@@ -13,7 +13,7 @@ const story = {
 const TextfieldComponent = (args: ITextfieldProps) => {
   return (
     <Stack justifyContent="space-evenly">
-      {sizes.map((size) => (
+      {sizes.map((size, index) => (
         <TextfieldController {...args} key={size} size={size} />
       ))}
     </Stack>
@@ -32,8 +32,6 @@ const Size = {
     type: "text",
     maxLength: 10,
     minLength: 1,
-    errorMessage: "Please enter only letters in this field",
-    validMessage: "The field has been successfully validated",
     fullwidth: false,
     required: false,
     readOnly: false,

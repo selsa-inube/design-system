@@ -24,8 +24,10 @@ Invalid.args = {
   maxLength: 20,
   minLength: 1,
   required: true,
-  errorMessage: "Please enter only letters in this field",
-  validMessage: "The field has been successfully validated",
+  message: {
+    content: "Please enter only letters in this field",
+    type: "invalid",
+  },
   size: "wide",
   fullwidth: false,
 };

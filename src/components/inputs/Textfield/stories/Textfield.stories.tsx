@@ -21,8 +21,6 @@ Default.args = {
   minLength: 1,
   min: 0,
   max: 0,
-  errorMessage: "Please enter only letters in this field",
-  validMessage: "The field has been successfully validated",
   size: "wide",
   readOnly: false,
 };

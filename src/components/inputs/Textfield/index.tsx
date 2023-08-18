@@ -3,6 +3,11 @@ import { useState } from "react";
 import { TextfieldUI } from "./interface";
 import { InputType, Size, State, inputTypes, states } from "./props";
 
+export interface IMessage {
+  content: string;
+  type: "success" | "invalid";
+}
+
 export interface ITextfieldProps {
   label?: string;
   name: string;
@@ -20,8 +25,7 @@ export interface ITextfieldProps {
   min?: number;
   required: boolean;
   state?: State;
-  errorMessage?: string;
-  validMessage?: string;
+  message?: IMessage;
   size?: Size;
   fullwidth?: boolean;
   handleFocus?: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -54,8 +58,7 @@ const Textfield = (props: ITextfieldProps) => {
     min,
     required = false,
     state = "pending",
-    errorMessage,
-    validMessage,
+    message,
     size = "wide",
     fullwidth = false,
     handleFocus,
@@ -115,8 +118,7 @@ const Textfield = (props: ITextfieldProps) => {
       required={transformedRequired}
       size={size}
       state={transformedState}
-      errorMessage={errorMessage}
-      validMessage={validMessage}
+      message={message}
       fullwidth={transformedfullwidth}
       isFocused={isFocused}
       handleFocus={interceptFocus}

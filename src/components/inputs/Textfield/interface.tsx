@@ -3,7 +3,7 @@ import { MdOutlineError, MdCheckCircle } from "react-icons/md";
 import { Label } from "@inputs/Label";
 import { Text } from "@data/Text";
 
-import { ITextfieldProps } from ".";
+import { IMessage, ITextfieldProps } from ".";
 
 import {
   StyledContainer,
@@ -19,8 +19,7 @@ import { Size, State } from "./props";
 export interface IMessageProps {
   state?: State;
   disabled?: boolean;
-  errorMessage?: string;
-  validMessage?: string;
+  message?: IMessage;
 }
 
 const getTypo = (size: Size) => {
@@ -31,8 +30,9 @@ const getTypo = (size: Size) => {
 };
 
 const Invalid = (props: IMessageProps) => {
-  const { disabled, state, errorMessage } = props;
-  const transformedErrorMessage = errorMessage && `(${errorMessage})`;
+  const { disabled, state, message } = props;
+
+  if (message?.type !== "invalid") return null;
 
   return (
     <StyledErrorMessageContainer disabled={disabled} state={state}>
@@ -44,14 +44,16 @@ const Invalid = (props: IMessageProps) => {
         appearance="error"
         disabled={disabled}
       >
-        {transformedErrorMessage}
+        {message?.content && `(${message.content})`}
       </Text>
     </StyledErrorMessageContainer>
   );
 };
 
 const Success = (props: IMessageProps) => {
-  const { disabled, state, validMessage } = props;
+  const { disabled, state, message } = props;
+
+  if (message?.type !== "success") return null;
 
   return (
     <StyledValidMessageContainer disabled={disabled} state={state}>
@@ -63,7 +65,7 @@ const Success = (props: IMessageProps) => {
         appearance="success"
         disabled={disabled}
       >
-        {validMessage}
+        {message?.content}
       </Text>
     </StyledValidMessageContainer>
   );
@@ -87,8 +89,7 @@ const TextfieldUI = (props: ITextfieldProps) => {
     min,
     required,
     state,
-    errorMessage,
-    validMessage,
+    message,
     size,
     fullwidth,
     isFocused,
@@ -97,7 +98,7 @@ const TextfieldUI = (props: ITextfieldProps) => {
     readOnly,
   } = props;
 
-  const transformedInvalid = state === "invalid" ? true : false;
+  const transformedInvalid = message?.type === "invalid";
 
   return (
     <StyledContainer fullwidth={fullwidth} disabled={disabled}>
@@ -171,19 +172,11 @@ const TextfieldUI = (props: ITextfieldProps) => {
         )}
       </StyledInputContainer>
 
-      {state === "invalid" && (
-        <Invalid
-          disabled={disabled}
-          state={state}
-          errorMessage={errorMessage}
-        />
+      {message?.type === "invalid" && (
+        <Invalid disabled={disabled} state={state} message={message} />
       )}
-      {state === "valid" && (
-        <Success
-          disabled={disabled}
-          state={state}
-          validMessage={validMessage}
-        />
+      {message?.type === "success" && (
+        <Success disabled={disabled} state={state} message={message} />
       )}
     </StyledContainer>
   );

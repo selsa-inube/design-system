@@ -1,4 +1,4 @@
-import { Textfield, ITextfieldProps } from "..";
+import { Textfield, ITextfieldProps, IMessage } from "..";
 import { TextfieldController } from "./TextfieldController";
 
 import { Stack } from "@layouts/Stack";
@@ -14,7 +14,7 @@ const story = {
 const RequiredComponent = (args: ITextfieldProps) => {
   return (
     <Stack justifyContent="space-evenly">
-      <TextfieldController {...args} />
+      <TextfieldController {...args} state="valid" />
       <TextfieldController {...args} size="compact" state="invalid" />
     </Stack>
   );
@@ -37,8 +37,6 @@ Required.args = {
   max: 10,
   min: 1,
   fullwidth: false,
-  errorMessage: "This field can not be blank",
-  validMessage: "Field validation is successful",
 };
 
 export default story;

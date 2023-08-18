@@ -21,7 +21,7 @@ Search.args = {
   disabled: false,
   iconAfter: <MdSearch />,
   required: false,
-  errorMessage: "",
+  message: "",
   maxLength: 10,
   minLength: 1,
   max: 10,
