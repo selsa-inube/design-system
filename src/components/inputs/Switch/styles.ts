@@ -22,7 +22,7 @@ const StyledSpan = styled.span`
   right: 0;
   bottom: 0;
   transition: 0.1s;
-  border-radius: 10px;
+  border-radius: 30px;
   cursor: ${(props: ISwitchProps) =>
     props.disabled ? "not-allowed" : "pointer"};
   background: ${({ disabled, theme }: ISwitchProps) =>
@@ -117,9 +117,9 @@ const StyledIcon = styled.div`
     ${(props: ISwitchProps) =>
       props.size === "small"
         ? css`
-            width: 14px;
-            height: 14px;
-            top: 1px;
+            width: 10px;
+            height: 10px;
+            top: 3px;
             left: ${(props: ISwitchProps) => (props.checked ? "2px" : "17px")};
           `
         : css`
