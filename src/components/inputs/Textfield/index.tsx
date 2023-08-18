@@ -16,8 +16,6 @@ export interface ITextfieldProps {
   iconAfter?: React.ReactNode;
   maxLength?: number;
   minLength?: number;
-  max?: number;
-  min?: number;
   required: boolean;
   state?: State;
   errorMessage?: string;
@@ -50,8 +48,6 @@ const Textfield = (props: ITextfieldProps) => {
     iconAfter,
     maxLength,
     minLength,
-    max,
-    min,
     required = false,
     state = "pending",
     errorMessage,
@@ -110,8 +106,6 @@ const Textfield = (props: ITextfieldProps) => {
       iconAfter={iconAfter}
       maxLength={maxLength}
       minLength={minLength}
-      max={max}
-      min={min}
       required={transformedRequired}
       size={size}
       state={transformedState}
