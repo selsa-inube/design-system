@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import { TextfieldUI } from "./interface";
-import { InputType, Size, State, inputTypes, states } from "./props";
+import { InputType, Size, State } from "./props";
 
 export interface ITextfieldProps {
   label?: string;
@@ -29,12 +29,6 @@ export interface ITextfieldProps {
   readOnly?: boolean;
   isFocused?: boolean;
 }
-
-const defaultdisabled = false;
-const defaultType: InputType = "text";
-const defaultRequired = false;
-const defaultState: State = "pending";
-const defaultfullwidth = false;
 
 const Textfield = (props: ITextfieldProps) => {
   const {
@@ -81,29 +75,14 @@ const Textfield = (props: ITextfieldProps) => {
     }
   };
 
-  const transformeddisabled =
-    typeof disabled === "boolean" ? disabled : defaultdisabled;
-
-  const transformedState = states.includes(state) ? state : defaultState;
-
-  const transformedTypes = inputTypes.includes(type) ? type : defaultType;
-
-  const transformedRequired =
-    typeof required === "boolean" ? required : defaultRequired;
-
-  const transformedfullwidth =
-    typeof fullwidth === "boolean" ? fullwidth : defaultfullwidth;
-
-  const transformedReadOnly = typeof readOnly === "boolean" ? readOnly : false;
-
   return (
     <TextfieldUI
       label={label}
       name={name}
       id={id}
       placeholder={placeholder}
-      disabled={transformeddisabled}
-      type={transformedTypes}
+      disabled={disabled}
+      type={type}
       value={value}
       onChange={onChange}
       iconBefore={iconBefore}
@@ -112,16 +91,16 @@ const Textfield = (props: ITextfieldProps) => {
       minLength={minLength}
       max={max}
       min={min}
-      required={transformedRequired}
+      required={required}
       size={size}
-      state={transformedState}
+      state={state}
       errorMessage={errorMessage}
       validMessage={validMessage}
-      fullwidth={transformedfullwidth}
+      fullwidth={fullwidth}
       isFocused={isFocused}
       handleFocus={interceptFocus}
       handleBlur={interceptBlur}
-      readOnly={transformedReadOnly}
+      readOnly={readOnly}
     />
   );
 };
