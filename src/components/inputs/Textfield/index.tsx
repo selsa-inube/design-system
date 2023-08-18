@@ -22,7 +22,7 @@ export interface ITextfieldProps {
   validMessage?: string;
   size?: Size;
   fullwidth?: boolean;
-  handleFocus?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onFocus?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   handleBlur?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   readOnly?: boolean;
   isFocused?: boolean;
@@ -54,7 +54,7 @@ const Textfield = (props: ITextfieldProps) => {
     validMessage,
     size = "wide",
     fullwidth = false,
-    handleFocus,
+    onFocus,
     handleBlur,
     readOnly,
   } = props;
@@ -65,8 +65,8 @@ const Textfield = (props: ITextfieldProps) => {
     if (!readOnly) {
       setIsFocused(true);
     }
-    if (typeof handleFocus === "function") {
-      handleFocus(e);
+    if (typeof onFocus === "function") {
+      onFocus(e);
     }
   };
 
@@ -113,7 +113,7 @@ const Textfield = (props: ITextfieldProps) => {
       validMessage={validMessage}
       fullwidth={transformedfullwidth}
       isFocused={isFocused}
-      handleFocus={interceptFocus}
+      onFocus={interceptFocus}
       handleBlur={interceptBlur}
       readOnly={transformedReadOnly}
     />
