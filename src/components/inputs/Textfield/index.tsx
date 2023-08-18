@@ -16,18 +16,16 @@ export interface ITextfieldProps {
   iconAfter?: React.ReactNode;
   maxLength?: number;
   minLength?: number;
-  max?: number;
-  min?: number;
   required: boolean;
   state?: State;
   errorMessage?: string;
   validMessage?: string;
   size?: Size;
   fullwidth?: boolean;
-  handleFocus?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onFocus?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   handleBlur?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   readOnly?: boolean;
-  isFocused?: boolean;
+  focused?: boolean;
 }
 
 const defaultdisabled = false;
@@ -50,32 +48,30 @@ const Textfield = (props: ITextfieldProps) => {
     iconAfter,
     maxLength,
     minLength,
-    max,
-    min,
     required = false,
     state = "pending",
     errorMessage,
     validMessage,
     size = "wide",
     fullwidth = false,
-    handleFocus,
+    onFocus,
     handleBlur,
     readOnly,
   } = props;
 
-  const [isFocused, setIsFocused] = useState(false);
+  const [focused, setFocused] = useState(false);
 
   const interceptFocus = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!readOnly) {
-      setIsFocused(true);
+      setFocused(true);
     }
-    if (typeof handleFocus === "function") {
-      handleFocus(e);
+    if (typeof onFocus === "function") {
+      onFocus(e);
     }
   };
 
   const interceptBlur = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setIsFocused(false);
+    setFocused(false);
     if (typeof handleBlur === "function") {
       handleBlur(e);
     }
@@ -110,16 +106,14 @@ const Textfield = (props: ITextfieldProps) => {
       iconAfter={iconAfter}
       maxLength={maxLength}
       minLength={minLength}
-      max={max}
-      min={min}
       required={transformedRequired}
       size={size}
       state={transformedState}
       errorMessage={errorMessage}
       validMessage={validMessage}
       fullwidth={transformedfullwidth}
-      isFocused={isFocused}
-      handleFocus={interceptFocus}
+      focused={focused}
+      onFocus={interceptFocus}
       handleBlur={interceptBlur}
       readOnly={transformedReadOnly}
     />

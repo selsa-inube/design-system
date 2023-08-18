@@ -14,7 +14,7 @@ const TextfieldController = (props: ITextfieldProps) => {
     setForm({ value: e.target.value, state: "pending" });
   };
 
-  const handleFocus = () => {
+  const onFocus = () => {
     if (form.state === "invalid") {
       return setForm({ ...form, state: "invalid" });
     }
@@ -32,7 +32,7 @@ const TextfieldController = (props: ITextfieldProps) => {
       value={form.value}
       onChange={onChange}
       state={form.state}
-      handleFocus={handleFocus}
+      onFocus={onFocus}
       handleBlur={handleBlur}
     />
   );
