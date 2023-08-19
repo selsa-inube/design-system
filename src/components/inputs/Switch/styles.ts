@@ -120,7 +120,7 @@ const StyledIcon = styled.div`
             width: 10px;
             height: 10px;
             top: 3px;
-            left: ${(props: ISwitchProps) => (props.checked ? "2px" : "17px")};
+            left: ${(props: ISwitchProps) => (props.checked ? "5px" : "17px")};
           `
         : css`
             width: 14px;
