@@ -3,7 +3,7 @@ import { Switch, ISwitchProps } from "..";
 
 const SwitchController = (
   props: ISwitchProps & {
-    onSwitchChange?: any;
+    onSwitchChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   }
 ) => {
   const { checked = false, onSwitchChange } = props;
@@ -11,7 +11,7 @@ const SwitchController = (
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSwitchChecked(e.target.checked);
-    if (onSwitchChange) onSwitchChange(e.target.checked);
+    if (onSwitchChange) onSwitchChange(e);
   };
 
   return <Switch {...props} checked={switchChecked} onChange={onChange} />;

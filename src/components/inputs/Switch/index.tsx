@@ -12,10 +12,10 @@ export interface ISwitchProps {
   value?: string;
   size?: Size;
   checked?: boolean;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  label: string;
-  margin: Spacing;
-  padding: Spacing;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  label?: string;
+  margin?: Spacing;
+  padding?: Spacing;
   disabled?: boolean;
 }
 

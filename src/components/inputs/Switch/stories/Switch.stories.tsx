@@ -1,7 +1,6 @@
 import { Switch, ISwitchProps } from "..";
 import { SwitchController } from "./SwitchController";
 import { ThemeProvider } from "styled-components";
-import { action } from "@storybook/addon-actions";
 import { presente } from "@shared/themes/presente";
 import { props, parameters } from "../props";
 
@@ -25,7 +24,6 @@ Default.args = {
   value: "switchTest1",
   checked: false,
   size: "small",
-  onChange: action("onChange action"),
   margin: "s0",
   padding: "s0",
 };
