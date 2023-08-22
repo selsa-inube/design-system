@@ -3,7 +3,7 @@ import { MdOutlineError, MdCheckCircle } from "react-icons/md";
 import { Label } from "@inputs/Label";
 import { Text } from "@data/Text";
 
-import { ITextFieldProps } from ".";
+import { ITextfieldProps } from ".";
 
 import {
   StyledContainer,
@@ -69,7 +69,7 @@ const Success = (props: IMessageProps) => {
   );
 };
 
-const TextFieldUI = (props: ITextFieldProps) => {
+const TextfieldUI = (props: ITextfieldProps) => {
   const {
     label,
     name,
@@ -83,17 +83,15 @@ const TextFieldUI = (props: ITextFieldProps) => {
     iconAfter,
     maxLength,
     minLength,
-    max,
-    min,
     required,
     state,
     errorMessage,
     validMessage,
     size,
     fullwidth,
-    isFocused,
-    handleFocus,
-    handleBlur,
+    focused,
+    onFocus,
+    onBlur,
     readOnly,
   } = props;
 
@@ -111,7 +109,7 @@ const TextFieldUI = (props: ITextFieldProps) => {
           <Label
             htmlFor={id}
             disabled={disabled}
-            focused={isFocused}
+            focused={focused}
             invalid={transformedInvalid}
             size={getTypo(size!)}
           >
@@ -128,7 +126,7 @@ const TextFieldUI = (props: ITextFieldProps) => {
 
       <StyledInputContainer
         disabled={disabled}
-        isFocused={isFocused}
+        focused={focused}
         state={state}
         iconBefore={iconBefore}
         iconAfter={iconAfter}
@@ -151,16 +149,14 @@ const TextFieldUI = (props: ITextFieldProps) => {
           iconAfter={iconAfter}
           maxLength={maxLength}
           minLength={minLength}
-          max={max}
-          min={min}
           required={required}
           size={size}
           state={state}
           fullwidth={fullwidth}
-          isFocused={isFocused}
+          focused={focused}
           onChange={onChange}
-          onFocus={handleFocus}
-          onBlur={handleBlur}
+          onFocus={onFocus}
+          onBlur={onBlur}
           readOnly={readOnly}
         />
 
@@ -189,4 +185,4 @@ const TextFieldUI = (props: ITextFieldProps) => {
   );
 };
 
-export { TextFieldUI };
+export { TextfieldUI };

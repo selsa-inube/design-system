@@ -1,9 +1,9 @@
 import { useState } from "react";
 
-import { TextFieldUI } from "./interface";
+import { TextfieldUI } from "./interface";
 import { InputType, Size, State, inputTypes, states } from "./props";
 
-export interface ITextFieldProps {
+export interface ITextfieldProps {
   label?: string;
   name: string;
   id: string;
@@ -16,18 +16,16 @@ export interface ITextFieldProps {
   iconAfter?: React.ReactNode;
   maxLength?: number;
   minLength?: number;
-  max?: number;
-  min?: number;
   required: boolean;
   state?: State;
   errorMessage?: string;
   validMessage?: string;
   size?: Size;
   fullwidth?: boolean;
-  handleFocus?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  handleBlur?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onFocus?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onBlur?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   readOnly?: boolean;
-  isFocused?: boolean;
+  focused?: boolean;
 }
 
 const defaultdisabled = false;
@@ -36,7 +34,7 @@ const defaultRequired = false;
 const defaultState: State = "pending";
 const defaultfullwidth = false;
 
-const TextField = (props: ITextFieldProps) => {
+const Textfield = (props: ITextfieldProps) => {
   const {
     label,
     name,
@@ -50,34 +48,32 @@ const TextField = (props: ITextFieldProps) => {
     iconAfter,
     maxLength,
     minLength,
-    max,
-    min,
     required = false,
     state = "pending",
     errorMessage,
     validMessage,
     size = "wide",
     fullwidth = false,
-    handleFocus,
-    handleBlur,
+    onFocus,
+    onBlur,
     readOnly,
   } = props;
 
-  const [isFocused, setIsFocused] = useState(false);
+  const [focused, setFocused] = useState(false);
 
   const interceptFocus = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!readOnly) {
-      setIsFocused(true);
+      setFocused(true);
     }
-    if (typeof handleFocus === "function") {
-      handleFocus(e);
+    if (typeof onFocus === "function") {
+      onFocus(e);
     }
   };
 
   const interceptBlur = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setIsFocused(false);
-    if (typeof handleBlur === "function") {
-      handleBlur(e);
+    setFocused(false);
+    if (typeof onBlur === "function") {
+      onBlur(e);
     }
   };
 
@@ -97,7 +93,7 @@ const TextField = (props: ITextFieldProps) => {
   const transformedReadOnly = typeof readOnly === "boolean" ? readOnly : false;
 
   return (
-    <TextFieldUI
+    <TextfieldUI
       label={label}
       name={name}
       id={id}
@@ -110,20 +106,18 @@ const TextField = (props: ITextFieldProps) => {
       iconAfter={iconAfter}
       maxLength={maxLength}
       minLength={minLength}
-      max={max}
-      min={min}
       required={transformedRequired}
       size={size}
       state={transformedState}
       errorMessage={errorMessage}
       validMessage={validMessage}
       fullwidth={transformedfullwidth}
-      isFocused={isFocused}
-      handleFocus={interceptFocus}
-      handleBlur={interceptBlur}
+      focused={focused}
+      onFocus={interceptFocus}
+      onBlur={interceptBlur}
       readOnly={transformedReadOnly}
     />
   );
 };
 
-export { TextField };
+export { Textfield };

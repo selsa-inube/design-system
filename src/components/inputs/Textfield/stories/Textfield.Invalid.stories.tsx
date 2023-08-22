@@ -1,16 +1,17 @@
-import { TextField, ITextFieldProps } from "..";
-import { TextFieldController } from "./TextfieldController";
+import { Textfield, ITextfieldProps } from "..";
+import { TextfieldController } from "./TextfieldController";
 
-import { props } from "../props";
+import { props, parameters } from "../props";
 
 const story = {
-  title: "inputs/TextField",
-  components: [TextField],
+  title: "inputs/Textfield",
+  components: [Textfield],
+  parameters,
   argTypes: props,
 };
 
-const Invalid = (args: ITextFieldProps) => (
-  <TextFieldController {...args} state="invalid" />
+const Invalid = (args: ITextfieldProps) => (
+  <TextfieldController {...args} state="invalid" />
 );
 Invalid.args = {
   label: "Username",
