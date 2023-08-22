@@ -30,8 +30,6 @@ const Size = {
     value: "",
     state: "pending",
     type: "text",
-    maxLength: 10,
-    minLength: 1,
     errorMessage: "Please enter only letters in this field",
     validMessage: "The field has been successfully validated",
     fullwidth: false,
