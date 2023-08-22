@@ -16,18 +16,16 @@ export interface ITextfieldProps {
   iconAfter?: React.ReactNode;
   maxLength?: number;
   minLength?: number;
-  max?: number;
-  min?: number;
   required: boolean;
   state?: State;
   errorMessage?: string;
   validMessage?: string;
   size?: Size;
   fullwidth?: boolean;
-  handleFocus?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  handleBlur?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onFocus?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onBlur?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   readOnly?: boolean;
-  isFocused?: boolean;
+  focused?: boolean;
 }
 
 const Textfield = (props: ITextfieldProps) => {
@@ -44,34 +42,32 @@ const Textfield = (props: ITextfieldProps) => {
     iconAfter,
     maxLength,
     minLength,
-    max,
-    min,
     required = false,
     state = "pending",
     errorMessage,
     validMessage,
     size = "wide",
     fullwidth = false,
-    handleFocus,
-    handleBlur,
+    onFocus,
+    onBlur,
     readOnly,
   } = props;
 
-  const [isFocused, setIsFocused] = useState(false);
+  const [focused, setFocused] = useState(false);
 
   const interceptFocus = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!readOnly) {
-      setIsFocused(true);
+      setFocused(true);
     }
-    if (typeof handleFocus === "function") {
-      handleFocus(e);
+    if (typeof onFocus === "function") {
+      onFocus(e);
     }
   };
 
   const interceptBlur = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setIsFocused(false);
-    if (typeof handleBlur === "function") {
-      handleBlur(e);
+    setFocused(false);
+    if (typeof onBlur === "function") {
+      onBlur(e);
     }
   };
 
@@ -89,17 +85,15 @@ const Textfield = (props: ITextfieldProps) => {
       iconAfter={iconAfter}
       maxLength={maxLength}
       minLength={minLength}
-      max={max}
-      min={min}
       required={required}
       size={size}
       state={state}
       errorMessage={errorMessage}
       validMessage={validMessage}
       fullwidth={fullwidth}
-      isFocused={isFocused}
-      handleFocus={interceptFocus}
-      handleBlur={interceptBlur}
+      focused={focused}
+      onFocus={interceptFocus}
+      onBlur={interceptBlur}
       readOnly={readOnly}
     />
   );

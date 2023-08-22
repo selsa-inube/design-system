@@ -34,8 +34,6 @@ Required.args = {
   size: "wide",
   maxLength: 20,
   minLength: 1,
-  max: 10,
-  min: 1,
   fullwidth: false,
   errorMessage: "This field can not be blank",
   validMessage: "Field validation is successful",
