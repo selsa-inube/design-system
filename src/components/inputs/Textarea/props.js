@@ -1,70 +1,41 @@
-export const inputTypes = [
-  "text",
-  "email",
-  "number",
-  "password",
-  "search",
-  "tel",
-] as const;
-export type InputType = typeof inputTypes[number];
+import { states } from ".";
 
-export const sizes = ["wide", "compact"] as const;
-export type Size = typeof sizes[number];
-
-export const states = ["valid", "invalid", "pending"] as const;
-export type State = typeof states[number];
-
-const props = {
-  parameters: {
-    docs: {
-      description: {
-        component:
-          "A text field is an input that allows a user to write or edit text",
-      },
+const parameters = {
+  docs: {
+    description: {
+      component:
+        "A text field is an input that allows a user to write or edit text",
     },
   },
+};
+
+const props = {
   label: {
     description: "prompts the user what value to enter",
   },
   name: {
-    description: "name of the input element",
+    description: "name of the Textarea element",
   },
   id: {
     description:
-      "uniquely identifies the **TextField Component**, it will also allow the **label element** to be connected to the **input element** through the htmlFor of the label",
+      "uniquely identifies the **Textarea Component**, it will also allow the **label element** to be connected to the **Textarea element** through the htmlFor of the label",
   },
   placeholder: {
     description: "text to display in the text field whenever it is empty",
   },
-  disabled: {
+  isDisabled: {
     description:
       "sets the field as to appear disabled, users will not be able to interact with the text field",
     table: {
       defaultValue: { summary: false },
     },
   },
-  type: {
-    options: inputTypes,
-    control: { type: "select" },
-    description: "class name to apply to the input element",
-    table: {
-      defaultValue: { summary: "text" },
-    },
-  },
   value: {
     description: "component initial value",
   },
-  onChange: {
+  handleChange: {
     description:
       "allows you to control what to do when the user changes the value of the component",
-  },
-  iconBefore: {
-    description:
-      "allows to enter an icon to the left of the area where the user enters values",
-  },
-  iconAfter: {
-    description:
-      "allows to enter an icon to the right of the area where the user enters values",
   },
   maxLength: {
     description:
@@ -82,7 +53,7 @@ const props = {
     description:
       "defines the minimum value that can be inserted (useful for components of type number)",
   },
-  required: {
+  isRequired: {
     description: "defines if the field is required or not",
     table: {
       defaultValue: { summary: false },
@@ -102,12 +73,7 @@ const props = {
   validMessage: {
     description: "show when the field is validated without errors",
   },
-  size: {
-    options: sizes,
-    control: { type: "select" },
-    description: "defines the size of the component",
-  },
-  fullwidth: {
+  isFullWidth: {
     description: "option to fit field width to its parent width",
     table: {
       defaultValue: { summary: false },
@@ -119,6 +85,16 @@ const props = {
       defaultValue: { summary: false },
     },
   },
+  counter: {
+    description: "option to show a counter of characters",
+    table: {
+      defaultValue: { summary: false },
+    },
+  },
+  lengthThreshold: {
+    description:
+      "defines the minimum number of characters for displaying counter alerts",
+  },
 };
 
-export { props };
+export { props, parameters };
