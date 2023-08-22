@@ -83,16 +83,14 @@ const TextfieldUI = (props: ITextfieldProps) => {
     iconAfter,
     maxLength,
     minLength,
-    max,
-    min,
     required,
     state,
     errorMessage,
     validMessage,
     size,
     fullwidth,
-    isFocused,
-    handleFocus,
+    focused,
+    onFocus,
     onBlur,
     readOnly,
   } = props;
@@ -111,7 +109,7 @@ const TextfieldUI = (props: ITextfieldProps) => {
           <Label
             htmlFor={id}
             disabled={disabled}
-            focused={isFocused}
+            focused={focused}
             invalid={transformedInvalid}
             size={getTypo(size!)}
           >
@@ -128,7 +126,7 @@ const TextfieldUI = (props: ITextfieldProps) => {
 
       <StyledInputContainer
         disabled={disabled}
-        isFocused={isFocused}
+        focused={focused}
         state={state}
         iconBefore={iconBefore}
         iconAfter={iconAfter}
@@ -151,15 +149,13 @@ const TextfieldUI = (props: ITextfieldProps) => {
           iconAfter={iconAfter}
           maxLength={maxLength}
           minLength={minLength}
-          max={max}
-          min={min}
           required={required}
           size={size}
           state={state}
           fullwidth={fullwidth}
-          isFocused={isFocused}
+          focused={focused}
           onChange={onChange}
-          onFocus={handleFocus}
+          onFocus={onFocus}
           onBlur={onBlur}
           readOnly={readOnly}
         />
