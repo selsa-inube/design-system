@@ -1,7 +1,5 @@
 import { spacing } from "@shared/tokens/spacing/spacing";
 
-const optionBoxModel = Object.keys(spacing);
-
 export const alignContentProperties = [
   "baseline",
   "flex-start",
@@ -170,20 +168,18 @@ export const props = {
   },
 
   margin: {
-    options: optionBoxModel,
-    control: { type: "select" },
+    type: { name: "string", required: false },
     description:
-      "Sets the margin in px or global values for all four sides of the component",
+      "Sets the margin in px or global values for all four sides of the component. Accepted values are the spacing tokens ",
     table: {
       defaultValue: { summary: "s0" },
     },
   },
 
   padding: {
-    options: optionBoxModel,
-    control: { type: "select" },
+    type: { name: "string", required: false },
     description:
-      "Sets the padding in px p global values for all four sides of the component",
+      "Sets the padding in px p global values for all four sides of the component. Accepted values are the spacing tokens",
     table: {
       defaultValue: { summary: "s0" },
     },

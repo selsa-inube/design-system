@@ -26,8 +26,8 @@ Default.args = {
   alignContent: "unset",
   height: "100%",
   width: "100%",
-  margin: "0px",
-  padding: "0px",
+  margin: "s0",
+  padding: "s0 s300",
 };
 
 export default story;
