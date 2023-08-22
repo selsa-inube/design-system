@@ -9,10 +9,15 @@ const story = {
   title: "inputs/Switch",
   components: [Switch],
   parameters,
-  argTypes: props,
+  argTypes: {
+    ...props,
+    onchange: { action: "onChange" },
+  },
 };
 
-export const Default = (args: ISwitchProps) => <SwitchController {...args} />;
+export const Default = (args: ISwitchProps) => (
+  <SwitchController {...args} onSwitchChange={args.onChange} />
+);
 Default.args = {
   id: "id",
   disabled: false,
@@ -20,7 +25,6 @@ Default.args = {
   value: "switchTest1",
   checked: false,
   size: "small",
-  onChange: () => {},
   margin: "0px",
   padding: "0px",
 };
