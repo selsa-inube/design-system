@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import { TextfieldUI } from "./interface";
-import { InputType, Size, State, inputTypes, states } from "./props";
+import { InputType, Size, State } from "./props";
 
 export interface ITextfieldProps {
   label?: string;
@@ -14,8 +14,6 @@ export interface ITextfieldProps {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   iconBefore?: React.ReactNode;
   iconAfter?: React.ReactNode;
-  maxLength?: number;
-  minLength?: number;
   required: boolean;
   state?: State;
   errorMessage?: string;
@@ -27,12 +25,6 @@ export interface ITextfieldProps {
   readOnly?: boolean;
   focused?: boolean;
 }
-
-const defaultdisabled = false;
-const defaultType: InputType = "text";
-const defaultRequired = false;
-const defaultState: State = "pending";
-const defaultfullwidth = false;
 
 const Textfield = (props: ITextfieldProps) => {
   const {
@@ -46,8 +38,6 @@ const Textfield = (props: ITextfieldProps) => {
     onChange,
     iconBefore,
     iconAfter,
-    maxLength,
-    minLength,
     required = false,
     state = "pending",
     errorMessage,
@@ -77,45 +67,28 @@ const Textfield = (props: ITextfieldProps) => {
     }
   };
 
-  const transformeddisabled =
-    typeof disabled === "boolean" ? disabled : defaultdisabled;
-
-  const transformedState = states.includes(state) ? state : defaultState;
-
-  const transformedTypes = inputTypes.includes(type) ? type : defaultType;
-
-  const transformedRequired =
-    typeof required === "boolean" ? required : defaultRequired;
-
-  const transformedfullwidth =
-    typeof fullwidth === "boolean" ? fullwidth : defaultfullwidth;
-
-  const transformedReadOnly = typeof readOnly === "boolean" ? readOnly : false;
-
   return (
     <TextfieldUI
       label={label}
       name={name}
       id={id}
       placeholder={placeholder}
-      disabled={transformeddisabled}
-      type={transformedTypes}
+      disabled={disabled}
+      type={type}
       value={value}
       onChange={onChange}
       iconBefore={iconBefore}
       iconAfter={iconAfter}
-      maxLength={maxLength}
-      minLength={minLength}
-      required={transformedRequired}
+      required={required}
       size={size}
-      state={transformedState}
+      state={state}
       errorMessage={errorMessage}
       validMessage={validMessage}
-      fullwidth={transformedfullwidth}
+      fullwidth={fullwidth}
       focused={focused}
       onFocus={interceptFocus}
       onBlur={interceptBlur}
-      readOnly={transformedReadOnly}
+      readOnly={readOnly}
     />
   );
 };

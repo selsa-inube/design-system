@@ -32,8 +32,6 @@ const Disabled = {
     value: "",
     type: "text",
     placeholder: "Write your full name",
-    maxLength: 10,
-    minLength: 1,
   },
   render: (args: ITextfieldProps) => <TextfieldComponent {...args} />,
 };
