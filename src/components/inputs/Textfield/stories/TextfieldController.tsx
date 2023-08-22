@@ -21,7 +21,7 @@ const TextfieldController = (props: ITextfieldProps) => {
     setForm({ ...form, state: "pending" });
   };
 
-  const handleBlur = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onBlur = (e: React.ChangeEvent<HTMLInputElement>) => {
     const isValid = isAlphabetical(e.target.value);
     setForm({ ...form, state: isValid ? "valid" : "invalid" });
   };
@@ -33,7 +33,7 @@ const TextfieldController = (props: ITextfieldProps) => {
       onChange={onChange}
       state={form.state}
       onFocus={onFocus}
-      handleBlur={handleBlur}
+      onBlur={onBlur}
     />
   );
 };
