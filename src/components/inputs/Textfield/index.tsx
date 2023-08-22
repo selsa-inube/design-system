@@ -14,8 +14,6 @@ export interface ITextfieldProps {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   iconBefore?: React.ReactNode;
   iconAfter?: React.ReactNode;
-  maxLength?: number;
-  minLength?: number;
   required: boolean;
   state?: State;
   errorMessage?: string;
@@ -40,8 +38,6 @@ const Textfield = (props: ITextfieldProps) => {
     onChange,
     iconBefore,
     iconAfter,
-    maxLength,
-    minLength,
     required = false,
     state = "pending",
     errorMessage,
@@ -83,8 +79,6 @@ const Textfield = (props: ITextfieldProps) => {
       onChange={onChange}
       iconBefore={iconBefore}
       iconAfter={iconAfter}
-      maxLength={maxLength}
-      minLength={minLength}
       required={required}
       size={size}
       state={state}
