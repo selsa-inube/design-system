@@ -32,7 +32,6 @@ const getTypo = (size: Size) => {
 
 const Invalid = (props: IMessageProps) => {
   const { disabled, state, errorMessage } = props;
-  const transformedErrorMessage = errorMessage && `(${errorMessage})`;
 
   return (
     <StyledErrorMessageContainer disabled={disabled} state={state}>
@@ -44,7 +43,7 @@ const Invalid = (props: IMessageProps) => {
         appearance="error"
         disabled={disabled}
       >
-        {transformedErrorMessage}
+        {errorMessage && `(${errorMessage})`}
       </Text>
     </StyledErrorMessageContainer>
   );
@@ -81,8 +80,6 @@ const TextfieldUI = (props: ITextfieldProps) => {
     onChange,
     iconBefore,
     iconAfter,
-    maxLength,
-    minLength,
     required,
     state,
     errorMessage,
@@ -94,8 +91,6 @@ const TextfieldUI = (props: ITextfieldProps) => {
     onBlur,
     readOnly,
   } = props;
-
-  const transformedInvalid = state === "invalid" ? true : false;
 
   return (
     <StyledContainer fullwidth={fullwidth} disabled={disabled}>
@@ -110,7 +105,7 @@ const TextfieldUI = (props: ITextfieldProps) => {
             htmlFor={id}
             disabled={disabled}
             focused={focused}
-            invalid={transformedInvalid}
+            invalid={state === "invalid" ? true : false}
             size={getTypo(size!)}
           >
             {label}
@@ -147,8 +142,6 @@ const TextfieldUI = (props: ITextfieldProps) => {
           value={value}
           iconBefore={iconBefore}
           iconAfter={iconAfter}
-          maxLength={maxLength}
-          minLength={minLength}
           required={required}
           size={size}
           state={state}

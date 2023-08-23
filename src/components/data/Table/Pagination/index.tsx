@@ -42,8 +42,8 @@ const Pagination = (props: IPaginationProps) => {
 
       <Stack
         alignItems="center"
-        padding="0px 25px 0px"
-        margin="0px 0px 0px 16px"
+        padding="s0 s300"
+        margin="s0 s0 s0 s200"
         gap="8px"
       >
         <StyledButton
