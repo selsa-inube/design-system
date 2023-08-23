@@ -33,7 +33,6 @@ const Switch = (props: ISwitchProps) => {
     padding = "s0",
   } = props;
 
-  console.log(margin, "marginIndex");
   return (
     <Stack
       direction={"row"}
