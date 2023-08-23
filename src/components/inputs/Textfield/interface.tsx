@@ -22,12 +22,22 @@ export interface IMessageProps {
 
 const Message = (props: IMessageProps) => {
   const { disabled, state, message } = props;
-  const Icon = state === "invalid" ? MdOutlineError : MdCheckCircle;
-  const appearance = state === "invalid" ? "error" : "success";
+  let IconComponent = null;
+  let appearance: any = "";
+
+  if (state === "invalid") {
+    IconComponent = MdOutlineError;
+    appearance = "error";
+  } else if (state === "valid") {
+    IconComponent = MdCheckCircle;
+    appearance = "success";
+  }
+
+  if (!IconComponent) return null;
 
   return (
     <StyledMessageContainer disabled={disabled} state={state}>
-      <Icon />
+      <IconComponent />
       <Text
         type="body"
         size="small"
@@ -35,7 +45,7 @@ const Message = (props: IMessageProps) => {
         appearance={appearance}
         disabled={disabled}
       >
-        {message && (state === "invalid" ? `(${message})` : message)}
+        {message && `(${message})`}
       </Text>
     </StyledMessageContainer>
   );
