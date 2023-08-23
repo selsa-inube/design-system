@@ -18,6 +18,7 @@ export const Example = (args: IExampleSwitch) => {
 
   return (
     <SwitchController
+      onSwitchChange={args.onChange}
       label={""}
       margin={"0px"}
       padding={"0px"}
