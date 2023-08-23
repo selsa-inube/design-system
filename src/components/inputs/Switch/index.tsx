@@ -4,7 +4,7 @@ import { Stack } from "@layouts/Stack";
 import { Label } from "@inputs/Label";
 
 import { StyledContainer, StyledInput, StyledSpan, StyledIcon } from "./styles";
-import { Size, Spacing } from "./props";
+import { Size } from "./props";
 
 export interface ISwitchProps {
   id: string;
@@ -14,8 +14,8 @@ export interface ISwitchProps {
   checked?: boolean;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   label: string;
-  margin: Spacing;
-  padding: Spacing;
+  margin: string;
+  padding: string;
   disabled?: boolean;
 }
 

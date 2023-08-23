@@ -1,9 +1,5 @@
-import { inube } from "@shared/tokens";
-
 export const sizes = ["small", "large"] as const;
 export type Size = typeof sizes[number];
-
-export type Spacing = keyof typeof inube.spacing;
 
 const parameters = {
   docs: {
@@ -67,21 +63,19 @@ const props = {
     description: "component text content",
   },
   margin: {
-    options: Object.keys(inube.spacing),
-    control: { type: "select" },
+    type: { name: "string", required: false },
     description:
-      "Sets the margin in px or global values for all four sides of the component",
+      "Sets the margin in px or global values for all four sides of the component. Accepted values are the spacing tokens",
     table: {
-      defaultValue: { summary: "0px" },
+      defaultValue: { summary: "s0" },
     },
   },
   padding: {
-    options: Object.keys(inube.spacing),
-    control: { type: "select" },
+    type: { name: "string", required: false },
     description:
-      "Sets the padding in px p global values for all four sides of the component",
+      "Sets the padding in px p global values for all four sides of the component. Accepted values are the spacing tokens",
     table: {
-      defaultValue: { summary: "0px" },
+      defaultValue: { summary: "s0" },
     },
   },
 };

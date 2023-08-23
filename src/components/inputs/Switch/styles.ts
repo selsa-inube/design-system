@@ -63,8 +63,6 @@ const StyledContainer = styled.label`
   position: relative;
   display: inline-block;
   ${(props: ISwitchProps) => props.size && sizes[props.size]};
-  margin: ${({ margin }: ISwitchProps) => inube.spacing[margin]};
-  padding: ${({ padding }: ISwitchProps) => inube.spacing[padding]};
 `;
 
 const StyledInput = styled.input`
