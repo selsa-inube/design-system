@@ -14,7 +14,7 @@ import {
   StyledErrorMessageContainer,
   StyledValidMessageContainer,
 } from "./styles";
-import { Size, State } from "./props";
+import { State } from "./props";
 
 export interface IMessageProps {
   state?: State;
@@ -22,13 +22,6 @@ export interface IMessageProps {
   errorMessage?: string;
   validMessage?: string;
 }
-
-const getTypo = (size: Size) => {
-  if (size === "compact") {
-    return "medium";
-  }
-  return "large";
-};
 
 const Invalid = (props: IMessageProps) => {
   const { disabled, state, errorMessage } = props;
@@ -106,7 +99,7 @@ const TextfieldUI = (props: ITextfieldProps) => {
             disabled={disabled}
             focused={focused}
             invalid={state === "invalid" ? true : false}
-            size={getTypo(size!)}
+            size={size === "compact" ? "medium" : "large"}
           >
             {label}
           </Label>
