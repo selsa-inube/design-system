@@ -29,7 +29,7 @@ const Valid = {
     disabled: false,
     errorMessage: "Please enter only letters in this field",
     validMessage: "Field validation is successful",
-    requerido: true,
+    required: true,
     state: "pending",
     type: "text",
     size: "wide",

@@ -21,7 +21,7 @@ Invalid.args = {
   placeholder: "Username..",
   disabled: false,
   type: "text",
-  requerido: true,
+  required: true,
   errorMessage: "Please enter only letters in this field",
   validMessage: "The field has been successfully validated",
   size: "wide",

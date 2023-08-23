@@ -21,7 +21,7 @@ const RequiredComponent = (args: ITextfieldProps) => {
 };
 
 const Required = (args: ITextfieldProps) => (
-  <RequiredComponent {...args} requerido={true} />
+  <RequiredComponent {...args} required={true} />
 );
 Required.args = {
   label: "Username",

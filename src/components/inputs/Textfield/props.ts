@@ -67,8 +67,8 @@ const props = {
     description:
       "allows to enter an icon to the right of the area where the user enters values",
   },
-  requerido: {
-    description: "defines if the field is requerido or not",
+  required: {
+    description: "defines if the field is required or not",
     table: {
       defaultValue: { summary: false },
     },
