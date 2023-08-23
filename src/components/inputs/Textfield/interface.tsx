@@ -107,7 +107,7 @@ const TextfieldUI = (props: ITextfieldProps) => {
 
         {required && !disabled && (
           <Text type="body" size="small" appearance="dark">
-            (Required)
+            (Requerido)
           </Text>
         )}
       </StyledContainerLabel>
