@@ -14,7 +14,7 @@ import {
   StyledErrorMessageContainer,
   StyledValidMessageContainer,
 } from "./styles";
-import { Size, State } from "./props";
+import { State } from "./props";
 
 export interface IMessageProps {
   state?: State;
