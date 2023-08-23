@@ -80,7 +80,7 @@ const TextfieldUI = (props: ITextfieldProps) => {
     onChange,
     iconBefore,
     iconAfter,
-    required,
+    requerido,
     state,
     errorMessage,
     validMessage,
@@ -112,9 +112,9 @@ const TextfieldUI = (props: ITextfieldProps) => {
           </Label>
         )}
 
-        {required && !disabled && (
+        {requerido && !disabled && (
           <Text type="body" size="small" appearance="dark">
-            (Required)
+            (requerido)
           </Text>
         )}
       </StyledContainerLabel>
@@ -142,7 +142,7 @@ const TextfieldUI = (props: ITextfieldProps) => {
           value={value}
           iconBefore={iconBefore}
           iconAfter={iconAfter}
-          required={required}
+          requerido={requerido}
           size={size}
           state={state}
           fullwidth={fullwidth}

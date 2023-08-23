@@ -14,7 +14,7 @@ export interface ITextfieldProps {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   iconBefore?: React.ReactNode;
   iconAfter?: React.ReactNode;
-  required: boolean;
+  requerido: boolean;
   state?: State;
   errorMessage?: string;
   validMessage?: string;
@@ -38,7 +38,7 @@ const Textfield = (props: ITextfieldProps) => {
     onChange,
     iconBefore,
     iconAfter,
-    required = false,
+    requerido = false,
     state = "pending",
     errorMessage,
     validMessage,
@@ -79,7 +79,7 @@ const Textfield = (props: ITextfieldProps) => {
       onChange={onChange}
       iconBefore={iconBefore}
       iconAfter={iconAfter}
-      required={required}
+      requerido={requerido}
       size={size}
       state={state}
       errorMessage={errorMessage}

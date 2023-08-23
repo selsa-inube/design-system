@@ -19,7 +19,7 @@ Number.args = {
   type: "number",
   state: "pending",
   disabled: false,
-  required: false,
+  requerido: false,
   size: "wide",
   fullwidth: false,
 };
