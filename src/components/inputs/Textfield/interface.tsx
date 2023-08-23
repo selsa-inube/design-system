@@ -13,6 +13,7 @@ import {
   StyledMessageContainer,
 } from "./styles";
 import { State } from "./props";
+import { Appearance } from "@src/components/data/Text/props";
 
 export interface IMessageProps {
   state?: State;
@@ -23,7 +24,7 @@ export interface IMessageProps {
 const Message = (props: IMessageProps) => {
   const { disabled, state, message } = props;
   let IconComponent = null;
-  let appearance: any = "";
+  let appearance: Appearance = "gray";
 
   if (state === "invalid") {
     IconComponent = MdOutlineError;
