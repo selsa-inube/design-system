@@ -4,60 +4,40 @@ import { Label } from "@inputs/Label";
 import { Text } from "@data/Text";
 
 import { ITextfieldProps } from ".";
-
 import {
   StyledContainer,
   StyledContainerLabel,
   StyledInputContainer,
   StyledInput,
   StyledIcon,
-  StyledErrorMessageContainer,
-  StyledValidMessageContainer,
+  StyledMessageContainer,
 } from "./styles";
 import { State } from "./props";
 
 export interface IMessageProps {
   state?: State;
   disabled?: boolean;
-  errorMessage?: string;
-  validMessage?: string;
+  message?: string;
 }
 
-const Invalid = (props: IMessageProps) => {
-  const { disabled, state, errorMessage } = props;
+const Message = (props: IMessageProps) => {
+  const { disabled, state, message } = props;
+  const Icon = state === "invalid" ? MdOutlineError : MdCheckCircle;
+  const appearance = state === "invalid" ? "error" : "success";
 
   return (
-    <StyledErrorMessageContainer disabled={disabled} state={state}>
-      <MdOutlineError />
+    <StyledMessageContainer disabled={disabled} state={state}>
+      <Icon />
       <Text
         type="body"
         size="small"
         margin="8px 0px 0px 4px"
-        appearance="error"
+        appearance={appearance}
         disabled={disabled}
       >
-        {errorMessage && `(${errorMessage})`}
+        {message && (state === "invalid" ? `(${message})` : message)}
       </Text>
-    </StyledErrorMessageContainer>
-  );
-};
-
-const Success = (props: IMessageProps) => {
-  const { disabled, state, validMessage } = props;
-
-  return (
-    <StyledValidMessageContainer disabled={disabled} state={state}>
-      <MdCheckCircle />
-      <Text
-        type="body"
-        size="small"
-        margin="8px 0px 0px 4px"
-        appearance="success"
-        disabled={disabled}
-      >
-        {validMessage}
-      </Text>
-    </StyledValidMessageContainer>
+    </StyledMessageContainer>
   );
 };
 
@@ -153,18 +133,11 @@ const TextfieldUI = (props: ITextfieldProps) => {
         )}
       </StyledInputContainer>
 
-      {state === "invalid" && (
-        <Invalid
+      {state && (
+        <Message
           disabled={disabled}
           state={state}
-          errorMessage={errorMessage}
-        />
-      )}
-      {state === "valid" && (
-        <Success
-          disabled={disabled}
-          state={state}
-          validMessage={validMessage}
+          message={state === "invalid" ? errorMessage : validMessage}
         />
       )}
     </StyledContainer>
