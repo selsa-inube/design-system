@@ -46,13 +46,6 @@ export interface ITextfieldProps {
   focused?: boolean;
 }
 
-const getTypo = (size: Size) => {
-  if (size === "compact") {
-    return "medium";
-  }
-  return "large";
-};
-
 const Invalid = (props: IMessageProps) => {
   const { disabled, state, errorMessage } = props;
 
@@ -146,7 +139,7 @@ const Textfield = (props: ITextfieldProps) => {
             disabled={disabled}
             focused={focused}
             invalid={state === "invalid" ? true : false}
-            size={getTypo(size!)}
+            size={size === "compact" ? "medium" : "large"}
           >
             {label}
           </Label>
@@ -154,7 +147,7 @@ const Textfield = (props: ITextfieldProps) => {
 
         {required && !disabled && (
           <Text type="body" size="small" appearance="dark">
-            (Required)
+            (Requiredo)
           </Text>
         )}
       </StyledContainerLabel>
