@@ -1,40 +1,33 @@
 import { useState } from "react";
-import { MdOutlineError, MdCheckCircle } from "react-icons/md";
+import { MdCheckCircle, MdOutlineError } from "react-icons/md";
 
-import { Label } from "@inputs/Label";
 import { Text } from "@data/Text";
+import { Label } from "@inputs/Label";
 
 import { InputType, Size, State } from "./props";
 
 import {
   StyledContainer,
   StyledContainerLabel,
-  StyledInputContainer,
-  StyledInput,
-  StyledIcon,
   StyledErrorMessageContainer,
+  StyledIcon,
+  StyledInput,
+  StyledInputContainer,
   StyledValidMessageContainer,
 } from "./styles";
 
-export interface IMessageProps {
-  state?: State;
-  disabled?: boolean;
-  errorMessage?: string;
-  validMessage?: string;
-}
-
 export interface ITextfieldProps {
   label?: string;
-  name: string;
+  name?: string;
   id: string;
-  placeholder: string;
+  placeholder?: string;
   disabled?: boolean;
   type?: InputType;
   value?: string | number;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   iconBefore?: React.ReactNode;
   iconAfter?: React.ReactNode;
-  required: boolean;
+  required?: boolean;
   state?: State;
   errorMessage?: string;
   validMessage?: string;
@@ -46,7 +39,7 @@ export interface ITextfieldProps {
   focused?: boolean;
 }
 
-const Invalid = (props: IMessageProps) => {
+const Invalid = (props: Omit<ITextfieldProps, "id">) => {
   const { disabled, state, errorMessage } = props;
 
   return (
@@ -65,7 +58,7 @@ const Invalid = (props: IMessageProps) => {
   );
 };
 
-const Success = (props: IMessageProps) => {
+const Success = (props: Omit<ITextfieldProps, "id">) => {
   const { disabled, state, validMessage } = props;
 
   return (
