@@ -14,6 +14,7 @@ import {
 } from "./styles";
 import { State } from "./props";
 import { Appearance } from "@src/components/data/Text/props";
+import { IconType } from "react-icons/lib";
 
 export interface IMessageProps {
   state?: State;
@@ -23,7 +24,7 @@ export interface IMessageProps {
 
 const Message = (props: IMessageProps) => {
   const { disabled, state, message } = props;
-  let IconComponent = null;
+  let IconComponent: IconType;
   let appearance: Appearance = "gray";
 
   if (state === "invalid") {
@@ -34,7 +35,7 @@ const Message = (props: IMessageProps) => {
     appearance = "success";
   }
 
-  if (!IconComponent) return null;
+  if (!IconComponent!) return null;
 
   return (
     <StyledMessageContainer disabled={disabled} state={state}>
@@ -46,7 +47,7 @@ const Message = (props: IMessageProps) => {
         appearance={appearance}
         disabled={disabled}
       >
-        {message && `(${message})`}
+        {message && `${message}`}
       </Text>
     </StyledMessageContainer>
   );
