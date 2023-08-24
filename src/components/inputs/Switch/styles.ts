@@ -101,19 +101,20 @@ const StyledIcon = styled.div`
         ? css`
             width: 10px;
             height: 10px;
-            top: ${inube.spacing.s050};
+            padding-left ${inube.spacing.s025};
+            top: calc(${inube.spacing.s075} / 2);
             left: ${(props: ISwitchProps) =>
               props.checked
-                ? `${inube.spacing.s075}`
+                ? `calc(${inube.spacing.s075} / 2)`
                 : `${inube.spacing.s200}`};
           `
         : css`
             width: 14px;
             height: 14px;
-            top: ${inube.spacing.s050};
+            top: calc(${inube.spacing.s075} / 2);
             left: ${(props: ISwitchProps) =>
               props.checked
-                ? `${inube.spacing.s075}`
+                ? `${inube.spacing.s050}`
                 : `${inube.spacing.s300}`};
           `};
   }
