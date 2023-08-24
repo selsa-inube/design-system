@@ -4,7 +4,7 @@ import { MdOutlineError, MdCheckCircle } from "react-icons/md";
 import { Label } from "@inputs/Label";
 import { Text } from "@data/Text";
 
-import { InputType, Size, State } from "./props";
+import { InputType, Size, State, Themed } from "./props";
 
 import {
   StyledContainer,
@@ -23,7 +23,7 @@ export interface IMessageProps {
   validMessage?: string;
 }
 
-export interface ITextfieldProps {
+export interface ITextfieldProps extends Themed {
   label?: string;
   name: string;
   id: string;
