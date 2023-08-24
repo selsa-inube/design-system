@@ -1,4 +1,4 @@
-export const inputTypes = [
+const inputTypes = [
   "text",
   "email",
   "number",
@@ -6,13 +6,13 @@ export const inputTypes = [
   "search",
   "tel",
 ] as const;
-export type InputType = typeof inputTypes[number];
+type InputType = typeof inputTypes[number];
 
-export const sizes = ["wide", "compact"] as const;
-export type Size = typeof sizes[number];
+const sizes = ["wide", "compact"] as const;
+type Size = typeof sizes[number];
 
-export const states = ["valid", "invalid", "pending"] as const;
-export type State = typeof states[number];
+const states = ["valid", "invalid", "pending"] as const;
+type State = typeof states[number];
 
 const parameters = {
   docs: {
@@ -106,4 +106,6 @@ const props = {
   },
 };
 
-export { props, parameters };
+export type { InputType, Size, State };
+
+export { inputTypes, sizes, states, parameters, props };
