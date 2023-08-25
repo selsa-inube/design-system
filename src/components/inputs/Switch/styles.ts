@@ -43,7 +43,7 @@ const StyledSpan = styled.span`
   &:before {
     position: absolute;
     content: "";
-    left: ${inube.spacing.s025};
+    left: ${({ disabled }: ISwitchProps) => (!disabled ? "2px" : "0px")};
     border-radius: 50%;
     transition: 0.3s;
     background-color: ${({ theme }: Themed) =>
