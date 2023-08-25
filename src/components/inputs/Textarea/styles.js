@@ -18,8 +18,8 @@ const getGrid = (label, counter) => {
   return "1fr";
 };
 
-const getColors = (isDisabled, state, isFocused) => {
-  if (isDisabled) {
+const getColors = (disabled, state, isFocused) => {
+  if (disabled) {
     return colors.ref.palette.neutral.n70;
   }
 
@@ -33,8 +33,8 @@ const getColors = (isDisabled, state, isFocused) => {
   return colors.ref.palette.neutral.n40;
 };
 
-const getIsDisabled = (isDisabled, state) => {
-  if (isDisabled) {
+const getdisabled = (disabled, state) => {
+  if (disabled) {
     return colors.ref.palette.neutral.n70;
   }
 
@@ -48,7 +48,7 @@ const getIsDisabled = (isDisabled, state) => {
 };
 
 const StyledContainer = styled.div`
-  cursor: ${({ isDisabled }) => isDisabled && "not-allowed"};
+  cursor: ${({ disabled }) => disabled && "not-allowed"};
   width: ${({ isFullWidth }) => (isFullWidth ? "100%" : "fit-content")};
 `;
 
@@ -56,7 +56,7 @@ const StyledContainerLabel = styled.div`
   display: grid;
   grid-template-columns: ${({ label, counter }) => getGrid(label, counter)};
   gap: 4px;
-  pointer-events: ${({ isDisabled }) => isDisabled && "none"};
+  pointer-events: ${({ disabled }) => disabled && "none"};
   align-items: center;
   margin-bottom: 4px;
 
@@ -75,13 +75,12 @@ const StyledTextarea = styled.textarea`
   letter-spacing: ${typography.sys.typescale.bodyLarge.letterSpacing};
   width: ${({ isFullWidth }) => (isFullWidth ? "calc(100% - 32px)" : "452px")};
   height: 120px;
-  color: ${({ isDisabled }) =>
-    isDisabled ? colors.ref.palette.neutral.n70 : colors.sys.text.dark};
+  color: ${({ disabled }) =>
+    disabled ? colors.ref.palette.neutral.n70 : colors.sys.text.dark};
   background: ${colors.ref.palette.neutral.n10};
   border: 2px solid
-    ${({ isDisabled, state, isFocused }) =>
-      getColors(isDisabled, state, isFocused)};
-  ${({ isDisabled }) => isDisabled && "pointer-events: none; opacity: 0.5;"}
+    ${({ disabled, state, isFocused }) => getColors(disabled, state, isFocused)};
+  ${({ disabled }) => disabled && "pointer-events: none; opacity: 0.5;"}
 
   ::placeholder {
     color: ${colors.sys.text.secondary};
@@ -105,7 +104,7 @@ const StyledIcon = styled.div`
   padding-right: ${({ iconAfter }) => iconAfter && "10px"};
   height: 24px;
   width: 24px;
-  color: ${({ isDisabled }) => isDisabled && colors.ref.palette.neutral.n70};
+  color: ${({ disabled }) => disabled && colors.ref.palette.neutral.n70};
 `;
 
 const StyledErrorMessageContainer = styled.div`
@@ -115,7 +114,7 @@ const StyledErrorMessageContainer = styled.div`
   align-items: center;
   padding-left: 12px;
   pointer-events: none;
-  color: ${({ isDisabled, state }) => getIsDisabled(isDisabled, state)};
+  color: ${({ disabled, state }) => getdisabled(disabled, state)};
 
   & svg {
     width: 14px;
@@ -124,7 +123,7 @@ const StyledErrorMessageContainer = styled.div`
 `;
 
 const StyledValidMessageContainer = styled(StyledErrorMessageContainer)`
-  color: ${({ isDisabled, state }) => getIsDisabled(isDisabled, state)}; ;
+  color: ${({ disabled, state }) => getdisabled(disabled, state)}; ;
 `;
 
 export {
