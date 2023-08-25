@@ -1,3 +1,5 @@
+import { inube } from "@shared/tokens";
+
 const inputTypes = [
   "text",
   "email",
@@ -13,6 +15,8 @@ type Size = typeof sizes[number];
 
 const states = ["valid", "invalid", "pending"] as const;
 type State = typeof states[number];
+
+export type Themed = { theme?: typeof inube };
 
 const parameters = {
   docs: {
