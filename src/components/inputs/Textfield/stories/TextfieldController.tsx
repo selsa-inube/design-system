@@ -1,29 +1,39 @@
 import { useState } from "react";
-
 import { Textfield, ITextfieldProps } from "..";
 
-const TextfieldController = (props: ITextfieldProps) => {
-  const { value = "", state = "pending" } = props;
-  const [form, setForm] = useState({ value, state });
+interface IFormState {
+  value: string | number;
+  state: ITextfieldProps["state"];
+}
 
-  function isAlphabetical(value: string) {
-    return /^[a-zA-Z]+$/.test(value);
+const TextfieldController = (props: ITextfieldProps) => {
+  const { value = "", state: initialState = "pending" } = props;
+
+  const [form, setForm] = useState<IFormState>({ value, state: initialState });
+
+  function isAlphabetical(inputValue: string): boolean {
+    return /^[a-zA-Z]+$/.test(inputValue);
   }
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setForm({ value: e.target.value, state: "pending" });
+    const inputValue = e.target.value;
+    setForm({ value: inputValue, state: "pending" });
   };
 
   const onFocus = () => {
     if (form.state === "invalid") {
-      return setForm({ ...form, state: "invalid" });
+      return setForm((prevState) => ({ ...prevState, state: "invalid" }));
     }
-    setForm({ ...form, state: "pending" });
+    setForm((prevState) => ({ ...prevState, state: "pending" }));
   };
 
   const onBlur = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const isValid = isAlphabetical(e.target.value);
-    setForm({ ...form, state: isValid ? "valid" : "invalid" });
+    const inputValue = e.target.value;
+    const isValid = isAlphabetical(inputValue);
+    setForm((prevState) => ({
+      ...prevState,
+      state: isValid ? "valid" : "invalid",
+    }));
   };
 
   return (
