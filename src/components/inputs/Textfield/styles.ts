@@ -160,7 +160,7 @@ const StyledIcon = styled.div`
     disabled && colors.ref.palette.neutral.n70};
 `;
 
-const StyledErrorMessageContainer = styled.div`
+const StyledMessageContainer = styled.div`
   display: flex;
   align-items: center;
   margin-left: 12px;
@@ -175,16 +175,11 @@ const StyledErrorMessageContainer = styled.div`
   }
 `;
 
-const StyledValidMessageContainer = styled(StyledErrorMessageContainer)`
-  color: ${(props: ITextfieldProps) => getdisabled(props)}; ;
-`;
-
 export {
   StyledContainer,
   StyledContainerLabel,
   StyledInputContainer,
   StyledInput,
   StyledIcon,
-  StyledErrorMessageContainer,
-  StyledValidMessageContainer,
+  StyledMessageContainer,
 };

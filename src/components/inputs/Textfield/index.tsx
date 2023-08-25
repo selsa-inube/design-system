@@ -1,10 +1,10 @@
 import { useState } from "react";
+
+import { InputType, Size, Status } from "./props";
 import { MdOutlineError, MdCheckCircle } from "react-icons/md";
 
 import { Label } from "@inputs/Label";
 import { Text } from "@data/Text";
-
-import { InputType, Size, Status } from "./props";
 
 import {
   StyledContainer,
@@ -12,16 +12,10 @@ import {
   StyledInputContainer,
   StyledInput,
   StyledIcon,
-  StyledErrorMessageContainer,
-  StyledValidMessageContainer,
+  StyledMessageContainer,
 } from "./styles";
-
-export interface IMessageProps {
-  status?: Status;
-  disabled?: boolean;
-  errorMessage?: string;
-  validMessage?: string;
-}
+import { IconType } from "react-icons/lib";
+import { Appearance } from "@data/Text/props";
 
 export interface ITextfieldProps {
   label?: string;
@@ -45,42 +39,40 @@ export interface ITextfieldProps {
   readOnly?: boolean;
   focused?: boolean;
 }
+export interface IMessageProps {
+  status?: Status;
+  disabled?: boolean;
+  message?: string;
+}
 
-const Invalid = (props: IMessageProps) => {
-  const { disabled, status, errorMessage } = props;
+const Message = (props: IMessageProps) => {
+  const { disabled, status, message } = props;
+  let IconComponent: IconType | null = null;
+  let appearance: Appearance = "gray";
 
-  return (
-    <StyledErrorMessageContainer disabled={disabled} status={status}>
-      <MdOutlineError />
-      <Text
-        type="body"
-        size="small"
-        margin="8px 0px 0px 4px"
-        appearance="error"
-        disabled={disabled}
-      >
-        {errorMessage && `(${errorMessage})`}
-      </Text>
-    </StyledErrorMessageContainer>
-  );
-};
-
-const Success = (props: IMessageProps) => {
-  const { disabled, status, validMessage } = props;
+  if (status === "invalid") {
+    IconComponent = MdOutlineError;
+    appearance = "error";
+  } else if (status === "valid") {
+    IconComponent = MdCheckCircle;
+    appearance = "success";
+  }
 
   return (
-    <StyledValidMessageContainer disabled={disabled} status={status}>
-      <MdCheckCircle />
-      <Text
-        type="body"
-        size="small"
-        margin="8px 0px 0px 4px"
-        appearance="success"
-        disabled={disabled}
-      >
-        {validMessage}
-      </Text>
-    </StyledValidMessageContainer>
+    IconComponent && (
+      <StyledMessageContainer disabled={disabled} status={status}>
+        <IconComponent />
+        <Text
+          type="body"
+          size="small"
+          margin="8px 0px 0px 4px"
+          appearance={appearance}
+          disabled={disabled}
+        >
+          {message && `${message}`}
+        </Text>
+      </StyledMessageContainer>
+    )
   );
 };
 
@@ -193,18 +185,11 @@ const Textfield = (props: ITextfieldProps) => {
         )}
       </StyledInputContainer>
 
-      {status === "invalid" && (
-        <Invalid
+      {status && (
+        <Message
           disabled={disabled}
           status={status}
-          errorMessage={errorMessage}
-        />
-      )}
-      {status === "valid" && (
-        <Success
-          disabled={disabled}
-          status={status}
-          validMessage={validMessage}
+          message={status === "invalid" ? errorMessage : validMessage}
         />
       )}
     </StyledContainer>
