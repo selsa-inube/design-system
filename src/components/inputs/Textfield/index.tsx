@@ -47,7 +47,7 @@ export interface IMessageProps {
 
 const Message = (props: IMessageProps) => {
   const { disabled, state, message } = props;
-  let IconComponent: IconType;
+  let IconComponent: IconType | null = null;
   let appearance: Appearance = "gray";
 
   if (state === "invalid") {
@@ -58,21 +58,21 @@ const Message = (props: IMessageProps) => {
     appearance = "success";
   }
 
-  if (!IconComponent!) return null;
-
   return (
-    <StyledMessageContainer disabled={disabled} state={state}>
-      <IconComponent />
-      <Text
-        type="body"
-        size="small"
-        margin="8px 0px 0px 4px"
-        appearance={appearance}
-        disabled={disabled}
-      >
-        {message && `${message}`}
-      </Text>
-    </StyledMessageContainer>
+    IconComponent && (
+      <StyledMessageContainer disabled={disabled} state={state}>
+        <IconComponent />
+        <Text
+          type="body"
+          size="small"
+          margin="8px 0px 0px 4px"
+          appearance={appearance}
+          disabled={disabled}
+        >
+          {message && `${message}`}
+        </Text>
+      </StyledMessageContainer>
+    )
   );
 };
 
