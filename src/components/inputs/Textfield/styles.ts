@@ -51,26 +51,26 @@ const StyledInputContainer = styled.div`
     ${({ disabled, state, focused, theme }: ITextfieldProps) => {
       if (disabled) {
         return (
-          theme?.color?.stroke.gray?.disabled ||
+          theme?.color?.stroke?.gray?.disabled ||
           inube.color.stroke.gray.disabled
         );
       }
 
       if (state === "invalid") {
         return (
-          theme?.color?.stroke.error?.regular ||
+          theme?.color?.stroke?.error?.regular ||
           inube.color.stroke.error.regular
         );
       }
 
       if (focused) {
         return (
-          theme?.color?.stroke.primary?.hover ||
+          theme?.color?.stroke?.primary?.hover ||
           inube.color.stroke.primary.hover
         );
       }
       return (
-        theme?.color?.stroke.divider?.regular ||
+        theme?.color?.stroke?.divider?.regular ||
         inube.color.stroke.divider.regular
       );
     }};
@@ -88,8 +88,8 @@ const StyledInput = styled.input`
   letter-spacing: ${inube.typography.body.large.tracking};
   color: ${({ disabled, theme }: ITextfieldProps) =>
     disabled
-      ? theme?.color?.text.gray?.disabled || inube.color.text.gray.disabled
-      : theme?.color?.text.dark?.regular || inube.color.text.dark.regular};
+      ? theme?.color?.text?.gray?.disabled || inube.color.text.gray.disabled
+      : theme?.color?.text?.dark?.regular || inube.color.text.dark.regular};
 
   padding-right: ${({ iconAfter }: ITextfieldProps) =>
     iconAfter ? "2px" : "16px"};
@@ -102,7 +102,7 @@ const StyledInput = styled.input`
 
   ::placeholder {
     color: ${({ theme }: ITextfieldProps) =>
-      theme?.color?.text.gray?.regular || inube.color.text.gray.regular};
+      theme?.color?.text?.gray?.regular || inube.color.text.gray.regular};
   }
 
   &:focus {
@@ -135,7 +135,7 @@ const StyledIcon = styled.div`
   width: 24px;
   color: ${({ disabled, theme }: ITextfieldProps) =>
     disabled &&
-    (theme?.color?.text.gray?.disabled || inube.color.text.gray.disabled)};
+    (theme?.color?.text?.gray?.disabled || inube.color.text.gray.disabled)};
 `;
 
 const StyledMessageContainer = styled.div`
@@ -146,19 +146,19 @@ const StyledMessageContainer = styled.div`
   color: ${({ disabled, state, theme }: ITextfieldProps) => {
     if (disabled) {
       return (
-        theme?.color?.text.gray?.disabled || inube.color.text.gray.disabled
+        theme?.color?.text?.gray?.disabled || inube.color.text.gray.disabled
       );
     }
 
     if (state === "valid") {
       return (
-        theme?.color?.text.success?.regular || inube.color.text.success.regular
+        theme?.color?.text?.success?.regular || inube.color.text.success.regular
       );
     }
 
     if (state === "invalid") {
       return (
-        theme?.color?.text.error?.regular || inube.color.text.error.regular
+        theme?.color?.text?.error?.regular || inube.color.text.error.regular
       );
     }
   }};
