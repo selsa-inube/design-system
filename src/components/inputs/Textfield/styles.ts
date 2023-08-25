@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { ITextfieldProps } from ".";
 import { colors } from "@shared/colors/colors";
-import { typography } from "@shared/typography/typography";
+import { inube } from "@shared/tokens";
 
 const sizeOptions = {
   compact: {
@@ -112,11 +112,11 @@ const StyledInputContainer = styled.div`
 const StyledInput = styled.input`
   outline: none;
   border-radius: 8px;
-  font-family: ${typography.sys.typescale.bodyLarge.font};
-  font-size: ${typography.sys.typescale.bodyLarge.size};
-  font-weight: ${typography.sys.typescale.bodyLarge.weight};
-  line-height: ${typography.sys.typescale.bodyLarge.lineHeight};
-  letter-spacing: ${typography.sys.typescale.bodyLarge.tracking};
+  font-family: ${inube.typography.body.large.font};
+  font-size: ${inube.typography.body.large.size};
+  font-weight: ${inube.typography.body.large.weight};
+  line-height: ${inube.typography.body.large.lineHeight};
+  letter-spacing: ${inube.typography.body.large.tracking};
   color: ${({ disabled }: ITextfieldProps) =>
     disabled ? colors.ref.palette.neutral.n70 : colors.sys.text.dark};
   background: ${colors.ref.palette.neutral.n10};
