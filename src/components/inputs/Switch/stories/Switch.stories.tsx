@@ -25,8 +25,9 @@ Default.args = {
   value: "switchTest1",
   checked: false,
   size: "small",
-  margin: "0px",
-  padding: "0px",
+  onChange: () => {},
+  margin: "s0",
+  padding: "s0",
 };
 
 const theme = {
