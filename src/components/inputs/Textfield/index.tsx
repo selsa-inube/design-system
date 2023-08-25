@@ -1,11 +1,11 @@
 import { useState } from "react";
 
-import { InputType, Size, State } from "./props";
 import { MdOutlineError, MdCheckCircle } from "react-icons/md";
 
 import { Label } from "@inputs/Label";
 import { Text } from "@data/Text";
-import { Appearance } from "@src/components/data/Text/props";
+
+import { InputType, Size, State, Themed } from "./props";
 
 import {
   StyledContainer,
@@ -16,8 +16,9 @@ import {
   StyledMessageContainer,
 } from "./styles";
 import { IconType } from "react-icons/lib";
+import { Appearance } from "@data/Text/props";
 
-export interface ITextfieldProps {
+export interface ITextfieldProps extends Themed {
   label?: string;
   name: string;
   id: string;
