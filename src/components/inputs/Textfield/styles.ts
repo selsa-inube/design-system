@@ -32,17 +32,25 @@ const getGrid = (props: ITextfieldProps) => {
 const getColors = (props: ITextfieldProps) => {
   const { disabled, state, focused, theme } = props;
   if (disabled) {
-    return theme?.color?.text.gray?.disabled || inube.color.text.gray.disabled;
+    return (
+      theme?.color?.stroke.gray?.disabled || inube.color.stroke.gray.disabled
+    );
   }
 
   if (state === "invalid") {
-    return theme?.color?.text.error?.regular || inube.color.text.error.regular;
+    return (
+      theme?.color?.stroke.error?.regular || inube.color.stroke.error.regular
+    );
   }
 
   if (focused) {
-    return theme?.color?.text.primary?.hover || inube.color.text.primary.hover;
+    return (
+      theme?.color?.stroke.primary?.hover || inube.color.stroke.primary.hover
+    );
   }
-  return theme?.color?.surface.light?.hover || inube.color.surface.light.hover;
+  return (
+    theme?.color?.stroke.divider?.regular || inube.color.stroke.divider.regular
+  );
 };
 
 const getdisabled = (props: ITextfieldProps) => {
