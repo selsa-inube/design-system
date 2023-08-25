@@ -148,18 +148,6 @@ const StyledInput = styled.input`
   }
 `;
 
-const StyledIcon = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-left: ${({ iconBefore }: ITextfieldProps) => iconBefore && "10px"};
-  padding-right: ${({ iconAfter }: ITextfieldProps) => iconAfter && "10px"};
-  height: 24px;
-  width: 24px;
-  color: ${({ disabled }: ITextfieldProps) =>
-    disabled && colors.ref.palette.neutral.n70};
-`;
-
 const StyledMessageContainer = styled.div`
   display: flex;
   align-items: center;
@@ -180,6 +168,5 @@ export {
   StyledContainerLabel,
   StyledInputContainer,
   StyledInput,
-  StyledIcon,
   StyledMessageContainer,
 };

@@ -5,17 +5,17 @@ import { MdOutlineError, MdCheckCircle } from "react-icons/md";
 
 import { Label } from "@inputs/Label";
 import { Text } from "@data/Text";
-import { Appearance } from "@src/components/data/Text/props";
+import { Appearance } from "@data/Text/props";
 
 import {
   StyledContainer,
   StyledContainerLabel,
   StyledInputContainer,
   StyledInput,
-  StyledIcon,
   StyledMessageContainer,
 } from "./styles";
 import { IconType } from "react-icons/lib";
+import { Icon } from "@data/Icon";
 
 export interface ITextfieldProps {
   label?: string;
@@ -152,9 +152,13 @@ const Textfield = (props: ITextfieldProps) => {
         iconAfter={iconAfter}
       >
         {iconBefore && (
-          <StyledIcon disabled={disabled} iconBefore={iconBefore}>
-            {iconBefore}
-          </StyledIcon>
+          <Icon
+            appearance="gray"
+            disabled={disabled}
+            icon={iconBefore}
+            size="24px"
+            spacing="wide"
+          />
         )}
 
         <StyledInput
@@ -179,9 +183,12 @@ const Textfield = (props: ITextfieldProps) => {
         />
 
         {iconAfter && (
-          <StyledIcon iconAfter={iconAfter} disabled={disabled}>
-            {iconAfter}
-          </StyledIcon>
+          <Icon
+            appearance="gray"
+            disabled={disabled}
+            icon={iconAfter}
+            size="24px"
+          />
         )}
       </StyledInputContainer>
 
