@@ -133,13 +133,19 @@ const Textfield = (props: ITextfieldProps) => {
             focused={focused}
             invalid={state === "invalid" ? true : false}
             size={size === "compact" ? "medium" : "large"}
+            margin="0px 0px 0px 16px"
           >
             {label}
           </Label>
         )}
 
         {required && !disabled && (
-          <Text type="body" size="small" appearance="dark">
+          <Text
+            type="body"
+            size="small"
+            appearance="dark"
+            margin="0px 0px 0px 4px"
+          >
             (Requerido)
           </Text>
         )}

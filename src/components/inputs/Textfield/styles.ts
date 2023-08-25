@@ -73,16 +73,16 @@ const getdisabled = (props: ITextfieldProps) => {
 const getPadding = (props: ITextfieldProps) => {
   const { iconBefore, iconAfter } = props;
   const padding = {
-    paddingLeft: "16px",
-    paddingRight: "16px",
+    paddingLeft: inube.spacing.s200,
+    paddingRight: inube.spacing.s200,
   };
 
   if (iconBefore) {
-    padding.paddingLeft = "2px";
+    padding.paddingLeft = inube.spacing.s025;
   }
 
   if (iconAfter) {
-    padding.paddingRight = "2px";
+    padding.paddingRight = inube.spacing.s025;
   }
 
   return padding;
@@ -97,13 +97,9 @@ const StyledContainer = styled.div`
 const StyledContainerLabel = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: 4px;
-  padding-left: 16px;
-  pointer-events: ${({ disabled }: ITextfieldProps) => disabled && "none"};
+  margin-bottom: ${inube.spacing.s050};
 
-  & label {
-    margin-right: 5px;
-  }
+  pointer-events: ${({ disabled }: ITextfieldProps) => disabled && "none"};
 `;
 
 const StyledInputContainer = styled.div`
@@ -163,8 +159,10 @@ const StyledIcon = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-left: ${({ iconBefore }: ITextfieldProps) => iconBefore && "10px"};
-  padding-right: ${({ iconAfter }: ITextfieldProps) => iconAfter && "10px"};
+  padding-left: ${({ iconBefore }: ITextfieldProps) =>
+    iconBefore && inube.spacing.s150};
+  padding-right: ${({ iconAfter }: ITextfieldProps) =>
+    iconAfter && inube.spacing.s150};
   height: 24px;
   width: 24px;
   color: ${({ disabled, theme }: ITextfieldProps) =>
@@ -175,15 +173,14 @@ const StyledIcon = styled.div`
 const StyledMessageContainer = styled.div`
   display: flex;
   align-items: center;
-  margin-left: 12px;
+  margin-left: ${inube.spacing.s200};
   pointer-events: none;
   color: ${(props: ITextfieldProps) => getdisabled(props)};
 
   & svg {
     width: 14px;
     height: 14px;
-    margin-top: 8px;
-    padding-left: 5px;
+    margin-top: ${inube.spacing.s100};
   }
 `;
 
