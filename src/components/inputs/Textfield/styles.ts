@@ -30,12 +30,12 @@ const getGrid = (props: ITextfieldProps) => {
 };
 
 const getColors = (props: ITextfieldProps) => {
-  const { disabled, state, focused } = props;
+  const { disabled, status, focused } = props;
   if (disabled) {
     return colors.ref.palette.neutral.n70;
   }
 
-  if (state === "invalid") {
+  if (status === "invalid") {
     return colors.sys.actions.remove.filled;
   }
 
@@ -46,16 +46,16 @@ const getColors = (props: ITextfieldProps) => {
 };
 
 const getdisabled = (props: ITextfieldProps) => {
-  const { disabled, state } = props;
+  const { disabled, status } = props;
   if (disabled) {
     return colors.ref.palette.neutral.n70;
   }
 
-  if (state === "valid") {
+  if (status === "valid") {
     return colors.sys.actions.confirm.filled;
   }
 
-  if (state === "invalid") {
+  if (status === "invalid") {
     return colors.sys.actions.remove.filled;
   }
 };

@@ -3,27 +3,27 @@ import { useState } from "react";
 import { Textfield, ITextfieldProps } from "..";
 
 const TextfieldController = (props: ITextfieldProps) => {
-  const { value = "", state = "pending" } = props;
-  const [form, setForm] = useState({ value, state });
+  const { value = "", status = "pending" } = props;
+  const [form, setForm] = useState({ value, status });
 
   function isAlphabetical(value: string) {
     return /^[a-zA-Z]+$/.test(value);
   }
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setForm({ value: e.target.value, state: "pending" });
+    setForm({ value: e.target.value, status: "pending" });
   };
 
   const onFocus = () => {
-    if (form.state === "invalid") {
-      return setForm({ ...form, state: "invalid" });
+    if (form.status === "invalid") {
+      return setForm({ ...form, status: "invalid" });
     }
-    setForm({ ...form, state: "pending" });
+    setForm({ ...form, status: "pending" });
   };
 
   const onBlur = (e: React.ChangeEvent<HTMLInputElement>) => {
     const isValid = isAlphabetical(e.target.value);
-    setForm({ ...form, state: isValid ? "valid" : "invalid" });
+    setForm({ ...form, status: isValid ? "valid" : "invalid" });
   };
 
   return (
@@ -31,7 +31,7 @@ const TextfieldController = (props: ITextfieldProps) => {
       {...props}
       value={form.value}
       onChange={onChange}
-      state={form.state}
+      status={form.status}
       onFocus={onFocus}
       onBlur={onBlur}
     />

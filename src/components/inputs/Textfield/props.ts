@@ -11,8 +11,8 @@ type InputType = typeof inputTypes[number];
 const sizes = ["wide", "compact"] as const;
 type Size = typeof sizes[number];
 
-const states = ["valid", "invalid", "pending"] as const;
-type State = typeof states[number];
+const status = ["valid", "invalid", "pending"] as const;
+type Status = typeof status[number];
 
 const parameters = {
   docs: {
@@ -73,10 +73,10 @@ const props = {
       defaultValue: { summary: false },
     },
   },
-  state: {
-    options: states,
+  status: {
+    options: status,
     control: { type: "select" },
-    description: "state of the component",
+    description: "status of the component",
     table: {
       defaultValue: { summary: "pending" },
     },
@@ -106,6 +106,6 @@ const props = {
   },
 };
 
-export type { InputType, Size, State };
+export type { InputType, Size, Status };
 
-export { inputTypes, sizes, states, parameters, props };
+export { inputTypes, sizes, status, parameters, props };

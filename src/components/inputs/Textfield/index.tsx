@@ -4,7 +4,7 @@ import { MdOutlineError, MdCheckCircle } from "react-icons/md";
 import { Label } from "@inputs/Label";
 import { Text } from "@data/Text";
 
-import { InputType, Size, State } from "./props";
+import { InputType, Size, Status } from "./props";
 
 import {
   StyledContainer,
@@ -17,7 +17,7 @@ import {
 } from "./styles";
 
 export interface IMessageProps {
-  state?: State;
+  status?: Status;
   disabled?: boolean;
   errorMessage?: string;
   validMessage?: string;
@@ -35,7 +35,7 @@ export interface ITextfieldProps {
   iconBefore?: React.ReactNode;
   iconAfter?: React.ReactNode;
   required: boolean;
-  state?: State;
+  status?: Status;
   errorMessage?: string;
   validMessage?: string;
   size?: Size;
@@ -47,10 +47,10 @@ export interface ITextfieldProps {
 }
 
 const Invalid = (props: IMessageProps) => {
-  const { disabled, state, errorMessage } = props;
+  const { disabled, status, errorMessage } = props;
 
   return (
-    <StyledErrorMessageContainer disabled={disabled} state={state}>
+    <StyledErrorMessageContainer disabled={disabled} status={status}>
       <MdOutlineError />
       <Text
         type="body"
@@ -66,10 +66,10 @@ const Invalid = (props: IMessageProps) => {
 };
 
 const Success = (props: IMessageProps) => {
-  const { disabled, state, validMessage } = props;
+  const { disabled, status, validMessage } = props;
 
   return (
-    <StyledValidMessageContainer disabled={disabled} state={state}>
+    <StyledValidMessageContainer disabled={disabled} status={status}>
       <MdCheckCircle />
       <Text
         type="body"
@@ -97,7 +97,7 @@ const Textfield = (props: ITextfieldProps) => {
     iconBefore,
     iconAfter,
     required = false,
-    state = "pending",
+    status = "pending",
     errorMessage,
     validMessage,
     size = "wide",
@@ -138,7 +138,7 @@ const Textfield = (props: ITextfieldProps) => {
             htmlFor={id}
             disabled={disabled}
             focused={focused}
-            invalid={state === "invalid" ? true : false}
+            invalid={status === "invalid" ? true : false}
             size={size === "compact" ? "medium" : "large"}
           >
             {label}
@@ -155,7 +155,7 @@ const Textfield = (props: ITextfieldProps) => {
       <StyledInputContainer
         disabled={disabled}
         focused={focused}
-        state={state}
+        status={status}
         iconBefore={iconBefore}
         iconAfter={iconAfter}
       >
@@ -177,7 +177,7 @@ const Textfield = (props: ITextfieldProps) => {
           iconAfter={iconAfter}
           required={required}
           size={size}
-          state={state}
+          status={status}
           fullwidth={fullwidth}
           focused={focused}
           onChange={onChange}
@@ -193,17 +193,17 @@ const Textfield = (props: ITextfieldProps) => {
         )}
       </StyledInputContainer>
 
-      {state === "invalid" && (
+      {status === "invalid" && (
         <Invalid
           disabled={disabled}
-          state={state}
+          status={status}
           errorMessage={errorMessage}
         />
       )}
-      {state === "valid" && (
+      {status === "valid" && (
         <Success
           disabled={disabled}
-          state={state}
+          status={status}
           validMessage={validMessage}
         />
       )}
