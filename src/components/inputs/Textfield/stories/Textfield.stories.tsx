@@ -1,9 +1,7 @@
-import { ThemeProvider } from "styled-components";
 import { Textfield, ITextfieldProps } from "..";
 import { TextfieldController } from "./TextfieldController";
 
 import { props, parameters } from "../props";
-import { presente } from "@src/shared/themes/presente";
 
 const story = {
   title: "inputs/Textfield",
@@ -30,20 +28,6 @@ Default.args = {
   validMessages: "field has been successfully validated",
 };
 
-const theme = {
-  ...presente,
-};
-
-const Themed = (args: ITextfieldProps) => (
-  <ThemeProvider theme={theme}>
-    <TextfieldController {...args} />
-  </ThemeProvider>
-);
-
-Themed.args = {
-  ...Default.args,
-};
-
 export default story;
 
-export { Default, Themed };
+export { Default };
