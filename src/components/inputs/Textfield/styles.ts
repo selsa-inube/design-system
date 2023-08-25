@@ -104,8 +104,6 @@ const StyledInputContainer = styled.div`
   box-sizing: border-box;
   border-radius: 8px;
   user-select: none;
-  background: ${({ theme }: ITextfieldProps) =>
-    theme?.color?.text.light?.regular || inube.color.text.light.regular};
   grid-template-columns: ${(props: ITextfieldProps) => getGrid(props)};
   border: 1px solid ${(props: ITextfieldProps) => getColors(props)};
   ${({ disabled }: ITextfieldProps) =>
@@ -124,8 +122,6 @@ const StyledInput = styled.input`
     disabled
       ? theme?.color?.text.gray?.disabled || inube.color.text.gray.disabled
       : theme?.color?.text.dark?.regular || inube.color.text.dark.regular};
-  background: ${({ theme }: ITextfieldProps) =>
-    theme?.color?.text.light?.regular || inube.color.text.light.regular};
   ${(props: ITextfieldProps) => getPadding(props)}
   width: ${({ fullwidth }: ITextfieldProps) =>
     fullwidth ? "calc(100% - 32px)" : "252px"};
