@@ -29,8 +29,8 @@ const Switch = (props: ISwitchProps) => {
     checked = false,
     onChange,
     label,
-    margin = "0px",
-    padding = "0px",
+    margin = "s0",
+    padding = "s0",
   } = props;
 
   return (

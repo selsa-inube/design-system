@@ -17,10 +17,10 @@ const sizes: any = {
 
 const StyledSpan = styled.span`
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  top: ${inube.spacing.s0};
+  left: ${inube.spacing.s0};
+  right: ${inube.spacing.s0};
+  bottom: ${inube.spacing.s0};
   transition: 0.1s;
   border-radius: 30px;
   cursor: ${(props: ISwitchProps) =>
@@ -43,7 +43,7 @@ const StyledSpan = styled.span`
   &:before {
     position: absolute;
     content: "";
-    left: ${({ disabled }: ISwitchProps) => (!disabled ? "2px" : "0px")};
+    left: ${inube.spacing.s025};
     border-radius: 50%;
     transition: 0.3s;
     background-color: ${({ theme }: Themed) =>
@@ -59,12 +59,12 @@ const StyledSpan = styled.span`
         ? css`
             width: 12px;
             height: 12px;
-            bottom: calc((16px - 12px) / 2);
+            bottom: calc((${inube.spacing.s200} - ${inube.spacing.s150}) / 2);
           `
         : css`
             width: 16px;
             height: 16px;
-            bottom: calc((20px - 16px) / 2);
+            bottom: calc((${inube.spacing.s250} - ${inube.spacing.s200}) / 2);
           `};
   }
 `;
@@ -72,9 +72,7 @@ const StyledSpan = styled.span`
 const StyledContainer = styled.label`
   position: relative;
   display: inline-block;
-  ${(props: ISwitchProps) => props.size && sizes[props.size]}
-  margin: ${({ margin }: ISwitchProps) => margin};
-  padding: ${({ padding }: ISwitchProps) => padding};
+  ${(props: ISwitchProps) => props.size && sizes[props.size]};
 `;
 
 const StyledInput = styled.input`
@@ -120,14 +118,21 @@ const StyledIcon = styled.div`
         ? css`
             width: 10px;
             height: 10px;
-            top: 3px;
-            left: ${(props: ISwitchProps) => (props.checked ? "5px" : "17px")};
+            padding-left ${inube.spacing.s025};
+            top: calc(${inube.spacing.s075} / 2);
+            left: ${(props: ISwitchProps) =>
+              props.checked
+                ? `calc(${inube.spacing.s075} / 2)`
+                : `${inube.spacing.s200}`};
           `
         : css`
             width: 14px;
             height: 14px;
-            top: 3px;
-            left: ${(props: ISwitchProps) => (props.checked ? "5px" : "22px")};
+            top: calc(${inube.spacing.s075} / 2);
+            left: ${(props: ISwitchProps) =>
+              props.checked
+                ? `${inube.spacing.s050}`
+                : `${inube.spacing.s300}`};
           `};
   }
 `;
