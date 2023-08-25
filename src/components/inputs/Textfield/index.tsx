@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { IconType } from "react-icons/lib";
 import { MdCheckCircle, MdOutlineError } from "react-icons/md";
 
 import { Text } from "@data/Text";
+import { Appearance } from "@data/Text/props";
 import { Label } from "@inputs/Label";
 
 import { InputType, Size, State, Themed } from "./props";
@@ -14,8 +16,6 @@ import {
   StyledIcon,
   StyledMessageContainer,
 } from "./styles";
-import { IconType } from "react-icons/lib";
-import { Appearance } from "@data/Text/props";
 
 export interface ITextfieldProps extends Themed {
   label?: string;
@@ -38,10 +38,9 @@ export interface ITextfieldProps extends Themed {
   onBlur?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   readOnly?: boolean;
   focused?: boolean;
-  message?: string;
 }
 
-const Message = (props: Omit<ITextfieldProps, "id">) => {
+const Message = (props: Omit<ITextfieldProps, "id"> & { message?: string }) => {
   const { disabled, state, message } = props;
   let IconComponent: IconType | null = null;
   let appearance: Appearance = "gray";
