@@ -1,10 +1,11 @@
 import { useState } from "react";
 
-import { InputType, Size, Status } from "./props";
 import { MdOutlineError, MdCheckCircle } from "react-icons/md";
 
 import { Label } from "@inputs/Label";
 import { Text } from "@data/Text";
+
+import { InputType, Size, Status, Themed } from "./props";
 
 import {
   StyledContainer,
@@ -17,7 +18,7 @@ import {
 import { IconType } from "react-icons/lib";
 import { Appearance } from "@data/Text/props";
 
-export interface ITextfieldProps {
+export interface ITextfieldProps extends Themed {
   label?: string;
   name: string;
   id: string;
