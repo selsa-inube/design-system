@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { ITextfieldProps } from ".";
-import { colors } from "@shared/colors/colors";
 import { typography } from "@shared/typography/typography";
 import { inube } from "@shared/tokens";
 
@@ -31,33 +30,43 @@ const getGrid = (props: ITextfieldProps) => {
 };
 
 const getColors = (props: ITextfieldProps) => {
-  const { disabled, state, focused } = props;
+  const { disabled, state, focused, theme } = props;
   if (disabled) {
-    return colors.ref.palette.neutral.n70;
+    return (
+      theme?.color?.stroke.gray?.disabled || inube.color.stroke.gray.disabled
+    );
   }
 
   if (state === "invalid") {
-    return colors.sys.actions.remove.filled;
+    return (
+      theme?.color?.stroke.error?.regular || inube.color.stroke.error.regular
+    );
   }
 
   if (focused) {
-    return colors.ref.palette.blue.b300;
+    return (
+      theme?.color?.stroke.primary?.hover || inube.color.stroke.primary.hover
+    );
   }
-  return colors.ref.palette.neutral.n40;
+  return (
+    theme?.color?.stroke.divider?.regular || inube.color.stroke.divider.regular
+  );
 };
 
 const getdisabled = (props: ITextfieldProps) => {
-  const { disabled, state } = props;
+  const { disabled, state, theme } = props;
   if (disabled) {
-    return colors.ref.palette.neutral.n70;
+    return theme?.color?.text.gray?.disabled || inube.color.text.gray.disabled;
   }
 
   if (state === "valid") {
-    return colors.sys.actions.confirm.filled;
+    return (
+      theme?.color?.text.success?.regular || inube.color.text.success.regular
+    );
   }
 
   if (state === "invalid") {
-    return colors.sys.actions.remove.filled;
+    return theme?.color?.text.error?.regular || inube.color.text.error.regular;
   }
 };
 
@@ -99,7 +108,6 @@ const StyledInputContainer = styled.div`
   box-sizing: border-box;
   border-radius: 8px;
   user-select: none;
-  background: ${colors.ref.palette.neutral.n10};
   grid-template-columns: ${(props: ITextfieldProps) => getGrid(props)};
   border: 1px solid ${(props: ITextfieldProps) => getColors(props)};
   ${({ disabled }: ITextfieldProps) =>
@@ -114,9 +122,10 @@ const StyledInput = styled.input`
   font-weight: ${typography.sys.typescale.bodyLarge.weight};
   line-height: ${typography.sys.typescale.bodyLarge.lineHeight};
   letter-spacing: ${typography.sys.typescale.bodyLarge.tracking};
-  color: ${({ disabled }: ITextfieldProps) =>
-    disabled ? colors.ref.palette.neutral.n70 : colors.sys.text.dark};
-  background: ${colors.ref.palette.neutral.n10};
+  color: ${({ disabled, theme }: ITextfieldProps) =>
+    disabled
+      ? theme?.color?.text.gray?.disabled || inube.color.text.gray.disabled
+      : theme?.color?.text.dark?.regular || inube.color.text.dark.regular};
   ${(props: ITextfieldProps) => getPadding(props)}
   width: ${({ fullwidth }: ITextfieldProps) =>
     fullwidth ? "calc(100% - 32px)" : "252px"};
@@ -124,7 +133,8 @@ const StyledInput = styled.input`
   border: none;
 
   ::placeholder {
-    color: ${colors.sys.text.secondary};
+    color: ${({ theme }: ITextfieldProps) =>
+      theme?.color?.text.gray?.regular || inube.color.text.gray.regular};
   }
 
   &:focus {
@@ -155,11 +165,12 @@ const StyledIcon = styled.div`
     iconAfter && inube.spacing.s150};
   height: 24px;
   width: 24px;
-  color: ${({ disabled }: ITextfieldProps) =>
-    disabled && colors.ref.palette.neutral.n70};
+  color: ${({ disabled, theme }: ITextfieldProps) =>
+    disabled &&
+    (theme?.color?.text.gray?.disabled || inube.color.text.gray.disabled)};
 `;
 
-const StyledErrorMessageContainer = styled.div`
+const StyledMessageContainer = styled.div`
   display: flex;
   align-items: center;
   margin-left: ${inube.spacing.s200};
@@ -173,16 +184,11 @@ const StyledErrorMessageContainer = styled.div`
   }
 `;
 
-const StyledValidMessageContainer = styled(StyledErrorMessageContainer)`
-  color: ${(props: ITextfieldProps) => getdisabled(props)}; ;
-`;
-
 export {
   StyledContainer,
   StyledContainerLabel,
   StyledInputContainer,
   StyledInput,
   StyledIcon,
-  StyledErrorMessageContainer,
-  StyledValidMessageContainer,
+  StyledMessageContainer,
 };
