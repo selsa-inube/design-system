@@ -196,6 +196,7 @@ const Textfield = (props: ITextfieldProps) => {
             disabled={disabled}
             icon={iconAfter}
             size="24px"
+            spacing="wide"
           />
         )}
       </StyledInputContainer>
