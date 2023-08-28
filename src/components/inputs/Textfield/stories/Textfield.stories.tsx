@@ -22,6 +22,11 @@ Default.args = {
   validMessage: "The field has been successfully validated",
   size: "wide",
   readOnly: false,
+  disabled: false,
+  required: false,
+  type: "text",
+  errorMessages: "field cannot be empty, special characters cannot be used",
+  validMessages: "field has been successfully validated",
 };
 
 const theme = {
