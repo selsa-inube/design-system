@@ -28,7 +28,7 @@ const Size = {
     disabled: false,
     placeholder: "Write your full name",
     value: "",
-    state: "pending",
+    status: "pending",
     type: "text",
     errorMessage: "Please enter only letters in this field",
     validMessage: "The field has been successfully validated",

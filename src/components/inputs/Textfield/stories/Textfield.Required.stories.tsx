@@ -15,7 +15,7 @@ const RequiredComponent = (args: ITextfieldProps) => {
   return (
     <Stack justifyContent="space-evenly">
       <TextfieldController {...args} />
-      <TextfieldController {...args} size="compact" state="invalid" />
+      <TextfieldController {...args} size="compact" status="invalid" />
     </Stack>
   );
 };
@@ -30,7 +30,7 @@ Required.args = {
   placeholder: "Write your full name",
   disabled: false,
   type: "text",
-  state: "pending",
+  status: "pending",
   size: "wide",
   fullwidth: false,
   errorMessage: "This field can not be blank",

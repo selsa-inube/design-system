@@ -11,7 +11,7 @@ const story = {
 };
 
 const Invalid = (args: ITextfieldProps) => (
-  <TextfieldController {...args} state="invalid" />
+  <TextfieldController {...args} status="invalid" />
 );
 Invalid.args = {
   label: "Username",

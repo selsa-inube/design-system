@@ -13,7 +13,7 @@ const TextfieldComponent = (args: ITextfieldProps) => {
   return (
     <Stack justifyContent="space-evenly">
       {sizes.map((size) => (
-        <TextfieldController {...args} key={size} size={size} state="valid" />
+        <TextfieldController {...args} key={size} size={size} status="valid" />
       ))}
     </Stack>
   );
@@ -30,7 +30,7 @@ const Valid = {
     errorMessage: "Please enter only letters in this field",
     validMessage: "Field validation is successful",
     required: true,
-    state: "pending",
+    status: "pending",
     type: "text",
     size: "wide",
   },

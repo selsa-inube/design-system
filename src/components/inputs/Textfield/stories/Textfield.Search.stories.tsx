@@ -12,7 +12,7 @@ const story = {
 };
 
 const Search = (args: ITextfieldProps) => (
-  <TextfieldController {...args} type="search" state="pending" />
+  <TextfieldController {...args} type="search" status="pending" />
 );
 Search.args = {
   name: "searchField",
