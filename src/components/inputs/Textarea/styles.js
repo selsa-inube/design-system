@@ -49,7 +49,7 @@ const getdisabled = (disabled, state) => {
 
 const StyledContainer = styled.div`
   cursor: ${({ disabled }) => disabled && "not-allowed"};
-  width: ${({ isFullWidth }) => (isFullWidth ? "100%" : "fit-content")};
+  width: ${({ fullwidth }) => (fullwidth ? "100%" : "fit-content")};
 `;
 
 const StyledContainerLabel = styled.div`
@@ -73,7 +73,7 @@ const StyledTextarea = styled.textarea`
   font-weight: ${typography.sys.typescale.bodyLarge.weight};
   line-height: ${typography.sys.typescale.bodyLarge.lineHeight};
   letter-spacing: ${typography.sys.typescale.bodyLarge.letterSpacing};
-  width: ${({ isFullWidth }) => (isFullWidth ? "calc(100% - 32px)" : "452px")};
+  width: ${({ fullwidth }) => (fullwidth ? "calc(100% - 32px)" : "452px")};
   height: 120px;
   color: ${({ disabled }) =>
     disabled ? colors.ref.palette.neutral.n70 : colors.sys.text.dark};
