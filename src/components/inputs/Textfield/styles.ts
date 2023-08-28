@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { ITextfieldProps } from ".";
-import { colors } from "@shared/colors/colors";
-import { typography } from "@shared/typography/typography";
+
+import { inube } from "@shared/tokens";
 
 const sizeOptions = {
   compact: {
@@ -10,72 +10,6 @@ const sizeOptions = {
   wide: {
     height: "48px",
   },
-};
-
-const getGrid = (props: ITextfieldProps) => {
-  const { iconBefore, iconAfter } = props;
-  if (iconBefore && iconAfter) {
-    return "auto 1fr auto";
-  }
-
-  if (iconBefore && !iconAfter) {
-    return "auto 1fr";
-  }
-
-  if (!iconBefore && iconAfter) {
-    return "1fr auto";
-  }
-
-  return "1fr";
-};
-
-const getColors = (props: ITextfieldProps) => {
-  const { disabled, state, focused } = props;
-  if (disabled) {
-    return colors.ref.palette.neutral.n70;
-  }
-
-  if (state === "invalid") {
-    return colors.sys.actions.remove.filled;
-  }
-
-  if (focused) {
-    return colors.ref.palette.blue.b300;
-  }
-  return colors.ref.palette.neutral.n40;
-};
-
-const getdisabled = (props: ITextfieldProps) => {
-  const { disabled, state } = props;
-  if (disabled) {
-    return colors.ref.palette.neutral.n70;
-  }
-
-  if (state === "valid") {
-    return colors.sys.actions.confirm.filled;
-  }
-
-  if (state === "invalid") {
-    return colors.sys.actions.remove.filled;
-  }
-};
-
-const getPadding = (props: ITextfieldProps) => {
-  const { iconBefore, iconAfter } = props;
-  const padding = {
-    paddingLeft: "16px",
-    paddingRight: "16px",
-  };
-
-  if (iconBefore) {
-    padding.paddingLeft = "2px";
-  }
-
-  if (iconAfter) {
-    padding.paddingRight = "2px";
-  }
-
-  return padding;
 };
 
 const StyledContainer = styled.div`
@@ -87,13 +21,9 @@ const StyledContainer = styled.div`
 const StyledContainerLabel = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: 4px;
-  padding-left: 16px;
-  pointer-events: ${({ disabled }: ITextfieldProps) => disabled && "none"};
+  margin-bottom: ${inube.spacing.s050};
 
-  & label {
-    margin-right: 5px;
-  }
+  pointer-events: ${({ disabled }: ITextfieldProps) => disabled && "none"};
 `;
 
 const StyledInputContainer = styled.div`
@@ -102,32 +32,77 @@ const StyledInputContainer = styled.div`
   box-sizing: border-box;
   border-radius: 8px;
   user-select: none;
-  background: ${colors.ref.palette.neutral.n10};
-  grid-template-columns: ${(props: ITextfieldProps) => getGrid(props)};
-  border: 1px solid ${(props: ITextfieldProps) => getColors(props)};
-  ${({ disabled }: ITextfieldProps) =>
-    disabled && "pointer-events: none; opacity: 0.5;"}
+  grid-template-columns: ${({ iconBefore, iconAfter }: ITextfieldProps) => {
+    if (iconBefore && iconAfter) {
+      return "auto 1fr auto";
+    }
+
+    if (iconBefore && !iconAfter) {
+      return "auto 1fr";
+    }
+
+    if (!iconBefore && iconAfter) {
+      return "1fr auto";
+    }
+
+    return "1fr";
+  }};
+  border: 1px solid
+    ${({ disabled, status, focused, theme }: ITextfieldProps) => {
+      if (disabled) {
+        return (
+          theme?.color?.stroke?.gray?.disabled ||
+          inube.color.stroke.gray.disabled
+        );
+      }
+
+      if (status === "invalid") {
+        return (
+          theme?.color?.stroke?.error?.regular ||
+          inube.color.stroke.error.regular
+        );
+      }
+
+      if (focused) {
+        return (
+          theme?.color?.stroke?.primary?.hover ||
+          inube.color.stroke.primary.hover
+        );
+      }
+      return (
+        theme?.color?.stroke?.divider?.regular ||
+        inube.color.stroke.divider.regular
+      );
+    }};
+  pointer-events: ${({ disabled }: ITextfieldProps) => disabled && "none"};
+  opacity: ${({ disabled }: ITextfieldProps) => disabled && "0.5"};
 `;
 
 const StyledInput = styled.input`
   outline: none;
   border-radius: 8px;
-  font-family: ${typography.sys.typescale.bodyLarge.font};
-  font-size: ${typography.sys.typescale.bodyLarge.size};
-  font-weight: ${typography.sys.typescale.bodyLarge.weight};
-  line-height: ${typography.sys.typescale.bodyLarge.lineHeight};
-  letter-spacing: ${typography.sys.typescale.bodyLarge.tracking};
-  color: ${({ disabled }: ITextfieldProps) =>
-    disabled ? colors.ref.palette.neutral.n70 : colors.sys.text.dark};
-  background: ${colors.ref.palette.neutral.n10};
-  ${(props: ITextfieldProps) => getPadding(props)}
+  font-family: ${inube.typography.body.large.font};
+  font-size: ${inube.typography.body.large.size};
+  font-weight: ${inube.typography.body.large.weight};
+  line-height: ${inube.typography.body.large.lineHeight};
+  letter-spacing: ${inube.typography.body.large.tracking};
+  color: ${({ disabled, theme }: ITextfieldProps) =>
+    disabled
+      ? theme?.color?.text?.gray?.disabled || inube.color.text.gray.disabled
+      : theme?.color?.text?.dark?.regular || inube.color.text.dark.regular};
+
+  padding-right: ${({ iconAfter }: ITextfieldProps) =>
+    iconAfter ? "2px" : "16px"};
+  padding-left: ${({ iconBefore }: ITextfieldProps) =>
+    iconBefore ? "2px" : "16px"};
   width: ${({ fullwidth }: ITextfieldProps) =>
     fullwidth ? "calc(100% - 32px)" : "252px"};
   ${({ size }: ITextfieldProps) => size && sizeOptions[size]};
   border: none;
 
   ::placeholder {
-    color: ${colors.sys.text.secondary};
+    color: ${({ theme }: ITextfieldProps) =>
+      theme?.color?.text?.gray?.regular || inube.color.text.gray.regular};
   }
 
   &:focus {
@@ -152,31 +127,47 @@ const StyledIcon = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-left: ${({ iconBefore }: ITextfieldProps) => iconBefore && "10px"};
-  padding-right: ${({ iconAfter }: ITextfieldProps) => iconAfter && "10px"};
+  padding-left: ${({ iconBefore }: ITextfieldProps) =>
+    iconBefore && inube.spacing.s150};
+  padding-right: ${({ iconAfter }: ITextfieldProps) =>
+    iconAfter && inube.spacing.s150};
   height: 24px;
   width: 24px;
-  color: ${({ disabled }: ITextfieldProps) =>
-    disabled && colors.ref.palette.neutral.n70};
+  color: ${({ disabled, theme }: ITextfieldProps) =>
+    disabled &&
+    (theme?.color?.text?.gray?.disabled || inube.color.text.gray.disabled)};
 `;
 
-const StyledErrorMessageContainer = styled.div`
+const StyledMessageContainer = styled.div`
   display: flex;
   align-items: center;
-  margin-left: 12px;
+  margin-left: ${inube.spacing.s200};
   pointer-events: none;
-  color: ${(props: ITextfieldProps) => getdisabled(props)};
+  color: ${({ disabled, status, theme }: ITextfieldProps) => {
+    if (disabled) {
+      return (
+        theme?.color?.text?.gray?.disabled || inube.color.text.gray.disabled
+      );
+    }
+
+    if (status === "valid") {
+      return (
+        theme?.color?.text?.success?.regular || inube.color.text.success.regular
+      );
+    }
+
+    if (status === "invalid") {
+      return (
+        theme?.color?.text?.error?.regular || inube.color.text.error.regular
+      );
+    }
+  }};
 
   & svg {
     width: 14px;
     height: 14px;
-    margin-top: 8px;
-    padding-left: 5px;
+    margin-top: ${inube.spacing.s100};
   }
-`;
-
-const StyledValidMessageContainer = styled(StyledErrorMessageContainer)`
-  color: ${(props: ITextfieldProps) => getdisabled(props)}; ;
 `;
 
 export {
@@ -185,6 +176,5 @@ export {
   StyledInputContainer,
   StyledInput,
   StyledIcon,
-  StyledErrorMessageContainer,
-  StyledValidMessageContainer,
+  StyledMessageContainer,
 };
