@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 const states = ["valid", "invalid", "pending"];
 
-const defaultIsDisabled = false;
+const defaultdisabled = false;
 const defaultIsRequired = false;
 const defaultState = "pending";
 const defaultIsFullWidth = false;
@@ -15,7 +15,7 @@ export const Textarea = (props) => {
     name,
     id,
     placeholder,
-    isDisabled = false,
+    disabled = false,
     handleChange,
     value,
     maxLength,
@@ -52,8 +52,8 @@ export const Textarea = (props) => {
     }
   };
 
-  const transformedIsDisabled =
-    typeof isDisabled === "boolean" ? isDisabled : defaultIsDisabled;
+  const transformeddisabled =
+    typeof disabled === "boolean" ? disabled : defaultdisabled;
 
   const transformedState = states.includes(state) ? state : defaultState;
 
@@ -71,7 +71,7 @@ export const Textarea = (props) => {
       name={name}
       id={id}
       placeholder={placeholder}
-      isDisabled={transformedIsDisabled}
+      disabled={transformeddisabled}
       value={value}
       maxLength={maxLength}
       minLength={minLength}
@@ -98,7 +98,7 @@ Textarea.propTypes = {
   name: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
-  isDisabled: PropTypes.bool,
+  disabled: PropTypes.bool,
   isFocused: PropTypes.bool,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   handleChange: PropTypes.func,

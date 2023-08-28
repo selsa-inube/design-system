@@ -26,7 +26,7 @@ const getAppearanceCounter = (valueLength, maxLength = 0, lengthThreshold) => {
 };
 
 const Counter = (props) => {
-  const { id, maxLength, lengthThreshold, isDisabled } = props;
+  const { id, maxLength, lengthThreshold, disabled } = props;
   const [valueLength, setValueLength] = useState(0);
 
   useEffect(() => {
@@ -48,20 +48,20 @@ const Counter = (props) => {
     <Text
       type="body"
       size="small"
-      disabled={isDisabled}
+      disabled={disabled}
       appearance={getAppearanceCounter(valueLength, maxLength, lengthThreshold)}
     >{`${valueLength}/${maxLength}`}</Text>
   );
 };
 
 const Invalid = (props) => {
-  const { isDisabled, state, errorMessage } = props;
+  const { disabled, state, errorMessage } = props;
   const transformedErrorMessage = errorMessage && `(${errorMessage})`;
 
   return (
-    <StyledErrorMessageContainer isDisabled={isDisabled} state={state}>
+    <StyledErrorMessageContainer disabled={disabled} state={state}>
       <MdOutlineError />
-      <Text type="body" size="small" appearance={"error"} disabled={isDisabled}>
+      <Text type="body" size="small" appearance={"error"} disabled={disabled}>
         {transformedErrorMessage}
       </Text>
     </StyledErrorMessageContainer>
@@ -69,17 +69,12 @@ const Invalid = (props) => {
 };
 
 const Success = (props) => {
-  const { isDisabled, state, validMessage } = props;
+  const { disabled, state, validMessage } = props;
 
   return (
-    <StyledValidMessageContainer isDisabled={isDisabled} state={state}>
+    <StyledValidMessageContainer disabled={disabled} state={state}>
       <MdCheckCircle />
-      <Text
-        type="body"
-        size="small"
-        appearance={"success"}
-        disabled={isDisabled}
-      >
+      <Text type="body" size="small" appearance={"success"} disabled={disabled}>
         {validMessage}
       </Text>
     </StyledValidMessageContainer>
@@ -92,7 +87,7 @@ const TextareaUI = (props) => {
     name,
     id,
     placeholder,
-    isDisabled,
+    disabled,
     value,
     maxLength,
     minLength,
@@ -115,18 +110,18 @@ const TextareaUI = (props) => {
   const transformedInvalid = state === "invalid" ? true : false;
 
   return (
-    <StyledContainer isFullWidth={isFullWidth} isDisabled={isDisabled}>
+    <StyledContainer isFullWidth={isFullWidth} disabled={disabled}>
       <StyledContainerLabel
         alignItems="center"
         wrap="wrap"
-        isDisabled={isDisabled}
+        disabled={disabled}
         label={label}
         counter={counter}
       >
         {label && (
           <Label
             htmlFor={id}
-            disabled={isDisabled}
+            disabled={disabled}
             focused={isFocused}
             invalid={transformedInvalid}
           >
@@ -134,17 +129,17 @@ const TextareaUI = (props) => {
           </Label>
         )}
 
-        {isRequired && !isDisabled && (
+        {isRequired && !disabled && (
           <Text type="body" size="small" appearance="dark">
             (Required)
           </Text>
         )}
-        {counter && !isDisabled && (
+        {counter && !disabled && (
           <Counter
             id={id}
             maxLength={maxLength}
             lengthThreshold={lengthThreshold}
-            isDisabled={isDisabled}
+            disabled={disabled}
           />
         )}
       </StyledContainerLabel>
@@ -153,7 +148,7 @@ const TextareaUI = (props) => {
         name={name}
         id={id}
         placeholder={placeholder}
-        isDisabled={isDisabled}
+        disabled={disabled}
         minLength={minLength}
         max={max}
         min={min}
@@ -170,14 +165,14 @@ const TextareaUI = (props) => {
 
       {state === "invalid" && (
         <Invalid
-          isDisabled={isDisabled}
+          disabled={disabled}
           state={state}
           errorMessage={errorMessage}
         />
       )}
       {state === "valid" && (
         <Success
-          isDisabled={isDisabled}
+          disabled={disabled}
           state={state}
           validMessage={validMessage}
         />

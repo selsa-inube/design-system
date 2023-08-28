@@ -48,7 +48,7 @@ const StyledInputContainer = styled.div`
     return "1fr";
   }};
   border: 1px solid
-    ${({ disabled, state, focused, theme }: ITextfieldProps) => {
+    ${({ disabled, status, focused, theme }: ITextfieldProps) => {
       if (disabled) {
         return (
           theme?.color?.stroke?.gray?.disabled ||
@@ -56,7 +56,7 @@ const StyledInputContainer = styled.div`
         );
       }
 
-      if (state === "invalid") {
+      if (status === "invalid") {
         return (
           theme?.color?.stroke?.error?.regular ||
           inube.color.stroke.error.regular
@@ -143,20 +143,20 @@ const StyledMessageContainer = styled.div`
   align-items: center;
   margin-left: ${inube.spacing.s200};
   pointer-events: none;
-  color: ${({ disabled, state, theme }: ITextfieldProps) => {
+  color: ${({ disabled, status, theme }: ITextfieldProps) => {
     if (disabled) {
       return (
         theme?.color?.text?.gray?.disabled || inube.color.text.gray.disabled
       );
     }
 
-    if (state === "valid") {
+    if (status === "valid") {
       return (
         theme?.color?.text?.success?.regular || inube.color.text.success.regular
       );
     }
 
-    if (state === "invalid") {
+    if (status === "invalid") {
       return (
         theme?.color?.text?.error?.regular || inube.color.text.error.regular
       );
