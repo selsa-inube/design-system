@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import { Textarea } from "..";
+import { useState } from "react";
+import { ITextareaProps, Textarea } from "..";
 
-const TextareaController = (props) => {
+const TextareaController = (props: ITextareaProps) => {
   const { value = "", state = "pending" } = props;
   const [form, setForm] = useState({ value, state });
 
   const maxLength = 220;
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ value: e.target.value, state: "pending" });
     return;
   };
@@ -16,7 +16,7 @@ const TextareaController = (props) => {
     setForm({ ...form, state: "pending" });
   };
 
-  const handleBlur = (e) => {
+  const handleBlur = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.value.length > maxLength) {
       setForm({ ...form, state: "invalid" });
     } else setForm({ ...form, state: "valid" });
