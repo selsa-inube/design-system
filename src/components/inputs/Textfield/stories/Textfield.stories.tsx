@@ -1,7 +1,8 @@
 import { Textfield, ITextfieldProps } from "..";
 import { TextfieldController } from "./TextfieldController";
-
+import { ThemeProvider } from "styled-components";
 import { props, parameters } from "../props";
+import { presente } from "@shared/themes/presente";
 
 const story = {
   title: "inputs/Textfield",
@@ -23,6 +24,19 @@ Default.args = {
   readOnly: false,
 };
 
+const theme = {
+  ...presente,
+};
+
+export const Themed = (args: ITextfieldProps) => (
+  <ThemeProvider theme={theme}>
+    <TextfieldController {...args} />
+  </ThemeProvider>
+);
+
+Themed.args = {
+  ...Default.args,
+};
 export default story;
 
 export { Default };
