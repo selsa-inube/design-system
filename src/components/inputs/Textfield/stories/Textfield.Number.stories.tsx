@@ -17,7 +17,7 @@ Number.args = {
   id: "quantity",
   placeholder: "Value",
   type: "number",
-  state: "pending",
+  status: "pending",
   disabled: false,
   required: false,
   size: "wide",
