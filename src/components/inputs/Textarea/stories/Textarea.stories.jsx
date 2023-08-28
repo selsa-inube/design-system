@@ -17,7 +17,7 @@ Default.args = {
   id: "textarea",
   state: "pending",
   placeholder: "Storybook Textarea",
-  isDisabled: false,
+  disabled: false,
   counter: true,
   lengthThreshold: 20,
   isRequired: true,
