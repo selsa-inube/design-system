@@ -53,7 +53,7 @@ const Switch = (props: ISwitchProps) => {
           disabled={disabled}
           name={name}
         />
-        <StyledSpan size={size} disabled={disabled}>
+        <StyledSpan size={size} disabled={disabled} checked={checked}>
           {checked ? (
             <StyledIcon checked={checked} size={size} disabled={disabled}>
               <MdDone id="mdIcon" />
