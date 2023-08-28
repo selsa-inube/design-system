@@ -37,14 +37,6 @@ const props = {
     description:
       "allows you to control what to do when the user changes the value of the component",
   },
-  maxLength: {
-    description:
-      "defines how many characters maximum are received in the component value",
-  },
-  minLength: {
-    description:
-      "defines how many minimum characters the component receives as a value",
-  },
   max: {
     description:
       "defines the maximum value that can be inserted (useful for components of type number)",

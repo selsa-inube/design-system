@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
-
 import { MdOutlineError, MdCheckCircle } from "react-icons/md";
-
 import { Label } from "@inputs/Label";
 import { Text } from "@data/Text";
 
@@ -13,20 +11,8 @@ import {
   StyledValidMessageContainer,
 } from "./styles";
 
-const getAppearanceCounter = (valueLength, maxLength = 0, lengthThreshold) => {
-  if (maxLength - valueLength <= lengthThreshold && valueLength <= maxLength) {
-    return "warning";
-  }
-
-  if (valueLength > maxLength) {
-    return "error";
-  }
-
-  return "gray";
-};
-
 const Counter = (props) => {
-  const { id, maxLength, lengthThreshold, disabled } = props;
+  const { id, lengthThreshold, disabled } = props;
   const [valueLength, setValueLength] = useState(0);
 
   useEffect(() => {
@@ -44,13 +30,15 @@ const Counter = (props) => {
     };
   }, [id]);
 
+  const appearance = valueLength > lengthThreshold ? "warning" : "gray";
+
   return (
     <Text
       type="body"
       size="small"
       disabled={disabled}
-      appearance={getAppearanceCounter(valueLength, maxLength, lengthThreshold)}
-    >{`${valueLength}/${maxLength}`}</Text>
+      appearance={appearance}
+    >{`${valueLength}`}</Text>
   );
 };
 
@@ -89,8 +77,6 @@ const TextareaUI = (props) => {
     placeholder,
     disabled,
     value,
-    maxLength,
-    minLength,
     max,
     min,
     isRequired,
@@ -134,10 +120,10 @@ const TextareaUI = (props) => {
             (Required)
           </Text>
         )}
+
         {counter && !disabled && (
           <Counter
             id={id}
-            maxLength={maxLength}
             lengthThreshold={lengthThreshold}
             disabled={disabled}
           />
@@ -149,7 +135,6 @@ const TextareaUI = (props) => {
         id={id}
         placeholder={placeholder}
         disabled={disabled}
-        minLength={minLength}
         max={max}
         min={min}
         isRequired={isRequired}
@@ -170,6 +155,7 @@ const TextareaUI = (props) => {
           errorMessage={errorMessage}
         />
       )}
+
       {state === "valid" && (
         <Success
           disabled={disabled}
