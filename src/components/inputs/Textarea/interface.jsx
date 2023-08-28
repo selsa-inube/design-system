@@ -1,10 +1,7 @@
 import { useState, useEffect } from "react";
-
 import { MdOutlineError, MdCheckCircle } from "react-icons/md";
-
 import { Label } from "@inputs/Label";
 import { Text } from "@data/Text";
-
 import {
   StyledContainer,
   StyledContainerLabel,
@@ -91,8 +88,6 @@ const TextareaUI = (props) => {
     value,
     maxLength,
     minLength,
-    max,
-    min,
     isRequired,
     state,
     errorMessage,
@@ -150,8 +145,6 @@ const TextareaUI = (props) => {
         placeholder={placeholder}
         disabled={disabled}
         minLength={minLength}
-        max={max}
-        min={min}
         isRequired={isRequired}
         state={state}
         fullwidth={fullwidth}

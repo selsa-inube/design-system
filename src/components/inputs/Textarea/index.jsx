@@ -20,8 +20,6 @@ export const Textarea = (props) => {
     value,
     maxLength,
     minLength,
-    max,
-    min,
     isRequired = false,
     state = "pending",
     errorMessage,
@@ -75,8 +73,6 @@ export const Textarea = (props) => {
       value={value}
       maxLength={maxLength}
       minLength={minLength}
-      max={max}
-      min={min}
       isRequired={transformedIsRequired}
       state={transformedState}
       errorMessage={errorMessage}
@@ -104,8 +100,6 @@ Textarea.propTypes = {
   handleChange: PropTypes.func,
   maxLength: PropTypes.number,
   minLength: PropTypes.number,
-  max: PropTypes.number,
-  min: PropTypes.number,
   isRequired: PropTypes.bool,
   errorMessage: PropTypes.string,
   validMessage: PropTypes.string,
