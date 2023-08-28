@@ -73,7 +73,7 @@ const props = {
   validMessage: {
     description: "show when the field is validated without errors",
   },
-  isFullWidth: {
+  fullwidth: {
     description: "option to fit field width to its parent width",
     table: {
       defaultValue: { summary: false },

@@ -97,7 +97,7 @@ const TextareaUI = (props) => {
     state,
     errorMessage,
     validMessage,
-    isFullWidth,
+    fullwidth,
     isFocused,
     handleChange,
     handleFocus,
@@ -110,7 +110,7 @@ const TextareaUI = (props) => {
   const transformedInvalid = state === "invalid" ? true : false;
 
   return (
-    <StyledContainer isFullWidth={isFullWidth} disabled={disabled}>
+    <StyledContainer fullwidth={fullwidth} disabled={disabled}>
       <StyledContainerLabel
         alignItems="center"
         wrap="wrap"
@@ -154,7 +154,7 @@ const TextareaUI = (props) => {
         min={min}
         isRequired={isRequired}
         state={state}
-        isFullWidth={isFullWidth}
+        fullwidth={fullwidth}
         isFocused={isFocused}
         onChange={handleChange}
         onFocus={handleFocus}

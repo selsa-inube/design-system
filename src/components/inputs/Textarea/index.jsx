@@ -7,7 +7,7 @@ const states = ["valid", "invalid", "pending"];
 const defaultdisabled = false;
 const defaultIsRequired = false;
 const defaultState = "pending";
-const defaultIsFullWidth = false;
+const defaultfullwidth = false;
 
 export const Textarea = (props) => {
   const {
@@ -26,7 +26,7 @@ export const Textarea = (props) => {
     state = "pending",
     errorMessage,
     validMessage,
-    isFullWidth = false,
+    fullwidth = false,
     handleFocus,
     handleBlur,
     readOnly,
@@ -60,8 +60,8 @@ export const Textarea = (props) => {
   const transformedIsRequired =
     typeof isRequired === "boolean" ? isRequired : defaultIsRequired;
 
-  const transformedIsFullWidth =
-    typeof isFullWidth === "boolean" ? isFullWidth : defaultIsFullWidth;
+  const transformedfullwidth =
+    typeof fullwidth === "boolean" ? fullwidth : defaultfullwidth;
 
   const transformedReadOnly = typeof readOnly === "boolean" ? readOnly : false;
 
@@ -81,7 +81,7 @@ export const Textarea = (props) => {
       state={transformedState}
       errorMessage={errorMessage}
       validMessage={validMessage}
-      isFullWidth={transformedIsFullWidth}
+      fullwidth={transformedfullwidth}
       isFocused={isFocused}
       handleChange={handleChange}
       handleFocus={interceptFocus}
@@ -109,7 +109,7 @@ Textarea.propTypes = {
   isRequired: PropTypes.bool,
   errorMessage: PropTypes.string,
   validMessage: PropTypes.string,
-  isFullWidth: PropTypes.bool,
+  fullwidth: PropTypes.bool,
   handleFocus: PropTypes.func,
   handleBlur: PropTypes.func,
   readOnly: PropTypes.bool,
