@@ -24,6 +24,7 @@ Default.args = {
   required: false,
   type: "text",
   message: "",
+  fullwidth: false,
 };
 
 const theme = {
