@@ -4,11 +4,6 @@ import PropTypes from "prop-types";
 
 const states = ["valid", "invalid", "pending"];
 
-const defaultdisabled = false;
-const defaultIsRequired = false;
-const defaultState = "pending";
-const defaultfullwidth = false;
-
 export const Textarea = (props) => {
   const {
     label,
@@ -50,39 +45,26 @@ export const Textarea = (props) => {
     }
   };
 
-  const transformeddisabled =
-    typeof disabled === "boolean" ? disabled : defaultdisabled;
-
-  const transformedState = states.includes(state) ? state : defaultState;
-
-  const transformedIsRequired =
-    typeof isRequired === "boolean" ? isRequired : defaultIsRequired;
-
-  const transformedfullwidth =
-    typeof fullwidth === "boolean" ? fullwidth : defaultfullwidth;
-
-  const transformedReadOnly = typeof readOnly === "boolean" ? readOnly : false;
-
   return (
     <TextareaUI
       label={label}
       name={name}
       id={id}
       placeholder={placeholder}
-      disabled={transformeddisabled}
+      disabled={disabled}
       value={value}
       maxLength={maxLength}
       minLength={minLength}
-      isRequired={transformedIsRequired}
-      state={transformedState}
+      isRequired={isRequired}
+      state={state}
       errorMessage={errorMessage}
       validMessage={validMessage}
-      fullwidth={transformedfullwidth}
+      fullwidth={fullwidth}
       isFocused={isFocused}
       onChange={onChange}
       onFocus={interceptFocus}
       onBlur={interceptBlur}
-      readOnly={transformedReadOnly}
+      readOnly={readOnly}
       counter={counter}
       lengthThreshold={lengthThreshold}
     />
