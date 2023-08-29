@@ -1,10 +1,31 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { TextareaUI } from "./interface";
-import PropTypes from "prop-types";
+import { States } from "./props";
 
-const states = ["valid", "invalid", "pending"];
+interface ITextareaProps {
+  label?: string;
+  name?: string;
+  id: string;
+  placeholder?: string;
+  disabled?: boolean;
+  isFocused?: boolean;
+  state?: States;
+  value?: string | number;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  maxLength?: number;
+  minLength?: number;
+  isRequired?: boolean;
+  errorMessage?: string;
+  validMessage?: string;
+  fullwidth?: boolean;
+  onFocus?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onBlur?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  readOnly?: boolean;
+  counter?: boolean;
+  lengthThreshold?: number;
+}
 
-export const Textarea = (props) => {
+const Textarea = (props: ITextareaProps) => {
   const {
     label,
     name,
@@ -24,12 +45,12 @@ export const Textarea = (props) => {
     onBlur,
     readOnly,
     counter,
-    lengthThreshold,
+    lengthThreshold = 0,
   } = props;
 
   const [isFocused, setIsFocused] = useState(false);
 
-  const interceptFocus = (e) => {
+  const interceptFocus = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!readOnly) {
       setIsFocused(true);
     }
@@ -38,7 +59,7 @@ export const Textarea = (props) => {
     }
   };
 
-  const interceptBlur = (e) => {
+  const interceptBlur = (e: React.ChangeEvent<HTMLInputElement>) => {
     setIsFocused(false);
     if (typeof onBlur === "function") {
       onBlur(e);
@@ -71,25 +92,5 @@ export const Textarea = (props) => {
   );
 };
 
-Textarea.propTypes = {
-  label: PropTypes.string,
-  name: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
-  placeholder: PropTypes.string.isRequired,
-  disabled: PropTypes.bool,
-  isFocused: PropTypes.bool,
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  onChange: PropTypes.func,
-  maxLength: PropTypes.number,
-  minLength: PropTypes.number,
-  isRequired: PropTypes.bool,
-  errorMessage: PropTypes.string,
-  validMessage: PropTypes.string,
-  fullwidth: PropTypes.bool,
-  onFocus: PropTypes.func,
-  onBlur: PropTypes.func,
-  readOnly: PropTypes.bool,
-  counter: PropTypes.bool,
-};
-
-export { states };
+export type { ITextareaProps };
+export { Textarea };
