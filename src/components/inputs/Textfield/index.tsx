@@ -1,8 +1,7 @@
-import { ReactNode, useState } from "react";
+import { useState } from "react";
 import { MdCheckCircle, MdOutlineError } from "react-icons/md";
 
 import { Text } from "@data/Text";
-import { Appearance } from "@data/Text/props";
 import { Label } from "@inputs/Label";
 
 import { InputType, Size, Status, Themed } from "./props";
