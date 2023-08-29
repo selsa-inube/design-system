@@ -40,21 +40,15 @@ export interface ITextfieldProps extends Themed {
 
 const Message = (props: Omit<ITextfieldProps, "id"> & { message?: string }) => {
   const { disabled, status, message } = props;
-  let icon: ReactNode | null = null;
-  let appearance: Appearance = "gray";
-
-  if (status === "invalid") {
-    icon = <MdOutlineError />;
-    appearance = "error";
-  } else if (status === "valid") {
-    icon = <MdCheckCircle />;
-    appearance = "success";
-  }
 
   return (
-    icon && (
+    status !== "pending" && (
       <StyledMessageContainer disabled={disabled} status={status}>
-        <Icon appearance={appearance} disabled={disabled} icon={icon} />
+        <Icon
+          appearance={status === "invalid" ? "error" : "success"}
+          disabled={disabled}
+          icon={status === "invalid" ? <MdOutlineError /> : <MdCheckCircle />}
+        />
         <Text
           type="body"
           size="small"
