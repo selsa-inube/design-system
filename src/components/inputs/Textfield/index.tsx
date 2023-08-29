@@ -47,25 +47,21 @@ export interface IMessageProps {
 
 const Message = (props: IMessageProps) => {
   const { disabled, status, message } = props;
-  let IconComponent: ReactNode | null = null;
+  let icon: ReactNode | null = null;
   let appearance: Appearance = "gray";
 
   if (status === "invalid") {
-    IconComponent = <MdOutlineError />;
+    icon = <MdOutlineError />;
     appearance = "error";
   } else if (status === "valid") {
-    IconComponent = <MdCheckCircle />;
+    icon = <MdCheckCircle />;
     appearance = "success";
   }
 
   return (
-    IconComponent && (
+    icon && (
       <StyledMessageContainer disabled={disabled} status={status}>
-        <Icon
-          appearance={appearance}
-          disabled={disabled}
-          icon={IconComponent}
-        />
+        <Icon appearance={appearance} disabled={disabled} icon={icon} />
         <Text
           type="body"
           size="small"
