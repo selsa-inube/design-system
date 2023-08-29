@@ -11,7 +11,7 @@ interface ITextareaProps {
   isFocused?: boolean;
   state?: States;
   value?: string | number;
-  handleChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   maxLength?: number;
   minLength?: number;
   max?: number;
@@ -19,9 +19,9 @@ interface ITextareaProps {
   isRequired?: boolean;
   errorMessage?: string;
   validMessage?: string;
-  isFullWidth?: boolean;
-  handleFocus?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  handleBlur?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  fullwidth?: boolean;
+  onFocus?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onBlur?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   readOnly?: boolean;
   counter?: boolean;
   lengthThreshold?: number;
@@ -34,7 +34,7 @@ const Textarea = (props: ITextareaProps) => {
     id,
     placeholder,
     disabled = false,
-    handleChange,
+    onChange,
     value,
     maxLength,
     minLength,
@@ -44,9 +44,9 @@ const Textarea = (props: ITextareaProps) => {
     state = "pending",
     errorMessage,
     validMessage,
-    isFullWidth = false,
-    handleFocus,
-    handleBlur,
+    fullwidth = false,
+    onFocus,
+    onBlur,
     readOnly,
     counter,
     lengthThreshold = 0,
@@ -58,15 +58,15 @@ const Textarea = (props: ITextareaProps) => {
     if (!readOnly) {
       setIsFocused(true);
     }
-    if (typeof handleFocus === "function") {
-      handleFocus(e);
+    if (typeof onFocus === "function") {
+      onFocus(e);
     }
   };
 
   const interceptBlur = (e: React.ChangeEvent<HTMLInputElement>) => {
     setIsFocused(false);
-    if (typeof handleBlur === "function") {
-      handleBlur(e);
+    if (typeof onBlur === "function") {
+      onBlur(e);
     }
   };
 
@@ -86,11 +86,11 @@ const Textarea = (props: ITextareaProps) => {
       state={state}
       errorMessage={errorMessage}
       validMessage={validMessage}
-      isFullWidth={isFullWidth}
+      fullwidth={fullwidth}
       isFocused={isFocused}
-      handleChange={handleChange}
-      handleFocus={interceptFocus}
-      handleBlur={interceptBlur}
+      onChange={onChange}
+      onFocus={interceptFocus}
+      onBlur={interceptBlur}
       readOnly={readOnly}
       counter={counter}
       lengthThreshold={lengthThreshold}

@@ -26,6 +26,11 @@ const TextfieldController = (props: ITextfieldProps) => {
     setForm({ ...form, status: isValid ? "valid" : "invalid" });
   };
 
+  const message =
+    form.status === "valid"
+      ? "The field has been successfully validated"
+      : "Please enter only letters in this field";
+
   return (
     <Textfield
       {...props}
@@ -34,6 +39,7 @@ const TextfieldController = (props: ITextfieldProps) => {
       status={form.status}
       onFocus={onFocus}
       onBlur={onBlur}
+      message={message}
     />
   );
 };

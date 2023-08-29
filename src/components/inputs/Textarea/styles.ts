@@ -58,8 +58,8 @@ const getdisabled = (
 
 const StyledContainer = styled.div`
   cursor: ${({ disabled }: ITextareaProps) => disabled && "not-allowed"};
-  width: ${({ isFullWidth }: ITextareaProps) =>
-    isFullWidth ? "100%" : "fit-content"};
+  width: ${({ fullwidth }: ITextareaProps) =>
+    fullwidth ? "100%" : "fit-content"};
 `;
 
 const StyledContainerLabel = styled.div`
@@ -79,8 +79,8 @@ const StyledTextarea = styled.textarea`
   font-size: ${typography.sys.typescale.bodyLarge.size};
   font-weight: ${typography.sys.typescale.bodyLarge.weight};
   line-height: ${typography.sys.typescale.bodyLarge.lineHeight};
-  width: ${({ isFullWidth }: ITextareaProps) =>
-    isFullWidth ? "calc(100% - 32px)" : "452px"};
+  width: ${({ fullwidth }: ITextareaProps) =>
+    fullwidth ? "calc(100% - 32px)" : "452px"};
   height: 120px;
   color: ${({ disabled }: ITextareaProps) =>
     disabled ? colors.ref.palette.neutral.n70 : colors.sys.text.dark};
