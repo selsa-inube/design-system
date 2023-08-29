@@ -1,4 +1,4 @@
-import { Textarea } from "..";
+import { ITextareaProps, Textarea } from "..";
 import { TextareaController } from "./TextareaController";
 
 import { props, parameters } from "../props";
@@ -10,7 +10,7 @@ const story = {
   argTypes: props,
 };
 
-const Default = (args) => <TextareaController {...args} />;
+const Default = (args: ITextareaProps) => <TextareaController {...args} />;
 Default.args = {
   label: "Textarea",
   name: "textarea",
