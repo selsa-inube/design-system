@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { ReactNode, useState } from "react";
 
 import { MdOutlineError, MdCheckCircle } from "react-icons/md";
 
@@ -14,7 +14,6 @@ import {
   StyledInput,
   StyledMessageContainer,
 } from "./styles";
-import { IconType } from "react-icons/lib";
 
 import { Icon } from "@data/Icon";
 import { Appearance } from "@data/Text/props";
@@ -48,21 +47,25 @@ export interface IMessageProps {
 
 const Message = (props: IMessageProps) => {
   const { disabled, status, message } = props;
-  let IconComponent: IconType | null = null;
+  let IconComponent: ReactNode | null = null;
   let appearance: Appearance = "gray";
 
   if (status === "invalid") {
-    IconComponent = MdOutlineError;
+    IconComponent = <MdOutlineError />;
     appearance = "error";
   } else if (status === "valid") {
-    IconComponent = MdCheckCircle;
+    IconComponent = <MdCheckCircle />;
     appearance = "success";
   }
 
   return (
     IconComponent && (
       <StyledMessageContainer disabled={disabled} status={status}>
-        <IconComponent />
+        <Icon
+          appearance={appearance}
+          disabled={disabled}
+          icon={IconComponent}
+        />
         <Text
           type="body"
           size="small"
