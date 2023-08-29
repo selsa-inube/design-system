@@ -1,4 +1,6 @@
-import { status } from ".";
+const status = ["valid", "invalid", "pending"] as const;
+
+type Status = typeof status[number];
 
 const parameters = {
   docs: {
@@ -89,4 +91,5 @@ const props = {
   },
 };
 
+export type { Status };
 export { props, parameters };

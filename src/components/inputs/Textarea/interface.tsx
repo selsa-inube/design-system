@@ -9,8 +9,13 @@ import {
   StyledErrorMessageContainer,
   StyledValidMessageContainer,
 } from "./styles";
+import { ITextareaProps } from ".";
 
-const getAppearanceCounter = (valueLength, maxLength = 0, lengthThreshold) => {
+const getAppearanceCounter = (
+  valueLength: number,
+  maxLength = 0,
+  lengthThreshold: number
+) => {
   if (maxLength - valueLength <= lengthThreshold && valueLength <= maxLength) {
     return "warning";
   }
@@ -22,22 +27,26 @@ const getAppearanceCounter = (valueLength, maxLength = 0, lengthThreshold) => {
   return "gray";
 };
 
-const Counter = (props) => {
+const Counter = (props: ITextareaProps) => {
   const { id, maxLength, lengthThreshold, disabled } = props;
   const [valueLength, setValueLength] = useState(0);
 
   useEffect(() => {
     const textareaElement = document.getElementById(id);
-    setValueLength(textareaElement.value.length);
+    if (textareaElement) {
+      setValueLength(textareaElement.textContent!.length);
+    }
 
     const handleTextareaChange = () => {
-      setValueLength(textareaElement.value.length);
+      if (textareaElement) {
+        setValueLength(textareaElement.textContent!.length);
+      }
     };
 
-    textareaElement.addEventListener("input", handleTextareaChange);
+    textareaElement!.addEventListener("input", handleTextareaChange);
 
     return () => {
-      textareaElement.removeEventListener("input", handleTextareaChange);
+      textareaElement!.removeEventListener("input", handleTextareaChange);
     };
   }, [id]);
 
@@ -46,12 +55,16 @@ const Counter = (props) => {
       type="body"
       size="small"
       disabled={disabled}
-      appearance={getAppearanceCounter(valueLength, maxLength, lengthThreshold)}
+      appearance={getAppearanceCounter(
+        valueLength,
+        maxLength,
+        lengthThreshold!
+      )}
     >{`${valueLength}/${maxLength}`}</Text>
   );
 };
 
-const Invalid = (props) => {
+const Invalid = (props: Omit<ITextareaProps, "id">) => {
   const { disabled, status, errorMessage } = props;
   const transformedErrorMessage = errorMessage && `(${errorMessage})`;
 
@@ -65,7 +78,7 @@ const Invalid = (props) => {
   );
 };
 
-const Success = (props) => {
+const Success = (props: Omit<ITextareaProps, "id">) => {
   const { disabled, status, validMessage } = props;
 
   return (
@@ -78,7 +91,7 @@ const Success = (props) => {
   );
 };
 
-const TextareaUI = (props) => {
+const TextareaUI = (props: ITextareaProps) => {
   const {
     label,
     name,
@@ -119,6 +132,7 @@ const TextareaUI = (props) => {
             disabled={disabled}
             focused={isFocused}
             invalid={transformedInvalid}
+            padding="0px 0px 0px 16px"
           >
             {label}
           </Label>

@@ -1,8 +1,10 @@
 import styled from "styled-components";
 import { colors } from "@shared/colors/colors";
 import { typography } from "@shared/typography/typography";
+import { Status } from "./props";
+import { ITextareaProps } from ".";
 
-const getGrid = (label, counter) => {
+const getGrid = (label: string | undefined, counter: boolean | undefined) => {
   if (label && counter) {
     return "auto 1fr auto";
   }
@@ -18,7 +20,11 @@ const getGrid = (label, counter) => {
   return "1fr";
 };
 
-const getColors = (disabled, status, isFocused) => {
+const getColors = (
+  disabled: boolean | undefined,
+  status: States | undefined,
+  isFocused: boolean | undefined
+) => {
   if (disabled) {
     return colors.ref.palette.neutral.n70;
   }
@@ -33,7 +39,10 @@ const getColors = (disabled, status, isFocused) => {
   return colors.ref.palette.neutral.n40;
 };
 
-const getdisabled = (disabled, status) => {
+const getdisabled = (
+  disabled: boolean | undefined,
+  status: Status | undefined
+) => {
   if (disabled) {
     return colors.ref.palette.neutral.n70;
   }
@@ -48,21 +57,19 @@ const getdisabled = (disabled, status) => {
 };
 
 const StyledContainer = styled.div`
-  cursor: ${({ disabled }) => disabled && "not-allowed"};
-  width: ${({ fullwidth }) => (fullwidth ? "100%" : "fit-content")};
+  cursor: ${({ disabled }: ITextareaProps) => disabled && "not-allowed"};
+  width: ${({ fullwidth }: ITextareaProps) =>
+    fullwidth ? "100%" : "fit-content"};
 `;
 
 const StyledContainerLabel = styled.div`
   display: grid;
-  grid-template-columns: ${({ label, counter }) => getGrid(label, counter)};
+  grid-template-columns: ${({ label, counter }: ITextareaProps) =>
+    getGrid(label, counter)};
   gap: 4px;
-  pointer-events: ${({ disabled }) => disabled && "none"};
+  pointer-events: ${({ disabled }: ITextareaProps) => disabled && "none"};
   align-items: center;
   margin-bottom: 4px;
-
-  & label {
-    padding-left: 16px;
-  }
 `;
 
 const StyledTextarea = styled.textarea`
@@ -72,16 +79,17 @@ const StyledTextarea = styled.textarea`
   font-size: ${typography.sys.typescale.bodyLarge.size};
   font-weight: ${typography.sys.typescale.bodyLarge.weight};
   line-height: ${typography.sys.typescale.bodyLarge.lineHeight};
-  letter-spacing: ${typography.sys.typescale.bodyLarge.letterSpacing};
-  width: ${({ fullwidth }) => (fullwidth ? "calc(100% - 32px)" : "452px")};
+  width: ${({ fullwidth }: ITextareaProps) =>
+    fullwidth ? "calc(100% - 32px)" : "452px"};
   height: 120px;
-  color: ${({ disabled }) =>
+  color: ${({ disabled }: ITextareaProps) =>
     disabled ? colors.ref.palette.neutral.n70 : colors.sys.text.dark};
   background: ${colors.ref.palette.neutral.n10};
   border: 2px solid
-    ${({ disabled, status, isFocused }) =>
+    ${({ disabled, status, isFocused }: ITextareaProps) =>
       getColors(disabled, status, isFocused)};
-  ${({ disabled }) => disabled && "pointer-events: none; opacity: 0.5;"}
+  ${({ disabled }: ITextareaProps) =>
+    disabled && "pointer-events: none; opacity: 0.5;"}
 
   ::placeholder {
     color: ${colors.sys.text.secondary};
@@ -97,17 +105,6 @@ const StyledTextarea = styled.textarea`
   }
 `;
 
-const StyledIcon = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-left: ${({ iconBefore }) => iconBefore && "10px"};
-  padding-right: ${({ iconAfter }) => iconAfter && "10px"};
-  height: 24px;
-  width: 24px;
-  color: ${({ disabled }) => disabled && colors.ref.palette.neutral.n70};
-`;
-
 const StyledErrorMessageContainer = styled.div`
   display: grid;
   grid-template-columns: auto 1fr;
@@ -115,7 +112,8 @@ const StyledErrorMessageContainer = styled.div`
   align-items: center;
   padding-left: 12px;
   pointer-events: none;
-  color: ${({ disabled, status }) => getdisabled(disabled, status)};
+  color: ${({ disabled, status }: ITextareaProps) =>
+    getdisabled(disabled, status)};
 
   & svg {
     width: 14px;
@@ -124,14 +122,14 @@ const StyledErrorMessageContainer = styled.div`
 `;
 
 const StyledValidMessageContainer = styled(StyledErrorMessageContainer)`
-  color: ${({ disabled, status }) => getdisabled(disabled, status)}; ;
+  color: ${({ disabled, status }: ITextareaProps) =>
+    getdisabled(disabled, status)}; ;
 `;
 
 export {
   StyledContainer,
   StyledContainerLabel,
   StyledTextarea,
-  StyledIcon,
   StyledErrorMessageContainer,
   StyledValidMessageContainer,
 };
