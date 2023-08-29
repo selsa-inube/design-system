@@ -33,7 +33,7 @@ const props = {
   value: {
     description: "component initial value",
   },
-  handleChange: {
+  onChange: {
     description:
       "allows you to control what to do when the user changes the value of the component",
   },
@@ -44,14 +44,6 @@ const props = {
   minLength: {
     description:
       "defines how many minimum characters the component receives as a value",
-  },
-  max: {
-    description:
-      "defines the maximum value that can be inserted (useful for components of type number)",
-  },
-  min: {
-    description:
-      "defines the minimum value that can be inserted (useful for components of type number)",
   },
   isRequired: {
     description: "defines if the field is required or not",
@@ -73,7 +65,7 @@ const props = {
   validMessage: {
     description: "show when the field is validated without errors",
   },
-  isFullWidth: {
+  fullwidth: {
     description: "option to fit field width to its parent width",
     table: {
       defaultValue: { summary: false },

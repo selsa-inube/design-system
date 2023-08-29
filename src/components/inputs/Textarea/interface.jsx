@@ -1,10 +1,7 @@
 import { useState, useEffect } from "react";
-
 import { MdOutlineError, MdCheckCircle } from "react-icons/md";
-
 import { Label } from "@inputs/Label";
 import { Text } from "@data/Text";
-
 import {
   StyledContainer,
   StyledContainerLabel,
@@ -91,17 +88,15 @@ const TextareaUI = (props) => {
     value,
     maxLength,
     minLength,
-    max,
-    min,
     isRequired,
     state,
     errorMessage,
     validMessage,
-    isFullWidth,
+    fullwidth,
     isFocused,
-    handleChange,
-    handleFocus,
-    handleBlur,
+    onChange,
+    onFocus,
+    onBlur,
     readOnly,
     counter,
     lengthThreshold,
@@ -110,7 +105,7 @@ const TextareaUI = (props) => {
   const transformedInvalid = state === "invalid" ? true : false;
 
   return (
-    <StyledContainer isFullWidth={isFullWidth} disabled={disabled}>
+    <StyledContainer fullwidth={fullwidth} disabled={disabled}>
       <StyledContainerLabel
         alignItems="center"
         wrap="wrap"
@@ -150,15 +145,13 @@ const TextareaUI = (props) => {
         placeholder={placeholder}
         disabled={disabled}
         minLength={minLength}
-        max={max}
-        min={min}
         isRequired={isRequired}
         state={state}
-        isFullWidth={isFullWidth}
+        fullwidth={fullwidth}
         isFocused={isFocused}
-        onChange={handleChange}
-        onFocus={handleFocus}
-        onBlur={handleBlur}
+        onChange={onChange}
+        onFocus={onFocus}
+        onBlur={onBlur}
         readOnly={readOnly}
         value={value}
       />
