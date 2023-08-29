@@ -1,16 +1,7 @@
 import styled from "styled-components";
-import { ITextfieldProps } from ".";
-
 import { inube } from "@shared/tokens";
 
-const sizeOptions = {
-  compact: {
-    height: "40px",
-  },
-  wide: {
-    height: "48px",
-  },
-};
+import { ITextfieldProps } from ".";
 
 const StyledContainer = styled.div`
   cursor: ${({ disabled }: ITextfieldProps) => disabled && "not-allowed"};
@@ -22,7 +13,6 @@ const StyledContainerLabel = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: ${inube.spacing.s050};
-
   pointer-events: ${({ disabled }: ITextfieldProps) => disabled && "none"};
 `;
 
@@ -90,14 +80,14 @@ const StyledInput = styled.input`
     disabled
       ? theme?.color?.text?.gray?.disabled || inube.color.text.gray.disabled
       : theme?.color?.text?.dark?.regular || inube.color.text.dark.regular};
-
   padding-right: ${({ iconAfter }: ITextfieldProps) =>
     iconAfter ? "2px" : "16px"};
   padding-left: ${({ iconBefore }: ITextfieldProps) =>
     iconBefore ? "2px" : "16px"};
   width: ${({ fullwidth }: ITextfieldProps) =>
     fullwidth ? "calc(100% - 32px)" : "252px"};
-  ${({ size }: ITextfieldProps) => size && sizeOptions[size]};
+  height: ${({ size }: ITextfieldProps) =>
+    size === "compact" ? "40px" : "48px"};
   border: none;
 
   ::placeholder {
