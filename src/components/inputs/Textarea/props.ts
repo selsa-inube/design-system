@@ -47,7 +47,7 @@ const props = {
     description:
       "defines how many minimum characters the component receives as a value",
   },
-  isRequired: {
+  required: {
     description: "defines if the field is required or not",
     table: {
       defaultValue: { summary: false },

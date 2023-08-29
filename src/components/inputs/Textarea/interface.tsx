@@ -101,7 +101,7 @@ const TextareaUI = (props: ITextareaProps) => {
     value,
     maxLength,
     minLength,
-    isRequired,
+    required,
     state,
     errorMessage,
     validMessage,
@@ -138,7 +138,7 @@ const TextareaUI = (props: ITextareaProps) => {
           </Label>
         )}
 
-        {isRequired && !disabled && (
+        {required && !disabled && (
           <Text type="body" size="small" appearance="dark">
             (Required)
           </Text>
@@ -159,7 +159,7 @@ const TextareaUI = (props: ITextareaProps) => {
         placeholder={placeholder}
         disabled={disabled}
         minLength={minLength}
-        isRequired={isRequired}
+        required={required}
         state={state}
         fullwidth={fullwidth}
         isFocused={isFocused}
