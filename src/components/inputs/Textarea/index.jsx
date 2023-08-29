@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { TextareaUI } from "./interface";
 import PropTypes from "prop-types";
 
-const states = ["valid", "invalid", "pending"];
+const status = ["valid", "invalid", "pending"];
 
 const defaultdisabled = false;
 const defaultIsRequired = false;
-const defaultState = "pending";
+const defaultStatus = "pending";
 const defaultfullwidth = false;
 
 export const Textarea = (props) => {
@@ -21,7 +21,7 @@ export const Textarea = (props) => {
     maxLength,
     minLength,
     isRequired = false,
-    state = "pending",
+    status = "pending",
     errorMessage,
     validMessage,
     fullwidth = false,
@@ -53,7 +53,7 @@ export const Textarea = (props) => {
   const transformeddisabled =
     typeof disabled === "boolean" ? disabled : defaultdisabled;
 
-  const transformedState = states.includes(state) ? state : defaultState;
+  const transformedStatus = status.includes(status) ? status : defaultStatus;
 
   const transformedIsRequired =
     typeof isRequired === "boolean" ? isRequired : defaultIsRequired;
@@ -74,7 +74,7 @@ export const Textarea = (props) => {
       maxLength={maxLength}
       minLength={minLength}
       isRequired={transformedIsRequired}
-      state={transformedState}
+      status={transformedStatus}
       errorMessage={errorMessage}
       validMessage={validMessage}
       fullwidth={transformedfullwidth}
@@ -110,4 +110,4 @@ Textarea.propTypes = {
   counter: PropTypes.bool,
 };
 
-export { states };
+export { status };

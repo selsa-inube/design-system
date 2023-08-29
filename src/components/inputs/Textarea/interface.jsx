@@ -52,11 +52,11 @@ const Counter = (props) => {
 };
 
 const Invalid = (props) => {
-  const { disabled, state, errorMessage } = props;
+  const { disabled, status, errorMessage } = props;
   const transformedErrorMessage = errorMessage && `(${errorMessage})`;
 
   return (
-    <StyledErrorMessageContainer disabled={disabled} state={state}>
+    <StyledErrorMessageContainer disabled={disabled} status={status}>
       <MdOutlineError />
       <Text type="body" size="small" appearance={"error"} disabled={disabled}>
         {transformedErrorMessage}
@@ -66,10 +66,10 @@ const Invalid = (props) => {
 };
 
 const Success = (props) => {
-  const { disabled, state, validMessage } = props;
+  const { disabled, status, validMessage } = props;
 
   return (
-    <StyledValidMessageContainer disabled={disabled} state={state}>
+    <StyledValidMessageContainer disabled={disabled} status={status}>
       <MdCheckCircle />
       <Text type="body" size="small" appearance={"success"} disabled={disabled}>
         {validMessage}
@@ -89,7 +89,7 @@ const TextareaUI = (props) => {
     maxLength,
     minLength,
     isRequired,
-    state,
+    status,
     errorMessage,
     validMessage,
     fullwidth,
@@ -102,7 +102,7 @@ const TextareaUI = (props) => {
     lengthThreshold,
   } = props;
 
-  const transformedInvalid = state === "invalid" ? true : false;
+  const transformedInvalid = status === "invalid" ? true : false;
 
   return (
     <StyledContainer fullwidth={fullwidth} disabled={disabled}>
@@ -146,7 +146,7 @@ const TextareaUI = (props) => {
         disabled={disabled}
         minLength={minLength}
         isRequired={isRequired}
-        state={state}
+        status={status}
         fullwidth={fullwidth}
         isFocused={isFocused}
         onChange={onChange}
@@ -156,17 +156,17 @@ const TextareaUI = (props) => {
         value={value}
       />
 
-      {state === "invalid" && (
+      {status === "invalid" && (
         <Invalid
           disabled={disabled}
-          state={state}
+          status={status}
           errorMessage={errorMessage}
         />
       )}
-      {state === "valid" && (
+      {status === "valid" && (
         <Success
           disabled={disabled}
-          state={state}
+          status={status}
           validMessage={validMessage}
         />
       )}

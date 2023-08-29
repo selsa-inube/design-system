@@ -18,12 +18,12 @@ const getGrid = (label, counter) => {
   return "1fr";
 };
 
-const getColors = (disabled, state, isFocused) => {
+const getColors = (disabled, status, isFocused) => {
   if (disabled) {
     return colors.ref.palette.neutral.n70;
   }
 
-  if (state === "invalid") {
+  if (status === "invalid") {
     return colors.sys.actions.remove.filled;
   }
 
@@ -33,16 +33,16 @@ const getColors = (disabled, state, isFocused) => {
   return colors.ref.palette.neutral.n40;
 };
 
-const getdisabled = (disabled, state) => {
+const getdisabled = (disabled, status) => {
   if (disabled) {
     return colors.ref.palette.neutral.n70;
   }
 
-  if (state === "valid") {
+  if (status === "valid") {
     return colors.sys.actions.confirm.filled;
   }
 
-  if (state === "invalid") {
+  if (status === "invalid") {
     return colors.sys.actions.remove.filled;
   }
 };
@@ -79,7 +79,8 @@ const StyledTextarea = styled.textarea`
     disabled ? colors.ref.palette.neutral.n70 : colors.sys.text.dark};
   background: ${colors.ref.palette.neutral.n10};
   border: 2px solid
-    ${({ disabled, state, isFocused }) => getColors(disabled, state, isFocused)};
+    ${({ disabled, status, isFocused }) =>
+      getColors(disabled, status, isFocused)};
   ${({ disabled }) => disabled && "pointer-events: none; opacity: 0.5;"}
 
   ::placeholder {
@@ -114,7 +115,7 @@ const StyledErrorMessageContainer = styled.div`
   align-items: center;
   padding-left: 12px;
   pointer-events: none;
-  color: ${({ disabled, state }) => getdisabled(disabled, state)};
+  color: ${({ disabled, status }) => getdisabled(disabled, status)};
 
   & svg {
     width: 14px;
@@ -123,7 +124,7 @@ const StyledErrorMessageContainer = styled.div`
 `;
 
 const StyledValidMessageContainer = styled(StyledErrorMessageContainer)`
-  color: ${({ disabled, state }) => getdisabled(disabled, state)}; ;
+  color: ${({ disabled, status }) => getdisabled(disabled, status)}; ;
 `;
 
 export {

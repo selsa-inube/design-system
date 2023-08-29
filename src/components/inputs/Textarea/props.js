@@ -1,4 +1,4 @@
-import { states } from ".";
+import { status } from ".";
 
 const parameters = {
   docs: {
@@ -51,10 +51,10 @@ const props = {
       defaultValue: { summary: false },
     },
   },
-  state: {
-    options: states,
+  status: {
+    options: status,
     control: { type: "select" },
-    description: "state of the component",
+    description: "status of the component",
     table: {
       defaultValue: { summary: "pending" },
     },
