@@ -22,7 +22,7 @@ const getGrid = (label: string | undefined, counter: boolean | undefined) => {
 
 const getColors = (
   disabled: boolean | undefined,
-  status: States | undefined,
+  status: Status | undefined,
   isFocused: boolean | undefined
 ) => {
   if (disabled) {
