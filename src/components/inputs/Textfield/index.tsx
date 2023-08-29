@@ -31,8 +31,7 @@ export interface ITextfieldProps extends Themed {
   iconAfter?: React.ReactNode;
   required: boolean;
   status?: Status;
-  errorMessage?: string;
-  validMessage?: string;
+  message?: string;
   size?: Size;
   fullwidth?: boolean;
   onFocus?: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -91,8 +90,7 @@ const Textfield = (props: ITextfieldProps) => {
     iconAfter,
     required = false,
     status = "pending",
-    errorMessage,
-    validMessage,
+    message,
     size = "wide",
     fullwidth = false,
     onFocus,
@@ -193,11 +191,7 @@ const Textfield = (props: ITextfieldProps) => {
       </StyledInputContainer>
 
       {status && (
-        <Message
-          disabled={disabled}
-          status={status}
-          message={status === "invalid" ? errorMessage : validMessage}
-        />
+        <Message disabled={disabled} status={status} message={message} />
       )}
     </StyledContainer>
   );
