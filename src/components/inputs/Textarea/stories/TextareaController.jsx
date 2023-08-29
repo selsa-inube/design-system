@@ -7,16 +7,16 @@ const TextareaController = (props) => {
 
   const maxLength = 220;
 
-  const handleChange = (e) => {
+  const onChange = (e) => {
     setForm({ value: e.target.value, state: "pending" });
     return;
   };
 
-  const handleFocus = () => {
+  const onFocus = () => {
     setForm({ ...form, state: "pending" });
   };
 
-  const handleBlur = (e) => {
+  const onBlur = (e) => {
     if (e.target.value.length > maxLength) {
       setForm({ ...form, state: "invalid" });
     } else setForm({ ...form, state: "valid" });
@@ -27,9 +27,9 @@ const TextareaController = (props) => {
       value={form.value}
       state={form.state}
       maxLength={maxLength}
-      handleChange={handleChange}
-      handleFocus={handleFocus}
-      handleBlur={handleBlur}
+      onChange={onChange}
+      onFocus={onFocus}
+      onBlur={onBlur}
       errorMessage="The number the characters is too long"
     />
   );
