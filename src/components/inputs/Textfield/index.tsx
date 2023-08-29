@@ -59,7 +59,7 @@ const Message = (props: Omit<ITextfieldProps, "id"> & { message?: string }) => {
           type="body"
           size="small"
           margin="8px 0px 0px 4px"
-          appearance={appearance}
+          appearance={status === "invalid" ? "error" : "success"}
           disabled={disabled}
         >
           {message && `${message}`}
