@@ -96,7 +96,7 @@ const TextareaUI = (props) => {
     isFocused,
     onChange,
     onFocus,
-    handleBlur,
+    onBlur,
     readOnly,
     counter,
     lengthThreshold,
@@ -151,7 +151,7 @@ const TextareaUI = (props) => {
         isFocused={isFocused}
         onChange={onChange}
         onFocus={onFocus}
-        onBlur={handleBlur}
+        onBlur={onBlur}
         readOnly={readOnly}
         value={value}
       />

@@ -26,7 +26,7 @@ export const Textarea = (props) => {
     validMessage,
     fullwidth = false,
     onFocus,
-    handleBlur,
+    onBlur,
     readOnly,
     counter,
     lengthThreshold,
@@ -45,8 +45,8 @@ export const Textarea = (props) => {
 
   const interceptBlur = (e) => {
     setIsFocused(false);
-    if (typeof handleBlur === "function") {
-      handleBlur(e);
+    if (typeof onBlur === "function") {
+      onBlur(e);
     }
   };
 
@@ -81,7 +81,7 @@ export const Textarea = (props) => {
       isFocused={isFocused}
       onChange={onChange}
       onFocus={interceptFocus}
-      handleBlur={interceptBlur}
+      onBlur={interceptBlur}
       readOnly={transformedReadOnly}
       counter={counter}
       lengthThreshold={lengthThreshold}
@@ -105,7 +105,7 @@ Textarea.propTypes = {
   validMessage: PropTypes.string,
   fullwidth: PropTypes.bool,
   onFocus: PropTypes.func,
-  handleBlur: PropTypes.func,
+  onBlur: PropTypes.func,
   readOnly: PropTypes.bool,
   counter: PropTypes.bool,
 };
