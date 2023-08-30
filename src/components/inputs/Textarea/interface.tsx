@@ -50,7 +50,7 @@ const Counter = (props: ITextareaProps) => {
     return () => {
       textareaElement!.removeEventListener("input", handleTextareaChange);
     };
-  }, [id]);
+  }, [id, valueLength]);
 
   return (
     <Text
