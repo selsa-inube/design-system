@@ -140,7 +140,7 @@ const TextareaUI = (props: ITextareaProps) => {
 
         {isRequired && !disabled && (
           <Text type="body" size="small" appearance="dark">
-            (Required)
+            (Requerido)
           </Text>
         )}
         {counter && !disabled && (
