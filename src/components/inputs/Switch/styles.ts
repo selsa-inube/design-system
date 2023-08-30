@@ -43,11 +43,12 @@ const StyledSpan = styled.span`
   &:before {
     position: absolute;
     content: "";
-    left: ${({ checked }: ISwitchProps) => !checked && "2px"};
+    left: ${inube.spacing.s025};
     border-radius: 50%;
     transition: 0.3s;
     background-color: ${({ theme }: Themed) =>
       theme?.color?.surface?.light?.clear || inube.color.surface.light.clear};
+    box-sizing: border-box;
     border: ${({ disabled, theme }: ISwitchProps) =>
       disabled &&
       `0.5px solid ${
@@ -59,14 +60,12 @@ const StyledSpan = styled.span`
         ? css`
             width: 12px;
             height: 12px;
-            bottom: ${({ disabled }: ISwitchProps) =>
-              disabled ? "2px" : "2.5px"}}};
+            bottom: calc((${inube.spacing.s200} - ${inube.spacing.s150}) / 2);
           `
         : css`
             width: 16px;
             height: 16px;
-            bottom: ${({ disabled }: ISwitchProps) =>
-              disabled ? "2px" : "2.5px"}}};
+            bottom: calc((${inube.spacing.s250} - ${inube.spacing.s200}) / 2);
           `};
   }
 `;
@@ -124,7 +123,7 @@ const StyledIcon = styled.div`
             top: calc(${inube.spacing.s075} / 2);
             left: ${(props: ISwitchProps) =>
               props.checked
-                ? `calc(${inube.spacing.s050} / 2)`
+                ? `calc(${inube.spacing.s075} / 2)`
                 : `${inube.spacing.s200}`};
           `
         : css`
@@ -134,7 +133,7 @@ const StyledIcon = styled.div`
             left: ${(props: ISwitchProps) =>
               props.checked
                 ? `${inube.spacing.s050}`
-                : `${inube.spacing.s300}`};
+                : `${inube.spacing.s200}`};
           `};
   }
 `;
