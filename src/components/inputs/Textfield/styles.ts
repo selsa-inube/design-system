@@ -113,21 +113,6 @@ const StyledInput = styled.input`
   }
 `;
 
-const StyledIcon = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-left: ${({ iconBefore }: ITextfieldProps) =>
-    iconBefore && inube.spacing.s150};
-  padding-right: ${({ iconAfter }: ITextfieldProps) =>
-    iconAfter && inube.spacing.s150};
-  height: 24px;
-  width: 24px;
-  color: ${({ disabled, theme }: ITextfieldProps) =>
-    disabled &&
-    (theme?.color?.text?.gray?.disabled || inube.color.text.gray.disabled)};
-`;
-
 const StyledMessageContainer = styled.div`
   display: flex;
   align-items: center;
@@ -165,6 +150,5 @@ export {
   StyledContainerLabel,
   StyledInputContainer,
   StyledInput,
-  StyledIcon,
   StyledMessageContainer,
 };
