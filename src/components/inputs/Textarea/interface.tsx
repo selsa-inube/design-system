@@ -65,10 +65,10 @@ const Counter = (props: ITextareaProps) => {
 };
 
 const Invalid = (props: Omit<ITextareaProps, "id">) => {
-  const { disabled, state, errorMessage } = props;
+  const { disabled, status, errorMessage } = props;
 
   return (
-    <StyledErrorMessageContainer disabled={disabled} state={state}>
+    <StyledErrorMessageContainer disabled={disabled} status={status}>
       <MdOutlineError />
       <Text type="body" size="small" appearance={"error"} disabled={disabled}>
         {errorMessage && `(${errorMessage})`}
@@ -78,10 +78,10 @@ const Invalid = (props: Omit<ITextareaProps, "id">) => {
 };
 
 const Success = (props: Omit<ITextareaProps, "id">) => {
-  const { disabled, state, validMessage } = props;
+  const { disabled, status, validMessage } = props;
 
   return (
-    <StyledValidMessageContainer disabled={disabled} state={state}>
+    <StyledValidMessageContainer disabled={disabled} status={status}>
       <MdCheckCircle />
       <Text type="body" size="small" appearance={"success"} disabled={disabled}>
         {validMessage}
@@ -101,7 +101,7 @@ const TextareaUI = (props: ITextareaProps) => {
     maxLength,
     minLength,
     isRequired,
-    state,
+    status,
     errorMessage,
     validMessage,
     fullwidth,
@@ -128,7 +128,7 @@ const TextareaUI = (props: ITextareaProps) => {
             htmlFor={id}
             disabled={disabled}
             focused={isFocused}
-            invalid={state === "invalid" ? true : false}
+            invalid={status === "invalid" ? true : false}
           >
             {label}
           </Label>
@@ -136,7 +136,7 @@ const TextareaUI = (props: ITextareaProps) => {
 
         {isRequired && !disabled && (
           <Text type="body" size="small" appearance="dark">
-            (Required)
+            (Requerido)
           </Text>
         )}
         {counter && !disabled && (
@@ -156,7 +156,7 @@ const TextareaUI = (props: ITextareaProps) => {
         disabled={disabled}
         minLength={minLength}
         isRequired={isRequired}
-        state={state}
+        status={status}
         fullwidth={fullwidth}
         isFocused={isFocused}
         onChange={onChange}
@@ -166,17 +166,17 @@ const TextareaUI = (props: ITextareaProps) => {
         value={value}
       />
 
-      {state === "invalid" && (
+      {status === "invalid" && (
         <Invalid
           disabled={disabled}
-          state={state}
+          status={status}
           errorMessage={errorMessage}
         />
       )}
-      {state === "valid" && (
+      {status === "valid" && (
         <Success
           disabled={disabled}
-          state={state}
+          status={status}
           validMessage={validMessage}
         />
       )}

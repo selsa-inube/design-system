@@ -1,9 +1,7 @@
 import { useState } from "react";
-import { IconType } from "react-icons/lib";
 import { MdCheckCircle, MdOutlineError } from "react-icons/md";
 
 import { Text } from "@data/Text";
-import { Appearance } from "@data/Text/props";
 import { Label } from "@inputs/Label";
 
 import { InputType, Size, Status, Themed } from "./props";
@@ -13,9 +11,9 @@ import {
   StyledContainerLabel,
   StyledInputContainer,
   StyledInput,
-  StyledIcon,
   StyledMessageContainer,
 } from "./styles";
+import { Icon } from "@data/Icon";
 
 export interface ITextfieldProps extends Themed {
   label?: string;
@@ -41,26 +39,20 @@ export interface ITextfieldProps extends Themed {
 
 const Message = (props: Omit<ITextfieldProps, "id"> & { message?: string }) => {
   const { disabled, status, message } = props;
-  let IconComponent: IconType | null = null;
-  let appearance: Appearance = "gray";
-
-  if (status === "invalid") {
-    IconComponent = MdOutlineError;
-    appearance = "error";
-  } else if (status === "valid") {
-    IconComponent = MdCheckCircle;
-    appearance = "success";
-  }
 
   return (
-    IconComponent && (
+    status !== "pending" && (
       <StyledMessageContainer disabled={disabled} status={status}>
-        <IconComponent />
+        <Icon
+          appearance={status === "invalid" ? "error" : "success"}
+          disabled={disabled}
+          icon={status === "invalid" ? <MdOutlineError /> : <MdCheckCircle />}
+        />
         <Text
           type="body"
           size="small"
           margin="8px 0px 0px 4px"
-          appearance={appearance}
+          appearance={status === "invalid" ? "error" : "success"}
           disabled={disabled}
         >
           {message && `${message}`}
@@ -151,9 +143,13 @@ const Textfield = (props: ITextfieldProps) => {
         iconAfter={iconAfter}
       >
         {iconBefore && (
-          <StyledIcon disabled={disabled} iconBefore={iconBefore}>
-            {iconBefore}
-          </StyledIcon>
+          <Icon
+            appearance="gray"
+            disabled={disabled}
+            icon={iconBefore}
+            size="24px"
+            spacing="wide"
+          />
         )}
 
         <StyledInput
@@ -178,9 +174,13 @@ const Textfield = (props: ITextfieldProps) => {
         />
 
         {iconAfter && (
-          <StyledIcon iconAfter={iconAfter} disabled={disabled}>
-            {iconAfter}
-          </StyledIcon>
+          <Icon
+            appearance="gray"
+            disabled={disabled}
+            icon={iconAfter}
+            size="24px"
+            spacing="wide"
+          />
         )}
       </StyledInputContainer>
 

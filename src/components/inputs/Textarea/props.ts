@@ -1,6 +1,6 @@
-const states = ["valid", "invalid", "pending"] as const;
+const status = ["valid", "invalid", "pending"] as const;
 
-type States = typeof states[number];
+type Status = typeof status[number];
 
 const parameters = {
   docs: {
@@ -53,10 +53,10 @@ const props = {
       defaultValue: { summary: false },
     },
   },
-  state: {
-    options: states,
+  status: {
+    options: status,
     control: { type: "select" },
-    description: "state of the component",
+    description: "status of the component",
     table: {
       defaultValue: { summary: "pending" },
     },
@@ -91,5 +91,5 @@ const props = {
   },
 };
 
-export type { States };
+export type { Status };
 export { props, parameters };
