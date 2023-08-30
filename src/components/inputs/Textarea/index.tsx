@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { TextareaUI } from "./interface";
-import { Status } from "./props";
+import { Appearence, Status } from "./props";
 
 interface ITextareaProps {
   label?: string;
@@ -52,7 +52,7 @@ const Textarea = (props: ITextareaProps) => {
 
   let valueLength = typeof value === "string" ? value.length : 0;
 
-  let appearance: "error" | "warning" | "gray" =
+  let appearance: Appearence =
     maxLength - valueLength <= lengthThreshold && valueLength <= maxLength
       ? "warning"
       : valueLength > maxLength

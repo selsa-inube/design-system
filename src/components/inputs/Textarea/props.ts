@@ -1,5 +1,7 @@
 const status = ["valid", "invalid", "pending"] as const;
 
+type Appearence = "error" | "warning" | "gray";
+
 type Status = typeof status[number];
 
 const parameters = {
@@ -91,5 +93,5 @@ const props = {
   },
 };
 
-export type { Status };
+export type { Status, Appearence };
 export { props, parameters };

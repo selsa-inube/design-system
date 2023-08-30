@@ -1,7 +1,10 @@
-//import { useState, useEffect } from "react";
 import { MdOutlineError, MdCheckCircle } from "react-icons/md";
+
+import { Appearence } from "./props";
 import { Label } from "@inputs/Label";
 import { Text } from "@data/Text";
+
+import { ITextareaProps } from ".";
 import {
   StyledContainer,
   StyledContainerLabel,
@@ -9,28 +12,11 @@ import {
   StyledErrorMessageContainer,
   StyledValidMessageContainer,
 } from "./styles";
-import { ITextareaProps } from ".";
-
-/* const getAppearanceCounter = (
-  valueLength: number,
-  maxLength = 0,
-  lengthThreshold: number
-) => {
-  if (maxLength - valueLength <= lengthThreshold && valueLength <= maxLength) {
-    return "warning";
-  }
-
-  if (valueLength > maxLength) {
-    return "error";
-  }
-
-  return "gray";
-}; */
 
 const Counter = (
-  props: ITextareaProps & {
+  props: Omit<ITextareaProps, "id"> & {
     valueLength: number;
-    appearance: "error" | "warning" | "gray";
+    appearance: Appearence;
   }
 ) => {
   const { maxLength, appearance, disabled, valueLength } = props;
@@ -74,7 +60,7 @@ const Success = (props: Omit<ITextareaProps, "id">) => {
 const TextareaUI = (
   props: ITextareaProps & {
     valueLength: number;
-    appearance: "error" | "warning" | "gray";
+    appearance: Appearence;
   }
 ) => {
   const {
