@@ -66,13 +66,12 @@ const Counter = (props: ITextareaProps) => {
 
 const Invalid = (props: Omit<ITextareaProps, "id">) => {
   const { disabled, status, errorMessage } = props;
-  const transformedErrorMessage = errorMessage && `(${errorMessage})`;
 
   return (
     <StyledErrorMessageContainer disabled={disabled} status={status}>
       <MdOutlineError />
       <Text type="body" size="small" appearance={"error"} disabled={disabled}>
-        {transformedErrorMessage}
+        {errorMessage && `(${errorMessage})`}
       </Text>
     </StyledErrorMessageContainer>
   );
@@ -115,8 +114,6 @@ const TextareaUI = (props: ITextareaProps) => {
     lengthThreshold,
   } = props;
 
-  const transformedInvalid = status === "invalid" ? true : false;
-
   return (
     <StyledContainer fullwidth={fullwidth} disabled={disabled}>
       <StyledContainerLabel
@@ -131,8 +128,7 @@ const TextareaUI = (props: ITextareaProps) => {
             htmlFor={id}
             disabled={disabled}
             focused={isFocused}
-            invalid={transformedInvalid}
-            padding="0px 0px 0px 16px"
+            invalid={status === "invalid" ? true : false}
           >
             {label}
           </Label>
