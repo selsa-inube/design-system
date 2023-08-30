@@ -4,22 +4,6 @@ import { typography } from "@shared/typography/typography";
 import { Status } from "./props";
 import { ITextareaProps } from ".";
 
-const getGrid = (label: string | undefined, counter: boolean | undefined) => {
-  if (label && counter) {
-    return "auto 1fr auto";
-  }
-
-  if (label && !counter) {
-    return "auto 1fr";
-  }
-
-  if (!label && counter) {
-    return "1fr auto";
-  }
-
-  return "1fr";
-};
-
 const getColors = (
   disabled: boolean | undefined,
   status: Status | undefined,
@@ -60,16 +44,6 @@ const StyledContainer = styled.div`
   cursor: ${({ disabled }: ITextareaProps) => disabled && "not-allowed"};
   width: ${({ fullwidth }: ITextareaProps) =>
     fullwidth ? "100%" : "fit-content"};
-`;
-
-const StyledContainerLabel = styled.div`
-  display: grid;
-  grid-template-columns: ${({ label, counter }: ITextareaProps) =>
-    getGrid(label, counter)};
-  gap: 4px;
-  pointer-events: ${({ disabled }: ITextareaProps) => disabled && "none"};
-  align-items: center;
-  margin-bottom: 4px;
 `;
 
 const StyledTextarea = styled.textarea`
@@ -128,7 +102,6 @@ const StyledValidMessageContainer = styled(StyledErrorMessageContainer)`
 
 export {
   StyledContainer,
-  StyledContainerLabel,
   StyledTextarea,
   StyledErrorMessageContainer,
   StyledValidMessageContainer,
