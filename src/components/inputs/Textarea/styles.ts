@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { colors } from "@shared/colors/colors";
 import { typography } from "@shared/typography/typography";
-import { States } from "./props";
+import { Status } from "./props";
 import { ITextareaProps } from ".";
 
 const getGrid = (label: string | undefined, counter: boolean | undefined) => {
@@ -22,14 +22,14 @@ const getGrid = (label: string | undefined, counter: boolean | undefined) => {
 
 const getColors = (
   disabled: boolean | undefined,
-  state: States | undefined,
+  status: Status | undefined,
   isFocused: boolean | undefined
 ) => {
   if (disabled) {
     return colors.ref.palette.neutral.n70;
   }
 
-  if (state === "invalid") {
+  if (status === "invalid") {
     return colors.sys.actions.remove.filled;
   }
 
@@ -41,17 +41,17 @@ const getColors = (
 
 const getdisabled = (
   disabled: boolean | undefined,
-  state: States | undefined
+  status: Status | undefined
 ) => {
   if (disabled) {
     return colors.ref.palette.neutral.n70;
   }
 
-  if (state === "valid") {
+  if (status === "valid") {
     return colors.sys.actions.confirm.filled;
   }
 
-  if (state === "invalid") {
+  if (status === "invalid") {
     return colors.sys.actions.remove.filled;
   }
 };
@@ -86,8 +86,8 @@ const StyledTextarea = styled.textarea`
     disabled ? colors.ref.palette.neutral.n70 : colors.sys.text.dark};
   background: ${colors.ref.palette.neutral.n10};
   border: 2px solid
-    ${({ disabled, state, isFocused }: ITextareaProps) =>
-      getColors(disabled, state, isFocused)};
+    ${({ disabled, status, isFocused }: ITextareaProps) =>
+      getColors(disabled, status, isFocused)};
   ${({ disabled }: ITextareaProps) =>
     disabled && "pointer-events: none; opacity: 0.5;"}
 
@@ -112,8 +112,8 @@ const StyledErrorMessageContainer = styled.div`
   align-items: center;
   padding-left: 12px;
   pointer-events: none;
-  color: ${({ disabled, state }: ITextareaProps) =>
-    getdisabled(disabled, state)};
+  color: ${({ disabled, status }: ITextareaProps) =>
+    getdisabled(disabled, status)};
 
   & svg {
     width: 14px;
@@ -122,8 +122,8 @@ const StyledErrorMessageContainer = styled.div`
 `;
 
 const StyledValidMessageContainer = styled(StyledErrorMessageContainer)`
-  color: ${({ disabled, state }: ITextareaProps) =>
-    getdisabled(disabled, state)}; ;
+  color: ${({ disabled, status }: ITextareaProps) =>
+    getdisabled(disabled, status)}; ;
 `;
 
 export {
