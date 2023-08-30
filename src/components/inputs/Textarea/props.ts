@@ -1,6 +1,10 @@
+import { inube } from "@shared/tokens";
+
 const status = ["valid", "invalid", "pending"] as const;
 
 type Status = typeof status[number];
+
+export type Themed = { theme?: typeof inube };
 
 const parameters = {
   docs: {
