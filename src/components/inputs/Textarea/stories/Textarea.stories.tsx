@@ -16,7 +16,7 @@ Default.args = {
   label: "Textarea",
   name: "textarea",
   id: "textarea",
-  state: "pending",
+  status: "pending",
   placeholder: "Storybook Textarea",
   disabled: false,
   fullwidth: false,

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { TextareaUI } from "./interface";
-import { States } from "./props";
+import { Status } from "./props";
 
 interface ITextareaProps {
   label?: string;
@@ -9,7 +9,7 @@ interface ITextareaProps {
   placeholder?: string;
   disabled?: boolean;
   isFocused?: boolean;
-  state?: States;
+  status?: Status;
   value?: string | number;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   maxLength?: number;
@@ -37,7 +37,7 @@ const Textarea = (props: ITextareaProps) => {
     maxLength,
     minLength,
     isRequired = false,
-    state = "pending",
+    status = "pending",
     errorMessage,
     validMessage,
     fullwidth = false,
@@ -77,7 +77,7 @@ const Textarea = (props: ITextareaProps) => {
       maxLength={maxLength}
       minLength={minLength}
       isRequired={isRequired}
-      state={state}
+      status={status}
       errorMessage={errorMessage}
       validMessage={validMessage}
       fullwidth={fullwidth}
