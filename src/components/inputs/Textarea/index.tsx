@@ -34,8 +34,8 @@ const Textarea = (props: ITextareaProps) => {
     disabled = false,
     onChange,
     value,
-    maxLength,
-    minLength,
+    maxLength = 0,
+    minLength = 0,
     required = false,
     status = "pending",
     errorMessage,
@@ -49,6 +49,15 @@ const Textarea = (props: ITextareaProps) => {
   } = props;
 
   const [isFocused, setIsFocused] = useState(false);
+
+  let valueLength = typeof value === "string" ? value.length : 0;
+
+  let appearance: "error" | "warning" | "gray" =
+    maxLength - valueLength <= lengthThreshold && valueLength <= maxLength
+      ? "warning"
+      : valueLength > maxLength
+      ? "error"
+      : "gray";
 
   const interceptFocus = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!readOnly) {
@@ -88,6 +97,8 @@ const Textarea = (props: ITextareaProps) => {
       readOnly={readOnly}
       counter={counter}
       lengthThreshold={lengthThreshold}
+      valueLength={valueLength}
+      appearance={appearance}
     />
   );
 };
