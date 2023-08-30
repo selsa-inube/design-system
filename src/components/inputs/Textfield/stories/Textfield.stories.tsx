@@ -18,15 +18,13 @@ Default.args = {
   id: "Username",
   placeholder: "Write your full name",
   value: "",
-  errorMessage: "Please enter only letters in this field",
-  validMessage: "The field has been successfully validated",
   size: "wide",
   readOnly: false,
   disabled: false,
   required: false,
   type: "text",
-  errorMessages: "field cannot be empty, special characters cannot be used",
-  validMessages: "field has been successfully validated",
+  message: "",
+  fullwidth: false,
 };
 
 const theme = {

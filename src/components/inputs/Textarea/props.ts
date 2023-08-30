@@ -1,4 +1,6 @@
-import { states } from ".";
+const status = ["valid", "invalid", "pending"] as const;
+
+type Status = typeof status[number];
 
 const parameters = {
   docs: {
@@ -33,7 +35,7 @@ const props = {
   value: {
     description: "component initial value",
   },
-  handleChange: {
+  onChange: {
     description:
       "allows you to control what to do when the user changes the value of the component",
   },
@@ -45,24 +47,16 @@ const props = {
     description:
       "defines how many minimum characters the component receives as a value",
   },
-  max: {
-    description:
-      "defines the maximum value that can be inserted (useful for components of type number)",
-  },
-  min: {
-    description:
-      "defines the minimum value that can be inserted (useful for components of type number)",
-  },
   isRequired: {
     description: "defines if the field is required or not",
     table: {
       defaultValue: { summary: false },
     },
   },
-  state: {
-    options: states,
+  status: {
+    options: status,
     control: { type: "select" },
-    description: "state of the component",
+    description: "status of the component",
     table: {
       defaultValue: { summary: "pending" },
     },
@@ -73,7 +67,7 @@ const props = {
   validMessage: {
     description: "show when the field is validated without errors",
   },
-  isFullWidth: {
+  fullwidth: {
     description: "option to fit field width to its parent width",
     table: {
       defaultValue: { summary: false },
@@ -97,4 +91,5 @@ const props = {
   },
 };
 
+export type { Status };
 export { props, parameters };

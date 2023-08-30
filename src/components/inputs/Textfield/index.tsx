@@ -1,9 +1,8 @@
 import { useState } from "react";
+import { MdCheckCircle, MdOutlineError } from "react-icons/md";
 
-import { MdOutlineError, MdCheckCircle } from "react-icons/md";
-
-import { Label } from "@inputs/Label";
 import { Text } from "@data/Text";
+import { Label } from "@inputs/Label";
 
 import { InputType, Size, Status, Themed } from "./props";
 
@@ -12,27 +11,24 @@ import {
   StyledContainerLabel,
   StyledInputContainer,
   StyledInput,
-  StyledIcon,
   StyledMessageContainer,
 } from "./styles";
-import { IconType } from "react-icons/lib";
-import { Appearance } from "@data/Text/props";
+import { Icon } from "@data/Icon";
 
 export interface ITextfieldProps extends Themed {
   label?: string;
-  name: string;
+  name?: string;
   id: string;
-  placeholder: string;
+  placeholder?: string;
   disabled?: boolean;
   type?: InputType;
   value?: string | number;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   iconBefore?: React.ReactNode;
   iconAfter?: React.ReactNode;
-  required: boolean;
+  required?: boolean;
   status?: Status;
-  errorMessage?: string;
-  validMessage?: string;
+  message?: string;
   size?: Size;
   fullwidth?: boolean;
   onFocus?: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -40,34 +36,23 @@ export interface ITextfieldProps extends Themed {
   readOnly?: boolean;
   focused?: boolean;
 }
-export interface IMessageProps {
-  status?: Status;
-  disabled?: boolean;
-  message?: string;
-}
 
-const Message = (props: IMessageProps) => {
+const Message = (props: Omit<ITextfieldProps, "id"> & { message?: string }) => {
   const { disabled, status, message } = props;
-  let IconComponent: IconType | null = null;
-  let appearance: Appearance = "gray";
-
-  if (status === "invalid") {
-    IconComponent = MdOutlineError;
-    appearance = "error";
-  } else if (status === "valid") {
-    IconComponent = MdCheckCircle;
-    appearance = "success";
-  }
 
   return (
-    IconComponent && (
+    status !== "pending" && (
       <StyledMessageContainer disabled={disabled} status={status}>
-        <IconComponent />
+        <Icon
+          appearance={status === "invalid" ? "error" : "success"}
+          disabled={disabled}
+          icon={status === "invalid" ? <MdOutlineError /> : <MdCheckCircle />}
+        />
         <Text
           type="body"
           size="small"
           margin="8px 0px 0px 4px"
-          appearance={appearance}
+          appearance={status === "invalid" ? "error" : "success"}
           disabled={disabled}
         >
           {message && `${message}`}
@@ -91,8 +76,7 @@ const Textfield = (props: ITextfieldProps) => {
     iconAfter,
     required = false,
     status = "pending",
-    errorMessage,
-    validMessage,
+    message,
     size = "wide",
     fullwidth = false,
     onFocus,
@@ -159,9 +143,13 @@ const Textfield = (props: ITextfieldProps) => {
         iconAfter={iconAfter}
       >
         {iconBefore && (
-          <StyledIcon disabled={disabled} iconBefore={iconBefore}>
-            {iconBefore}
-          </StyledIcon>
+          <Icon
+            appearance="gray"
+            disabled={disabled}
+            icon={iconBefore}
+            size="24px"
+            spacing="wide"
+          />
         )}
 
         <StyledInput
@@ -186,18 +174,18 @@ const Textfield = (props: ITextfieldProps) => {
         />
 
         {iconAfter && (
-          <StyledIcon iconAfter={iconAfter} disabled={disabled}>
-            {iconAfter}
-          </StyledIcon>
+          <Icon
+            appearance="gray"
+            disabled={disabled}
+            icon={iconAfter}
+            size="24px"
+            spacing="wide"
+          />
         )}
       </StyledInputContainer>
 
       {status && (
-        <Message
-          disabled={disabled}
-          status={status}
-          message={status === "invalid" ? errorMessage : validMessage}
-        />
+        <Message disabled={disabled} status={status} message={message} />
       )}
     </StyledContainer>
   );

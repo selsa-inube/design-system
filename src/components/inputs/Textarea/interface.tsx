@@ -1,10 +1,7 @@
 import { useState, useEffect } from "react";
-
 import { MdOutlineError, MdCheckCircle } from "react-icons/md";
-
 import { Label } from "@inputs/Label";
 import { Text } from "@data/Text";
-
 import {
   StyledContainer,
   StyledContainerLabel,
@@ -12,8 +9,13 @@ import {
   StyledErrorMessageContainer,
   StyledValidMessageContainer,
 } from "./styles";
+import { ITextareaProps } from ".";
 
-const getAppearanceCounter = (valueLength, maxLength = 0, lengthThreshold) => {
+const getAppearanceCounter = (
+  valueLength: number,
+  maxLength = 0,
+  lengthThreshold: number
+) => {
   if (maxLength - valueLength <= lengthThreshold && valueLength <= maxLength) {
     return "warning";
   }
@@ -25,22 +27,26 @@ const getAppearanceCounter = (valueLength, maxLength = 0, lengthThreshold) => {
   return "gray";
 };
 
-const Counter = (props) => {
+const Counter = (props: ITextareaProps) => {
   const { id, maxLength, lengthThreshold, disabled } = props;
   const [valueLength, setValueLength] = useState(0);
 
   useEffect(() => {
     const textareaElement = document.getElementById(id);
-    setValueLength(textareaElement.value.length);
+    if (textareaElement) {
+      setValueLength(textareaElement.textContent!.length);
+    }
 
     const handleTextareaChange = () => {
-      setValueLength(textareaElement.value.length);
+      if (textareaElement) {
+        setValueLength(textareaElement.textContent!.length);
+      }
     };
 
-    textareaElement.addEventListener("input", handleTextareaChange);
+    textareaElement!.addEventListener("input", handleTextareaChange);
 
     return () => {
-      textareaElement.removeEventListener("input", handleTextareaChange);
+      textareaElement!.removeEventListener("input", handleTextareaChange);
     };
   }, [id]);
 
@@ -49,30 +55,33 @@ const Counter = (props) => {
       type="body"
       size="small"
       disabled={disabled}
-      appearance={getAppearanceCounter(valueLength, maxLength, lengthThreshold)}
+      appearance={getAppearanceCounter(
+        valueLength,
+        maxLength,
+        lengthThreshold!
+      )}
     >{`${valueLength}/${maxLength}`}</Text>
   );
 };
 
-const Invalid = (props) => {
-  const { disabled, state, errorMessage } = props;
-  const transformedErrorMessage = errorMessage && `(${errorMessage})`;
+const Invalid = (props: Omit<ITextareaProps, "id">) => {
+  const { disabled, status, errorMessage } = props;
 
   return (
-    <StyledErrorMessageContainer disabled={disabled} state={state}>
+    <StyledErrorMessageContainer disabled={disabled} status={status}>
       <MdOutlineError />
       <Text type="body" size="small" appearance={"error"} disabled={disabled}>
-        {transformedErrorMessage}
+        {errorMessage && `(${errorMessage})`}
       </Text>
     </StyledErrorMessageContainer>
   );
 };
 
-const Success = (props) => {
-  const { disabled, state, validMessage } = props;
+const Success = (props: Omit<ITextareaProps, "id">) => {
+  const { disabled, status, validMessage } = props;
 
   return (
-    <StyledValidMessageContainer disabled={disabled} state={state}>
+    <StyledValidMessageContainer disabled={disabled} status={status}>
       <MdCheckCircle />
       <Text type="body" size="small" appearance={"success"} disabled={disabled}>
         {validMessage}
@@ -81,7 +90,7 @@ const Success = (props) => {
   );
 };
 
-const TextareaUI = (props) => {
+const TextareaUI = (props: ITextareaProps) => {
   const {
     label,
     name,
@@ -91,26 +100,22 @@ const TextareaUI = (props) => {
     value,
     maxLength,
     minLength,
-    max,
-    min,
     isRequired,
-    state,
+    status,
     errorMessage,
     validMessage,
-    isFullWidth,
+    fullwidth,
     isFocused,
-    handleChange,
-    handleFocus,
-    handleBlur,
+    onChange,
+    onFocus,
+    onBlur,
     readOnly,
     counter,
     lengthThreshold,
   } = props;
 
-  const transformedInvalid = state === "invalid" ? true : false;
-
   return (
-    <StyledContainer isFullWidth={isFullWidth} disabled={disabled}>
+    <StyledContainer fullwidth={fullwidth} disabled={disabled}>
       <StyledContainerLabel
         alignItems="center"
         wrap="wrap"
@@ -123,7 +128,7 @@ const TextareaUI = (props) => {
             htmlFor={id}
             disabled={disabled}
             focused={isFocused}
-            invalid={transformedInvalid}
+            invalid={status === "invalid" ? true : false}
           >
             {label}
           </Label>
@@ -131,7 +136,7 @@ const TextareaUI = (props) => {
 
         {isRequired && !disabled && (
           <Text type="body" size="small" appearance="dark">
-            (Required)
+            (Requerido)
           </Text>
         )}
         {counter && !disabled && (
@@ -150,30 +155,28 @@ const TextareaUI = (props) => {
         placeholder={placeholder}
         disabled={disabled}
         minLength={minLength}
-        max={max}
-        min={min}
         isRequired={isRequired}
-        state={state}
-        isFullWidth={isFullWidth}
+        status={status}
+        fullwidth={fullwidth}
         isFocused={isFocused}
-        onChange={handleChange}
-        onFocus={handleFocus}
-        onBlur={handleBlur}
+        onChange={onChange}
+        onFocus={onFocus}
+        onBlur={onBlur}
         readOnly={readOnly}
         value={value}
       />
 
-      {state === "invalid" && (
+      {status === "invalid" && (
         <Invalid
           disabled={disabled}
-          state={state}
+          status={status}
           errorMessage={errorMessage}
         />
       )}
-      {state === "valid" && (
+      {status === "valid" && (
         <Success
           disabled={disabled}
-          state={state}
+          status={status}
           validMessage={validMessage}
         />
       )}
