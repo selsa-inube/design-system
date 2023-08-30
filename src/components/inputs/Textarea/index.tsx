@@ -10,7 +10,7 @@ interface ITextareaProps {
   disabled?: boolean;
   isFocused?: boolean;
   status?: Status;
-  value?: string | number;
+  value?: string;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   maxLength?: number;
   minLength?: number;
@@ -33,7 +33,7 @@ const Textarea = (props: ITextareaProps) => {
     placeholder,
     disabled = false,
     onChange,
-    value,
+    value = "",
     maxLength = 0,
     minLength = 0,
     required = false,
@@ -50,12 +50,10 @@ const Textarea = (props: ITextareaProps) => {
 
   const [isFocused, setIsFocused] = useState(false);
 
-  let valueLength = typeof value === "string" ? value.length : 0;
-
   let appearance: Appearence =
-    maxLength - valueLength <= lengthThreshold && valueLength <= maxLength
+    maxLength - value.length <= lengthThreshold && value.length <= maxLength
       ? "warning"
-      : valueLength > maxLength
+      : value!?.length > maxLength
       ? "error"
       : "gray";
 
@@ -97,7 +95,7 @@ const Textarea = (props: ITextareaProps) => {
       readOnly={readOnly}
       counter={counter}
       lengthThreshold={lengthThreshold}
-      valueLength={valueLength}
+      valueLength={value.length}
       appearance={appearance}
     />
   );
