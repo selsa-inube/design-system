@@ -14,7 +14,7 @@ interface ITextareaProps {
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   maxLength?: number;
   minLength?: number;
-  isRequired?: boolean;
+  required?: boolean;
   errorMessage?: string;
   validMessage?: string;
   fullwidth?: boolean;
@@ -36,7 +36,7 @@ const Textarea = (props: ITextareaProps) => {
     value,
     maxLength,
     minLength,
-    isRequired = false,
+    required = false,
     status = "pending",
     errorMessage,
     validMessage,
@@ -76,7 +76,7 @@ const Textarea = (props: ITextareaProps) => {
       value={value}
       maxLength={maxLength}
       minLength={minLength}
-      isRequired={isRequired}
+      required={required}
       status={status}
       errorMessage={errorMessage}
       validMessage={validMessage}
