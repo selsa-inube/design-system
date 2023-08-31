@@ -1,44 +1,6 @@
 import styled from "styled-components";
-import { colors } from "@shared/colors/colors";
-import { Status } from "./props";
 import { ITextareaProps } from ".";
 import { inube } from "@shared/tokens";
-
-const getColors = (
-  disabled: boolean | undefined,
-  status: Status | undefined,
-  isFocused: boolean | undefined
-) => {
-  if (disabled) {
-    return colors.ref.palette.neutral.n70;
-  }
-
-  if (status === "invalid") {
-    return colors.sys.actions.remove.filled;
-  }
-
-  if (isFocused) {
-    return colors.ref.palette.blue.b300;
-  }
-  return colors.ref.palette.neutral.n40;
-};
-
-const getdisabled = (
-  disabled: boolean | undefined,
-  status: Status | undefined
-) => {
-  if (disabled) {
-    return colors.ref.palette.neutral.n70;
-  }
-
-  if (status === "valid") {
-    return colors.sys.actions.confirm.filled;
-  }
-
-  if (status === "invalid") {
-    return colors.sys.actions.remove.filled;
-  }
-};
 
 const StyledContainer = styled.div`
   cursor: ${({ disabled }: ITextareaProps) => disabled && "not-allowed"};
@@ -57,17 +19,43 @@ const StyledTextarea = styled.textarea`
   width: ${({ fullwidth }: ITextareaProps) =>
     fullwidth ? "calc(100% - 32px)" : "452px"};
   height: 120px;
-  color: ${({ disabled }: ITextareaProps) =>
-    disabled ? colors.ref.palette.neutral.n70 : colors.sys.text.dark};
-  background: ${colors.ref.palette.neutral.n10};
+  color: ${({ disabled, theme }: ITextareaProps) =>
+    disabled
+      ? theme?.color?.text?.gray?.disabled || inube.color.text.gray.disabled
+      : theme?.color?.text?.dark?.regular || inube.color.text.dark.regular};
   border: 2px solid
-    ${({ disabled, status, isFocused }: ITextareaProps) =>
-      getColors(disabled, status, isFocused)};
+    ${({ disabled, status, isFocused, theme }: ITextareaProps) => {
+      if (disabled) {
+        return (
+          theme?.color?.stroke?.gray?.disabled ||
+          inube.color.stroke.gray.disabled
+        );
+      }
+
+      if (status === "invalid") {
+        return (
+          theme?.color?.stroke?.error?.regular ||
+          inube.color.stroke.error.regular
+        );
+      }
+
+      if (isFocused) {
+        return (
+          theme?.color?.stroke?.primary?.hover ||
+          inube.color.stroke.primary.hover
+        );
+      }
+      return (
+        theme?.color?.stroke?.divider?.regular ||
+        inube.color.stroke.divider.regular
+      );
+    }};
   ${({ disabled }: ITextareaProps) =>
     disabled && "pointer-events: none; opacity: 0.5;"}
 
   ::placeholder {
-    color: ${colors.sys.text.secondary};
+    color: ${({ theme }: ITextareaProps) =>
+      theme?.color?.text?.gray?.regular || inube.color.text.gray.regular};
   }
 
   &:focus {
@@ -87,8 +75,25 @@ const StyledErrorMessageContainer = styled.div`
   align-items: center;
   padding-left: 12px;
   pointer-events: none;
-  color: ${({ disabled, status }: ITextareaProps) =>
-    getdisabled(disabled, status)};
+  color: ${({ disabled, status, theme }: ITextareaProps) => {
+    if (disabled) {
+      return (
+        theme?.color?.text?.gray?.disabled || inube.color.text.gray.disabled
+      );
+    }
+
+    if (status === "valid") {
+      return (
+        theme?.color?.text?.success?.regular || inube.color.text.success.regular
+      );
+    }
+
+    if (status === "invalid") {
+      return (
+        theme?.color?.text?.error?.regular || inube.color.text.error.regular
+      );
+    }
+  }};
 
   & svg {
     width: 14px;
@@ -97,8 +102,25 @@ const StyledErrorMessageContainer = styled.div`
 `;
 
 const StyledValidMessageContainer = styled(StyledErrorMessageContainer)`
-  color: ${({ disabled, status }: ITextareaProps) =>
-    getdisabled(disabled, status)}; ;
+  color: ${({ disabled, status, theme }: ITextareaProps) => {
+    if (disabled) {
+      return (
+        theme?.color?.text?.gray?.disabled || inube.color.text.gray.disabled
+      );
+    }
+
+    if (status === "valid") {
+      return (
+        theme?.color?.text?.success?.regular || inube.color.text.success.regular
+      );
+    }
+
+    if (status === "invalid") {
+      return (
+        theme?.color?.text?.error?.regular || inube.color.text.error.regular
+      );
+    }
+  }};
 `;
 
 export {
