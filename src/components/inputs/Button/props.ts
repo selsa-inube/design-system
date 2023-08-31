@@ -44,7 +44,7 @@ const props = {
     control: { type: "text" },
     description: "the text to be displayed",
   },
-  isLoading: {
+  loading: {
     options: [false, true],
     control: { type: "boolean" },
     description: "conditionally show a spinner over the top of a button",
