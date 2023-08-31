@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { ITextareaProps } from ".";
 import { inube } from "@shared/tokens";
+import { ITextareaProps } from ".";
 
 const StyledContainer = styled.div`
   cursor: ${({ disabled }: ITextareaProps) => disabled && "not-allowed"};
@@ -10,7 +10,8 @@ const StyledContainer = styled.div`
 
 const StyledTextarea = styled.textarea`
   border-radius: 8px;
-  padding: 8px 12px 8px 16px;
+  padding: ${() => `${inube.spacing.s100} ${inube.spacing.s150} ${inube.spacing.s100}
+    ${inube.spacing.s200}`};
   font-family: ${inube.typography.body.large.font};
   font-size: ${inube.typography.body.large.size};
   font-weight: ${inube.typography.body.large.weight};

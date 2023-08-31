@@ -30,7 +30,7 @@ const theme = {
   ...presente,
 };
 
-export const Themed = (args: ITextareaProps) => (
+const Themed = (args: ITextareaProps) => (
   <ThemeProvider theme={theme}>
     <TextareaController {...args} />
   </ThemeProvider>
@@ -41,4 +41,4 @@ Themed.args = {
 };
 
 export default story;
-export { Default };
+export { Default, Themed };
