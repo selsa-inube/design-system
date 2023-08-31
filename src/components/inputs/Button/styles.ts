@@ -179,10 +179,10 @@ const borderColors: IBorderColors = {
 };
 
 const getPointer = (
-  isDisabled: boolean | undefined,
+  disabled: boolean | undefined,
   loading: boolean = false
 ) => {
-  if (isDisabled) {
+  if (disabled) {
     return cursors.notAllowed;
   }
 
@@ -194,12 +194,12 @@ const getPointer = (
 };
 
 const getColor = (
-  isDisabled: boolean | undefined,
+  disabled: boolean | undefined,
   variant: Variant,
   appearance: Appearance,
   isHover: boolean = false
 ) => {
-  if (isDisabled) {
+  if (disabled) {
     return textColors.filled.normal.disabled;
   }
 
@@ -211,7 +211,7 @@ const getColor = (
 };
 
 const getBorderColor = (
-  isDisabled: boolean | undefined,
+  disabled: boolean | undefined,
   variant: Variant,
   appearance: Appearance,
   isHover: boolean = false
@@ -220,7 +220,7 @@ const getBorderColor = (
     return borderColors[variant];
   }
 
-  if (isDisabled) {
+  if (disabled) {
     return borderColors[variant].normal.disabled.stroke;
   }
 
@@ -232,7 +232,7 @@ const getBorderColor = (
 };
 
 function getBackgroundColor(
-  isDisabled: boolean | undefined,
+  disabled: boolean | undefined,
   variant: Variant,
   appearance: Appearance,
   isHover: boolean = false
@@ -241,7 +241,7 @@ function getBackgroundColor(
     return backgroundColor[variant];
   }
 
-  if (isDisabled) {
+  if (disabled) {
     return backgroundColor[variant].normal.disabled.filled;
   }
 
@@ -280,28 +280,28 @@ const StyledButton = styled.button`
   padding: 0px 16px;
   ${containerStyles}
   width: ${({ fullwidth }: IButtonProps) => getWidth(fullwidth)};
-  background-color: ${({ isDisabled, variant, appearance }: IButtonProps) =>
-    getBackgroundColor(isDisabled, variant!, appearance!)};
+  background-color: ${({ disabled, variant, appearance }: IButtonProps) =>
+    getBackgroundColor(disabled, variant!, appearance!)};
   border-style: ${(props: IButtonProps) =>
     props.type !== "link" ? "solid" : "none"};
   ${(props: IButtonProps) => spacing[props.spacing!]};
 
-  color: ${({ isDisabled, variant, appearance }: IButtonProps) =>
-    getColor(isDisabled, variant!, appearance!)};
-  border-color: ${({ isDisabled, variant, appearance }: IButtonProps) =>
-    getBorderColor(isDisabled, variant!, appearance!)};
-  background-color: ${({ isDisabled, variant, appearance }: IButtonProps) =>
-    getBackgroundColor(isDisabled, variant!, appearance!)};
-  cursor: ${({ isDisabled, loading }: IButtonProps) =>
-    getPointer(isDisabled, loading)};
+  color: ${({ disabled, variant, appearance }: IButtonProps) =>
+    getColor(disabled, variant!, appearance!)};
+  border-color: ${({ disabled, variant, appearance }: IButtonProps) =>
+    getBorderColor(disabled, variant!, appearance!)};
+  background-color: ${({ disabled, variant, appearance }: IButtonProps) =>
+    getBackgroundColor(disabled, variant!, appearance!)};
+  cursor: ${({ disabled, loading }: IButtonProps) =>
+    getPointer(disabled, loading)};
 
   &:hover {
-    color: ${({ isDisabled, variant, appearance }: IButtonProps) =>
-      getColor(isDisabled, variant!, appearance!, true)};
-    border-color: ${({ isDisabled, variant, appearance }: IButtonProps) =>
-      getBorderColor(isDisabled, variant!, appearance!, true)};
-    background-color: ${({ isDisabled, variant, appearance }: IButtonProps) =>
-      getBackgroundColor(isDisabled, variant!, appearance!, true)};
+    color: ${({ disabled, variant, appearance }: IButtonProps) =>
+      getColor(disabled, variant!, appearance!, true)};
+    border-color: ${({ disabled, variant, appearance }: IButtonProps) =>
+      getBorderColor(disabled, variant!, appearance!, true)};
+    background-color: ${({ disabled, variant, appearance }: IButtonProps) =>
+      getBackgroundColor(disabled, variant!, appearance!, true)};
   }
 `;
 
@@ -312,21 +312,21 @@ const StyledLink = styled(Link)`
   border-style: ${(props: IButtonProps) =>
     props.type === "link" ? "solid" : "none"};
   width: ${({ fullwidth }: any) => getWidth(!!fullwidth)};
-  color: ${({ isdisabled, variant, appearance }: IButtonProps) =>
-    getColor(!!isdisabled, variant!, appearance!)};
-  border-color: ${({ isdisabled, variant, appearance }: IButtonProps) =>
-    getBorderColor(!!isdisabled, variant!, appearance!)};
-  background-color: ${({ isdisabled, variant, appearance }: IButtonProps) =>
-    getBackgroundColor(!!isdisabled, variant!, appearance!)};
-  cursor: ${({ isdisabled }: any) => getPointer(!!isdisabled)};
+  color: ${({ disabled, variant, appearance }: IButtonProps) =>
+    getColor(!!disabled, variant!, appearance!)};
+  border-color: ${({ disabled, variant, appearance }: IButtonProps) =>
+    getBorderColor(!!disabled, variant!, appearance!)};
+  background-color: ${({ disabled, variant, appearance }: IButtonProps) =>
+    getBackgroundColor(!!disabled, variant!, appearance!)};
+  cursor: ${({ disabled }: any) => getPointer(!!disabled)};
 
   &:hover {
-    color: ${({ isdisabled, variant, appearance }: IButtonProps) =>
-      getColor(!!isdisabled, variant!, appearance!, true)};
-    border-color: ${({ isdisabled, variant, appearance }: IButtonProps) =>
-      getBorderColor(!!isdisabled, variant!, appearance!, true)};
-    background-color: ${({ isdisabled, variant, appearance }: IButtonProps) =>
-      getBackgroundColor(!!isdisabled, variant!, appearance!, true)};
+    color: ${({ disabled, variant, appearance }: IButtonProps) =>
+      getColor(!!disabled, variant!, appearance!, true)};
+    border-color: ${({ disabled, variant, appearance }: IButtonProps) =>
+      getBorderColor(!!disabled, variant!, appearance!, true)};
+    background-color: ${({ disabled, variant, appearance }: IButtonProps) =>
+      getBackgroundColor(!!disabled, variant!, appearance!, true)};
   }
 `;
 

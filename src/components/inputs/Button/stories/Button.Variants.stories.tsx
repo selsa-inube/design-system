@@ -36,7 +36,7 @@ Variants.args = {
   children: "Button",
   appearance: "primary",
   loading: false,
-  isDisabled: false,
+  disabled: false,
   iconBefore: <MdAdd />,
   type: "button",
   spacing: "wide",
