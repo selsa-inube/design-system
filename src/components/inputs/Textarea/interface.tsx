@@ -66,7 +66,7 @@ const Counter = (props: ITextareaProps) => {
   );
 };
 
-const Message = (props: Omit<ITextareaProps, "id"> & { message?: string }) => {
+const Message = (props: Omit<ITextareaProps, "id">) => {
   const { disabled, status, message } = props;
 
   return (
