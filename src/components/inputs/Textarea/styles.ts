@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { ITextareaProps } from ".";
 import { inube } from "@shared/tokens";
+import { ITextareaProps } from ".";
 
 const StyledContainer = styled.div`
   cursor: ${({ disabled }: ITextareaProps) => disabled && "not-allowed"};
