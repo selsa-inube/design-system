@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { inube } from "@shared/tokens";
 import { colors } from "@shared/colors/colors";
 import { typography } from "@shared/typography/typography";
 import { Status } from "./props";
@@ -48,7 +49,8 @@ const StyledContainer = styled.div`
 
 const StyledTextarea = styled.textarea`
   border-radius: 8px;
-  padding: 8px 12px 8px 16px;
+  padding: ${inube.spacing.s100} ${inube.spacing.s150} ${inube.spacing.s100}
+    ${inube.spacing.s200}; //8px 12px 8px 16px;
   font-family: ${typography.sys.typescale.bodyLarge.font};
   font-size: ${typography.sys.typescale.bodyLarge.size};
   font-weight: ${typography.sys.typescale.bodyLarge.weight};
@@ -82,9 +84,9 @@ const StyledTextarea = styled.textarea`
 const StyledErrorMessageContainer = styled.div`
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: 5px;
+  gap: ${inube.spacing.s075};
   align-items: center;
-  padding-left: 12px;
+  padding-left: ${inube.spacing.s150};
   pointer-events: none;
   color: ${({ disabled, status }: ITextareaProps) =>
     getdisabled(disabled, status)};
