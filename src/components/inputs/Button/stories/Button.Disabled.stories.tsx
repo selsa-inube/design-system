@@ -35,12 +35,12 @@ export const Disabled = (args: IButtonProps) => <ButtonComponent {...args} />;
 Disabled.args = {
   children: "Button",
   appearance: "primary",
-  isLoading: false,
+  loading: false,
   iconBefore: <MdAdd />,
   type: "button",
   spacing: "wide",
   variant: "filled",
-  isFullWidth: false,
+  fullwidth: false,
   handleClick: () => console.log("clicked"),
   path: "/privileges",
 };
