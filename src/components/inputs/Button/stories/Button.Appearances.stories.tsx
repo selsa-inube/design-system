@@ -37,13 +37,13 @@ export const Appearances = (args: IButtonProps) => (
 );
 Appearances.args = {
   children: "Button",
-  isLoading: false,
+  loading: false,
   isDisabled: false,
   iconBefore: <MdAdd />,
   type: "button",
   spacing: "wide",
   variant: "filled",
-  isFullWidth: false,
+  fullwidth: false,
   handleClick: () => console.log("clicked"),
   path: "/privileges",
 };

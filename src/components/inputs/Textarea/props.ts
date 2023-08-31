@@ -1,6 +1,10 @@
+import { inube } from "@shared/tokens";
+
 const status = ["valid", "invalid", "pending"] as const;
 
 type Status = typeof status[number];
+
+export type Themed = { theme?: typeof inube };
 
 const parameters = {
   docs: {
@@ -79,12 +83,7 @@ const props = {
       defaultValue: { summary: false },
     },
   },
-  counter: {
-    description: "option to show a counter of characters",
-    table: {
-      defaultValue: { summary: false },
-    },
-  },
+
   lengthThreshold: {
     description:
       "defines the minimum number of characters for displaying counter alerts",

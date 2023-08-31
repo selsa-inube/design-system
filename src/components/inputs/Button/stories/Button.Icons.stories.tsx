@@ -39,12 +39,12 @@ export const Icons = (args: IButtonProps) => <ButtonComponent {...args} />;
 Icons.args = {
   children: "Button",
   appearance: "primary",
-  isLoading: false,
+  loading: false,
   isDisabled: false,
   type: "button",
   spacing: "wide",
   variant: "filled",
-  isFullWidth: false,
+  fullwidth: false,
   handleClick: () => console.log("clicked"),
 };
 
