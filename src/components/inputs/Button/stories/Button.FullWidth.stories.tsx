@@ -22,7 +22,7 @@ const story = {
 const ButtonComponent = (props: IButtonProps) => {
   return (
     <StyledFlex>
-      <Button {...props} isFullWidth={true} />
+      <Button {...props} fullwidth={true} />
     </StyledFlex>
   );
 };
@@ -31,7 +31,7 @@ export const FullWidth = (args: IButtonProps) => <ButtonComponent {...args} />;
 FullWidth.args = {
   children: "Button",
   appearance: "primary",
-  isLoading: false,
+  loading: false,
   isDisabled: false,
   iconBefore: <MdAdd />,
   type: "button",

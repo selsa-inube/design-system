@@ -25,12 +25,12 @@ Default.args = {
   appearance: "primary",
   path: "/privilege",
   iconBefore: <MdAdd />,
-  isLoading: false,
+  loading: false,
   isDisabled: false,
   type: "button",
   spacing: "wide",
   variant: "filled",
-  isFullWidth: false,
+  fullwidth: false,
   handleClick: () => console.log("clicked from Default-story"),
 };
 

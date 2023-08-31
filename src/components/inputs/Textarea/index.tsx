@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { TextareaUI } from "./interface";
-import { Status } from "./props";
+import { Status, Themed } from "./props";
 
-interface ITextareaProps {
+interface ITextareaProps extends Themed {
   label?: string;
   name?: string;
   id: string;
