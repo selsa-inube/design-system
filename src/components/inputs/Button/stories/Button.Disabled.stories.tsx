@@ -24,7 +24,7 @@ const ButtonComponent = (props: IButtonProps) => {
     <StyledFlex>
       {appearances.map((appearance) => (
         <div key={appearance}>
-          <Button {...props} isDisabled={true} />
+          <Button {...props} disabled={true} />
         </div>
       ))}
     </StyledFlex>

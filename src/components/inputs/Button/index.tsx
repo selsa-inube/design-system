@@ -14,8 +14,7 @@ export interface IButtonProps {
   children: React.ReactNode;
   appearance?: Appearance;
   loading?: boolean;
-  isDisabled?: boolean;
-  isdisabled?: number;
+  disabled?: boolean;
   iconBefore?: React.ReactElement;
   iconAfter?: React.ReactElement;
   type?: Type;
@@ -71,7 +70,7 @@ const Button = (props: IButtonProps) => {
     children,
     appearance = "primary",
     loading = false,
-    isDisabled = false,
+    disabled = false,
     iconBefore,
     iconAfter,
     type = "button",
@@ -90,7 +89,7 @@ const Button = (props: IButtonProps) => {
     const transformedLinkHandleClick = (
       event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
     ) => {
-      if (isDisabled) {
+      if (disabled) {
         event.preventDefault();
       } else {
         handleClick && handleClick();
@@ -100,7 +99,7 @@ const Button = (props: IButtonProps) => {
     return (
       <StyledLink
         to={path}
-        isdisabled={+isDisabled}
+        disabled={+disabled}
         variant={variant}
         appearance={appearance}
         fullwidth={+fullwidth}
@@ -108,12 +107,12 @@ const Button = (props: IButtonProps) => {
       >
         <StyledButton
           appearance={appearance}
-          isDisabled={isDisabled}
+          disabled={disabled}
           spacing={spacing}
           variant={variant}
           fullwidth={fullwidth}
         >
-          <StyledSpan isDisabled={isDisabled} variant={variant}>
+          <StyledSpan disabled={disabled} variant={variant}>
             {iconBefore && <StyledIcon id="mdIcon">{iconBefore}</StyledIcon>}
             {children}
             {iconAfter && <StyledIcon id="mdIcon">{iconAfter}</StyledIcon>}
@@ -127,23 +126,23 @@ const Button = (props: IButtonProps) => {
     <StyledButton
       appearance={appearance}
       loading={loading}
-      isDisabled={isDisabled}
+      disabled={disabled}
       iconBefore={iconBefore}
       iconAfter={iconAfter}
       type={type}
       spacing={spacing}
       variant={variant}
       fullwidth={fullwidth}
-      onClick={isDisabled ? null : handleClick}
+      onClick={disabled ? null : handleClick}
     >
-      {loading && !isDisabled ? (
+      {loading && !disabled ? (
         <Spinner
           appearance={getSpinnerColor(variant, appearance)}
           transparent={variant === "filled"}
           size="small"
         />
       ) : (
-        <StyledSpan isDisabled={isDisabled} variant={variant}>
+        <StyledSpan disabled={disabled} variant={variant}>
           {iconBefore && <StyledIcon id="mdIcon">{iconBefore}</StyledIcon>}
           {children}
           {iconAfter && <StyledIcon id="mdIcon">{iconAfter}</StyledIcon>}

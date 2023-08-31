@@ -67,11 +67,9 @@ const props = {
       defaultValue: { summary: "pending" },
     },
   },
-  errorMessage: {
-    description: "show when the field is validated and there is an error",
-  },
-  validMessage: {
-    description: "show when the field is validated without errors",
+  message: {
+    description:
+      "display a message, provided by the developer implementing the component, which can be either an error notification or a validation prompt",
   },
   fullwidth: {
     description: "option to fit field width to its parent width",
