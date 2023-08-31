@@ -1,67 +1,32 @@
-import { useState, useEffect } from "react";
 import { MdOutlineError, MdCheckCircle } from "react-icons/md";
 
-import { Text } from "@data/Text";
-import { Label } from "@inputs/Label";
 import { Stack } from "@layouts/Stack";
+import { Label } from "@inputs/Label";
+import { Text } from "@data/Text";
 
+import { Appearence } from "./props";
+import { ITextareaProps } from ".";
 import {
   StyledContainer,
   StyledTextarea,
   StyledErrorMessageContainer,
   StyledValidMessageContainer,
 } from "./styles";
-import { ITextareaProps } from ".";
 
-const getAppearanceCounter = (
-  valueLength: number,
-  maxLength = 0,
-  lengthThreshold: number
+const Counter = (
+  props: Omit<ITextareaProps, "id"> & {
+    valueLength: number;
+    appearance: Appearence;
+  }
 ) => {
-  if (maxLength - valueLength <= lengthThreshold && valueLength <= maxLength) {
-    return "warning";
-  }
-
-  if (valueLength > maxLength) {
-    return "error";
-  }
-
-  return "gray";
-};
-
-const Counter = (props: ITextareaProps) => {
-  const { id, maxLength, lengthThreshold, disabled } = props;
-  const [valueLength, setValueLength] = useState(0);
-
-  useEffect(() => {
-    const textareaElement = document.getElementById(id);
-    if (textareaElement) {
-      setValueLength(textareaElement.textContent!.length);
-    }
-
-    const handleTextareaChange = () => {
-      if (textareaElement) {
-        setValueLength(textareaElement.textContent!.length);
-      }
-    };
-
-    textareaElement!.addEventListener("input", handleTextareaChange);
-
-    return () => {
-      textareaElement!.removeEventListener("input", handleTextareaChange);
-    };
-  }, [id, valueLength]);
+  const { maxLength, appearance, disabled, valueLength } = props;
 
   return (
     <Text
       type="body"
       size="small"
       disabled={disabled}
-      appearance={getAppearanceCounter(
-        valueLength,
-        maxLength,
-        lengthThreshold!
-      )}
+      appearance={appearance}
     >{`${valueLength}/${maxLength}`}</Text>
   );
 };
@@ -92,7 +57,12 @@ const Success = (props: Omit<ITextareaProps, "id">) => {
   );
 };
 
-const TextareaUI = (props: ITextareaProps) => {
+const TextareaUI = (
+  props: ITextareaProps & {
+    valueLength: number;
+    appearance: Appearence;
+  }
+) => {
   const {
     label,
     name,
@@ -113,6 +83,8 @@ const TextareaUI = (props: ITextareaProps) => {
     onBlur,
     readOnly,
     lengthThreshold,
+    valueLength,
+    appearance,
   } = props;
 
   return (
@@ -141,10 +113,11 @@ const TextareaUI = (props: ITextareaProps) => {
         {!disabled && (
           <Stack justifyContent="flex-end" alignItems="center" width="100%">
             <Counter
-              id={id}
+              appearance={appearance}
               maxLength={maxLength}
               lengthThreshold={lengthThreshold}
               disabled={disabled}
+              valueLength={valueLength}
             />
           </Stack>
         )}
