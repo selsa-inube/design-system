@@ -35,7 +35,7 @@ export const Variants = (args: IButtonProps) => <ButtonComponent {...args} />;
 Variants.args = {
   children: "Button",
   appearance: "primary",
-  isLoading: false,
+  loading: false,
   isDisabled: false,
   iconBefore: <MdAdd />,
   type: "button",

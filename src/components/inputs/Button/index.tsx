@@ -17,7 +17,7 @@ import {
 export interface IButtonProps {
   children: React.ReactNode;
   appearance?: Appearance;
-  isLoading?: boolean;
+  loading?: boolean;
   isDisabled?: boolean;
   isdisabled?: number;
   iconBefore?: React.ReactElement;
@@ -80,7 +80,7 @@ const Button = (props: IButtonProps) => {
   const {
     children,
     appearance = defaultAppearance,
-    isLoading = false,
+    loading = false,
     isDisabled = false,
     iconBefore,
     iconAfter,
@@ -154,7 +154,7 @@ const Button = (props: IButtonProps) => {
   return (
     <StyledButton
       appearance={transformedAppearance}
-      isLoading={isLoading}
+      loading={loading}
       isDisabled={isDisabled}
       iconBefore={iconBefore}
       iconAfter={iconAfter}
@@ -164,7 +164,7 @@ const Button = (props: IButtonProps) => {
       fullwidth={fullwidth}
       onClick={transformedHandleClick}
     >
-      {isLoading && !isDisabled ? (
+      {loading && !isDisabled ? (
         <Spinner
           appearance={getSpinnerColor(
             transformedVariant,

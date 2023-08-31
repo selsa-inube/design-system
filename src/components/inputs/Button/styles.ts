@@ -180,13 +180,13 @@ const borderColors: IBorderColors = {
 
 const getPointer = (
   isDisabled: boolean | undefined,
-  isLoading: boolean = false
+  loading: boolean = false
 ) => {
   if (isDisabled) {
     return cursors.notAllowed;
   }
 
-  if (isLoading) {
+  if (loading) {
     return cursors.progress;
   }
 
@@ -292,8 +292,8 @@ const StyledButton = styled.button`
     getBorderColor(isDisabled, variant!, appearance!)};
   background-color: ${({ isDisabled, variant, appearance }: IButtonProps) =>
     getBackgroundColor(isDisabled, variant!, appearance!)};
-  cursor: ${({ isDisabled, isLoading }: IButtonProps) =>
-    getPointer(isDisabled, isLoading)};
+  cursor: ${({ isDisabled, loading }: IButtonProps) =>
+    getPointer(isDisabled, loading)};
 
   &:hover {
     color: ${({ isDisabled, variant, appearance }: IButtonProps) =>
