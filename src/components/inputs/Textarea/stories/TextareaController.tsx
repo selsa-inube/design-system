@@ -2,10 +2,8 @@ import { useState } from "react";
 import { ITextareaProps, Textarea } from "..";
 
 const TextareaController = (props: ITextareaProps) => {
-  const { value = "", status = "pending" } = props;
+  const { value = "", status = "pending", maxLength = 0 } = props;
   const [form, setForm] = useState({ value, status });
-
-  const maxLength = 220;
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ value: e.target.value, status: "pending" });

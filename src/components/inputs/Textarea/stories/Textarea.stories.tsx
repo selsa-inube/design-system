@@ -22,6 +22,7 @@ Default.args = {
   fullwidth: false,
   lengthThreshold: 20,
   required: true,
+  maxLength: 220,
   value:
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil veniam, reiciendis ipsum itaque unde odio voluptatum ab cumque deleniti dolore magnam quas hic rem, mollitia adipisci. Officiis accusamus aut consectetur",
 };
