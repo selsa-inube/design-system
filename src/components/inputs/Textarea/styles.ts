@@ -10,8 +10,7 @@ const StyledContainer = styled.div`
 
 const StyledTextarea = styled.textarea`
   border-radius: 8px;
-  padding: ${inube.spacing.s100} ${inube.spacing.s150} ${inube.spacing.s100}
-    ${inube.spacing.s200};
+  padding: ${inube.spacing.s100} ${inube.spacing.s150} ${inube.spacing.s100} ${inube.spacing.s200};
   font-family: ${inube.typography.body.large.font};
   font-size: ${inube.typography.body.large.size};
   font-weight: ${inube.typography.body.large.weight};
