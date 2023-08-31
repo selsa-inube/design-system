@@ -34,7 +34,7 @@ export const Loading = (args: IButtonProps) => <ButtonComponent {...args} />;
 Loading.args = {
   children: "Button",
   appearance: "primary",
-  isDisabled: false,
+  disabled: false,
   type: "button",
   spacing: "wide",
   variant: "filled",

@@ -60,7 +60,7 @@ const props = {
       defaultValue: { summary: "primary" },
     },
   },
-  isDisabled: {
+  disabled: {
     options: [true, false],
     control: { type: "boolean" },
     description: "set if the button is disabled",

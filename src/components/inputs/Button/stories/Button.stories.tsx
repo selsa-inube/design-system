@@ -26,7 +26,7 @@ Default.args = {
   path: "/privilege",
   iconBefore: <MdAdd />,
   loading: false,
-  isDisabled: false,
+  disabled: false,
   type: "button",
   spacing: "wide",
   variant: "filled",
