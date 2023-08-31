@@ -25,7 +25,7 @@ export interface IButtonProps {
   type?: Type;
   spacing?: Spacing;
   variant?: Variant;
-  isFullWidth?: boolean;
+  fullwidth?: boolean;
   handleClick?: (e?: Event) => void;
   path?: string;
 }
@@ -87,7 +87,7 @@ const Button = (props: IButtonProps) => {
     type = defaultType,
     spacing = defaultSpacing,
     variant = defaultVariant,
-    isFullWidth = false,
+    fullwidth = false,
     handleClick,
     path,
   } = props;
@@ -131,7 +131,7 @@ const Button = (props: IButtonProps) => {
         isdisabled={+isDisabled}
         variant={transformedVariant}
         appearance={transformedAppearance}
-        isfullwidth={+isFullWidth}
+        fullwidth={+fullwidth}
         onClick={transformedLinkHandleClick}
       >
         <StyledButton
@@ -139,7 +139,7 @@ const Button = (props: IButtonProps) => {
           isDisabled={isDisabled}
           spacing={transformedSpacing}
           variant={transformedVariant}
-          isFullWidth={isFullWidth}
+          fullwidth={fullwidth}
         >
           <StyledSpan isDisabled={isDisabled} variant={transformedVariant}>
             {iconBefore && <StyledIcon id="mdIcon">{iconBefore}</StyledIcon>}
@@ -161,7 +161,7 @@ const Button = (props: IButtonProps) => {
       type={transformedType}
       spacing={transformedSpacing}
       variant={transformedVariant}
-      isFullWidth={isFullWidth}
+      fullwidth={fullwidth}
       onClick={transformedHandleClick}
     >
       {isLoading && !isDisabled ? (

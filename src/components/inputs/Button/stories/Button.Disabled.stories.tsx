@@ -40,7 +40,7 @@ Disabled.args = {
   type: "button",
   spacing: "wide",
   variant: "filled",
-  isFullWidth: false,
+  fullwidth: false,
   handleClick: () => console.log("clicked"),
   path: "/privileges",
 };

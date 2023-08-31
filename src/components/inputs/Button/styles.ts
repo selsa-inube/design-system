@@ -252,8 +252,8 @@ function getBackgroundColor(
   return backgroundColor[variant].normal[appearance].filled;
 }
 
-function getWidth(isFullWidth: boolean | undefined) {
-  if (isFullWidth) {
+function getWidth(fullwidth: boolean | undefined) {
+  if (fullwidth) {
     return "100%";
   }
 
@@ -279,7 +279,7 @@ const containerStyles = css`
 const StyledButton = styled.button`
   padding: 0px 16px;
   ${containerStyles}
-  width: ${({ isFullWidth }: IButtonProps) => getWidth(isFullWidth)};
+  width: ${({ fullwidth }: IButtonProps) => getWidth(fullwidth)};
   background-color: ${({ isDisabled, variant, appearance }: IButtonProps) =>
     getBackgroundColor(isDisabled, variant!, appearance!)};
   border-style: ${(props: IButtonProps) =>
@@ -311,7 +311,7 @@ const StyledLink = styled(Link)`
   ${containerStyles}
   border-style: ${(props: IButtonProps) =>
     props.type === "link" ? "solid" : "none"};
-  width: ${({ isfullwidth }: any) => getWidth(!!isfullwidth)};
+  width: ${({ fullwidth }: any) => getWidth(!!fullwidth)};
   color: ${({ isdisabled, variant, appearance }: IButtonProps) =>
     getColor(!!isdisabled, variant!, appearance!)};
   border-color: ${({ isdisabled, variant, appearance }: IButtonProps) =>
