@@ -8,10 +8,10 @@ import { Stack } from "@layouts/Stack";
 import {
   StyledContainer,
   StyledTextarea,
-  StyledErrorMessageContainer,
-  StyledValidMessageContainer,
+  StyledMessageContainer,
 } from "./styles";
 import { ITextareaProps } from ".";
+import { Icon } from "@data/Icon";
 
 const getAppearanceCounter = (
   valueLength: number,
@@ -66,29 +66,28 @@ const Counter = (props: ITextareaProps) => {
   );
 };
 
-const Invalid = (props: Omit<ITextareaProps, "id">) => {
-  const { disabled, status, errorMessage } = props;
+const Message = (props: Omit<ITextareaProps, "id"> & { message?: string }) => {
+  const { disabled, status, message } = props;
 
   return (
-    <StyledErrorMessageContainer disabled={disabled} status={status}>
-      <MdOutlineError />
-      <Text type="body" size="small" appearance={"error"} disabled={disabled}>
-        {errorMessage && `(${errorMessage})`}
-      </Text>
-    </StyledErrorMessageContainer>
-  );
-};
-
-const Success = (props: Omit<ITextareaProps, "id">) => {
-  const { disabled, status, validMessage } = props;
-
-  return (
-    <StyledValidMessageContainer disabled={disabled} status={status}>
-      <MdCheckCircle />
-      <Text type="body" size="small" appearance={"success"} disabled={disabled}>
-        {validMessage}
-      </Text>
-    </StyledValidMessageContainer>
+    status !== "pending" && (
+      <StyledMessageContainer disabled={disabled} status={status}>
+        <Icon
+          appearance={status === "invalid" ? "error" : "success"}
+          disabled={disabled}
+          icon={status === "invalid" ? <MdOutlineError /> : <MdCheckCircle />}
+        />
+        <Text
+          type="body"
+          size="small"
+          margin="8px 0px 0px 4px"
+          appearance={status === "invalid" ? "error" : "success"}
+          disabled={disabled}
+        >
+          {message && `${message}`}
+        </Text>
+      </StyledMessageContainer>
+    )
   );
 };
 
@@ -104,8 +103,7 @@ const TextareaUI = (props: ITextareaProps) => {
     minLength,
     required,
     status,
-    errorMessage,
-    validMessage,
+    message,
     fullwidth,
     isFocused,
     onChange,
@@ -167,19 +165,8 @@ const TextareaUI = (props: ITextareaProps) => {
         value={value}
       />
 
-      {status === "invalid" && (
-        <Invalid
-          disabled={disabled}
-          status={status}
-          errorMessage={errorMessage}
-        />
-      )}
-      {status === "valid" && (
-        <Success
-          disabled={disabled}
-          status={status}
-          validMessage={validMessage}
-        />
+      {status && (
+        <Message disabled={disabled} status={status} message={message} />
       )}
     </StyledContainer>
   );

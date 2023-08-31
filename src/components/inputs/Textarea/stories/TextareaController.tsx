@@ -13,6 +13,9 @@ const TextareaController = (props: ITextareaProps) => {
   };
 
   const onFocus = () => {
+    if (form.status === "invalid") {
+      return setForm({ ...form, status: "invalid" });
+    }
     setForm({ ...form, status: "pending" });
   };
 
@@ -21,6 +24,10 @@ const TextareaController = (props: ITextareaProps) => {
       setForm({ ...form, status: "invalid" });
     } else setForm({ ...form, status: "valid" });
   };
+  const message =
+    form.status === "valid"
+      ? "The field has been successfully validated"
+      : "The number the characters is too long";
   return (
     <Textarea
       {...props}
@@ -30,7 +37,7 @@ const TextareaController = (props: ITextareaProps) => {
       onChange={onChange}
       onFocus={onFocus}
       onBlur={onBlur}
-      errorMessage="The number the characters is too long"
+      message={message}
     />
   );
 };

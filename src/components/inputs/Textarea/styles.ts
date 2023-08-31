@@ -68,12 +68,10 @@ const StyledTextarea = styled.textarea`
   }
 `;
 
-const StyledErrorMessageContainer = styled.div`
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 5px;
+const StyledMessageContainer = styled.div`
+  display: flex;
   align-items: center;
-  padding-left: 12px;
+  margin-left: ${inube.spacing.s200};
   pointer-events: none;
   color: ${({ disabled, status, theme }: ITextareaProps) => {
     if (disabled) {
@@ -98,34 +96,8 @@ const StyledErrorMessageContainer = styled.div`
   & svg {
     width: 14px;
     height: 14px;
+    margin-top: ${inube.spacing.s100};
   }
 `;
 
-const StyledValidMessageContainer = styled(StyledErrorMessageContainer)`
-  color: ${({ disabled, status, theme }: ITextareaProps) => {
-    if (disabled) {
-      return (
-        theme?.color?.text?.gray?.disabled || inube.color.text.gray.disabled
-      );
-    }
-
-    if (status === "valid") {
-      return (
-        theme?.color?.text?.success?.regular || inube.color.text.success.regular
-      );
-    }
-
-    if (status === "invalid") {
-      return (
-        theme?.color?.text?.error?.regular || inube.color.text.error.regular
-      );
-    }
-  }};
-`;
-
-export {
-  StyledContainer,
-  StyledTextarea,
-  StyledErrorMessageContainer,
-  StyledValidMessageContainer,
-};
+export { StyledContainer, StyledTextarea, StyledMessageContainer };
