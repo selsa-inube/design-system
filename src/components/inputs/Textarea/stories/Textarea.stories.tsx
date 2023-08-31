@@ -20,7 +20,6 @@ Default.args = {
   placeholder: "Storybook Textarea",
   disabled: false,
   fullwidth: false,
-  counter: true,
   lengthThreshold: 20,
   required: true,
   value:

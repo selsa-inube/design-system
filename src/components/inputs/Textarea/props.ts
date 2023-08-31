@@ -83,12 +83,7 @@ const props = {
       defaultValue: { summary: false },
     },
   },
-  counter: {
-    description: "option to show a counter of characters",
-    table: {
-      defaultValue: { summary: false },
-    },
-  },
+
   lengthThreshold: {
     description:
       "defines the minimum number of characters for displaying counter alerts",

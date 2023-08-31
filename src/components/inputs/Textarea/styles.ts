@@ -1,39 +1,12 @@
 import styled from "styled-components";
-import { colors } from "@shared/colors/colors";
 import { typography } from "@shared/typography/typography";
 import { ITextareaProps } from ".";
 import { inube } from "@shared/tokens";
-
-const getGrid = (label: string | undefined, counter: boolean | undefined) => {
-  if (label && counter) {
-    return "auto 1fr auto";
-  }
-
-  if (label && !counter) {
-    return "auto 1fr";
-  }
-
-  if (!label && counter) {
-    return "1fr auto";
-  }
-
-  return "1fr";
-};
 
 const StyledContainer = styled.div`
   cursor: ${({ disabled }: ITextareaProps) => disabled && "not-allowed"};
   width: ${({ fullwidth }: ITextareaProps) =>
     fullwidth ? "100%" : "fit-content"};
-`;
-
-const StyledContainerLabel = styled.div`
-  display: grid;
-  grid-template-columns: ${({ label, counter }: ITextareaProps) =>
-    getGrid(label, counter)};
-  gap: 4px;
-  pointer-events: ${({ disabled }: ITextareaProps) => disabled && "none"};
-  align-items: center;
-  margin-bottom: 4px;
 `;
 
 const StyledTextarea = styled.textarea`
@@ -50,7 +23,6 @@ const StyledTextarea = styled.textarea`
     disabled
       ? theme?.color?.text?.gray?.disabled || inube.color.text.gray.disabled
       : theme?.color?.text?.dark?.regular || inube.color.text.dark.regular};
-  background: ${colors.ref.palette.neutral.n10};
   border: 2px solid
     ${({ disabled, status, isFocused, theme }: ITextareaProps) => {
       if (disabled) {
@@ -153,7 +125,6 @@ const StyledValidMessageContainer = styled(StyledErrorMessageContainer)`
 
 export {
   StyledContainer,
-  StyledContainerLabel,
   StyledTextarea,
   StyledErrorMessageContainer,
   StyledValidMessageContainer,

@@ -21,7 +21,6 @@ interface ITextareaProps extends Themed {
   onFocus?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onBlur?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   readOnly?: boolean;
-  counter?: boolean;
   lengthThreshold?: number;
 }
 
@@ -44,7 +43,6 @@ const Textarea = (props: ITextareaProps) => {
     onFocus,
     onBlur,
     readOnly,
-    counter,
     lengthThreshold = 0,
   } = props;
 
@@ -86,7 +84,6 @@ const Textarea = (props: ITextareaProps) => {
       onFocus={interceptFocus}
       onBlur={interceptBlur}
       readOnly={readOnly}
-      counter={counter}
       lengthThreshold={lengthThreshold}
     />
   );
