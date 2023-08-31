@@ -10,8 +10,7 @@ const StyledContainer = styled.div`
 
 const StyledTextarea = styled.textarea`
   border-radius: 8px;
-  padding: ${inube.spacing.s100} ${inube.spacing.s150} ${inube.spacing.s100}
-    ${inube.spacing.s200};
+  padding: ${inube.spacing.s100} ${inube.spacing.s150} ${inube.spacing.s100} ${inube.spacing.s200};
   font-family: ${inube.typography.body.large.font};
   font-size: ${inube.typography.body.large.size};
   font-weight: ${inube.typography.body.large.weight};
@@ -26,37 +25,37 @@ const StyledTextarea = styled.textarea`
       : theme?.color?.text?.dark?.regular || inube.color.text.dark.regular};
   border: 2px solid
     ${({ disabled, status, isFocused, theme }: ITextareaProps) => {
-      if (disabled) {
-        return (
-          theme?.color?.stroke?.gray?.disabled ||
-          inube.color.stroke.gray.disabled
-        );
-      }
-
-      if (status === "invalid") {
-        return (
-          theme?.color?.stroke?.error?.regular ||
-          inube.color.stroke.error.regular
-        );
-      }
-
-      if (isFocused) {
-        return (
-          theme?.color?.stroke?.primary?.hover ||
-          inube.color.stroke.primary.hover
-        );
-      }
+    if (disabled) {
       return (
-        theme?.color?.stroke?.divider?.regular ||
-        inube.color.stroke.divider.regular
+        theme?.color?.stroke?.gray?.disabled ||
+        inube.color.stroke.gray.disabled
       );
-    }};
+    }
+
+    if (status === "invalid") {
+      return (
+        theme?.color?.stroke?.error?.regular ||
+        inube.color.stroke.error.regular
+      );
+    }
+
+    if (isFocused) {
+      return (
+        theme?.color?.stroke?.primary?.hover ||
+        inube.color.stroke.primary.hover
+      );
+    }
+    return (
+      theme?.color?.stroke?.divider?.regular ||
+      inube.color.stroke.divider.regular
+    );
+  }};
   ${({ disabled }: ITextareaProps) =>
     disabled && "pointer-events: none; opacity: 0.5;"}
 
   ::placeholder {
     color: ${({ theme }: ITextareaProps) =>
-      theme?.color?.text?.gray?.regular || inube.color.text.gray.regular};
+    theme?.color?.text?.gray?.regular || inube.color.text.gray.regular};
   }
 
   &:focus {
