@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { TextareaUI } from "./interface";
-import { Status, Themed } from "./props";
+import { Appearence, Status, Themed } from "./props";
 
 interface ITextareaProps extends Themed {
   label?: string;
@@ -10,7 +10,7 @@ interface ITextareaProps extends Themed {
   disabled?: boolean;
   isFocused?: boolean;
   status?: Status;
-  value?: string | number;
+  value?: string;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   maxLength?: number;
   minLength?: number;
@@ -32,9 +32,9 @@ const Textarea = (props: ITextareaProps) => {
     placeholder,
     disabled = false,
     onChange,
-    value,
-    maxLength,
-    minLength,
+    value = "",
+    maxLength = 0,
+    minLength = 0,
     required = false,
     status = "pending",
     errorMessage,
@@ -47,6 +47,13 @@ const Textarea = (props: ITextareaProps) => {
   } = props;
 
   const [isFocused, setIsFocused] = useState(false);
+
+  let appearance: Appearence =
+    maxLength - value.length <= lengthThreshold && value.length <= maxLength
+      ? "warning"
+      : value!?.length > maxLength
+      ? "error"
+      : "gray";
 
   const interceptFocus = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!readOnly) {
@@ -85,6 +92,8 @@ const Textarea = (props: ITextareaProps) => {
       onBlur={interceptBlur}
       readOnly={readOnly}
       lengthThreshold={lengthThreshold}
+      valueLength={value.length}
+      appearance={appearance}
     />
   );
 };
