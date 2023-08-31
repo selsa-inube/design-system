@@ -8,10 +8,6 @@ import {
   Variant,
   SpinnerColorHomologation,
   SpinnerColor,
-  appearances,
-  types,
-  spacings,
-  variants,
 } from "./props";
 
 export interface IButtonProps {
@@ -70,45 +66,21 @@ const getSpinnerColor = (
   return spinnerColorHomologation[variant][appearance] as SpinnerColor;
 };
 
-const defaultAppearance: Appearance = "primary";
-const defaultType: Type = "button";
-const defaultSpacing: Spacing = "wide";
-const defaultVariant: Variant = "filled";
-const defaultSpinnerSize = "small";
-
 const Button = (props: IButtonProps) => {
   const {
     children,
-    appearance = defaultAppearance,
+    appearance = "primary",
     loading = false,
     isDisabled = false,
     iconBefore,
     iconAfter,
-    type = defaultType,
-    spacing = defaultSpacing,
-    variant = defaultVariant,
+    type = "button",
+    spacing = "wide",
+    variant = "filled",
     fullwidth = false,
     handleClick,
     path,
   } = props;
-
-  const transformedAppearance = appearances.includes(appearance)
-    ? appearance
-    : defaultAppearance;
-
-  const transformedType = types.includes(type) ? type : defaultType;
-
-  const transformedSpacing = spacings.includes(spacing)
-    ? spacing
-    : defaultSpacing;
-
-  const transformedVariant = variants.includes(variant)
-    ? variant
-    : defaultVariant;
-
-  const transformedTransparentSpinner = transformedVariant === "filled";
-
-  const transformedHandleClick = isDisabled ? null : handleClick;
 
   if (type === "link" && !path) {
     console.warn("You must provide a path to use a link button");
@@ -129,19 +101,19 @@ const Button = (props: IButtonProps) => {
       <StyledLink
         to={path}
         isdisabled={+isDisabled}
-        variant={transformedVariant}
-        appearance={transformedAppearance}
+        variant={variant}
+        appearance={appearance}
         fullwidth={+fullwidth}
         onClick={transformedLinkHandleClick}
       >
         <StyledButton
-          appearance={transformedAppearance}
+          appearance={appearance}
           isDisabled={isDisabled}
-          spacing={transformedSpacing}
-          variant={transformedVariant}
+          spacing={spacing}
+          variant={variant}
           fullwidth={fullwidth}
         >
-          <StyledSpan isDisabled={isDisabled} variant={transformedVariant}>
+          <StyledSpan isDisabled={isDisabled} variant={variant}>
             {iconBefore && <StyledIcon id="mdIcon">{iconBefore}</StyledIcon>}
             {children}
             {iconAfter && <StyledIcon id="mdIcon">{iconAfter}</StyledIcon>}
@@ -153,28 +125,25 @@ const Button = (props: IButtonProps) => {
 
   return (
     <StyledButton
-      appearance={transformedAppearance}
+      appearance={appearance}
       loading={loading}
       isDisabled={isDisabled}
       iconBefore={iconBefore}
       iconAfter={iconAfter}
-      type={transformedType}
-      spacing={transformedSpacing}
-      variant={transformedVariant}
+      type={type}
+      spacing={spacing}
+      variant={variant}
       fullwidth={fullwidth}
-      onClick={transformedHandleClick}
+      onClick={isDisabled ? null : handleClick}
     >
       {loading && !isDisabled ? (
         <Spinner
-          appearance={getSpinnerColor(
-            transformedVariant,
-            transformedAppearance
-          )}
-          transparent={transformedTransparentSpinner}
-          size={defaultSpinnerSize}
+          appearance={getSpinnerColor(variant, appearance)}
+          transparent={variant === "filled"}
+          size="small"
         />
       ) : (
-        <StyledSpan isDisabled={isDisabled} variant={transformedVariant}>
+        <StyledSpan isDisabled={isDisabled} variant={variant}>
           {iconBefore && <StyledIcon id="mdIcon">{iconBefore}</StyledIcon>}
           {children}
           {iconAfter && <StyledIcon id="mdIcon">{iconAfter}</StyledIcon>}
