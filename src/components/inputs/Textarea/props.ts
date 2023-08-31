@@ -2,6 +2,8 @@ import { inube } from "@shared/tokens";
 
 const status = ["valid", "invalid", "pending"] as const;
 
+type Appearence = "error" | "warning" | "gray";
+
 type Status = typeof status[number];
 
 export type Themed = { theme?: typeof inube };
@@ -88,5 +90,5 @@ const props = {
   },
 };
 
-export type { Status };
+export type { Status, Appearence };
 export { props, parameters };
