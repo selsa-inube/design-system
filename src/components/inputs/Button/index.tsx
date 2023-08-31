@@ -17,7 +17,7 @@ import {
 export interface IButtonProps {
   children: React.ReactNode;
   appearance?: Appearance;
-  isLoading?: boolean;
+  loading?: boolean;
   isDisabled?: boolean;
   isdisabled?: number;
   iconBefore?: React.ReactElement;
@@ -25,7 +25,7 @@ export interface IButtonProps {
   type?: Type;
   spacing?: Spacing;
   variant?: Variant;
-  isFullWidth?: boolean;
+  fullwidth?: boolean;
   handleClick?: (e?: Event) => void;
   path?: string;
 }
@@ -80,14 +80,14 @@ const Button = (props: IButtonProps) => {
   const {
     children,
     appearance = defaultAppearance,
-    isLoading = false,
+    loading = false,
     isDisabled = false,
     iconBefore,
     iconAfter,
     type = defaultType,
     spacing = defaultSpacing,
     variant = defaultVariant,
-    isFullWidth = false,
+    fullwidth = false,
     handleClick,
     path,
   } = props;
@@ -131,7 +131,7 @@ const Button = (props: IButtonProps) => {
         isdisabled={+isDisabled}
         variant={transformedVariant}
         appearance={transformedAppearance}
-        isfullwidth={+isFullWidth}
+        fullwidth={+fullwidth}
         onClick={transformedLinkHandleClick}
       >
         <StyledButton
@@ -139,7 +139,7 @@ const Button = (props: IButtonProps) => {
           isDisabled={isDisabled}
           spacing={transformedSpacing}
           variant={transformedVariant}
-          isFullWidth={isFullWidth}
+          fullwidth={fullwidth}
         >
           <StyledSpan isDisabled={isDisabled} variant={transformedVariant}>
             {iconBefore && <StyledIcon id="mdIcon">{iconBefore}</StyledIcon>}
@@ -154,17 +154,17 @@ const Button = (props: IButtonProps) => {
   return (
     <StyledButton
       appearance={transformedAppearance}
-      isLoading={isLoading}
+      loading={loading}
       isDisabled={isDisabled}
       iconBefore={iconBefore}
       iconAfter={iconAfter}
       type={transformedType}
       spacing={transformedSpacing}
       variant={transformedVariant}
-      isFullWidth={isFullWidth}
+      fullwidth={fullwidth}
       onClick={transformedHandleClick}
     >
-      {isLoading && !isDisabled ? (
+      {loading && !isDisabled ? (
         <Spinner
           appearance={getSpinnerColor(
             transformedVariant,

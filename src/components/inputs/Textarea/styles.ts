@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { typography } from "@shared/typography/typography";
 import { ITextareaProps } from ".";
 import { inube } from "@shared/tokens";
 
@@ -12,10 +11,11 @@ const StyledContainer = styled.div`
 const StyledTextarea = styled.textarea`
   border-radius: 8px;
   padding: 8px 12px 8px 16px;
-  font-family: ${typography.sys.typescale.bodyLarge.font};
-  font-size: ${typography.sys.typescale.bodyLarge.size};
-  font-weight: ${typography.sys.typescale.bodyLarge.weight};
-  line-height: ${typography.sys.typescale.bodyLarge.lineHeight};
+  font-family: ${inube.typography.body.large.font};
+  font-size: ${inube.typography.body.large.size};
+  font-weight: ${inube.typography.body.large.weight};
+  line-height: ${inube.typography.body.large.lineHeight};
+  letter-spacing: ${inube.typography.body.large.tracking};
   width: ${({ fullwidth }: ITextareaProps) =>
     fullwidth ? "calc(100% - 32px)" : "452px"};
   height: 120px;

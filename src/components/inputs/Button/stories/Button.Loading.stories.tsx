@@ -23,7 +23,7 @@ const ButtonComponent = (props: IButtonProps) => {
     <StyledFlex>
       {variants.map((variant) => (
         <div key={variant}>
-          <Button {...props} variant={variant} isLoading={true} />
+          <Button {...props} variant={variant} loading={true} />
         </div>
       ))}
     </StyledFlex>
@@ -38,7 +38,7 @@ Loading.args = {
   type: "button",
   spacing: "wide",
   variant: "filled",
-  isFullWidth: false,
+  fullwidth: false,
   handleClick: () => console.log("clicked"),
 };
 
