@@ -40,7 +40,7 @@ Variants.args = {
   iconBefore: <MdAdd />,
   type: "button",
   spacing: "wide",
-  isFullWidth: false,
+  fullwidth: false,
   handleClick: () => console.log("clicked"),
   path: "/privileges",
 };

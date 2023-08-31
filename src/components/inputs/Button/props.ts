@@ -102,7 +102,7 @@ const props = {
       defaultValue: { summary: "filled" },
     },
   },
-  isFullWidth: {
+  fullwidth: {
     options: [true, false],
     control: { type: "boolean" },
     description: "option to fit button width to its parent width",

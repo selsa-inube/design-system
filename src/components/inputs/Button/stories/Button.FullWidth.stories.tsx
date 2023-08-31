@@ -22,7 +22,7 @@ const story = {
 const ButtonComponent = (props: IButtonProps) => {
   return (
     <StyledFlex>
-      <Button {...props} isFullWidth={true} />
+      <Button {...props} fullwidth={true} />
     </StyledFlex>
   );
 };

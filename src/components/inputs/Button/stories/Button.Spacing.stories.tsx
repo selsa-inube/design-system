@@ -40,7 +40,7 @@ Spacing.args = {
   iconBefore: <MdAdd />,
   type: "button",
   variant: "filled",
-  isFullWidth: false,
+  fullwidth: false,
   handleClick: () => console.log("clicked"),
   path: "/privileges",
 };
