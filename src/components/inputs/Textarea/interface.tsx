@@ -1,13 +1,13 @@
 import { MdOutlineError, MdCheckCircle } from "react-icons/md";
 
-import { Appearence } from "./props";
+import { Stack } from "@layouts/Stack";
 import { Label } from "@inputs/Label";
 import { Text } from "@data/Text";
 
+import { Appearence } from "./props";
 import { ITextareaProps } from ".";
 import {
   StyledContainer,
-  StyledContainerLabel,
   StyledTextarea,
   StyledErrorMessageContainer,
   StyledValidMessageContainer,
@@ -82,7 +82,6 @@ const TextareaUI = (
     onFocus,
     onBlur,
     readOnly,
-    counter,
     lengthThreshold,
     valueLength,
     appearance,
@@ -90,39 +89,39 @@ const TextareaUI = (
 
   return (
     <StyledContainer fullwidth={fullwidth} disabled={disabled}>
-      <StyledContainerLabel
-        alignItems="center"
-        wrap="wrap"
-        disabled={disabled}
-        label={label}
-        counter={counter}
-      >
-        {label && (
-          <Label
-            htmlFor={id}
-            disabled={disabled}
-            focused={isFocused}
-            invalid={status === "invalid" ? true : false}
-          >
-            {label}
-          </Label>
-        )}
+      <Stack width="100%" margin="s0 s0 s050 s0">
+        {(label || required) && (
+          <Stack gap="4px" alignItems="center" padding="s0 s0 s0 s200">
+            {label && (
+              <Label
+                htmlFor={id}
+                disabled={disabled}
+                focused={isFocused}
+                invalid={status === "invalid" ? true : false}
+              >
+                {label}
+              </Label>
+            )}
 
-        {required && !disabled && (
-          <Text type="body" size="small" appearance="dark">
-            (Requerido)
-          </Text>
+            {required && !disabled && (
+              <Text type="body" size="small" appearance="dark">
+                (Requerido)
+              </Text>
+            )}
+          </Stack>
         )}
-        {counter && !disabled && (
-          <Counter
-            appearance={appearance}
-            maxLength={maxLength}
-            lengthThreshold={lengthThreshold}
-            disabled={disabled}
-            valueLength={valueLength}
-          />
+        {!disabled && (
+          <Stack justifyContent="flex-end" alignItems="center" width="100%">
+            <Counter
+              appearance={appearance}
+              maxLength={maxLength}
+              lengthThreshold={lengthThreshold}
+              disabled={disabled}
+              valueLength={valueLength}
+            />
+          </Stack>
         )}
-      </StyledContainerLabel>
+      </Stack>
 
       <StyledTextarea
         name={name}

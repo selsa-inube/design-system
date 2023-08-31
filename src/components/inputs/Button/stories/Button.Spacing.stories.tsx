@@ -35,12 +35,12 @@ export const Spacing = (args: IButtonProps) => <ButtonComponent {...args} />;
 Spacing.args = {
   children: "Button",
   appearance: "primary",
-  isLoading: false,
+  loading: false,
   isDisabled: false,
   iconBefore: <MdAdd />,
   type: "button",
   variant: "filled",
-  isFullWidth: false,
+  fullwidth: false,
   handleClick: () => console.log("clicked"),
   path: "/privileges",
 };

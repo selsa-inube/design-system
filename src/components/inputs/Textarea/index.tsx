@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { TextareaUI } from "./interface";
-import { Appearence, Status } from "./props";
+import { Appearence, Status, Themed } from "./props";
 
-interface ITextareaProps {
+interface ITextareaProps extends Themed {
   label?: string;
   name?: string;
   id: string;
@@ -21,7 +21,6 @@ interface ITextareaProps {
   onFocus?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onBlur?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   readOnly?: boolean;
-  counter?: boolean;
   lengthThreshold?: number;
 }
 
@@ -44,7 +43,6 @@ const Textarea = (props: ITextareaProps) => {
     onFocus,
     onBlur,
     readOnly,
-    counter,
     lengthThreshold = 0,
   } = props;
 
@@ -93,7 +91,6 @@ const Textarea = (props: ITextareaProps) => {
       onFocus={interceptFocus}
       onBlur={interceptBlur}
       readOnly={readOnly}
-      counter={counter}
       lengthThreshold={lengthThreshold}
       valueLength={value.length}
       appearance={appearance}
