@@ -305,7 +305,7 @@ const StyledLink = styled(Link)`
   ${containerStyles}
   border-style: ${(props: IButtonProps) =>
     props.type === "link" ? "solid" : "none"};
-  width: ${({ fullwidth }: any) => getWidth(!!fullwidth)};
+  width: ${({ fullwidth }: IButtonProps) => getWidth(!!fullwidth)};
   color: ${({ disabled, variant, appearance }: IButtonProps) =>
     getColor(!!disabled, variant!, appearance!)};
   border-color: ${({ disabled, variant, appearance }: IButtonProps) =>

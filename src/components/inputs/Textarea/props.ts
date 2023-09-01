@@ -49,10 +49,6 @@ const props = {
     description:
       "defines how many characters maximum are received in the component value",
   },
-  minLength: {
-    description:
-      "defines how many minimum characters the component receives as a value",
-  },
   required: {
     description: "defines if the field is required or not",
     table: {
