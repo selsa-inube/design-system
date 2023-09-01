@@ -1,5 +1,5 @@
 import { Spinner } from "@feedback/Spinner";
-import { colors } from "@shared/colors/colors";
+
 import {
   Appearance,
   Type,
@@ -24,12 +24,6 @@ export interface IButtonProps {
   handleClick?: (e?: Event) => void;
   path?: string;
 }
-
-const fixedColors: { [key: string]: any } = Object.assign(
-  {},
-  colors.sys.actions
-);
-delete fixedColors.disabled;
 
 const spinnerColorHomologation: SpinnerColorHomologation = {
   filled: {
