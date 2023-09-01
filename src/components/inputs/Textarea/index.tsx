@@ -67,7 +67,6 @@ interface ITextareaProps extends Themed {
   value?: string;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   maxLength?: number;
-  minLength?: number;
   required?: boolean;
   message?: string;
   fullwidth?: boolean;
@@ -86,9 +85,8 @@ const Textarea = (props: ITextareaProps) => {
     disabled,
     value = "",
     maxLength = 0,
-    minLength = 0,
     required,
-    status,
+    status = "pending",
     message,
     fullwidth,
     onChange,
@@ -164,7 +162,6 @@ const Textarea = (props: ITextareaProps) => {
         id={id}
         placeholder={placeholder}
         disabled={disabled}
-        minLength={minLength}
         required={required}
         status={status}
         fullwidth={fullwidth}
