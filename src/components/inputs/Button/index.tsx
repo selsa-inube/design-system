@@ -89,10 +89,11 @@ const Button = (props: IButtonProps) => {
     return (
       <StyledLink
         to={path}
-        isdisabled={+disabled}
+        disabled={+disabled}
         variant={variant}
         appearance={appearance}
         fullwidth={+fullwidth}
+        onClick={handleClick}
       >
         <StyledButton
           appearance={appearance}

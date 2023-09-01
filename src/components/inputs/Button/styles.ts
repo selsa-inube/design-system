@@ -294,6 +294,7 @@ const StyledButton = styled.button`
     getBackgroundColor(disabled, variant!, appearance!)};
   cursor: ${({ disabled, loading }: IButtonProps) =>
     getPointer(disabled, loading)};
+  pointer-events: ${({ disabled }: IButtonProps) => disabled && "none"};
 
   &:hover {
     color: ${({ disabled, variant, appearance }: IButtonProps) =>
@@ -311,14 +312,15 @@ const StyledLink = styled(Link)`
   ${containerStyles}
   border-style: ${(props: IButtonProps) =>
     props.type === "link" ? "solid" : "none"};
-  width: ${({ fullwidth }: any) => getWidth(!!fullwidth)};
+  width: ${({ fullwidth }: IButtonProps) => getWidth(!!fullwidth)};
   color: ${({ disabled, variant, appearance }: IButtonProps) =>
     getColor(!!disabled, variant!, appearance!)};
   border-color: ${({ disabled, variant, appearance }: IButtonProps) =>
     getBorderColor(!!disabled, variant!, appearance!)};
   background-color: ${({ disabled, variant, appearance }: IButtonProps) =>
     getBackgroundColor(!!disabled, variant!, appearance!)};
-  cursor: ${({ disabled }: any) => getPointer(!!disabled)};
+  cursor: ${({ disabled }: IButtonProps) => getPointer(!!disabled)};
+  pointer-events: ${({ disabled }: IButtonProps) => disabled && "none"};
 
   &:hover {
     color: ${({ disabled, variant, appearance }: IButtonProps) =>
