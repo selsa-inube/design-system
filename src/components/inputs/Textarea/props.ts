@@ -2,6 +2,8 @@ import { inube } from "@shared/tokens";
 
 const status = ["valid", "invalid", "pending"] as const;
 
+type Appearence = "error" | "warning" | "gray";
+
 type Status = typeof status[number];
 
 export type Themed = { theme?: typeof inube };
@@ -65,11 +67,9 @@ const props = {
       defaultValue: { summary: "pending" },
     },
   },
-  errorMessage: {
-    description: "show when the field is validated and there is an error",
-  },
-  validMessage: {
-    description: "show when the field is validated without errors",
+  message: {
+    description:
+      "display a message, provided by the developer implementing the component, which can be either an error notification or a validation prompt",
   },
   fullwidth: {
     description: "option to fit field width to its parent width",
@@ -90,5 +90,5 @@ const props = {
   },
 };
 
-export type { Status };
+export type { Status, Appearence };
 export { props, parameters };

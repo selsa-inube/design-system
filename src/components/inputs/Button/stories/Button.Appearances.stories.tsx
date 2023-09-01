@@ -38,7 +38,7 @@ export const Appearances = (args: IButtonProps) => (
 Appearances.args = {
   children: "Button",
   loading: false,
-  isDisabled: false,
+  disabled: false,
   iconBefore: <MdAdd />,
   type: "button",
   spacing: "wide",
