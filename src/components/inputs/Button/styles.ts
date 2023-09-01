@@ -178,21 +178,6 @@ const borderColors: IBorderColors = {
   none: colors.ref.palette.neutralAlpha.n0A,
 };
 
-const getPointer = (
-  disabled: boolean | undefined,
-  loading: boolean = false
-) => {
-  if (disabled) {
-    return cursors.notAllowed;
-  }
-
-  if (loading) {
-    return cursors.progress;
-  }
-
-  return cursors.pointer;
-};
-
 const getColor = (
   disabled: boolean | undefined,
   variant: Variant,
@@ -292,8 +277,17 @@ const StyledButton = styled.button`
     getBorderColor(disabled, variant!, appearance!)};
   background-color: ${({ disabled, variant, appearance }: IButtonProps) =>
     getBackgroundColor(disabled, variant!, appearance!)};
-  cursor: ${({ disabled, loading }: IButtonProps) =>
-    getPointer(disabled, loading)};
+  cursor: ${({ disabled, loading }: IButtonProps) => {
+    if (disabled) {
+      return cursors.notAllowed;
+    }
+
+    if (loading) {
+      return cursors.progress;
+    }
+
+    return cursors.pointer;
+  }};
 
   &:hover {
     color: ${({ disabled, variant, appearance }: IButtonProps) =>
@@ -318,7 +312,17 @@ const StyledLink = styled(Link)`
     getBorderColor(!!disabled, variant!, appearance!)};
   background-color: ${({ disabled, variant, appearance }: IButtonProps) =>
     getBackgroundColor(!!disabled, variant!, appearance!)};
-  cursor: ${({ disabled }: any) => getPointer(!!disabled)};
+  cursor: ${({ disabled, loading }: IButtonProps) => {
+    if (disabled) {
+      return cursors.notAllowed;
+    }
+
+    if (loading) {
+      return cursors.progress;
+    }
+
+    return cursors.pointer;
+  }};
 
   &:hover {
     color: ${({ disabled, variant, appearance }: IButtonProps) =>
