@@ -178,21 +178,6 @@ const borderColors: IBorderColors = {
   none: colors.ref.palette.neutralAlpha.n0A,
 };
 
-const getPointer = (
-  disabled: boolean | undefined,
-  loading: boolean = false
-) => {
-  if (disabled) {
-    return cursors.notAllowed;
-  }
-
-  if (loading) {
-    return cursors.progress;
-  }
-
-  return cursors.pointer;
-};
-
 const getColor = (
   disabled: boolean | undefined,
   variant: Variant,
@@ -292,8 +277,17 @@ const StyledButton = styled.button`
     getBorderColor(disabled, variant!, appearance!)};
   background-color: ${({ disabled, variant, appearance }: IButtonProps) =>
     getBackgroundColor(disabled, variant!, appearance!)};
-  cursor: ${({ disabled, loading }: IButtonProps) =>
-    getPointer(disabled, loading)};
+  cursor: ${({ disabled, loading }: IButtonProps) => {
+    if (disabled) {
+      return cursors.notAllowed;
+    }
+
+    if (loading) {
+      return cursors.progress;
+    }
+
+    return cursors.pointer;
+  }};
 
   &:hover {
     color: ${({ disabled, variant, appearance }: IButtonProps) =>
@@ -311,14 +305,24 @@ const StyledLink = styled(Link)`
   ${containerStyles}
   border-style: ${(props: IButtonProps) =>
     props.type === "link" ? "solid" : "none"};
-  width: ${({ fullwidth }: any) => getWidth(!!fullwidth)};
+  width: ${({ fullwidth }: IButtonProps) => getWidth(!!fullwidth)};
   color: ${({ disabled, variant, appearance }: IButtonProps) =>
     getColor(!!disabled, variant!, appearance!)};
   border-color: ${({ disabled, variant, appearance }: IButtonProps) =>
     getBorderColor(!!disabled, variant!, appearance!)};
   background-color: ${({ disabled, variant, appearance }: IButtonProps) =>
     getBackgroundColor(!!disabled, variant!, appearance!)};
-  cursor: ${({ disabled }: any) => getPointer(!!disabled)};
+  cursor: ${({ disabled, loading }: IButtonProps) => {
+    if (disabled) {
+      return cursors.notAllowed;
+    }
+
+    if (loading) {
+      return cursors.progress;
+    }
+
+    return cursors.pointer;
+  }};
 
   &:hover {
     color: ${({ disabled, variant, appearance }: IButtonProps) =>
