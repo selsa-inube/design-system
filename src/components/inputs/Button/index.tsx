@@ -5,14 +5,17 @@ import {
   Type,
   Spacing,
   Variant,
-  SpinnerColorHomologation,
-  SpinnerColor,
+  Themed,
+  ButtonAppearanceType,
 } from "./props";
-import { StyledButton, StyledSpan, StyledIcon, StyledLink } from "./styles";
+import { StyledButton, StyledSpan, StyledLink } from "./styles";
+import { Text } from "@data/Text";
+import { useState } from "react";
+import { Icon } from "@data/Icon";
 
-export interface IButtonProps {
+export interface IButtonProps extends Themed {
   children: React.ReactNode;
-  appearance?: Appearance;
+  appearance: Appearance;
   loading?: boolean;
   disabled?: boolean;
   iconBefore?: React.ReactElement;
@@ -25,40 +28,7 @@ export interface IButtonProps {
   path?: string;
 }
 
-const spinnerColorHomologation: SpinnerColorHomologation = {
-  filled: {
-    primary: "white",
-    secondary: "dark",
-    confirm: "white",
-    warning: "dark",
-    remove: "white",
-    help: "white",
-  },
-  outlined: {
-    primary: "blue",
-    secondary: "dark",
-    confirm: "green",
-    warning: "yellow",
-    remove: "red",
-    help: "purple",
-  },
-  none: {
-    primary: "blue",
-    secondary: "dark",
-    confirm: "green",
-    warning: "yellow",
-    remove: "red",
-    help: "purple",
-  },
-};
-
-const getSpinnerColor = (
-  variant: Variant,
-  appearance: Appearance
-): SpinnerColor => {
-  return spinnerColorHomologation[variant][appearance] as SpinnerColor;
-};
-
+const darkWhenFilled: ButtonAppearanceType[] = ["warning", "gray", "light"];
 const Button = (props: IButtonProps) => {
   const {
     children,
@@ -75,6 +45,22 @@ const Button = (props: IButtonProps) => {
     path,
   } = props;
 
+  const [hover, setHover] = useState(false);
+  function toggleHover(newState: boolean): void {
+    if (variant !== "filled") {
+      setHover(newState);
+    }
+  }
+  function getAppearance() {
+    if (variant === "filled") {
+      if (darkWhenFilled.includes(appearance)) {
+        return "dark";
+      }
+      return "light";
+    }
+    return appearance;
+  }
+
   if (type === "link" && !path) {
     console.warn("You must provide a path to use a link button");
   }
@@ -88,6 +74,8 @@ const Button = (props: IButtonProps) => {
         appearance={appearance}
         fullwidth={+fullwidth}
         onClick={handleClick}
+        onMouseEnter={() => toggleHover(true)}
+        onMouseLeave={() => toggleHover(false)}
       >
         <StyledButton
           appearance={appearance}
@@ -97,9 +85,36 @@ const Button = (props: IButtonProps) => {
           fullwidth={fullwidth}
         >
           <StyledSpan disabled={disabled} variant={variant}>
-            {iconBefore && <StyledIcon id="mdIcon">{iconBefore}</StyledIcon>}
-            {children}
-            {iconAfter && <StyledIcon id="mdIcon">{iconAfter}</StyledIcon>}
+            {iconBefore && (
+              <Icon
+                icon={iconBefore}
+                spacing="none"
+                size="18px"
+                appearance={getAppearance()}
+                disabled={disabled}
+                parentHover={hover}
+              />
+            )}
+            <Text
+              type="label"
+              size="large"
+              appearance={getAppearance()}
+              disabled={disabled}
+              parentHover={hover}
+              ellipsis={true}
+            >
+              {children}
+            </Text>
+            {iconAfter && (
+              <Icon
+                icon={iconAfter}
+                spacing="none"
+                size="18px"
+                appearance={getAppearance()}
+                disabled={disabled}
+                parentHover={hover}
+              />
+            )}
           </StyledSpan>
         </StyledButton>
       </StyledLink>
@@ -118,18 +133,47 @@ const Button = (props: IButtonProps) => {
       variant={variant}
       fullwidth={fullwidth}
       onClick={disabled ? null : handleClick}
+      onMouseEnter={() => toggleHover(true)}
+      onMouseLeave={() => toggleHover(false)}
     >
       {loading && !disabled ? (
         <Spinner
-          appearance={getSpinnerColor(variant, appearance)}
+          appearance={getAppearance()}
           transparent={variant === "filled"}
           size="small"
         />
       ) : (
         <StyledSpan disabled={disabled} variant={variant}>
-          {iconBefore && <StyledIcon id="mdIcon">{iconBefore}</StyledIcon>}
-          {children}
-          {iconAfter && <StyledIcon id="mdIcon">{iconAfter}</StyledIcon>}
+          {iconBefore && (
+            <Icon
+              icon={iconBefore}
+              spacing="none"
+              size="18px"
+              appearance={getAppearance()}
+              disabled={disabled}
+              parentHover={hover}
+            />
+          )}
+          <Text
+            type="label"
+            size="large"
+            appearance={getAppearance()}
+            disabled={disabled}
+            parentHover={hover}
+            ellipsis={true}
+          >
+            {children}
+          </Text>
+          {iconAfter && (
+            <Icon
+              icon={iconAfter}
+              spacing="none"
+              size="18px"
+              appearance={getAppearance()}
+              disabled={disabled}
+              parentHover={hover}
+            />
+          )}
         </StyledSpan>
       )}
     </StyledButton>
