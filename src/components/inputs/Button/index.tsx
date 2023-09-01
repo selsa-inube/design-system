@@ -1,4 +1,3 @@
-import { StyledButton, StyledSpan, StyledIcon, StyledLink } from "./styles";
 import { Spinner } from "@feedback/Spinner";
 import { colors } from "@shared/colors/colors";
 import {
@@ -9,6 +8,7 @@ import {
   SpinnerColorHomologation,
   SpinnerColor,
 } from "./props";
+import { StyledButton, StyledSpan, StyledIcon, StyledLink } from "./styles";
 
 export interface IButtonProps {
   children: React.ReactNode;
