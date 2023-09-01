@@ -40,7 +40,7 @@ Icons.args = {
   children: "Button",
   appearance: "primary",
   loading: false,
-  isDisabled: false,
+  disabled: false,
   type: "button",
   spacing: "wide",
   variant: "filled",

@@ -1,6 +1,60 @@
 import { useState } from "react";
-import { TextareaUI } from "./interface";
+import { MdOutlineError, MdCheckCircle } from "react-icons/md";
+
+import { Stack } from "@layouts/Stack";
+import { Icon } from "@data/Icon";
+import { Label } from "@inputs/Label";
+import { Text } from "@data/Text";
 import { Appearence, Status, Themed } from "./props";
+
+import {
+  StyledContainer,
+  StyledTextarea,
+  StyledMessageContainer,
+} from "./styles";
+
+const Counter = (
+  props: Omit<ITextareaProps, "id"> & {
+    valueLength: number;
+    appearance: Appearence;
+  }
+) => {
+  const { maxLength, appearance, disabled, valueLength } = props;
+
+  return (
+    <Text
+      type="body"
+      size="small"
+      disabled={disabled}
+      appearance={appearance}
+    >{`${valueLength}/${maxLength}`}</Text>
+  );
+};
+
+const Message = (props: Omit<ITextareaProps, "id">) => {
+  const { disabled, status, message } = props;
+
+  return (
+    status !== "pending" && (
+      <StyledMessageContainer disabled={disabled} status={status}>
+        <Icon
+          appearance={status === "invalid" ? "error" : "success"}
+          disabled={disabled}
+          icon={status === "invalid" ? <MdOutlineError /> : <MdCheckCircle />}
+        />
+        <Text
+          type="body"
+          size="small"
+          margin="8px 0px 0px 4px"
+          appearance={status === "invalid" ? "error" : "success"}
+          disabled={disabled}
+        >
+          {message && `${message}`}
+        </Text>
+      </StyledMessageContainer>
+    )
+  );
+};
 
 interface ITextareaProps extends Themed {
   label?: string;
@@ -15,8 +69,7 @@ interface ITextareaProps extends Themed {
   maxLength?: number;
   minLength?: number;
   required?: boolean;
-  errorMessage?: string;
-  validMessage?: string;
+  message?: string;
   fullwidth?: boolean;
   onFocus?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onBlur?: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -30,16 +83,15 @@ const Textarea = (props: ITextareaProps) => {
     name,
     id,
     placeholder,
-    disabled = false,
-    onChange,
+    disabled,
     value = "",
     maxLength = 0,
     minLength = 0,
-    required = false,
-    status = "pending",
-    errorMessage,
-    validMessage,
-    fullwidth = false,
+    required,
+    status,
+    message,
+    fullwidth,
+    onChange,
     onFocus,
     onBlur,
     readOnly,
@@ -72,29 +124,62 @@ const Textarea = (props: ITextareaProps) => {
   };
 
   return (
-    <TextareaUI
-      label={label}
-      name={name}
-      id={id}
-      placeholder={placeholder}
-      disabled={disabled}
-      value={value}
-      maxLength={maxLength}
-      minLength={minLength}
-      required={required}
-      status={status}
-      errorMessage={errorMessage}
-      validMessage={validMessage}
-      fullwidth={fullwidth}
-      isFocused={isFocused}
-      onChange={onChange}
-      onFocus={interceptFocus}
-      onBlur={interceptBlur}
-      readOnly={readOnly}
-      lengthThreshold={lengthThreshold}
-      valueLength={value.length}
-      appearance={appearance}
-    />
+    <StyledContainer fullwidth={fullwidth} disabled={disabled}>
+      <Stack width="100%" margin="s0 s0 s050 s0">
+        {(label || required) && (
+          <Stack gap="4px" alignItems="center" padding="s0 s0 s0 s200">
+            {label && (
+              <Label
+                htmlFor={id}
+                disabled={disabled}
+                focused={isFocused}
+                invalid={status === "invalid" ? true : false}
+              >
+                {label}
+              </Label>
+            )}
+
+            {required && !disabled && (
+              <Text type="body" size="small" appearance="dark">
+                (Requerido)
+              </Text>
+            )}
+          </Stack>
+        )}
+        {!disabled && (
+          <Stack justifyContent="flex-end" alignItems="center" width="100%">
+            <Counter
+              appearance={appearance}
+              maxLength={maxLength}
+              lengthThreshold={lengthThreshold}
+              disabled={disabled}
+              valueLength={value!.length}
+            />
+          </Stack>
+        )}
+      </Stack>
+
+      <StyledTextarea
+        name={name}
+        id={id}
+        placeholder={placeholder}
+        disabled={disabled}
+        minLength={minLength}
+        required={required}
+        status={status}
+        fullwidth={fullwidth}
+        isFocused={isFocused}
+        onChange={onChange}
+        onFocus={interceptFocus}
+        onBlur={interceptBlur}
+        readOnly={readOnly}
+        value={value}
+      />
+
+      {status && (
+        <Message disabled={disabled} status={status} message={message} />
+      )}
+    </StyledContainer>
   );
 };
 
