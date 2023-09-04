@@ -5,12 +5,6 @@ import { typography } from "@shared/typography/typography";
 import { IButtonProps } from ".";
 import { inube } from "@shared/tokens";
 
-export interface ICursors {
-  pointer: string;
-  notAllowed: string;
-  progress: string;
-}
-
 export interface ISpacingDetail {
   height: string;
   minWidth: string;
@@ -98,7 +92,7 @@ const spacing: ISpacing = {
   },
 };
 
-const cursors: ICursors = {
+const cursors = {
   pointer: "pointer",
   notAllowed: "not-allowed",
   progress: "progress",
