@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
 
-import { colors } from "@shared/colors/colors";
 import { typography } from "@shared/typography/typography";
 import { IButtonProps } from ".";
-import { Appearance, Variant } from "./props";
+import { inube } from "@shared/tokens";
 
 export interface ICursors {
   pointer: string;
@@ -105,138 +104,6 @@ const cursors: ICursors = {
   progress: "progress",
 };
 
-const hoverColors: IHoverColors = {
-  primary: colors.ref.palette.blue.b300,
-  secondary: colors.ref.palette.neutral.n20,
-  confirm: colors.ref.palette.green.g300,
-  warning: colors.ref.palette.yellow.y300,
-  remove: colors.ref.palette.red.r300,
-  help: colors.ref.palette.purple.p300,
-};
-
-const textColors: ITextColors = {
-  filled: {
-    normal: {
-      primary: colors.ref.palette.neutral.n0,
-      secondary: colors.ref.palette.neutral.n300,
-      confirm: colors.ref.palette.neutral.n0,
-      warning: colors.ref.palette.neutral.n900,
-      remove: colors.ref.palette.neutral.n0,
-      help: colors.ref.palette.neutral.n0,
-      disabled: colors.sys.text.disabled,
-    },
-    hover: colors.ref.palette.neutral.n0,
-  },
-  outlined: {
-    normal: {
-      ...colors.sys.text,
-      confirm: colors.sys.text.success,
-      remove: colors.sys.text.error,
-    },
-    hover: {
-      ...hoverColors,
-      secondary: colors.ref.palette.neutral.n200,
-    },
-  },
-  none: {
-    normal: {
-      ...colors.sys.text,
-      confirm: colors.sys.text.success,
-      remove: colors.sys.text.error,
-    },
-    hover: {
-      ...hoverColors,
-      secondary: colors.ref.palette.neutral.n200,
-    },
-  },
-};
-
-const backgroundColor: IBackgroundColors = {
-  filled: {
-    normal: {
-      ...colors.sys.actions,
-    },
-    hover: {
-      ...hoverColors,
-    },
-  },
-  outlined: colors.ref.palette.neutralAlpha.n0A,
-  none: colors.ref.palette.neutralAlpha.n0A,
-};
-
-const borderColors: IBorderColors = {
-  filled: colors.ref.palette.neutralAlpha.n0A,
-  outlined: {
-    normal: {
-      ...colors.sys.actions,
-    },
-    hover: {
-      ...hoverColors,
-      secondary: colors.ref.palette.neutral.n200,
-    },
-  },
-  none: colors.ref.palette.neutralAlpha.n0A,
-};
-
-const getColor = (
-  disabled: boolean | undefined,
-  variant: Variant,
-  appearance: Appearance,
-  isHover: boolean = false
-) => {
-  if (disabled) {
-    return textColors.filled.normal.disabled;
-  }
-
-  if (isHover) {
-    return textColors[variant].hover[appearance];
-  }
-
-  return textColors[variant].normal[appearance];
-};
-
-const getBorderColor = (
-  disabled: boolean | undefined,
-  variant: Variant,
-  appearance: Appearance,
-  isHover: boolean = false
-) => {
-  if (variant !== "outlined") {
-    return borderColors[variant];
-  }
-
-  if (disabled) {
-    return borderColors[variant].normal.disabled.stroke;
-  }
-
-  if (isHover) {
-    return borderColors[variant].hover[appearance];
-  }
-
-  return borderColors[variant].normal[appearance].stroke;
-};
-
-function getBackgroundColor(
-  disabled: boolean | undefined,
-  variant: Variant,
-  appearance: Appearance,
-  isHover: boolean = false
-) {
-  if (variant !== "filled") {
-    return backgroundColor[variant];
-  }
-
-  if (disabled) {
-    return backgroundColor[variant].normal.disabled.filled;
-  }
-
-  if (isHover) {
-    return backgroundColor[variant].hover[appearance];
-  }
-
-  return backgroundColor[variant].normal[appearance].filled;
-}
-
 function getWidth(fullwidth: boolean | undefined) {
   if (fullwidth) {
     return "100%";
@@ -265,18 +132,49 @@ const StyledButton = styled.button`
   padding: 0px 16px;
   ${containerStyles}
   width: ${({ fullwidth }: IButtonProps) => getWidth(fullwidth)};
-  background-color: ${({ disabled, variant, appearance }: IButtonProps) =>
-    getBackgroundColor(disabled, variant!, appearance!)};
   border-style: ${(props: IButtonProps) =>
     props.type !== "link" ? "solid" : "none"};
   ${(props: IButtonProps) => spacing[props.spacing!]};
 
-  color: ${({ disabled, variant, appearance }: IButtonProps) =>
-    getColor(disabled, variant!, appearance!)};
-  border-color: ${({ disabled, variant, appearance }: IButtonProps) =>
-    getBorderColor(disabled, variant!, appearance!)};
-  background-color: ${({ disabled, variant, appearance }: IButtonProps) =>
-    getBackgroundColor(disabled, variant!, appearance!)};
+  background-color: ${({
+    theme,
+    appearance,
+    variant,
+    disabled,
+  }: IButtonProps) => {
+    if (variant === "filled") {
+      if (disabled) {
+        return (
+          theme?.color?.surface?.[appearance!]?.disabled ||
+          inube.color.surface[appearance!].disabled
+        );
+      }
+      return (
+        theme?.color?.surface?.[appearance!]?.regular ||
+        inube.color.surface[appearance!].regular
+      );
+    }
+
+    return "transparent";
+  }};
+
+  border-color: ${({ theme, appearance, variant, disabled }: IButtonProps) => {
+    if (disabled) {
+      return (
+        theme?.color?.stroke?.[appearance!]?.disabled ||
+        inube.color.stroke[appearance!].disabled
+      );
+    }
+    if (variant === "none") {
+      return "transparent";
+    }
+
+    return (
+      theme?.color?.stroke?.[appearance!]?.regular ||
+      inube.color.stroke[appearance!].regular
+    );
+  }};
+
   cursor: ${({ disabled, loading }: IButtonProps) => {
     if (disabled) {
       return cursors.notAllowed;
@@ -290,12 +188,41 @@ const StyledButton = styled.button`
   }};
 
   &:hover {
-    color: ${({ disabled, variant, appearance }: IButtonProps) =>
-      getColor(disabled, variant!, appearance!, true)};
-    border-color: ${({ disabled, variant, appearance }: IButtonProps) =>
-      getBorderColor(disabled, variant!, appearance!, true)};
-    background-color: ${({ disabled, variant, appearance }: IButtonProps) =>
-      getBackgroundColor(disabled, variant!, appearance!, true)};
+    border-color: ${({
+      theme,
+      appearance,
+      variant,
+      disabled,
+    }: IButtonProps) => {
+      if (!disabled) {
+        if (variant === "none") {
+          return "transparent";
+        }
+        return (
+          theme?.color?.stroke?.[appearance!]?.hover ||
+          inube.color.stroke[appearance!].hover
+        );
+      }
+    }};
+
+    background-color: ${({
+      theme,
+      appearance,
+      variant,
+      disabled,
+    }: IButtonProps) => {
+      if (!disabled) {
+        if (variant === "filled") {
+          return (
+            theme?.color?.surface?.[appearance!]?.hover ||
+            inube.color.surface[appearance!].hover
+          );
+        }
+        if (variant === "none") {
+          return "transparent";
+        }
+      }
+    }};
   }
 `;
 
@@ -306,12 +233,8 @@ const StyledLink = styled(Link)`
   border-style: ${(props: IButtonProps) =>
     props.type === "link" ? "solid" : "none"};
   width: ${({ fullwidth }: IButtonProps) => getWidth(!!fullwidth)};
-  color: ${({ disabled, variant, appearance }: IButtonProps) =>
-    getColor(!!disabled, variant!, appearance!)};
-  border-color: ${({ disabled, variant, appearance }: IButtonProps) =>
-    getBorderColor(!!disabled, variant!, appearance!)};
-  background-color: ${({ disabled, variant, appearance }: IButtonProps) =>
-    getBackgroundColor(!!disabled, variant!, appearance!)};
+
+  ${StyledButton}
   cursor: ${({ disabled, loading }: IButtonProps) => {
     if (disabled) {
       return cursors.notAllowed;
@@ -323,15 +246,6 @@ const StyledLink = styled(Link)`
 
     return cursors.pointer;
   }};
-
-  &:hover {
-    color: ${({ disabled, variant, appearance }: IButtonProps) =>
-      getColor(!!disabled, variant!, appearance!, true)};
-    border-color: ${({ disabled, variant, appearance }: IButtonProps) =>
-      getBorderColor(!!disabled, variant!, appearance!, true)};
-    background-color: ${({ disabled, variant, appearance }: IButtonProps) =>
-      getBackgroundColor(!!disabled, variant!, appearance!, true)};
-  }
 `;
 
 const StyledSpan = styled.span`
@@ -341,9 +255,4 @@ const StyledSpan = styled.span`
   overflow: hidden;
 `;
 
-const StyledIcon = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-export { StyledButton, StyledSpan, StyledIcon, StyledLink };
+export { StyledButton, StyledSpan, StyledLink };

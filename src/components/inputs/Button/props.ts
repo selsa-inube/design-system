@@ -1,13 +1,18 @@
+import { inube } from "@shared/tokens";
+
 export const appearances = [
   "primary",
-  "secondary",
-  "confirm",
+  "error",
   "warning",
-  "remove",
+  "success",
+  "information",
   "help",
+  "light",
+  "gray",
+  "dark",
 ] as const;
 export type Appearance = typeof appearances[number];
-
+export type ButtonAppearanceType = typeof appearances[number];
 export const spacings = ["wide", "compact"] as const;
 export type Spacing = typeof spacings[number];
 
@@ -30,6 +35,8 @@ export type Type = typeof types[number];
 
 export const variants = ["filled", "outlined", "none"] as const;
 export type Variant = typeof variants[number];
+
+export type Themed = { theme?: typeof inube };
 
 const props = {
   parameters: {
