@@ -15,7 +15,7 @@ import { Icon } from "@data/Icon";
 
 export interface IButtonProps extends Themed {
   children: React.ReactNode;
-  appearance: Appearance;
+  appearance?: Appearance;
   loading?: boolean;
   disabled?: boolean;
   iconBefore?: React.ReactElement;

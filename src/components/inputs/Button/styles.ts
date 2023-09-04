@@ -145,13 +145,13 @@ const StyledButton = styled.button`
     if (variant === "filled") {
       if (disabled) {
         return (
-          theme?.color?.surface?.[appearance]?.disabled ||
-          inube.color.surface[appearance].disabled
+          theme?.color?.surface?.[appearance!]?.disabled ||
+          inube.color.surface[appearance!].disabled
         );
       }
       return (
-        theme?.color?.surface?.[appearance]?.regular ||
-        inube.color.surface[appearance].regular
+        theme?.color?.surface?.[appearance!]?.regular ||
+        inube.color.surface[appearance!].regular
       );
     }
 
@@ -161,8 +161,8 @@ const StyledButton = styled.button`
   border-color: ${({ theme, appearance, variant, disabled }: IButtonProps) => {
     if (disabled) {
       return (
-        theme?.color?.stroke?.[appearance]?.disabled ||
-        inube.color.stroke[appearance].disabled
+        theme?.color?.stroke?.[appearance!]?.disabled ||
+        inube.color.stroke[appearance!].disabled
       );
     }
     if (variant === "none") {
@@ -170,8 +170,8 @@ const StyledButton = styled.button`
     }
 
     return (
-      theme?.color?.stroke?.[appearance]?.regular ||
-      inube.color.stroke[appearance].regular
+      theme?.color?.stroke?.[appearance!]?.regular ||
+      inube.color.stroke[appearance!].regular
     );
   }};
 
@@ -199,8 +199,8 @@ const StyledButton = styled.button`
           return "transparent";
         }
         return (
-          theme?.color?.stroke?.[appearance]?.hover ||
-          inube.color.stroke[appearance].hover
+          theme?.color?.stroke?.[appearance!]?.hover ||
+          inube.color.stroke[appearance!].hover
         );
       }
     }};
@@ -214,8 +214,8 @@ const StyledButton = styled.button`
       if (!disabled) {
         if (variant === "filled") {
           return (
-            theme?.color?.surface?.[appearance]?.hover ||
-            inube.color.surface[appearance].hover
+            theme?.color?.surface?.[appearance!]?.hover ||
+            inube.color.surface[appearance!].hover
           );
         }
         if (variant === "none") {
