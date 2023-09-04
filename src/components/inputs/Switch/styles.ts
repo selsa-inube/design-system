@@ -1,10 +1,10 @@
 import styled, { css } from "styled-components";
+import { ISwitchProps } from "./index";
 
-import { colors } from "@shared/colors/colors";
 import { inube } from "@shared/tokens";
-import { ISwitchProps } from ".";
+import { Themed } from "./props";
 
-const sizes: any = {
+const sizes = {
   large: {
     width: "40px",
     height: "20px",
@@ -25,16 +25,19 @@ const StyledSpan = styled.span`
   border-radius: 30px;
   cursor: ${(props: ISwitchProps) =>
     props.disabled ? "not-allowed" : "pointer"};
-  background: ${(props: ISwitchProps) =>
-    props.disabled
-      ? colors.ref.palette.neutral.n40
-      : colors.ref.palette.neutral.n200};
+  background: ${({ disabled, theme }: ISwitchProps) =>
+    disabled
+      ? theme?.color?.surface?.gray?.disabled ||
+        inube.color.surface.gray.disabled
+      : theme?.color?.surface?.gray?.regular ||
+        inube.color.surface.gray.regular};
 
   &:hover {
-    background-color: ${(props: ISwitchProps) =>
-      props.disabled
-        ? colors.ref.palette.neutral.n40
-        : colors.ref.palette.neutral.n70};
+    background-color: ${({ disabled, theme }: ISwitchProps) =>
+      disabled
+        ? theme?.color?.surface?.gray?.disabled ||
+          inube.color.surface.gray.disabled
+        : theme?.color?.surface?.gray?.hover || inube.color.surface.gray.hover};
   }
 
   &:before {
@@ -43,7 +46,15 @@ const StyledSpan = styled.span`
     left: ${inube.spacing.s025};
     border-radius: 50%;
     transition: 0.3s;
-    background-color: ${colors.ref.palette.neutral.n0};
+    background-color: ${({ theme }: Themed) =>
+      theme?.color?.surface?.light?.clear || inube.color.surface.light.clear};
+    box-sizing: border-box;
+    border: ${({ disabled, theme }: ISwitchProps) =>
+      disabled &&
+      `0.5px solid ${
+        theme?.color?.stroke?.light?.disabled ||
+        inube.color.stroke.gray.disabled
+      }`};
     ${(props: ISwitchProps) =>
       props.size === "small"
         ? css`
@@ -71,22 +82,28 @@ const StyledInput = styled.input`
   height: 0;
 
   &:checked + span {
-    background-color: ${(props: ISwitchProps) =>
-      props.disabled
-        ? colors.ref.palette.green.g75
-        : colors.ref.palette.green.g400};
+    background-color: ${({ disabled, theme }: ISwitchProps) =>
+      disabled
+        ? theme?.color?.surface?.gray?.disabled ||
+          inube.color.surface.gray.disabled
+        : theme?.color?.surface?.success?.regular ||
+          inube.color.surface.success.regular};
 
     &:hover {
-      background-color: ${(props: ISwitchProps) =>
-        props.disabled
-          ? colors.ref.palette.green.g75
-          : colors.ref.palette.green.g300};
+      background-color: ${({ disabled, theme }: ISwitchProps) =>
+        disabled
+          ? theme?.color?.surface?.gray?.disabled ||
+            inube.color.surface.gray.disabled
+          : theme?.color?.surface?.success?.hover ||
+            inube.color.surface.success.hover};
     }
   }
 
   &:checked + span:before {
-    ${(props: ISwitchProps) =>
-      props.size === "small"
+    left: ${({ size }: ISwitchProps) =>
+      size === "small" ? `-${inube.spacing.s025}` : `${inube.spacing.s025}`};
+    ${(size: ISwitchProps["size"]) =>
+      size === "small"
         ? "transform: translateX(16px);"
         : "transform: translateX(20px);"};
   }
@@ -95,7 +112,10 @@ const StyledInput = styled.input`
 const StyledIcon = styled.div`
   & > #mdIcon {
     position: absolute;
-    color: ${colors.ref.palette.neutral.n0};
+    color: ${({ disabled }: ISwitchProps) =>
+      !disabled
+        ? inube.color.surface.light.regular
+        : inube.color.stroke.gray.disabled};
     ${(props: ISwitchProps) =>
       props.size === "small"
         ? css`
@@ -115,7 +135,7 @@ const StyledIcon = styled.div`
             left: ${(props: ISwitchProps) =>
               props.checked
                 ? `${inube.spacing.s050}`
-                : `${inube.spacing.s300}`};
+                : `${inube.spacing.s250}`};
           `};
   }
 `;
