@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
 
 import { typography } from "@shared/typography/typography";
-import { IButtonProps } from ".";
+import { IButtonStructureProps } from ".";
 import { inube } from "@shared/tokens";
 
 const spacing = {
@@ -49,17 +49,17 @@ const containerStyles = css`
 const StyledButton = styled.button`
   padding: 0px 16px;
   ${containerStyles}
-  width: ${({ fullwidth }: IButtonProps) => getWidth(fullwidth)};
-  border-style: ${(props: IButtonProps) =>
+  width: ${({ fullwidth }: IButtonStructureProps) => getWidth(fullwidth)};
+  border-style: ${(props: IButtonStructureProps) =>
     props.type !== "link" ? "solid" : "none"};
-  ${(props: IButtonProps) => spacing[props.spacing!]};
+  ${(props: IButtonStructureProps) => spacing[props.spacing!]};
 
   background-color: ${({
     theme,
     appearance,
     variant,
     disabled,
-  }: IButtonProps) => {
+  }: IButtonStructureProps) => {
     if (variant === "filled") {
       if (disabled) {
         return (
@@ -76,7 +76,12 @@ const StyledButton = styled.button`
     return "transparent";
   }};
 
-  border-color: ${({ theme, appearance, variant, disabled }: IButtonProps) => {
+  border-color: ${({
+    theme,
+    appearance,
+    variant,
+    disabled,
+  }: IButtonStructureProps) => {
     if (disabled) {
       return (
         theme?.color?.stroke?.[appearance!]?.disabled ||
@@ -93,7 +98,7 @@ const StyledButton = styled.button`
     );
   }};
 
-  cursor: ${({ disabled, loading }: IButtonProps) => {
+  cursor: ${({ disabled, loading }: IButtonStructureProps) => {
     if (disabled) {
       return cursors.notAllowed;
     }
@@ -111,7 +116,7 @@ const StyledButton = styled.button`
       appearance,
       variant,
       disabled,
-    }: IButtonProps) => {
+    }: IButtonStructureProps) => {
       if (!disabled) {
         if (variant === "none") {
           return "transparent";
@@ -128,7 +133,7 @@ const StyledButton = styled.button`
       appearance,
       variant,
       disabled,
-    }: IButtonProps) => {
+    }: IButtonStructureProps) => {
       if (!disabled) {
         if (variant === "filled") {
           return (
@@ -148,12 +153,12 @@ const StyledLink = styled(Link)`
   margin: 0%;
   padding: 0%;
   ${containerStyles}
-  border-style: ${(props: IButtonProps) =>
+  border-style: ${(props: IButtonStructureProps) =>
     props.type === "link" ? "solid" : "none"};
-  width: ${({ fullwidth }: IButtonProps) => getWidth(!!fullwidth)};
+  width: ${({ fullwidth }: IButtonStructureProps) => getWidth(!!fullwidth)};
 
   ${StyledButton}
-  cursor: ${({ disabled, loading }: IButtonProps) => {
+  cursor: ${({ disabled, loading }: IButtonStructureProps) => {
     if (disabled) {
       return cursors.notAllowed;
     }
