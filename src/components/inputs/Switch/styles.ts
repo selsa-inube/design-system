@@ -4,7 +4,7 @@ import { ISwitchProps } from "./index";
 import { inube } from "@shared/tokens";
 import { Themed } from "./props";
 
-const sizes: any = {
+const sizes = {
   large: {
     width: "40px",
     height: "20px",
@@ -100,8 +100,8 @@ const StyledInput = styled.input`
   }
 
   &:checked + span:before {
-    ${(props: ISwitchProps) =>
-      props.size === "small"
+    ${(size: ISwitchProps["size"]) =>
+      size === "small"
         ? "transform: translateX(16px);"
         : "transform: translateX(20px);"};
   }
