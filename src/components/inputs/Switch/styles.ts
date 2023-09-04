@@ -100,6 +100,8 @@ const StyledInput = styled.input`
   }
 
   &:checked + span:before {
+    left: ${({ size }: ISwitchProps) =>
+      size === "small" ? `-${inube.spacing.s025}` : `${inube.spacing.s025}`};
     ${(size: ISwitchProps["size"]) =>
       size === "small"
         ? "transform: translateX(16px);"
@@ -133,7 +135,7 @@ const StyledIcon = styled.div`
             left: ${(props: ISwitchProps) =>
               props.checked
                 ? `${inube.spacing.s050}`
-                : `${inube.spacing.s200}`};
+                : `${inube.spacing.s250}`};
           `};
   }
 `;
