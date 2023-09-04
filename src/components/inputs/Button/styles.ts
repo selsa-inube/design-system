@@ -104,14 +104,6 @@ const cursors: ICursors = {
   progress: "progress",
 };
 
-function getWidth(fullwidth: boolean | undefined) {
-  if (fullwidth) {
-    return "100%";
-  }
-
-  return "fit-content";
-}
-
 const containerStyles = css`
   display: flex;
   justify-content: center;
@@ -131,7 +123,13 @@ const containerStyles = css`
 const StyledButton = styled.button`
   padding: 0px 16px;
   ${containerStyles}
-  width: ${({ fullwidth }: IButtonProps) => getWidth(fullwidth)};
+  width: ${({ fullwidth }: IButtonProps) => {
+    if (fullwidth) {
+      return "100%";
+    }
+
+    return "fit-content";
+  }};
   border-style: ${(props: IButtonProps) =>
     props.type !== "link" ? "solid" : "none"};
   ${(props: IButtonProps) => spacing[props.spacing!]};
@@ -232,7 +230,13 @@ const StyledLink = styled(Link)`
   ${containerStyles}
   border-style: ${(props: IButtonProps) =>
     props.type === "link" ? "solid" : "none"};
-  width: ${({ fullwidth }: IButtonProps) => getWidth(!!fullwidth)};
+  width: ${({ fullwidth }: IButtonProps) => {
+    if (fullwidth) {
+      return "100%";
+    }
+
+    return "fit-content";
+  }};
 
   ${StyledButton}
   cursor: ${({ disabled, loading }: IButtonProps) => {
