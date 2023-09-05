@@ -5,89 +5,7 @@ import { typography } from "@shared/typography/typography";
 import { IButtonProps } from ".";
 import { inube } from "@shared/tokens";
 
-export interface ICursors {
-  pointer: string;
-  notAllowed: string;
-  progress: string;
-}
-
-export interface ISpacingDetail {
-  height: string;
-  minWidth: string;
-}
-
-export interface ISpacing {
-  compact: ISpacingDetail;
-  wide: ISpacingDetail;
-}
-
-export interface IHoverColors {
-  primary: string;
-  secondary: string;
-  confirm: string;
-  warning: string;
-  remove: string;
-  help: string;
-}
-
-export interface IColorPalette {
-  primary: string;
-  secondary: string;
-  confirm: string;
-  warning: string;
-  remove: string;
-  help: string;
-  disabled?: string;
-}
-
-export interface IVariantStyle {
-  normal: IColorPalette;
-  hover: Partial<IColorPalette> | any;
-}
-
-export interface ITextColors {
-  filled: IVariantStyle;
-  outlined: IVariantStyle;
-  none: IVariantStyle;
-}
-
-export interface IActionStyle {
-  filled: string;
-  stroke: string;
-}
-
-export interface IActions {
-  primary: IActionStyle;
-  secondary: IActionStyle;
-  confirm: IActionStyle;
-  warning: IActionStyle;
-  remove: IActionStyle;
-  help: IActionStyle;
-  disabled: IActionStyle;
-}
-
-export interface IBackgroundColorVariant {
-  normal: Partial<IActions> | any;
-  hover: Partial<IActions> | any;
-}
-
-export interface IBorderColorVariant {
-  normal: Partial<IActions> | any;
-  hover: Partial<IActions> | any;
-}
-
-export interface IBackgroundColors {
-  filled: IBackgroundColorVariant;
-  outlined: string;
-  none: string;
-}
-export interface IBorderColors {
-  filled: IVariantStyle | string;
-  outlined: IVariantStyle | IBorderColorVariant;
-  none: IVariantStyle | string;
-}
-
-const spacing: ISpacing = {
+const spacing = {
   compact: {
     height: "28px",
     minWidth: "93px",
@@ -98,7 +16,7 @@ const spacing: ISpacing = {
   },
 };
 
-const cursors: ICursors = {
+const cursors = {
   pointer: "pointer",
   notAllowed: "not-allowed",
   progress: "progress",

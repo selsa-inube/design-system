@@ -1,3 +1,6 @@
+import { useState } from "react";
+import { Text } from "@data/Text";
+import { Icon } from "@data/Icon";
 import { Spinner } from "@feedback/Spinner";
 
 import {
@@ -8,10 +11,8 @@ import {
   Themed,
   ButtonAppearanceType,
 } from "./props";
+
 import { StyledButton, StyledSpan, StyledLink } from "./styles";
-import { Text } from "@data/Text";
-import { useState } from "react";
-import { Icon } from "@data/Icon";
 
 export interface IButtonProps extends Themed {
   children: React.ReactNode;
