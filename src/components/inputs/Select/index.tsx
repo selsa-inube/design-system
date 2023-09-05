@@ -6,7 +6,7 @@ import { Size, States, states } from "./props";
 export interface ISelectOptions {
   id: string;
   label: string;
-  disabled: boolean;
+  IsDisabled: boolean;
 }
 
 export interface ISelectProps {
@@ -16,12 +16,12 @@ export interface ISelectProps {
   placeholder?: string;
   disabled?: boolean;
   value?: string | number;
-  isRequired?: boolean;
+  required?: boolean;
   state?: States;
   errorMessage?: string;
   validMessage?: string;
   size?: Size;
-  isFullWidth?: boolean;
+  fullwidth?: boolean;
   options: ISelectOptions[];
   handleChange?: (event: MouseEvent) => void;
   handleFocus?: (event: FocusEvent) => void;
@@ -29,9 +29,9 @@ export interface ISelectProps {
   handleClick?: (event: MouseEvent) => void;
 }
 
-const defaultIsRequired = false;
+const defaultrequired = false;
 const defaultState = "pending";
-const defaultIsFullWidth = false;
+const defaultfullwidth = false;
 
 const Select = (props: ISelectProps) => {
   const {
@@ -42,12 +42,12 @@ const Select = (props: ISelectProps) => {
     disabled = false,
     value = "",
     handleChange,
-    isRequired = false,
+    required = false,
     state = "pending",
     errorMessage,
     validMessage,
     size = "wide",
-    isFullWidth = false,
+    fullwidth = false,
     handleFocus,
     handleBlur,
     options,
@@ -94,11 +94,11 @@ const Select = (props: ISelectProps) => {
 
   const transformedState = states.includes(state) ? state : defaultState;
 
-  const transformedIsRequired =
-    typeof isRequired === "boolean" ? isRequired : defaultIsRequired;
+  const transformedrequired =
+    typeof required === "boolean" ? required : defaultrequired;
 
-  const transformedIsFullWidth =
-    typeof isFullWidth === "boolean" ? isFullWidth : defaultIsFullWidth;
+  const transformedfullwidth =
+    typeof fullwidth === "boolean" ? fullwidth : defaultfullwidth;
 
   return (
     <SelectUI
@@ -109,12 +109,12 @@ const Select = (props: ISelectProps) => {
       disabled={disabled}
       value={value}
       handleChange={handleChange}
-      isRequired={transformedIsRequired}
+      required={transformedrequired}
       size={size}
       state={transformedState}
       errorMessage={errorMessage}
       validMessage={validMessage}
-      isFullWidth={transformedIsFullWidth}
+      fullwidth={transformedfullwidth}
       isFocused={isFocused}
       handleFocus={interceptFocus}
       handleBlur={interceptBlur}
