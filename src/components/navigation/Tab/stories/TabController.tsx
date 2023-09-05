@@ -17,9 +17,7 @@ const TabController = (props: ITabProps) => {
     }
   };
 
-  return (
-    <Tab {...props} isSelected={tabSelected} handleClick={handleClickTab} />
-  );
+  return <Tab {...props} selected={tabSelected} handleClick={handleClickTab} />;
 };
 
 export { TabController };

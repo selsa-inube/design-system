@@ -14,7 +14,7 @@ Default.args = {
   id: "thisIsAnId",
   isDisabled: false,
   label: "General Information",
-  isSelected: { control: null },
+  selected: { control: null },
 };
 
 export default story;
