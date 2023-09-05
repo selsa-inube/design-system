@@ -25,7 +25,7 @@ export interface ISelectProps {
   options: ISelectOptions[];
   onChange?: (event: MouseEvent) => void;
   handleFocus?: (event: FocusEvent) => void;
-  handleBlur?: (event: FocusEvent) => void;
+  onBlur?: (event: FocusEvent) => void;
   handleClick?: (event: MouseEvent) => void;
 }
 
@@ -50,7 +50,7 @@ const Select = (props: ISelectProps) => {
     size = "wide",
     fullwidth = false,
     handleFocus,
-    handleBlur,
+    onBlur,
     options,
     handleClick,
   } = props;
@@ -70,8 +70,8 @@ const Select = (props: ISelectProps) => {
   const interceptBlur = (e: FocusEvent) => {
     setIsFocused(false);
 
-    if (typeof handleBlur === "function") {
-      handleBlur(e);
+    if (typeof onBlur === "function") {
+      onBlur(e);
     }
   };
 
@@ -121,7 +121,7 @@ const Select = (props: ISelectProps) => {
       fullwidth={transformedfullwidth}
       isFocused={isFocused}
       handleFocus={interceptFocus}
-      handleBlur={interceptBlur}
+      onBlur={interceptBlur}
       options={options}
       openOptions={open}
       handleClick={handleClick}
