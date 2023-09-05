@@ -7,10 +7,8 @@ const StyledTab = styled.li`
   width: fit-content;
   user-select: none;
   list-style-type: none;
-  border-bottom: ${({ isSelected, disabled }: ITabProps) =>
-    isSelected &&
-    !disabled &&
-    `4px solid ${colors.sys.actions.primary.filled}`};
+  border-bottom: ${({ selected, disabled }: ITabProps) =>
+    selected && !disabled && `4px solid ${colors.sys.actions.primary.filled}`};
 
   & > p {
     cursor: ${({ disabled }: ITabProps) =>
