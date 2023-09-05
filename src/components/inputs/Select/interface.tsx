@@ -87,7 +87,7 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
     id,
     placeholder,
     isDisabled,
-    handleChange,
+    onChange,
     required,
     state,
     errorMessage,
@@ -167,7 +167,7 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
           state={state}
           fullwidth={fullwidth}
           isFocused={isFocused}
-          onChange={handleChange}
+          onChange={onChange}
           onFocus={handleFocus}
           onBlur={handleBlur}
           onClick={(e: MouseEvent) => interceptorOnClick(e)}
