@@ -26,6 +26,7 @@ SelectInForm.args = {
   size: "compact",
   errorMessage: "This field can not be blank",
   validMessage: "This field is valid",
+  fullwidth: false,
 };
 
 export default story;
