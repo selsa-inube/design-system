@@ -5,24 +5,18 @@ import { StyledTab } from "./styles";
 export interface ITabProps {
   label: string;
   id: string;
-  isDisabled: boolean;
+  disabled: boolean;
   selected: boolean;
   handleClick: () => void;
 }
 
 const Tab = (props: ITabProps) => {
-  const {
-    isDisabled = false,
-    selected = false,
-    id,
-    handleClick,
-    label,
-  } = props;
+  const { disabled = false, selected = false, id, handleClick, label } = props;
 
   return (
     <StyledTab
       onClick={handleClick}
-      isDisabled={isDisabled}
+      disabled={disabled}
       selected={selected}
       id={id}
     >
@@ -30,7 +24,7 @@ const Tab = (props: ITabProps) => {
         type="label"
         size="medium"
         appearance={selected ? "primary" : "dark"}
-        disabled={isDisabled}
+        disabled={disabled}
       >
         {label}
       </Text>
