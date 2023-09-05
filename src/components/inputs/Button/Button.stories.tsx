@@ -1,10 +1,10 @@
 import { BrowserRouter } from "react-router-dom";
 import { MdAdd } from "react-icons/md";
 
-import { Button, IButtonProps } from "..";
+import { Button, IButtonProps } from ".";
 import { ThemeProvider } from "styled-components";
 import { presente } from "@shared/themes/presente";
-import { props } from "../props";
+import { props } from "./props";
 
 const story = {
   title: "inputs/Button",
