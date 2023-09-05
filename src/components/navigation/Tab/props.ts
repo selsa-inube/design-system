@@ -21,7 +21,7 @@ const props = {
       defaultValue: { summary: "false" },
     },
   },
-  handleClick: {
+  onClick: {
     options: ["logState"],
     control: { type: "func" },
     description: "shall be determine the behavior of the click event",

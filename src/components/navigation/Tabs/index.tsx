@@ -67,7 +67,7 @@ const Tabs = ({
               disabled={transformedIsDisabled}
               selected={true}
               id={selectedTab}
-              handleClick={() => handleSelectedTab(selectedTab)}
+              onClick={() => handleSelectedTab(selectedTab)}
               label={transformedLabel}
             />
           </Stack>
@@ -93,7 +93,7 @@ const Tabs = ({
             disabled={tab.isDisabled}
             selected={tab.id === selectedTab}
             id={tab.id}
-            handleClick={() => handleSelectedTab(tab.id)}
+            onClick={() => handleSelectedTab(tab.id)}
             label={tab.label}
           />
         ))}
