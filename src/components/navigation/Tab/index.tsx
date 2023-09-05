@@ -7,21 +7,15 @@ export interface ITabProps {
   id: string;
   isDisabled: boolean;
   isSelected: boolean;
-  handleClick: () => void;
+  onClick: () => void;
 }
 
 const Tab = (props: ITabProps) => {
-  const {
-    isDisabled = false,
-    isSelected = false,
-    id,
-    handleClick,
-    label,
-  } = props;
+  const { isDisabled = false, isSelected = false, id, onClick, label } = props;
 
   return (
     <StyledTab
-      onClick={handleClick}
+      onClick={onClick}
       isDisabled={isDisabled}
       isSelected={isSelected}
       id={id}
