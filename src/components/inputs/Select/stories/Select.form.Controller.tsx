@@ -5,13 +5,13 @@ import { StyledForm } from "./styles";
 import { Button } from "../../Button";
 
 const InForm = (props: ISelectProps) => {
-  const { value = "", state = "pending", isRequired } = props;
+  const { value = "", state = "pending", required } = props;
   const [form, setForm] = useState({ value, state });
 
   const handleClick = (e: Event) => {
     const element = document.getElementById("select") as HTMLInputElement;
     const valueElement = element.value;
-    if (valueElement === "" && isRequired) {
+    if (valueElement === "" && required) {
       setForm({ ...form, state: "invalid" });
       e.preventDefault();
       return;
