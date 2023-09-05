@@ -16,12 +16,6 @@ const spacing = {
   },
 };
 
-const cursors = {
-  pointer: "pointer",
-  notAllowed: "not-allowed",
-  progress: "progress",
-};
-
 const containerStyles = css`
   display: flex;
   justify-content: center;
@@ -93,14 +87,14 @@ const StyledButton = styled.button`
 
   cursor: ${({ disabled, loading }: IButtonProps) => {
     if (disabled) {
-      return cursors.notAllowed;
+      return "not-allowed";
     }
 
     if (loading) {
-      return cursors.progress;
+      return "progress";
     }
 
-    return cursors.pointer;
+    return "pointer";
   }};
 
   &:hover {
@@ -159,14 +153,14 @@ const StyledLink = styled(Link)`
   ${StyledButton}
   cursor: ${({ disabled, loading }: IButtonProps) => {
     if (disabled) {
-      return cursors.notAllowed;
+      return "not-allowed";
     }
 
     if (loading) {
-      return cursors.progress;
+      return "progress";
     }
 
-    return cursors.pointer;
+    return "pointer";
   }};
 `;
 
