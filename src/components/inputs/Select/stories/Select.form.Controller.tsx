@@ -5,25 +5,25 @@ import { StyledForm } from "./styles";
 import { Button } from "../../Button";
 
 const InForm = (props: ISelectProps) => {
-  const { value = "", state = "pending", required } = props;
-  const [form, setForm] = useState({ value, state });
+  const { value = "", status = "pending", required } = props;
+  const [form, setForm] = useState({ value, status });
 
   const handleClick = (e: Event) => {
     const element = document.getElementById("select") as HTMLInputElement;
     const valueElement = element.value;
     if (valueElement === "" && required) {
-      setForm({ ...form, state: "invalid" });
+      setForm({ ...form, status: "invalid" });
       e.preventDefault();
       return;
     } else {
-      setForm({ ...form, state: "valid" });
+      setForm({ ...form, status: "valid" });
       e.preventDefault();
     }
   };
 
   const handleFocus = (e?: Event) => {
     if (!value) {
-      setForm({ ...form, state: "pending" });
+      setForm({ ...form, status: "pending" });
     }
   };
 
@@ -31,7 +31,7 @@ const InForm = (props: ISelectProps) => {
     <StyledForm>
       <Select
         {...props}
-        state={form.state}
+        status={form.status}
         id="select"
         handleFocus={(e) => handleFocus(e)}
       />

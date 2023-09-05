@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 
 import { SelectUI } from "./interface";
-import { Size, States, states } from "./props";
+import { Size, States } from "./props";
 
 export interface ISelectOptions {
   id: string;
@@ -17,7 +17,7 @@ export interface ISelectProps {
   isDisabled?: boolean;
   value?: string | number;
   required?: boolean;
-  state?: States;
+  status?: States;
   errorMessage?: string;
   validMessage?: string;
   size?: Size;
@@ -31,7 +31,7 @@ export interface ISelectProps {
 
 const defaultIsDisabled = false;
 const defaultrequired = false;
-const defaultState = "pending";
+
 const defaultfullwidth = false;
 
 const Select = (props: ISelectProps) => {
@@ -44,7 +44,7 @@ const Select = (props: ISelectProps) => {
     value = "",
     handleChange,
     required = false,
-    state = "pending",
+    status = "pending",
     errorMessage,
     validMessage,
     size = "wide",
@@ -96,8 +96,6 @@ const Select = (props: ISelectProps) => {
   const transformedIsDisabled =
     typeof isDisabled === "boolean" ? isDisabled : defaultIsDisabled;
 
-  const transformedState = states.includes(state) ? state : defaultState;
-
   const transformedrequired =
     typeof required === "boolean" ? required : defaultrequired;
 
@@ -115,7 +113,7 @@ const Select = (props: ISelectProps) => {
       handleChange={handleChange}
       required={transformedrequired}
       size={size}
-      state={transformedState}
+      status={status}
       errorMessage={errorMessage}
       validMessage={validMessage}
       fullwidth={transformedfullwidth}
