@@ -125,7 +125,7 @@ const Button = (props: IButtonProps) => {
   return (
     <StyledButton
       appearance={appearance}
-      loading={loading}
+      loading={+loading}
       disabled={disabled}
       iconBefore={iconBefore}
       iconAfter={iconAfter}

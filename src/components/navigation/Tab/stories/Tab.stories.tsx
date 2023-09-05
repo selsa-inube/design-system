@@ -15,9 +15,9 @@ const story = {
 const Default = (args: ITabProps) => <TabController {...args} />;
 Default.args = {
   id: "thisIsAnId",
-  isDisabled: false,
+  disabled: false,
   label: "General Information",
-  isSelected: { control: null },
+  selected: { control: null },
 };
 
 const theme = structuredClone(presente);
