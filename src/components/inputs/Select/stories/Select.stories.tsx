@@ -25,7 +25,7 @@ Default.args = {
   required: false,
   size: "wide",
   errorMessage: "This field can not be blank",
-  isFullWidth: false,
+  fullwidth: false,
 };
 
 export default story;
