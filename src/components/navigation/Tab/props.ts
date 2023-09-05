@@ -1,9 +1,13 @@
+import { inube } from "@src/shared/tokens";
+
+type Themed = { theme?: typeof inube };
+
 const props = {
   id: {
     control: { type: "text" },
     description: "shall be the id for the text",
   },
-  isDisabled: {
+  disabled: {
     options: [true, false],
     control: { type: "boolean" },
     description:
@@ -12,7 +16,7 @@ const props = {
       defaultValue: { summary: "false" },
     },
   },
-  isSelected: {
+  selected: {
     options: [true, false],
     control: { type: "boolean" },
     description:
@@ -21,7 +25,7 @@ const props = {
       defaultValue: { summary: "false" },
     },
   },
-  handleClick: {
+  onClick: {
     options: ["logState"],
     control: { type: "func" },
     description: "shall be determine the behavior of the click event",
@@ -31,5 +35,7 @@ const props = {
     description: "shall constitute the content to be displayed",
   },
 };
+
+export type { Themed };
 
 export { props };

@@ -16,20 +16,6 @@ const spacing = {
   },
 };
 
-const cursors = {
-  pointer: "pointer",
-  notAllowed: "not-allowed",
-  progress: "progress",
-};
-
-function getWidth(fullwidth: boolean | undefined) {
-  if (fullwidth) {
-    return "100%";
-  }
-
-  return "fit-content";
-}
-
 const containerStyles = css`
   display: flex;
   justify-content: center;
@@ -49,7 +35,13 @@ const containerStyles = css`
 const StyledButton = styled.button`
   padding: 0px 16px;
   ${containerStyles}
-  width: ${({ fullwidth }: IButtonStructureProps) => getWidth(fullwidth)};
+  width: ${({ fullwidth }: IButtonStructureProps) => {
+    if (fullwidth) {
+      return "100%";
+    }
+
+    return "fit-content";
+  }};
   border-style: ${(props: IButtonStructureProps) =>
     props.type !== "link" ? "solid" : "none"};
   ${(props: IButtonStructureProps) => spacing[props.spacing!]};
@@ -100,14 +92,14 @@ const StyledButton = styled.button`
 
   cursor: ${({ disabled, loading }: IButtonStructureProps) => {
     if (disabled) {
-      return cursors.notAllowed;
+      return "not-allowed";
     }
 
     if (loading) {
-      return cursors.progress;
+      return "progress";
     }
 
-    return cursors.pointer;
+    return "pointer";
   }};
 
   &:hover {
@@ -155,19 +147,25 @@ const StyledLink = styled(Link)`
   ${containerStyles}
   border-style: ${(props: IButtonStructureProps) =>
     props.type === "link" ? "solid" : "none"};
-  width: ${({ fullwidth }: IButtonStructureProps) => getWidth(!!fullwidth)};
+  width: ${({ fullwidth }: IButtonStructureProps) => {
+    if (fullwidth) {
+      return "100%";
+    }
+
+    return "fit-content";
+  }};
 
   ${StyledButton}
   cursor: ${({ disabled, loading }: IButtonStructureProps) => {
     if (disabled) {
-      return cursors.notAllowed;
+      return "not-allowed";
     }
 
     if (loading) {
-      return cursors.progress;
+      return "progress";
     }
 
-    return cursors.pointer;
+    return "pointer";
   }};
 `;
 

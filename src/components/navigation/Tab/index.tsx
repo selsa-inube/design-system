@@ -1,36 +1,31 @@
 import { Text } from "@data/Text";
 
 import { StyledTab } from "./styles";
+import { Themed } from "./props";
 
-export interface ITabProps {
+export interface ITabProps extends Themed {
   label: string;
   id: string;
-  isDisabled: boolean;
-  isSelected: boolean;
-  handleClick: () => void;
+  disabled: boolean;
+  selected: boolean;
+  onClick: () => void;
 }
 
 const Tab = (props: ITabProps) => {
-  const {
-    isDisabled = false,
-    isSelected = false,
-    id,
-    handleClick,
-    label,
-  } = props;
+  const { disabled = false, selected = false, id, onClick, label } = props;
 
   return (
     <StyledTab
-      onClick={handleClick}
-      isDisabled={isDisabled}
-      isSelected={isSelected}
+      onClick={onClick}
+      disabled={disabled}
+      selected={selected}
       id={id}
     >
       <Text
         type="label"
         size="medium"
-        appearance={isSelected ? "primary" : "dark"}
-        disabled={isDisabled}
+        appearance={selected ? "primary" : "dark"}
+        disabled={disabled}
       >
         {label}
       </Text>

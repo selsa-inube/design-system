@@ -43,7 +43,7 @@ const props = {
     description:
       "allows you to control what to do when the user changes the value of the component",
   },
-  isRequired: {
+  required: {
     description: "defines if the field is required or not",
     table: {
       defaultValue: { summary: false },
@@ -68,7 +68,7 @@ const props = {
     control: { type: "select" },
     description: "defines the size of the component",
   },
-  isFullWidth: {
+  fullwidth: {
     description: "option to fit field width to its parent width",
     table: {
       defaultValue: { summary: false },

@@ -88,12 +88,12 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
     placeholder,
     isDisabled,
     handleChange,
-    isRequired,
+    required,
     state,
     errorMessage,
     validMessage,
     size,
-    isFullWidth,
+    fullwidth,
     isFocused,
     handleFocus,
     handleBlur,
@@ -123,11 +123,7 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
   const transformedInvalid = state === "invalid" ? true : false;
 
   return (
-    <StyledContainer
-      isFullWidth={isFullWidth}
-      isDisabled={isDisabled}
-      ref={ref}
-    >
+    <StyledContainer fullwidth={fullwidth} isDisabled={isDisabled} ref={ref}>
       <StyledContainerLabel
         alignItems="center"
         wrap="wrap"
@@ -146,9 +142,9 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
           </Label>
         )}
 
-        {isRequired && !isDisabled && (
+        {required && !isDisabled && (
           <Text type="body" size="small" appearance="dark">
-            (Required)
+            (Requerido)
           </Text>
         )}
       </StyledContainerLabel>
@@ -166,10 +162,10 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
           id={id}
           placeholder={placeholder}
           isDisabled={isDisabled}
-          required={isRequired}
+          required={required}
           size={size}
           state={state}
-          isFullWidth={isFullWidth}
+          fullwidth={fullwidth}
           isFocused={isFocused}
           onChange={handleChange}
           onFocus={handleFocus}

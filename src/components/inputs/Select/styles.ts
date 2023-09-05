@@ -45,8 +45,8 @@ const getIsDisabled = (isDisabled: boolean, state: string) => {
 const StyledContainer = styled.div`
   cursor: ${({ isDisabled }: ISelectInterfaceProps) =>
     isDisabled && "not-allowed"};
-  width: ${({ isFullWidth }: ISelectInterfaceProps) =>
-    isFullWidth ? "100%" : "fit-content"};
+  width: ${({ fullwidth }: ISelectInterfaceProps) =>
+    fullwidth ? "100%" : "fit-content"};
 `;
 
 const StyledContainerLabel = styled.div`
@@ -94,8 +94,8 @@ const StyledInput = styled.input`
   cursor: ${({ isDisabled }: ISelectInterfaceProps) =>
     isDisabled ? "not-allowed" : "pointer"};
   caret-color: transparent;
-  width: ${({ isFullWidth }: ISelectInterfaceProps) =>
-    isFullWidth ? "252px" : "calc(100% - 32px)"};
+  width: ${({ fullwidth }: ISelectInterfaceProps) =>
+    fullwidth ? "252px" : "calc(100% - 32px)"};
   ${({ size }: ISelectInterfaceProps) => sizeOptions[size!]};
 
   border: none;

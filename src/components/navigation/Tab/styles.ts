@@ -1,20 +1,23 @@
 import styled from "styled-components";
 
+import { inube } from "@shared/tokens";
 import { ITabProps } from ".";
-import { colors } from "@shared/colors/colors";
 
 const StyledTab = styled.li`
   width: fit-content;
   user-select: none;
   list-style-type: none;
-  border-bottom: ${({ isSelected, isDisabled }: ITabProps) =>
-    isSelected &&
-    !isDisabled &&
-    `4px solid ${colors.sys.actions.primary.filled}`};
+  border-bottom: ${({ selected, disabled, theme }: ITabProps) =>
+    selected &&
+    !disabled &&
+    `4px solid ${
+      theme?.color?.stroke?.primary?.regular ||
+      inube.color.stroke.primary.regular
+    }`};
 
   & > p {
-    cursor: ${({ isDisabled }: ITabProps) =>
-      isDisabled ? "not-allowed" : "pointer"};
+    cursor: ${({ disabled }: ITabProps) =>
+      disabled ? "not-allowed" : "pointer"};
   }
 `;
 

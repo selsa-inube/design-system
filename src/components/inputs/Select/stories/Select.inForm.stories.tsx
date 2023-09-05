@@ -16,7 +16,7 @@ SelectInForm.args = {
   name: "select",
   id: "select",
   placeholder: "Select",
-  isRequired: true,
+  required: true,
   isDisabled: false,
   options: [
     { id: "1", label: "Item 1", isDisabled: false },
@@ -26,6 +26,7 @@ SelectInForm.args = {
   size: "compact",
   errorMessage: "This field can not be blank",
   validMessage: "This field is valid",
+  fullwidth: false,
 };
 
 export default story;
