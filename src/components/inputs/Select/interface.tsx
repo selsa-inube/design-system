@@ -22,7 +22,7 @@ import { ISelectProps } from ".";
 import { Size } from "./props";
 
 export interface ISelectStateProps {
-  isDisabled: boolean;
+  disabled: boolean;
   state: string;
   validMessage?: string;
   errorMessage?: string;
@@ -42,18 +42,18 @@ const getTypo = (size: Size) => {
 };
 
 const Invalid = (props: ISelectStateProps) => {
-  const { isDisabled, state, errorMessage } = props;
+  const { disabled, state, errorMessage } = props;
   const transformedErrorMessage = errorMessage && `(${errorMessage})`;
 
   return (
-    <StyledErrorMessageContainer isDisabled={isDisabled} state={state}>
+    <StyledErrorMessageContainer disabled={disabled} state={state}>
       <MdOutlineError />
       <Text
         type="body"
         size="small"
         margin="8px 0px 0px 4px"
         appearance="error"
-        disabled={isDisabled}
+        disabled={disabled}
       >
         {transformedErrorMessage}
       </Text>
@@ -62,17 +62,17 @@ const Invalid = (props: ISelectStateProps) => {
 };
 
 const Success = (props: ISelectStateProps) => {
-  const { isDisabled, state, validMessage } = props;
+  const { disabled, state, validMessage } = props;
 
   return (
-    <StyledValidMessageContainer isDisabled={isDisabled} state={state}>
+    <StyledValidMessageContainer disabled={disabled} state={state}>
       <MdCheckCircle />
       <Text
         type="body"
         size="small"
         margin="8px 0px 0px 4px"
         appearance="success"
-        disabled={isDisabled}
+        disabled={disabled}
       >
         {validMessage}
       </Text>
@@ -86,7 +86,7 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
     name,
     id,
     placeholder,
-    isDisabled,
+    disabled,
     handleChange,
     isRequired,
     state,
@@ -123,21 +123,17 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
   const transformedInvalid = state === "invalid" ? true : false;
 
   return (
-    <StyledContainer
-      isFullWidth={isFullWidth}
-      isDisabled={isDisabled}
-      ref={ref}
-    >
+    <StyledContainer isFullWidth={isFullWidth} disabled={disabled} ref={ref}>
       <StyledContainerLabel
         alignItems="center"
         wrap="wrap"
         size={size}
-        isDisabled={isDisabled}
+        disabled={disabled}
       >
         {label && (
           <Label
             htmlFor={id}
-            disabled={isDisabled}
+            disabled={disabled}
             focused={isFocused}
             invalid={transformedInvalid}
             size={getTypo(size!)}
@@ -146,7 +142,7 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
           </Label>
         )}
 
-        {isRequired && !isDisabled && (
+        {isRequired && !disabled && (
           <Text type="body" size="small" appearance="dark">
             (Required)
           </Text>
@@ -154,7 +150,7 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
       </StyledContainerLabel>
 
       <StyledInputContainer
-        isDisabled={isDisabled}
+        disabled={disabled}
         isFocused={isFocused}
         state={state}
       >
@@ -165,7 +161,7 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
           name={name}
           id={id}
           placeholder={placeholder}
-          isDisabled={isDisabled}
+          disabled={disabled}
           required={isRequired}
           size={size}
           state={state}
@@ -176,26 +172,26 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
           onBlur={handleBlur}
           onClick={(e: MouseEvent) => interceptorOnClick(e)}
         />
-        <StyledIcon isDisabled={isDisabled}>
+        <StyledIcon disabled={disabled}>
           <MdOutlineArrowDropDown onClick={onCloseOptions} />
         </StyledIcon>
       </StyledInputContainer>
 
       {state === "invalid" && (
         <Invalid
-          isDisabled={isDisabled!}
+          disabled={disabled!}
           state={state}
           errorMessage={errorMessage}
         />
       )}
       {state === "valid" && (
         <Success
-          isDisabled={isDisabled!}
+          disabled={disabled!}
           state={state}
           validMessage={validMessage}
         />
       )}
-      {openOptions && !isDisabled && (
+      {openOptions && !disabled && (
         <DropdownMenu
           options={options}
           isOpenOptions={openOptions}

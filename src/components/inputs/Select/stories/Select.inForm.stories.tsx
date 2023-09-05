@@ -17,7 +17,7 @@ SelectInForm.args = {
   id: "select",
   placeholder: "Select",
   isRequired: true,
-  isDisabled: false,
+  disabled: false,
   options: [
     { id: "1", label: "Item 1", isDisabled: false },
     { id: "2", label: "123", isDisabled: false },

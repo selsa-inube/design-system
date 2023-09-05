@@ -13,8 +13,8 @@ const sizeOptions = {
   },
 };
 
-const getColors = (isDisabled: boolean, state: string, isFocused: boolean) => {
-  if (isDisabled) {
+const getColors = (disabled: boolean, state: string, isFocused: boolean) => {
+  if (disabled) {
     return colors.ref.palette.neutral.n70;
   }
 
@@ -28,8 +28,8 @@ const getColors = (isDisabled: boolean, state: string, isFocused: boolean) => {
   return colors.ref.palette.neutral.n40;
 };
 
-const getIsDisabled = (isDisabled: boolean, state: string) => {
-  if (isDisabled) {
+const getIsDisabled = (disabled: boolean, state: string) => {
+  if (disabled) {
     return colors.ref.palette.neutral.n70;
   }
 
@@ -43,8 +43,7 @@ const getIsDisabled = (isDisabled: boolean, state: string) => {
 };
 
 const StyledContainer = styled.div`
-  cursor: ${({ isDisabled }: ISelectInterfaceProps) =>
-    isDisabled && "not-allowed"};
+  cursor: ${({ disabled }: ISelectInterfaceProps) => disabled && "not-allowed"};
   width: ${({ isFullWidth }: ISelectInterfaceProps) =>
     isFullWidth ? "100%" : "fit-content"};
 `;
@@ -54,8 +53,8 @@ const StyledContainerLabel = styled.div`
   align-items: center;
   margin-bottom: 4px;
   padding-left: 16px;
-  pointer-events: ${({ isDisabled }: ISelectInterfaceProps) =>
-    isDisabled && "none"};
+  pointer-events: ${({ disabled }: ISelectInterfaceProps) =>
+    disabled && "none"};
 
   & label {
     margin-right: 5px;
@@ -71,12 +70,12 @@ const StyledInputContainer = styled.div`
   background: ${colors.ref.palette.neutral.n10};
   grid-template-columns: 1fr auto;
   border: 1px solid
-    ${({ isDisabled, state, isFocused }: ISelectInterfaceProps) =>
-      getColors(isDisabled!, state!, isFocused!)};
-  ${({ isDisabled }: ISelectInterfaceProps) =>
-    isDisabled && "pointer-events: none; opacity: 0.5;"}
-  cursor: ${({ isDisabled }: ISelectInterfaceProps) =>
-    isDisabled ? "not-allowed" : "pointer"};
+    ${({ disabled, state, isFocused }: ISelectInterfaceProps) =>
+      getColors(disabled!, state!, isFocused!)};
+  ${({ disabled }: ISelectInterfaceProps) =>
+    disabled && "pointer-events: none; opacity: 0.5;"}
+  cursor: ${({ disabled }: ISelectInterfaceProps) =>
+    disabled ? "not-allowed" : "pointer"};
 `;
 
 const StyledInput = styled.input`
@@ -88,11 +87,11 @@ const StyledInput = styled.input`
   font-weight: ${typography.sys.typescale.bodyLarge.weight};
   line-height: ${typography.sys.typescale.bodyLarge.lineHeight};
   letter-spacing: ${typography.sys.typescale.bodyLarge.tracking};
-  color: ${({ isDisabled }: ISelectInterfaceProps) =>
-    isDisabled ? colors.ref.palette.neutral.n70 : colors.sys.text.dark};
+  color: ${({ disabled }: ISelectInterfaceProps) =>
+    disabled ? colors.ref.palette.neutral.n70 : colors.sys.text.dark};
   background: ${colors.ref.palette.neutral.n10};
-  cursor: ${({ isDisabled }: ISelectInterfaceProps) =>
-    isDisabled ? "not-allowed" : "pointer"};
+  cursor: ${({ disabled }: ISelectInterfaceProps) =>
+    disabled ? "not-allowed" : "pointer"};
   caret-color: transparent;
   width: ${({ isFullWidth }: ISelectInterfaceProps) =>
     isFullWidth ? "252px" : "calc(100% - 32px)"};
@@ -129,8 +128,8 @@ const StyledIcon = styled.div`
   padding-right: 10px;
   height: 24px;
   width: 24px;
-  color: ${({ isDisabled }: ISelectInterfaceProps) =>
-    isDisabled && colors.ref.palette.neutral.n70};
+  color: ${({ disabled }: ISelectInterfaceProps) =>
+    disabled && colors.ref.palette.neutral.n70};
 `;
 
 const StyledErrorMessageContainer = styled.div`
@@ -138,8 +137,8 @@ const StyledErrorMessageContainer = styled.div`
   align-items: center;
   margin-left: 12px;
   pointer-events: none;
-  color: ${({ isDisabled, state }: ISelectInterfaceProps) =>
-    getIsDisabled(isDisabled!, state!)};
+  color: ${({ disabled, state }: ISelectInterfaceProps) =>
+    getIsDisabled(disabled!, state!)};
 
   & svg {
     width: 14px;
@@ -150,8 +149,8 @@ const StyledErrorMessageContainer = styled.div`
 `;
 
 const StyledValidMessageContainer = styled(StyledErrorMessageContainer)`
-  color: ${({ isDisabled, state }: ISelectInterfaceProps) =>
-    getIsDisabled(isDisabled!, state!)}; ;
+  color: ${({ disabled, state }: ISelectInterfaceProps) =>
+    getIsDisabled(disabled!, state!)}; ;
 `;
 
 export {

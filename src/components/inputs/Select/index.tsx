@@ -6,7 +6,7 @@ import { Size, States, states } from "./props";
 export interface ISelectOptions {
   id: string;
   label: string;
-  isDisabled: boolean;
+  disabled: boolean;
 }
 
 export interface ISelectProps {
@@ -14,7 +14,7 @@ export interface ISelectProps {
   name?: string;
   id: string;
   placeholder?: string;
-  isDisabled?: boolean;
+  disabled?: boolean;
   value?: string | number;
   isRequired?: boolean;
   state?: States;
@@ -29,7 +29,6 @@ export interface ISelectProps {
   handleClick?: (event: MouseEvent) => void;
 }
 
-const defaultIsDisabled = false;
 const defaultIsRequired = false;
 const defaultState = "pending";
 const defaultIsFullWidth = false;
@@ -40,7 +39,7 @@ const Select = (props: ISelectProps) => {
     name,
     id,
     placeholder,
-    isDisabled = false,
+    disabled = false,
     value = "",
     handleChange,
     isRequired = false,
@@ -93,9 +92,6 @@ const Select = (props: ISelectProps) => {
     };
   }, [selectRef]);
 
-  const transformedIsDisabled =
-    typeof isDisabled === "boolean" ? isDisabled : defaultIsDisabled;
-
   const transformedState = states.includes(state) ? state : defaultState;
 
   const transformedIsRequired =
@@ -110,7 +106,7 @@ const Select = (props: ISelectProps) => {
       name={name}
       id={id}
       placeholder={placeholder}
-      isDisabled={transformedIsDisabled}
+      disabled={disabled}
       value={value}
       handleChange={handleChange}
       isRequired={transformedIsRequired}
