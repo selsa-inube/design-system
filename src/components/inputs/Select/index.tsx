@@ -16,7 +16,7 @@ export interface ISelectProps {
   placeholder?: string;
   isDisabled?: boolean;
   value?: string | number;
-  isRequired?: boolean;
+  required?: boolean;
   state?: States;
   errorMessage?: string;
   validMessage?: string;
@@ -30,7 +30,7 @@ export interface ISelectProps {
 }
 
 const defaultIsDisabled = false;
-const defaultIsRequired = false;
+const defaultrequired = false;
 const defaultState = "pending";
 const defaultfullwidth = false;
 
@@ -43,7 +43,7 @@ const Select = (props: ISelectProps) => {
     isDisabled = false,
     value = "",
     handleChange,
-    isRequired = false,
+    required = false,
     state = "pending",
     errorMessage,
     validMessage,
@@ -98,8 +98,8 @@ const Select = (props: ISelectProps) => {
 
   const transformedState = states.includes(state) ? state : defaultState;
 
-  const transformedIsRequired =
-    typeof isRequired === "boolean" ? isRequired : defaultIsRequired;
+  const transformedrequired =
+    typeof required === "boolean" ? required : defaultrequired;
 
   const transformedfullwidth =
     typeof fullwidth === "boolean" ? fullwidth : defaultfullwidth;
@@ -113,7 +113,7 @@ const Select = (props: ISelectProps) => {
       isDisabled={transformedIsDisabled}
       value={value}
       handleChange={handleChange}
-      isRequired={transformedIsRequired}
+      required={transformedrequired}
       size={size}
       state={transformedState}
       errorMessage={errorMessage}

@@ -88,7 +88,7 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
     placeholder,
     isDisabled,
     handleChange,
-    isRequired,
+    required,
     state,
     errorMessage,
     validMessage,
@@ -142,9 +142,9 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
           </Label>
         )}
 
-        {isRequired && !isDisabled && (
+        {required && !isDisabled && (
           <Text type="body" size="small" appearance="dark">
-            (Required)
+            (Requerido)
           </Text>
         )}
       </StyledContainerLabel>
@@ -162,7 +162,7 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
           id={id}
           placeholder={placeholder}
           isDisabled={isDisabled}
-          required={isRequired}
+          required={required}
           size={size}
           state={state}
           fullwidth={fullwidth}

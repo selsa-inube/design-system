@@ -22,7 +22,7 @@ Default.args = {
     { id: "2", label: "123", isDisabled: false },
     { id: "3", label: "Item", isDisabled: false },
   ],
-  isRequired: false,
+  required: false,
   size: "wide",
   errorMessage: "This field can not be blank",
   fullwidth: false,
