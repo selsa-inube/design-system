@@ -1,3 +1,7 @@
+import { inube } from "@src/shared/tokens";
+
+type Themed = { theme?: typeof inube };
+
 const props = {
   id: {
     control: { type: "text" },
@@ -31,5 +35,7 @@ const props = {
     description: "shall constitute the content to be displayed",
   },
 };
+
+export type { Themed };
 
 export { props };

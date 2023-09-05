@@ -1,8 +1,9 @@
 import { Text } from "@data/Text";
 
 import { StyledTab } from "./styles";
+import { Themed } from "./props";
 
-export interface ITabProps {
+export interface ITabProps extends Themed {
   label: string;
   id: string;
   disabled: boolean;
