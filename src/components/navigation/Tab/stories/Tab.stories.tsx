@@ -12,7 +12,7 @@ const story = {
 export const Default = (args: ITabProps) => <TabController {...args} />;
 Default.args = {
   id: "thisIsAnId",
-  isDisabled: false,
+  disabled: false,
   label: "General Information",
   isSelected: { control: null },
 };
