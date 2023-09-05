@@ -23,7 +23,7 @@ export interface ISelectProps {
   size?: Size;
   fullwidth?: boolean;
   options: ISelectOptions[];
-  handleChange?: (event: MouseEvent) => void;
+  onChange?: (event: MouseEvent) => void;
   handleFocus?: (event: FocusEvent) => void;
   onBlur?: (event: FocusEvent) => void;
   handleClick?: (event: MouseEvent) => void;
@@ -42,7 +42,7 @@ const Select = (props: ISelectProps) => {
     placeholder,
     isDisabled = false,
     value = "",
-    handleChange,
+    onChange,
     required = false,
     state = "pending",
     errorMessage,
@@ -112,7 +112,7 @@ const Select = (props: ISelectProps) => {
       placeholder={placeholder}
       isDisabled={transformedIsDisabled}
       value={value}
-      handleChange={handleChange}
+      onChange={onChange}
       required={transformedrequired}
       size={size}
       state={transformedState}
