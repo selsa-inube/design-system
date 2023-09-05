@@ -64,8 +64,8 @@ const Tabs = ({
             </StyledIconWrapper>
             <Tab
               key={selectedTab}
-              isDisabled={transformedIsDisabled}
-              isSelected={true}
+              disabled={transformedIsDisabled}
+              selected={true}
               id={selectedTab}
               onClick={() => handleSelectedTab(selectedTab)}
               label={transformedLabel}
@@ -90,8 +90,8 @@ const Tabs = ({
         {tabs.map((tab) => (
           <Tab
             key={tab.id}
-            isDisabled={tab.isDisabled}
-            isSelected={tab.id === selectedTab}
+            disabled={tab.isDisabled}
+            selected={tab.id === selectedTab}
             id={tab.id}
             onClick={() => handleSelectedTab(tab.id)}
             label={tab.label}

@@ -7,14 +7,12 @@ const StyledTab = styled.li`
   width: fit-content;
   user-select: none;
   list-style-type: none;
-  border-bottom: ${({ isSelected, isDisabled }: ITabProps) =>
-    isSelected &&
-    !isDisabled &&
-    `4px solid ${colors.sys.actions.primary.filled}`};
+  border-bottom: ${({ selected, disabled }: ITabProps) =>
+    selected && !disabled && `4px solid ${colors.sys.actions.primary.filled}`};
 
   & > p {
-    cursor: ${({ isDisabled }: ITabProps) =>
-      isDisabled ? "not-allowed" : "pointer"};
+    cursor: ${({ disabled }: ITabProps) =>
+      disabled ? "not-allowed" : "pointer"};
   }
 `;
 

@@ -3,7 +3,7 @@ const props = {
     control: { type: "text" },
     description: "shall be the id for the text",
   },
-  isDisabled: {
+  disabled: {
     options: [true, false],
     control: { type: "boolean" },
     description:
@@ -12,7 +12,7 @@ const props = {
       defaultValue: { summary: "false" },
     },
   },
-  isSelected: {
+  selected: {
     options: [true, false],
     control: { type: "boolean" },
     description:
