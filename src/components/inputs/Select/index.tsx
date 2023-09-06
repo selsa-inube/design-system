@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 
 import { SelectUI } from "./interface";
-import { Size, States, states } from "./props";
+import { Size, Status } from "./props";
 
 export interface ISelectOptions {
   id: string;
@@ -17,7 +17,7 @@ export interface ISelectProps {
   disabled?: boolean;
   value?: string | number;
   required?: boolean;
-  state?: States;
+  status?: Status;
   errorMessage?: string;
   validMessage?: string;
   size?: Size;
@@ -26,11 +26,11 @@ export interface ISelectProps {
   onChange?: (event: MouseEvent) => void;
   onFocus?: (event: FocusEvent) => void;
   onBlur?: (event: FocusEvent) => void;
-  handleClick?: (event: MouseEvent) => void;
+  onClick?: (event: MouseEvent) => void;
 }
 
 const defaultrequired = false;
-const defaultState = "pending";
+
 const defaultfullwidth = false;
 
 const Select = (props: ISelectProps) => {
@@ -43,7 +43,7 @@ const Select = (props: ISelectProps) => {
     value = "",
     onChange,
     required = false,
-    state = "pending",
+    status = "pending",
     errorMessage,
     validMessage,
     size = "wide",
@@ -51,7 +51,7 @@ const Select = (props: ISelectProps) => {
     onFocus,
     onBlur,
     options,
-    handleClick,
+    onClick,
   } = props;
 
   const [isFocused, setIsFocused] = useState(false);
@@ -92,8 +92,6 @@ const Select = (props: ISelectProps) => {
     };
   }, [selectRef]);
 
-  const transformedState = states.includes(state) ? state : defaultState;
-
   const transformedrequired =
     typeof required === "boolean" ? required : defaultrequired;
 
@@ -111,7 +109,7 @@ const Select = (props: ISelectProps) => {
       onChange={onChange}
       required={transformedrequired}
       size={size}
-      state={transformedState}
+      status={status}
       errorMessage={errorMessage}
       validMessage={validMessage}
       fullwidth={transformedfullwidth}
@@ -120,7 +118,7 @@ const Select = (props: ISelectProps) => {
       onBlur={interceptBlur}
       options={options}
       openOptions={open}
-      handleClick={handleClick}
+      onClick={onClick}
       onCloseOptions={handleCloseOptions}
       ref={selectRef}
     />

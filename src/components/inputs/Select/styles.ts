@@ -13,12 +13,12 @@ const sizeOptions = {
   },
 };
 
-const getColors = (disabled: boolean, state: string, isFocused: boolean) => {
+const getColors = (disabled: boolean, status: string, isFocused: boolean) => {
   if (disabled) {
     return colors.ref.palette.neutral.n70;
   }
 
-  if (state === "invalid") {
+  if (status === "invalid") {
     return colors.sys.actions.remove.filled;
   }
 
@@ -28,16 +28,16 @@ const getColors = (disabled: boolean, state: string, isFocused: boolean) => {
   return colors.ref.palette.neutral.n40;
 };
 
-const getIsDisabled = (disabled: boolean, state: string) => {
+const getIsDisabled = (disabled: boolean, status: string) => {
   if (disabled) {
     return colors.ref.palette.neutral.n70;
   }
 
-  if (state === "valid") {
+  if (status === "valid") {
     return colors.sys.actions.confirm.filled;
   }
 
-  if (state === "invalid") {
+  if (status === "invalid") {
     return colors.sys.actions.remove.filled;
   }
 };
@@ -70,8 +70,8 @@ const StyledInputContainer = styled.div`
   background: ${colors.ref.palette.neutral.n10};
   grid-template-columns: 1fr auto;
   border: 1px solid
-    ${({ disabled, state, isFocused }: ISelectInterfaceProps) =>
-      getColors(disabled!, state!, isFocused!)};
+    ${({ disabled, status, isFocused }: ISelectInterfaceProps) =>
+      getColors(disabled!, status!, isFocused!)};
   ${({ disabled }: ISelectInterfaceProps) =>
     disabled && "pointer-events: none; opacity: 0.5;"}
   cursor: ${({ disabled }: ISelectInterfaceProps) =>
@@ -137,8 +137,8 @@ const StyledErrorMessageContainer = styled.div`
   align-items: center;
   margin-left: 12px;
   pointer-events: none;
-  color: ${({ disabled, state }: ISelectInterfaceProps) =>
-    getIsDisabled(disabled!, state!)};
+  color: ${({ disabled, status }: ISelectInterfaceProps) =>
+    getIsDisabled(disabled!, status!)};
 
   & svg {
     width: 14px;
@@ -149,8 +149,8 @@ const StyledErrorMessageContainer = styled.div`
 `;
 
 const StyledValidMessageContainer = styled(StyledErrorMessageContainer)`
-  color: ${({ disabled, state }: ISelectInterfaceProps) =>
-    getIsDisabled(disabled!, state!)}; ;
+  color: ${({ disabled, status }: ISelectInterfaceProps) =>
+    getIsDisabled(disabled!, status!)}; ;
 `;
 
 export {
