@@ -18,9 +18,9 @@ Default.args = {
   value: "Item 2",
   disabled: false,
   options: [
-    { id: "1", label: "Item 1", isDisabled: false },
-    { id: "2", label: "123", isDisabled: false },
-    { id: "3", label: "Item", isDisabled: false },
+    { id: "1", label: "Item 1", disabled: false },
+    { id: "2", label: "123", disabled: false },
+    { id: "3", label: "Item", disabled: false },
   ],
   required: false,
   size: "wide",
