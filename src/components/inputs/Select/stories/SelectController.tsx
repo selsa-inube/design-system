@@ -5,7 +5,7 @@ const SelectController = (props: ISelectProps) => {
   const { value = "", state = "pending" } = props;
   const [form, setForm] = useState({ value, state });
 
-  const handleChange = (e: Event) => {
+  const onChange = (e: Event) => {
     const target = e.target as HTMLInputElement;
     const { value } = target;
 
@@ -23,7 +23,7 @@ const SelectController = (props: ISelectProps) => {
       {...props}
       value={form.value}
       state={form.state}
-      handleChange={handleChange}
+      onChange={onChange}
       handleFocus={handleFocus}
     />
   );
