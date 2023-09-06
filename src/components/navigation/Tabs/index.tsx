@@ -10,13 +10,13 @@ import { StyledTabs, StyledIconWrapper } from "./styles";
 export interface ITabsItem {
   id: string;
   label: string;
-  isDisabled: boolean;
+  disabled: boolean;
 }
 
 export interface ITabsProps {
   tabs: ITabsItem[];
   type?: Types;
-  handleSelectedTab: (id: string) => void;
+  onSelectTab: (id: string) => void;
   selectedTab: string;
 }
 
@@ -37,7 +37,7 @@ const Tabs = ({
   tabs,
   type = defaultType,
   selectedTab,
-  handleSelectedTab,
+  onSelectTab,
 }: ITabsProps) => {
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
 
@@ -48,11 +48,11 @@ const Tabs = ({
     const dropDownOptions = tabs.map((tab) => ({
       id: tab.id,
       label: tab.label,
-      isDisabled: tab.isDisabled,
+      disabled: tab.disabled,
     }));
     const transformedLabel = tabs.find((tab) => tab.id === selectedTab)?.label!;
     const transformedIsDisabled = tabs.find((tab) => tab.id === selectedTab)
-      ?.isDisabled!;
+      ?.disabled!;
     return (
       <>
         <StyledTabs type={transformedType}>
@@ -67,7 +67,7 @@ const Tabs = ({
               disabled={transformedIsDisabled}
               selected={true}
               id={selectedTab}
-              onClick={() => handleSelectedTab(selectedTab)}
+              onClick={() => onSelectTab(selectedTab)}
               label={transformedLabel}
             />
           </Stack>
@@ -75,7 +75,7 @@ const Tabs = ({
         {isDropDownOpen && (
           <DropdownMenu
             options={dropDownOptions}
-            handleSelect={handleSelectedTab}
+            handleSelect={onSelectTab}
             isOpenOptions={isDropDownOpen}
             onCloseOptions={() => setIsDropDownOpen(false)}
           />
@@ -90,10 +90,10 @@ const Tabs = ({
         {tabs.map((tab) => (
           <Tab
             key={tab.id}
-            disabled={tab.isDisabled}
+            disabled={tab.disabled}
             selected={tab.id === selectedTab}
             id={tab.id}
-            onClick={() => handleSelectedTab(tab.id)}
+            onClick={() => onSelectTab(tab.id)}
             label={tab.label}
           />
         ))}
