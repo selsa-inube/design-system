@@ -14,13 +14,6 @@ import {
 
 import { StyledButton, StyledSpan, StyledLink } from "./styles";
 
-export interface IButtonStructureProps extends IButtonProps, Themed {
-  hover?: boolean;
-  onMouseEnter: () => void;
-  onMouseLeave: () => void;
-  appearanceChildren: Appearance;
-}
-
 export interface IButtonProps {
   children: React.ReactNode;
   appearance?: Appearance;
@@ -34,6 +27,13 @@ export interface IButtonProps {
   fullwidth?: boolean;
   handleClick?: (e?: Event) => void;
   path?: string;
+}
+
+export interface IButtonStructureProps extends IButtonProps, Themed {
+  hover?: boolean;
+  onMouseEnter: () => void;
+  onMouseLeave: () => void;
+  appearanceChildren: Appearance;
 }
 
 const darkWhenFilled: ButtonAppearanceType[] = ["warning", "gray", "light"];
@@ -59,7 +59,7 @@ const ButtonStructure = (props: IButtonStructureProps) => {
   return (
     <StyledButton
       appearance={appearance}
-      loading={loading}
+      loading={loading!.toString()}
       disabled={disabled}
       iconBefore={iconBefore}
       iconAfter={iconAfter}
@@ -155,8 +155,8 @@ const Button = (props: IButtonProps) => {
     return (
       <StyledLink to={path}>
         <ButtonStructure
-          appearance={appearance}
           loading={loading}
+          appearance={appearance}
           disabled={disabled}
           iconBefore={iconBefore}
           iconAfter={iconAfter}
@@ -177,7 +177,7 @@ const Button = (props: IButtonProps) => {
   return (
     <ButtonStructure
       appearance={appearance}
-      loading={+loading}
+      loading={loading}
       disabled={disabled}
       iconBefore={iconBefore}
       iconAfter={iconAfter}

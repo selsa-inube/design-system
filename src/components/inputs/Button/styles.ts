@@ -156,17 +156,6 @@ const StyledLink = styled(Link)`
   }};
 
   ${StyledButton}
-  cursor: ${({ disabled, loading }: IButtonStructureProps) => {
-    if (disabled) {
-      return "not-allowed";
-    }
-
-    if (loading) {
-      return "progress";
-    }
-
-    return "pointer";
-  }};
 `;
 
 const StyledSpan = styled.span`
