@@ -1,4 +1,3 @@
-import React from "react";
 import PropTypes from "prop-types";
 
 import { StyledDropdownMenu } from "./styled";
@@ -27,7 +26,7 @@ const DropdownMenu = (props) => {
         <DropdownItem
           key={dropDownitem.id}
           id={dropDownitem.id}
-          isDisabled={dropDownitem.isDisabled}
+          disabled={dropDownitem.disabled}
           isSelected={dropDownitem.isSelected}
           handleClick={() => handleOptionClick(dropDownitem.id)}
         >
@@ -43,7 +42,7 @@ DropdownMenu.propTypes = {
     PropTypes.shape({
       id: PropTypes.string,
       label: PropTypes.string,
-      isDisabled: PropTypes.bool,
+      disabled: PropTypes.bool,
     })
   ),
   handleClick: PropTypes.func,
