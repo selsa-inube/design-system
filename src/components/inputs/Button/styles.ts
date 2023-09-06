@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 import { typography } from "@shared/typography/typography";
 import { IButtonStructureProps } from ".";
@@ -16,10 +16,11 @@ const spacing = {
   },
 };
 
-const containerStyles = css`
+const StyledButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0px 16px;
   transition: all 0.3s ease;
   border-radius: 8px;
   border: none;
@@ -30,11 +31,6 @@ const containerStyles = css`
   font-weight: ${typography.sys.typescale.labelLarge.weight};
   line-height: ${typography.sys.typescale.labelLarge.lineHeight};
   letter-spacing: ${typography.sys.typescale.labelLarge.tracking};
-`;
-
-const StyledButton = styled.button`
-  padding: 0px 16px;
-  ${containerStyles}
   width: ${({ fullwidth }: IButtonStructureProps) => {
     if (fullwidth) {
       return "100%";
@@ -142,20 +138,7 @@ const StyledButton = styled.button`
 `;
 
 const StyledLink = styled(Link)`
-  margin: 0%;
-  padding: 0%;
-  ${containerStyles}
-  border-style: ${(props: IButtonStructureProps) =>
-    props.type === "link" ? "solid" : "none"};
-  width: ${({ fullwidth }: IButtonStructureProps) => {
-    if (fullwidth) {
-      return "100%";
-    }
-
-    return "fit-content";
-  }};
-
-  ${StyledButton}
+  text-decoration: none;
 `;
 
 const StyledSpan = styled.span`
