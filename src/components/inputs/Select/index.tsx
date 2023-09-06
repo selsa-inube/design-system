@@ -23,9 +23,9 @@ export interface ISelectProps {
   size?: Size;
   fullwidth?: boolean;
   options: ISelectOptions[];
-  handleChange?: (event: MouseEvent) => void;
+  onChange?: (event: MouseEvent) => void;
   handleFocus?: (event: FocusEvent) => void;
-  handleBlur?: (event: FocusEvent) => void;
+  onBlur?: (event: FocusEvent) => void;
   handleClick?: (event: MouseEvent) => void;
 }
 
@@ -42,7 +42,7 @@ const Select = (props: ISelectProps) => {
     placeholder,
     isDisabled = false,
     value = "",
-    handleChange,
+    onChange,
     required = false,
     status = "pending",
     errorMessage,
@@ -50,7 +50,7 @@ const Select = (props: ISelectProps) => {
     size = "wide",
     fullwidth = false,
     handleFocus,
-    handleBlur,
+    onBlur,
     options,
     handleClick,
   } = props;
@@ -70,8 +70,8 @@ const Select = (props: ISelectProps) => {
   const interceptBlur = (e: FocusEvent) => {
     setIsFocused(false);
 
-    if (typeof handleBlur === "function") {
-      handleBlur(e);
+    if (typeof onBlur === "function") {
+      onBlur(e);
     }
   };
 
@@ -110,7 +110,7 @@ const Select = (props: ISelectProps) => {
       placeholder={placeholder}
       isDisabled={transformedIsDisabled}
       value={value}
-      handleChange={handleChange}
+      onChange={onChange}
       required={transformedrequired}
       size={size}
       status={status}
@@ -119,7 +119,7 @@ const Select = (props: ISelectProps) => {
       fullwidth={transformedfullwidth}
       isFocused={isFocused}
       handleFocus={interceptFocus}
-      handleBlur={interceptBlur}
+      onBlur={interceptBlur}
       options={options}
       openOptions={open}
       handleClick={handleClick}

@@ -88,7 +88,7 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
     id,
     placeholder,
     isDisabled,
-    handleChange,
+    onChange,
     required,
     status,
     errorMessage,
@@ -97,7 +97,7 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
     fullwidth,
     isFocused,
     handleFocus,
-    handleBlur,
+    onBlur,
     options,
     openOptions,
     value,
@@ -168,9 +168,9 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
           status={status}
           fullwidth={fullwidth}
           isFocused={isFocused}
-          onChange={handleChange}
+          onChange={onChange}
           onFocus={handleFocus}
-          onBlur={handleBlur}
+          onBlur={onBlur}
           onClick={(e: MouseEvent) => interceptorOnClick(e)}
         />
         <StyledIcon isDisabled={isDisabled}>
