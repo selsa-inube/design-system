@@ -6,7 +6,7 @@ import { Size, States, states } from "./props";
 export interface ISelectOptions {
   id: string;
   label: string;
-  IsDisabled: boolean;
+  disabled: boolean;
 }
 
 export interface ISelectProps {
