@@ -75,7 +75,7 @@ const Select = (props: ISelectProps) => {
     }
   };
 
-  const handleCloseOptions = () => {
+  const toggleOptionsMenu = () => {
     setOpen(!open);
   };
 
@@ -125,7 +125,7 @@ const Select = (props: ISelectProps) => {
       options={options}
       openOptions={open}
       handleClick={handleClick}
-      onCloseOptions={handleCloseOptions}
+      onCloseOptions={toggleOptionsMenu}
       ref={selectRef}
     />
   );
