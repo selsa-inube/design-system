@@ -12,7 +12,7 @@ const SelectController = (props: ISelectProps) => {
     setForm({ value, state: "pending" });
   };
 
-  const handleFocus = () => {
+  const onFocus = () => {
     if (!value) {
       setForm({ ...form, state: "pending" });
     }
@@ -24,7 +24,7 @@ const SelectController = (props: ISelectProps) => {
       value={form.value}
       state={form.state}
       onChange={onChange}
-      handleFocus={handleFocus}
+      onFocus={onFocus}
     />
   );
 };
