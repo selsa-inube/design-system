@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react"; // added useEffect
 import { MdKeyboardArrowDown } from "react-icons/md";
 
 import { Types, types } from "./props";
@@ -20,42 +20,34 @@ export interface ITabsProps {
   selectedTab: string;
 }
 
-const defaultType = "tabs";
-
-const checkDuplicateTabIds = (tabs: ITabsItem[]) => {
-  const ids = tabs.map((tab) => tab.id);
-  const duplicateIds = ids.filter((id, index) => ids.indexOf(id) !== index);
-  if (duplicateIds.length > 0) {
-    return console.warn(
-      `Warning: Tab components with the same id were found: [${duplicateIds}]. Tab component ids must be unique for components to maintain their identity across updates.`
-    );
-  }
-  return false;
-};
-
 const Tabs = ({
   tabs,
-  type = defaultType,
+  type = "tabs",
   selectedTab,
   handleSelectedTab,
 }: ITabsProps) => {
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
+  const [selectedTabLabel, setSelectedTabLabel] = useState<string>("");
+  const [selectedTabIsDisabled, setSelectedTabIsDisabled] =
+    useState<boolean>(false);
 
-  const transformedType = types.includes(type) ? type : defaultType;
-  checkDuplicateTabIds(tabs);
+  useEffect(() => {
+    const selected = tabs.find((tab) => tab.id === selectedTab);
+    if (selected) {
+      setSelectedTabLabel(selected.label);
+      setSelectedTabIsDisabled(selected.isDisabled);
+    }
+  }, [selectedTab, tabs]);
 
-  if (transformedType === "select") {
+  if (type === "select") {
     const dropDownOptions = tabs.map((tab) => ({
       id: tab.id,
       label: tab.label,
       isDisabled: tab.isDisabled,
     }));
-    const transformedLabel = tabs.find((tab) => tab.id === selectedTab)?.label!;
-    const transformedIsDisabled = tabs.find((tab) => tab.id === selectedTab)
-      ?.isDisabled!;
     return (
       <>
-        <StyledTabs type={transformedType}>
+        <StyledTabs type={type}>
           <Stack gap="8px">
             <StyledIconWrapper
               onClick={() => setIsDropDownOpen(!isDropDownOpen)}
@@ -64,11 +56,11 @@ const Tabs = ({
             </StyledIconWrapper>
             <Tab
               key={selectedTab}
-              disabled={transformedIsDisabled}
+              disabled={selectedTabIsDisabled}
               selected={true}
               id={selectedTab}
               onClick={() => handleSelectedTab(selectedTab)}
-              label={transformedLabel}
+              label={selectedTabLabel}
             />
           </Stack>
         </StyledTabs>
