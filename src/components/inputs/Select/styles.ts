@@ -13,12 +13,12 @@ const sizeOptions = {
   },
 };
 
-const getColors = (isDisabled: boolean, state: string, isFocused: boolean) => {
+const getColors = (isDisabled: boolean, status: string, isFocused: boolean) => {
   if (isDisabled) {
     return colors.ref.palette.neutral.n70;
   }
 
-  if (state === "invalid") {
+  if (status === "invalid") {
     return colors.sys.actions.remove.filled;
   }
 
@@ -28,16 +28,16 @@ const getColors = (isDisabled: boolean, state: string, isFocused: boolean) => {
   return colors.ref.palette.neutral.n40;
 };
 
-const getIsDisabled = (isDisabled: boolean, state: string) => {
+const getIsDisabled = (isDisabled: boolean, status: string) => {
   if (isDisabled) {
     return colors.ref.palette.neutral.n70;
   }
 
-  if (state === "valid") {
+  if (status === "valid") {
     return colors.sys.actions.confirm.filled;
   }
 
-  if (state === "invalid") {
+  if (status === "invalid") {
     return colors.sys.actions.remove.filled;
   }
 };
@@ -71,8 +71,8 @@ const StyledInputContainer = styled.div`
   background: ${colors.ref.palette.neutral.n10};
   grid-template-columns: 1fr auto;
   border: 1px solid
-    ${({ isDisabled, state, isFocused }: ISelectInterfaceProps) =>
-      getColors(isDisabled!, state!, isFocused!)};
+    ${({ isDisabled, status, isFocused }: ISelectInterfaceProps) =>
+      getColors(isDisabled!, status!, isFocused!)};
   ${({ isDisabled }: ISelectInterfaceProps) =>
     isDisabled && "pointer-events: none; opacity: 0.5;"}
   cursor: ${({ isDisabled }: ISelectInterfaceProps) =>
@@ -138,8 +138,8 @@ const StyledErrorMessageContainer = styled.div`
   align-items: center;
   margin-left: 12px;
   pointer-events: none;
-  color: ${({ isDisabled, state }: ISelectInterfaceProps) =>
-    getIsDisabled(isDisabled!, state!)};
+  color: ${({ isDisabled, status }: ISelectInterfaceProps) =>
+    getIsDisabled(isDisabled!, status!)};
 
   & svg {
     width: 14px;
@@ -150,8 +150,8 @@ const StyledErrorMessageContainer = styled.div`
 `;
 
 const StyledValidMessageContainer = styled(StyledErrorMessageContainer)`
-  color: ${({ isDisabled, state }: ISelectInterfaceProps) =>
-    getIsDisabled(isDisabled!, state!)}; ;
+  color: ${({ isDisabled, status }: ISelectInterfaceProps) =>
+    getIsDisabled(isDisabled!, status!)}; ;
 `;
 
 export {
