@@ -74,7 +74,7 @@ const props = {
       defaultValue: { summary: false },
     },
   },
-  handleFocus: {
+  onFocus: {
     description:
       "allows you to control what to do when the onfocus event occurs.",
   },
