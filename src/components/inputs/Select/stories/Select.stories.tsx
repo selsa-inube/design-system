@@ -1,10 +1,11 @@
 import { Select, ISelectProps } from "..";
 import { SelectController } from "./SelectController";
-import { props } from "../props";
+import { props, parameters } from "../props";
 
 const story = {
   title: "Inputs/Select",
   component: [Select],
+  parameters,
   argTypes: props,
 };
 
