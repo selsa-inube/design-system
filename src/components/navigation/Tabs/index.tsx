@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"; // added useEffect
 import { MdKeyboardArrowDown } from "react-icons/md";
 
-import { Types, types } from "./props";
+import { Types } from "./props";
 import { Tab } from "@navigation/Tab";
 import { Stack } from "@layouts/Stack";
 import { DropdownMenu } from "@inputs/Select/DropdownMenu";
