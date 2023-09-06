@@ -5,7 +5,7 @@ const TabsController = (props: ITabsProps) => {
   const { tabs, type, selectedTab } = props;
   const [selectedTabController, setSelectedTab] = useState(selectedTab);
 
-  const handleSelectedTab = (tabId: string) => {
+  const onSelectTab = (tabId: string) => {
     setSelectedTab(tabId);
   };
 
@@ -13,7 +13,7 @@ const TabsController = (props: ITabsProps) => {
     <Tabs
       tabs={tabs}
       type={type}
-      handleSelectedTab={handleSelectedTab}
+      onSelectTab={onSelectTab}
       selectedTab={selectedTabController}
     />
   );
