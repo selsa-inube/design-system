@@ -2,7 +2,7 @@ export const sizes = ["wide", "compact"] as const;
 export type Size = typeof sizes[number];
 
 const status = ["valid", "invalid", "pending"] as const;
-type States = typeof status[number];
+type Status = typeof status[number];
 
 const props = {
   parameters: {
@@ -88,5 +88,5 @@ const props = {
   },
 };
 
-export type { States };
+export type { Status };
 export { props };

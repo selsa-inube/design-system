@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 
 import { SelectUI } from "./interface";
-import { Size, States } from "./props";
+import { Size, Status } from "./props";
 
 export interface ISelectOptions {
   id: string;
@@ -17,7 +17,7 @@ export interface ISelectProps {
   isDisabled?: boolean;
   value?: string | number;
   required?: boolean;
-  status?: States;
+  status?: Status;
   errorMessage?: string;
   validMessage?: string;
   size?: Size;
