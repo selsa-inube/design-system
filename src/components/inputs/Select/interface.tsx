@@ -9,6 +9,9 @@ import { Label } from "@inputs/Label";
 import { Text } from "@data/Text";
 import { DropdownMenu } from "@inputs/Select/DropdownMenu";
 
+import { Size } from "./props";
+
+import { ISelectProps } from ".";
 import {
   StyledContainer,
   StyledContainerLabel,
@@ -18,12 +21,10 @@ import {
   StyledErrorMessageContainer,
   StyledValidMessageContainer,
 } from "./styles";
-import { ISelectProps } from ".";
-import { Size } from "./props";
 
 export interface ISelectStateProps {
   isDisabled: boolean;
-  state: string;
+  status: string;
   validMessage?: string;
   errorMessage?: string;
 }
@@ -42,10 +43,10 @@ const getTypo = (size: Size) => {
 };
 
 const Invalid = (props: ISelectStateProps) => {
-  const { isDisabled, state, errorMessage } = props;
+  const { isDisabled, status, errorMessage } = props;
 
   return (
-    <StyledErrorMessageContainer isDisabled={isDisabled} state={state}>
+    <StyledErrorMessageContainer isDisabled={isDisabled} status={status}>
       <MdOutlineError />
       <Text
         type="body"
@@ -61,10 +62,10 @@ const Invalid = (props: ISelectStateProps) => {
 };
 
 const Success = (props: ISelectStateProps) => {
-  const { isDisabled, state, validMessage } = props;
+  const { isDisabled, status, validMessage } = props;
 
   return (
-    <StyledValidMessageContainer isDisabled={isDisabled} state={state}>
+    <StyledValidMessageContainer isDisabled={isDisabled} status={status}>
       <MdCheckCircle />
       <Text
         type="body"
@@ -88,7 +89,7 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
     isDisabled,
     onChange,
     required,
-    state,
+    status,
     errorMessage,
     validMessage,
     size,
@@ -132,7 +133,7 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
             htmlFor={id}
             disabled={isDisabled}
             focused={isFocused}
-            invalid={state === "invalid" ? true : false}
+            invalid={status === "invalid" ? true : false}
             size={getTypo(size!)}
           >
             {label}
@@ -149,7 +150,7 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
       <StyledInputContainer
         isDisabled={isDisabled}
         isFocused={isFocused}
-        state={state}
+        status={status}
       >
         <StyledInput
           autoComplete="off"
@@ -161,7 +162,7 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
           isDisabled={isDisabled}
           required={required}
           size={size}
-          state={state}
+          status={status}
           fullwidth={fullwidth}
           isFocused={isFocused}
           onChange={onChange}
@@ -174,17 +175,17 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
         </StyledIcon>
       </StyledInputContainer>
 
-      {state === "invalid" && (
+      {status === "invalid" && (
         <Invalid
           isDisabled={isDisabled!}
-          state={state}
+          status={status}
           errorMessage={errorMessage}
         />
       )}
-      {state === "valid" && (
+      {status === "valid" && (
         <Success
           isDisabled={isDisabled!}
-          state={state}
+          status={status}
           validMessage={validMessage}
         />
       )}

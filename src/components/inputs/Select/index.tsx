@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 
 import { SelectUI } from "./interface";
-import { Size, States } from "./props";
+import { Size, Status } from "./props";
 
 export interface ISelectOptions {
   id: string;
@@ -17,7 +17,7 @@ export interface ISelectProps {
   isDisabled?: boolean;
   value?: string | number;
   required?: boolean;
-  state?: States;
+  status?: Status;
   errorMessage?: string;
   validMessage?: string;
   size?: Size;
@@ -39,7 +39,7 @@ const Select = (props: ISelectProps) => {
     value = "",
     onChange,
     required = false,
-    state = "pending",
+    status = "pending",
     errorMessage,
     validMessage,
     size = "wide",
@@ -99,7 +99,7 @@ const Select = (props: ISelectProps) => {
       onChange={onChange}
       required={required}
       size={size}
-      state={state}
+      status={status}
       errorMessage={errorMessage}
       validMessage={validMessage}
       fullwidth={fullwidth}

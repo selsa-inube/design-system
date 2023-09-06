@@ -1,8 +1,8 @@
 export const sizes = ["wide", "compact"] as const;
 export type Size = typeof sizes[number];
 
-export const states = ["valid", "invalid", "pending"] as const;
-export type States = typeof states[number];
+const status = ["valid", "invalid", "pending"] as const;
+type Status = typeof status[number];
 
 const props = {
   parameters: {
@@ -49,10 +49,10 @@ const props = {
       defaultValue: { summary: false },
     },
   },
-  state: {
-    options: states,
+  status: {
+    options: status,
     control: { type: "select" },
-    description: "state of the component",
+    description: "status of the component",
     table: {
       defaultValue: { summary: "pending" },
     },
@@ -88,4 +88,5 @@ const props = {
   },
 };
 
+export type { Status };
 export { props };
