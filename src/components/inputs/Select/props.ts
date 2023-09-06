@@ -52,7 +52,7 @@ const props = {
   status: {
     options: status,
     control: { type: "select" },
-    description: "state of the component",
+    description: "status of the component",
     table: {
       defaultValue: { summary: "pending" },
     },
