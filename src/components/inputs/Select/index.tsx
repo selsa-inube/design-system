@@ -26,7 +26,7 @@ export interface ISelectProps {
   onChange?: (event: MouseEvent) => void;
   onFocus?: (event: FocusEvent) => void;
   onBlur?: (event: FocusEvent) => void;
-  handleClick?: (event: MouseEvent) => void;
+  onClick?: (event: MouseEvent) => void;
 }
 
 const defaultIsDisabled = false;
@@ -52,7 +52,7 @@ const Select = (props: ISelectProps) => {
     onFocus,
     onBlur,
     options,
-    handleClick,
+    onClick,
   } = props;
 
   const [isFocused, setIsFocused] = useState(false);
@@ -122,7 +122,7 @@ const Select = (props: ISelectProps) => {
       onBlur={interceptBlur}
       options={options}
       openOptions={open}
-      handleClick={handleClick}
+      onClick={onClick}
       onCloseOptions={toggleOptionsMenu}
       ref={selectRef}
     />
