@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 
 import { SelectUI } from "./interface";
-import { Size, States, states } from "./props";
+import { Size, States } from "./props";
 
 export interface ISelectOptions {
   id: string;
@@ -28,11 +28,6 @@ export interface ISelectProps {
   onBlur?: (event: FocusEvent) => void;
   handleClick?: (event: MouseEvent) => void;
 }
-
-const defaultIsDisabled = false;
-const defaultrequired = false;
-const defaultState = "pending";
-const defaultfullwidth = false;
 
 const Select = (props: ISelectProps) => {
   const {
@@ -93,32 +88,21 @@ const Select = (props: ISelectProps) => {
     };
   }, [selectRef]);
 
-  const transformedIsDisabled =
-    typeof isDisabled === "boolean" ? isDisabled : defaultIsDisabled;
-
-  const transformedState = states.includes(state) ? state : defaultState;
-
-  const transformedrequired =
-    typeof required === "boolean" ? required : defaultrequired;
-
-  const transformedfullwidth =
-    typeof fullwidth === "boolean" ? fullwidth : defaultfullwidth;
-
   return (
     <SelectUI
       label={label}
       name={name}
       id={id}
       placeholder={placeholder}
-      isDisabled={transformedIsDisabled}
+      isDisabled={isDisabled}
       value={value}
       onChange={onChange}
-      required={transformedrequired}
+      required={required}
       size={size}
-      state={transformedState}
+      state={state}
       errorMessage={errorMessage}
       validMessage={validMessage}
-      fullwidth={transformedfullwidth}
+      fullwidth={fullwidth}
       isFocused={isFocused}
       onFocus={interceptFocus}
       onBlur={interceptBlur}
