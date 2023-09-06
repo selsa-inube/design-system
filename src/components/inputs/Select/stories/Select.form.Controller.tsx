@@ -21,7 +21,7 @@ const InForm = (props: ISelectProps) => {
     }
   };
 
-  const handleFocus = (e?: Event) => {
+  const onFocus = (e?: Event) => {
     if (!value) {
       setForm({ ...form, status: "pending" });
     }
@@ -33,7 +33,7 @@ const InForm = (props: ISelectProps) => {
         {...props}
         status={form.status}
         id="select"
-        handleFocus={(e) => handleFocus(e)}
+        onFocus={(e) => onFocus(e)}
       />
       <Button
         type="submit"
