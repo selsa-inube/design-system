@@ -15,7 +15,7 @@ const Default = (args) => <DropdownItem {...args} />;
 Default.args = {
   children: "Item 1",
   isSelected: false,
-  isDisabled: false,
+  disabled: false,
 };
 
 export default story;
