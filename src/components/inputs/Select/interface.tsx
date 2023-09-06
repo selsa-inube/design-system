@@ -44,7 +44,6 @@ const getTypo = (size: Size) => {
 
 const Invalid = (props: ISelectStateProps) => {
   const { disabled, status, errorMessage } = props;
-  const transformedErrorMessage = errorMessage && `(${errorMessage})`;
 
   return (
     <StyledErrorMessageContainer disabled={disabled} status={status}>
@@ -56,7 +55,7 @@ const Invalid = (props: ISelectStateProps) => {
         appearance="error"
         disabled={disabled}
       >
-        {transformedErrorMessage}
+        {errorMessage && `(${errorMessage})`}
       </Text>
     </StyledErrorMessageContainer>
   );
@@ -121,8 +120,6 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
     }
   };
 
-  const transformedInvalid = status === "invalid";
-
   return (
     <StyledContainer fullwidth={fullwidth} disabled={disabled} ref={ref}>
       <StyledContainerLabel
@@ -136,7 +133,7 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
             htmlFor={id}
             disabled={disabled}
             focused={isFocused}
-            invalid={transformedInvalid}
+            invalid={status === "invalid" ? true : false}
             size={getTypo(size!)}
           >
             {label}

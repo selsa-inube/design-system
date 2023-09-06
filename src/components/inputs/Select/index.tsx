@@ -29,10 +29,6 @@ export interface ISelectProps {
   onClick?: (event: MouseEvent) => void;
 }
 
-const defaultrequired = false;
-
-const defaultfullwidth = false;
-
 const Select = (props: ISelectProps) => {
   const {
     label,
@@ -92,12 +88,6 @@ const Select = (props: ISelectProps) => {
     };
   }, [selectRef]);
 
-  const transformedrequired =
-    typeof required === "boolean" ? required : defaultrequired;
-
-  const transformedfullwidth =
-    typeof fullwidth === "boolean" ? fullwidth : defaultfullwidth;
-
   return (
     <SelectUI
       label={label}
@@ -107,12 +97,12 @@ const Select = (props: ISelectProps) => {
       disabled={disabled}
       value={value}
       onChange={onChange}
-      required={transformedrequired}
+      required={required}
       size={size}
       status={status}
       errorMessage={errorMessage}
       validMessage={validMessage}
-      fullwidth={transformedfullwidth}
+      fullwidth={fullwidth}
       isFocused={isFocused}
       onFocus={interceptFocus}
       onBlur={interceptBlur}
