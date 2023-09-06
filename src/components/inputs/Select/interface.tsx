@@ -100,7 +100,7 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
     options,
     openOptions,
     value,
-    handleClick,
+    onClick,
     onCloseOptions,
   } = props;
 
@@ -112,8 +112,8 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
   };
 
   const interceptorOnClick = (e: MouseEvent) => {
-    if (typeof handleClick === "function") {
-      handleClick(e);
+    if (typeof onClick === "function") {
+      onClick(e);
     }
     if (typeof onCloseOptions === "function") {
       onCloseOptions();

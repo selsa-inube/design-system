@@ -8,7 +8,7 @@ const InForm = (props: ISelectProps) => {
   const { value = "", state = "pending", required } = props;
   const [form, setForm] = useState({ value, state });
 
-  const handleClick = (e: Event) => {
+  const onClick = (e: Event) => {
     const element = document.getElementById("select") as HTMLInputElement;
     const valueElement = element.value;
     if (valueElement === "" && required) {
@@ -35,11 +35,7 @@ const InForm = (props: ISelectProps) => {
         id="select"
         onFocus={(e) => onFocus(e)}
       />
-      <Button
-        type="submit"
-        spacing="compact"
-        handleClick={(e) => handleClick(e!)}
-      >
+      <Button type="submit" spacing="compact" handleClick={(e) => onClick(e!)}>
         Submit
       </Button>
     </StyledForm>
