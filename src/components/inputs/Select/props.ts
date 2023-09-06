@@ -4,18 +4,19 @@ export type Size = typeof sizes[number];
 const status = ["valid", "invalid", "pending"] as const;
 type Status = typeof status[number];
 
-const props = {
-  parameters: {
-    docs: {
-      description: {
-        component:
-          "Select allows users to make a single selection or multiple selections from a list of options.",
-      },
-    },
-    controls: {
-      exclude: ["value", "state"],
+const parameters = {
+  docs: {
+    description: {
+      component:
+        "Select allows users to make a single selection or multiple selections from a list of options.",
     },
   },
+  controls: {
+    exclude: ["value", "state"],
+  },
+};
+
+const props = {
   label: {
     description: "prompts the user what value to enter",
   },
@@ -29,7 +30,7 @@ const props = {
   placeholder: {
     description: "text to display in the text field whenever it is empty",
   },
-  isDisabled: {
+  disabled: {
     description:
       "sets the field as to appear disabled, users will not be able to interact with the text field",
     table: {
@@ -89,4 +90,4 @@ const props = {
 };
 
 export type { Status };
-export { props };
+export { props, parameters };

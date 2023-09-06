@@ -1,10 +1,11 @@
 import { Select, ISelectProps } from "..";
 import { SelectController } from "./SelectController";
-import { props } from "../props";
+import { props, parameters } from "../props";
 
 const story = {
   title: "Inputs/Select",
   component: [Select],
+  parameters,
   argTypes: props,
 };
 
@@ -16,11 +17,11 @@ Default.args = {
   id: "id",
   placeholder: "Placeholder",
   value: "Item 2",
-  isDisabled: false,
+  disabled: false,
   options: [
-    { id: "1", label: "Item 1", isDisabled: false },
-    { id: "2", label: "123", isDisabled: false },
-    { id: "3", label: "Item", isDisabled: false },
+    { id: "1", label: "Item 1", disabled: false },
+    { id: "2", label: "123", disabled: false },
+    { id: "3", label: "Item", disabled: false },
   ],
   required: false,
   size: "wide",

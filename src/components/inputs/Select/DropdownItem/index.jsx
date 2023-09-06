@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import { useState, useRef } from "react";
 import PropTypes from "prop-types";
 
 import { StyledDropdownItem } from "./styles";
@@ -6,7 +6,7 @@ import { StyledDropdownItem } from "./styles";
 const DropdownItem = (props) => {
   const {
     id,
-    isDisabled,
+    disabled,
     isSelected = false,
     children,
     handleClick,
@@ -33,7 +33,7 @@ const DropdownItem = (props) => {
   return (
     <StyledDropdownItem
       id={id}
-      isDisabled={isDisabled}
+      disabled={disabled}
       isSelected={select}
       onClick={() => handleOptionClick(children)}
       ref={itemRef}
@@ -47,7 +47,7 @@ const DropdownItem = (props) => {
 
 DropdownItem.propTypes = {
   id: PropTypes.string,
-  isDisabled: PropTypes.bool,
+  disabled: PropTypes.bool,
   children: PropTypes.string,
   handleClick: PropTypes.func,
   handleSelect: PropTypes.func,

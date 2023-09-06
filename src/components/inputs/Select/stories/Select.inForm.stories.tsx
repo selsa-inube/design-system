@@ -1,11 +1,12 @@
 import { Select, ISelectProps } from "..";
 import { InForm } from "./Select.form.Controller";
 
-import { props } from "../props";
+import { props, parameters } from "../props";
 
 const story = {
   title: "Inputs/Select",
   component: [Select],
+  parameters,
   argTypes: props,
 };
 
@@ -17,11 +18,11 @@ SelectInForm.args = {
   id: "select",
   placeholder: "Select",
   required: true,
-  isDisabled: false,
+  disabled: false,
   options: [
-    { id: "1", label: "Item 1", isDisabled: false },
-    { id: "2", label: "123", isDisabled: false },
-    { id: "3", label: "Item", isDisabled: false },
+    { id: "1", label: "Item 1", disabled: false },
+    { id: "2", label: "123", disabled: false },
+    { id: "3", label: "Item", disabled: false },
   ],
   size: "compact",
   errorMessage: "This field can not be blank",
