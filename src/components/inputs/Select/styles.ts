@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { ISelectInterfaceProps } from "./interface";
 import { colors } from "@shared/colors/colors";
 import { typography } from "@shared/typography/typography";
+import { inube } from "@src/shared/tokens";
 
 const sizeOptions = {
   compact: {
@@ -132,25 +133,36 @@ const StyledIcon = styled.div`
     disabled && colors.ref.palette.neutral.n70};
 `;
 
-const StyledErrorMessageContainer = styled.div`
+const StyledMessageContainer = styled.div`
   display: flex;
   align-items: center;
-  margin-left: 12px;
+  margin-left: ${inube.spacing.s200};
   pointer-events: none;
-  color: ${({ disabled, status }: ISelectInterfaceProps) =>
-    getIsDisabled(disabled!, status!)};
+  color: ${({ disabled, status, theme }: ISelectInterfaceProps) => {
+    if (disabled) {
+      return (
+        theme?.color?.text?.gray?.disabled || inube.color.text.gray.disabled
+      );
+    }
+
+    if (status === "valid") {
+      return (
+        theme?.color?.text?.success?.regular || inube.color.text.success.regular
+      );
+    }
+
+    if (status === "invalid") {
+      return (
+        theme?.color?.text?.error?.regular || inube.color.text.error.regular
+      );
+    }
+  }};
 
   & svg {
     width: 14px;
     height: 14px;
-    margin-top: 8px;
-    padding-left: 5px;
+    margin-top: ${inube.spacing.s100};
   }
-`;
-
-const StyledValidMessageContainer = styled(StyledErrorMessageContainer)`
-  color: ${({ disabled, status }: ISelectInterfaceProps) =>
-    getIsDisabled(disabled!, status!)}; ;
 `;
 
 export {
@@ -159,6 +171,5 @@ export {
   StyledInputContainer,
   StyledInput,
   StyledIcon,
-  StyledErrorMessageContainer,
-  StyledValidMessageContainer,
+  StyledMessageContainer,
 };
