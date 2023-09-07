@@ -1,20 +1,14 @@
 import { useState, useEffect } from "react"; // added useEffect
 import { MdKeyboardArrowDown } from "react-icons/md";
 
-import { Themed, Types } from "./props";
-import { Tab } from "@navigation/Tab";
 import { Stack } from "@layouts/Stack";
 import { DropdownMenu } from "@inputs/Select/DropdownMenu";
+import { ITabProps, Tab } from "@navigation/Tab";
+import { Themed, Types } from "./props";
 import { StyledTabs, StyledIconWrapper } from "./styles";
 
-export interface ITabsItem {
-  id: string;
-  label: string;
-  disabled: boolean;
-}
-
 export interface ITabsProps extends Themed {
-  tabs: ITabsItem[];
+  tabs: ITabProps[];
   type?: Types;
   onSelectTab: (id: string) => void;
   selectedTab: string;
@@ -35,7 +29,7 @@ const Tabs = ({
     const selected = tabs.find((tab) => tab.id === selectedTab);
     if (selected) {
       setSelectedTabLabel(selected.label);
-      setSelectedTabIsDisabled(selected.disabled);
+      setSelectedTabIsDisabled(selected?.disabled ?? false);
     }
   }, [selectedTab, tabs]);
 

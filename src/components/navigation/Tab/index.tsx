@@ -6,9 +6,9 @@ import { Themed } from "./props";
 export interface ITabProps extends Themed {
   label: string;
   id: string;
-  disabled: boolean;
-  selected: boolean;
-  onClick: () => void;
+  disabled?: boolean;
+  selected?: boolean;
+  onClick?: () => void;
 }
 
 const Tab = (props: ITabProps) => {
