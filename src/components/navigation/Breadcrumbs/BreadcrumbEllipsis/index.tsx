@@ -1,14 +1,14 @@
 import { useState, useEffect, useRef } from "react";
 
-import { BreadcrumbMenu } from "@navigation/BreadcrumbMenu";
 import { Text } from "@data/Text";
+import { BreadcrumbMenu } from "../BreadcrumbMenu";
 
+import { Typos } from "./props";
 import {
   StyledContainerEllipsis,
   StyledBreadcrumbEllipsis,
   StyledRelativeContainer,
 } from "./styles";
-import { Typos } from "./props";
 
 export interface IRoute {
   label: string;
