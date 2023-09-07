@@ -16,7 +16,7 @@ export interface ITabsItem {
 export interface ITabsProps extends Themed {
   tabs: ITabsItem[];
   type?: Types;
-  handleSelectedTab: (id: string) => void;
+  onSelectTab: (id: string) => void;
   selectedTab: string;
 }
 
@@ -37,7 +37,7 @@ const Tabs = ({
   tabs,
   type = defaultType,
   selectedTab,
-  handleSelectedTab,
+  onSelectTab,
 }: ITabsProps) => {
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
 
@@ -67,7 +67,7 @@ const Tabs = ({
               disabled={transformedIsDisabled}
               selected={true}
               id={selectedTab}
-              onClick={() => handleSelectedTab(selectedTab)}
+              onClick={() => onSelectTab(selectedTab)}
               label={transformedLabel}
             />
           </Stack>
@@ -75,7 +75,7 @@ const Tabs = ({
         {isDropDownOpen && (
           <DropdownMenu
             options={dropDownOptions}
-            handleSelect={handleSelectedTab}
+            handleSelect={onSelectTab}
             isOpenOptions={isDropDownOpen}
             onCloseOptions={() => setIsDropDownOpen(false)}
           />
@@ -93,7 +93,7 @@ const Tabs = ({
             disabled={tab.disabled}
             selected={tab.id === selectedTab}
             id={tab.id}
-            onClick={() => handleSelectedTab(tab.id)}
+            onClick={() => onSelectTab(tab.id)}
             label={tab.label}
           />
         ))}

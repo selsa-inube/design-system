@@ -14,7 +14,7 @@ import {
 
 import { StyledButton, StyledSpan, StyledLink } from "./styles";
 
-export interface IButtonProps extends Themed {
+export interface IButtonProps {
   children: React.ReactNode;
   appearance?: Appearance;
   loading?: boolean;
@@ -29,7 +29,92 @@ export interface IButtonProps extends Themed {
   path?: string;
 }
 
+export interface IButtonStructureProps extends IButtonProps, Themed {
+  hover?: boolean;
+  onMouseEnter: () => void;
+  onMouseLeave: () => void;
+  appearanceChildren: Appearance;
+}
+
 const darkWhenFilled: ButtonAppearanceType[] = ["warning", "gray", "light"];
+const ButtonStructure = (props: IButtonStructureProps) => {
+  const {
+    children,
+    appearance,
+    loading,
+    disabled,
+    iconBefore,
+    iconAfter,
+    type,
+    spacing,
+    variant,
+    fullwidth,
+    handleClick,
+    hover,
+    onMouseEnter,
+    onMouseLeave,
+    appearanceChildren,
+  } = props;
+
+  return (
+    <StyledButton
+      appearance={appearance}
+      loading={loading!.toString()}
+      disabled={disabled}
+      iconBefore={iconBefore}
+      iconAfter={iconAfter}
+      type={type}
+      spacing={spacing}
+      variant={variant}
+      fullwidth={fullwidth}
+      onClick={disabled ? null : handleClick}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+    >
+      {loading && !disabled ? (
+        <Spinner
+          appearance={appearanceChildren}
+          transparent={variant === "filled"}
+          size="small"
+        />
+      ) : (
+        <StyledSpan disabled={disabled} variant={variant}>
+          {iconBefore && (
+            <Icon
+              icon={iconBefore}
+              spacing="none"
+              size="18px"
+              appearance={appearanceChildren}
+              disabled={disabled}
+              parentHover={hover}
+            />
+          )}
+          <Text
+            type="label"
+            size="large"
+            appearance={appearanceChildren}
+            disabled={disabled}
+            parentHover={hover}
+            ellipsis={true}
+          >
+            {children}
+          </Text>
+          {iconAfter && (
+            <Icon
+              icon={iconAfter}
+              spacing="none"
+              size="18px"
+              appearance={appearanceChildren}
+              disabled={disabled}
+              parentHover={hover}
+            />
+          )}
+        </StyledSpan>
+      )}
+    </StyledButton>
+  );
+};
+
 const Button = (props: IButtonProps) => {
   const {
     children,
@@ -52,7 +137,7 @@ const Button = (props: IButtonProps) => {
       setHover(newState);
     }
   }
-  function getAppearance() {
+  function appearanceChildrens() {
     if (variant === "filled") {
       if (darkWhenFilled.includes(appearance)) {
         return "dark";
@@ -68,116 +153,45 @@ const Button = (props: IButtonProps) => {
 
   if (type === "link") {
     return (
-      <StyledLink
-        to={path}
-        disabled={+disabled}
-        variant={variant}
-        appearance={appearance}
-        fullwidth={+fullwidth}
-        onClick={handleClick}
-        onMouseEnter={() => toggleHover(true)}
-        onMouseLeave={() => toggleHover(false)}
-      >
-        <StyledButton
+      <StyledLink to={path}>
+        <ButtonStructure
+          loading={loading}
           appearance={appearance}
           disabled={disabled}
+          iconBefore={iconBefore}
+          iconAfter={iconAfter}
           spacing={spacing}
           variant={variant}
           fullwidth={fullwidth}
+          handleClick={handleClick}
+          hover={hover}
+          onMouseEnter={() => toggleHover(true)}
+          onMouseLeave={() => toggleHover(false)}
+          appearanceChildren={appearanceChildrens()}
         >
-          <StyledSpan disabled={disabled} variant={variant}>
-            {iconBefore && (
-              <Icon
-                icon={iconBefore}
-                spacing="none"
-                size="18px"
-                appearance={getAppearance()}
-                disabled={disabled}
-                parentHover={hover}
-              />
-            )}
-            <Text
-              type="label"
-              size="large"
-              appearance={getAppearance()}
-              disabled={disabled}
-              parentHover={hover}
-              ellipsis={true}
-            >
-              {children}
-            </Text>
-            {iconAfter && (
-              <Icon
-                icon={iconAfter}
-                spacing="none"
-                size="18px"
-                appearance={getAppearance()}
-                disabled={disabled}
-                parentHover={hover}
-              />
-            )}
-          </StyledSpan>
-        </StyledButton>
+          {children}
+        </ButtonStructure>
       </StyledLink>
     );
   }
-
   return (
-    <StyledButton
+    <ButtonStructure
       appearance={appearance}
-      loading={+loading}
+      loading={loading}
       disabled={disabled}
       iconBefore={iconBefore}
       iconAfter={iconAfter}
-      type={type}
       spacing={spacing}
       variant={variant}
       fullwidth={fullwidth}
-      onClick={disabled ? null : handleClick}
+      handleClick={handleClick}
+      hover={hover}
       onMouseEnter={() => toggleHover(true)}
       onMouseLeave={() => toggleHover(false)}
+      appearanceChildren={appearanceChildrens()}
     >
-      {loading && !disabled ? (
-        <Spinner
-          appearance={getAppearance()}
-          transparent={variant === "filled"}
-          size="small"
-        />
-      ) : (
-        <StyledSpan disabled={disabled} variant={variant}>
-          {iconBefore && (
-            <Icon
-              icon={iconBefore}
-              spacing="none"
-              size="18px"
-              appearance={getAppearance()}
-              disabled={disabled}
-              parentHover={hover}
-            />
-          )}
-          <Text
-            type="label"
-            size="large"
-            appearance={getAppearance()}
-            disabled={disabled}
-            parentHover={hover}
-            ellipsis={true}
-          >
-            {children}
-          </Text>
-          {iconAfter && (
-            <Icon
-              icon={iconAfter}
-              spacing="none"
-              size="18px"
-              appearance={getAppearance()}
-              disabled={disabled}
-              parentHover={hover}
-            />
-          )}
-        </StyledSpan>
-      )}
-    </StyledButton>
+      {children}
+    </ButtonStructure>
   );
 };
 

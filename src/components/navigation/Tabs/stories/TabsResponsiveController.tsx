@@ -36,7 +36,7 @@ const TabsResponsiveController = (props: ITabsProps) => {
       <Tabs
         tabs={tabs}
         type={type}
-        handleSelectedTab={setSelectedTab}
+        onSelectTab={setSelectedTab}
         selectedTab={selectedTabController}
       />
     </div>
