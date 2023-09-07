@@ -3,7 +3,7 @@ import { BreadcrumbMenu, IBreadcrumbMenuProps } from "..";
 import { props } from "../props";
 
 const story = {
-  title: "navigation/BreadcrumbMenu",
+  title: "navigation/Breadcrumbs/BreadcrumbMenu",
   components: [BreadcrumbMenu],
   argTypes: props,
   decorators: [

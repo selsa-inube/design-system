@@ -5,7 +5,7 @@ import { BreadcrumbEllipsis, IBreadcrumbEllipsisProps } from "../index";
 import { props } from "../props";
 
 const story = {
-  title: "navigation/BreadcrumbEllipsis",
+  title: "navigation/Breadcrumbs/BreadcrumbEllipsis",
   components: [BreadcrumbEllipsis],
   argTypes: props,
   decorators: [

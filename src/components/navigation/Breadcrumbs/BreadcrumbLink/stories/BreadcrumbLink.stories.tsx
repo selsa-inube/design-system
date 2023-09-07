@@ -5,7 +5,7 @@ import { BreadcrumbLinkController } from "./BreadcrumbLinkController";
 import { props } from "../props";
 
 const story = {
-  title: "navigation/BreadcrumbLink",
+  title: "navigation/Breadcrumbs/BreadcrumbLink",
   components: [BreadcrumbLink],
   argTypes: props,
   decorators: [
