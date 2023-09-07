@@ -39,7 +39,7 @@ const palette = {
     N30A: "#EBECF0",
     N20A: "#F4F5F7",
     N10A: "#FAFBFC",
-    N0A: "#FFFFFF",
+    N0A: "#FFFFFF00",
   },
   red: {
     R500: "#BF2600",
