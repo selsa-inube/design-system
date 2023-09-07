@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"; // added useEffect
 import { MdKeyboardArrowDown } from "react-icons/md";
 
 import { Themed, Types } from "./props";
-import { Tab } from "@navigation/Tab";
+import { Tab } from "@src/components/navigation/Tabs/Tab";
 import { Stack } from "@layouts/Stack";
 import { DropdownMenu } from "@inputs/Select/DropdownMenu";
 import { StyledTabs, StyledIconWrapper } from "./styles";
