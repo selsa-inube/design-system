@@ -1,5 +1,8 @@
+import { inube } from "@shared/tokens";
+
 export const types = ["select", "tabs"] as const;
 export type Types = typeof types[number];
+export type Themed = { theme?: typeof inube };
 
 const parameters = {
   docs: {
@@ -26,7 +29,7 @@ const props = {
       defaultValue: { summary: "idOfOneTab" },
     },
   },
-  handleSelectedTab: {
+  onSelectTab: {
     options: ["logState"],
     control: { type: "func" },
     description:

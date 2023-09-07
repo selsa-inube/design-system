@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"; // added useEffect
 import { MdKeyboardArrowDown } from "react-icons/md";
 
-import { Types } from "./props";
+import { Themed, Types } from "./props";
 import { Tab } from "@navigation/Tab";
 import { Stack } from "@layouts/Stack";
 import { DropdownMenu } from "@inputs/Select/DropdownMenu";
@@ -10,13 +10,13 @@ import { StyledTabs, StyledIconWrapper } from "./styles";
 export interface ITabsItem {
   id: string;
   label: string;
-  isDisabled: boolean;
+  disabled: boolean;
 }
 
-export interface ITabsProps {
+export interface ITabsProps extends Themed {
   tabs: ITabsItem[];
   type?: Types;
-  handleSelectedTab: (id: string) => void;
+  onSelectTab: (id: string) => void;
   selectedTab: string;
 }
 
@@ -24,7 +24,7 @@ const Tabs = ({
   tabs,
   type = "tabs",
   selectedTab,
-  handleSelectedTab,
+  onSelectTab,
 }: ITabsProps) => {
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
   const [selectedTabLabel, setSelectedTabLabel] = useState<string>("");
@@ -35,7 +35,7 @@ const Tabs = ({
     const selected = tabs.find((tab) => tab.id === selectedTab);
     if (selected) {
       setSelectedTabLabel(selected.label);
-      setSelectedTabIsDisabled(selected.isDisabled);
+      setSelectedTabIsDisabled(selected.disabled);
     }
   }, [selectedTab, tabs]);
 
@@ -43,7 +43,7 @@ const Tabs = ({
     const dropDownOptions = tabs.map((tab) => ({
       id: tab.id,
       label: tab.label,
-      isDisabled: tab.isDisabled,
+      disabled: tab.disabled,
     }));
     return (
       <>
@@ -59,7 +59,7 @@ const Tabs = ({
               disabled={selectedTabIsDisabled}
               selected={true}
               id={selectedTab}
-              onClick={() => handleSelectedTab(selectedTab)}
+              onClick={() => onSelectTab(selectedTab)}
               label={selectedTabLabel}
             />
           </Stack>
@@ -67,7 +67,7 @@ const Tabs = ({
         {isDropDownOpen && (
           <DropdownMenu
             options={dropDownOptions}
-            handleSelect={handleSelectedTab}
+            handleSelect={onSelectTab}
             isOpenOptions={isDropDownOpen}
             onCloseOptions={() => setIsDropDownOpen(false)}
           />
@@ -82,10 +82,10 @@ const Tabs = ({
         {tabs.map((tab) => (
           <Tab
             key={tab.id}
-            disabled={tab.isDisabled}
+            disabled={tab.disabled}
             selected={tab.id === selectedTab}
             id={tab.id}
-            onClick={() => handleSelectedTab(tab.id)}
+            onClick={() => onSelectTab(tab.id)}
             label={tab.label}
           />
         ))}

@@ -3,30 +3,30 @@ import styled from "styled-components";
 import { colors } from "@shared/colors/colors";
 import { typography } from "@shared/typography/typography";
 
-const getColor = (isDisabled, isSelected) => {
-  if (isDisabled) {
+const getColor = (disabled, isSelected) => {
+  if (disabled) {
     return colors.ref.palette.neutral.n70;
   }
-  if (isSelected && !isDisabled) {
+  if (isSelected && !disabled) {
     return colors.sys.text.primary;
   }
   return colors.sys.text.dark;
 };
 
-const getBorderLeft = (isDisabled, isSelected) => {
-  if (isSelected && !isDisabled) {
+const getBorderLeft = (disabled, isSelected) => {
+  if (isSelected && !disabled) {
     return `5px solid ${colors.sys.actions.primary.filled}`;
   }
 
   return `0px`;
 };
 
-const getBackgroundColor = (isDisabled, isSelected) => {
+const getBackgroundColor = (disabled, isSelected) => {
   let color = "transparent";
-  if (isDisabled) {
+  if (disabled) {
     return color;
   }
-  if (isSelected && !isDisabled) {
+  if (isSelected && !disabled) {
     color = colors.ref.palette.neutral.n30;
     return color;
   }
@@ -48,12 +48,12 @@ const StyledDropdownItem = styled.li`
   font-weight: ${typography.sys.typescale.bodyMedium.weight};
   line-height: ${typography.sys.typescale.bodyMedium.lineHeight};
   letter-spacing: ${typography.sys.typescale.bodyMedium.tracking};
-  color: ${({ isDisabled, isSelected }) => getColor(isDisabled, isSelected)};
-  cursor: ${({ isDisabled }) => (!isDisabled ? "pointer" : "not-allowed")};
-  border-left: ${({ isDisabled, isSelected }) =>
-    getBorderLeft(isDisabled, isSelected)};
-  background-color: ${({ isDisabled, isSelected }) =>
-    getBackgroundColor(isDisabled, isSelected)};
+  color: ${({ disabled, isSelected }) => getColor(disabled, isSelected)};
+  cursor: ${({ disabled }) => (!disabled ? "pointer" : "not-allowed")};
+  border-left: ${({ disabled, isSelected }) =>
+    getBorderLeft(disabled, isSelected)};
+  background-color: ${({ disabled, isSelected }) =>
+    getBackgroundColor(disabled, isSelected)};
   &:hover {
     background-color: ${colors.ref.palette.neutral.n30};
   }
