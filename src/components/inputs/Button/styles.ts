@@ -25,7 +25,6 @@ const StyledButton = styled.button`
   border-radius: 8px;
   border: none;
   border-width: 1px;
-  text-decoration: none;
   font-family: ${typography.ref.typeface.brand};
   font-size: ${typography.sys.typescale.labelLarge.size};
   font-weight: ${typography.sys.typescale.labelLarge.weight};
