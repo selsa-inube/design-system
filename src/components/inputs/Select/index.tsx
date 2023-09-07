@@ -54,20 +54,16 @@ const Select = (props: ISelectProps) => {
   const [open, setOpen] = useState(false);
   const selectRef = useRef<{ contains: (e: EventTarget) => EventTarget }>(null);
 
-  const interceptFocus = (e: FocusEvent) => {
+  const handleFocus = (e: FocusEvent) => {
     setIsFocused(true);
 
-    if (typeof onFocus === "function") {
-      onFocus(e);
-    }
+    onFocus && onFocus(e);
   };
 
-  const interceptBlur = (e: FocusEvent) => {
+  const handleBlur = (e: FocusEvent) => {
     setIsFocused(false);
 
-    if (typeof onBlur === "function") {
-      onBlur(e);
-    }
+    onBlur && onBlur(e);
   };
 
   const toggleOptionsMenu = () => {
@@ -104,8 +100,8 @@ const Select = (props: ISelectProps) => {
       validMessage={validMessage}
       fullwidth={fullwidth}
       isFocused={isFocused}
-      onFocus={interceptFocus}
-      onBlur={interceptBlur}
+      onFocus={handleFocus}
+      onBlur={handleBlur}
       options={options}
       openOptions={open}
       onClick={onClick}
