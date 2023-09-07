@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { MdKeyboardArrowDown } from "react-icons/md";
 
-import { Types, types } from "./props";
+import { Themed, Types, types } from "./props";
 import { Tab } from "@navigation/Tab";
 import { Stack } from "@layouts/Stack";
 import { DropdownMenu } from "@inputs/Select/DropdownMenu";
@@ -13,7 +13,7 @@ export interface ITabsItem {
   disabled: boolean;
 }
 
-export interface ITabsProps {
+export interface ITabsProps extends Themed {
   tabs: ITabsItem[];
   type?: Types;
   onSelectTab: (id: string) => void;

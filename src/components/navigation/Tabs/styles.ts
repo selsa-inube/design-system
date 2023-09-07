@@ -1,13 +1,16 @@
 import styled from "styled-components";
-import { colors } from "@shared/colors/colors";
 import { ITabsProps } from ".";
+import { inube } from "@shared/tokens";
 
 const StyledTabs = styled.div`
   box-sizing: border-box;
   overflow-x: auto;
   white-space: nowrap;
   width: 100%;
-  border-bottom: 2px solid ${colors.ref.palette.neutral.n40};
+  border-bottom: 2px solid
+    ${({ theme }: ITabsProps) =>
+      theme?.color?.stroke?.divider?.regular ||
+      inube.color.stroke.divider.regular};
   padding: 0px 16px;
 
   & > div {
@@ -35,7 +38,8 @@ const StyledIconWrapper = styled.div`
   & > svg {
     width: 24px;
     height: 24px;
-    color: ${colors.sys.text.dark};
+    color: ${({ theme }: ITabsProps) =>
+      theme?.color?.text?.dark?.regular || inube.color.text.dark.regular};
     cursor: pointer;
   }
 `;
