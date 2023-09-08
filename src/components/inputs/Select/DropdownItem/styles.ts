@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import { IDropdownItemProps } from ".";
-import { inube } from "@src/shared/tokens";
+import { inube } from "@shared/tokens";
 
 const StyledDropdownItem = styled.li`
   display: flex;
