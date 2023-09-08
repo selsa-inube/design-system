@@ -3,30 +3,30 @@ import styled from "styled-components";
 import { colors } from "@shared/colors/colors";
 import { typography } from "@shared/typography/typography";
 
-const getColor = (disabled, isSelected) => {
+const getColor = (disabled, selected) => {
   if (disabled) {
     return colors.ref.palette.neutral.n70;
   }
-  if (isSelected && !disabled) {
+  if (selected && !disabled) {
     return colors.sys.text.primary;
   }
   return colors.sys.text.dark;
 };
 
-const getBorderLeft = (disabled, isSelected) => {
-  if (isSelected && !disabled) {
+const getBorderLeft = (disabled, selected) => {
+  if (selected && !disabled) {
     return `5px solid ${colors.sys.actions.primary.filled}`;
   }
 
   return `0px`;
 };
 
-const getBackgroundColor = (disabled, isSelected) => {
+const getBackgroundColor = (disabled, selected) => {
   let color = "transparent";
   if (disabled) {
     return color;
   }
-  if (isSelected && !disabled) {
+  if (selected && !disabled) {
     color = colors.ref.palette.neutral.n30;
     return color;
   }
@@ -48,12 +48,11 @@ const StyledDropdownItem = styled.li`
   font-weight: ${typography.sys.typescale.bodyMedium.weight};
   line-height: ${typography.sys.typescale.bodyMedium.lineHeight};
   letter-spacing: ${typography.sys.typescale.bodyMedium.tracking};
-  color: ${({ disabled, isSelected }) => getColor(disabled, isSelected)};
+  color: ${({ disabled, selected }) => getColor(disabled, selected)};
   cursor: ${({ disabled }) => (!disabled ? "pointer" : "not-allowed")};
-  border-left: ${({ disabled, isSelected }) =>
-    getBorderLeft(disabled, isSelected)};
-  background-color: ${({ disabled, isSelected }) =>
-    getBackgroundColor(disabled, isSelected)};
+  border-left: ${({ disabled, selected }) => getBorderLeft(disabled, selected)};
+  background-color: ${({ disabled, selected }) =>
+    getBackgroundColor(disabled, selected)};
   &:hover {
     background-color: ${colors.ref.palette.neutral.n30};
   }

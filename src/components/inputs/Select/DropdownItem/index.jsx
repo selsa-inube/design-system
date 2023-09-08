@@ -7,13 +7,13 @@ const DropdownItem = (props) => {
   const {
     id,
     disabled,
-    isSelected = false,
+    selected = false,
     children,
     handleClick,
     handleSelect,
   } = props;
 
-  const [select, setSelect] = useState(isSelected);
+  const [select, setSelect] = useState(selected);
   const itemRef = useRef(null);
 
   const handleOptionClick = (label) => {
@@ -34,7 +34,7 @@ const DropdownItem = (props) => {
     <StyledDropdownItem
       id={id}
       disabled={disabled}
-      isSelected={select}
+      selected={select}
       onClick={() => handleOptionClick(children)}
       ref={itemRef}
       onBlur={interceptorOnBlur}
