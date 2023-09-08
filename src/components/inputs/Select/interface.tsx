@@ -111,13 +111,10 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
     setSelectedOption(option?.label);
   };
 
-  const interceptorOnClick = (e: MouseEvent) => {
-    if (typeof onClick === "function") {
-      onClick(e);
-    }
-    if (typeof onCloseOptions === "function") {
-      onCloseOptions();
-    }
+  const handleClick = (e: MouseEvent) => {
+    onClick && onClick(e);
+
+    onCloseOptions();
   };
 
   return (
@@ -168,7 +165,7 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
           onChange={onChange}
           onFocus={onFocus}
           onBlur={onBlur}
-          onClick={(e: MouseEvent) => interceptorOnClick(e)}
+          onClick={(e: MouseEvent) => handleClick(e)}
         />
         <StyledIcon disabled={disabled}>
           <MdOutlineArrowDropDown onClick={onCloseOptions} />

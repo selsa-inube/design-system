@@ -11,7 +11,7 @@ const StyledTabs = styled.div`
     ${({ theme }: ITabsProps) =>
       theme?.color?.stroke?.divider?.regular ||
       inube.color.stroke.divider.regular};
-  padding: 0px 16px;
+  padding: ${inube.spacing.s0} ${inube.spacing.s200};
 
   & > div {
     width: fit-content;
@@ -34,7 +34,7 @@ const StyledIconWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 4px 0px;
+  padding: ${inube.spacing.s050} ${inube.spacing.s0};
   & > svg {
     width: 24px;
     height: 24px;

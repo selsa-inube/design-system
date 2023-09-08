@@ -1,12 +1,10 @@
 import { BrowserRouter } from "react-router-dom";
-
-import { BreadcrumbEllipsis, IBreadcrumbEllipsisProps } from "../index";
-
+import { BreadcrumbMenu, IBreadcrumbMenuProps } from "..";
 import { props } from "../props";
 
 const story = {
-  title: "navigation/BreadcrumbEllipsis",
-  components: [BreadcrumbEllipsis],
+  title: "navigation/Breadcrumbs/BreadcrumbMenu",
+  components: [BreadcrumbMenu],
   argTypes: props,
   decorators: [
     (Story: React.ElementType) => (
@@ -17,8 +15,10 @@ const story = {
   ],
 };
 
-export const Default = (args: IBreadcrumbEllipsisProps) => (
-  <BreadcrumbEllipsis {...args} />
+export const Default = (args: IBreadcrumbMenuProps) => (
+  <div style={{ height: "100px", transform: "translateZ(0)" }}>
+    <BreadcrumbMenu {...args} />
+  </div>
 );
 Default.args = {
   routes: [
@@ -34,7 +34,6 @@ Default.args = {
       id: "usersEdition",
     },
   ],
-  size: "large",
 };
 
 export default story;
