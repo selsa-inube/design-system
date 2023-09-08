@@ -1,8 +1,6 @@
-import React from "react";
+import { DropdownItem, IDropdownItemProps } from "./index";
 
-import { DropdownItem } from "../index";
-
-import { props } from "../props";
+import { props } from "./props";
 
 const story = {
   title: "Inputs/DropdownItem",
@@ -10,7 +8,7 @@ const story = {
   argTypes: props,
 };
 
-const Default = (args) => <DropdownItem {...args} />;
+const Default = (args: IDropdownItemProps) => <DropdownItem {...args} />;
 
 Default.args = {
   children: "Item 1",
