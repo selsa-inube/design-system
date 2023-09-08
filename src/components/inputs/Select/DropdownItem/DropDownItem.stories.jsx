@@ -1,8 +1,8 @@
 import React from "react";
 
-import { DropdownItem } from "../index";
+import { DropdownItem } from "./index";
 
-import { props } from "../props";
+import { props } from "./props";
 
 const story = {
   title: "Inputs/DropdownItem",
