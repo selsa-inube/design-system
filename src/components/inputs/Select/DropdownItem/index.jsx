@@ -10,7 +10,7 @@ const DropdownItem = (props) => {
     isSelected = false,
     children,
     handleClick,
-    handleSelect,
+    onSelect,
   } = props;
 
   const [select, setSelect] = useState(isSelected);
@@ -21,8 +21,8 @@ const DropdownItem = (props) => {
     if (typeof handleClick === "function") {
       handleClick();
     }
-    if (typeof handleSelect === "function") {
-      handleSelect(label);
+    if (typeof onSelect === "function") {
+      onSelect(label);
     }
   };
 
@@ -50,7 +50,7 @@ DropdownItem.propTypes = {
   disabled: PropTypes.bool,
   children: PropTypes.string,
   handleClick: PropTypes.func,
-  handleSelect: PropTypes.func,
+  onSelect: PropTypes.func,
 };
 
 export { DropdownItem };
