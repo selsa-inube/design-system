@@ -8,7 +8,7 @@ export interface IDropdownItemProps extends Themed {
   id: string;
   disabled?: boolean;
   isFocused?: boolean;
-  isSelected?: boolean;
+  selected?: boolean;
   children: string;
   handleClick?: (id: string) => void;
   handleSelect?: (label: string) => void;
