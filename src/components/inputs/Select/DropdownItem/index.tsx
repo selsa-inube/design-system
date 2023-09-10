@@ -1,9 +1,19 @@
 import { useState, useRef } from "react";
-import PropTypes from "prop-types";
+import { Text } from "@data/Text";
 
 import { StyledDropdownItem } from "./styles";
+import { Themed } from "./props";
 
-const DropdownItem = (props) => {
+export interface IDropdownItemProps extends Themed {
+  id: string;
+  disabled?: boolean;
+  isFocused?: boolean;
+  isSelected?: boolean;
+  children: string;
+  handleClick?: (id: string) => void;
+  handleSelect?: (label: string) => void;
+}
+const DropdownItem = (props: IDropdownItemProps) => {
   const {
     id,
     disabled,
@@ -16,14 +26,13 @@ const DropdownItem = (props) => {
   const [select, setSelect] = useState(isSelected);
   const itemRef = useRef(null);
 
-  const handleOptionClick = (label) => {
+  const handleOptionClick = (label: string) => {
+    if (disabled) return;
     setSelect(true);
-    if (typeof handleClick === "function") {
-      handleClick();
-    }
-    if (typeof handleSelect === "function") {
-      handleSelect(label);
-    }
+
+    if (handleClick) handleClick(id);
+
+    if (handleSelect) handleSelect(label);
   };
 
   const interceptorOnBlur = () => {
@@ -40,17 +49,11 @@ const DropdownItem = (props) => {
       onBlur={interceptorOnBlur}
       tabIndex={0}
     >
-      {children}
+      <Text size="medium" type="body">
+        {children}
+      </Text>
     </StyledDropdownItem>
   );
-};
-
-DropdownItem.propTypes = {
-  id: PropTypes.string,
-  disabled: PropTypes.bool,
-  children: PropTypes.string,
-  handleClick: PropTypes.func,
-  handleSelect: PropTypes.func,
 };
 
 export { DropdownItem };
