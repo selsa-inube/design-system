@@ -15,7 +15,7 @@ export interface ITextProps extends Themed {
   margin?: string;
   padding?: string;
   as?: HtmlElements;
-  appearance: Appearance;
+  appearance?: Appearance;
   disabled?: boolean;
   type: TypeOptions;
   size: SizeOptions;
