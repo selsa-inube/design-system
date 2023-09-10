@@ -10,7 +10,7 @@ export interface IDropdownItemProps extends Themed {
   isFocused?: boolean;
   selected?: boolean;
   children: string;
-  handleClick?: (id: string) => void;
+  onClick?: (id: string) => void;
   handleSelect?: (label: string) => void;
 }
 const DropdownItem = (props: IDropdownItemProps) => {
@@ -19,7 +19,7 @@ const DropdownItem = (props: IDropdownItemProps) => {
     disabled,
     selected = false,
     children,
-    handleClick,
+    onClick,
     handleSelect,
   } = props;
 
@@ -30,7 +30,7 @@ const DropdownItem = (props: IDropdownItemProps) => {
     if (disabled) return;
     setSelect(true);
 
-    if (handleClick) handleClick(id);
+    if (onClick) onClick(id);
 
     if (handleSelect) handleSelect(label);
   };

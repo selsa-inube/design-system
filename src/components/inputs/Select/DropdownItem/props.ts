@@ -21,7 +21,7 @@ const props = {
       defaultValue: { summary: false },
     },
   },
-  handleClick: {
+  onClick: {
     description:
       "(function): shall be determine the behavior of the click event and is not required.",
   },
