@@ -8,7 +8,7 @@ export interface IDropdownItemProps extends Themed {
   id: string;
   disabled?: boolean;
   isFocused?: boolean;
-  isSelected?: boolean;
+  selected?: boolean;
   children: string;
   handleClick?: (id: string) => void;
   handleSelect?: (label: string) => void;
@@ -17,13 +17,13 @@ const DropdownItem = (props: IDropdownItemProps) => {
   const {
     id,
     disabled,
-    isSelected = false,
+    selected = false,
     children,
     handleClick,
     handleSelect,
   } = props;
 
-  const [select, setSelect] = useState(isSelected);
+  const [select, setSelect] = useState(selected);
   const itemRef = useRef(null);
 
   const handleOptionClick = (label: string) => {
@@ -43,7 +43,7 @@ const DropdownItem = (props: IDropdownItemProps) => {
     <StyledDropdownItem
       id={id}
       disabled={disabled}
-      isSelected={select}
+      selected={select}
       onClick={() => handleOptionClick(children)}
       ref={itemRef}
       onBlur={interceptorOnBlur}

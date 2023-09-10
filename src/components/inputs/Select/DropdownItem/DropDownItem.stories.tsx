@@ -12,7 +12,7 @@ const Default = (args: IDropdownItemProps) => <DropdownItem {...args} />;
 
 Default.args = {
   children: "Item 1",
-  isSelected: false,
+  selected: false,
   disabled: false,
 };
 
