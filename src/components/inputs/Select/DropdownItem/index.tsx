@@ -31,7 +31,6 @@ const DropdownItem = (props: IDropdownItemProps) => {
   const interceptorOnBlur = () => {
     setSelect(false);
   };
-  console.log(props.theme);
 
   return (
     <StyledDropdownItem
