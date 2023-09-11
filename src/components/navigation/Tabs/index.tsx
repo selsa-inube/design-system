@@ -67,7 +67,7 @@ const Tabs = ({
         {isDropDownOpen && (
           <DropdownMenu
             options={dropDownOptions}
-            handleSelect={onSelectTab}
+            onSelect={onSelectTab}
             isOpenOptions={isDropDownOpen}
             onCloseOptions={() => setIsDropDownOpen(false)}
           />
