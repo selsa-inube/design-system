@@ -1,8 +1,8 @@
 import { useState, useRef } from "react";
-import { Text } from "@data/Text";
 
-import { StyledDropdownItem } from "./styles";
+import { Text } from "@data/Text";
 import { Themed } from "./props";
+import { StyledDropdownItem } from "./styles";
 
 export interface IDropdownItemProps extends Themed {
   id: string;
