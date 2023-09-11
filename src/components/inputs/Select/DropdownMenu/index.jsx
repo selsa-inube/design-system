@@ -4,19 +4,19 @@ import { StyledDropdownMenu } from "./styled";
 import { DropdownItem } from "@inputs/Select/DropdownItem";
 
 const DropdownMenu = (props) => {
-  const { options, handleClick, onCloseOptions, handleSelect } = props;
+  const { options, onClick, onCloseOptions, onSelect } = props;
 
   const handleOptionClick = (id) => {
-    if (typeof handleClick === "function") {
-      handleClick();
+    if (typeof onClick === "function") {
+      onClick();
     }
 
     if (typeof onCloseOptions === "function") {
       onCloseOptions();
     }
 
-    if (typeof handleSelect === "function") {
-      handleSelect(id);
+    if (typeof onSelect === "function") {
+      onSelect(id);
     }
   };
 
@@ -27,8 +27,8 @@ const DropdownMenu = (props) => {
           key={dropDownitem.id}
           id={dropDownitem.id}
           disabled={dropDownitem.disabled}
-          isSelected={dropDownitem.isSelected}
-          handleClick={() => handleOptionClick(dropDownitem.id)}
+          selected={dropDownitem.selected}
+          onClick={() => handleOptionClick(dropDownitem.id)}
         >
           {dropDownitem.label}
         </DropdownItem>
@@ -45,10 +45,10 @@ DropdownMenu.propTypes = {
       disabled: PropTypes.bool,
     })
   ),
-  handleClick: PropTypes.func,
+  onClick: PropTypes.func,
   isOpenOptions: PropTypes.bool,
   onCloseOptions: PropTypes.func,
-  handleSelect: PropTypes.func,
+  onSelect: PropTypes.func,
 };
 
 export { DropdownMenu };

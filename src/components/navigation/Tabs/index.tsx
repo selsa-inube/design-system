@@ -1,9 +1,10 @@
-import { useState, useEffect } from "react"; // added useEffect
+import { useState, useEffect } from "react";
 import { MdKeyboardArrowDown } from "react-icons/md";
 
-import { Stack } from "@layouts/Stack";
 import { DropdownMenu } from "@inputs/Select/DropdownMenu";
-import { ITabProps, Tab } from "@navigation/Tab";
+import { Stack } from "@layouts/Stack";
+import { ITabProps, Tab } from "@navigation/Tabs/Tab";
+
 import { Themed, Types } from "./props";
 import { StyledTabs, StyledIconWrapper } from "./styles";
 
@@ -61,7 +62,7 @@ const Tabs = ({
         {isDropDownOpen && (
           <DropdownMenu
             options={dropDownOptions}
-            handleSelect={onSelectTab}
+            onSelect={onSelectTab}
             isOpenOptions={isDropDownOpen}
             onCloseOptions={() => setIsDropDownOpen(false)}
           />
