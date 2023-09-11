@@ -10,19 +10,19 @@ interface DropdownOption {
 
 export interface DropdownMenuProps {
   options: DropdownOption[];
-  onClick?: () => void;
+  onClick?: (id: string) => void;
   onCloseOptions?: () => void;
   onSelect?: (id: string) => void;
   isOpenOptions?: boolean;
 }
 
 const DropdownMenu = (props: DropdownMenuProps) => {
-  const { options, onClick, onCloseOptions, onSelect } = props;
+  const { options, onClick, onCloseOptions } = props;
 
   const handleOptionClick = (id: string) => {
-    onClick?.();
-    onCloseOptions?.();
-    onSelect?.(id);
+    if (onClick) onClick(id);
+
+    if (onCloseOptions) onCloseOptions();
   };
 
   return (
