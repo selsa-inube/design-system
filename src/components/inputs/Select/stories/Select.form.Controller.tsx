@@ -26,11 +26,16 @@ const InForm = (props: ISelectProps) => {
       setForm({ ...form, status: "pending" });
     }
   };
+  const message =
+    form.status === "valid"
+      ? "The field has been successfully validated"
+      : "This field can not be blank";
 
   return (
     <StyledForm>
       <Select
         {...props}
+        message={message}
         status={form.status}
         id="select"
         onFocus={(e) => onFocus(e)}
