@@ -5,38 +5,38 @@ import { ITextProps } from ".";
 
 const StyledText = styled.p`
   font-family: ${({ type, size, theme }: ITextProps) =>
-    theme?.typography?.[type]?.[size]?.font ||
-    inube.typography[type][size].font};
+    theme?.typography?.[type!]?.[size!]?.font ||
+    inube.typography[type!][size!].font};
   line-height: ${({ type, size }: ITextProps) =>
-    inube.typography[type][size].lineHeight};
+    inube.typography[type!][size!].lineHeight};
   font-size: ${({ type, size, theme }: ITextProps) =>
-    theme?.typography?.[type]?.[size].size ||
-    inube.typography[type][size].size};
+    theme?.typography?.[type!]?.[size!].size ||
+    inube.typography[type!][size!].size};
   letter-spacing: ${({ type, size, theme }: ITextProps) =>
-    theme?.typography?.[type]?.[size]?.tracking ||
-    inube.typography[type][size].tracking};
+    theme?.typography?.[type!]?.[size!]?.tracking ||
+    inube.typography[type!][size!].tracking};
   font-weight: ${({ type, size, theme }: ITextProps) =>
-    theme?.typography?.[type]?.[size]?.weight ||
-    inube.typography[type][size].weight};
+    theme?.typography?.[type!]?.[size!]?.weight ||
+    inube.typography[type!][size!].weight};
   margin: ${({ margin }: ITextProps) => margin};
   padding: ${({ padding }: ITextProps) => padding};
   text-align: ${({ textAlign }: ITextProps) => textAlign};
   color: ${({ appearance, disabled, parentHover, theme }: ITextProps) => {
     if (disabled) {
       return (
-        theme?.color?.text?.[appearance]?.disabled ||
-        inube.color.text[appearance].disabled
+        theme?.color?.text?.[appearance!]?.disabled ||
+        inube.color.text[appearance!].disabled
       );
     }
     if (parentHover) {
       return (
-        theme?.color?.text?.[appearance]?.hover ||
-        inube.color.text[appearance].hover
+        theme?.color?.text?.[appearance!]?.hover ||
+        inube.color.text[appearance!].hover
       );
     }
     return (
-      theme?.color?.text?.[appearance]?.regular ||
-      inube.color.text[appearance].regular
+      theme?.color?.text?.[appearance!]?.regular ||
+      inube.color.text[appearance!].regular
     );
   }};
 
@@ -50,8 +50,8 @@ const StyledText = styled.p`
     color: ${({ appearance, disabled, cursorHover, theme }: ITextProps) =>
       !disabled &&
       cursorHover &&
-      (theme?.color?.text?.[appearance]?.hover ||
-        inube.color.text[appearance].hover)};
+      (theme?.color?.text?.[appearance!]?.hover ||
+        inube.color.text[appearance!].hover)};
   }
 `;
 

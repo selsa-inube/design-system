@@ -17,8 +17,8 @@ export interface ITextProps extends Themed {
   as?: HtmlElements;
   appearance?: Appearance;
   disabled?: boolean;
-  type: TypeOptions;
-  size: SizeOptions;
+  type?: TypeOptions;
+  size?: SizeOptions;
   cursorHover?: boolean;
   parentHover?: boolean;
   ellipsis?: boolean;
