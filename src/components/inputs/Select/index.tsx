@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 
 import { SelectUI } from "./interface";
-import { Size, Status } from "./props";
+import { Size, Status, Themed } from "./props";
 
 export interface ISelectOptions {
   id: string;
@@ -9,7 +9,7 @@ export interface ISelectOptions {
   disabled: boolean;
 }
 
-export interface ISelectProps {
+export interface ISelectProps extends Themed {
   label?: string;
   name?: string;
   id: string;
@@ -18,8 +18,7 @@ export interface ISelectProps {
   value?: string | number;
   required?: boolean;
   status?: Status;
-  errorMessage?: string;
-  validMessage?: string;
+  message?: string;
   size?: Size;
   fullwidth?: boolean;
   options: ISelectOptions[];
@@ -40,8 +39,7 @@ const Select = (props: ISelectProps) => {
     onChange,
     required = false,
     status = "pending",
-    errorMessage,
-    validMessage,
+    message,
     size = "wide",
     fullwidth = false,
     onFocus,
@@ -96,8 +94,7 @@ const Select = (props: ISelectProps) => {
       required={required}
       size={size}
       status={status}
-      errorMessage={errorMessage}
-      validMessage={validMessage}
+      message={message}
       fullwidth={fullwidth}
       isFocused={isFocused}
       onFocus={handleFocus}

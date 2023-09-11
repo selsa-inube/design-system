@@ -1,8 +1,11 @@
+import { inube } from "@shared/tokens";
+
 export const sizes = ["wide", "compact"] as const;
 export type Size = typeof sizes[number];
 
 const status = ["valid", "invalid", "pending"] as const;
 type Status = typeof status[number];
+export type Themed = { theme?: typeof inube };
 
 const parameters = {
   docs: {

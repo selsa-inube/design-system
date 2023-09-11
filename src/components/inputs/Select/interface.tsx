@@ -8,7 +8,7 @@ import {
 import { Label } from "@inputs/Label";
 import { Text } from "@data/Text";
 import { DropdownMenu } from "@inputs/Select/DropdownMenu";
-
+import { Icon } from "@data/Icon";
 import { Size } from "./props";
 
 import { ISelectProps } from ".";
@@ -18,8 +18,7 @@ import {
   StyledInputContainer,
   StyledInput,
   StyledIcon,
-  StyledErrorMessageContainer,
-  StyledValidMessageContainer,
+  StyledMessageContainer,
 } from "./styles";
 
 export interface ISelectStateProps {
@@ -42,44 +41,32 @@ const getTypo = (size: Size) => {
   return "large";
 };
 
-const Invalid = (props: ISelectStateProps) => {
-  const { disabled, status, errorMessage } = props;
+const Message = (
+  props: Omit<ISelectProps, "id" | "options"> & { message?: string }
+) => {
+  const { disabled, status, message } = props;
 
   return (
-    <StyledErrorMessageContainer disabled={disabled} status={status}>
-      <MdOutlineError />
-      <Text
-        type="body"
-        size="small"
-        margin="8px 0px 0px 4px"
-        appearance="error"
-        disabled={disabled}
-      >
-        {errorMessage && `(${errorMessage})`}
-      </Text>
-    </StyledErrorMessageContainer>
+    status !== "pending" && (
+      <StyledMessageContainer disabled={disabled} status={status}>
+        <Icon
+          appearance={status === "invalid" ? "error" : "success"}
+          disabled={disabled}
+          icon={status === "invalid" ? <MdOutlineError /> : <MdCheckCircle />}
+        />
+        <Text
+          type="body"
+          size="small"
+          margin="8px 0px 0px 4px"
+          appearance={status === "invalid" ? "error" : "success"}
+          disabled={disabled}
+        >
+          {message && `${message}`}
+        </Text>
+      </StyledMessageContainer>
+    )
   );
 };
-
-const Success = (props: ISelectStateProps) => {
-  const { disabled, status, validMessage } = props;
-
-  return (
-    <StyledValidMessageContainer disabled={disabled} status={status}>
-      <MdCheckCircle />
-      <Text
-        type="body"
-        size="small"
-        margin="8px 0px 0px 4px"
-        appearance="success"
-        disabled={disabled}
-      >
-        {validMessage}
-      </Text>
-    </StyledValidMessageContainer>
-  );
-};
-
 const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
   const {
     label,
@@ -90,8 +77,7 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
     onChange,
     required,
     status,
-    errorMessage,
-    validMessage,
+    message,
     size,
     fullwidth,
     isFocused,
@@ -172,19 +158,8 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
         </StyledIcon>
       </StyledInputContainer>
 
-      {status === "invalid" && (
-        <Invalid
-          disabled={disabled!}
-          status={status}
-          errorMessage={errorMessage}
-        />
-      )}
-      {status === "valid" && (
-        <Success
-          disabled={disabled!}
-          status={status}
-          validMessage={validMessage}
-        />
+      {status && (
+        <Message disabled={disabled} status={status} message={message} />
       )}
       {openOptions && !disabled && (
         <DropdownMenu

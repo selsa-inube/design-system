@@ -25,8 +25,6 @@ SelectInForm.args = {
     { id: "3", label: "Item", disabled: false },
   ],
   size: "compact",
-  errorMessage: "This field can not be blank",
-  validMessage: "This field is valid",
   fullwidth: false,
 };
 
