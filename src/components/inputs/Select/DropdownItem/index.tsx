@@ -23,7 +23,7 @@ const DropdownItem = (props: IDropdownItemProps) => {
     if (disabled) return;
     setSelect(true);
 
-    if (onClick) onClick(id);
+    if (onClick) onClick(label);
 
     if (onSelect) onSelect(label);
   };

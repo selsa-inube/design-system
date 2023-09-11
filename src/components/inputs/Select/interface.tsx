@@ -165,9 +165,8 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
         <DropdownMenu
           options={options}
           isOpenOptions={openOptions}
-          handleClick={handleOptionClick}
+          onClick={handleOptionClick}
           onCloseOptions={onCloseOptions}
-          handleSelect={handleOptionClick}
         />
       )}
     </StyledContainer>
