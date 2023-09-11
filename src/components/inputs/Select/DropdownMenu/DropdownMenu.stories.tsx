@@ -1,6 +1,4 @@
-import React from "react";
-
-import { DropdownMenu } from "./index";
+import { DropdownMenu, DropdownMenuProps } from "./index";
 
 import { props, parameters } from "./props";
 
@@ -11,7 +9,7 @@ const story = {
   argTypes: props,
 };
 
-const Default = (args) => <DropdownMenu {...args} />;
+const Default = (args: DropdownMenuProps) => <DropdownMenu {...args} />;
 Default.args = {
   options: [
     { id: "1", label: "Item 1", disabled: true, selected: false },
