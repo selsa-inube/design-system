@@ -10,7 +10,7 @@ const props = {
     description:
       "(array): shall be designed to accept an array of objects with a predetermined structure.",
   },
-  handleClick: {
+  onClick: {
     description:
       "(function): shall be determine the behavior of the click event and is not required.",
   },
