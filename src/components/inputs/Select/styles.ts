@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 import { ISelectInterfaceProps } from "./interface";
-import { colors } from "@shared/colors/colors";
 import { typography } from "@shared/typography/typography";
-import { inube } from "@src/shared/tokens";
+import { inube } from "@shared/tokens";
+import { ISelectProps } from ".";
 
 const sizeOptions = {
   compact: {
@@ -12,35 +12,6 @@ const sizeOptions = {
   wide: {
     height: "48px",
   },
-};
-
-const getColors = (disabled: boolean, status: string, isFocused: boolean) => {
-  if (disabled) {
-    return colors.ref.palette.neutral.n70;
-  }
-
-  if (status === "invalid") {
-    return colors.sys.actions.remove.filled;
-  }
-
-  if (isFocused) {
-    return colors.ref.palette.blue.b300;
-  }
-  return colors.ref.palette.neutral.n40;
-};
-
-const getIsDisabled = (disabled: boolean, status: string) => {
-  if (disabled) {
-    return colors.ref.palette.neutral.n70;
-  }
-
-  if (status === "valid") {
-    return colors.sys.actions.confirm.filled;
-  }
-
-  if (status === "invalid") {
-    return colors.sys.actions.remove.filled;
-  }
 };
 
 const StyledContainer = styled.div`
@@ -68,11 +39,33 @@ const StyledInputContainer = styled.div`
   box-sizing: border-box;
   border-radius: 8px;
   user-select: none;
-  background: ${colors.ref.palette.neutral.n10};
+  background: ${({ theme }: ISelectInterfaceProps) =>
+    theme?.color?.surface?.light?.clear || inube.color.surface.light.clear};
   grid-template-columns: 1fr auto;
   border: 1px solid
-    ${({ disabled, status, isFocused }: ISelectInterfaceProps) =>
-      getColors(disabled!, status!, isFocused!)};
+    ${({ theme, disabled, status, isFocused }: ISelectInterfaceProps) => {
+      if (disabled) {
+        return (
+          (theme?.color?.text?.dark?.disabled ||
+            inube.color.text.dark.disabled) +
+          "; pointer-events: none; opacity: 0.5;"
+        );
+      }
+      if (isFocused) {
+        return (
+          theme?.color?.text?.primary?.hover || inube.color.text.primary.hover
+        );
+      }
+      if (status === "invalid") {
+        return (
+          theme?.color?.text?.error?.regular || inube.color.text.error.regular
+        );
+      }
+      return (
+        theme?.color?.stroke?.divider?.regular ||
+        inube.color.stroke.divider.regular
+      );
+    }};
   ${({ disabled }: ISelectInterfaceProps) =>
     disabled && "pointer-events: none; opacity: 0.5;"}
   cursor: ${({ disabled }: ISelectInterfaceProps) =>
@@ -88,12 +81,18 @@ const StyledInput = styled.input`
   font-weight: ${typography.sys.typescale.bodyLarge.weight};
   line-height: ${typography.sys.typescale.bodyLarge.lineHeight};
   letter-spacing: ${typography.sys.typescale.bodyLarge.tracking};
-  color: ${({ disabled }: ISelectInterfaceProps) =>
-    disabled ? colors.ref.palette.neutral.n70 : colors.sys.text.dark};
-  background: ${colors.ref.palette.neutral.n10};
-  cursor: ${({ disabled }: ISelectInterfaceProps) =>
+  color: ${({ theme, disabled }: ISelectInterfaceProps) => {
+    if (disabled) {
+      return (
+        theme?.color?.text?.dark?.disabled || inube.color.text.dark.disabled
+      );
+    }
+    return theme?.color?.text?.dark?.regular || inube.color.text.dark.regular;
+  }};
+  background: ${({ theme }: ISelectProps) =>
+    theme?.color?.surface?.light?.clear || inube.color.surface.light.clear};
+  cursor: ${({ disabled }: ISelectProps) =>
     disabled ? "not-allowed" : "pointer"};
-  caret-color: transparent;
   width: ${({ fullwidth }: ISelectInterfaceProps) =>
     fullwidth ? "252px" : "calc(100% - 32px)"};
   ${({ size }: ISelectInterfaceProps) => sizeOptions[size!]};
@@ -101,7 +100,8 @@ const StyledInput = styled.input`
   border: none;
 
   ::placeholder {
-    color: ${colors.sys.text.secondary};
+    color: ${({ theme }: ISelectInterfaceProps) =>
+      theme?.color?.text?.dark?.disabled || inube.color.text.dark.disabled};
   }
 
   &:focus {
@@ -129,8 +129,9 @@ const StyledIcon = styled.div`
   padding-right: 10px;
   height: 24px;
   width: 24px;
-  color: ${({ disabled }: ISelectInterfaceProps) =>
-    disabled && colors.ref.palette.neutral.n70};
+  color: ${({ theme, disabled }: ISelectInterfaceProps) =>
+    disabled &&
+    (theme?.color?.text?.dark?.hover || inube.color.text.dark.hover)};
 `;
 
 const StyledMessageContainer = styled.div`
