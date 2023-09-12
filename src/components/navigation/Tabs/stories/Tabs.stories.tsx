@@ -20,7 +20,7 @@ Default.args = {
     },
     { id: "branches", disabled: false, label: "Branches" },
     { id: "projects", disabled: false, label: "Projects" },
-    { id: "events", disabled: false, label: "Events" },
+    { id: "events", disabled: true, label: "Events" },
     { id: "aidBudget", disabled: false, label: "Aid budget units" },
     { id: "payroll", disabled: false, label: "Payroll" },
   ],
