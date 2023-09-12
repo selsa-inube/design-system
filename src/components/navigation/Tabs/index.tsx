@@ -5,10 +5,10 @@ import { DropdownMenu } from "@inputs/Select/DropdownMenu";
 import { Stack } from "@layouts/Stack";
 import { ITabProps, Tab } from "@navigation/Tabs/Tab";
 
-import { Themed, Types } from "./props";
+import { Types } from "./props";
 import { StyledTabs, StyledIconWrapper } from "./styles";
 
-export interface ITabsProps extends Themed {
+export interface ITabsProps {
   tabs: ITabProps[];
   type?: Types;
   onSelectTab: (id: string) => void;
