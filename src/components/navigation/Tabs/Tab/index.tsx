@@ -16,7 +16,7 @@ const Tab = (props: ITabProps) => {
 
   return (
     <StyledTab
-      onClick={onClick}
+      onClick={disabled ? undefined : onClick}
       disabled={disabled}
       selected={selected}
       id={id}
