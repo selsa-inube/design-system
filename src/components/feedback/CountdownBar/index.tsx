@@ -1,8 +1,8 @@
 import { AnimationEvent } from "react";
 import { StyledCountdownBar } from "./styles";
-import { Appearance, Themed } from "./props";
+import { Appearance } from "./props";
 
-export interface ICountdownBarProps extends Themed {
+export interface ICountdownBarProps {
   height?: string;
   appearance?: Appearance;
   duration?: number;
