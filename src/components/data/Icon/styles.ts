@@ -7,7 +7,7 @@ import { Themed } from "@shared/Types/Types";
 const filledAppearancesWithGrayIcon = ["gray", "light"];
 
 interface IStyledIconProps extends IIconProps {
-  theme: Themed;
+  theme?: Themed;
 }
 
 const StyledIcon = styled.figure`
