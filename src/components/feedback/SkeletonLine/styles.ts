@@ -1,6 +1,11 @@
 import styled, { keyframes } from "styled-components";
 import { ISkeletonLineProps } from "./index";
 import { inube } from "@shared/tokens";
+import { Themed } from "@shared/Types/Types";
+
+interface IStyledSkeletonLineProps extends ISkeletonLineProps {
+  theme?: Themed;
+}
 
 const shimmer = keyframes`
 0% {
@@ -13,11 +18,11 @@ const shimmer = keyframes`
 
 const StyledSkeletonLine = styled.div`
   position: relative;
-  background: ${({ theme }: ISkeletonLineProps) => {
+  background: ${({ theme }: IStyledSkeletonLineProps) => {
     return theme?.color?.surface?.gray?.clear || inube.color.surface.gray.clear;
   }};
   height: 16px;
-  width: ${({ width }: ISkeletonLineProps) => width};
+  width: ${({ width }: IStyledSkeletonLineProps) => width};
   border-radius: 6px;
   overflow: hidden;
 
@@ -30,18 +35,19 @@ const StyledSkeletonLine = styled.div`
     width: 100%;
     background: linear-gradient(
       100deg,
-      ${({ theme }: ISkeletonLineProps) =>
+      ${({ theme }: IStyledSkeletonLineProps) =>
           theme?.color?.surface?.gray?.clear || inube.color.surface.gray.clear}
         20%,
-      ${({ theme }: ISkeletonLineProps) =>
+      ${({ theme }: IStyledSkeletonLineProps) =>
           theme?.color?.surface?.dark?.clear || inube.color.surface.dark.clear}
         50%,
-      ${({ theme }: ISkeletonLineProps) =>
+      ${({ theme }: IStyledSkeletonLineProps) =>
           theme?.color?.surface?.gray?.clear || inube.color.surface.gray.clear}
         80%
     );
-    animation: ${({ animated }: ISkeletonLineProps) => animated && shimmer} 2s
-      linear infinite;
+    animation: ${({ animated }: IStyledSkeletonLineProps) =>
+        animated && shimmer}
+      2s linear infinite;
   }
 `;
 
