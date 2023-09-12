@@ -5,7 +5,7 @@ import { inube } from "@shared/tokens";
 import { Themed } from "@shared/Types/Types";
 
 interface IStyledSkeletonIconProps extends ISkeletonIconProps {
-  theme: Themed;
+  theme?: Themed;
 }
 
 const shimmer = keyframes`
