@@ -2,6 +2,11 @@ import styled, { keyframes } from "styled-components";
 
 import { ISkeletonIconProps } from "./index";
 import { inube } from "@shared/tokens";
+import { Themed } from "@shared/Types/Types";
+
+interface IStyledSkeletonIconProps extends ISkeletonIconProps {
+  theme: Themed;
+}
 
 const shimmer = keyframes`
 0% {
@@ -15,9 +20,9 @@ const StyledSkeletonIcon = styled.div`
   position: relative;
   border-radius: 6px;
   overflow: hidden;
-  width: ${({ size }: ISkeletonIconProps) => size};
-  height: ${({ size }: ISkeletonIconProps) => size};
-  background: ${({ theme }: ISkeletonIconProps) =>
+  width: ${({ size }: IStyledSkeletonIconProps) => size};
+  height: ${({ size }: IStyledSkeletonIconProps) => size};
+  background: ${({ theme }: IStyledSkeletonIconProps) =>
     theme?.color?.surface?.dark?.clear || inube.color.surface.dark.clear};
 
   &::after {
@@ -25,7 +30,7 @@ const StyledSkeletonIcon = styled.div`
     position: absolute;
     height: 100%;
     width: 100%;
-    background: ${({ theme }: ISkeletonIconProps) => `linear-gradient(
+    background: ${({ theme }: IStyledSkeletonIconProps) => `linear-gradient(
       100deg,
       ${
         theme?.color?.surface?.dark?.clear || inube.color.surface.dark.clear
@@ -37,8 +42,9 @@ const StyledSkeletonIcon = styled.div`
         theme?.color?.surface?.dark?.clear || inube.color.surface.dark.clear
       } 80%
     );`};
-    animation: ${({ animated }: ISkeletonIconProps) => animated && shimmer} 2s
-      linear infinite;
+    animation: ${({ animated }: IStyledSkeletonIconProps) =>
+        animated && shimmer}
+      2s linear infinite;
   }
 `;
 
