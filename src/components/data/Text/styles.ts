@@ -5,7 +5,7 @@ import { ITextProps } from ".";
 import { Themed } from "@shared/Types/types";
 
 interface IStyledTextProps extends ITextProps {
-  theme: Themed;
+  theme?: Themed;
 }
 
 const StyledText = styled.p`
