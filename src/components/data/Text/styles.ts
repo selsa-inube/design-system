@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import { inube } from "@shared/tokens";
 import { ITextProps } from ".";
-import { Themed } from "@src/shared/Types/types";
+import { Themed } from "@shared/Types/types";
 
 interface IStyledTextProps extends ITextProps {
   theme: Themed;
