@@ -1,6 +1,11 @@
 import styled, { keyframes } from "styled-components";
 import { inube } from "@shared/tokens";
+import { Themed } from "@shared/Types/Types";
 import { ISpinnerProps } from ".";
+
+interface IStyledSpinnerProps extends ISpinnerProps {
+  theme?: Themed;
+}
 
 const sizes = {
   large: {
@@ -29,19 +34,19 @@ const spinner = keyframes`
 const StyledSpinner = styled.div`
   display: inline-block;
   animation: 0.8s linear infinite ${spinner};
-  border: solid 4px
-    ${({ transparent, theme }: ISpinnerProps) =>
-      transparent === true
-        ? theme?.color?.stroke.spinner?.transparent ||
-          inube.color.stroke.spinner.transparent
-        : theme?.color?.stroke?.spinner?.regular ||
-          inube.color.stroke.spinner.regular};
-  border-bottom-color: ${({ appearance, theme }: ISpinnerProps) =>
+  border: solid 4px;
+  border-color: ${({ transparent, theme }: IStyledSpinnerProps) =>
+    transparent === true
+      ? theme?.color?.stroke?.spinner?.transparent ||
+        inube.color.stroke.spinner.transparent
+      : theme?.color?.stroke?.spinner?.regular ||
+        inube.color.stroke.spinner.regular};
+  border-bottom-color: ${({ appearance, theme }: IStyledSpinnerProps) =>
     appearance &&
     (theme?.color?.stroke?.[appearance]?.regular ||
       inube?.color?.stroke?.[appearance]?.regular)};
   border-radius: 50%;
-  ${(props: ISpinnerProps) => props.size && sizes[props.size]}
+  ${(props: IStyledSpinnerProps) => props.size && sizes[props.size]}
   box-sizing: border-box;
 `;
 
