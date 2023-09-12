@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import { inube } from "@shared/tokens";
 import { IDropdownItemProps } from ".";
-import { Themed } from "@src/shared/Types/Types";
+import { Themed } from "@shared/Types/Types";
 
 interface IStyledDropdownItemProps extends IDropdownItemProps {
   theme?: Themed;
