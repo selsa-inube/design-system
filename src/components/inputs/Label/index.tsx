@@ -1,7 +1,7 @@
-import { Size, Themed } from "./props";
+import { Size } from "./props";
 import { StyledLabel } from "./styles";
 
-export interface ILabelProps extends Themed {
+export interface ILabelProps {
   disabled?: boolean;
   focused?: boolean;
   htmlFor: string;
