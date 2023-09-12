@@ -1,5 +1,5 @@
-import { StyledDropdownMenu } from "./styled";
 import { DropdownItem } from "@inputs/Select/DropdownItem";
+import { StyledDropdownMenu } from "./styled";
 
 interface DropdownOption {
   id: string;
@@ -17,11 +17,11 @@ export interface DropdownMenuProps {
 }
 
 const DropdownMenu = (props: DropdownMenuProps) => {
-  const { options, onClick, onCloseOptions } = props;
+  const { options, onClick, onSelect, onCloseOptions } = props;
 
   const handleOptionClick = (id: string) => {
     if (onClick) onClick(id);
-
+    if (onSelect) onSelect(id);
     if (onCloseOptions) onCloseOptions();
   };
 
