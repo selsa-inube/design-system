@@ -29,13 +29,13 @@ const spinner = keyframes`
 const StyledSpinner = styled.div`
   display: inline-block;
   animation: 0.8s linear infinite ${spinner};
-  border: solid 4px
-    ${({ transparent, theme }: ISpinnerProps) =>
-      transparent === true
-        ? theme?.color?.stroke.spinner?.transparent ||
-          inube.color.stroke.spinner.transparent
-        : theme?.color?.stroke?.spinner?.regular ||
-          inube.color.stroke.spinner.regular};
+  border: solid 4px;
+  border-color: ${({ transparent, theme }: ISpinnerProps) =>
+    transparent === true
+      ? theme?.color?.stroke?.spinner?.transparent ||
+        inube.color.stroke.spinner.transparent
+      : theme?.color?.stroke?.spinner?.regular ||
+        inube.color.stroke.spinner.regular};
   border-bottom-color: ${({ appearance, theme }: ISpinnerProps) =>
     appearance &&
     (theme?.color?.stroke?.[appearance]?.regular ||
