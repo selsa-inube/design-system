@@ -2,8 +2,6 @@ import { inube } from "@shared/tokens";
 
 export type Appearance = keyof typeof inube.color.stroke;
 
-export type Themed = { theme?: typeof inube };
-
 const parameters = {
   docs: {
     description: {
