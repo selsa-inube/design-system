@@ -4,7 +4,7 @@ import { TabController } from "./TabController";
 
 import { props } from "../props";
 
-import { presente } from "@src/shared/themes/presente";
+import { presente } from "@shared/themes/presente";
 
 const story = {
   title: "navigation/Tab",
