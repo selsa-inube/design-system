@@ -4,9 +4,9 @@ import { Stack } from "@layouts/Stack";
 import { Label } from "@inputs/Label";
 
 import { StyledContainer, StyledInput, StyledSpan, StyledIcon } from "./styles";
-import { Themed, Size } from "./props";
+import { Size } from "./props";
 
-export interface ISwitchProps extends Themed {
+export interface ISwitchProps {
   id: string;
   name?: string;
   value?: string;

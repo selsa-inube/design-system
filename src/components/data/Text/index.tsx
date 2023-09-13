@@ -4,12 +4,11 @@ import {
   TypeOptions,
   SizeOptions,
   Appearance,
-  Themed,
 } from "./props";
 
 import { StyledText } from "./styles";
 
-export interface ITextProps extends Themed {
+export interface ITextProps {
   children?: React.ReactNode;
   textAlign?: AlignOptions;
   margin?: string;
