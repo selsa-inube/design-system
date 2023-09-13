@@ -1,10 +1,8 @@
 import { useMediaQuery } from "@hooks/useMediaQuery";
 import { Stack } from "@layouts/Stack";
 import { StyledBlanket } from "./styles";
-import { inube } from "@shared/tokens";
 
-export type Themed = { theme?: typeof inube };
-export interface IBlanketProps extends Themed {
+export interface IBlanketProps {
   children?: React.ReactNode;
 }
 
