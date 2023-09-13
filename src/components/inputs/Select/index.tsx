@@ -82,6 +82,19 @@ const Select = (props: ISelectProps) => {
     };
   }, [selectRef]);
 
+  const [selectedOption, setSelectedOption] = useState(value);
+
+  const handleOptionClick = (idOption: string) => {
+    const option = options.find((option) => option.id === idOption);
+    setSelectedOption(option!.label);
+  };
+
+  const handleClick = (e: MouseEvent) => {
+    onClick && onClick(e);
+
+    toggleOptionsMenu();
+  };
+
   return (
     <SelectUI
       label={label}
@@ -89,7 +102,7 @@ const Select = (props: ISelectProps) => {
       id={id}
       placeholder={placeholder}
       disabled={disabled}
-      value={value}
+      value={selectedOption || value}
       onChange={onChange}
       required={required}
       size={size}
@@ -101,7 +114,9 @@ const Select = (props: ISelectProps) => {
       onBlur={handleBlur}
       options={options}
       openOptions={open}
-      onClick={onClick}
+      onClick={handleClick}
+      selectedOption={selectedOption}
+      onOptionClick={handleOptionClick}
       onCloseOptions={toggleOptionsMenu}
       ref={selectRef}
     />
