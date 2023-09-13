@@ -1,8 +1,9 @@
+import { ThemeProvider } from "styled-components";
+
+import { presente } from "@shared/themes/presente";
+import { props, parameters } from "../props";
 import { ITextareaProps, Textarea } from "..";
 import { TextareaController } from "./TextareaController";
-import { ThemeProvider } from "styled-components";
-import { props, parameters } from "../props";
-import { presente } from "@shared/themes/presente";
 
 const story = {
   title: "inputs/Textarea",
