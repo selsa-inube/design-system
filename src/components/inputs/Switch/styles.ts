@@ -3,7 +3,7 @@ import { ISwitchProps } from "./index";
 
 import { inube } from "@shared/tokens";
 
-import { Themed } from "@shared/Types/Types";
+import { Themed } from "@shared/types/types";
 
 interface IStyledSwitchProps extends ISwitchProps {
   theme?: Themed;

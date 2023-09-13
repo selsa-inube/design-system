@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { keyframes } from "styled-components";
 import { ICountdownBarProps } from ".";
 import { inube } from "@shared/tokens";
-import { Themed } from "@shared/Types/Types";
+import { Themed } from "@shared/types/types";
 
 interface IStyledCountdownBarProps extends ICountdownBarProps {
   theme: Themed;
