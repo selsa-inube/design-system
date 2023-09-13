@@ -1,7 +1,3 @@
-import { inube } from "@shared/tokens";
-
-export type Themed = { theme?: typeof inube };
-
 const parameters = {
   docs: {
     description: {
