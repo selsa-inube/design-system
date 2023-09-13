@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 
 import { SelectUI } from "./interface";
-import { Size, Status, Themed } from "./props";
+import { Size, Status } from "./props";
 
 export interface ISelectOptions {
   id: string;
@@ -9,7 +9,7 @@ export interface ISelectOptions {
   disabled: boolean;
 }
 
-export interface ISelectProps extends Themed {
+export interface ISelectProps {
   label?: string;
   name?: string;
   id: string;
