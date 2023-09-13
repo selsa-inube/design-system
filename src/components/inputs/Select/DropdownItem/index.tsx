@@ -1,10 +1,9 @@
 import { useState, useRef } from "react";
 
 import { Text } from "@data/Text";
-import { Themed } from "./props";
 import { StyledDropdownItem } from "./styles";
 
-export interface IDropdownItemProps extends Themed {
+export interface IDropdownItemProps {
   id: string;
   disabled?: boolean;
   isFocused?: boolean;

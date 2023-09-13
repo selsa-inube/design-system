@@ -1,6 +1,6 @@
 import styled, { keyframes } from "styled-components";
 import { inube } from "@shared/tokens";
-import { Themed } from "@shared/Types/Types";
+import { Themed } from "@src/shared/Types/types";
 import { ISpinnerProps } from ".";
 
 interface IStyledSpinnerProps extends ISpinnerProps {

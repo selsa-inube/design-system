@@ -23,8 +23,6 @@ export type HtmlElements = typeof htmlElements[number];
 export const sizes = ["large", "medium", "small"] as const;
 export type SizeOptions = typeof sizes[number];
 
-export type Themed = { theme?: typeof inube };
-
 export type TypeOptions = keyof typeof inube.typography;
 
 const typesOptions = Object.keys(inube.typography);
