@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { ITabsProps } from ".";
 import { inube } from "@shared/tokens";
 
-import { Themed } from "@shared/Types/Types";
+import { Themed } from "@shared/types/types";
 
 interface IStyledTabsProps extends ITabsProps {
   theme?: Themed;
