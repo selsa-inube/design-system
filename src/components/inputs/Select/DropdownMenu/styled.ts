@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { inube } from "@shared/tokens";
-import { Themed } from "@shared/Types/Types";
+import { Themed } from "@shared/types/types";
 import { DropdownMenuProps } from ".";
 
 interface IStyledDropdownMenuProps extends DropdownMenuProps {
