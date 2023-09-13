@@ -5,13 +5,33 @@ import { Stack } from "@layouts/Stack";
 import { Icon } from "@data/Icon";
 import { Label } from "@inputs/Label";
 import { Text } from "@data/Text";
-import { Appearence, Status, Themed } from "./props";
 
+import { Appearence, Status } from "./props";
 import {
   StyledContainer,
   StyledTextarea,
   StyledMessageContainer,
 } from "./styles";
+
+interface ITextareaProps {
+  label?: string;
+  name?: string;
+  id: string;
+  placeholder?: string;
+  disabled?: boolean;
+  isFocused?: boolean;
+  status?: Status;
+  value?: string;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  maxLength?: number;
+  required?: boolean;
+  message?: string;
+  fullwidth?: boolean;
+  onFocus?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onBlur?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  readOnly?: boolean;
+  lengthThreshold?: number;
+}
 
 const Counter = (
   props: Omit<ITextareaProps, "id"> & {
@@ -55,26 +75,6 @@ const Message = (props: Omit<ITextareaProps, "id">) => {
     )
   );
 };
-
-interface ITextareaProps extends Themed {
-  label?: string;
-  name?: string;
-  id: string;
-  placeholder?: string;
-  disabled?: boolean;
-  isFocused?: boolean;
-  status?: Status;
-  value?: string;
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  maxLength?: number;
-  required?: boolean;
-  message?: string;
-  fullwidth?: boolean;
-  onFocus?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  onBlur?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  readOnly?: boolean;
-  lengthThreshold?: number;
-}
 
 const Textarea = (props: ITextareaProps) => {
   const {
