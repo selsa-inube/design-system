@@ -1,4 +1,4 @@
-import { useState, forwardRef } from "react";
+import { forwardRef } from "react";
 import {
   MdOutlineError,
   MdCheckCircle,
@@ -32,6 +32,8 @@ export interface ISelectInterfaceProps extends ISelectProps {
   isFocused?: boolean;
   openOptions: boolean;
   onCloseOptions: () => void;
+  onOptionClick: (idOption: string) => void;
+  selectedOption?: string | number;
 }
 
 const getTypo = (size: Size) => {
@@ -67,6 +69,7 @@ const Message = (
     )
   );
 };
+
 const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
   const {
     label,
@@ -87,21 +90,9 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
     openOptions,
     value,
     onClick,
+    onOptionClick,
     onCloseOptions,
   } = props;
-
-  const [selectedOption, setSelectedOption] = useState(value);
-
-  const handleOptionClick = (idOption: string) => {
-    const option = options.find((option) => option.id === idOption);
-    setSelectedOption(option?.label);
-  };
-
-  const handleClick = (e: MouseEvent) => {
-    onClick && onClick(e);
-
-    onCloseOptions();
-  };
 
   return (
     <StyledContainer fullwidth={fullwidth} disabled={disabled} ref={ref}>
@@ -138,7 +129,7 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
         <StyledInput
           autoComplete="off"
           readOnly={true}
-          value={selectedOption || value}
+          value={value}
           name={name}
           id={id}
           placeholder={placeholder}
@@ -151,7 +142,7 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
           onChange={onChange}
           onFocus={onFocus}
           onBlur={onBlur}
-          onClick={(e: MouseEvent) => handleClick(e)}
+          onClick={onClick}
         />
         <StyledIcon disabled={disabled}>
           <MdOutlineArrowDropDown onClick={onCloseOptions} />
@@ -165,7 +156,7 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
         <DropdownMenu
           options={options}
           isOpenOptions={openOptions}
-          onClick={handleOptionClick}
+          onClick={onOptionClick}
           onCloseOptions={onCloseOptions}
         />
       )}
