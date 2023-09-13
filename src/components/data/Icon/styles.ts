@@ -2,8 +2,13 @@ import styled from "styled-components";
 
 import { inube } from "@shared/tokens";
 import { IIconProps } from ".";
+import { Themed } from "@shared/Types/types";
 
 const filledAppearancesWithGrayIcon = ["gray", "light"];
+
+interface IStyledIconProps extends IIconProps {
+  theme?: Themed;
+}
 
 const StyledIcon = styled.figure`
   display: inline-block;
@@ -21,7 +26,7 @@ const StyledIcon = styled.figure`
     parentHover,
     disabled,
     variant,
-  }: IIconProps) => {
+  }: IStyledIconProps) => {
     if (disabled)
       return (
         theme?.color?.stroke?.[appearance]?.disabled ||
@@ -44,7 +49,7 @@ const StyledIcon = styled.figure`
     appearance,
     parentHover,
     disabled,
-  }: IIconProps) => {
+  }: IStyledIconProps) => {
     if (variant === "filled") {
       if (disabled)
         return (
@@ -69,7 +74,7 @@ const StyledIcon = styled.figure`
     appearance,
     parentHover,
     disabled,
-  }: IIconProps) => {
+  }: IStyledIconProps) => {
     if (disabled)
       return (
         theme?.color?.text?.[appearance]?.disabled ||
@@ -115,7 +120,7 @@ const StyledIcon = styled.figure`
       appearance,
       disabled,
       variant,
-    }: IIconProps) => {
+    }: IStyledIconProps) => {
       if (!disabled && cursorHover && variant !== "filled")
         return (
           theme?.color?.text?.[appearance]?.hover ||
@@ -129,7 +134,7 @@ const StyledIcon = styled.figure`
       appearance,
       disabled,
       variant,
-    }: IIconProps) => {
+    }: IStyledIconProps) => {
       if (!disabled && cursorHover && variant !== "filled")
         return (
           theme?.color?.stroke?.[appearance]?.hover ||
@@ -143,7 +148,7 @@ const StyledIcon = styled.figure`
       appearance,
       cursorHover,
       disabled,
-    }: IIconProps) => {
+    }: IStyledIconProps) => {
       if (!disabled && variant === "filled" && cursorHover)
         return (
           theme?.color?.surface?.[appearance]?.hover ||
