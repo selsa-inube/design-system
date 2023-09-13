@@ -1,7 +1,7 @@
 import styled, { keyframes } from "styled-components";
 import { ISkeletonLineProps } from "./index";
 import { inube } from "@shared/tokens";
-import { Themed } from "@shared/Types/Types";
+import { Themed } from "@shared/types/types";
 
 interface IStyledSkeletonLineProps extends ISkeletonLineProps {
   theme?: Themed;
