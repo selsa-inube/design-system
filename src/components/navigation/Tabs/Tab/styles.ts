@@ -2,12 +2,16 @@ import styled from "styled-components";
 
 import { inube } from "@shared/tokens";
 import { ITabProps } from ".";
+import { Themed } from "@shared/types/types";
 
+interface IStyledTabProps extends ITabProps {
+  theme?: Themed;
+}
 const StyledTab = styled.li`
   width: fit-content;
   user-select: none;
   list-style-type: none;
-  border-bottom: ${({ selected, disabled, theme }: ITabProps) =>
+  border-bottom: ${({ selected, disabled, theme }: IStyledTabProps) =>
     selected &&
     !disabled &&
     `4px solid ${
@@ -16,7 +20,7 @@ const StyledTab = styled.li`
     }`};
 
   & > p {
-    cursor: ${({ disabled }: ITabProps) =>
+    cursor: ${({ disabled }: IStyledTabProps) =>
       disabled ? "not-allowed" : "pointer"};
   }
 `;
