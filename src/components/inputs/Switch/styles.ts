@@ -2,7 +2,12 @@ import styled, { css } from "styled-components";
 import { ISwitchProps } from "./index";
 
 import { inube } from "@shared/tokens";
-import { Themed } from "./props";
+
+import { Themed } from "@shared/types/types";
+
+interface IStyledSwitchProps extends ISwitchProps {
+  theme?: Themed;
+}
 
 const sizes = {
   large: {
@@ -23,9 +28,9 @@ const StyledSpan = styled.span`
   bottom: ${inube.spacing.s0};
   transition: 0.1s;
   border-radius: 30px;
-  cursor: ${(props: ISwitchProps) =>
+  cursor: ${(props: IStyledSwitchProps) =>
     props.disabled ? "not-allowed" : "pointer"};
-  background: ${({ disabled, theme }: ISwitchProps) =>
+  background: ${({ disabled, theme }: IStyledSwitchProps) =>
     disabled
       ? theme?.color?.surface?.gray?.disabled ||
         inube.color.surface.gray.disabled
@@ -33,7 +38,7 @@ const StyledSpan = styled.span`
         inube.color.surface.gray.regular};
 
   &:hover {
-    background-color: ${({ disabled, theme }: ISwitchProps) =>
+    background-color: ${({ disabled, theme }: IStyledSwitchProps) =>
       disabled
         ? theme?.color?.surface?.gray?.disabled ||
           inube.color.surface.gray.disabled
@@ -46,16 +51,16 @@ const StyledSpan = styled.span`
     left: ${inube.spacing.s025};
     border-radius: 50%;
     transition: 0.3s;
-    background-color: ${({ theme }: Themed) =>
+    background-color: ${({ theme }: IStyledSwitchProps) =>
       theme?.color?.surface?.light?.clear || inube.color.surface.light.clear};
     box-sizing: border-box;
-    border: ${({ disabled, theme }: ISwitchProps) =>
+    border: ${({ disabled, theme }: IStyledSwitchProps) =>
       disabled &&
       `0.5px solid ${
         theme?.color?.stroke?.light?.disabled ||
         inube.color.stroke.gray.disabled
       }`};
-    ${(props: ISwitchProps) =>
+    ${(props: IStyledSwitchProps) =>
       props.size === "small"
         ? css`
             width: 12px;
@@ -73,7 +78,7 @@ const StyledSpan = styled.span`
 const StyledContainer = styled.label`
   position: relative;
   display: inline-block;
-  ${(props: ISwitchProps) => props.size && sizes[props.size]};
+  ${(props: IStyledSwitchProps) => props.size && sizes[props.size]};
 `;
 
 const StyledInput = styled.input`
@@ -82,7 +87,7 @@ const StyledInput = styled.input`
   height: 0;
 
   &:checked + span {
-    background-color: ${({ disabled, theme }: ISwitchProps) =>
+    background-color: ${({ disabled, theme }: IStyledSwitchProps) =>
       disabled
         ? theme?.color?.surface?.gray?.disabled ||
           inube.color.surface.gray.disabled
@@ -90,7 +95,7 @@ const StyledInput = styled.input`
           inube.color.surface.success.regular};
 
     &:hover {
-      background-color: ${({ disabled, theme }: ISwitchProps) =>
+      background-color: ${({ disabled, theme }: IStyledSwitchProps) =>
         disabled
           ? theme?.color?.surface?.gray?.disabled ||
             inube.color.surface.gray.disabled
@@ -100,9 +105,9 @@ const StyledInput = styled.input`
   }
 
   &:checked + span:before {
-    left: ${({ size }: ISwitchProps) =>
+    left: ${({ size }: IStyledSwitchProps) =>
       size === "small" ? `-${inube.spacing.s025}` : `${inube.spacing.s025}`};
-    ${(size: ISwitchProps["size"]) =>
+    ${(size: IStyledSwitchProps["size"]) =>
       size === "small"
         ? "transform: translateX(16px);"
         : "transform: translateX(20px);"};
@@ -112,18 +117,18 @@ const StyledInput = styled.input`
 const StyledIcon = styled.div`
   & > #mdIcon {
     position: absolute;
-    color: ${({ disabled }: ISwitchProps) =>
+    color: ${({ disabled }: IStyledSwitchProps) =>
       !disabled
         ? inube.color.surface.light.regular
         : inube.color.stroke.gray.disabled};
-    ${(props: ISwitchProps) =>
+    ${(props: IStyledSwitchProps) =>
       props.size === "small"
         ? css`
             width: 10px;
             height: 10px;
             padding-left ${inube.spacing.s025};
             top: calc(${inube.spacing.s075} / 2);
-            left: ${(props: ISwitchProps) =>
+            left: ${(props: IStyledSwitchProps) =>
               props.checked
                 ? `calc(${inube.spacing.s075} / 2)`
                 : `${inube.spacing.s200}`};
@@ -132,7 +137,7 @@ const StyledIcon = styled.div`
             width: 14px;
             height: 14px;
             top: calc(${inube.spacing.s075} / 2);
-            left: ${(props: ISwitchProps) =>
+            left: ${(props: IStyledSwitchProps) =>
               props.checked
                 ? `${inube.spacing.s050}`
                 : `${inube.spacing.s250}`};
