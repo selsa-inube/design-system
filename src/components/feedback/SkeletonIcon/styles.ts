@@ -2,7 +2,7 @@ import styled, { keyframes } from "styled-components";
 
 import { ISkeletonIconProps } from "./index";
 import { inube } from "@shared/tokens";
-import { Themed } from "@shared/Types/Types";
+import { Themed } from "@shared/types/types";
 
 interface IStyledSkeletonIconProps extends ISkeletonIconProps {
   theme?: Themed;

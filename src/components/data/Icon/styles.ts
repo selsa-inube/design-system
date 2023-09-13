@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import { inube } from "@shared/tokens";
 import { IIconProps } from ".";
-import { Themed } from "@shared/Types/types";
+import { Themed } from "@shared/types/types";
 
 const filledAppearancesWithGrayIcon = ["gray", "light"];
 
