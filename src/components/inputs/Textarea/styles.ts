@@ -1,10 +1,15 @@
 import styled from "styled-components";
 import { inube } from "@shared/tokens";
 import { ITextareaProps } from ".";
+import { Themed } from "@shared/types/types";
+
+interface IStyledTextareaProps extends ITextareaProps {
+  theme?: Themed;
+}
 
 const StyledContainer = styled.div`
-  cursor: ${({ disabled }: ITextareaProps) => disabled && "not-allowed"};
-  width: ${({ fullwidth }: ITextareaProps) =>
+  cursor: ${({ disabled }: IStyledTextareaProps) => disabled && "not-allowed"};
+  width: ${({ fullwidth }: IStyledTextareaProps) =>
     fullwidth ? "100%" : "fit-content"};
 `;
 
@@ -17,15 +22,15 @@ const StyledTextarea = styled.textarea`
   font-weight: ${inube.typography.body.large.weight};
   line-height: ${inube.typography.body.large.lineHeight};
   letter-spacing: ${inube.typography.body.large.tracking};
-  width: ${({ fullwidth }: ITextareaProps) =>
+  width: ${({ fullwidth }: IStyledTextareaProps) =>
     fullwidth ? "calc(100% - 32px)" : "452px"};
   height: 120px;
-  color: ${({ disabled, theme }: ITextareaProps) =>
+  color: ${({ disabled, theme }: IStyledTextareaProps) =>
     disabled
       ? theme?.color?.text?.gray?.disabled || inube.color.text.gray.disabled
       : theme?.color?.text?.dark?.regular || inube.color.text.dark.regular};
   border: 2px solid
-    ${({ disabled, status, isFocused, theme }: ITextareaProps) => {
+    ${({ disabled, status, isFocused, theme }: IStyledTextareaProps) => {
       if (disabled) {
         return (
           theme?.color?.stroke?.gray?.disabled ||
@@ -51,11 +56,11 @@ const StyledTextarea = styled.textarea`
         inube.color.stroke.divider.regular
       );
     }};
-  ${({ disabled }: ITextareaProps) =>
+  ${({ disabled }: IStyledTextareaProps) =>
     disabled && "pointer-events: none; opacity: 0.5;"}
 
   ::placeholder {
-    color: ${({ theme }: ITextareaProps) =>
+    color: ${({ theme }: IStyledTextareaProps) =>
       theme?.color?.text?.gray?.regular || inube.color.text.gray.regular};
   }
 
@@ -74,7 +79,7 @@ const StyledMessageContainer = styled.div`
   align-items: center;
   margin-left: ${inube.spacing.s200};
   pointer-events: none;
-  color: ${({ disabled, status, theme }: ITextareaProps) => {
+  color: ${({ disabled, status, theme }: IStyledTextareaProps) => {
     if (disabled) {
       return (
         theme?.color?.text?.gray?.disabled || inube.color.text.gray.disabled
