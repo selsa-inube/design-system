@@ -3,7 +3,11 @@ import styled from "styled-components";
 import { ISelectInterfaceProps } from "./interface";
 import { typography } from "@shared/typography/typography";
 import { inube } from "@shared/tokens";
-import { ISelectProps } from ".";
+import { Themed } from "@shared/types/types";
+
+interface IStyledSelectInterfaceProps extends ISelectInterfaceProps {
+  theme?: Themed;
+}
 
 const sizeOptions = {
   compact: {
@@ -15,8 +19,9 @@ const sizeOptions = {
 };
 
 const StyledContainer = styled.div`
-  cursor: ${({ disabled }: ISelectInterfaceProps) => disabled && "not-allowed"};
-  width: ${({ fullwidth }: ISelectInterfaceProps) =>
+  cursor: ${({ disabled }: IStyledSelectInterfaceProps) =>
+    disabled && "not-allowed"};
+  width: ${({ fullwidth }: IStyledSelectInterfaceProps) =>
     fullwidth ? "100%" : "fit-content"};
 `;
 
@@ -25,7 +30,7 @@ const StyledContainerLabel = styled.div`
   align-items: center;
   margin-bottom: 4px;
   padding-left: 16px;
-  pointer-events: ${({ disabled }: ISelectInterfaceProps) =>
+  pointer-events: ${({ disabled }: IStyledSelectInterfaceProps) =>
     disabled && "none"};
 
   & label {
@@ -39,11 +44,11 @@ const StyledInputContainer = styled.div`
   box-sizing: border-box;
   border-radius: 8px;
   user-select: none;
-  background: ${({ theme }: ISelectInterfaceProps) =>
+  background: ${({ theme }: IStyledSelectInterfaceProps) =>
     theme?.color?.surface?.light?.clear || inube.color.surface.light.clear};
   grid-template-columns: 1fr auto;
   border: 1px solid
-    ${({ theme, disabled, status, isFocused }: ISelectInterfaceProps) => {
+    ${({ theme, disabled, status, isFocused }: IStyledSelectInterfaceProps) => {
       if (disabled) {
         return (
           (theme?.color?.text?.dark?.disabled ||
@@ -66,9 +71,9 @@ const StyledInputContainer = styled.div`
         inube.color.stroke.divider.regular
       );
     }};
-  ${({ disabled }: ISelectInterfaceProps) =>
+  ${({ disabled }: IStyledSelectInterfaceProps) =>
     disabled && "pointer-events: none; opacity: 0.5;"}
-  cursor: ${({ disabled }: ISelectInterfaceProps) =>
+  cursor: ${({ disabled }: IStyledSelectInterfaceProps) =>
     disabled ? "not-allowed" : "pointer"};
 `;
 
@@ -81,7 +86,7 @@ const StyledInput = styled.input`
   font-weight: ${typography.sys.typescale.bodyLarge.weight};
   line-height: ${typography.sys.typescale.bodyLarge.lineHeight};
   letter-spacing: ${typography.sys.typescale.bodyLarge.tracking};
-  color: ${({ theme, disabled }: ISelectInterfaceProps) => {
+  color: ${({ theme, disabled }: IStyledSelectInterfaceProps) => {
     if (disabled) {
       return (
         theme?.color?.text?.dark?.disabled || inube.color.text.dark.disabled
@@ -89,18 +94,18 @@ const StyledInput = styled.input`
     }
     return theme?.color?.text?.dark?.regular || inube.color.text.dark.regular;
   }};
-  background: ${({ theme }: ISelectProps) =>
+  background: ${({ theme }: IStyledSelectInterfaceProps) =>
     theme?.color?.surface?.light?.clear || inube.color.surface.light.clear};
-  cursor: ${({ disabled }: ISelectProps) =>
+  cursor: ${({ disabled }: IStyledSelectInterfaceProps) =>
     disabled ? "not-allowed" : "pointer"};
-  width: ${({ fullwidth }: ISelectInterfaceProps) =>
+  width: ${({ fullwidth }: IStyledSelectInterfaceProps) =>
     fullwidth ? "252px" : "calc(100% - 32px)"};
-  ${({ size }: ISelectInterfaceProps) => sizeOptions[size!]};
+  ${({ size }: IStyledSelectInterfaceProps) => sizeOptions[size!]};
 
   border: none;
 
   ::placeholder {
-    color: ${({ theme }: ISelectInterfaceProps) =>
+    color: ${({ theme }: IStyledSelectInterfaceProps) =>
       theme?.color?.text?.dark?.disabled || inube.color.text.dark.disabled};
   }
 
@@ -129,7 +134,7 @@ const StyledIcon = styled.div`
   padding-right: 10px;
   height: 24px;
   width: 24px;
-  color: ${({ theme, disabled }: ISelectInterfaceProps) =>
+  color: ${({ theme, disabled }: IStyledSelectInterfaceProps) =>
     disabled &&
     (theme?.color?.text?.dark?.hover || inube.color.text.dark.hover)};
 `;
@@ -139,7 +144,7 @@ const StyledMessageContainer = styled.div`
   align-items: center;
   margin-left: ${inube.spacing.s200};
   pointer-events: none;
-  color: ${({ disabled, status, theme }: ISelectInterfaceProps) => {
+  color: ${({ disabled, status, theme }: IStyledSelectInterfaceProps) => {
     if (disabled) {
       return (
         theme?.color?.text?.gray?.disabled || inube.color.text.gray.disabled
