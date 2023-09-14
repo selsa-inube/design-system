@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { MdKeyboardArrowDown } from "react-icons/md";
 
-import { DropdownMenu } from "@inputs/Select/DropdownMenu";
+import { OptionList } from "@inputs/Select/OptionList";
 import { Stack } from "@layouts/Stack";
 import { ITabProps, Tab } from "@navigation/Tabs/Tab";
 
@@ -60,7 +60,7 @@ const Tabs = ({
           </Stack>
         </StyledTabs>
         {isDropDownOpen && (
-          <DropdownMenu
+          <OptionList
             options={dropDownOptions}
             onSelect={onSelectTab}
             isOpenOptions={isDropDownOpen}

@@ -1,16 +1,16 @@
 import styled from "styled-components";
 import { inube } from "@shared/tokens";
 import { Themed } from "@shared/types/types";
-import { DropdownMenuProps } from ".";
+import { OptionListProps } from ".";
 
-interface IStyledDropdownMenuProps extends DropdownMenuProps {
+interface IStyledOptionListProps extends OptionListProps {
   theme?: Themed;
 }
-const StyledDropdownMenu = styled.ul`
+const StyledOptionList = styled.ul`
   display: flex;
   flex-direction: column;
   padding: 4px 0px;
-  background: ${({ theme }: IStyledDropdownMenuProps) => {
+  background: ${({ theme }: IStyledOptionListProps) => {
     return (
       theme?.color?.surface?.light?.clear || inube.color.surface.light.clear
     );
@@ -20,4 +20,4 @@ const StyledDropdownMenu = styled.ul`
   border-radius: 4px;
 `;
 
-export { StyledDropdownMenu };
+export { StyledOptionList };
