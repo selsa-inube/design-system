@@ -1,32 +1,32 @@
 import styled from "styled-components";
 
 import { inube } from "@shared/tokens";
-import { IDropdownItemProps } from ".";
-import { Themed } from "@shared/Types/Types";
+import { IOptionItemProps } from ".";
+import { Themed } from "@shared/types/types";
 
-interface IStyledDropdownItemProps extends IDropdownItemProps {
+interface IStyledOptionItemProps extends IOptionItemProps {
   theme?: Themed;
 }
 
-const StyledDropdownItem = styled.li`
+const StyledOptionItem = styled.li`
   display: flex;
   align-items: center;
   align-self: stretch;
   min-height: ${inube.spacing.s500};
   padding: ${() =>
     `${inube.spacing.s050} ${inube.spacing.s200} ${inube.spacing.s050} ${inube.spacing.s150}`};
-  cursor: ${({ disabled }: IStyledDropdownItemProps) =>
+  cursor: ${({ disabled }: IStyledOptionItemProps) =>
     !disabled ? "pointer" : "not-allowed"};
 
   border-left: ${inube.spacing.s050} solid
-    ${({ theme, isFocused }: IStyledDropdownItemProps) =>
+    ${({ theme, isFocused }: IStyledOptionItemProps) =>
       isFocused
         ? theme?.color?.stroke?.primary?.regular ||
           inube.color.stroke.primary.regular
         : "transparent"};
 
   p {
-    color: ${({ theme, disabled, isFocused }: IStyledDropdownItemProps) => {
+    color: ${({ theme, disabled, isFocused }: IStyledOptionItemProps) => {
       if (disabled) {
         return (
           theme?.color?.text?.dark?.disabled || inube.color.text.dark.disabled
@@ -44,17 +44,17 @@ const StyledDropdownItem = styled.li`
 
   &:hover {
     border-left: ${inube.spacing.s050} solid
-      ${({ theme, disabled }: IStyledDropdownItemProps) =>
+      ${({ theme, disabled }: IStyledOptionItemProps) =>
         disabled
           ? "none"
           : theme?.color?.stroke?.primary?.regular ||
             inube.color.stroke.primary.regular};
 
-    background-color: ${({ theme }: IStyledDropdownItemProps) =>
+    background-color: ${({ theme }: IStyledOptionItemProps) =>
       theme?.color?.surface?.gray?.hover || inube.color.surface.gray.hover};
 
     p {
-      color: ${({ theme, disabled }: IStyledDropdownItemProps) =>
+      color: ${({ theme, disabled }: IStyledOptionItemProps) =>
         disabled
           ? theme?.color?.text?.dark?.disabled || inube.color.text.dark.disabled
           : theme?.color?.text?.primary?.regular ||
@@ -63,4 +63,4 @@ const StyledDropdownItem = styled.li`
   }
 `;
 
-export { StyledDropdownItem };
+export { StyledOptionItem };
