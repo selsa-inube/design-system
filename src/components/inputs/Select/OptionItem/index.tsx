@@ -17,17 +17,14 @@ const OptionItem = (props: IOptionItemProps) => {
 
   const [select, setSelect] = useState(selected);
 
-  const handleOptionClick = (label: string) => {
+  const handleOptionClick = (id: string) => {
     if (disabled) return;
+
     setSelect(true);
 
-    if (onClick) onClick(label);
+    if (onClick) onClick(id);
 
-    if (onSelect) onSelect(label);
-  };
-
-  const interceptorOnBlur = () => {
-    setSelect(false);
+    if (onSelect) onSelect(id);
   };
 
   return (
@@ -35,8 +32,7 @@ const OptionItem = (props: IOptionItemProps) => {
       id={id}
       disabled={disabled}
       selected={select}
-      onClick={() => handleOptionClick(children)}
-      onBlur={interceptorOnBlur}
+      onClick={() => handleOptionClick(id)}
       tabIndex={0}
     >
       <Text size="medium" type="body">
