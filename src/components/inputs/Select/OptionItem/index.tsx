@@ -1,5 +1,4 @@
-import { useState, useRef } from "react";
-
+import { useState } from "react";
 import { Text } from "@data/Text";
 import { StyledOptionItem } from "./styles";
 
@@ -12,11 +11,11 @@ export interface IOptionItemProps {
   onClick?: (id: string) => void;
   onSelect?: (label: string) => void;
 }
+
 const OptionItem = (props: IOptionItemProps) => {
   const { id, disabled, selected = false, children, onClick, onSelect } = props;
 
   const [select, setSelect] = useState(selected);
-  const itemRef = useRef(null);
 
   const handleOptionClick = (label: string) => {
     if (disabled) return;
@@ -37,7 +36,6 @@ const OptionItem = (props: IOptionItemProps) => {
       disabled={disabled}
       selected={select}
       onClick={() => handleOptionClick(children)}
-      ref={itemRef}
       onBlur={interceptorOnBlur}
       tabIndex={0}
     >
