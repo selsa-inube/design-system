@@ -25,12 +25,12 @@ const OptionItem = (props: IOptionItemProps) => {
   const isSelected = id === selectedId;
   const itemRef = useRef(null);
 
-  const handleOptionClick = (label: string) => {
+  const handleOptionClick = (id: string) => {
     if (disabled) return;
 
-    if (onClick) onClick(label);
+    if (onClick) onClick(id);
 
-    if (onSelect) onSelect(label);
+    if (onSelect) onSelect(id);
   };
 
   return (
@@ -38,7 +38,7 @@ const OptionItem = (props: IOptionItemProps) => {
       id={id}
       disabled={disabled}
       selectedId={isSelected}
-      onClick={() => handleOptionClick(children)}
+      onClick={() => handleOptionClick(id)}
       ref={itemRef}
       tabIndex={0}
     >
