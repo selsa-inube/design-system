@@ -1,5 +1,5 @@
 import { OptionItem } from "@inputs/Select/OptionItem";
-import { StyledDropdownMenu } from "./styled";
+import { StyledOptionList } from "./styled";
 
 interface DropdownOption {
   id: string;
@@ -8,7 +8,7 @@ interface DropdownOption {
   selected?: boolean;
 }
 
-export interface DropdownMenuProps {
+export interface OptionListProps {
   options: DropdownOption[];
   onClick?: (id: string) => void;
   onCloseOptions?: () => void;
@@ -16,7 +16,7 @@ export interface DropdownMenuProps {
   isOpenOptions?: boolean;
 }
 
-const DropdownMenu = (props: DropdownMenuProps) => {
+const OptionList = (props: OptionListProps) => {
   const { options, onClick, onSelect, onCloseOptions } = props;
 
   const handleOptionClick = (id: string) => {
@@ -26,7 +26,7 @@ const DropdownMenu = (props: DropdownMenuProps) => {
   };
 
   return (
-    <StyledDropdownMenu>
+    <StyledOptionList>
       {options.map((optionItem) => (
         <OptionItem
           key={optionItem.id}
@@ -38,8 +38,8 @@ const DropdownMenu = (props: DropdownMenuProps) => {
           {optionItem.label}
         </OptionItem>
       ))}
-    </StyledDropdownMenu>
+    </StyledOptionList>
   );
 };
 
-export { DropdownMenu };
+export { OptionList };

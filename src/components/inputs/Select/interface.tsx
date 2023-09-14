@@ -7,7 +7,7 @@ import {
 
 import { Label } from "@inputs/Label";
 import { Text } from "@data/Text";
-import { DropdownMenu } from "@inputs/Select/DropdownMenu";
+import { OptionList } from "@inputs/Select/OptionList";
 import { Icon } from "@data/Icon";
 import { Size } from "./props";
 
@@ -153,7 +153,7 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
         <Message disabled={disabled} status={status} message={message} />
       )}
       {openOptions && !disabled && (
-        <DropdownMenu
+        <OptionList
           options={options}
           isOpenOptions={openOptions}
           onClick={onOptionClick}
