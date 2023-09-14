@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useRef } from "react";
 
 import { Text } from "@data/Text";
 import { StyledOptionItem } from "./styles";
@@ -7,38 +7,39 @@ export interface IOptionItemProps {
   id: string;
   disabled?: boolean;
   isFocused?: boolean;
-  selected?: boolean;
+  selectedId?: string;
   children: string;
   onClick?: (id: string) => void;
   onSelect?: (label: string) => void;
 }
 const OptionItem = (props: IOptionItemProps) => {
-  const { id, disabled, selected = false, children, onClick, onSelect } = props;
+  const {
+    id,
+    disabled,
+    selectedId = false,
+    children,
+    onClick,
+    onSelect,
+  } = props;
 
-  const [select, setSelect] = useState(selected);
+  const isSelected = id === selectedId;
   const itemRef = useRef(null);
 
   const handleOptionClick = (label: string) => {
     if (disabled) return;
-    setSelect(true);
 
     if (onClick) onClick(label);
 
     if (onSelect) onSelect(label);
   };
 
-  const interceptorOnBlur = () => {
-    setSelect(false);
-  };
-
   return (
     <StyledOptionItem
       id={id}
       disabled={disabled}
-      selected={select}
+      selectedId={isSelected}
       onClick={() => handleOptionClick(children)}
       ref={itemRef}
-      onBlur={interceptorOnBlur}
       tabIndex={0}
     >
       <Text size="medium" type="body">
