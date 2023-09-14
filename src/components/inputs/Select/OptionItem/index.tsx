@@ -28,10 +28,6 @@ const OptionItem = (props: IOptionItemProps) => {
     if (onSelect) onSelect(id);
   };
 
-  const interceptorOnBlur = () => {
-    setSelect(false);
-  };
-
   return (
     <StyledOptionItem
       id={id}
@@ -39,7 +35,6 @@ const OptionItem = (props: IOptionItemProps) => {
       selected={select}
       onClick={() => handleOptionClick(id)}
       ref={itemRef}
-      onBlur={interceptorOnBlur}
       tabIndex={0}
     >
       <Text size="medium" type="body">
