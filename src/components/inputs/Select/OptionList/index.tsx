@@ -1,4 +1,4 @@
-import { DropdownItem } from "@inputs/Select/DropdownItem";
+import { OptionItem } from "@inputs/Select/OptionItem";
 import { StyledOptionList } from "./styled";
 
 interface DropdownOption {
@@ -27,16 +27,16 @@ const OptionList = (props: OptionListProps) => {
 
   return (
     <StyledOptionList>
-      {options.map((dropDownitem) => (
-        <DropdownItem
-          key={dropDownitem.id}
-          id={dropDownitem.id}
-          disabled={dropDownitem.disabled}
-          selected={dropDownitem.selected}
-          onClick={() => handleOptionClick(dropDownitem.id)}
+      {options.map((optionItem) => (
+        <OptionItem
+          key={optionItem.id}
+          id={optionItem.id}
+          disabled={optionItem.disabled}
+          selected={optionItem.selected}
+          onClick={() => handleOptionClick(optionItem.id)}
         >
-          {dropDownitem.label}
-        </DropdownItem>
+          {optionItem.label}
+        </OptionItem>
       ))}
     </StyledOptionList>
   );

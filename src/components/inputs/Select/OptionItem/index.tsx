@@ -1,9 +1,9 @@
 import { useState, useRef } from "react";
 
 import { Text } from "@data/Text";
-import { StyledDropdownItem } from "./styles";
+import { StyledOptionItem } from "./styles";
 
-export interface IDropdownItemProps {
+export interface IOptionItemProps {
   id: string;
   disabled?: boolean;
   isFocused?: boolean;
@@ -12,7 +12,7 @@ export interface IDropdownItemProps {
   onClick?: (id: string) => void;
   onSelect?: (label: string) => void;
 }
-const DropdownItem = (props: IDropdownItemProps) => {
+const OptionItem = (props: IOptionItemProps) => {
   const { id, disabled, selected = false, children, onClick, onSelect } = props;
 
   const [select, setSelect] = useState(selected);
@@ -32,7 +32,7 @@ const DropdownItem = (props: IDropdownItemProps) => {
   };
 
   return (
-    <StyledDropdownItem
+    <StyledOptionItem
       id={id}
       disabled={disabled}
       selected={select}
@@ -44,8 +44,8 @@ const DropdownItem = (props: IDropdownItemProps) => {
       <Text size="medium" type="body">
         {children}
       </Text>
-    </StyledDropdownItem>
+    </StyledOptionItem>
   );
 };
 
-export { DropdownItem };
+export { OptionItem };
