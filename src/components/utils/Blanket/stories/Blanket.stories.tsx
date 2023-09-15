@@ -32,7 +32,7 @@ const Default = (args: IBlanketProps) => {
 
   return (
     <>
-      <Button handleClick={handleShowBlanket}>Show Blanket</Button>
+      <Button onClick={handleShowBlanket}>Show Blanket</Button>
       {showBlanket && (
         <Blanket {...args}>
           <StyledBackdropBlanket onClick={() => setShowBlanket(false)} />
