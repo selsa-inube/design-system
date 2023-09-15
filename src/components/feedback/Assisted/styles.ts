@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Themed } from "@shared/types/types";
-import { IAssistedProps } from ".";
 import { inube } from "@src/shared/tokens";
+import { IAssistedProps } from ".";
 
 interface IStyledAssistedProps extends IAssistedProps {
   theme?: Themed;
@@ -10,8 +10,9 @@ interface IStyledAssistedProps extends IAssistedProps {
 const AssistedContainer = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  gap: ${inube.spacing.s150};
+  background: ${({ theme }: IStyledAssistedProps) =>
+    theme?.color?.surface?.gray?.clear || inube.color.surface.gray.clear};
 `;
 
 const ProgressBar = styled.div`

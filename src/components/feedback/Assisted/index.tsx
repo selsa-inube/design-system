@@ -1,10 +1,17 @@
-import { MdArrowRight } from "react-icons/md";
+import { MdArrowBack, MdArrowForward, MdOutlineCircle } from "react-icons/md";
 
 import { Stack } from "@layouts/Stack";
 import { Text } from "@data/Text";
 import { Icon } from "@data/Icon";
 
-import { ProgressBar } from "./styles";
+import { AssistedContainer, ProgressBar } from "./styles";
+//import { Button } from "@src/components/inputs/Button";
+
+/* import {
+  StyledAssistedContainer,
+  StyledCircleId,
+  StyledButton,
+} from "./styles"; */
 
 type IStep = {
   id: string | number;
@@ -18,6 +25,7 @@ export interface IAssistedProps {
   onStepChange: (step: IStep["id"]) => void;
   isSequential?: boolean;
   completedStepIds: (string | number)[];
+  smallScreen: boolean;
 }
 
 const Assisted = (props: IAssistedProps) => {
@@ -30,13 +38,26 @@ const Assisted = (props: IAssistedProps) => {
   } = props; */
 
   return (
-    <Stack>
-      <Stack>
-        {<Icon appearance="primary" icon={<MdArrowRight />} />}
-        <Text type="label"></Text>
+    <AssistedContainer>
+      <Stack alignItems="center">
+        <Icon
+          appearance="primary"
+          icon={<MdArrowBack />}
+          spacing="wide"
+          size="20px"
+        />
+        <Icon appearance="primary" icon={<MdOutlineCircle />} size="20px" />
+        <Text type="label">Andres</Text>
+
+        <Icon
+          appearance="primary"
+          icon={<MdArrowForward />}
+          spacing="wide"
+          size="20px"
+        />
       </Stack>
       <ProgressBar />
-    </Stack>
+    </AssistedContainer>
   );
 };
 
