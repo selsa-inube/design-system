@@ -3,7 +3,6 @@ import { StyledOptionItem } from "./styles";
 
 export interface IOptionItemProps {
   id: string;
-  disabled?: boolean;
   isFocused?: boolean;
   selectedId?: string;
   children: string;
@@ -12,20 +11,11 @@ export interface IOptionItemProps {
 }
 
 const OptionItem = (props: IOptionItemProps) => {
-  const {
-    id,
-    disabled,
-    selectedId = false,
-    children,
-    onClick,
-    onSelect,
-  } = props;
+  const { id, selectedId = false, children, onClick, onSelect } = props;
 
   const isSelected = id === selectedId;
 
   const handleOptionClick = (id: string) => {
-    if (disabled) return;
-
     if (onClick) onClick(id);
 
     if (onSelect) onSelect(id);
@@ -34,7 +24,6 @@ const OptionItem = (props: IOptionItemProps) => {
   return (
     <StyledOptionItem
       id={id}
-      disabled={disabled}
       selectedId={isSelected}
       onClick={() => handleOptionClick(id)}
       tabIndex={0}

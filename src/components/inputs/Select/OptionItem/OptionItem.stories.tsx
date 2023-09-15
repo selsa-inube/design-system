@@ -15,7 +15,6 @@ export const Default = (args: IOptionItemProps) => <OptionItem {...args} />;
 Default.args = {
   children: "Item 1",
   selectedId: undefined,
-  disabled: false,
 };
 
 const theme = {
