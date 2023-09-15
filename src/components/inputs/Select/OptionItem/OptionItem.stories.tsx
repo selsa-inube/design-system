@@ -4,7 +4,7 @@ import { presente } from "@shared/themes/presente";
 import { props, parameters } from "./props";
 
 const story = {
-  title: "Inputs/OptionItem",
+  title: "Inputs/Select/OptionItem",
   component: [OptionItem],
   parameters,
   argTypes: props,
@@ -14,7 +14,7 @@ export const Default = (args: IOptionItemProps) => <OptionItem {...args} />;
 
 Default.args = {
   children: "Item 1",
-  selected: false,
+  selectedId: undefined,
   disabled: false,
 };
 
