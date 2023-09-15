@@ -1,5 +1,6 @@
 import { OptionItem, IOptionItemProps } from "./index";
-
+import { ThemeProvider } from "styled-components";
+import { presente } from "@shared/themes/presente";
 import { props, parameters } from "./props";
 
 const story = {
@@ -9,7 +10,7 @@ const story = {
   argTypes: props,
 };
 
-const Default = (args: IOptionItemProps) => <OptionItem {...args} />;
+export const Default = (args: IOptionItemProps) => <OptionItem {...args} />;
 
 Default.args = {
   children: "Item 1",
@@ -17,6 +18,18 @@ Default.args = {
   disabled: false,
 };
 
-export default story;
+const theme = {
+  ...presente,
+};
 
-export { Default };
+export const Themed = (args: IOptionItemProps) => (
+  <ThemeProvider theme={theme}>
+    <OptionItem {...args} />
+  </ThemeProvider>
+);
+
+Themed.args = {
+  ...Default.args,
+};
+
+export default story;
