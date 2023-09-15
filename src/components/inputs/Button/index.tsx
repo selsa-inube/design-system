@@ -25,7 +25,7 @@ export interface IButtonProps {
   spacing?: Spacing;
   variant?: Variant;
   fullwidth?: boolean;
-  handleClick?: (e?: Event) => void;
+  onClick?: (e?: Event) => void;
   path?: string;
 }
 
@@ -49,7 +49,7 @@ const ButtonStructure = (props: IButtonStructureProps) => {
     spacing,
     variant,
     fullwidth,
-    handleClick,
+    onClick,
     hover,
     onMouseEnter,
     onMouseLeave,
@@ -67,7 +67,7 @@ const ButtonStructure = (props: IButtonStructureProps) => {
       spacing={spacing}
       variant={variant}
       fullwidth={fullwidth}
-      onClick={disabled ? null : handleClick}
+      onClick={disabled ? null : onClick}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
@@ -127,7 +127,7 @@ const Button = (props: IButtonProps) => {
     spacing = "wide",
     variant = "filled",
     fullwidth = false,
-    handleClick,
+    onClick,
     path,
   } = props;
 
@@ -163,7 +163,7 @@ const Button = (props: IButtonProps) => {
           spacing={spacing}
           variant={variant}
           fullwidth={fullwidth}
-          handleClick={handleClick}
+          onClick={onClick}
           hover={hover}
           onMouseEnter={() => toggleHover(true)}
           onMouseLeave={() => toggleHover(false)}
@@ -184,7 +184,7 @@ const Button = (props: IButtonProps) => {
       spacing={spacing}
       variant={variant}
       fullwidth={fullwidth}
-      handleClick={handleClick}
+      onClick={onClick}
       hover={hover}
       onMouseEnter={() => toggleHover(true)}
       onMouseLeave={() => toggleHover(false)}

@@ -117,7 +117,7 @@ const props = {
       defaultValue: { summary: false },
     },
   },
-  handleClick: {
+  onClick: {
     options: ["logState"],
     control: { type: "func" },
     description: "function to control button click",
