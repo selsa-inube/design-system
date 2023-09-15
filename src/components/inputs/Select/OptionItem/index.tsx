@@ -1,5 +1,3 @@
-import { useRef } from "react";
-
 import { Text } from "@data/Text";
 import { StyledOptionItem } from "./styles";
 
@@ -12,6 +10,7 @@ export interface IOptionItemProps {
   onClick?: (id: string) => void;
   onSelect?: (label: string) => void;
 }
+
 const OptionItem = (props: IOptionItemProps) => {
   const {
     id,
@@ -23,7 +22,6 @@ const OptionItem = (props: IOptionItemProps) => {
   } = props;
 
   const isSelected = id === selectedId;
-  const itemRef = useRef(null);
 
   const handleOptionClick = (id: string) => {
     if (disabled) return;
@@ -39,7 +37,6 @@ const OptionItem = (props: IOptionItemProps) => {
       disabled={disabled}
       selectedId={isSelected}
       onClick={() => handleOptionClick(id)}
-      ref={itemRef}
       tabIndex={0}
     >
       <Text size="medium" type="body">
