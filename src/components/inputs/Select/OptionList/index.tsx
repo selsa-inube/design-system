@@ -1,15 +1,14 @@
 import { OptionItem } from "@inputs/Select/OptionItem";
 import { StyledOptionList } from "./styled";
 
-interface DropdownOption {
+interface optionItemProps {
   id: string;
   label: string;
-  disabled?: boolean;
   selected?: boolean;
 }
 
 export interface OptionListProps {
-  options: DropdownOption[];
+  options: optionItemProps[];
   onClick?: (id: string) => void;
   onCloseOptions?: () => void;
   onSelect?: (id: string) => void;

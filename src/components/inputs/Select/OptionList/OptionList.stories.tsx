@@ -12,9 +12,9 @@ const story = {
 const Default = (args: OptionListProps) => <OptionList {...args} />;
 Default.args = {
   options: [
-    { id: "1", label: "Item 1", disabled: true, selected: false },
-    { id: "2", label: "Item 2", disabled: false, selected: false },
-    { id: "3", label: "Item 3", disabled: false, selected: false },
+    { id: "1", label: "Item 1", selected: false },
+    { id: "2", label: "Item 2", selected: false },
+    { id: "3", label: "Item 3", selected: false },
   ],
   isOpenOptions: true,
 };
