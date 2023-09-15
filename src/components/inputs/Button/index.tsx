@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Text } from "@data/Text";
 import { Icon } from "@data/Icon";
 import { Spinner } from "@feedback/Spinner";
@@ -8,7 +7,6 @@ import {
   Type,
   Spacing,
   Variant,
-  Themed,
   ButtonAppearanceType,
 } from "./props";
 
@@ -29,7 +27,7 @@ export interface IButtonProps {
   path?: string;
 }
 
-export interface IButtonStructureProps extends IButtonProps, Themed {
+export interface IButtonStructureProps extends IButtonProps {
   appearanceChildren: Appearance;
 }
 

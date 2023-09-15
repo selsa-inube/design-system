@@ -4,7 +4,11 @@ import styled from "styled-components";
 import { typography } from "@shared/typography/typography";
 import { IButtonStructureProps } from ".";
 import { inube } from "@shared/tokens";
+import { Themed } from "@src/shared/types/types";
 
+interface IStyledButtonStructureProps extends IButtonStructureProps {
+  theme?: Themed;
+}
 const spacing = {
   compact: {
     height: "28px",
@@ -30,23 +34,23 @@ const StyledButton = styled.button`
   font-weight: ${typography.sys.typescale.labelLarge.weight};
   line-height: ${typography.sys.typescale.labelLarge.lineHeight};
   letter-spacing: ${typography.sys.typescale.labelLarge.tracking};
-  width: ${({ fullwidth }: IButtonStructureProps) => {
+  width: ${({ fullwidth }: IStyledButtonStructureProps) => {
     if (fullwidth) {
       return "100%";
     }
 
     return "fit-content";
   }};
-  border-style: ${(props: IButtonStructureProps) =>
+  border-style: ${(props: IStyledButtonStructureProps) =>
     props.type !== "link" ? "solid" : "none"};
-  ${(props: IButtonStructureProps) => spacing[props.spacing!]};
+  ${(props: IStyledButtonStructureProps) => spacing[props.spacing!]};
 
   background-color: ${({
     theme,
     appearance,
     variant,
     disabled,
-  }: IButtonStructureProps) => {
+  }: IStyledButtonStructureProps) => {
     if (variant === "filled") {
       if (disabled) {
         return (
@@ -68,7 +72,7 @@ const StyledButton = styled.button`
     appearance,
     variant,
     disabled,
-  }: IButtonStructureProps) => {
+  }: IStyledButtonStructureProps) => {
     if (disabled) {
       return (
         theme?.color?.stroke?.[appearance!]?.disabled ||
@@ -85,7 +89,7 @@ const StyledButton = styled.button`
     );
   }};
 
-  cursor: ${({ disabled, loading }: IButtonStructureProps) => {
+  cursor: ${({ disabled, loading }: IStyledButtonStructureProps) => {
     if (disabled) {
       return "not-allowed";
     }
@@ -103,7 +107,7 @@ const StyledButton = styled.button`
       appearance,
       variant,
       disabled,
-    }: IButtonStructureProps) => {
+    }: IStyledButtonStructureProps) => {
       if (!disabled) {
         if (variant === "none") {
           return "transparent";
@@ -120,7 +124,7 @@ const StyledButton = styled.button`
       appearance,
       variant,
       disabled,
-    }: IButtonStructureProps) => {
+    }: IStyledButtonStructureProps) => {
       if (!disabled) {
         if (variant === "filled") {
           return (
@@ -151,7 +155,7 @@ const StyledSpan = styled.span`
       appearance,
       variant,
       disabled,
-    }: IButtonStructureProps) => {
+    }: IStyledButtonStructureProps) => {
       if (!disabled) {
         if (variant === "filled") {
           return (
