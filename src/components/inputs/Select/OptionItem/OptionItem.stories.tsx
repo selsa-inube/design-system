@@ -14,7 +14,6 @@ const Default = (args: IOptionItemProps) => <OptionItem {...args} />;
 Default.args = {
   children: "Item 1",
   selected: false,
-  disabled: false,
 };
 
 export default story;

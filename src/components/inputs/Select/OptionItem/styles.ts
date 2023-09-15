@@ -15,8 +15,7 @@ const StyledOptionItem = styled.li`
   min-height: ${inube.spacing.s500};
   padding: ${() =>
     `${inube.spacing.s050} ${inube.spacing.s200} ${inube.spacing.s050} ${inube.spacing.s150}`};
-  cursor: ${({ disabled }: IStyledOptionItemProps) =>
-    !disabled ? "pointer" : "not-allowed"};
+  cursor: pointer;
 
   border-left: ${inube.spacing.s050} solid
     ${({ theme, isFocused }: IStyledOptionItemProps) =>
@@ -26,12 +25,7 @@ const StyledOptionItem = styled.li`
         : "transparent"};
 
   p {
-    color: ${({ theme, disabled, isFocused }: IStyledOptionItemProps) => {
-      if (disabled) {
-        return (
-          theme?.color?.text?.dark?.disabled || inube.color.text.dark.disabled
-        );
-      }
+    color: ${({ theme, isFocused }: IStyledOptionItemProps) => {
       if (isFocused) {
         return (
           theme?.color?.text?.primary?.regular ||
@@ -44,21 +38,17 @@ const StyledOptionItem = styled.li`
 
   &:hover {
     border-left: ${inube.spacing.s050} solid
-      ${({ theme, disabled }: IStyledOptionItemProps) =>
-        disabled
-          ? "none"
-          : theme?.color?.stroke?.primary?.regular ||
-            inube.color.stroke.primary.regular};
+      ${({ theme }: IStyledOptionItemProps) =>
+        theme?.color?.stroke?.primary?.regular ||
+        inube.color.stroke.primary.regular};
 
     background-color: ${({ theme }: IStyledOptionItemProps) =>
       theme?.color?.surface?.gray?.hover || inube.color.surface.gray.hover};
 
     p {
-      color: ${({ theme, disabled }: IStyledOptionItemProps) =>
-        disabled
-          ? theme?.color?.text?.dark?.disabled || inube.color.text.dark.disabled
-          : theme?.color?.text?.primary?.regular ||
-            inube.color.text.primary.regular};
+      color: ${({ theme }: IStyledOptionItemProps) =>
+        theme?.color?.text?.primary?.regular ||
+        inube.color.text.primary.regular};
     }
   }
 `;

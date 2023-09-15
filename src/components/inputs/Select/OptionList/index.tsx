@@ -31,7 +31,6 @@ const OptionList = (props: OptionListProps) => {
         <OptionItem
           key={optionItem.id}
           id={optionItem.id}
-          disabled={optionItem.disabled}
           selected={optionItem.selected}
           onClick={() => handleOptionClick(optionItem.id)}
         >
