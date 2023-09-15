@@ -13,8 +13,8 @@ const story = {
 export const Default = (args: IOptionItemProps) => <OptionItem {...args} />;
 
 Default.args = {
+  id: "Item 1",
   children: "Item 1",
-  selectedId: undefined,
 };
 
 const theme = {
