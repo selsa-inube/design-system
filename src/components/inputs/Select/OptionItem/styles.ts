@@ -17,12 +17,13 @@ const StyledOptionItem = styled.li`
     `${inube.spacing.s050} ${inube.spacing.s200} ${inube.spacing.s050} ${inube.spacing.s150}`};
   cursor: pointer;
 
-  border-left: ${inube.spacing.s050} solid
-    ${({ theme, isFocused }: IStyledOptionItemProps) =>
-      isFocused
-        ? theme?.color?.stroke?.primary?.regular ||
-          inube.color.stroke.primary.regular
-        : "transparent"};
+  border-left-width: ${inube.spacing.s050};
+  border-left-style: solid;
+  border-left-color: ${({ theme, isFocused }: IStyledOptionItemProps) =>
+    isFocused
+      ? theme?.color?.stroke?.primary?.regular ||
+        inube.color.stroke.primary.regular
+      : "transparent"};
 
   p {
     color: ${({ theme, isFocused }: IStyledOptionItemProps) => {
@@ -37,10 +38,9 @@ const StyledOptionItem = styled.li`
   }
 
   &:hover {
-    border-left: ${inube.spacing.s050} solid
-      ${({ theme }: IStyledOptionItemProps) =>
-        theme?.color?.stroke?.primary?.regular ||
-        inube.color.stroke.primary.regular};
+    border-left-color: ${({ theme }: IStyledOptionItemProps) =>
+      theme?.color?.stroke?.primary?.regular ||
+      inube.color.stroke.primary.regular};
 
     background-color: ${({ theme }: IStyledOptionItemProps) =>
       theme?.color?.surface?.gray?.hover || inube.color.surface.gray.hover};
