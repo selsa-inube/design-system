@@ -62,9 +62,10 @@ const Assisted = (props: IAssistedProps) => {
     titleButtonAfter,
   } = props;
 
-  const title = steps.find((step) => step.id === currentStepId);
+  const title = steps.find((step) => step?.id === currentStepId);
 
-  const currentStep = steps.findIndex((step) => step.id === currentStepId);
+  const currentStep = steps.findIndex((step) => step?.id === currentStepId);
+
   return (
     <AssistedContainer>
       <Stack>
@@ -72,7 +73,8 @@ const Assisted = (props: IAssistedProps) => {
           spacing="wide"
           variant="none"
           iconBefore={<MdArrowBack />}
-          onClick={() => onStepChange.previous()}
+          onClick={!currentStep ? undefined : () => onStepChange.previous()}
+          appearance={!currentStep ? "gray" : "primary"}
         >
           {titleButtonBefore}
         </Button>

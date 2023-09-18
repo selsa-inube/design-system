@@ -28,7 +28,7 @@ const StyledProgressBar = styled.div`
 
 const StyledProgressIndicator = styled.div`
   width: ${({ arrayLength, currentStep }: IStyledAssistedProps) =>
-    currentStep === 0 ? "2%" : `${(currentStep / arrayLength) * 100}%`};
+    currentStep === 1 ? "2%" : `${(currentStep / arrayLength) * 100}%`};
   border-radius: 8px;
   background: ${({ theme }: IStyledAssistedProps) =>
     theme?.color?.surface?.primary?.regular ||
