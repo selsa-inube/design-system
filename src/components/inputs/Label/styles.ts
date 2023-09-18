@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import { inube } from "@shared/tokens";
 import { ILabelProps } from ".";
-import { Themed } from "@shared/Types/Types";
+import { Themed } from "@shared/types/types";
 
 interface IStyledLabelProps extends ILabelProps {
   theme?: Themed;

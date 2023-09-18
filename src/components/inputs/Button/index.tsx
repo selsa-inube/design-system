@@ -23,7 +23,7 @@ export interface IButtonProps {
   spacing?: Spacing;
   variant?: Variant;
   fullwidth?: boolean;
-  handleClick?: (e?: Event) => void;
+  onClick?: (e?: Event) => void;
   path?: string;
 }
 
@@ -45,7 +45,7 @@ const ButtonStructure = (props: IButtonStructureProps) => {
     spacing,
     variant,
     fullwidth,
-    handleClick,
+    onClick,
     appearanceChildren,
   } = props;
 
@@ -60,7 +60,7 @@ const ButtonStructure = (props: IButtonStructureProps) => {
       spacing={spacing}
       variant={variant}
       fullwidth={fullwidth}
-      onClick={disabled ? null : handleClick}
+      onClick={disabled ? null : onClick}
     >
       {loading && !disabled ? (
         <Spinner
@@ -119,7 +119,7 @@ const Button = (props: IButtonProps) => {
     spacing = "wide",
     variant = "filled",
     fullwidth = false,
-    handleClick,
+    onClick,
     path,
   } = props;
 
@@ -149,7 +149,7 @@ const Button = (props: IButtonProps) => {
           spacing={spacing}
           variant={variant}
           fullwidth={fullwidth}
-          handleClick={handleClick}
+          onClick={onClick}
           appearanceChildren={appearanceChildrens()}
         >
           {children}
@@ -168,7 +168,7 @@ const Button = (props: IButtonProps) => {
       spacing={spacing}
       variant={variant}
       fullwidth={fullwidth}
-      handleClick={handleClick}
+      onClick={onClick}
       appearanceChildren={appearanceChildrens()}
     >
       {children}
