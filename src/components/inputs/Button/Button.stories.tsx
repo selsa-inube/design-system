@@ -32,7 +32,7 @@ Default.args = {
   spacing: "wide",
   variant: "filled",
   fullwidth: false,
-  handleClick: () => console.log("clicked from Default-story"),
+  onClick: () => console.log("clicked from Default-story"),
 };
 
 const theme = {

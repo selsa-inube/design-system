@@ -40,7 +40,7 @@ const InForm = (props: ISelectProps) => {
         id="select"
         onFocus={(e) => onFocus(e)}
       />
-      <Button type="submit" spacing="compact" handleClick={(e) => onClick(e!)}>
+      <Button type="submit" spacing="compact" onClick={(e) => onClick(e!)}>
         Submit
       </Button>
     </StyledForm>
