@@ -36,8 +36,6 @@ export type Type = typeof types[number];
 export const variants = ["filled", "outlined", "none"] as const;
 export type Variant = typeof variants[number];
 
-export type Themed = { theme?: typeof inube };
-
 const props = {
   parameters: {
     docs: {
