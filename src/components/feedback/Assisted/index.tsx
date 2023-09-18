@@ -36,7 +36,7 @@ export interface IAssistedProps {
 }
 
 interface IProgressBarProps {
-  currentStep: number;
+  currentStep: IStep["id"];
   arrayLength: number;
 }
 
