@@ -8,8 +8,8 @@ interface IStyledAssistedProps extends IAssistedProps {
 }
 
 const AssistedContainer = styled.div`
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   gap: ${inube.spacing.s150};
   background: ${({ theme }: IStyledAssistedProps) =>
     theme?.color?.surface?.gray?.clear || inube.color.surface.gray.clear};
@@ -17,10 +17,15 @@ const AssistedContainer = styled.div`
 
 const ProgressBar = styled.div`
   border-radius: 8px;
-  background-color: ${({ theme }: IStyledAssistedProps) =>
-    theme?.color?.surface?.primary?.regular ||
-    inube.color.surface.primary.regular};
   width: 100%;
+  background: linear-gradient(
+    to right,
+    ${inube.color.surface.dark.clear} 0%,
+    ${inube.color.surface.dark.clear} calc(100 - 10px),
+    ${inube.color.surface.primary.regular} 10px,
+    ${inube.color.surface.primary.regular} 100%
+  );
+  transition: width 0.5s;
   height: 16px;
 `;
 
