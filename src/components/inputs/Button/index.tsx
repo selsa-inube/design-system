@@ -1,14 +1,8 @@
-import { Text } from "@data/Text";
 import { Icon } from "@data/Icon";
 import { Spinner } from "@feedback/Spinner";
+import { Text } from "@data/Text";
 
-import {
-  Appearance,
-  Type,
-  Spacing,
-  Variant,
-  ButtonAppearanceType,
-} from "./props";
+import { Appearance, Type, Spacing, Variant } from "./props";
 
 import { StyledButton, StyledSpan, StyledLink } from "./styles";
 
@@ -31,7 +25,20 @@ export interface IButtonStructureProps extends IButtonProps {
   appearanceChildren: Appearance;
 }
 
-const darkWhenFilled: ButtonAppearanceType[] = ["warning", "gray", "light"];
+function appearanceChildrens(variant: Variant, appearance: Appearance) {
+  if (variant === "filled") {
+    if (
+      appearance === "warning" ||
+      appearance === "light" ||
+      appearance === "gray"
+    ) {
+      return "dark";
+    }
+    return "light";
+  }
+
+  return appearance;
+}
 
 const ButtonStructure = (props: IButtonStructureProps) => {
   const {
@@ -123,16 +130,6 @@ const Button = (props: IButtonProps) => {
     path,
   } = props;
 
-  function appearanceChildrens() {
-    if (variant === "filled") {
-      if (darkWhenFilled.includes(appearance)) {
-        return "dark";
-      }
-      return "light";
-    }
-    return appearance;
-  }
-
   if (type === "link" && !path) {
     console.warn("You must provide a path to use a link button");
   }
@@ -150,7 +147,7 @@ const Button = (props: IButtonProps) => {
           variant={variant}
           fullwidth={fullwidth}
           onClick={onClick}
-          appearanceChildren={appearanceChildrens()}
+          appearanceChildren={appearanceChildrens(variant, appearance)}
         >
           {children}
         </ButtonStructure>
@@ -169,7 +166,7 @@ const Button = (props: IButtonProps) => {
       variant={variant}
       fullwidth={fullwidth}
       onClick={onClick}
-      appearanceChildren={appearanceChildrens()}
+      appearanceChildren={appearanceChildrens(variant, appearance)}
     >
       {children}
     </ButtonStructure>
