@@ -37,4 +37,22 @@ const StyledProgressIndicator = styled.div`
   height: 16px;
 `;
 
-export { AssistedContainer, StyledProgressBar, StyledProgressIndicator };
+const StyledStepIndicator = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  border: 2px solid
+    ${({ theme }: IStyledAssistedProps) =>
+      theme?.color?.stroke?.primary?.regular ||
+      inube.color.stroke.primary?.regular};
+`;
+
+export {
+  AssistedContainer,
+  StyledProgressBar,
+  StyledProgressIndicator,
+  StyledStepIndicator,
+};

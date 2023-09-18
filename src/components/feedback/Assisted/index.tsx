@@ -1,4 +1,4 @@
-import { MdArrowBack, MdArrowForward, MdOutlineCircle } from "react-icons/md";
+import { MdArrowBack, MdArrowForward, MdCheckCircle } from "react-icons/md";
 
 import { Button } from "@inputs/Button";
 import { Icon } from "@data/Icon";
@@ -10,6 +10,7 @@ import {
   AssistedContainer,
   StyledProgressBar,
   StyledProgressIndicator,
+  StyledStepIndicator,
 } from "./styles";
 
 type IStep = {
@@ -81,7 +82,18 @@ const Assisted = (props: IAssistedProps) => {
       </Stack>
       <Stack direction="column">
         <Stack alignItems="center" gap={inube.spacing.s025}>
-          <Icon appearance="primary" icon={<MdOutlineCircle />} size="20px" />
+          <StyledStepIndicator>
+            {currentStepId !== steps.length ? (
+              currentStepId
+            ) : (
+              <Icon
+                appearance="primary"
+                icon={<MdCheckCircle />}
+                size="20px"
+                spacing="compact"
+              />
+            )}
+          </StyledStepIndicator>
           <Text type="label">{title?.label}</Text>
         </Stack>
         <Stack alignItems="center" gap={inube.spacing.s100}>
