@@ -1,8 +1,12 @@
 import { Assisted, IAssistedProps } from "..";
+import { parameters, props } from "../props";
+import { AssistedController } from "./Assisted.Controller";
 
 const story = {
   title: "Feedback/Assisted",
   component: Assisted,
+  parameters,
+  argTypes: props,
 };
 
 const stepsMock = [
@@ -37,13 +41,13 @@ const stepsMock = [
   },
 ];
 
-const Default = (args: IAssistedProps) => <Assisted {...args} />;
+const Default = (args: IAssistedProps) => <AssistedController {...args} />;
 
 Default.args = {
   steps: stepsMock,
   titleButtonBefore: "Anterior",
   titleButtonAfter: "Próximo",
-  currentStepId: 3,
+  currentStepId: 2,
 };
 
 export default story;
