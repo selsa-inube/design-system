@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Text } from "@data/Text";
 import { Icon } from "@data/Icon";
 import { Spinner } from "@feedback/Spinner";
@@ -8,7 +7,6 @@ import {
   Type,
   Spacing,
   Variant,
-  Themed,
   ButtonAppearanceType,
 } from "./props";
 
@@ -29,14 +27,12 @@ export interface IButtonProps {
   path?: string;
 }
 
-export interface IButtonStructureProps extends IButtonProps, Themed {
-  hover?: boolean;
-  onMouseEnter: () => void;
-  onMouseLeave: () => void;
+export interface IButtonStructureProps extends IButtonProps {
   appearanceChildren: Appearance;
 }
 
 const darkWhenFilled: ButtonAppearanceType[] = ["warning", "gray", "light"];
+
 const ButtonStructure = (props: IButtonStructureProps) => {
   const {
     children,
@@ -50,9 +46,6 @@ const ButtonStructure = (props: IButtonStructureProps) => {
     variant,
     fullwidth,
     onClick,
-    hover,
-    onMouseEnter,
-    onMouseLeave,
     appearanceChildren,
   } = props;
 
@@ -68,8 +61,6 @@ const ButtonStructure = (props: IButtonStructureProps) => {
       variant={variant}
       fullwidth={fullwidth}
       onClick={disabled ? null : onClick}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
     >
       {loading && !disabled ? (
         <Spinner
@@ -78,7 +69,11 @@ const ButtonStructure = (props: IButtonStructureProps) => {
           size="small"
         />
       ) : (
-        <StyledSpan disabled={disabled} variant={variant}>
+        <StyledSpan
+          appearance={appearance}
+          disabled={disabled}
+          variant={variant}
+        >
           {iconBefore && (
             <Icon
               icon={iconBefore}
@@ -86,7 +81,6 @@ const ButtonStructure = (props: IButtonStructureProps) => {
               size="18px"
               appearance={appearanceChildren}
               disabled={disabled}
-              parentHover={hover}
             />
           )}
           <Text
@@ -94,7 +88,6 @@ const ButtonStructure = (props: IButtonStructureProps) => {
             size="large"
             appearance={appearanceChildren}
             disabled={disabled}
-            parentHover={hover}
             ellipsis={true}
           >
             {children}
@@ -106,7 +99,6 @@ const ButtonStructure = (props: IButtonStructureProps) => {
               size="18px"
               appearance={appearanceChildren}
               disabled={disabled}
-              parentHover={hover}
             />
           )}
         </StyledSpan>
@@ -131,12 +123,6 @@ const Button = (props: IButtonProps) => {
     path,
   } = props;
 
-  const [hover, setHover] = useState(false);
-  function toggleHover(newState: boolean): void {
-    if (variant !== "filled") {
-      setHover(newState);
-    }
-  }
   function appearanceChildrens() {
     if (variant === "filled") {
       if (darkWhenFilled.includes(appearance)) {
@@ -164,9 +150,6 @@ const Button = (props: IButtonProps) => {
           variant={variant}
           fullwidth={fullwidth}
           onClick={onClick}
-          hover={hover}
-          onMouseEnter={() => toggleHover(true)}
-          onMouseLeave={() => toggleHover(false)}
           appearanceChildren={appearanceChildrens()}
         >
           {children}
@@ -174,6 +157,7 @@ const Button = (props: IButtonProps) => {
       </StyledLink>
     );
   }
+
   return (
     <ButtonStructure
       appearance={appearance}
@@ -185,9 +169,6 @@ const Button = (props: IButtonProps) => {
       variant={variant}
       fullwidth={fullwidth}
       onClick={onClick}
-      hover={hover}
-      onMouseEnter={() => toggleHover(true)}
-      onMouseLeave={() => toggleHover(false)}
       appearanceChildren={appearanceChildrens()}
     >
       {children}

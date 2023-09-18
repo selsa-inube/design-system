@@ -4,7 +4,6 @@ import { StyledOptionList } from "./styled";
 interface optionItemProps {
   id: string;
   label: string;
-  selected?: boolean;
 }
 
 export interface OptionListProps {
@@ -30,7 +29,6 @@ const OptionList = (props: OptionListProps) => {
         <OptionItem
           key={optionItem.id}
           id={optionItem.id}
-          selected={optionItem.selected}
           onClick={() => handleOptionClick(optionItem.id)}
         >
           {optionItem.label}
