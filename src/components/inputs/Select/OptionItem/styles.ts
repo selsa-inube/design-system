@@ -13,7 +13,6 @@ const StyledOptionItem = styled.li`
   align-items: center;
   align-self: stretch;
   min-height: ${inube.spacing.s500};
-  cursor: pointer;
   border-left: ${inube.spacing.s050} solid transparent;
   padding: ${() =>
     `${inube.spacing.s050} ${inube.spacing.s200} ${inube.spacing.s050} ${inube.spacing.s150}`};
