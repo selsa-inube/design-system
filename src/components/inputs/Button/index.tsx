@@ -115,20 +115,7 @@ const ButtonStructure = (props: IButtonStructureProps) => {
 };
 
 const Button = (props: IButtonProps) => {
-  const {
-    children,
-    appearance = "primary",
-    loading = false,
-    disabled = false,
-    iconBefore,
-    iconAfter,
-    type = "button",
-    spacing = "wide",
-    variant = "filled",
-    fullwidth = false,
-    onClick,
-    path,
-  } = props;
+  const { children, type = "button", path } = props;
 
   if (type === "link" && !path) {
     console.warn("You must provide a path to use a link button");
@@ -138,16 +125,11 @@ const Button = (props: IButtonProps) => {
     return (
       <StyledLink to={path}>
         <ButtonStructure
-          loading={loading}
-          appearance={appearance}
-          disabled={disabled}
-          iconBefore={iconBefore}
-          iconAfter={iconAfter}
-          spacing={spacing}
-          variant={variant}
-          fullwidth={fullwidth}
-          onClick={onClick}
-          appearanceChildren={appearanceChildrens(variant, appearance)}
+          {...props}
+          appearanceChildren={appearanceChildrens(
+            props?.variant!,
+            props?.appearance!
+          )}
         >
           {children}
         </ButtonStructure>
@@ -157,16 +139,11 @@ const Button = (props: IButtonProps) => {
 
   return (
     <ButtonStructure
-      appearance={appearance}
-      loading={loading}
-      disabled={disabled}
-      iconBefore={iconBefore}
-      iconAfter={iconAfter}
-      spacing={spacing}
-      variant={variant}
-      fullwidth={fullwidth}
-      onClick={onClick}
-      appearanceChildren={appearanceChildrens(variant, appearance)}
+      {...props}
+      appearanceChildren={appearanceChildrens(
+        props?.variant!,
+        props?.appearance!
+      )}
     >
       {children}
     </ButtonStructure>
