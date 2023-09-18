@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 import { inube } from "@shared/tokens";
-import { IOptionItemProps } from ".";
 import { Themed } from "@shared/types/types";
+import { IOptionItemProps } from ".";
 
 interface IStyledOptionItemProps extends IOptionItemProps {
   theme?: Themed;
@@ -13,28 +13,19 @@ const StyledOptionItem = styled.li`
   align-items: center;
   align-self: stretch;
   min-height: ${inube.spacing.s500};
+  border-left: ${inube.spacing.s050} solid transparent;
   padding: ${() =>
     `${inube.spacing.s050} ${inube.spacing.s200} ${inube.spacing.s050} ${inube.spacing.s150}`};
   cursor: pointer;
 
   border-left-width: ${inube.spacing.s050};
   border-left-style: solid;
-  border-left-color: ${({ theme, isFocused }: IStyledOptionItemProps) =>
-    isFocused
-      ? theme?.color?.stroke?.primary?.regular ||
-        inube.color.stroke.primary.regular
-      : "transparent"};
+  border-left-color: ${({ theme }: IStyledOptionItemProps) =>
+    theme?.color?.stroke?.light?.regular || inube.color.stroke.light.regular};
 
   p {
-    color: ${({ theme, isFocused }: IStyledOptionItemProps) => {
-      if (isFocused) {
-        return (
-          theme?.color?.text?.primary?.regular ||
-          inube.color.text.primary.regular
-        );
-      }
-      return theme?.color?.text?.dark?.regular || inube.color.text.dark.regular;
-    }};
+    color: ${({ theme }: IStyledOptionItemProps) =>
+      theme?.color?.text?.dark?.regular || inube.color.text.dark.regular};
   }
 
   &:hover {
