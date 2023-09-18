@@ -62,10 +62,6 @@ const Assisted = (props: IAssistedProps) => {
     titleButtonAfter,
   } = props;
 
-  /* const handleStepChange = (stepId: IStep["id"]) => {
-    onStepChange(stepId);
-  }; */
-
   const title = steps.find((step) => step.id === currentStepId);
 
   const currentStep = steps.findIndex((step) => step.id === currentStepId);
