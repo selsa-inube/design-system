@@ -14,10 +14,10 @@ const AssistedContainer = styled.div`
   gap: ${inube.spacing.s150};
   grid-template-columns: ${({ size }: IStyledAssistedProps) =>
     size === "large" ? "max-content max-content max-content" : "max-content"};
-  background: ${({ theme }: IStyledAssistedProps) =>
-    theme?.color?.surface?.gray?.clear || inube.color.surface.gray.clear};
   height: ${({ size }: IStyledAssistedProps) =>
     size === "medium" ? "40px" : "48px"};
+  background: ${({ theme }: IStyledAssistedProps) =>
+    theme?.color?.surface?.gray?.clear || inube.color.surface.gray.clear};
 
   ${({ size }: IStyledAssistedProps) =>
     size === "medium" &&
