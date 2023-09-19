@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-import { typography } from "@shared/typography/typography";
 import { IButtonStructureProps } from ".";
 import { inube } from "@shared/tokens";
 import { Themed } from "@src/shared/types/types";
@@ -29,11 +28,6 @@ const StyledButton = styled.button`
   border-radius: 8px;
   border: none;
   border-width: 1px;
-  font-family: ${typography.ref.typeface.brand};
-  font-size: ${typography.sys.typescale.labelLarge.size};
-  font-weight: ${typography.sys.typescale.labelLarge.weight};
-  line-height: ${typography.sys.typescale.labelLarge.lineHeight};
-  letter-spacing: ${typography.sys.typescale.labelLarge.tracking};
   width: ${({ fullwidth }: IStyledButtonStructureProps) => {
     if (fullwidth) {
       return "100%";
