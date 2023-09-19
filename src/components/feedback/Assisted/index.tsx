@@ -7,7 +7,7 @@ import { Stack } from "@layouts/Stack";
 import { Text } from "@data/Text";
 
 import {
-  AssistedContainer,
+  StyledAssistedContainer,
   StyledProgressBar,
   StyledProgressIndicator,
   StyledStepIndicator,
@@ -19,6 +19,12 @@ type IStep = {
   description?: string;
 };
 
+interface IProgressBarProps {
+  currentStep: IStep["id"];
+  arrayLength: number;
+  size?: IAssistedProps["size"];
+}
+
 export interface IAssistedProps {
   steps: IStep[];
   currentStepId: IStep["id"];
@@ -29,12 +35,6 @@ export interface IAssistedProps {
   titleButtonBefore?: string;
   titleButtonAfter?: string;
   size?: "medium" | "large";
-}
-
-interface IProgressBarProps {
-  currentStep: IStep["id"];
-  arrayLength: number;
-  size?: IAssistedProps["size"];
 }
 
 const handleStepChange = (
@@ -81,7 +81,7 @@ const Assisted = (props: IAssistedProps) => {
   );
 
   return (
-    <AssistedContainer size={size}>
+    <StyledAssistedContainer size={size}>
       {size === "large" && (
         <Stack>
           <Button
@@ -181,7 +181,7 @@ const Assisted = (props: IAssistedProps) => {
           </Button>
         </Stack>
       )}
-    </AssistedContainer>
+    </StyledAssistedContainer>
   );
 };
 

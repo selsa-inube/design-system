@@ -9,7 +9,7 @@ interface IStyledAssistedProps extends IAssistedProps {
   currentStep: number;
 }
 
-const AssistedContainer = styled.div`
+const StyledAssistedContainer = styled.div`
   display: grid;
   gap: ${inube.spacing.s150};
   grid-template-columns: ${({ size }: IStyledAssistedProps) =>
@@ -64,7 +64,7 @@ const StyledStepIndicator = styled.div`
 `;
 
 export {
-  AssistedContainer,
+  StyledAssistedContainer,
   StyledProgressBar,
   StyledProgressIndicator,
   StyledStepIndicator,
