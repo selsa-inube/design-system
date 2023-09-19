@@ -37,23 +37,16 @@ interface IProgressBarProps {
   size?: IAssistedProps["size"];
 }
 
-const handleNextStep = (
+const handleStepChange = (
   currentStep: IStep["id"],
   steps: IAssistedProps["steps"],
-  onStepChange: IAssistedProps["onStepChange"]
+  onStepChange: IAssistedProps["onStepChange"],
+  direction: "previous" | "next"
 ) => {
-  if (currentStep < steps.length - 1) {
-    onStepChange(steps?.[currentStep + 1]?.id);
-  }
-};
-
-const handlePreviousStep = (
-  currentStep: IStep["id"],
-  steps: IAssistedProps["steps"],
-  onStepChange: IAssistedProps["onStepChange"]
-) => {
-  if (currentStep > 0) {
+  if (direction === "previous" && currentStep > 0) {
     onStepChange(steps?.[currentStep - 1]?.id);
+  } else if (direction === "next" && currentStep < steps.length - 1) {
+    onStepChange(steps?.[currentStep + 1]?.id);
   }
 };
 
@@ -99,7 +92,12 @@ const Assisted = (props: IAssistedProps) => {
               sequential || !currentStepIndex
                 ? undefined
                 : () =>
-                    handlePreviousStep(currentStepIndex, steps, onStepChange)
+                    handleStepChange(
+                      currentStepIndex,
+                      steps,
+                      onStepChange,
+                      "previous"
+                    )
             }
             appearance={!currentStepIndex ? "gray" : "primary"}
           >
@@ -115,7 +113,12 @@ const Assisted = (props: IAssistedProps) => {
               icon={<MdArrowBack />}
               size="20px"
               onClick={() =>
-                handlePreviousStep(currentStepIndex, steps, onStepChange)
+                handleStepChange(
+                  currentStepIndex,
+                  steps,
+                  onStepChange,
+                  "previous"
+                )
               }
             />
           )}
@@ -138,7 +141,7 @@ const Assisted = (props: IAssistedProps) => {
               icon={<MdArrowForward />}
               size="20px"
               onClick={() =>
-                handleNextStep(currentStepIndex, steps, onStepChange)
+                handleStepChange(currentStepIndex, steps, onStepChange, "next")
               }
             />
           )}
@@ -165,7 +168,13 @@ const Assisted = (props: IAssistedProps) => {
             onClick={
               sequential
                 ? undefined
-                : () => handleNextStep(currentStepIndex, steps, onStepChange)
+                : () =>
+                    handleStepChange(
+                      currentStepIndex,
+                      steps,
+                      onStepChange,
+                      "next"
+                    )
             }
           >
             {titleButtonAfter}
