@@ -43,7 +43,7 @@ const handleNextStep = (
   onStepChange: IAssistedProps["onStepChange"]
 ) => {
   if (currentStep < steps.length - 1) {
-    onStepChange(steps[currentStep + 1]?.id);
+    onStepChange(steps?.[currentStep + 1]?.id);
   }
 };
 
@@ -53,7 +53,7 @@ const handlePreviousStep = (
   onStepChange: IAssistedProps["onStepChange"]
 ) => {
   if (currentStep > 0) {
-    onStepChange(steps[currentStep - 1]?.id);
+    onStepChange(steps?.[currentStep - 1]?.id);
   }
 };
 
@@ -75,15 +75,17 @@ const Assisted = (props: IAssistedProps) => {
     currentStepId,
     onStepChange,
     sequential = false,
-    completedStepIds,
+    //completedStepIds,
     titleButtonBefore,
     titleButtonAfter,
     size = "large",
   } = props;
 
-  const title = steps.find((step) => step?.id === currentStepId);
+  const currentStep = steps.find((step) => step?.id === currentStepId);
 
-  const currentStep = steps.findIndex((step) => step?.id === currentStepId);
+  const currentStepIndex = steps.findIndex(
+    (step) => step?.id === currentStepId
+  );
 
   return (
     <AssistedContainer size={size}>
@@ -94,11 +96,12 @@ const Assisted = (props: IAssistedProps) => {
             variant="none"
             iconBefore={<MdArrowBack />}
             onClick={
-              sequential || !currentStep
+              sequential || !currentStepIndex
                 ? undefined
-                : () => handlePreviousStep(currentStep, steps, onStepChange)
+                : () =>
+                    handlePreviousStep(currentStepIndex, steps, onStepChange)
             }
-            appearance={!currentStep ? "gray" : "primary"}
+            appearance={!currentStepIndex ? "gray" : "primary"}
           >
             {titleButtonBefore}
           </Button>
@@ -108,11 +111,11 @@ const Assisted = (props: IAssistedProps) => {
         <Stack gap={inube.spacing.s050}>
           {size === "medium" && (
             <Icon
-              appearance={!currentStep ? "gray" : "primary"}
+              appearance={!currentStepIndex ? "gray" : "primary"}
               icon={<MdArrowBack />}
               size="20px"
               onClick={() =>
-                handlePreviousStep(currentStep, steps, onStepChange)
+                handlePreviousStep(currentStepIndex, steps, onStepChange)
               }
             />
           )}
@@ -128,25 +131,27 @@ const Assisted = (props: IAssistedProps) => {
               />
             )}
           </StyledStepIndicator>
-          <Text type="label">{title?.label}</Text>
+          <Text type="label">{currentStep?.label}</Text>
           {size === "medium" && (
             <Icon
               appearance="primary"
               icon={<MdArrowForward />}
               size="20px"
-              onClick={() => handleNextStep(currentStep, steps, onStepChange)}
+              onClick={() =>
+                handleNextStep(currentStepIndex, steps, onStepChange)
+              }
             />
           )}
         </Stack>
         <Stack alignItems="center" gap={inube.spacing.s100}>
           <ProgressBar
             size={size}
-            currentStep={currentStep + 1}
+            currentStep={currentStepIndex + 1}
             arrayLength={steps.length}
           />
           {size === "large" && (
             <Text type="label">
-              {currentStep + 1}/{steps.length}
+              {currentStepIndex + 1}/{steps.length}
             </Text>
           )}
         </Stack>
@@ -160,7 +165,7 @@ const Assisted = (props: IAssistedProps) => {
             onClick={
               sequential
                 ? undefined
-                : () => handleNextStep(currentStep, steps, onStepChange)
+                : () => handleNextStep(currentStepIndex, steps, onStepChange)
             }
           >
             {titleButtonAfter}
