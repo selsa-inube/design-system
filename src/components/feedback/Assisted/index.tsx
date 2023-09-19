@@ -31,7 +31,6 @@ export interface IAssistedProps {
   onStepChange: (id: IStep["id"]) => void;
   sequential?: boolean;
   completedStepIds?: number[];
-  smallScreen?: boolean;
   titleButtonBefore?: string;
   titleButtonAfter?: string;
   size?: "medium" | "large";
@@ -55,6 +54,7 @@ const ProgressBar = (props: IProgressBarProps) => {
   return (
     <StyledProgressBar size={size}>
       <StyledProgressIndicator
+        size={size}
         currentStep={currentStep}
         arrayLength={arrayLength}
       />
@@ -68,7 +68,6 @@ const Assisted = (props: IAssistedProps) => {
     currentStepId,
     onStepChange,
     sequential = false,
-    //completedStepIds,
     titleButtonBefore,
     titleButtonAfter,
     size = "large",

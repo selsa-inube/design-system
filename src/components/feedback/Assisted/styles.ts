@@ -42,8 +42,15 @@ const StyledProgressIndicator = styled.div`
   border-radius: 8px;
   transition: width 0.5s;
   height: 16px;
-  width: ${({ arrayLength, currentStep }: IStyledAssistedProps) =>
-    currentStep === 1 ? "2%" : `${(currentStep / arrayLength) * 100}%`};
+  width: ${({ size, arrayLength, currentStep }: IStyledAssistedProps) => {
+    if (size === "medium" && currentStep === 1) {
+      return "6%";
+    }
+    if (currentStep === 1) {
+      return "2%";
+    }
+    return `${(currentStep / arrayLength) * 100}%`;
+  }};
   background: ${({ theme }: IStyledAssistedProps) =>
     theme?.color?.surface?.primary?.regular ||
     inube.color.surface.primary?.regular};
