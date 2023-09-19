@@ -124,7 +124,9 @@ const Assisted = (props: IAssistedProps) => {
           )}
           <StyledStepIndicator>
             {currentStepId !== steps.length ? (
-              currentStepId
+              <Text type="label" size="medium" appearance="primary">
+                {currentStepId}
+              </Text>
             ) : (
               <Icon
                 appearance="primary"
