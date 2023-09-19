@@ -44,6 +44,7 @@ const StyledButton = styled.button`
     appearance,
     variant,
     disabled,
+    parentHover,
   }: IStyledButtonStructureProps) => {
     if (variant === "filled") {
       if (disabled) {
@@ -52,6 +53,11 @@ const StyledButton = styled.button`
           inube.color.surface[appearance!].disabled
         );
       }
+      if (parentHover)
+        return (
+          theme?.color?.surface?.[appearance!]?.hover ||
+          inube.color.surface[appearance!].hover
+        );
       return (
         theme?.color?.surface?.[appearance!]?.regular ||
         inube.color.surface[appearance!].regular
@@ -66,6 +72,7 @@ const StyledButton = styled.button`
     appearance,
     variant,
     disabled,
+    parentHover,
   }: IStyledButtonStructureProps) => {
     if (disabled) {
       return (
@@ -73,6 +80,11 @@ const StyledButton = styled.button`
         inube.color.stroke[appearance!].disabled
       );
     }
+    if (parentHover && variant !== "none")
+      return (
+        theme?.color?.stroke?.[appearance!]?.hover ||
+        inube.color.stroke[appearance!].hover
+      );
     if (variant === "none") {
       return "transparent";
     }
@@ -83,13 +95,22 @@ const StyledButton = styled.button`
     );
   }};
 
-  cursor: ${({ disabled, loading }: IStyledButtonStructureProps) => {
+  cursor: ${({
+    disabled,
+    loading,
+    cursorHover,
+    variant,
+  }: IStyledButtonStructureProps) => {
     if (disabled) {
       return "not-allowed";
     }
 
     if (loading) {
       return "progress";
+    }
+
+    if (!cursorHover || variant === "filled") {
+      return "default";
     }
 
     return "pointer";
@@ -101,8 +122,9 @@ const StyledButton = styled.button`
       appearance,
       variant,
       disabled,
+      cursorHover,
     }: IStyledButtonStructureProps) => {
-      if (!disabled) {
+      if (!disabled && cursorHover) {
         if (variant === "none") {
           return "transparent";
         }
@@ -118,17 +140,16 @@ const StyledButton = styled.button`
       appearance,
       variant,
       disabled,
+      cursorHover,
     }: IStyledButtonStructureProps) => {
-      if (!disabled) {
-        if (variant === "filled") {
-          return (
-            theme?.color?.surface?.[appearance!]?.hover ||
-            inube.color.surface[appearance!].hover
-          );
-        }
-        if (variant === "none") {
-          return "transparent";
-        }
+      if (!disabled && cursorHover && variant === "filled") {
+        return (
+          theme?.color?.surface?.[appearance!]?.hover ||
+          inube.color.surface[appearance!].hover
+        );
+      }
+      if (!disabled && cursorHover && variant === "none") {
+        return "transparent";
       }
     }};
   }
@@ -143,14 +164,42 @@ const StyledSpan = styled.span`
   justify-content: space-between;
   gap: 4px;
   overflow: hidden;
+  & * {
+    color: ${({
+      theme,
+      appearance,
+      variant,
+      disabled,
+      parentHover,
+    }: IStyledButtonStructureProps) => {
+      if (!disabled) {
+        if (variant === "filled") {
+          return (
+            theme?.color?.stroke?.light?.hover || inube.color.stroke.light.hover
+          );
+        }
+        if (parentHover) {
+          return (
+            theme?.color?.stroke?.[appearance!]?.hover ||
+            inube.color.stroke[appearance!].hover
+          );
+        }
+        return (
+          theme?.color?.text?.[appearance!]?.regular ||
+          inube.color.text[appearance!].regular
+        );
+      }
+    }};
+  }
   &:hover * {
     color: ${({
       theme,
       appearance,
       variant,
       disabled,
+      cursorHover,
     }: IStyledButtonStructureProps) => {
-      if (!disabled) {
+      if (!disabled && cursorHover) {
         if (variant === "filled") {
           return (
             theme?.color?.stroke?.light?.hover || inube.color.stroke.light.hover

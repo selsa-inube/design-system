@@ -25,6 +25,8 @@ export interface IButtonProps {
   fullwidth?: boolean;
   onClick?: (e?: Event) => void;
   path?: string;
+  cursorHover?: boolean;
+  parentHover?: boolean;
 }
 
 export interface IButtonStructureProps extends IButtonProps {
@@ -47,6 +49,8 @@ const ButtonStructure = (props: IButtonStructureProps) => {
     fullwidth,
     onClick,
     appearanceChildren,
+    cursorHover,
+    parentHover,
   } = props;
 
   return (
@@ -61,6 +65,8 @@ const ButtonStructure = (props: IButtonStructureProps) => {
       variant={variant}
       fullwidth={fullwidth}
       onClick={disabled ? null : onClick}
+      cursorHover={cursorHover}
+      parentHover={parentHover}
     >
       {loading && !disabled ? (
         <Spinner
@@ -73,6 +79,8 @@ const ButtonStructure = (props: IButtonStructureProps) => {
           appearance={appearance}
           disabled={disabled}
           variant={variant}
+          cursorHover={cursorHover}
+          parentHover={parentHover}
         >
           {iconBefore && (
             <Icon
@@ -121,6 +129,8 @@ const Button = (props: IButtonProps) => {
     fullwidth = false,
     onClick,
     path,
+    cursorHover,
+    parentHover,
   } = props;
 
   function appearanceChildrens() {
@@ -151,6 +161,8 @@ const Button = (props: IButtonProps) => {
           fullwidth={fullwidth}
           onClick={onClick}
           appearanceChildren={appearanceChildrens()}
+          cursorHover={cursorHover}
+          parentHover={parentHover}
         >
           {children}
         </ButtonStructure>
@@ -170,6 +182,8 @@ const Button = (props: IButtonProps) => {
       fullwidth={fullwidth}
       onClick={onClick}
       appearanceChildren={appearanceChildrens()}
+      cursorHover={cursorHover}
+      parentHover={parentHover}
     >
       {children}
     </ButtonStructure>
