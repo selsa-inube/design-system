@@ -115,7 +115,7 @@ const ButtonStructure = (props: IButtonStructureProps) => {
 };
 
 const Button = (props: IButtonProps) => {
-  const { children, type = "button", path } = props;
+  const { type = "button", path } = props;
 
   if (type === "link" && !path) {
     console.warn("You must provide a path to use a link button");
@@ -130,9 +130,7 @@ const Button = (props: IButtonProps) => {
             props?.variant!,
             props?.appearance!
           )}
-        >
-          {children}
-        </ButtonStructure>
+        />
       </StyledLink>
     );
   }
@@ -144,9 +142,7 @@ const Button = (props: IButtonProps) => {
         props?.variant!,
         props?.appearance!
       )}
-    >
-      {children}
-    </ButtonStructure>
+    />
   );
 };
 
