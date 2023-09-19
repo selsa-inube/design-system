@@ -48,6 +48,7 @@ Default.args = {
   titleButtonBefore: "Anterior",
   titleButtonAfter: "Próximo",
   currentStepId: 2,
+  size: "medium",
 };
 
 export default story;

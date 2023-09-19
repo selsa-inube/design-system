@@ -3,30 +3,19 @@ import { Assisted, IAssistedProps } from "..";
 
 const AssistedController = (props: IAssistedProps) => {
   const { steps, currentStepId, titleButtonBefore, titleButtonAfter } = props;
+
   const [currentStep, setCurrentStep] = useState(currentStepId);
 
-  const handleNextStep = (currentStep: number) => {
-    if (currentStep <= steps.length - 1) {
-      setCurrentStep(currentStep + 1);
-    }
-  };
-
-  const handlePreviousStep = (currentStep: number) => {
-    if (currentStep > 0) {
-      setCurrentStep(currentStep - 1);
-    }
-  };
-
-  const onStepChangeFunctions = {
-    previous: () => handlePreviousStep(currentStep),
-    next: () => handleNextStep(currentStep),
+  const onStepChange = (id: number) => {
+    setCurrentStep(id);
   };
 
   return (
     <Assisted
+      {...props}
       steps={steps}
       currentStepId={currentStep}
-      onStepChange={onStepChangeFunctions}
+      onStepChange={onStepChange}
       titleButtonAfter={titleButtonAfter}
       titleButtonBefore={titleButtonBefore}
     />
