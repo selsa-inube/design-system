@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-import { IButtonStructureProps } from ".";
+import { IButtonProps } from ".";
 import { inube } from "@shared/tokens";
 import { Themed } from "@src/shared/types/types";
 
-interface IStyledButtonStructureProps extends IButtonStructureProps {
+interface IStyledButtonStructureProps extends IButtonProps {
   theme?: Themed;
 }
 const spacing = {

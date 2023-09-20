@@ -7,7 +7,7 @@ import { Appearance, Type, Spacing, Variant } from "./props";
 import { StyledButton, StyledSpan, StyledLink } from "./styles";
 
 export interface IButtonProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   appearance?: Appearance;
   loading?: boolean;
   disabled?: boolean;
@@ -19,10 +19,6 @@ export interface IButtonProps {
   fullwidth?: boolean;
   onClick?: (e?: Event) => void;
   path?: string;
-}
-
-export interface IButtonStructureProps extends IButtonProps {
-  appearanceChildren: Appearance;
 }
 
 function appearanceChildrens(variant: Variant, appearance: Appearance) {
@@ -40,20 +36,19 @@ function appearanceChildrens(variant: Variant, appearance: Appearance) {
   return appearance;
 }
 
-const ButtonStructure = (props: IButtonStructureProps) => {
+const ButtonStructure = (props: IButtonProps) => {
   const {
     children,
-    appearance,
-    loading,
-    disabled,
+    appearance = "primary",
+    loading = false,
+    disabled = false,
     iconBefore,
     iconAfter,
-    type,
-    spacing,
-    variant,
-    fullwidth,
+    type = "button",
+    spacing = "wide",
+    variant = "filled",
+    fullwidth = false,
     onClick,
-    appearanceChildren,
   } = props;
 
   return (
@@ -71,7 +66,7 @@ const ButtonStructure = (props: IButtonStructureProps) => {
     >
       {loading && !disabled ? (
         <Spinner
-          appearance={appearanceChildren}
+          appearance={appearanceChildrens(variant, appearance)}
           transparent={variant === "filled"}
           size="small"
         />
@@ -86,14 +81,14 @@ const ButtonStructure = (props: IButtonStructureProps) => {
               icon={iconBefore}
               spacing="none"
               size="18px"
-              appearance={appearanceChildren}
+              appearance={appearanceChildrens(variant, appearance)}
               disabled={disabled}
             />
           )}
           <Text
             type="label"
             size="large"
-            appearance={appearanceChildren}
+            appearance={appearanceChildrens(variant, appearance)}
             disabled={disabled}
             ellipsis={true}
           >
@@ -104,7 +99,7 @@ const ButtonStructure = (props: IButtonStructureProps) => {
               icon={iconAfter}
               spacing="none"
               size="18px"
-              appearance={appearanceChildren}
+              appearance={appearanceChildrens(variant, appearance)}
               disabled={disabled}
             />
           )}
@@ -124,26 +119,12 @@ const Button = (props: IButtonProps) => {
   if (type === "link") {
     return (
       <StyledLink to={path}>
-        <ButtonStructure
-          {...props}
-          appearanceChildren={appearanceChildrens(
-            props?.variant!,
-            props?.appearance!
-          )}
-        />
+        <ButtonStructure {...props} />
       </StyledLink>
     );
   }
 
-  return (
-    <ButtonStructure
-      {...props}
-      appearanceChildren={appearanceChildrens(
-        props?.variant!,
-        props?.appearance!
-      )}
-    />
-  );
+  return <ButtonStructure {...props} />;
 };
 
 export { Button };
