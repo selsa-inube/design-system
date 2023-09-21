@@ -21,7 +21,7 @@ export interface IButtonProps {
   path?: string;
 }
 
-function appearanceChildren(variant: Variant, appearance: Appearance) {
+function childrenAppearence(variant: Variant, appearance: Appearance) {
   if (variant === "filled") {
     if (
       appearance === "warning" ||
@@ -66,7 +66,7 @@ const ButtonStructure = (props: IButtonProps) => {
     >
       {loading && !disabled ? (
         <Spinner
-          appearance={appearanceChildren(variant, appearance)}
+          appearance={childrenAppearence(variant, appearance)}
           transparent={variant === "filled"}
           size="small"
         />
@@ -81,14 +81,14 @@ const ButtonStructure = (props: IButtonProps) => {
               icon={iconBefore}
               spacing="none"
               size="18px"
-              appearance={appearanceChildren(variant, appearance)}
+              appearance={childrenAppearence(variant, appearance)}
               disabled={disabled}
             />
           )}
           <Text
             type="label"
             size="large"
-            appearance={appearanceChildren(variant, appearance)}
+            appearance={childrenAppearence(variant, appearance)}
             disabled={disabled}
             ellipsis={true}
           >
@@ -99,7 +99,7 @@ const ButtonStructure = (props: IButtonProps) => {
               icon={iconAfter}
               spacing="none"
               size="18px"
-              appearance={appearanceChildren(variant, appearance)}
+              appearance={childrenAppearence(variant, appearance)}
               disabled={disabled}
             />
           )}
