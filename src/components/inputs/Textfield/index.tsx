@@ -40,25 +40,25 @@ export interface ITextfieldProps {
 const Message = (props: Omit<ITextfieldProps, "id"> & { message?: string }) => {
   const { disabled, status, message } = props;
 
-  return (
-    status !== "pending" && (
-      <StyledMessageContainer disabled={disabled} status={status}>
-        <Icon
-          appearance={status === "invalid" ? "error" : "success"}
-          disabled={disabled}
-          icon={status === "invalid" ? <MdOutlineError /> : <MdCheckCircle />}
-        />
-        <Text
-          type="body"
-          size="small"
-          margin="8px 0px 0px 4px"
-          appearance={status === "invalid" ? "error" : "success"}
-          disabled={disabled}
-        >
-          {message && `${message}`}
-        </Text>
-      </StyledMessageContainer>
-    )
+  return status !== "pending" ? (
+    <StyledMessageContainer disabled={disabled} status={status}>
+      <Icon
+        appearance={status === "invalid" ? "error" : "success"}
+        disabled={disabled}
+        icon={status === "invalid" ? <MdOutlineError /> : <MdCheckCircle />}
+      />
+      <Text
+        type="body"
+        size="small"
+        margin="8px 0px 0px 4px"
+        appearance={status === "invalid" ? "error" : "success"}
+        disabled={disabled}
+      >
+        {message && `${message}`}
+      </Text>
+    </StyledMessageContainer>
+  ) : (
+    <></>
   );
 };
 
