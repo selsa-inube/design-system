@@ -1,5 +1,3 @@
-import { inube } from "@shared/tokens";
-
 export const appearances = [
   "primary",
   "error",
