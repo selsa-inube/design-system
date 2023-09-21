@@ -20,9 +20,6 @@ const spacing = {
 };
 
 const StyledButton = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
   padding: 0px 16px;
   transition: all 0.3s ease;
   border-radius: 8px;
@@ -138,31 +135,4 @@ const StyledLink = styled(Link)`
   text-decoration: none;
 `;
 
-const StyledSpan = styled.span`
-  display: flex;
-  justify-content: space-between;
-  gap: 4px;
-  overflow: hidden;
-  &:hover * {
-    color: ${({
-      theme,
-      appearance,
-      variant,
-      disabled,
-    }: IStyledButtonStructureProps) => {
-      if (!disabled) {
-        if (variant === "filled") {
-          return (
-            theme?.color?.stroke?.light?.hover || inube.color.stroke.light.hover
-          );
-        }
-        return (
-          theme?.color?.stroke?.[appearance!]?.hover ||
-          inube.color.stroke[appearance!].hover
-        );
-      }
-    }};
-  }
-`;
-
-export { StyledButton, StyledSpan, StyledLink };
+export { StyledButton, StyledLink };
