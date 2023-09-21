@@ -70,7 +70,7 @@ const ButtonStructure = (props: IButtonStructureProps) => {
           size="small"
         />
       ) : (
-        <Stack alignItems="center">
+        <Stack alignItems="center" justifyContent="center">
           {iconBefore && (
             <Icon
               icon={iconBefore}

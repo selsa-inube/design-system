@@ -20,9 +20,6 @@ const spacing = {
 };
 
 const StyledButton = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
   padding: 0px 16px;
   transition: all 0.3s ease;
   border-radius: 8px;
