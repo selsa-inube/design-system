@@ -1,10 +1,11 @@
 import { Icon } from "@data/Icon";
-import { Spinner } from "@feedback/Spinner";
 import { Text } from "@data/Text";
+import { Spinner } from "@feedback/Spinner";
+import { Stack } from "@layouts/Stack";
 
 import { Appearance, Type, Spacing, Variant } from "./props";
 
-import { StyledButton, StyledSpan, StyledLink } from "./styles";
+import { StyledButton, StyledLink } from "./styles";
 
 export interface IButtonProps {
   children?: React.ReactNode;
@@ -71,11 +72,7 @@ const ButtonStructure = (props: IButtonProps) => {
           size="small"
         />
       ) : (
-        <StyledSpan
-          appearance={appearance}
-          disabled={disabled}
-          variant={variant}
-        >
+        <Stack alignItems="center" justifyContent="center">
           {iconBefore && (
             <Icon
               icon={iconBefore}
@@ -103,7 +100,7 @@ const ButtonStructure = (props: IButtonProps) => {
               disabled={disabled}
             />
           )}
-        </StyledSpan>
+        </Stack>
       )}
     </StyledButton>
   );
