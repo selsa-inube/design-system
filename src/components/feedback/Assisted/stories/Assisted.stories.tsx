@@ -1,6 +1,8 @@
-import { Assisted, IAssistedProps } from "..";
+import { ThemeProvider } from "styled-components";
+import { presente } from "@shared/themes/presente";
 import { parameters, props } from "../props";
 import { AssistedController } from "./Assisted.Controller";
+import { Assisted, IAssistedProps } from "..";
 
 const story = {
   title: "Feedback/Assisted",
@@ -51,6 +53,19 @@ Default.args = {
   size: "medium",
 };
 
+const theme = structuredClone(presente);
+console.log(theme);
+
+const Themed = (args: IAssistedProps) => (
+  <ThemeProvider theme={theme}>
+    <AssistedController {...args} />
+  </ThemeProvider>
+);
+
+Themed.args = {
+  ...Default.args,
+};
+
 export default story;
 
-export { Default };
+export { Default, Themed };
