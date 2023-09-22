@@ -104,7 +104,7 @@ const Assisted = (props: IAssistedProps) => {
           </Button>
         </Stack>
       )}
-      <Stack direction="column">
+      <Stack direction="column" width={size === "medium" ? "288px" : "100%"}>
         <Stack gap={inube.spacing.s050}>
           {size === "medium" && (
             <Icon

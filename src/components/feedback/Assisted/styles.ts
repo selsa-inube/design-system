@@ -10,10 +10,7 @@ interface IStyledAssistedProps extends IAssistedProps {
 }
 
 const StyledAssistedContainer = styled.div`
-  display: grid;
-  gap: ${inube.spacing.s150};
-  grid-template-columns: ${({ size }: IStyledAssistedProps) =>
-    size === "large" ? "max-content max-content max-content" : "max-content"};
+  display: flex;
   height: ${({ size }: IStyledAssistedProps) =>
     size === "medium" ? "40px" : "48px"};
   background: ${({ theme }: IStyledAssistedProps) =>
@@ -32,8 +29,7 @@ const StyledProgressBar = styled.div`
   border-radius: 10px;
   transition: width 0.5s;
   height: 16px;
-  width: ${({ size }: IStyledAssistedProps) =>
-    size === "medium" ? "288px" : "1033px"};
+  width: 100%;
   background: ${({ theme }: IStyledAssistedProps) =>
     theme?.color?.surface?.dark?.clear || inube.color.surface.dark.clear};
 `;
