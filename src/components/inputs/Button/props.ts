@@ -9,9 +9,11 @@ export const appearances = [
   "gray",
   "dark",
 ] as const;
+
 export type Appearance = typeof appearances[number];
-export type ButtonAppearanceType = typeof appearances[number];
+
 export const spacings = ["wide", "compact"] as const;
+
 export type Spacing = typeof spacings[number];
 
 export type SpinnerColor =
@@ -29,9 +31,11 @@ export type SpinnerColorHomologation = Record<
 >;
 
 export const types = ["button", "submit", "reset", "link"] as const;
+
 export type Type = typeof types[number];
 
 export const variants = ["filled", "outlined", "none"] as const;
+
 export type Variant = typeof variants[number];
 
 const props = {
