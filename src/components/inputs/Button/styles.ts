@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-import { Themed } from "@src/shared/types/types";
+import { IButtonProps } from ".";
 import { inube } from "@shared/tokens";
-import { IButtonStructureProps } from ".";
+import { Themed } from "@src/shared/types/types";
 
-interface IStyledButtonStructureProps extends IButtonStructureProps {
+interface IStyledButtonProps extends IButtonProps {
   theme?: Themed;
 }
 const spacing = {
@@ -25,16 +25,16 @@ const StyledButton = styled.button`
   border-radius: 8px;
   border: none;
   border-width: 1px;
-  width: ${({ fullwidth }: IStyledButtonStructureProps) => {
+  width: ${({ fullwidth }: IStyledButtonProps) => {
     if (fullwidth) {
       return "100%";
     }
 
     return "fit-content";
   }};
-  border-style: ${(props: IStyledButtonStructureProps) =>
+  border-style: ${(props: IStyledButtonProps) =>
     props.type !== "link" ? "solid" : "none"};
-  ${(props: IStyledButtonStructureProps) => spacing[props.spacing!]};
+  ${(props: IStyledButtonProps) => spacing[props.spacing!]};
 
   background-color: ${({
     theme,
@@ -42,7 +42,7 @@ const StyledButton = styled.button`
     variant,
     disabled,
     parentHover,
-  }: IStyledButtonStructureProps) => {
+  }: IStyledButtonProps) => {
     if (variant === "filled") {
       if (disabled) {
         return (
@@ -70,7 +70,7 @@ const StyledButton = styled.button`
     variant,
     disabled,
     parentHover,
-  }: IStyledButtonStructureProps) => {
+  }: IStyledButtonProps) => {
     if (disabled) {
       return (
         theme?.color?.stroke?.[appearance!]?.disabled ||
@@ -97,7 +97,7 @@ const StyledButton = styled.button`
     loading,
     cursorHover,
     variant,
-  }: IStyledButtonStructureProps) => {
+  }: IStyledButtonProps) => {
     if (disabled) {
       return "not-allowed";
     }
@@ -120,7 +120,7 @@ const StyledButton = styled.button`
       variant,
       disabled,
       cursorHover,
-    }: IStyledButtonStructureProps) => {
+    }: IStyledButtonProps) => {
       if (!disabled && cursorHover) {
         if (variant === "none") {
           return "transparent";
@@ -138,7 +138,7 @@ const StyledButton = styled.button`
       variant,
       disabled,
       cursorHover,
-    }: IStyledButtonStructureProps) => {
+    }: IStyledButtonProps) => {
       if (!disabled && cursorHover && variant === "filled") {
         return (
           theme?.color?.surface?.[appearance!]?.hover ||
@@ -168,7 +168,7 @@ const StyledSpan = styled.span`
       variant,
       disabled,
       parentHover,
-    }: IStyledButtonStructureProps) => {
+    }: IStyledButtonProps) => {
       if (!disabled) {
         if (variant === "filled") {
           return (
@@ -195,7 +195,7 @@ const StyledSpan = styled.span`
       variant,
       disabled,
       cursorHover,
-    }: IStyledButtonStructureProps) => {
+    }: IStyledButtonProps) => {
       if (!disabled && cursorHover) {
         if (variant === "filled") {
           return (

@@ -1,20 +1,14 @@
-import { Text } from "@data/Text";
 import { Icon } from "@data/Icon";
+import { Text } from "@data/Text";
 import { Spinner } from "@feedback/Spinner";
 import { Stack } from "@layouts/Stack";
 
-import {
-  Appearance,
-  Type,
-  Spacing,
-  Variant,
-  ButtonAppearanceType,
-} from "./props";
+import { Appearance, Type, Spacing, Variant } from "./props";
 
 import { StyledButton, StyledLink } from "./styles";
 
 export interface IButtonProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   appearance?: Appearance;
   loading?: boolean;
   disabled?: boolean;
@@ -30,28 +24,36 @@ export interface IButtonProps {
   parentHover?: boolean;
 }
 
-export interface IButtonStructureProps extends IButtonProps {
-  appearanceChildren: Appearance;
+function childrenAppearence(variant: Variant, appearance: Appearance) {
+  if (variant === "filled") {
+    if (
+      appearance === "warning" ||
+      appearance === "light" ||
+      appearance === "gray"
+    ) {
+      return "dark";
+    }
+    return "light";
+  }
+
+  return appearance;
 }
 
-const darkWhenFilled: ButtonAppearanceType[] = ["warning", "gray", "light"];
-
-const ButtonStructure = (props: IButtonStructureProps) => {
+const ButtonStructure = (props: IButtonProps) => {
   const {
     children,
-    appearance,
-    loading,
-    disabled,
+    appearance = "primary",
+    loading = false,
+    disabled = false,
     iconBefore,
     iconAfter,
-    type,
-    spacing,
-    variant,
-    fullwidth,
+    type = "button",
+    spacing = "wide",
+    variant = "filled",
+    fullwidth = false,
     onClick,
-    appearanceChildren,
-    cursorHover,
-    parentHover,
+    cursorHover = false,
+    parentHover = false,
   } = props;
 
   return (
@@ -71,7 +73,7 @@ const ButtonStructure = (props: IButtonStructureProps) => {
     >
       {loading && !disabled ? (
         <Spinner
-          appearance={appearanceChildren}
+          appearance={childrenAppearence(variant, appearance)}
           transparent={variant === "filled"}
           size="small"
         />
@@ -82,14 +84,14 @@ const ButtonStructure = (props: IButtonStructureProps) => {
               icon={iconBefore}
               spacing="none"
               size="18px"
-              appearance={appearanceChildren}
+              appearance={childrenAppearence(variant, appearance)}
               disabled={disabled}
             />
           )}
           <Text
             type="label"
             size="large"
-            appearance={appearanceChildren}
+            appearance={childrenAppearence(variant, appearance)}
             disabled={disabled}
             ellipsis={true}
           >
@@ -100,7 +102,7 @@ const ButtonStructure = (props: IButtonStructureProps) => {
               icon={iconAfter}
               spacing="none"
               size="18px"
-              appearance={appearanceChildren}
+              appearance={childrenAppearence(variant, appearance)}
               disabled={disabled}
             />
           )}
@@ -111,32 +113,7 @@ const ButtonStructure = (props: IButtonStructureProps) => {
 };
 
 const Button = (props: IButtonProps) => {
-  const {
-    children,
-    appearance = "primary",
-    loading = false,
-    disabled = false,
-    iconBefore,
-    iconAfter,
-    type = "button",
-    spacing = "wide",
-    variant = "filled",
-    fullwidth = false,
-    onClick,
-    path,
-    cursorHover,
-    parentHover,
-  } = props;
-
-  function appearanceChildrens() {
-    if (variant === "filled") {
-      if (darkWhenFilled.includes(appearance)) {
-        return "dark";
-      }
-      return "light";
-    }
-    return appearance;
-  }
+  const { type = "button", path } = props;
 
   if (type === "link" && !path) {
     console.warn("You must provide a path to use a link button");
@@ -145,44 +122,12 @@ const Button = (props: IButtonProps) => {
   if (type === "link") {
     return (
       <StyledLink to={path}>
-        <ButtonStructure
-          loading={loading}
-          appearance={appearance}
-          disabled={disabled}
-          iconBefore={iconBefore}
-          iconAfter={iconAfter}
-          spacing={spacing}
-          variant={variant}
-          fullwidth={fullwidth}
-          onClick={onClick}
-          appearanceChildren={appearanceChildrens()}
-          cursorHover={cursorHover}
-          parentHover={parentHover}
-        >
-          {children}
-        </ButtonStructure>
+        <ButtonStructure {...props} />
       </StyledLink>
     );
   }
 
-  return (
-    <ButtonStructure
-      appearance={appearance}
-      loading={loading}
-      disabled={disabled}
-      iconBefore={iconBefore}
-      iconAfter={iconAfter}
-      spacing={spacing}
-      variant={variant}
-      fullwidth={fullwidth}
-      onClick={onClick}
-      appearanceChildren={appearanceChildrens()}
-      cursorHover={cursorHover}
-      parentHover={parentHover}
-    >
-      {children}
-    </ButtonStructure>
-  );
+  return <ButtonStructure {...props} />;
 };
 
 export { Button };
