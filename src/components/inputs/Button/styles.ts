@@ -102,10 +102,9 @@ const StyledButton = styled.button`
       return "not-allowed";
     }
 
-    if (loading) {
+    if (loading!.toString() === "true") {
       return "progress";
     }
-
     if (!cursorHover || variant === "filled") {
       return "default";
     }
@@ -156,59 +155,4 @@ const StyledLink = styled(Link)`
   text-decoration: none;
 `;
 
-const StyledSpan = styled.span`
-  display: flex;
-  justify-content: space-between;
-  gap: 4px;
-  overflow: hidden;
-  & * {
-    color: ${({
-      theme,
-      appearance,
-      variant,
-      disabled,
-      parentHover,
-    }: IStyledButtonProps) => {
-      if (!disabled) {
-        if (variant === "filled") {
-          return (
-            theme?.color?.stroke?.light?.hover || inube.color.stroke.light.hover
-          );
-        }
-        if (parentHover) {
-          return (
-            theme?.color?.stroke?.[appearance!]?.hover ||
-            inube.color.stroke[appearance!].hover
-          );
-        }
-        return (
-          theme?.color?.text?.[appearance!]?.regular ||
-          inube.color.text[appearance!].regular
-        );
-      }
-    }};
-  }
-  &:hover * {
-    color: ${({
-      theme,
-      appearance,
-      variant,
-      disabled,
-      cursorHover,
-    }: IStyledButtonProps) => {
-      if (!disabled && cursorHover) {
-        if (variant === "filled") {
-          return (
-            theme?.color?.stroke?.light?.hover || inube.color.stroke.light.hover
-          );
-        }
-        return (
-          theme?.color?.stroke?.[appearance!]?.hover ||
-          inube.color.stroke[appearance!].hover
-        );
-      }
-    }};
-  }
-`;
-
-export { StyledButton, StyledSpan, StyledLink };
+export { StyledButton, StyledLink };
