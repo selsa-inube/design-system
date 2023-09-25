@@ -105,9 +105,6 @@ const StyledButton = styled.button`
     if (loading!.toString() === "true") {
       return "progress";
     }
-    if (!cursorHover || variant === "filled") {
-      return "default";
-    }
 
     return "pointer";
   }};
