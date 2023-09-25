@@ -1,10 +1,10 @@
 import { MdArrowBack, MdArrowForward, MdCheckCircle } from "react-icons/md";
 
-import { Button } from "@inputs/Button";
 import { Icon } from "@data/Icon";
-import { inube } from "@shared/tokens";
-import { Stack } from "@layouts/Stack";
 import { Text } from "@data/Text";
+import { Button } from "@inputs/Button";
+import { Stack } from "@layouts/Stack";
+import { inube } from "@shared/tokens";
 
 import {
   StyledAssistedContainer,

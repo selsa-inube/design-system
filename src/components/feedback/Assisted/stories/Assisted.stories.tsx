@@ -49,12 +49,11 @@ Default.args = {
   steps: stepsMock,
   titleButtonBefore: "Anterior",
   titleButtonAfter: "Próximo",
-  currentStepId: 2,
-  size: "medium",
+  currentStepId: 3,
+  size: "large",
 };
 
 const theme = structuredClone(presente);
-console.log(theme);
 
 const Themed = (args: IAssistedProps) => (
   <ThemeProvider theme={theme}>

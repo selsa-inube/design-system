@@ -59,8 +59,7 @@ const StyledStepIndicator = styled.div`
   border-radius: 50%;
   width: 20px;
   height: 20px;
-  margin-bottom: ${({ theme }: IStyledAssistedProps) =>
-    theme?.spacing.s100 || inube.spacing.s100};
+  margin-bottom: ${inube.spacing.s100};
   border: 2px solid
     ${({ theme }: IStyledAssistedProps) =>
       theme?.color?.stroke?.primary?.regular ||
