@@ -15,14 +15,8 @@ const OptionItem = (props: IOptionItemProps) => {
   };
 
   return (
-    <StyledOptionItem
-      id={id}
-      onClick={() => handleOptionClick(id)}
-      tabIndex={0}
-    >
-      <Text size="medium" type="body">
-        {children}
-      </Text>
+    <StyledOptionItem id={id} onClick={() => handleOptionClick(id)}>
+      <Text size="medium">{children}</Text>
     </StyledOptionItem>
   );
 };
