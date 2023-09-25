@@ -92,12 +92,7 @@ const StyledButton = styled.button`
     );
   }};
 
-  cursor: ${({
-    disabled,
-    loading,
-    cursorHover,
-    variant,
-  }: IStyledButtonProps) => {
+  cursor: ${({ disabled, loading }: IStyledButtonProps) => {
     if (disabled) {
       return "not-allowed";
     }
