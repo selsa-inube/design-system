@@ -4,7 +4,7 @@ import { StyledOptionItem } from "./styles";
 export interface IOptionItemProps {
   id: string;
   children: string;
-  onClick?: (id: string) => void;
+  onClick: (id: string) => void;
 }
 
 const OptionItem = (props: IOptionItemProps) => {

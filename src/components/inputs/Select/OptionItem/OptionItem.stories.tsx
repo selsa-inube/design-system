@@ -1,7 +1,7 @@
-import { OptionItem, IOptionItemProps } from "./index";
 import { ThemeProvider } from "styled-components";
 import { presente } from "@shared/themes/presente";
 import { props, parameters } from "./props";
+import { OptionItem, IOptionItemProps } from "./index";
 
 const story = {
   title: "Inputs/Select/OptionItem",
