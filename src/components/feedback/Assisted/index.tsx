@@ -67,10 +67,10 @@ const Assisted = (props: IAssistedProps) => {
     steps,
     currentStepId,
     onStepChange,
+    size = "large",
     sequential = false,
     titleButtonBefore,
     titleButtonAfter,
-    size = "large",
   } = props;
 
   const currentStep = steps.find((step) => step?.id === currentStepId);

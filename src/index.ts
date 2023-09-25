@@ -6,6 +6,7 @@ export { Text } from "@data/Text";
 export { User } from "@data/User";
 
 // feedback
+export { Assisted } from "@feedback/Assisted";
 export { CountdownBar } from "@feedback/CountdownBar";
 export { SkeletonIcon } from "@feedback/SkeletonIcon";
 export { SkeletonLine } from "@feedback/SkeletonLine";
