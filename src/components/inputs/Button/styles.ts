@@ -20,7 +20,7 @@ const spacing = {
 };
 
 const StyledButton = styled.button`
-  padding: 0px 16px;
+  padding: ${inube.spacing.s0} ${inube.spacing.s200};
   transition: all 0.3s ease;
   border-radius: 8px;
   border: none;
