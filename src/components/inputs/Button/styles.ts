@@ -31,8 +31,8 @@ const StyledButton = styled.button`
 
     return "fit-content";
   }};
-  ${({ fullwidth }: IStyledButtonStructureProps) =>
-    !fullwidth && "max-width: 300px;"};
+  max-width: ${({ fullwidth }: IStyledButtonStructureProps) =>
+    fullwidth ? "none" : "300px"};
   border-style: ${(props: IStyledButtonStructureProps) =>
     props.type !== "link" ? "solid" : "none"};
   ${(props: IStyledButtonStructureProps) => spacing[props.spacing!]};
