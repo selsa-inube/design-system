@@ -10,12 +10,8 @@ export interface IOptionItemProps {
 const OptionItem = (props: IOptionItemProps) => {
   const { id, children, onClick } = props;
 
-  const handleOptionClick = (id: string) => {
-    if (onClick) onClick(id);
-  };
-
   return (
-    <StyledOptionItem id={id} onClick={() => handleOptionClick(id)}>
+    <StyledOptionItem id={id} onClick={onClick}>
       <Text size="medium">{children}</Text>
     </StyledOptionItem>
   );
