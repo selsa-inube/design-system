@@ -23,19 +23,23 @@ const Tabs = ({
   onSelectTab,
 }: ITabsProps) => {
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
-  //const [selectedTabLabel, setSelectedTabLabel] = useState<string>(selectedTab);
-  //const [selectedTabIsDisabled, setSelectedTabIsDisabled] =
-  //useState<boolean>(false);
+  const [selectedTabLabel, setSelectedTabLabel] = useState<string>(selectedTab);
 
   if (type === "select") {
-    const selected = tabs.find((tab) => tab.id === selectedTab);
     const dropDownOptions = tabs.map((tab) => ({
       id: tab.id,
       label: tab.label,
       disabled: tab.disabled,
     }));
 
-    console.log(dropDownOptions, "dropDownOptions", "selected ->", selected);
+    const handleOptionClick = (id: string) => {
+      const selected = tabs.find((tab) => tab.id === id);
+      if (selected) {
+        setSelectedTabLabel(selected.label);
+        setIsDropDownOpen(false);
+      }
+    };
+
     return (
       <>
         <StyledTabs type={type}>
@@ -50,18 +54,14 @@ const Tabs = ({
 
             <Tab
               key={selectedTab}
-              label={selected?.label || selectedTab}
+              label={selectedTabLabel}
               selected={true}
               id={selectedTab}
-              onClick={() => onSelectTab(selected?.label!)}
             />
           </Stack>
         </StyledTabs>
         {isDropDownOpen && (
-          <OptionList
-            options={dropDownOptions}
-            onClick={() => setIsDropDownOpen(!isDropDownOpen)}
-          />
+          <OptionList options={dropDownOptions} onClick={handleOptionClick} />
         )}
       </>
     );
