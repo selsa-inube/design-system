@@ -5,7 +5,7 @@ import { IButtonProps } from ".";
 import { inube } from "@shared/tokens";
 import { Themed } from "@src/shared/types/types";
 
-interface IStyledButtonStructureProps extends IButtonProps {
+interface IStyledButtonProps extends IButtonProps {
   theme?: Themed;
 }
 const spacing = {
@@ -24,25 +24,26 @@ const StyledButton = styled.button`
   border: none;
   border-width: 1px;
   min-width: 100px;
-  width: ${({ fullwidth }: IStyledButtonStructureProps) => {
+  width: ${({ fullwidth }: IStyledButtonProps) => {
     if (fullwidth) {
       return "100%";
     }
 
     return "fit-content";
   }};
-  max-width: ${({ fullwidth }: IStyledButtonStructureProps) =>
+  max-width: ${({ fullwidth }: IStyledButtonProps) =>
     fullwidth ? "none" : "300px"};
-  border-style: ${(props: IStyledButtonStructureProps) =>
+  border-style: ${(props: IStyledButtonProps) =>
     props.type !== "link" ? "solid" : "none"};
-  ${(props: IStyledButtonStructureProps) => spacing[props.spacing!]};
+  ${(props: IStyledButtonProps) => spacing[props.spacing!]};
 
   background-color: ${({
     theme,
     appearance,
     variant,
     disabled,
-  }: IStyledButtonStructureProps) => {
+    parentHover,
+  }: IStyledButtonProps) => {
     if (variant === "filled") {
       if (disabled) {
         return (
@@ -50,6 +51,11 @@ const StyledButton = styled.button`
           inube.color.surface[appearance!].disabled
         );
       }
+      if (parentHover)
+        return (
+          theme?.color?.surface?.[appearance!]?.hover ||
+          inube.color.surface[appearance!].hover
+        );
       return (
         theme?.color?.surface?.[appearance!]?.regular ||
         inube.color.surface[appearance!].regular
@@ -64,13 +70,19 @@ const StyledButton = styled.button`
     appearance,
     variant,
     disabled,
-  }: IStyledButtonStructureProps) => {
+    parentHover,
+  }: IStyledButtonProps) => {
     if (disabled) {
       return (
         theme?.color?.stroke?.[appearance!]?.disabled ||
         inube.color.stroke[appearance!].disabled
       );
     }
+    if (parentHover && variant !== "none")
+      return (
+        theme?.color?.stroke?.[appearance!]?.hover ||
+        inube.color.stroke[appearance!].hover
+      );
     if (variant === "none") {
       return "transparent";
     }
@@ -81,12 +93,12 @@ const StyledButton = styled.button`
     );
   }};
 
-  cursor: ${({ disabled, loading }: IStyledButtonStructureProps) => {
+  cursor: ${({ disabled, loading }: IStyledButtonProps) => {
     if (disabled) {
       return "not-allowed";
     }
 
-    if (loading) {
+    if (loading!.toString() === "true") {
       return "progress";
     }
 
@@ -99,8 +111,9 @@ const StyledButton = styled.button`
       appearance,
       variant,
       disabled,
-    }: IStyledButtonStructureProps) => {
-      if (!disabled) {
+      cursorHover,
+    }: IStyledButtonProps) => {
+      if (!disabled && cursorHover) {
         if (variant === "none") {
           return "transparent";
         }
@@ -116,17 +129,16 @@ const StyledButton = styled.button`
       appearance,
       variant,
       disabled,
-    }: IStyledButtonStructureProps) => {
-      if (!disabled) {
-        if (variant === "filled") {
-          return (
-            theme?.color?.surface?.[appearance!]?.hover ||
-            inube.color.surface[appearance!].hover
-          );
-        }
-        if (variant === "none") {
-          return "transparent";
-        }
+      cursorHover,
+    }: IStyledButtonProps) => {
+      if (!disabled && cursorHover && variant === "filled") {
+        return (
+          theme?.color?.surface?.[appearance!]?.hover ||
+          inube.color.surface[appearance!].hover
+        );
+      }
+      if (!disabled && cursorHover && variant === "none") {
+        return "transparent";
       }
     }};
   }
