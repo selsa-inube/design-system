@@ -9,7 +9,7 @@ interface IStyledOptionListProps extends OptionListProps {
 const StyledOptionList = styled.ul`
   display: flex;
   flex-direction: column;
-  padding: 4px 0px;
+  padding: ${inube.spacing.s050} ${inube.spacing.s0};
   background: ${({ theme }: IStyledOptionListProps) => {
     return (
       theme?.color?.surface?.light?.clear || inube.color.surface.light.clear

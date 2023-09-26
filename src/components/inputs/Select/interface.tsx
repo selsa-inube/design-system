@@ -17,7 +17,6 @@ import {
   StyledContainerLabel,
   StyledInputContainer,
   StyledInput,
-  StyledIcon,
   StyledMessageContainer,
 } from "./styles";
 
@@ -31,7 +30,6 @@ export interface ISelectStateProps {
 export interface ISelectInterfaceProps extends ISelectProps {
   isFocused?: boolean;
   openOptions: boolean;
-  onCloseOptions: () => void;
   onOptionClick: (idOption: string) => void;
   selectedOption?: string | number;
 }
@@ -91,7 +89,6 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
     value,
     onClick,
     onOptionClick,
-    onCloseOptions,
   } = props;
 
   return (
@@ -144,21 +141,20 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
           onBlur={onBlur}
           onClick={onClick}
         />
-        <StyledIcon disabled={disabled}>
-          <MdOutlineArrowDropDown onClick={onCloseOptions} />
-        </StyledIcon>
+        <Icon
+          appearance="dark"
+          icon={<MdOutlineArrowDropDown />}
+          size="24px"
+          spacing="none"
+          disabled={disabled}
+        />
       </StyledInputContainer>
 
       {status && (
         <Message disabled={disabled} status={status} message={message} />
       )}
       {openOptions && !disabled && (
-        <OptionList
-          options={options}
-          isOpenOptions={openOptions}
-          onClick={onOptionClick}
-          onCloseOptions={onCloseOptions}
-        />
+        <OptionList options={options} onClick={onOptionClick} />
       )}
     </StyledContainer>
   );

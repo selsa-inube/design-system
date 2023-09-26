@@ -86,7 +86,9 @@ const Select = (props: ISelectProps) => {
 
   const handleOptionClick = (idOption: string) => {
     const option = options.find((option) => option.id === idOption);
+
     setSelectedOption(option!.label);
+    setOpen(false);
   };
 
   const handleClick = (e: MouseEvent) => {
@@ -94,7 +96,7 @@ const Select = (props: ISelectProps) => {
 
     toggleOptionsMenu();
   };
-
+  console.log(open, "open");
   return (
     <SelectUI
       label={label}
@@ -114,10 +116,9 @@ const Select = (props: ISelectProps) => {
       onBlur={handleBlur}
       options={options}
       openOptions={open}
-      onClick={handleClick}
+      onClick={(e) => handleClick(e)}
       selectedOption={selectedOption}
       onOptionClick={handleOptionClick}
-      onCloseOptions={toggleOptionsMenu}
       ref={selectRef}
     />
   );

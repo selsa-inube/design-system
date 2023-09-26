@@ -127,7 +127,7 @@ const StyledInput = styled.input`
   }
 `;
 
-const StyledIcon = styled.div`
+/* const StyledIcon = styled.div`
   display: grid;
   justify-content: center;
   align-items: center;
@@ -137,7 +137,7 @@ const StyledIcon = styled.div`
   color: ${({ theme, disabled }: IStyledSelectInterfaceProps) =>
     disabled &&
     (theme?.color?.text?.dark?.hover || inube.color.text.dark.hover)};
-`;
+`; */
 
 const StyledMessageContainer = styled.div`
   display: flex;
@@ -176,6 +176,5 @@ export {
   StyledContainerLabel,
   StyledInputContainer,
   StyledInput,
-  StyledIcon,
   StyledMessageContainer,
 };
