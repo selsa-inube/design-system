@@ -4,7 +4,7 @@ import { Stack } from "@layouts/Stack";
 import { FullscreenNav, INavigation } from "@navigation/FullscreenNav";
 import { StyledHeader } from "./styles";
 
-interface IHeaderProps {
+export interface IHeaderProps {
   portalId: string;
   navigation: INavigation;
   logo: JSX.Element;

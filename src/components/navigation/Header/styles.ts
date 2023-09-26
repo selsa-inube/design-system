@@ -1,5 +1,12 @@
 import styled from "styled-components";
+import { Themed } from "@shared/types/types";
 import { colors } from "@shared/colors/colors";
+import { IHeaderProps } from ".";
+import { inube } from "@src/shared/tokens";
+
+interface IStyledHeaderProps extends IHeaderProps {
+  theme?: Themed;
+}
 
 const StyledHeader = styled.div`
   display: flex;
@@ -15,11 +22,14 @@ const StyledHeader = styled.div`
   }
 
   & > div:first-child {
-    padding-left: 10px;
+    padding-left: ${inube.spacing.s150};
   }
   & > div:last-child {
-    padding: 10px;
-    border-left: 1px solid ${colors.ref.palette.neutral.n20};
+    padding: ${inube.spacing.s100} ${inube.spacing.s200};
+    border-left: 1px solid
+      ${({ theme }: IStyledHeaderProps) =>
+        theme?.color?.stroke?.divider?.regular ||
+        inube.color.stroke.divider.regular};
   }
 `;
 
