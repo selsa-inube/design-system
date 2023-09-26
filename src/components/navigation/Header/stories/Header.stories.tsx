@@ -10,7 +10,7 @@ import {
   MdAccountBalanceWallet,
 } from "react-icons/md";
 
-import { Header } from "..";
+import { Header, IHeaderProps } from "..";
 
 import { props } from "../props";
 import { Logo } from "./logo";
@@ -20,7 +20,7 @@ const story = {
   components: [Header],
   argTypes: props,
   decorators: [
-    (Story) => (
+    (Story: React.ElementType) => (
       <BrowserRouter>
         <Story />
       </BrowserRouter>
@@ -28,7 +28,7 @@ const story = {
   ],
 };
 
-const Default = (args) => <Header {...args} />;
+const Default = (args: IHeaderProps) => <Header {...args} />;
 
 Default.args = {
   portalId: "portals",
