@@ -147,6 +147,7 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
           size="24px"
           spacing="none"
           disabled={disabled}
+          onClick={onClick}
         />
       </StyledInputContainer>
 
