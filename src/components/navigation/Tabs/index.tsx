@@ -35,7 +35,7 @@ const Tabs = ({
       disabled: tab.disabled,
     }));
 
-    //console.log(dropDownOptions, "dropDownOptions", "selected ->", selected);
+    console.log(dropDownOptions, "dropDownOptions", "selected ->", selected);
     return (
       <>
         <StyledTabs type={type}>
