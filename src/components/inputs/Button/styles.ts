@@ -11,20 +11,19 @@ interface IStyledButtonProps extends IButtonProps {
 const spacing = {
   compact: {
     height: "28px",
-    minWidth: "93px",
   },
   wide: {
     height: "36px",
-    minWidth: "101px",
   },
 };
 
 const StyledButton = styled.button`
-  padding: 0px 16px;
+  padding: ${inube.spacing.s0} ${inube.spacing.s200};
   transition: all 0.3s ease;
   border-radius: 8px;
   border: none;
   border-width: 1px;
+  min-width: 100px;
   width: ${({ fullwidth }: IStyledButtonProps) => {
     if (fullwidth) {
       return "100%";
@@ -32,6 +31,8 @@ const StyledButton = styled.button`
 
     return "fit-content";
   }};
+  max-width: ${({ fullwidth }: IStyledButtonProps) =>
+    fullwidth ? "none" : "300px"};
   border-style: ${(props: IStyledButtonProps) =>
     props.type !== "link" ? "solid" : "none"};
   ${(props: IStyledButtonProps) => spacing[props.spacing!]};
