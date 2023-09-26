@@ -126,6 +126,22 @@ const props = {
     description:
       "Is the path where the button is going to navigate when is used as button for navigation",
   },
+  cursorHover: {
+    options: [false, true],
+    control: { type: "boolean" },
+    description: "whether the button changes upon cursor hover",
+    table: {
+      defaultValue: { summary: false },
+    },
+  },
+  parentHover: {
+    options: [false, true],
+    control: { type: "boolean" },
+    description: "whether the button changes upon its parent hover",
+    table: {
+      defaultValue: { summary: false },
+    },
+  },
 };
 
 export { props };

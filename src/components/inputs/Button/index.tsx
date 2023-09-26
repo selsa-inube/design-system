@@ -20,6 +20,8 @@ export interface IButtonProps {
   fullwidth?: boolean;
   onClick?: (e?: Event) => void;
   path?: string;
+  cursorHover?: boolean;
+  parentHover?: boolean;
 }
 
 function childrenAppearence(variant: Variant, appearance: Appearance) {
@@ -50,6 +52,8 @@ const ButtonStructure = (props: IButtonProps) => {
     variant = "filled",
     fullwidth = false,
     onClick,
+    cursorHover = false,
+    parentHover = false,
   } = props;
 
   return (
@@ -64,6 +68,8 @@ const ButtonStructure = (props: IButtonProps) => {
       variant={variant}
       fullwidth={fullwidth}
       onClick={disabled ? null : onClick}
+      cursorHover={cursorHover}
+      parentHover={parentHover}
     >
       {loading && !disabled ? (
         <Spinner
