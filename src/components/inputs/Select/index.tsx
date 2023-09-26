@@ -22,10 +22,10 @@ export interface ISelectProps {
   size?: Size;
   fullwidth?: boolean;
   options: ISelectOptions[];
-  onChange?: (event: MouseEvent) => void;
+  onChange?: (event: Event) => void;
   onFocus?: (event: FocusEvent) => void;
   onBlur?: (event: FocusEvent) => void;
-  onClick?: (event: MouseEvent) => void;
+  onClick?: (event: Event) => void;
 }
 
 const Select = (props: ISelectProps) => {
@@ -64,11 +64,7 @@ const Select = (props: ISelectProps) => {
     onBlur && onBlur(e);
   };
 
-  const toggleOptionsMenu = () => {
-    setOpen(!open);
-  };
-
-  const handleClickOutside = (event: MouseEvent) => {
+  const handleClickOutside = (event: Event) => {
     if (selectRef.current && !selectRef.current.contains(event.target!)) {
       setOpen(false);
     }
@@ -91,10 +87,10 @@ const Select = (props: ISelectProps) => {
     setOpen(false);
   };
 
-  const handleClick = (e: MouseEvent) => {
+  const handleClick = (e: Event) => {
     onClick && onClick(e);
 
-    toggleOptionsMenu();
+    setOpen(!open);
   };
   console.log(open, "open");
   return (

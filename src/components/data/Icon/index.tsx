@@ -11,7 +11,7 @@ export interface IIconProps {
   variant?: Variant;
   shape?: Shape;
   size?: string;
-  onClick?: () => void;
+  onClick?: (e: Event) => void;
 }
 
 const Icon = (props: IIconProps) => {
