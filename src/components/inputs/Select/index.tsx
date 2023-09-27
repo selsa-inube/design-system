@@ -49,7 +49,7 @@ const Select = (props: ISelectProps) => {
   } = props;
 
   const [isFocused, setIsFocused] = useState(false);
-  const [open, setOpen] = useState(false);
+  const [displayList, setDisplayList] = useState(false);
   const [selectedOption, setSelectedOption] = useState<string | number | null>(
     value
   );
@@ -68,12 +68,12 @@ const Select = (props: ISelectProps) => {
   };
 
   const toggleOptionsMenu = () => {
-    setOpen(!open);
+    setDisplayList(!displayList);
   };
 
   const handleClickOutside = (event: MouseEvent) => {
     if (selectRef.current && !selectRef.current.contains(event.target!)) {
-      setOpen(false);
+      setDisplayList(false);
     }
   };
 
@@ -86,8 +86,10 @@ const Select = (props: ISelectProps) => {
   }, [selectRef]);
 
   const handleOptionClick = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedOption(e.target.textContent);
-    setOpen(false);
+    if (e) {
+      setSelectedOption(e.target.textContent);
+      setDisplayList(false);
+    }
   };
 
   const handleClick = (e: MouseEvent) => {
@@ -114,7 +116,7 @@ const Select = (props: ISelectProps) => {
       onFocus={handleFocus}
       onBlur={handleBlur}
       options={options}
-      openOptions={open}
+      displayList={displayList}
       onClick={handleClick}
       selectedOption={selectedOption!}
       onOptionClick={handleOptionClick}

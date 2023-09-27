@@ -31,7 +31,7 @@ export interface ISelectStateProps {
 
 export interface ISelectInterfaceProps extends ISelectProps {
   isFocused?: boolean;
-  openOptions: boolean;
+  displayList: boolean;
   onCloseOptions: () => void;
   onOptionClick: (e: React.ChangeEvent<HTMLInputElement>) => void;
   selectedOption?: string | number;
@@ -88,7 +88,7 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
     onFocus,
     onBlur,
     options,
-    openOptions,
+    displayList,
     value,
     onClick,
     onOptionClick,
@@ -153,7 +153,7 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
       {status && (
         <Message disabled={disabled} status={status} message={message} />
       )}
-      {openOptions && !disabled && (
+      {displayList && !disabled && (
         <OptionList onClick={(e) => onOptionClick(e)}>
           {options.map((optionItem) => (
             <OptionItem key={optionItem.id} id={optionItem.id}>
