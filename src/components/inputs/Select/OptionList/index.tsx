@@ -4,7 +4,7 @@ import { StyledOptionList } from "./styled";
 
 export interface OptionListProps {
   children: JSX.Element[];
-  onClick?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onClick: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const OptionList = (props: OptionListProps) => {

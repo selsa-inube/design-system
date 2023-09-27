@@ -1,6 +1,7 @@
 import { props, parameters } from "./props";
 import { OptionList, OptionListProps } from "./index";
 import { OptionItem } from "../OptionItem";
+import { action } from "@storybook/addon-actions";
 
 const story = {
   title: "Inputs/OptionList",
@@ -16,7 +17,7 @@ const options = [
 ];
 
 const Default = (args: OptionListProps) => (
-  <OptionList>
+  <OptionList onClick={action("onClick")}>
     {options.map((optionItem) => (
       <OptionItem key={optionItem.id} id={optionItem.id}>
         {optionItem.label}
@@ -24,7 +25,6 @@ const Default = (args: OptionListProps) => (
     ))}
   </OptionList>
 );
-Default.args = {};
 
 export default story;
 
