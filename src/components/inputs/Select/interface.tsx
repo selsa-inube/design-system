@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import React, { forwardRef } from "react";
 import {
   MdOutlineError,
   MdCheckCircle,
@@ -20,6 +20,7 @@ import {
   StyledIcon,
   StyledMessageContainer,
 } from "./styles";
+import { OptionItem } from "./OptionItem";
 
 export interface ISelectStateProps {
   disabled: boolean;
@@ -32,7 +33,7 @@ export interface ISelectInterfaceProps extends ISelectProps {
   isFocused?: boolean;
   openOptions: boolean;
   onCloseOptions: () => void;
-  onOptionClick: (idOption: string) => void;
+  onOptionClick: (e: React.ChangeEvent<HTMLInputElement>) => void;
   selectedOption?: string | number;
 }
 
@@ -153,12 +154,13 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
         <Message disabled={disabled} status={status} message={message} />
       )}
       {openOptions && !disabled && (
-        <OptionList
-          options={options}
-          isOpenOptions={openOptions}
-          onClick={onOptionClick}
-          onCloseOptions={onCloseOptions}
-        />
+        <OptionList onClick={(e) => onOptionClick(e)}>
+          {options.map((optionItem) => (
+            <OptionItem key={optionItem.id} id={optionItem.id}>
+              {optionItem.label}
+            </OptionItem>
+          ))}
+        </OptionList>
       )}
     </StyledContainer>
   );

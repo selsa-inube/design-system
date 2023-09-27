@@ -1,9 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { MdKeyboardArrowDown } from "react-icons/md";
 
+import { OptionItem } from "@inputs/Select/OptionItem";
 import { OptionList } from "@inputs/Select/OptionList";
 import { Stack } from "@layouts/Stack";
-import { ITabProps, Tab } from "@navigation/Tabs/Tab";
+import { Tab, ITabProps } from "@navigation/Tabs/Tab";
 
 import { Types } from "./props";
 import { StyledTabs, StyledIconWrapper } from "./styles";
@@ -22,17 +23,9 @@ const Tabs = ({
   onSelectTab,
 }: ITabsProps) => {
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
-  const [selectedTabLabel, setSelectedTabLabel] = useState<string>("");
-  const [selectedTabIsDisabled, setSelectedTabIsDisabled] =
-    useState<boolean>(false);
-
-  useEffect(() => {
-    const selected = tabs.find((tab) => tab.id === selectedTab);
-    if (selected) {
-      setSelectedTabLabel(selected.label);
-      setSelectedTabIsDisabled(selected?.disabled ?? false);
-    }
-  }, [selectedTab, tabs]);
+  const [selectedTabLabel, setSelectedTabLabel] = useState<string | null>(
+    selectedTab
+  );
 
   if (type === "select") {
     const dropDownOptions = tabs.map((tab) => ({
@@ -40,6 +33,13 @@ const Tabs = ({
       label: tab.label,
       disabled: tab.disabled,
     }));
+
+    const handleOptionClick = (e: React.ChangeEvent<HTMLInputElement>) => {
+      if (e) {
+        setSelectedTabLabel(e.target.textContent);
+        setIsDropDownOpen(false);
+      }
+    };
     return (
       <>
         <StyledTabs type={type}>
@@ -51,21 +51,21 @@ const Tabs = ({
             </StyledIconWrapper>
             <Tab
               key={selectedTab}
-              disabled={selectedTabIsDisabled}
               selected={true}
               id={selectedTab}
               onClick={() => onSelectTab(selectedTab)}
-              label={selectedTabLabel}
+              label={selectedTabLabel!}
             />
           </Stack>
         </StyledTabs>
         {isDropDownOpen && (
-          <OptionList
-            options={dropDownOptions}
-            onSelect={onSelectTab}
-            isOpenOptions={isDropDownOpen}
-            onCloseOptions={() => setIsDropDownOpen(false)}
-          />
+          <OptionList onClick={handleOptionClick}>
+            {dropDownOptions.map((optionItem) => (
+              <OptionItem key={optionItem.id} id={optionItem.id}>
+                {optionItem.label}
+              </OptionItem>
+            ))}
+          </OptionList>
         )}
       </>
     );

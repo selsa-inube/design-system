@@ -1,39 +1,24 @@
-import { OptionItem } from "@inputs/Select/OptionItem";
+//import { OptionItem } from "@inputs/Select/OptionItem";
+
 import { StyledOptionList } from "./styled";
 
-interface optionItemProps {
-  id: string;
-  label: string;
-}
-
 export interface OptionListProps {
-  options: optionItemProps[];
-  onClick?: (id: string) => void;
-  onCloseOptions?: () => void;
-  onSelect?: (id: string) => void;
-  isOpenOptions?: boolean;
+  children: JSX.Element[];
+  onClick?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const OptionList = (props: OptionListProps) => {
-  const { options, onClick, onSelect, onCloseOptions } = props;
+  const { children, onClick } = props;
 
-  const handleOptionClick = (id: string) => {
-    if (onClick) onClick(id);
-    if (onSelect) onSelect(id);
-    if (onCloseOptions) onCloseOptions();
+  const handleOptionClick = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (onClick) onClick(e);
   };
 
   return (
-    <StyledOptionList>
-      {options.map((optionItem) => (
-        <OptionItem
-          key={optionItem.id}
-          id={optionItem.id}
-          onClick={() => handleOptionClick(optionItem.id)}
-        >
-          {optionItem.label}
-        </OptionItem>
-      ))}
+    <StyledOptionList
+      onClick={(e: React.ChangeEvent<HTMLInputElement>) => handleOptionClick(e)}
+    >
+      {children}
     </StyledOptionList>
   );
 };

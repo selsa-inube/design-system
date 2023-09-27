@@ -50,6 +50,9 @@ const Select = (props: ISelectProps) => {
 
   const [isFocused, setIsFocused] = useState(false);
   const [open, setOpen] = useState(false);
+  const [selectedOption, setSelectedOption] = useState<string | number | null>(
+    value
+  );
   const selectRef = useRef<{ contains: (e: EventTarget) => EventTarget }>(null);
 
   const handleFocus = (e: FocusEvent) => {
@@ -82,11 +85,9 @@ const Select = (props: ISelectProps) => {
     };
   }, [selectRef]);
 
-  const [selectedOption, setSelectedOption] = useState(value);
-
-  const handleOptionClick = (idOption: string) => {
-    const option = options.find((option) => option.id === idOption);
-    setSelectedOption(option!.label);
+  const handleOptionClick = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSelectedOption(e.target.textContent);
+    setOpen(false);
   };
 
   const handleClick = (e: MouseEvent) => {
@@ -115,7 +116,7 @@ const Select = (props: ISelectProps) => {
       options={options}
       openOptions={open}
       onClick={handleClick}
-      selectedOption={selectedOption}
+      selectedOption={selectedOption!}
       onOptionClick={handleOptionClick}
       onCloseOptions={toggleOptionsMenu}
       ref={selectRef}

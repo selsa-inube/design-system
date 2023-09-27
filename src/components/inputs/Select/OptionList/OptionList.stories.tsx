@@ -1,5 +1,6 @@
 import { props, parameters } from "./props";
 import { OptionList, OptionListProps } from "./index";
+import { OptionItem } from "../OptionItem";
 
 const story = {
   title: "Inputs/OptionList",
@@ -8,15 +9,22 @@ const story = {
   argTypes: props,
 };
 
-const Default = (args: OptionListProps) => <OptionList {...args} />;
-Default.args = {
-  options: [
-    { id: "1", label: "Item 1" },
-    { id: "2", label: "Item 2" },
-    { id: "3", label: "Item 3" },
-  ],
-  isOpenOptions: true,
-};
+const options = [
+  { id: "1", label: "Item 1" },
+  { id: "2", label: "Item 2" },
+  { id: "3", label: "Item 3" },
+];
+
+const Default = (args: OptionListProps) => (
+  <OptionList>
+    {options.map((optionItem) => (
+      <OptionItem key={optionItem.id} id={optionItem.id}>
+        {optionItem.label}
+      </OptionItem>
+    ))}
+  </OptionList>
+);
+Default.args = {};
 
 export default story;
 
