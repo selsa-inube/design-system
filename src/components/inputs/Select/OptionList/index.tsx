@@ -1,5 +1,3 @@
-//import { OptionItem } from "@inputs/Select/OptionItem";
-
 import { StyledOptionList } from "./styled";
 
 export interface OptionListProps {
