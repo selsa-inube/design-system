@@ -1,13 +1,8 @@
-import { OptionItem } from "@inputs/Select/OptionItem";
+import { IOptionItemProps, OptionItem } from "@inputs/Select/OptionItem";
 import { StyledOptionList } from "./styled";
 
-interface optionItemProps {
-  id: string;
-  label: string;
-}
-
 export interface OptionListProps {
-  options: optionItemProps[];
+  options: IOptionItemProps[];
   onClick?: (id: string) => void;
   onCloseOptions?: () => void;
   onSelect?: (id: string) => void;
@@ -29,10 +24,9 @@ const OptionList = (props: OptionListProps) => {
         <OptionItem
           key={optionItem.id}
           id={optionItem.id}
+          label={optionItem.label}
           onClick={() => handleOptionClick(optionItem.id)}
-        >
-          {optionItem.label}
-        </OptionItem>
+        />
       ))}
     </StyledOptionList>
   );

@@ -35,11 +35,14 @@ const Tabs = ({
   }, [selectedTab, tabs]);
 
   if (type === "select") {
-    const dropDownOptions = tabs.map((tab) => ({
-      id: tab.id,
-      label: tab.label,
-      disabled: tab.disabled,
-    }));
+    const dropDownOptions = tabs.map((tab) => {
+      return {
+        id: tab.id,
+        label: tab.label,
+        disabled: tab.disabled,
+        onClick: () => onSelectTab(tab.id),
+      };
+    });
     return (
       <>
         <StyledTabs type={type}>
