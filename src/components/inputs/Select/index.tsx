@@ -84,7 +84,7 @@ const Select = (props: ISelectProps) => {
 
   const [selectedOption, setSelectedOption] = useState(value);
 
-  const handleOptionClick = (idOption: string) => {
+  const handleInsideClick = (idOption: string) => {
     const option = options.find((option) => option.id === idOption);
     setSelectedOption(option!.label);
   };
@@ -116,7 +116,7 @@ const Select = (props: ISelectProps) => {
       openOptions={open}
       onClick={handleClick}
       selectedOption={selectedOption}
-      onOptionClick={handleOptionClick}
+      onOptionClick={handleInsideClick}
       onCloseOptions={toggleOptionsMenu}
       ref={selectRef}
     />
