@@ -1,3 +1,4 @@
+import { ThemeProvider } from "styled-components";
 import { BrowserRouter } from "react-router-dom";
 
 import {
@@ -10,17 +11,19 @@ import {
   MdAccountBalanceWallet,
 } from "react-icons/md";
 
-import { Header } from "..";
+import { props, parameters } from "../props";
+import { Header, IHeaderProps } from "..";
 
-import { props } from "../props";
 import { Logo } from "./logo";
+import { presente } from "@src/shared/themes/presente";
 
 const story = {
   title: "navigation/Header",
   components: [Header],
+  parameters,
   argTypes: props,
   decorators: [
-    (Story) => (
+    (Story: React.ElementType) => (
       <BrowserRouter>
         <Story />
       </BrowserRouter>
@@ -28,7 +31,7 @@ const story = {
   ],
 };
 
-const Default = (args) => <Header {...args} />;
+const Default = (args: IHeaderProps) => <Header {...args} />;
 
 Default.args = {
   portalId: "portals",
@@ -103,6 +106,18 @@ Default.args = {
   isBusinessUnit: true,
 };
 
+const theme = structuredClone(presente);
+
+const Themed = (args: IHeaderProps) => (
+  <ThemeProvider theme={theme}>
+    <Default {...args} />
+  </ThemeProvider>
+);
+
+Themed.args = {
+  ...Default.args,
+};
+
 export default story;
 
-export { Default };
+export { Default, Themed };
