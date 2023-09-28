@@ -64,10 +64,6 @@ const Select = (props: ISelectProps) => {
     onBlur && onBlur(e);
   };
 
-  const toggleOptionsMenu = () => {
-    setOpen(!open);
-  };
-
   const handleClickOutside = (event: MouseEvent) => {
     if (selectRef.current && !selectRef.current.contains(event.target!)) {
       setOpen(false);
@@ -92,7 +88,7 @@ const Select = (props: ISelectProps) => {
   const handleClick = (e: MouseEvent) => {
     onClick && onClick(e);
 
-    toggleOptionsMenu();
+    setOpen(!open);
   };
 
   return (
@@ -117,7 +113,7 @@ const Select = (props: ISelectProps) => {
       onClick={handleClick}
       selectedOption={selectedOption}
       onOptionClick={handleOptionClick}
-      onCloseOptions={toggleOptionsMenu}
+      onCloseOptions={() => setOpen(!open)}
       ref={selectRef}
     />
   );
