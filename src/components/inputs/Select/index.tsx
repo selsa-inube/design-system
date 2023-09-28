@@ -1,8 +1,8 @@
 import { useState, useRef, useEffect } from "react";
 
-import { SelectUI } from "./interface";
-import { Size, Status } from "./props";
 import { IOptionItemProps } from "./OptionItem";
+import { Size, Status } from "./props";
+import { SelectUI } from "./interface";
 
 export interface ISelectProps {
   label?: string;
