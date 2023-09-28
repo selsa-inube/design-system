@@ -2,12 +2,7 @@ import { useState, useRef, useEffect } from "react";
 
 import { SelectUI } from "./interface";
 import { Size, Status } from "./props";
-
-export interface ISelectOptions {
-  id: string;
-  label: string;
-  disabled: boolean;
-}
+import { IOptionItemProps } from "./OptionItem";
 
 export interface ISelectProps {
   label?: string;
@@ -21,7 +16,7 @@ export interface ISelectProps {
   message?: string;
   size?: Size;
   fullwidth?: boolean;
-  options: ISelectOptions[];
+  options: IOptionItemProps[];
   onChange?: (event: MouseEvent) => void;
   onFocus?: (event: FocusEvent) => void;
   onBlur?: (event: FocusEvent) => void;
