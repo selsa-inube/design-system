@@ -48,24 +48,20 @@ const Select = (props: ISelectProps) => {
     onClick,
   } = props;
 
-  const [isFocused, setIsFocused] = useState(false);
+  const [focused, setFocused] = useState(false);
   const [open, setOpen] = useState(false);
   const selectRef = useRef<{ contains: (e: EventTarget) => EventTarget }>(null);
 
   const handleFocus = (e: FocusEvent) => {
-    setIsFocused(true);
+    setFocused(true);
 
     onFocus && onFocus(e);
   };
 
   const handleBlur = (e: FocusEvent) => {
-    setIsFocused(false);
+    setFocused(false);
 
     onBlur && onBlur(e);
-  };
-
-  const toggleOptionsMenu = () => {
-    setOpen(!open);
   };
 
   const handleClickOutside = (event: MouseEvent) => {
@@ -92,7 +88,7 @@ const Select = (props: ISelectProps) => {
   const handleClick = (e: MouseEvent) => {
     onClick && onClick(e);
 
-    toggleOptionsMenu();
+    setOpen(!open);
   };
 
   return (
@@ -109,7 +105,7 @@ const Select = (props: ISelectProps) => {
       status={status}
       message={message}
       fullwidth={fullwidth}
-      isFocused={isFocused}
+      focused={focused}
       onFocus={handleFocus}
       onBlur={handleBlur}
       options={options}
@@ -117,7 +113,7 @@ const Select = (props: ISelectProps) => {
       onClick={handleClick}
       selectedOption={selectedOption}
       onOptionClick={handleInsideClick}
-      onCloseOptions={toggleOptionsMenu}
+      onCloseOptions={() => setOpen(!open)}
       ref={selectRef}
     />
   );

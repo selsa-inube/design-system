@@ -1,12 +1,13 @@
-const props = {
-  parameters: {
-    docs: {
-      description: {
-        component:
-          "The header is a user interface element within a web page that contains links to other sections of the website.",
-      },
+const parameters = {
+  docs: {
+    description: {
+      component:
+        "The header is a user interface element within a web page that contains links to other sections of the website.",
     },
   },
+};
+
+const props = {
   navigation: {
     description:
       "The primary object that will organize and store the requisite paths for the correct operation of the Nav component is forthcoming and is required",
@@ -40,4 +41,4 @@ const props = {
   },
 };
 
-export { props };
+export { props, parameters };
