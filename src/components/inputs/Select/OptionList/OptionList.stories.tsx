@@ -2,7 +2,7 @@ import { props, parameters } from "./props";
 import { OptionList, OptionListProps } from "./index";
 
 const story = {
-  title: "Inputs/OptionList",
+  title: "Inputs/Select/OptionList",
   component: [OptionList],
   parameters,
   argTypes: props,
