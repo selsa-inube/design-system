@@ -48,7 +48,7 @@ const StyledInputContainer = styled.div`
     theme?.color?.surface?.light?.clear || inube.color.surface.light.clear};
   grid-template-columns: 1fr auto;
   border: 1px solid
-    ${({ theme, disabled, status, isFocused }: IStyledSelectInterfaceProps) => {
+    ${({ theme, disabled, status, focused }: IStyledSelectInterfaceProps) => {
       if (disabled) {
         return (
           (theme?.color?.text?.dark?.disabled ||
@@ -56,7 +56,7 @@ const StyledInputContainer = styled.div`
           "; pointer-events: none; opacity: 0.5;"
         );
       }
-      if (isFocused) {
+      if (focused) {
         return (
           theme?.color?.text?.primary?.hover || inube.color.text.primary.hover
         );
