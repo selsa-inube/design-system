@@ -47,32 +47,39 @@ const StyledInputContainer = styled.div`
   background: ${({ theme }: IStyledSelectInterfaceProps) =>
     theme?.color?.surface?.light?.clear || inube.color.surface.light.clear};
   grid-template-columns: 1fr auto;
-  border: 1px solid
-    ${({ theme, disabled, status, focused }: IStyledSelectInterfaceProps) => {
-      if (disabled) {
-        return (
-          (theme?.color?.text?.dark?.disabled ||
-            inube.color.text.dark.disabled) +
-          "; pointer-events: none; opacity: 0.5;"
-        );
-      }
-      if (focused) {
-        return (
-          theme?.color?.text?.primary?.hover || inube.color.text.primary.hover
-        );
-      }
-      if (status === "invalid") {
-        return (
-          theme?.color?.text?.error?.regular || inube.color.text.error.regular
-        );
-      }
+  border-width: 1px;
+  border-style: solid;
+  border-color: ${({
+    theme,
+    disabled,
+    status,
+    focused,
+  }: IStyledSelectInterfaceProps) => {
+    if (disabled) {
       return (
-        theme?.color?.stroke?.divider?.regular ||
-        inube.color.stroke.divider.regular
+        (theme?.color?.text?.dark?.disabled || inube.color.text.dark.disabled) +
+        "; pointer-events: none; opacity: 0.5;"
       );
-    }};
-  ${({ disabled }: IStyledSelectInterfaceProps) =>
-    disabled && "pointer-events: none; opacity: 0.5;"}
+    }
+    if (focused) {
+      return (
+        theme?.color?.text?.primary?.hover || inube.color.text.primary.hover
+      );
+    }
+    if (status === "invalid") {
+      return (
+        theme?.color?.text?.error?.regular || inube.color.text.error.regular
+      );
+    }
+    return (
+      theme?.color?.stroke?.divider?.regular ||
+      inube.color.stroke.divider.regular
+    );
+  }};
+  pointer-events: ${({ disabled }: IStyledSelectInterfaceProps) =>
+    disabled ? "none" : "auto"};
+  opacity: ${({ disabled }: IStyledSelectInterfaceProps) =>
+    disabled ? "0.5" : "none"};
   cursor: ${({ disabled }: IStyledSelectInterfaceProps) =>
     disabled ? "not-allowed" : "pointer"};
 `;
@@ -81,6 +88,9 @@ const StyledInput = styled.input`
   outline: none;
   border-radius: 8px;
   padding: 0px 12px 0px 16px;
+  border-width: none;
+  border-style: none;
+  border-color: none;
   font-family: ${typography.sys.typescale.bodyLarge.font};
   font-size: ${typography.sys.typescale.bodyLarge.size};
   font-weight: ${typography.sys.typescale.bodyLarge.weight};
@@ -101,8 +111,6 @@ const StyledInput = styled.input`
   width: ${({ fullwidth }: IStyledSelectInterfaceProps) =>
     fullwidth ? "252px" : "calc(100% - 32px)"};
   ${({ size }: IStyledSelectInterfaceProps) => sizeOptions[size!]};
-
-  border: none;
 
   ::placeholder {
     color: ${({ theme }: IStyledSelectInterfaceProps) =>
