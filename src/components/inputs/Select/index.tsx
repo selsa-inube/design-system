@@ -75,7 +75,6 @@ const Select = (props: ISelectProps) => {
 
   const handleOptionClick = (e: React.ChangeEvent<HTMLInputElement>) => {
     onChange(e);
-
     setDisplayList(false);
   };
 
