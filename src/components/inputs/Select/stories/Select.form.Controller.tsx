@@ -5,7 +5,7 @@ import { StyledForm } from "./styles";
 import { Button } from "../../Button";
 
 const InForm = (props: ISelectProps) => {
-  const { value = "", status = "pending", required } = props;
+  const { value, status = "pending", required } = props;
   const [form, setForm] = useState({ value, status });
 
   const onClick = (e: Event) => {

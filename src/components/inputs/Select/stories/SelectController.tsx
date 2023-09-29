@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Select, ISelectProps } from "..";
 
 const SelectController = (props: ISelectProps) => {
-  const { value = "", status = "pending" } = props;
+  const { value, status = "pending" } = props;
   const [form, setForm] = useState({ value, status });
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {

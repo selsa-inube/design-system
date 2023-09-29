@@ -10,7 +10,7 @@ export interface ISelectProps {
   id: string;
   placeholder?: string;
   disabled?: boolean;
-  value?: string | number;
+  value: string | number;
   required?: boolean;
   status?: Status;
   message?: string;
