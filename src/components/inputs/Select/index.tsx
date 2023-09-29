@@ -73,14 +73,13 @@ const Select = (props: ISelectProps) => {
     };
   }, [selectRef]);
 
-  const handleOptionClick = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInsideClick = (e: React.ChangeEvent<HTMLInputElement>) => {
     onChange(e);
     setDisplayList(false);
   };
 
   const handleClick = (e: MouseEvent) => {
     onClick && onClick(e);
-
     setDisplayList(!displayList);
   };
 
@@ -104,7 +103,7 @@ const Select = (props: ISelectProps) => {
       options={options}
       displayList={displayList}
       onClick={handleClick}
-      onOptionClick={handleOptionClick}
+      onOptionClick={handleInsideClick}
       onCloseOptions={() => setDisplayList(!displayList)}
       ref={selectRef}
     />
