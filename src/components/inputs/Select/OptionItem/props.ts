@@ -18,7 +18,7 @@ const props = {
       "(function): shall be determine the behavior of the click event and is not required.",
   },
 
-  children: {
+  label: {
     description: "The content of the component.",
   },
 };

@@ -4,7 +4,7 @@ import { OptionItem } from "../OptionItem";
 import { action } from "@storybook/addon-actions";
 
 const story = {
-  title: "Inputs/OptionList",
+  title: "Inputs/Select/OptionList",
   component: [OptionList],
   parameters,
   argTypes: props,
@@ -19,9 +19,11 @@ const options = [
 const Default = (args: OptionListProps) => (
   <OptionList onClick={action("onClick")}>
     {options.map((optionItem) => (
-      <OptionItem key={optionItem.id} id={optionItem.id}>
-        {optionItem.label}
-      </OptionItem>
+      <OptionItem
+        key={optionItem.id}
+        id={optionItem.id}
+        label={optionItem.label}
+      />
     ))}
   </OptionList>
 );

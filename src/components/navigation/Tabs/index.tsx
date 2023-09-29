@@ -61,9 +61,11 @@ const Tabs = ({
         {isDropDownOpen && (
           <OptionList onClick={handleOptionClick}>
             {dropDownOptions.map((optionItem) => (
-              <OptionItem key={optionItem.id} id={optionItem.id}>
-                {optionItem.label}
-              </OptionItem>
+              <OptionItem
+                key={optionItem.id}
+                id={optionItem.id}
+                label={optionItem.label}
+              />
             ))}
           </OptionList>
         )}

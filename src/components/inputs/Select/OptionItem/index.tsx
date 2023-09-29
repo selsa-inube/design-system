@@ -3,15 +3,15 @@ import { StyledOptionItem } from "./styles";
 
 export interface IOptionItemProps {
   id: string;
-  children: string;
+  label: string;
 }
 
 const OptionItem = (props: IOptionItemProps) => {
-  const { id, children } = props;
+  const { id, label } = props;
 
   return (
     <StyledOptionItem id={id}>
-      <Text size="medium">{children}</Text>
+      <Text size="medium">{label}</Text>
     </StyledOptionItem>
   );
 };

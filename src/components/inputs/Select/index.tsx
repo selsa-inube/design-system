@@ -1,13 +1,8 @@
 import { useState, useRef, useEffect } from "react";
 
-import { SelectUI } from "./interface";
+import { IOptionItemProps } from "./OptionItem";
 import { Size, Status } from "./props";
-
-export interface ISelectOptions {
-  id: string;
-  label: string;
-  disabled: boolean;
-}
+import { SelectUI } from "./interface";
 
 export interface ISelectProps {
   label?: string;
@@ -21,7 +16,7 @@ export interface ISelectProps {
   message?: string;
   size?: Size;
   fullwidth?: boolean;
-  options: ISelectOptions[];
+  options: IOptionItemProps[];
   onChange?: (event: MouseEvent) => void;
   onFocus?: (event: FocusEvent) => void;
   onBlur?: (event: FocusEvent) => void;
@@ -48,7 +43,7 @@ const Select = (props: ISelectProps) => {
     onClick,
   } = props;
 
-  const [isFocused, setIsFocused] = useState(false);
+  const [focused, setFocused] = useState(false);
   const [displayList, setDisplayList] = useState(false);
   const [selectedOption, setSelectedOption] = useState<string | number | null>(
     value
@@ -56,19 +51,15 @@ const Select = (props: ISelectProps) => {
   const selectRef = useRef<{ contains: (e: EventTarget) => EventTarget }>(null);
 
   const handleFocus = (e: FocusEvent) => {
-    setIsFocused(true);
+    setFocused(true);
 
     onFocus && onFocus(e);
   };
 
   const handleBlur = (e: FocusEvent) => {
-    setIsFocused(false);
+    setFocused(false);
 
     onBlur && onBlur(e);
-  };
-
-  const toggleOptionsMenu = () => {
-    setDisplayList(!displayList);
   };
 
   const handleClickOutside = (event: MouseEvent) => {
@@ -95,7 +86,7 @@ const Select = (props: ISelectProps) => {
   const handleClick = (e: MouseEvent) => {
     onClick && onClick(e);
 
-    toggleOptionsMenu();
+    setDisplayList(!displayList);
   };
 
   return (
@@ -112,15 +103,14 @@ const Select = (props: ISelectProps) => {
       status={status}
       message={message}
       fullwidth={fullwidth}
-      isFocused={isFocused}
+      focused={focused}
       onFocus={handleFocus}
       onBlur={handleBlur}
       options={options}
       displayList={displayList}
       onClick={handleClick}
-      selectedOption={selectedOption!}
       onOptionClick={handleOptionClick}
-      onCloseOptions={toggleOptionsMenu}
+      onCloseOptions={() => setDisplayList(!displayList)}
       ref={selectRef}
     />
   );

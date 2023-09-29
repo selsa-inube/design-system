@@ -7,7 +7,7 @@ import {
 
 import { Label } from "@inputs/Label";
 import { Text } from "@data/Text";
-import { OptionList } from "@inputs/Select/OptionList";
+import { OptionList } from "./OptionList";
 import { Icon } from "@data/Icon";
 import { Size } from "./props";
 
@@ -30,7 +30,7 @@ export interface ISelectStateProps {
 }
 
 export interface ISelectInterfaceProps extends ISelectProps {
-  isFocused?: boolean;
+  focused?: boolean;
   displayList: boolean;
   onCloseOptions: () => void;
   onOptionClick: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -84,7 +84,7 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
     message,
     size,
     fullwidth,
-    isFocused,
+    focused,
     onFocus,
     onBlur,
     options,
@@ -107,7 +107,7 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
           <Label
             htmlFor={id}
             disabled={disabled}
-            focused={isFocused}
+            focused={focused}
             invalid={status === "invalid" ? true : false}
             size={getTypo(size!)}
           >
@@ -124,7 +124,7 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
 
       <StyledInputContainer
         disabled={disabled}
-        isFocused={isFocused}
+        focused={focused}
         status={status}
       >
         <StyledInput
@@ -139,7 +139,7 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
           size={size}
           status={status}
           fullwidth={fullwidth}
-          isFocused={isFocused}
+          focused={focused}
           onChange={onChange}
           onFocus={onFocus}
           onBlur={onBlur}
@@ -156,9 +156,11 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
       {displayList && !disabled && (
         <OptionList onClick={(e) => onOptionClick(e)}>
           {options.map((optionItem) => (
-            <OptionItem key={optionItem.id} id={optionItem.id}>
-              {optionItem.label}
-            </OptionItem>
+            <OptionItem
+              key={optionItem.id}
+              id={optionItem.id}
+              label={optionItem.label}
+            />
           ))}
         </OptionList>
       )}
