@@ -45,7 +45,7 @@ const getTypo = (size: Size) => {
 };
 
 const Message = (
-  props: Omit<ISelectProps, "id" | "options"> & { message?: string }
+  props: Pick<ISelectProps, "disabled" | "status"> & { message?: string }
 ) => {
   const { disabled, status, message } = props;
 

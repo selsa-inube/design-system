@@ -5,10 +5,8 @@ const SelectController = (props: ISelectProps) => {
   const { value = "", status = "pending" } = props;
   const [form, setForm] = useState({ value, status });
 
-  const onChange = (e: Event) => {
-    const target = e.target as HTMLInputElement;
-    const { value } = target;
-
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let value = e.target.outerText;
     setForm({ value, status: "pending" });
   };
 

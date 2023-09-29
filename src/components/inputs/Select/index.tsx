@@ -17,7 +17,7 @@ export interface ISelectProps {
   size?: Size;
   fullwidth?: boolean;
   options: IOptionItemProps[];
-  onChange?: (event: MouseEvent) => void;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onFocus?: (event: FocusEvent) => void;
   onBlur?: (event: FocusEvent) => void;
   onClick?: (event: MouseEvent) => void;
@@ -45,14 +45,11 @@ const Select = (props: ISelectProps) => {
 
   const [focused, setFocused] = useState(false);
   const [displayList, setDisplayList] = useState(false);
-  const [selectedOption, setSelectedOption] = useState<string | number | null>(
-    value
-  );
+
   const selectRef = useRef<{ contains: (e: EventTarget) => EventTarget }>(null);
 
   const handleFocus = (e: FocusEvent) => {
     setFocused(true);
-
     onFocus && onFocus(e);
   };
 
@@ -77,7 +74,8 @@ const Select = (props: ISelectProps) => {
   }, [selectRef]);
 
   const handleOptionClick = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedOption(e.target.textContent);
+    onChange(e);
+
     setDisplayList(false);
   };
 
@@ -94,7 +92,7 @@ const Select = (props: ISelectProps) => {
       id={id}
       placeholder={placeholder}
       disabled={disabled}
-      value={selectedOption || value}
+      value={value}
       onChange={onChange}
       required={required}
       size={size}
