@@ -30,7 +30,7 @@ const Select = (props: ISelectProps) => {
     id,
     placeholder,
     disabled = false,
-    value = "",
+    value,
     onChange,
     required = false,
     status = "pending",
