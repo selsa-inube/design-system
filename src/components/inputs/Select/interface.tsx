@@ -21,13 +21,6 @@ import {
   StyledMessageContainer,
 } from "./styles";
 
-export interface ISelectStateProps {
-  disabled: boolean;
-  status: string;
-  validMessage?: string;
-  errorMessage?: string;
-}
-
 export interface ISelectInterfaceProps extends ISelectProps {
   focused?: boolean;
   openOptions: boolean;
