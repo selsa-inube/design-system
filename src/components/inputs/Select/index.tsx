@@ -77,10 +77,8 @@ const Select = (props: ISelectProps) => {
   }, [selectRef]);
 
   const handleOptionClick = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e) {
-      setSelectedOption(e.target.textContent);
-      setDisplayList(false);
-    }
+    setSelectedOption(e.target.textContent);
+    setDisplayList(false);
   };
 
   const handleClick = (e: MouseEvent) => {

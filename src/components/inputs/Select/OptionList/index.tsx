@@ -8,17 +8,7 @@ export interface OptionListProps {
 const OptionList = (props: OptionListProps) => {
   const { children, onClick } = props;
 
-  const handleOptionClick = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (onClick) onClick(e);
-  };
-
-  return (
-    <StyledOptionList
-      onClick={(e: React.ChangeEvent<HTMLInputElement>) => handleOptionClick(e)}
-    >
-      {children}
-    </StyledOptionList>
-  );
+  return <StyledOptionList onClick={onClick}>{children}</StyledOptionList>;
 };
 
 export { OptionList };
