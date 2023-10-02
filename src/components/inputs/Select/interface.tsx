@@ -26,7 +26,6 @@ export interface ISelectInterfaceProps extends ISelectProps {
   displayList: boolean;
   onCloseOptions: () => void;
   onOptionClick: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  selectedOption?: string | number;
 }
 
 const getTypo = (size: Size) => {
