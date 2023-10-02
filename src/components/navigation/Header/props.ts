@@ -22,7 +22,7 @@ const props = {
       defaultValue: { summary: "MdPersonOutline" },
     },
   },
-  businessUnit: {
+  client: {
     description: "shall be the displayed business Unit",
     table: {
       defaultValue: { summary: "MdPersonOutline" },
@@ -31,9 +31,9 @@ const props = {
   portalId: {
     description: "id of the portal element",
   },
-  isBusinessUnit: {
+  isClient: {
     description:
-      "ascertain whether the 'header-component' displays the attribute 'businessUnit' or not",
+      "ascertain whether the 'header-component' displays the attribute 'client' or not",
   },
 };
 
