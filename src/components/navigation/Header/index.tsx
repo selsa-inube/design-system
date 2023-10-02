@@ -8,8 +8,6 @@ export interface IHeaderProps {
   portalId: string;
   navigation: INavigation;
   logoURL: JSX.Element;
-  logoutPath: string;
-  logoutTitle: string;
   userName: string;
   businessUnit: string;
   isBusinessUnit: boolean;
@@ -26,27 +24,19 @@ const shouldDisplayNav = (matches: { [key: string]: boolean }) =>
   matches[SMALL_SCREEN] || matches[MEDIUM_SCREEN];
 
 const LogoAndNav = (
-  props: Pick<
-    IHeaderProps,
-    "portalId" | "navigation" | "logoutPath" | "logoutTitle" | "logoURL"
-  > & { shouldDisplay?: boolean }
+  props: Pick<IHeaderProps, "portalId" | "navigation" | "logoURL"> & {
+    shouldDisplay?: boolean;
+  }
 ) => {
-  const {
-    portalId,
-    navigation,
-    logoutPath,
-    logoutTitle,
-    logoURL,
-    shouldDisplay,
-  } = props;
+  const { portalId, navigation, logoURL, shouldDisplay } = props;
   return (
     <Stack justifyContent="space-between" gap="23px">
       {shouldDisplay && (
         <FullscreenNav
           portalId={portalId}
           navigation={navigation}
-          logoutPath={logoutPath}
-          logoutTitle={logoutTitle}
+          logoutPath="/logout"
+          logoutTitle="Logout"
         />
       )}
       {logoURL}
@@ -58,8 +48,6 @@ const Header = (props: IHeaderProps) => {
   const {
     portalId,
     navigation,
-    logoutPath,
-    logoutTitle,
     logoURL,
     userName,
     businessUnit,
@@ -77,8 +65,6 @@ const Header = (props: IHeaderProps) => {
       <LogoAndNav
         portalId={portalId}
         navigation={navigation}
-        logoutPath={logoutPath}
-        logoutTitle={logoutTitle}
         logoURL={logoURL}
         shouldDisplay={shouldDisplayLogoAndNav}
       />

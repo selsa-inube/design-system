@@ -16,10 +16,6 @@ const props = {
     description:
       "prop accepts a component to be used as the logo in the header. This component can be an image, an icon, stylized text or any other visual element that represents the brand identity.",
   },
-  logoutPath: {
-    description:
-      "is the path where the user is going to navigate when he wants to logout and is required",
-  },
   userName: {
     description: "shall be the displayed username",
     table: {

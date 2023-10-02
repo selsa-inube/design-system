@@ -98,8 +98,6 @@ Default.args = {
       },
     },
   },
-  logoutPath: "/logout",
-  logoutTitle: "Logout",
   logoURL: <Logo />,
   userName: "Leonardo Garzón",
   businessUnit: "Sistemas Enlínea S.A",

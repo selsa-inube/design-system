@@ -22,7 +22,7 @@ const StyledContainer = styled.div`
   cursor: ${({ disabled }: IStyledSelectInterfaceProps) =>
     disabled && "not-allowed"};
   width: ${({ fullwidth }: IStyledSelectInterfaceProps) =>
-    fullwidth ? "100%" : "fit-content"};
+    fullwidth ? "100%" : "300px"};
 `;
 
 const StyledContainerLabel = styled.div`
@@ -108,8 +108,7 @@ const StyledInput = styled.input`
     theme?.color?.surface?.light?.clear || inube.color.surface.light.clear};
   cursor: ${({ disabled }: IStyledSelectInterfaceProps) =>
     disabled ? "not-allowed" : "pointer"};
-  width: ${({ fullwidth }: IStyledSelectInterfaceProps) =>
-    fullwidth ? "252px" : "calc(100% - 32px)"};
+
   ${({ size }: IStyledSelectInterfaceProps) => sizeOptions[size!]};
 
   ::placeholder {
@@ -135,42 +134,9 @@ const StyledInput = styled.input`
   }
 `;
 
-const StyledMessageContainer = styled.div`
-  display: flex;
-  align-items: center;
-  margin-left: ${inube.spacing.s200};
-  pointer-events: none;
-  color: ${({ disabled, status, theme }: IStyledSelectInterfaceProps) => {
-    if (disabled) {
-      return (
-        theme?.color?.text?.gray?.disabled || inube.color.text.gray.disabled
-      );
-    }
-
-    if (status === "valid") {
-      return (
-        theme?.color?.text?.success?.regular || inube.color.text.success.regular
-      );
-    }
-
-    if (status === "invalid") {
-      return (
-        theme?.color?.text?.error?.regular || inube.color.text.error.regular
-      );
-    }
-  }};
-
-  & svg {
-    width: 14px;
-    height: 14px;
-    margin-top: ${inube.spacing.s100};
-  }
-`;
-
 export {
   StyledContainer,
   StyledContainerLabel,
   StyledInputContainer,
   StyledInput,
-  StyledMessageContainer,
 };
