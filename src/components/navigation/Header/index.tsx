@@ -26,21 +26,19 @@ const shouldDisplayNav = (matches: { [key: string]: boolean }) =>
   matches[SMALL_SCREEN] || matches[MEDIUM_SCREEN];
 
 const LogoAndNav = (
-  props: Pick<
-    IHeaderProps,
-    "portalId" | "navigation" | "logoutPath" | "logoutTitle" | "logo"
-  > & { shouldDisplay?: boolean }
+  props: Pick<IHeaderProps, "portalId" | "navigation" | "logo"> & {
+    shouldDisplay?: boolean;
+  }
 ) => {
-  const { portalId, navigation, logoutPath, logoutTitle, logo, shouldDisplay } =
-    props;
+  const { portalId, navigation, logo, shouldDisplay } = props;
   return (
     <Stack justifyContent="space-between" gap="23px">
       {shouldDisplay && (
         <FullscreenNav
           portalId={portalId}
           navigation={navigation}
-          logoutPath={logoutPath}
-          logoutTitle={logoutTitle}
+          logoutPath="/logout"
+          logoutTitle="Logout"
         />
       )}
       {logo}
@@ -52,8 +50,6 @@ const Header = (props: IHeaderProps) => {
   const {
     portalId,
     navigation,
-    logoutPath,
-    logoutTitle,
     logo,
     userName,
     businessUnit,
@@ -71,8 +67,6 @@ const Header = (props: IHeaderProps) => {
       <LogoAndNav
         portalId={portalId}
         navigation={navigation}
-        logoutPath={logoutPath}
-        logoutTitle={logoutTitle}
         logo={logo}
         shouldDisplay={shouldDisplayLogoAndNav}
       />
