@@ -5,35 +5,26 @@ import {
   MdOutlineArrowDropDown,
 } from "react-icons/md";
 
-import { Label } from "@inputs/Label";
 import { Text } from "@data/Text";
-import { OptionList } from "@inputs/Select/OptionList";
 import { Icon } from "@data/Icon";
-import { Size } from "./props";
+import { Label } from "@inputs/Label";
+import { Stack } from "@layouts/Stack";
 
+import { Size } from "./props";
+import { OptionList } from "./OptionList";
 import { ISelectProps } from ".";
 import {
   StyledContainer,
   StyledContainerLabel,
   StyledInputContainer,
   StyledInput,
-  StyledIcon,
-  StyledMessageContainer,
 } from "./styles";
-
-export interface ISelectStateProps {
-  disabled: boolean;
-  status: string;
-  validMessage?: string;
-  errorMessage?: string;
-}
+import { OptionItem } from "./OptionItem";
 
 export interface ISelectInterfaceProps extends ISelectProps {
   focused?: boolean;
-  openOptions: boolean;
-  onCloseOptions: () => void;
-  onOptionClick: (idOption: string) => void;
-  selectedOption?: string | number;
+  displayList: boolean;
+  onOptionClick: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const getTypo = (size: Size) => {
@@ -44,27 +35,27 @@ const getTypo = (size: Size) => {
 };
 
 const Message = (
-  props: Omit<ISelectProps, "id" | "options"> & { message?: string }
+  props: Pick<ISelectProps, "disabled" | "status"> & { message?: string }
 ) => {
   const { disabled, status, message } = props;
 
   return status !== "pending" ? (
-    <StyledMessageContainer disabled={disabled} status={status}>
+    <Stack alignItems="center" gap="4px" margin="s050 s0 s0 s200">
       <Icon
         appearance={status === "invalid" ? "error" : "success"}
         disabled={disabled}
         icon={status === "invalid" ? <MdOutlineError /> : <MdCheckCircle />}
+        size="14px"
       />
       <Text
         type="body"
         size="small"
-        margin="8px 0px 0px 4px"
         appearance={status === "invalid" ? "error" : "success"}
         disabled={disabled}
       >
         {message && `${message}`}
       </Text>
-    </StyledMessageContainer>
+    </Stack>
   ) : (
     <></>
   );
@@ -87,11 +78,10 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
     onFocus,
     onBlur,
     options,
-    openOptions,
+    displayList,
     value,
     onClick,
     onOptionClick,
-    onCloseOptions,
   } = props;
 
   return (
@@ -125,6 +115,7 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
         disabled={disabled}
         focused={focused}
         status={status}
+        onClick={onClick}
       >
         <StyledInput
           autoComplete="off"
@@ -144,21 +135,29 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
           onBlur={onBlur}
           onClick={onClick}
         />
-        <StyledIcon disabled={disabled}>
-          <MdOutlineArrowDropDown onClick={onCloseOptions} />
-        </StyledIcon>
+
+        <Icon
+          appearance="dark"
+          icon={<MdOutlineArrowDropDown />}
+          size="24px"
+          spacing="none"
+          disabled={disabled}
+        />
       </StyledInputContainer>
 
       {status && (
         <Message disabled={disabled} status={status} message={message} />
       )}
-      {openOptions && !disabled && (
-        <OptionList
-          options={options}
-          isOpenOptions={openOptions}
-          onClick={onOptionClick}
-          onCloseOptions={onCloseOptions}
-        />
+      {displayList && !disabled && (
+        <OptionList onClick={onOptionClick!}>
+          {options.map((optionItem) => (
+            <OptionItem
+              key={optionItem.id}
+              id={optionItem.id}
+              label={optionItem.label}
+            />
+          ))}
+        </OptionList>
       )}
     </StyledContainer>
   );

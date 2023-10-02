@@ -10,17 +10,17 @@ export interface ISelectProps {
   id: string;
   placeholder?: string;
   disabled?: boolean;
-  value?: string | number;
+  value: string | number;
   required?: boolean;
   status?: Status;
   message?: string;
   size?: Size;
   fullwidth?: boolean;
   options: IOptionItemProps[];
-  onChange?: (event: MouseEvent) => void;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onFocus?: (event: FocusEvent) => void;
   onBlur?: (event: FocusEvent) => void;
-  onClick?: (event: MouseEvent) => void;
+  onClick?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const Select = (props: ISelectProps) => {
@@ -30,7 +30,7 @@ const Select = (props: ISelectProps) => {
     id,
     placeholder,
     disabled = false,
-    value = "",
+    value,
     onChange,
     required = false,
     status = "pending",
@@ -44,12 +44,12 @@ const Select = (props: ISelectProps) => {
   } = props;
 
   const [focused, setFocused] = useState(false);
-  const [open, setOpen] = useState(false);
+  const [displayList, setDisplayList] = useState(false);
+
   const selectRef = useRef<{ contains: (e: EventTarget) => EventTarget }>(null);
 
   const handleFocus = (e: FocusEvent) => {
     setFocused(true);
-
     onFocus && onFocus(e);
   };
 
@@ -61,7 +61,7 @@ const Select = (props: ISelectProps) => {
 
   const handleClickOutside = (event: MouseEvent) => {
     if (selectRef.current && !selectRef.current.contains(event.target!)) {
-      setOpen(false);
+      setDisplayList(false);
     }
   };
 
@@ -73,17 +73,14 @@ const Select = (props: ISelectProps) => {
     };
   }, [selectRef]);
 
-  const [selectedOption, setSelectedOption] = useState(value);
-
-  const handleInsideClick = (idOption: string) => {
-    const option = options.find((option) => option.id === idOption);
-    setSelectedOption(option!.label);
+  const onInsideClick = (e: React.ChangeEvent<HTMLInputElement>) => {
+    onChange(e);
+    setDisplayList(false);
   };
 
-  const handleClick = (e: MouseEvent) => {
+  const handleClick = (e: React.ChangeEvent<HTMLInputElement>) => {
     onClick && onClick(e);
-
-    setOpen(!open);
+    setDisplayList(!displayList);
   };
 
   return (
@@ -93,7 +90,7 @@ const Select = (props: ISelectProps) => {
       id={id}
       placeholder={placeholder}
       disabled={disabled}
-      value={selectedOption || value}
+      value={value}
       onChange={onChange}
       required={required}
       size={size}
@@ -104,11 +101,9 @@ const Select = (props: ISelectProps) => {
       onFocus={handleFocus}
       onBlur={handleBlur}
       options={options}
-      openOptions={open}
+      displayList={displayList}
       onClick={handleClick}
-      selectedOption={selectedOption}
-      onOptionClick={handleInsideClick}
-      onCloseOptions={() => setOpen(!open)}
+      onOptionClick={onInsideClick}
       ref={selectRef}
     />
   );
