@@ -9,25 +9,17 @@ import { Label } from "@inputs/Label";
 import { Text } from "@data/Text";
 import { OptionList } from "./OptionList";
 import { Icon } from "@data/Icon";
-import { Size } from "./props";
 
+import { Size } from "./props";
 import { ISelectProps } from ".";
 import {
   StyledContainer,
   StyledContainerLabel,
   StyledInputContainer,
   StyledInput,
-  StyledIcon,
   StyledMessageContainer,
 } from "./styles";
 import { OptionItem } from "./OptionItem";
-
-export interface ISelectStateProps {
-  disabled: boolean;
-  status: string;
-  validMessage?: string;
-  errorMessage?: string;
-}
 
 export interface ISelectInterfaceProps extends ISelectProps {
   focused?: boolean;
@@ -145,9 +137,15 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
           onBlur={onBlur}
           onClick={onClick}
         />
-        <StyledIcon disabled={disabled}>
-          <MdOutlineArrowDropDown onClick={onCloseOptions} />
-        </StyledIcon>
+
+        <Icon
+          appearance="dark"
+          icon={<MdOutlineArrowDropDown />}
+          onClick={onCloseOptions}
+          size="24px"
+          spacing="none"
+          disabled={disabled}
+        />
       </StyledInputContainer>
 
       {status && (

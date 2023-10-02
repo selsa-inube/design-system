@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-import { ISelectInterfaceProps } from "./interface";
-import { typography } from "@shared/typography/typography";
 import { inube } from "@shared/tokens";
 import { Themed } from "@shared/types/types";
+import { typography } from "@shared/typography/typography";
+import { ISelectInterfaceProps } from "./interface";
 
 interface IStyledSelectInterfaceProps extends ISelectInterfaceProps {
   theme?: Themed;
@@ -44,7 +44,7 @@ const StyledInputContainer = styled.div`
   box-sizing: border-box;
   border-radius: 8px;
   user-select: none;
-  background: ${({ theme }: IStyledSelectInterfaceProps) =>
+  background-color: ${({ theme }: IStyledSelectInterfaceProps) =>
     theme?.color?.surface?.light?.clear || inube.color.surface.light.clear};
   grid-template-columns: 1fr auto;
   border-width: 1px;
@@ -104,7 +104,7 @@ const StyledInput = styled.input`
     }
     return theme?.color?.text?.dark?.regular || inube.color.text.dark.regular;
   }};
-  background: ${({ theme }: IStyledSelectInterfaceProps) =>
+  background-color: ${({ theme }: IStyledSelectInterfaceProps) =>
     theme?.color?.surface?.light?.clear || inube.color.surface.light.clear};
   cursor: ${({ disabled }: IStyledSelectInterfaceProps) =>
     disabled ? "not-allowed" : "pointer"};
@@ -133,18 +133,6 @@ const StyledInput = styled.input`
   &:-webkit-autofill {
     -webkit-background-clip: text;
   }
-`;
-
-const StyledIcon = styled.div`
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  padding-right: 10px;
-  height: 24px;
-  width: 24px;
-  color: ${({ theme, disabled }: IStyledSelectInterfaceProps) =>
-    disabled &&
-    (theme?.color?.text?.dark?.hover || inube.color.text.dark.hover)};
 `;
 
 const StyledMessageContainer = styled.div`
@@ -184,6 +172,5 @@ export {
   StyledContainerLabel,
   StyledInputContainer,
   StyledInput,
-  StyledIcon,
   StyledMessageContainer,
 };
