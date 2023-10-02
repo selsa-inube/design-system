@@ -21,13 +21,6 @@ import {
 } from "./styles";
 import { OptionItem } from "./OptionItem";
 
-export interface ISelectStateProps {
-  disabled: boolean;
-  status: string;
-  validMessage?: string;
-  errorMessage?: string;
-}
-
 export interface ISelectInterfaceProps extends ISelectProps {
   focused?: boolean;
   displayList: boolean;
