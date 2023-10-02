@@ -104,7 +104,6 @@ const Select = (props: ISelectProps) => {
       displayList={displayList}
       onClick={handleClick}
       onOptionClick={handleInsideClick}
-      onCloseOptions={() => setDisplayList(!displayList)}
       ref={selectRef}
     />
   );
