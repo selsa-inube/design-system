@@ -13,12 +13,12 @@ const StyledHeader = styled.div`
   align-items: center;
   box-shadow: 0px 1px 3px 1px
       ${({ theme }: IStyledHeaderProps) =>
-        theme?.color?.palette.neutralAlpha.N40A ||
-        inube.color.palette.neutralAlpha.N40A},
+        theme?.color?.stroke?.divider?.regular ||
+        inube.color.stroke.divider.regular},
     0px 1px 2px 0px
       ${({ theme }: IStyledHeaderProps) =>
-        theme?.color?.palette.neutralAlpha.N20A ||
-        inube.color.palette.neutralAlpha.N20A};
+        theme?.color?.surface.light.disabled ||
+        inube.color.surface.light.disabled};
 
   & > div > div {
     position: unset;
