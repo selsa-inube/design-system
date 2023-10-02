@@ -7,7 +7,7 @@ import { StyledHeader } from "./styles";
 export interface IHeaderProps {
   portalId: string;
   navigation: INavigation;
-  logo: JSX.Element;
+  logoURL: JSX.Element;
   userName: string;
   businessUnit: string;
   isBusinessUnit: boolean;
@@ -24,11 +24,11 @@ const shouldDisplayNav = (matches: { [key: string]: boolean }) =>
   matches[SMALL_SCREEN] || matches[MEDIUM_SCREEN];
 
 const LogoAndNav = (
-  props: Pick<IHeaderProps, "portalId" | "navigation" | "logo"> & {
+  props: Pick<IHeaderProps, "portalId" | "navigation" | "logoURL"> & {
     shouldDisplay?: boolean;
   }
 ) => {
-  const { portalId, navigation, logo, shouldDisplay } = props;
+  const { portalId, navigation, logoURL, shouldDisplay } = props;
   return (
     <Stack justifyContent="space-between" gap="23px">
       {shouldDisplay && (
@@ -39,7 +39,7 @@ const LogoAndNav = (
           logoutTitle="Logout"
         />
       )}
-      {logo}
+      {logoURL}
     </Stack>
   );
 };
@@ -48,7 +48,7 @@ const Header = (props: IHeaderProps) => {
   const {
     portalId,
     navigation,
-    logo,
+    logoURL,
     userName,
     businessUnit,
     isBusinessUnit = false,
@@ -65,7 +65,7 @@ const Header = (props: IHeaderProps) => {
       <LogoAndNav
         portalId={portalId}
         navigation={navigation}
-        logo={logo}
+        logoURL={logoURL}
         shouldDisplay={shouldDisplayLogoAndNav}
       />
       <User

@@ -98,7 +98,7 @@ Default.args = {
       },
     },
   },
-  logo: <Logo />,
+  logoURL: <Logo />,
   userName: "Leonardo Garzón",
   businessUnit: "Sistemas Enlínea S.A",
   isBusinessUnit: true,
