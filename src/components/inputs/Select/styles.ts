@@ -44,7 +44,7 @@ const StyledInputContainer = styled.div`
   box-sizing: border-box;
   border-radius: 8px;
   user-select: none;
-  background: ${({ theme }: IStyledSelectInterfaceProps) =>
+  background-color: ${({ theme }: IStyledSelectInterfaceProps) =>
     theme?.color?.surface?.light?.clear || inube.color.surface.light.clear};
   grid-template-columns: 1fr auto;
   border: 1px solid
@@ -94,7 +94,7 @@ const StyledInput = styled.input`
     }
     return theme?.color?.text?.dark?.regular || inube.color.text.dark.regular;
   }};
-  background: ${({ theme }: IStyledSelectInterfaceProps) =>
+  background-color: ${({ theme }: IStyledSelectInterfaceProps) =>
     theme?.color?.surface?.light?.clear || inube.color.surface.light.clear};
   cursor: ${({ disabled }: IStyledSelectInterfaceProps) =>
     disabled ? "not-allowed" : "pointer"};
