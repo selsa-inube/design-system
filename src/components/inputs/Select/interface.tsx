@@ -149,7 +149,7 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
         <Message disabled={disabled} status={status} message={message} />
       )}
       {displayList && !disabled && (
-        <OptionList onClick={onOptionClick}>
+        <OptionList onClick={onOptionClick!}>
           {options.map((optionItem) => (
             <OptionItem
               key={optionItem.id}
