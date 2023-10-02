@@ -8,8 +8,6 @@ export interface IHeaderProps {
   portalId: string;
   navigation: INavigation;
   logo: JSX.Element;
-  logoutPath: string;
-  logoutTitle: string;
   userName: string;
   businessUnit: string;
   isBusinessUnit: boolean;
