@@ -7,7 +7,7 @@ interface IStyledHeaderProps extends IHeaderProps {
   theme?: Themed;
 }
 
-const StyledHeader = styled.div`
+const StyledHeader = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
