@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { Themed } from "@shared/types/types";
-//import { colors } from "@shared/colors/colors";
 import { IHeaderProps } from ".";
 import { inube } from "@src/shared/tokens";
 
