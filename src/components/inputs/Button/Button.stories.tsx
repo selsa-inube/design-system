@@ -33,6 +33,8 @@ Default.args = {
   variant: "filled",
   fullwidth: false,
   onClick: () => console.log("clicked from Default-story"),
+  cursorHover: false,
+  parentHover: false,
 };
 
 const theme = {

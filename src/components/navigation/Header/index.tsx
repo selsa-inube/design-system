@@ -1,22 +1,36 @@
-import PropTypes from "prop-types";
-
-import { User } from "@data/User";
 import { useMediaQueries } from "@hooks/useMediaQueries";
+import { User } from "@data/User";
 import { Stack } from "@layouts/Stack";
-import { FullscreenNav } from "@navigation/FullscreenNav";
+import { FullscreenNav, INavigation } from "@navigation/FullscreenNav";
 import { StyledHeader } from "./styles";
+
+export interface IHeaderProps {
+  portalId: string;
+  navigation: INavigation;
+  logo: JSX.Element;
+  logoutPath: string;
+  logoutTitle: string;
+  userName: string;
+  businessUnit: string;
+  isBusinessUnit: boolean;
+}
 
 const SMALL_SCREEN = "(min-width: 320px)";
 const MEDIUM_SCREEN = "(min-width: 744px)";
 const LARGE_SCREEN = "(min-width: 1440px)";
 
-const getScreenSize = (matches) =>
+const getScreenSize = (matches: { [key: string]: boolean }) =>
   matches[SMALL_SCREEN] && !matches[MEDIUM_SCREEN] ? "small" : "large";
 
-const shouldDisplayNav = (matches) =>
+const shouldDisplayNav = (matches: { [key: string]: boolean }) =>
   matches[SMALL_SCREEN] || matches[MEDIUM_SCREEN];
 
-const LogoAndNav = (props) => {
+const LogoAndNav = (
+  props: Pick<
+    IHeaderProps,
+    "portalId" | "navigation" | "logoutPath" | "logoutTitle" | "logo"
+  > & { shouldDisplay?: boolean }
+) => {
   const { portalId, navigation, logoutPath, logoutTitle, logo, shouldDisplay } =
     props;
   return (
@@ -34,7 +48,7 @@ const LogoAndNav = (props) => {
   );
 };
 
-const Header = (props) => {
+const Header = (props: IHeaderProps) => {
   const {
     portalId,
     navigation,
@@ -45,10 +59,13 @@ const Header = (props) => {
     businessUnit,
     isBusinessUnit = false,
   } = props;
+
   const matches = useMediaQueries([SMALL_SCREEN, MEDIUM_SCREEN, LARGE_SCREEN]);
+
   const shouldDisplayLogoAndNav =
     !matches[LARGE_SCREEN] && shouldDisplayNav(matches);
-  const transformedBusinessUnit = isBusinessUnit ? businessUnit : null;
+
+  const transformedBusinessUnit = isBusinessUnit ? businessUnit : "";
   return (
     <StyledHeader alignItems="center" justifyContent="space-between">
       <LogoAndNav
@@ -66,16 +83,6 @@ const Header = (props) => {
       />
     </StyledHeader>
   );
-};
-
-Header.propTypes = {
-  portalId: PropTypes.string.isRequired,
-  navigation: PropTypes.object.isRequired,
-  logo: PropTypes.node.isRequired,
-  logoutPath: PropTypes.string.isRequired,
-  userName: PropTypes.string.isRequired,
-  businessUnit: PropTypes.string,
-  isBusinessUnit: PropTypes.bool,
 };
 
 export { Header };

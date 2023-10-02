@@ -3,26 +3,16 @@ import { StyledOptionItem } from "./styles";
 
 export interface IOptionItemProps {
   id: string;
-  children: string;
-  onClick?: (id: string) => void;
+  label: string;
+  onClick: (id: string) => void;
 }
 
 const OptionItem = (props: IOptionItemProps) => {
-  const { id, children, onClick } = props;
-
-  const handleOptionClick = (id: string) => {
-    if (onClick) onClick(id);
-  };
+  const { id, label, onClick } = props;
 
   return (
-    <StyledOptionItem
-      id={id}
-      onClick={() => handleOptionClick(id)}
-      tabIndex={0}
-    >
-      <Text size="medium" type="body">
-        {children}
-      </Text>
+    <StyledOptionItem id={id} onClick={onClick}>
+      <Text size="medium">{label}</Text>
     </StyledOptionItem>
   );
 };

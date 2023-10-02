@@ -29,7 +29,7 @@ export interface ISelectStateProps {
 }
 
 export interface ISelectInterfaceProps extends ISelectProps {
-  isFocused?: boolean;
+  focused?: boolean;
   openOptions: boolean;
   onCloseOptions: () => void;
   onOptionClick: (idOption: string) => void;
@@ -83,7 +83,7 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
     message,
     size,
     fullwidth,
-    isFocused,
+    focused,
     onFocus,
     onBlur,
     options,
@@ -106,7 +106,7 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
           <Label
             htmlFor={id}
             disabled={disabled}
-            focused={isFocused}
+            focused={focused}
             invalid={status === "invalid" ? true : false}
             size={getTypo(size!)}
           >
@@ -123,7 +123,7 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
 
       <StyledInputContainer
         disabled={disabled}
-        isFocused={isFocused}
+        focused={focused}
         status={status}
       >
         <StyledInput
@@ -138,7 +138,7 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
           size={size}
           status={status}
           fullwidth={fullwidth}
-          isFocused={isFocused}
+          focused={focused}
           onChange={onChange}
           onFocus={onFocus}
           onBlur={onBlur}

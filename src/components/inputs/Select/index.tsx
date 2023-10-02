@@ -1,13 +1,8 @@
 import { useState, useRef, useEffect } from "react";
 
-import { SelectUI } from "./interface";
+import { IOptionItemProps } from "./OptionItem";
 import { Size, Status } from "./props";
-
-export interface ISelectOptions {
-  id: string;
-  label: string;
-  disabled: boolean;
-}
+import { SelectUI } from "./interface";
 
 export interface ISelectProps {
   label?: string;
@@ -21,7 +16,7 @@ export interface ISelectProps {
   message?: string;
   size?: Size;
   fullwidth?: boolean;
-  options: ISelectOptions[];
+  options: IOptionItemProps[];
   onChange?: (event: MouseEvent) => void;
   onFocus?: (event: FocusEvent) => void;
   onBlur?: (event: FocusEvent) => void;
@@ -48,24 +43,20 @@ const Select = (props: ISelectProps) => {
     onClick,
   } = props;
 
-  const [isFocused, setIsFocused] = useState(false);
+  const [focused, setFocused] = useState(false);
   const [open, setOpen] = useState(false);
   const selectRef = useRef<{ contains: (e: EventTarget) => EventTarget }>(null);
 
   const handleFocus = (e: FocusEvent) => {
-    setIsFocused(true);
+    setFocused(true);
 
     onFocus && onFocus(e);
   };
 
   const handleBlur = (e: FocusEvent) => {
-    setIsFocused(false);
+    setFocused(false);
 
     onBlur && onBlur(e);
-  };
-
-  const toggleOptionsMenu = () => {
-    setOpen(!open);
   };
 
   const handleClickOutside = (event: MouseEvent) => {
@@ -84,7 +75,7 @@ const Select = (props: ISelectProps) => {
 
   const [selectedOption, setSelectedOption] = useState(value);
 
-  const handleOptionClick = (idOption: string) => {
+  const handleInsideClick = (idOption: string) => {
     const option = options.find((option) => option.id === idOption);
     setSelectedOption(option!.label);
   };
@@ -92,7 +83,7 @@ const Select = (props: ISelectProps) => {
   const handleClick = (e: MouseEvent) => {
     onClick && onClick(e);
 
-    toggleOptionsMenu();
+    setOpen(!open);
   };
 
   return (
@@ -109,15 +100,15 @@ const Select = (props: ISelectProps) => {
       status={status}
       message={message}
       fullwidth={fullwidth}
-      isFocused={isFocused}
+      focused={focused}
       onFocus={handleFocus}
       onBlur={handleBlur}
       options={options}
       openOptions={open}
       onClick={handleClick}
       selectedOption={selectedOption}
-      onOptionClick={handleOptionClick}
-      onCloseOptions={toggleOptionsMenu}
+      onOptionClick={handleInsideClick}
+      onCloseOptions={() => setOpen(!open)}
       ref={selectRef}
     />
   );
