@@ -4,14 +4,13 @@ import { StyledOptionItem } from "./styles";
 export interface IOptionItemProps {
   id: string;
   label: string;
-  onClick: (id: string) => void;
 }
 
 const OptionItem = (props: IOptionItemProps) => {
-  const { id, label, onClick } = props;
+  const { id, label } = props;
 
   return (
-    <StyledOptionItem id={id} onClick={onClick}>
+    <StyledOptionItem id={id}>
       <Text size="medium">{label}</Text>
     </StyledOptionItem>
   );
