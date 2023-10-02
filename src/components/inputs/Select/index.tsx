@@ -20,7 +20,7 @@ export interface ISelectProps {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onFocus?: (event: FocusEvent) => void;
   onBlur?: (event: FocusEvent) => void;
-  onClick?: (event: MouseEvent) => void;
+  onClick?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const Select = (props: ISelectProps) => {
@@ -73,12 +73,12 @@ const Select = (props: ISelectProps) => {
     };
   }, [selectRef]);
 
-  const handleInsideClick = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onInsideClick = (e: React.ChangeEvent<HTMLInputElement>) => {
     onChange(e);
     setDisplayList(false);
   };
 
-  const handleClick = (e: MouseEvent) => {
+  const handleClick = (e: React.ChangeEvent<HTMLInputElement>) => {
     onClick && onClick(e);
     setDisplayList(!displayList);
   };
@@ -103,8 +103,7 @@ const Select = (props: ISelectProps) => {
       options={options}
       displayList={displayList}
       onClick={handleClick}
-      onOptionClick={handleInsideClick}
-      onCloseOptions={() => setDisplayList(!displayList)}
+      onOptionClick={onInsideClick}
       ref={selectRef}
     />
   );

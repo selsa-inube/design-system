@@ -24,9 +24,7 @@ import { OptionItem } from "./OptionItem";
 export interface ISelectInterfaceProps extends ISelectProps {
   focused?: boolean;
   displayList: boolean;
-  onCloseOptions: () => void;
   onOptionClick: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  selectedOption?: string | number;
 }
 
 const getTypo = (size: Size) => {
@@ -84,7 +82,6 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
     value,
     onClick,
     onOptionClick,
-    onCloseOptions,
   } = props;
 
   return (
@@ -118,6 +115,7 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
         disabled={disabled}
         focused={focused}
         status={status}
+        onClick={onClick}
       >
         <StyledInput
           autoComplete="off"
@@ -141,7 +139,6 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
         <Icon
           appearance="dark"
           icon={<MdOutlineArrowDropDown />}
-          onClick={onCloseOptions}
           size="24px"
           spacing="none"
           disabled={disabled}
@@ -152,7 +149,7 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
         <Message disabled={disabled} status={status} message={message} />
       )}
       {displayList && !disabled && (
-        <OptionList onClick={onOptionClick}>
+        <OptionList onClick={onOptionClick!}>
           {options.map((optionItem) => (
             <OptionItem
               key={optionItem.id}

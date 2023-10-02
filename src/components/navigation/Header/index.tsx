@@ -7,12 +7,10 @@ import { StyledHeader } from "./styles";
 export interface IHeaderProps {
   portalId: string;
   navigation: INavigation;
-  logo: JSX.Element;
-  logoutPath: string;
-  logoutTitle: string;
+  logoURL: JSX.Element;
   userName: string;
-  businessUnit: string;
-  isBusinessUnit: boolean;
+  client: string;
+  isClient: boolean;
 }
 
 const SMALL_SCREEN = "(min-width: 320px)";
@@ -26,24 +24,22 @@ const shouldDisplayNav = (matches: { [key: string]: boolean }) =>
   matches[SMALL_SCREEN] || matches[MEDIUM_SCREEN];
 
 const LogoAndNav = (
-  props: Pick<
-    IHeaderProps,
-    "portalId" | "navigation" | "logoutPath" | "logoutTitle" | "logo"
-  > & { shouldDisplay?: boolean }
+  props: Pick<IHeaderProps, "portalId" | "navigation" | "logoURL"> & {
+    shouldDisplay?: boolean;
+  }
 ) => {
-  const { portalId, navigation, logoutPath, logoutTitle, logo, shouldDisplay } =
-    props;
+  const { portalId, navigation, logoURL, shouldDisplay } = props;
   return (
     <Stack justifyContent="space-between" gap="23px">
       {shouldDisplay && (
         <FullscreenNav
           portalId={portalId}
           navigation={navigation}
-          logoutPath={logoutPath}
-          logoutTitle={logoutTitle}
+          logoutPath="/logout"
+          logoutTitle="Logout"
         />
       )}
-      {logo}
+      {logoURL}
     </Stack>
   );
 };
@@ -52,12 +48,10 @@ const Header = (props: IHeaderProps) => {
   const {
     portalId,
     navigation,
-    logoutPath,
-    logoutTitle,
-    logo,
+    logoURL,
     userName,
-    businessUnit,
-    isBusinessUnit = false,
+    client,
+    isClient = false,
   } = props;
 
   const matches = useMediaQueries([SMALL_SCREEN, MEDIUM_SCREEN, LARGE_SCREEN]);
@@ -65,20 +59,18 @@ const Header = (props: IHeaderProps) => {
   const shouldDisplayLogoAndNav =
     !matches[LARGE_SCREEN] && shouldDisplayNav(matches);
 
-  const transformedBusinessUnit = isBusinessUnit ? businessUnit : "";
+  const transformedClient = isClient ? client : "";
   return (
     <StyledHeader alignItems="center" justifyContent="space-between">
       <LogoAndNav
         portalId={portalId}
         navigation={navigation}
-        logoutPath={logoutPath}
-        logoutTitle={logoutTitle}
-        logo={logo}
+        logoURL={logoURL}
         shouldDisplay={shouldDisplayLogoAndNav}
       />
       <User
         userName={userName}
-        client={transformedBusinessUnit}
+        client={transformedClient}
         size={getScreenSize(matches)}
       />
     </StyledHeader>
