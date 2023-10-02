@@ -5,19 +5,19 @@ import {
   MdOutlineArrowDropDown,
 } from "react-icons/md";
 
-import { Label } from "@inputs/Label";
 import { Text } from "@data/Text";
-import { OptionList } from "./OptionList";
 import { Icon } from "@data/Icon";
+import { Label } from "@inputs/Label";
+import { Stack } from "@layouts/Stack";
 
 import { Size } from "./props";
+import { OptionList } from "./OptionList";
 import { ISelectProps } from ".";
 import {
   StyledContainer,
   StyledContainerLabel,
   StyledInputContainer,
   StyledInput,
-  StyledMessageContainer,
 } from "./styles";
 import { OptionItem } from "./OptionItem";
 
@@ -42,22 +42,22 @@ const Message = (
   const { disabled, status, message } = props;
 
   return status !== "pending" ? (
-    <StyledMessageContainer disabled={disabled} status={status}>
+    <Stack alignItems="center" gap="4px" margin="s050 s0 s0 s200">
       <Icon
         appearance={status === "invalid" ? "error" : "success"}
         disabled={disabled}
         icon={status === "invalid" ? <MdOutlineError /> : <MdCheckCircle />}
+        size="14px"
       />
       <Text
         type="body"
         size="small"
-        margin="8px 0px 0px 4px"
         appearance={status === "invalid" ? "error" : "success"}
         disabled={disabled}
       >
         {message && `${message}`}
       </Text>
-    </StyledMessageContainer>
+    </Stack>
   ) : (
     <></>
   );
