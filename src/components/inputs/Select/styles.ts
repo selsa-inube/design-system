@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-import { ISelectInterfaceProps } from "./interface";
-import { typography } from "@shared/typography/typography";
 import { inube } from "@shared/tokens";
 import { Themed } from "@shared/types/types";
+import { typography } from "@shared/typography/typography";
+import { ISelectInterfaceProps } from "./interface";
 
 interface IStyledSelectInterfaceProps extends ISelectInterfaceProps {
   theme?: Themed;
@@ -127,18 +127,6 @@ const StyledInput = styled.input`
   }
 `;
 
-const StyledIcon = styled.div`
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  padding-right: 10px;
-  height: 24px;
-  width: 24px;
-  color: ${({ theme, disabled }: IStyledSelectInterfaceProps) =>
-    disabled &&
-    (theme?.color?.text?.dark?.hover || inube.color.text.dark.hover)};
-`;
-
 const StyledMessageContainer = styled.div`
   display: flex;
   align-items: center;
@@ -176,6 +164,5 @@ export {
   StyledContainerLabel,
   StyledInputContainer,
   StyledInput,
-  StyledIcon,
   StyledMessageContainer,
 };
