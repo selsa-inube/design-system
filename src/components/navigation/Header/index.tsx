@@ -11,8 +11,8 @@ export interface IHeaderProps {
   logoutPath: string;
   logoutTitle: string;
   userName: string;
-  businessUnit: string;
-  isBusinessUnit: boolean;
+  client: string;
+  isClient: boolean;
 }
 
 const SMALL_SCREEN = "(min-width: 320px)";
@@ -56,8 +56,8 @@ const Header = (props: IHeaderProps) => {
     logoutTitle,
     logo,
     userName,
-    businessUnit,
-    isBusinessUnit = false,
+    client,
+    isClient = false,
   } = props;
 
   const matches = useMediaQueries([SMALL_SCREEN, MEDIUM_SCREEN, LARGE_SCREEN]);
@@ -65,7 +65,7 @@ const Header = (props: IHeaderProps) => {
   const shouldDisplayLogoAndNav =
     !matches[LARGE_SCREEN] && shouldDisplayNav(matches);
 
-  const transformedBusinessUnit = isBusinessUnit ? businessUnit : "";
+  const transformedClient = isClient ? client : "";
   return (
     <StyledHeader alignItems="center" justifyContent="space-between">
       <LogoAndNav
@@ -78,7 +78,7 @@ const Header = (props: IHeaderProps) => {
       />
       <User
         userName={userName}
-        client={transformedBusinessUnit}
+        client={transformedClient}
         size={getScreenSize(matches)}
       />
     </StyledHeader>

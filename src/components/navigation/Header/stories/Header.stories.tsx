@@ -102,8 +102,8 @@ Default.args = {
   logoutTitle: "Logout",
   logo: <Logo />,
   userName: "Leonardo Garzón",
-  businessUnit: "Sistemas Enlínea S.A",
-  isBusinessUnit: true,
+  client: "Sistemas Enlínea S.A",
+  isClient: true,
 };
 
 const theme = structuredClone(presente);
