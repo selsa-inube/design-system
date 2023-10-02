@@ -100,7 +100,7 @@ Default.args = {
   },
   logoutPath: "/logout",
   logoutTitle: "Logout",
-  logo: <Logo />,
+  logoURL: <Logo />,
   userName: "Leonardo Garzón",
   businessUnit: "Sistemas Enlínea S.A",
   isBusinessUnit: true,
