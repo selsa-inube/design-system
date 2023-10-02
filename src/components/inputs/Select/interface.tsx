@@ -7,7 +7,7 @@ import {
 
 import { Label } from "@inputs/Label";
 import { Text } from "@data/Text";
-import { OptionList } from "@inputs/Select/OptionList";
+import { OptionList } from "./OptionList";
 import { Icon } from "@data/Icon";
 
 import { Size } from "./props";
@@ -19,6 +19,7 @@ import {
   StyledInput,
   StyledMessageContainer,
 } from "./styles";
+import { OptionItem } from "./OptionItem";
 
 export interface ISelectStateProps {
   disabled: boolean;
@@ -29,9 +30,9 @@ export interface ISelectStateProps {
 
 export interface ISelectInterfaceProps extends ISelectProps {
   focused?: boolean;
-  openOptions: boolean;
+  displayList: boolean;
   onCloseOptions: () => void;
-  onOptionClick: (idOption: string) => void;
+  onOptionClick: (e: React.ChangeEvent<HTMLInputElement>) => void;
   selectedOption?: string | number;
 }
 
@@ -43,7 +44,7 @@ const getTypo = (size: Size) => {
 };
 
 const Message = (
-  props: Omit<ISelectProps, "id" | "options"> & { message?: string }
+  props: Pick<ISelectProps, "disabled" | "status"> & { message?: string }
 ) => {
   const { disabled, status, message } = props;
 
@@ -86,7 +87,7 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
     onFocus,
     onBlur,
     options,
-    openOptions,
+    displayList,
     value,
     onClick,
     onOptionClick,
@@ -157,13 +158,16 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
       {status && (
         <Message disabled={disabled} status={status} message={message} />
       )}
-      {openOptions && !disabled && (
-        <OptionList
-          options={options}
-          isOpenOptions={openOptions}
-          onClick={onOptionClick}
-          onCloseOptions={onCloseOptions}
-        />
+      {displayList && !disabled && (
+        <OptionList onClick={onOptionClick}>
+          {options.map((optionItem) => (
+            <OptionItem
+              key={optionItem.id}
+              id={optionItem.id}
+              label={optionItem.label}
+            />
+          ))}
+        </OptionList>
       )}
     </StyledContainer>
   );
