@@ -20,30 +20,6 @@ const LARGE_SCREEN = "(min-width: 1440px)";
 const getScreenSize = (matches: { [key: string]: boolean }) =>
   matches[SMALL_SCREEN] && !matches[MEDIUM_SCREEN] ? "small" : "large";
 
-const shouldDisplayNav = (matches: { [key: string]: boolean }) =>
-  matches[SMALL_SCREEN] || matches[MEDIUM_SCREEN];
-
-const LogoAndNav = (
-  props: Pick<IHeaderProps, "portalId" | "navigation" | "logoURL"> & {
-    shouldDisplay?: boolean;
-  }
-) => {
-  const { portalId, navigation, logoURL, shouldDisplay } = props;
-  return (
-    <Stack justifyContent="space-between" gap="23px">
-      {shouldDisplay && (
-        <FullscreenNav
-          portalId={portalId}
-          navigation={navigation}
-          logoutPath="/logout"
-          logoutTitle="Logout"
-        />
-      )}
-      {logoURL}
-    </Stack>
-  );
-};
-
 const Header = (props: IHeaderProps) => {
   const {
     portalId,
@@ -56,18 +32,20 @@ const Header = (props: IHeaderProps) => {
 
   const matches = useMediaQueries([SMALL_SCREEN, MEDIUM_SCREEN, LARGE_SCREEN]);
 
-  const shouldDisplayLogoAndNav =
-    !matches[LARGE_SCREEN] && shouldDisplayNav(matches);
-
   const transformedClient = isClient ? client : "";
   return (
     <StyledHeader alignItems="center" justifyContent="space-between">
-      <LogoAndNav
-        portalId={portalId}
-        navigation={navigation}
-        logoURL={logoURL}
-        shouldDisplay={shouldDisplayLogoAndNav}
-      />
+      <Stack justifyContent="space-between" gap="23px">
+        {!matches[LARGE_SCREEN] && (
+          <FullscreenNav
+            portalId={portalId}
+            navigation={navigation}
+            logoutPath="/logout"
+            logoutTitle="Logout"
+          />
+        )}
+        {logoURL}
+      </Stack>
       <User
         userName={userName}
         client={transformedClient}
