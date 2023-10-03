@@ -8,18 +8,9 @@ const NavLinkController = (props: INavLinkProps) => {
     setSelect(true);
   };
 
-  const handleBlur = () => {
-    setSelect(false);
-  };
-
   return (
     <ul>
-      <NavLink
-        {...props}
-        isSelected={select}
-        handleClick={handleClick}
-        handleBlur={handleBlur}
-      />
+      <NavLink {...props} isSelected={select} handleClick={handleClick} />
     </ul>
   );
 };

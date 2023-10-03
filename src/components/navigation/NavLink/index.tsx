@@ -10,7 +10,6 @@ export interface INavLinkProps {
   isSelected?: boolean;
   icon?: React.ReactNode;
   handleClick?: () => void;
-  handleBlur?: () => void;
 }
 
 const NavLink = (props: INavLinkProps) => {
@@ -22,7 +21,6 @@ const NavLink = (props: INavLinkProps) => {
     isSelected = false,
     icon,
     handleClick,
-    handleBlur,
   } = props;
 
   return (
@@ -34,7 +32,6 @@ const NavLink = (props: INavLinkProps) => {
           id={id}
           onClick={handleClick}
           icon={icon}
-          onBlur={handleBlur}
         >
           {icon}
           {label}
