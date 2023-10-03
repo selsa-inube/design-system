@@ -82,7 +82,7 @@ const Assisted = (props: IAssistedProps) => {
   return (
     <StyledAssistedContainer size={size}>
       {size === "large" && (
-        <Stack>
+        <Stack alignItems="center">
           <Button
             spacing="wide"
             variant="none"
@@ -104,12 +104,16 @@ const Assisted = (props: IAssistedProps) => {
           </Button>
         </Stack>
       )}
-      <Stack direction="column" width={size === "medium" ? "288px" : "100%"}>
-        <Stack gap={inube.spacing.s050}>
+      <Stack
+        direction="column"
+        width={size === "medium" ? "288px" : "100%"}
+        margin="s0 s0 s075 s0"
+      >
+        <Stack gap={inube.spacing.s100}>
           {size === "medium" && (
             <Icon
               appearance={!currentStepIndex ? "gray" : "primary"}
-              icon={<MdArrowBack />}
+              icon={<MdArrowBack style={{ padding: "2px 0px" }} />}
               size="20px"
               onClick={() =>
                 handleStepChange(
@@ -135,11 +139,13 @@ const Assisted = (props: IAssistedProps) => {
               />
             )}
           </StyledStepIndicator>
-          <Text type="label">{currentStep?.label}</Text>
+          <Text type="title" size={size === "large" ? "medium" : "small"}>
+            {currentStep?.label}
+          </Text>
           {size === "medium" && (
             <Icon
               appearance="primary"
-              icon={<MdArrowForward />}
+              icon={<MdArrowForward style={{ padding: "0px 2px" }} />}
               size="20px"
               onClick={() =>
                 handleStepChange(currentStepIndex, steps, onStepChange, "next")
@@ -159,9 +165,17 @@ const Assisted = (props: IAssistedProps) => {
             </Text>
           )}
         </Stack>
+        <Text
+          type="label"
+          appearance="gray"
+          size="medium"
+          margin="12px 0px 0px 0px"
+        >
+          {currentStep?.description}
+        </Text>
       </Stack>
       {size === "large" && (
-        <Stack>
+        <Stack alignItems="center">
           <Button
             spacing="wide"
             variant="none"
