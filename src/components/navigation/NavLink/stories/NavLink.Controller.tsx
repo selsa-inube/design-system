@@ -4,22 +4,13 @@ import { NavLink, INavLinkProps } from "..";
 const NavLinkController = (props: INavLinkProps) => {
   const [select, setSelect] = useState(false);
 
-  const handleClick = () => {
+  const onClick = () => {
     setSelect(true);
-  };
-
-  const handleBlur = () => {
-    setSelect(false);
   };
 
   return (
     <ul>
-      <NavLink
-        {...props}
-        isSelected={select}
-        handleClick={handleClick}
-        handleBlur={handleBlur}
-      />
+      <NavLink {...props} isSelected={select} onClick={onClick} />
     </ul>
   );
 };
