@@ -10,7 +10,6 @@ export interface IHeaderProps {
   logoURL: JSX.Element;
   userName: string;
   client: string;
-  isClient: boolean;
 }
 
 const SMALL_SCREEN = "(min-width: 320px)";
@@ -45,21 +44,13 @@ const LogoAndNav = (
 };
 
 const Header = (props: IHeaderProps) => {
-  const {
-    portalId,
-    navigation,
-    logoURL,
-    userName,
-    client,
-    isClient = false,
-  } = props;
+  const { portalId, navigation, logoURL, userName, client } = props;
 
   const matches = useMediaQueries([SMALL_SCREEN, MEDIUM_SCREEN, LARGE_SCREEN]);
 
   const shouldDisplayLogoAndNav =
     !matches[LARGE_SCREEN] && shouldDisplayNav(matches);
 
-  const transformedClient = isClient ? client : "";
   return (
     <StyledHeader alignItems="center" justifyContent="space-between">
       <LogoAndNav
@@ -68,11 +59,7 @@ const Header = (props: IHeaderProps) => {
         logoURL={logoURL}
         shouldDisplay={shouldDisplayLogoAndNav}
       />
-      <User
-        userName={userName}
-        client={transformedClient}
-        size={getScreenSize(matches)}
-      />
+      <User userName={userName} client={client} size={getScreenSize(matches)} />
     </StyledHeader>
   );
 };
