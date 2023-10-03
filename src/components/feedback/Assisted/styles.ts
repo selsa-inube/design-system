@@ -11,10 +11,10 @@ interface IStyledAssistedProps extends IAssistedProps {
 
 const StyledAssistedContainer = styled.div`
   display: flex;
+  border-radius: 8px;
+  padding: ${inube.spacing.s200};
   width: ${({ size }: IStyledAssistedProps) =>
     size === "medium" && "fit-content"};
-  padding: ${inube.spacing.s200};
-  border-radius: 8px;
   background-color: ${({ theme }: IStyledAssistedProps) =>
     theme?.color?.surface?.gray?.clear || inube.color.surface.gray?.clear};
 
@@ -32,7 +32,7 @@ const StyledProgressBar = styled.div`
   transition: width 0.5s;
   height: 16px;
   width: 100%;
-  background: ${({ theme }: IStyledAssistedProps) =>
+  background-color: ${({ theme }: IStyledAssistedProps) =>
     theme?.color?.surface?.dark?.clear || inube.color.surface.dark.clear};
 `;
 
@@ -57,13 +57,13 @@ const StyledProgressIndicator = styled.div`
 const StyledStepIndicator = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
-  border-radius: 50%;
   width: 20px;
   height: 20px;
-  margin-bottom: ${inube.spacing.s100};
+  align-items: center;
+  border-radius: 50%;
   border-width: 2px;
   border-style: solid;
+  margin-bottom: ${inube.spacing.s100};
   border-color: ${({ theme }: IStyledAssistedProps) =>
     theme?.color?.stroke?.primary?.regular ||
     inube.color.stroke.primary?.regular};
