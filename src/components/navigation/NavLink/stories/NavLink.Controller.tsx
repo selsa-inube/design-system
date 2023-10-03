@@ -16,7 +16,7 @@ const NavLinkController = (props: INavLinkProps) => {
     <ul>
       <NavLink
         {...props}
-        isSelected={select}
+        selected={select}
         handleClick={handleClick}
         handleBlur={handleBlur}
       />

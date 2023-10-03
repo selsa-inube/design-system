@@ -14,7 +14,7 @@ const props = {
       defaultValue: { summary: false },
     },
   },
-  isSelected: {
+  selected: {
     description:
       "It is designed to ascertain whether the tab has been clicked or not (by Default is false) and is not required.",
     table: {

@@ -23,8 +23,8 @@ const getColorLabel = (props: INavLinkProps) => {
 };
 
 const getBorderLeft = (props: INavLinkProps) => {
-  const { isDisabled, isSelected } = props;
-  if (isSelected && !isDisabled) {
+  const { isDisabled, selected } = props;
+  if (selected && !isDisabled) {
     return `5px solid ${colors.ref.palette.neutral.n900}`;
   }
 
@@ -32,12 +32,12 @@ const getBorderLeft = (props: INavLinkProps) => {
 };
 
 const getBackgroundColor = (props: INavLinkProps) => {
-  const { isDisabled, isSelected } = props;
+  const { isDisabled, selected } = props;
   let color = "transparent";
   if (isDisabled) {
     return color;
   }
-  if (isSelected && !isDisabled) {
+  if (selected && !isDisabled) {
     color = colors.ref.palette.neutral.n30;
     return color;
   }
@@ -46,12 +46,12 @@ const getBackgroundColor = (props: INavLinkProps) => {
 };
 
 const getColorIcon = (props: INavLinkProps) => {
-  const { isDisabled, isSelected } = props;
+  const { isDisabled, selected } = props;
   if (isDisabled) {
     return colors.ref.palette.neutral.n70;
   }
 
-  if (isSelected && !isDisabled) {
+  if (selected && !isDisabled) {
     return colors.sys.actions.primary.filled;
   }
 
@@ -87,8 +87,8 @@ const StyledNavLink = styled.div`
   & > svg:last-child {
     ${iconStyles};
     color: ${colors.ref.palette.neutral.n900};
-    display: ${({ isDisabled, isSelected }: INavLinkProps) =>
-      (isDisabled || !isSelected) && "none"};
+    display: ${({ isDisabled, selected }: INavLinkProps) =>
+      (isDisabled || !selected) && "none"};
   }
 
   & > svg:first-child {

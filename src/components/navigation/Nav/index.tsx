@@ -59,7 +59,7 @@ const Links = (props: INavLinkProps) => {
       label={sectionObject.label}
       icon={sectionObject.icon}
       path={sectionObject.path}
-      isSelected={isSelected(sectionObject.path)}
+      selected={isSelected(sectionObject.path)}
     />
   ));
   return <>{LinkElements} </>;
