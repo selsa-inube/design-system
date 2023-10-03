@@ -4,13 +4,13 @@ import { NavLink, INavLinkProps } from "..";
 const NavLinkController = (props: INavLinkProps) => {
   const [select, setSelect] = useState(false);
 
-  const handleClick = () => {
+  const onClick = () => {
     setSelect(true);
   };
 
   return (
     <ul>
-      <NavLink {...props} isSelected={select} handleClick={handleClick} />
+      <NavLink {...props} isSelected={select} onClick={onClick} />
     </ul>
   );
 };
