@@ -6,11 +6,10 @@ export interface INavLinkProps {
   id: string;
   label: string;
   path: string;
-  isDisabled?: boolean;
+  disabled?: boolean;
   isSelected?: boolean;
   icon?: React.ReactNode;
-  handleClick?: () => void;
-  handleBlur?: () => void;
+  onClick?: () => void;
 }
 
 const NavLink = (props: INavLinkProps) => {
@@ -18,23 +17,21 @@ const NavLink = (props: INavLinkProps) => {
     id,
     label,
     path,
-    isDisabled = false,
+    disabled = false,
     isSelected = false,
     icon,
-    handleClick,
-    handleBlur,
+    onClick,
   } = props;
 
   return (
     <StyledNavList>
-      <StyledLink to={path} isdisabled={+isDisabled}>
+      <StyledLink to={path} isdisabled={+disabled}>
         <StyledNavLink
-          isDisabled={isDisabled}
+          disabled={disabled}
           isSelected={isSelected}
           id={id}
-          onClick={handleClick}
+          onClick={onClick}
           icon={icon}
-          onBlur={handleBlur}
         >
           {icon}
           {label}
