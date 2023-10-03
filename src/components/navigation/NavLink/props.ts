@@ -28,7 +28,7 @@ const props = {
   id: {
     description: "shall be the id for the MenuLink and is required.",
   },
-  handleClick: {
+  onClick: {
     description:
       "(function): shall be determine the behavior of the click event and is not required.",
   },
