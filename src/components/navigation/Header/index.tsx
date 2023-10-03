@@ -17,9 +17,6 @@ const SMALL_SCREEN = "(min-width: 320px)";
 const MEDIUM_SCREEN = "(min-width: 744px)";
 const LARGE_SCREEN = "(min-width: 1440px)";
 
-const getScreenSize = (matches: { [key: string]: boolean }) =>
-  matches[SMALL_SCREEN] && !matches[MEDIUM_SCREEN] ? "small" : "large";
-
 const Header = (props: IHeaderProps) => {
   const {
     portalId,
@@ -49,7 +46,7 @@ const Header = (props: IHeaderProps) => {
       <User
         userName={userName}
         client={transformedClient}
-        size={getScreenSize(matches)}
+        size={matches[SMALL_SCREEN] ? "small" : "large"}
       />
     </StyledHeader>
   );
