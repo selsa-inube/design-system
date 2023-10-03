@@ -9,7 +9,10 @@ interface IStyledOptionListProps extends OptionListProps {
 const StyledOptionList = styled.ul`
   display: flex;
   flex-direction: column;
+  width: inherit;
   padding: 4px 0px;
+  position: absolute;
+  z-index: 1;
   background: ${({ theme }: IStyledOptionListProps) => {
     return (
       theme?.color?.surface?.light?.clear || inube.color.surface.light.clear
