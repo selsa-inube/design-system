@@ -31,10 +31,6 @@ const props = {
   portalId: {
     description: "id of the portal element",
   },
-  isClient: {
-    description:
-      "ascertain whether the 'header-component' displays the attribute 'client' or not",
-  },
 };
 
 export { props, parameters };

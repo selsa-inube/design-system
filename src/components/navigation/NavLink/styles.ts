@@ -14,8 +14,8 @@ const getGrid = (props: INavLinkProps) => {
 };
 
 const getBorderLeft = (props: INavLinkProps) => {
-  const { disabled, isSelected } = props;
-  if (isSelected && !disabled) {
+  const { disabled, selected } = props;
+  if (selected && !disabled) {
     return `5px solid ${colors.ref.palette.neutral.n900}`;
   }
 
@@ -23,12 +23,12 @@ const getBorderLeft = (props: INavLinkProps) => {
 };
 
 const getBackgroundColor = (props: INavLinkProps) => {
-  const { disabled, isSelected } = props;
+  const { disabled, selected } = props;
   let color = "transparent";
   if (disabled) {
     return color;
   }
-  if (isSelected && !disabled) {
+  if (selected && !disabled) {
     color = colors.ref.palette.neutral.n30;
     return color;
   }
@@ -48,7 +48,6 @@ const StyledNavLink = styled.div`
   min-width: 180px;
   align-items: center;
   box-sizing: border-box;
-  background-size: cover;
   gap: 24px;
   padding: 0px 16px;
   border-left: ${(props: INavLinkProps) => getBorderLeft(props)};
