@@ -2,11 +2,9 @@ import {
   AlignContent,
   AlignItems,
   AutoFlow,
-  Gap,
   Height,
   JustifyContent,
   JustifyItems,
-  Spacing,
   TemplateAreas,
   Width,
 } from "./props";
@@ -16,7 +14,7 @@ export interface GridProps {
   templateColumns?: string;
   templateRows?: string;
   templateAreas?: TemplateAreas;
-  gap?: Gap;
+  gap?: string;
   justifyItems?: JustifyItems;
   alignItems?: AlignItems;
   justifyContent?: JustifyContent;
@@ -24,14 +22,14 @@ export interface GridProps {
   autoColumns?: string;
   autoRows?: string;
   autoFlow?: AutoFlow;
-  margin?: Spacing;
-  padding?: Spacing;
+  margin?: string;
+  padding?: string;
   height?: Height;
   width?: Width;
   children: React.ReactNode;
 }
 
-function Grid(props: GridProps) {
+const Grid = (props: GridProps) => {
   const {
     templateColumns = "auto",
     templateRows = "auto",
@@ -72,6 +70,6 @@ function Grid(props: GridProps) {
       {children}
     </StyledGrid>
   );
-}
+};
 
 export { Grid };

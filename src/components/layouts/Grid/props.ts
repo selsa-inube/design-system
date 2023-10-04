@@ -1,11 +1,5 @@
-import { inube } from "@shared/tokens";
-
-export type Spacing = keyof typeof inube.spacing;
-
 export const templateAreasProperties = ["none", "header main footer"] as const;
 export type TemplateAreas = typeof templateAreasProperties[number];
-
-export type Gap = Spacing;
 
 export const justifyItemsProperties = [
   "center",
@@ -125,7 +119,7 @@ export const props = {
   },
 
   templateColumns: {
-    control: { type: "string" },
+    type: { type: "string" },
     description: "Defines the size and layout of the columns in the grid.",
     table: {
       defaultValue: { summary: "repeat(3, 1fr)" },
@@ -133,7 +127,7 @@ export const props = {
   },
 
   templateRows: {
-    control: { type: "string" },
+    type: { type: "string" },
     description: "Defines the size and layout of the rows in the grid.",
     table: {
       defaultValue: { summary: "auto" },
@@ -151,8 +145,7 @@ export const props = {
   },
 
   gap: {
-    options: inube.spacing,
-    control: { type: "select" },
+    type: { name: "string" },
     description:
       "Controls the spacing between grid cells, both horizontally and vertically.",
     table: {
@@ -200,9 +193,26 @@ export const props = {
     },
   },
 
+  autoColumns: {
+    type: { name: "string", required: false },
+    description:
+      "Allows you to specify the automatic width of the grid columns. This means that the columns will automatically adjust according to the content.",
+    table: {
+      defaultValue: { summary: "row" },
+    },
+  },
+
+  AutoRows: {
+    type: { name: "string", required: false },
+    description:
+      "Allows you to specify the automatic height of the grid columns. This means that the columns will automatically adjust according to the content.",
+    table: {
+      defaultValue: { summary: "row" },
+    },
+  },
+
   autoFlow: {
-    options: autoFlowProperties,
-    control: { type: "select" },
+    type: { name: "string", required: false },
     description:
       "Controls how elements flow within the grid when there is not enough space in a row or column.",
     table: {
@@ -229,8 +239,7 @@ export const props = {
   },
 
   margin: {
-    options: inube.spacing,
-    control: { type: "select" },
+    type: { name: "string", required: false },
     description: "Sets the outer margin of the grid.",
     table: {
       defaultValue: { summary: "s0" },
@@ -238,8 +247,7 @@ export const props = {
   },
 
   padding: {
-    options: inube.spacing,
-    control: { type: "select" },
+    type: { name: "string", required: false },
     description: "Sets the inner padding of the grid.",
     table: {
       defaultValue: { summary: "s0" },
