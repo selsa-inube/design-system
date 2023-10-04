@@ -75,7 +75,6 @@ const StyledNavLink = styled.div`
   min-width: 180px;
   align-items: center;
   box-sizing: border-box;
-  background-size: cover;
   gap: 24px;
   padding: 0px 16px;
 
