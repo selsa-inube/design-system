@@ -1,8 +1,8 @@
-import { INavLinkProps } from ".";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 import { colors } from "@shared/colors/colors";
+import { INavLinkProps } from ".";
 
 const getGrid = (props: INavLinkProps) => {
   const { icon } = props;
@@ -36,24 +36,6 @@ const getBackgroundColor = (props: INavLinkProps) => {
   return color;
 };
 
-const getColorIcon = (props: INavLinkProps) => {
-  const { disabled, isSelected } = props;
-  if (disabled) {
-    return colors.ref.palette.neutral.n70;
-  }
-
-  if (isSelected && !disabled) {
-    return colors.sys.actions.primary.filled;
-  }
-
-  return colors.ref.palette.neutral.n900;
-};
-
-const iconStyles = css`
-  width: 24px;
-  height: 24px;
-`;
-
 const StyledNavList = styled.li`
   list-style-type: none;
 `;
@@ -73,18 +55,6 @@ const StyledNavLink = styled.div`
   background-color: ${(props: INavLinkProps) => getBackgroundColor(props)};
   color: ${({ disabled }: INavLinkProps) =>
     disabled && colors.ref.palette.neutral.n70};
-
-  & > svg:last-child {
-    ${iconStyles};
-    color: ${colors.ref.palette.neutral.n900};
-    display: ${({ disabled, isSelected }: INavLinkProps) =>
-      (disabled || !isSelected) && "none"};
-  }
-
-  & > svg:first-child {
-    ${iconStyles};
-    color: ${(props: INavLinkProps) => getColorIcon(props)};
-  }
 
   ${({ disabled }: INavLinkProps) =>
     !disabled &&
