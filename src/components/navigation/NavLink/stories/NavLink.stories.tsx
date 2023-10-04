@@ -4,11 +4,12 @@ import { MdHouse } from "react-icons/md";
 import { NavLink, INavLinkProps } from "..";
 import { NavLinkController } from "./NavLink.Controller";
 
-import { props } from "../props";
+import { props, parameters } from "../props";
 
 const story = {
   title: "navigation/NavLink",
   components: [NavLink],
+  parameters,
   argTypes: props,
   decorators: [
     (Story: React.ElementType) => (
@@ -25,7 +26,7 @@ Default.args = {
   id: "privileges",
   label: "Privileges",
   path: "/privileges",
-  isDisabled: false,
+  disabled: false,
   icon: <MdHouse />,
 };
 
