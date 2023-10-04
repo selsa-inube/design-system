@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { GridProps } from ".";
-import { inube } from "@src/shared/tokens";
+import { inube } from "@shared/tokens";
 
 const StyledGrid = styled.div`
   display: grid;

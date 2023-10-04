@@ -1,17 +1,11 @@
-import { spacing } from "@shared/tokens/spacing/spacing";
+import { inube } from "@shared/tokens";
 
-export const templateColumnsProperties = ["1fr", "repeat(3, 1fr)"] as const;
-export type TemplateColumns = typeof templateColumnsProperties[number];
-
-export const templateRowsProperties = ["auto", "1fr"] as const;
-export type TemplateRows = typeof templateRowsProperties[number];
+export type Spacing = keyof typeof inube.spacing;
 
 export const templateAreasProperties = ["none", "header main footer"] as const;
 export type TemplateAreas = typeof templateAreasProperties[number];
 
-export type SpacingKeys = keyof typeof spacing;
-export const gapProperties = Object.keys(spacing) as SpacingKeys[];
-export type Gap = typeof gapProperties[number];
+export type Gap = Spacing;
 
 export const justifyItemsProperties = [
   "center",
@@ -123,8 +117,6 @@ export const widthProperties = [
 ] as const;
 export type Width = typeof widthProperties[number];
 
-export type Spacing = keyof typeof spacing;
-
 export const props = {
   children: {
     options: "",
@@ -133,8 +125,7 @@ export const props = {
   },
 
   templateColumns: {
-    options: templateColumnsProperties,
-    control: { type: "select" },
+    control: { type: "string" },
     description: "Defines the size and layout of the columns in the grid.",
     table: {
       defaultValue: { summary: "repeat(3, 1fr)" },
@@ -142,8 +133,7 @@ export const props = {
   },
 
   templateRows: {
-    options: templateRowsProperties,
-    control: { type: "select" },
+    control: { type: "string" },
     description: "Defines the size and layout of the rows in the grid.",
     table: {
       defaultValue: { summary: "auto" },
@@ -161,7 +151,7 @@ export const props = {
   },
 
   gap: {
-    options: gapProperties,
+    options: inube.spacing,
     control: { type: "select" },
     description:
       "Controls the spacing between grid cells, both horizontally and vertically.",
@@ -239,7 +229,7 @@ export const props = {
   },
 
   margin: {
-    options: Object.keys(spacing) as SpacingKeys[],
+    options: inube.spacing,
     control: { type: "select" },
     description: "Sets the outer margin of the grid.",
     table: {
@@ -248,7 +238,7 @@ export const props = {
   },
 
   padding: {
-    options: Object.keys(spacing) as SpacingKeys[],
+    options: inube.spacing,
     control: { type: "select" },
     description: "Sets the inner padding of the grid.",
     table: {

@@ -8,15 +8,13 @@ import {
   JustifyItems,
   Spacing,
   TemplateAreas,
-  TemplateColumns,
-  TemplateRows,
   Width,
 } from "./props";
 import { StyledGrid } from "./styles";
 
-export type GridProps = {
-  templateColumns?: TemplateColumns;
-  templateRows?: TemplateRows;
+export interface GridProps {
+  templateColumns?: string;
+  templateRows?: string;
   templateAreas?: TemplateAreas;
   gap?: Gap;
   justifyItems?: JustifyItems;
@@ -31,11 +29,11 @@ export type GridProps = {
   height?: Height;
   width?: Width;
   children: React.ReactNode;
-};
+}
 
 function Grid(props: GridProps) {
   const {
-    templateColumns = "repeat(3, 1fr)",
+    templateColumns = "auto",
     templateRows = "auto",
     templateAreas = "none",
     gap = "s0",
@@ -49,7 +47,7 @@ function Grid(props: GridProps) {
     margin = "s0",
     padding = "s0",
     height = "auto",
-    width = "100%",
+    width = "auto",
     children,
   } = props;
 
