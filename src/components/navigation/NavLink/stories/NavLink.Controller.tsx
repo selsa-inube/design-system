@@ -10,7 +10,7 @@ const NavLinkController = (props: INavLinkProps) => {
 
   return (
     <ul>
-      <NavLink {...props} isSelected={select} onClick={onClick} />
+      <NavLink {...props} selected={select} onClick={onClick} />
     </ul>
   );
 };
