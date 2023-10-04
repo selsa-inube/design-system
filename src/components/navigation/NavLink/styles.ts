@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 import { colors } from "@shared/colors/colors";
 import { typography } from "@shared/typography/typography";
+import { inube } from "@src/shared/tokens";
 
 const getGrid = (props: INavLinkProps) => {
   const { icon } = props;
@@ -29,20 +30,6 @@ const getBorderLeft = (props: INavLinkProps) => {
   }
 
   return `0px`;
-};
-
-const getBackgroundColor = (props: INavLinkProps) => {
-  const { disabled, isSelected } = props;
-  let color = "transparent";
-  if (disabled) {
-    return color;
-  }
-  if (isSelected && !disabled) {
-    color = colors.ref.palette.neutral.n30;
-    return color;
-  }
-
-  return color;
 };
 
 const getColorIcon = (props: INavLinkProps) => {
@@ -76,13 +63,17 @@ const StyledNavLink = styled.div`
   align-items: center;
   box-sizing: border-box;
   background-size: cover;
-  gap: 24px;
-  padding: 0px 16px;
-
+  gap: ${inube?.spacing?.s300};
+  padding: ${inube?.spacing?.s0} ${inube?.spacing?.s200};
   border-left: ${(props: INavLinkProps) => getBorderLeft(props)};
-  background-color: ${(props: INavLinkProps) => getBackgroundColor(props)};
-  color: ${({ disabled }: INavLinkProps) =>
-    disabled && colors.ref.palette.neutral.n70};
+  background-color: ${({ isSelected, disabled }: INavLinkProps) => {
+    if (disabled) {
+      return "transparent";
+    }
+    if (isSelected && !disabled) {
+      return inube?.color?.surface?.navLink?.selected;
+    }
+  }};
 
   & > svg:last-child {
     ${iconStyles};
