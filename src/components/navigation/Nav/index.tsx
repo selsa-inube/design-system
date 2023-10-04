@@ -50,8 +50,6 @@ const Links = (props: INavLinkProps) => {
   const location = useLocation();
   const currentUrl = location.pathname;
 
-  const selected = (url: string) => currentUrl.startsWith(url);
-
   const LinkElements = section.map((sectionObject) => (
     <NavLink
       key={sectionObject.id}
@@ -59,7 +57,7 @@ const Links = (props: INavLinkProps) => {
       label={sectionObject.label}
       icon={sectionObject.icon}
       path={sectionObject.path}
-      selected={selected(sectionObject.path)}
+      selected={currentUrl.startsWith(sectionObject.path)}
     />
   ));
   return <>{LinkElements} </>;
