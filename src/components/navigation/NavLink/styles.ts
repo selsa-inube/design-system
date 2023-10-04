@@ -3,7 +3,6 @@ import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
 
 import { colors } from "@shared/colors/colors";
-import { typography } from "@shared/typography/typography";
 
 const getGrid = (props: INavLinkProps) => {
   const { icon } = props;
@@ -12,14 +11,6 @@ const getGrid = (props: INavLinkProps) => {
   }
 
   return "1fr auto";
-};
-
-const getColorLabel = (props: INavLinkProps) => {
-  const { disabled } = props;
-  if (disabled) {
-    return colors.sys.text.disabled;
-  }
-  return colors.sys.text.dark;
 };
 
 const getBorderLeft = (props: INavLinkProps) => {
@@ -78,7 +69,6 @@ const StyledNavLink = styled.div`
   background-size: cover;
   gap: 24px;
   padding: 0px 16px;
-
   border-left: ${(props: INavLinkProps) => getBorderLeft(props)};
   background-color: ${(props: INavLinkProps) => getBackgroundColor(props)};
   color: ${({ disabled }: INavLinkProps) =>
@@ -114,17 +104,7 @@ const StyledNavLink = styled.div`
 
 const StyledLink = styled(Link)`
   box-sizing: border-box;
-
   text-decoration: none;
-
-  font-size: ${typography.sys.typescale.bodyMedium.size};
-  font-family: ${typography.sys.typescale.bodyMedium.font};
-  font-size: ${typography.sys.typescale.bodyMedium.size};
-  line-height: ${typography.sys.typescale.bodyMedium.lineHeight};
-  letter-spacing: ${typography.sys.typescale.bodyMedium.tracking};
-  font-weight: ${typography.sys.typescale.bodyMedium.weight};
-  color: ${(props: INavLinkProps) => getColorLabel(props)};
-
   cursor: not-allowed;
 `;
 
