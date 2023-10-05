@@ -1,3 +1,5 @@
+import { inube } from "@shared/tokens";
+
 export const templateAreasProperties = ["none", "header main footer"] as const;
 export type TemplateAreas = typeof templateAreasProperties[number];
 
@@ -111,6 +113,14 @@ export const widthProperties = [
 ] as const;
 export type Width = typeof widthProperties[number];
 
+export type Spacing = keyof typeof inube.spacing;
+
+export type SpacingValue =
+  | `${Spacing}`
+  | `${Spacing} ${Spacing}`
+  | `${Spacing} ${Spacing} ${Spacing}`
+  | `${Spacing} ${Spacing} ${Spacing} ${Spacing}`;
+
 export const props = {
   children: {
     options: "",
@@ -145,7 +155,8 @@ export const props = {
   },
 
   gap: {
-    type: { name: "string" },
+    options: Object.keys(inube.spacing),
+    control: { type: "select" },
     description:
       "Controls the spacing between grid cells, both horizontally and vertically.",
     table: {
@@ -202,7 +213,7 @@ export const props = {
     },
   },
 
-  AutoRows: {
+  autoRows: {
     type: { name: "string", required: false },
     description:
       "Allows you to specify the automatic height of the grid columns. This means that the columns will automatically adjust according to the content.",
@@ -239,7 +250,8 @@ export const props = {
   },
 
   margin: {
-    type: { name: "string", required: false },
+    options: Object.keys(inube.spacing),
+    control: { type: "select" },
     description: "Sets the outer margin of the grid.",
     table: {
       defaultValue: { summary: "s0" },
@@ -247,7 +259,8 @@ export const props = {
   },
 
   padding: {
-    type: { name: "string", required: false },
+    options: Object.keys(inube.spacing),
+    control: { type: "select" },
     description: "Sets the inner padding of the grid.",
     table: {
       defaultValue: { summary: "s0" },

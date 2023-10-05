@@ -5,6 +5,7 @@ import {
   Height,
   JustifyContent,
   JustifyItems,
+  SpacingValue,
   TemplateAreas,
   Width,
 } from "./props";
@@ -14,7 +15,7 @@ export interface GridProps {
   templateColumns?: string;
   templateRows?: string;
   templateAreas?: TemplateAreas;
-  gap?: string;
+  gap?: SpacingValue;
   justifyItems?: JustifyItems;
   alignItems?: AlignItems;
   justifyContent?: JustifyContent;
@@ -22,8 +23,8 @@ export interface GridProps {
   autoColumns?: string;
   autoRows?: string;
   autoFlow?: AutoFlow;
-  margin?: string;
-  padding?: string;
+  margin?: SpacingValue;
+  padding?: SpacingValue;
   height?: Height;
   width?: Width;
   children: React.ReactNode;
@@ -41,7 +42,7 @@ const Grid = (props: GridProps) => {
     alignContent = "start",
     autoColumns = "auto",
     autoRows = "row",
-    autoFlow,
+    autoFlow = "row",
     margin = "s0",
     padding = "s0",
     height = "auto",
