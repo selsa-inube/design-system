@@ -33,7 +33,7 @@ const theme = structuredClone(presente);
 
 const Themed = (args: ITabsProps) => (
   <ThemeProvider theme={theme}>
-    <Default {...args} />
+    <TabsController {...args} />
   </ThemeProvider>
 );
 
