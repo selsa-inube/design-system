@@ -1,10 +1,10 @@
 import { ThemeProvider } from "styled-components";
 import { Tab, ITabProps } from "../index";
-import { TabController } from "./TabController";
 
 import { props } from "../props";
 
 import { presente } from "@shared/themes/presente";
+import { TabController } from "./TabController";
 
 const story = {
   title: "navigation/Tab",
@@ -17,7 +17,6 @@ Default.args = {
   id: "thisIsAnId",
   disabled: false,
   label: "General Information",
-  selected: { control: null },
 };
 
 const theme = structuredClone(presente);

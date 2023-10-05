@@ -1,11 +1,9 @@
 import { useState } from "react";
 import { MdKeyboardArrowDown } from "react-icons/md";
-
 import { OptionItem } from "@inputs/Select/OptionItem";
 import { OptionList } from "@inputs/Select/OptionList";
 import { Stack } from "@layouts/Stack";
 import { Tab, ITabProps } from "@navigation/Tabs/Tab";
-
 import { Types } from "./props";
 import { StyledTabs, StyledIconWrapper } from "./styles";
 
@@ -22,6 +20,16 @@ const Tabs = ({ tabs, type = "tabs", selectedTab, onChange }: ITabsProps) => {
     selectedTab
   );
 
+  const handleTabClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    const clickedTab = e.target as HTMLElement;
+    const tabId = clickedTab
+      .closest("[data-tab-id]")
+      ?.getAttribute("data-tab-id");
+    if (tabId && !clickedTab.hasAttribute("disabled")) {
+      onChange(tabId);
+    }
+  };
+
   if (type === "select") {
     const dropDownOptions = tabs.map((tab) => ({
       id: tab.id,
@@ -35,8 +43,9 @@ const Tabs = ({ tabs, type = "tabs", selectedTab, onChange }: ITabsProps) => {
         setDisplayList(false);
       }
     };
+
     return (
-      <>
+      <div>
         <StyledTabs type={type}>
           <Stack gap="8px">
             <StyledIconWrapper onClick={() => setDisplayList(!displayList)}>
@@ -46,7 +55,6 @@ const Tabs = ({ tabs, type = "tabs", selectedTab, onChange }: ITabsProps) => {
               key={selectedTab}
               selected={true}
               id={selectedTab}
-              onClick={() => onChange(selectedTab)}
               label={selectedTabLabel!}
             />
           </Stack>
@@ -62,12 +70,12 @@ const Tabs = ({ tabs, type = "tabs", selectedTab, onChange }: ITabsProps) => {
             ))}
           </OptionList>
         )}
-      </>
+      </div>
     );
   }
 
   return (
-    <StyledTabs>
+    <StyledTabs onClick={handleTabClick}>
       <Stack gap="24px">
         {tabs.map((tab) => (
           <Tab
@@ -75,7 +83,6 @@ const Tabs = ({ tabs, type = "tabs", selectedTab, onChange }: ITabsProps) => {
             disabled={tab.disabled}
             selected={tab.id === selectedTab}
             id={tab.id}
-            onClick={() => onChange(tab.id)}
             label={tab.label}
           />
         ))}

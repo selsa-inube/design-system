@@ -6,19 +6,13 @@ export interface ITabProps {
   id: string;
   disabled?: boolean;
   selected?: boolean;
-  onClick?: () => void;
 }
 
 const Tab = (props: ITabProps) => {
-  const { disabled = false, selected = false, id, onClick, label } = props;
+  const { disabled = false, selected = false, id, label } = props;
 
   return (
-    <StyledTab
-      onClick={disabled ? undefined : onClick}
-      disabled={disabled}
-      selected={selected}
-      id={id}
-    >
+    <StyledTab disabled={disabled} selected={selected} id={id} data-tab-id={id}>
       <Text
         type="label"
         size="medium"
