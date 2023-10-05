@@ -1,5 +1,3 @@
-import { inube } from "@shared/tokens";
-
 export const templateAreasProperties = ["none", "header main footer"] as const;
 export type TemplateAreas = typeof templateAreasProperties[number];
 
