@@ -113,14 +113,6 @@ export const widthProperties = [
 ] as const;
 export type Width = typeof widthProperties[number];
 
-export type Spacing = keyof typeof inube.spacing;
-
-export type SpacingValue =
-  | `${Spacing}`
-  | `${Spacing} ${Spacing}`
-  | `${Spacing} ${Spacing} ${Spacing}`
-  | `${Spacing} ${Spacing} ${Spacing} ${Spacing}`;
-
 export const props = {
   children: {
     options: "",
@@ -155,8 +147,7 @@ export const props = {
   },
 
   gap: {
-    options: Object.keys(inube.spacing),
-    control: { type: "select" },
+    type: { name: "string", required: false },
     description:
       "Controls the spacing between grid cells, both horizontally and vertically.",
     table: {
@@ -250,8 +241,7 @@ export const props = {
   },
 
   margin: {
-    options: Object.keys(inube.spacing),
-    control: { type: "select" },
+    type: { name: "string", required: false },
     description: "Sets the outer margin of the grid.",
     table: {
       defaultValue: { summary: "s0" },
@@ -259,8 +249,7 @@ export const props = {
   },
 
   padding: {
-    options: Object.keys(inube.spacing),
-    control: { type: "select" },
+    type: { name: "string", required: false },
     description: "Sets the inner padding of the grid.",
     table: {
       defaultValue: { summary: "s0" },

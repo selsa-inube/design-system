@@ -1,4 +1,4 @@
-import { Grid } from "..";
+import { Grid, IGridProps } from "..";
 import { props } from "../props";
 import { StyledSquare } from "./stories.styles";
 
@@ -8,7 +8,7 @@ const story = {
   argTypes: props,
 };
 
-export const Default = (args: any) => (
+export const Default = (args: IGridProps) => (
   <Grid {...args}>
     <StyledSquare>Item 1</StyledSquare>
     <StyledSquare>Item 2</StyledSquare>
