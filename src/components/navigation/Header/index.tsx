@@ -52,14 +52,20 @@ const Header = (props: IHeaderProps) => {
     !matches[LARGE_SCREEN] && shouldDisplayNav(matches);
 
   return (
-    <StyledHeader alignItems="center" justifyContent="space-between">
-      <LogoAndNav
-        portalId={portalId}
-        navigation={navigation}
-        logoURL={logoURL}
-        shouldDisplay={shouldDisplayLogoAndNav}
-      />
-      <User userName={userName} client={client} size={getScreenSize(matches)} />
+    <StyledHeader>
+      <Stack alignItems="center" justifyContent="space-between">
+        <LogoAndNav
+          portalId={portalId}
+          navigation={navigation}
+          logoURL={logoURL}
+          shouldDisplay={shouldDisplayLogoAndNav}
+        />
+        <User
+          userName={userName}
+          client={client}
+          size={getScreenSize(matches)}
+        />
+      </Stack>
     </StyledHeader>
   );
 };

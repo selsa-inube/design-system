@@ -17,7 +17,7 @@ export interface ITabsProps {
 }
 
 const Tabs = ({ tabs, type = "tabs", selectedTab, onChange }: ITabsProps) => {
-  const [isDropDownOpen, setIsDropDownOpen] = useState(false);
+  const [displayList, setDisplayList] = useState(false);
   const [selectedTabLabel, setSelectedTabLabel] = useState<string | null>(
     selectedTab
   );
@@ -32,16 +32,14 @@ const Tabs = ({ tabs, type = "tabs", selectedTab, onChange }: ITabsProps) => {
     const handleOptionClick = (e: React.ChangeEvent<HTMLInputElement>) => {
       if (e) {
         setSelectedTabLabel(e.target.textContent);
-        setIsDropDownOpen(false);
+        setDisplayList(false);
       }
     };
     return (
       <>
         <StyledTabs type={type}>
           <Stack gap="8px">
-            <StyledIconWrapper
-              onClick={() => setIsDropDownOpen(!isDropDownOpen)}
-            >
+            <StyledIconWrapper onClick={() => setDisplayList(!displayList)}>
               <MdKeyboardArrowDown />
             </StyledIconWrapper>
             <Tab
@@ -53,7 +51,7 @@ const Tabs = ({ tabs, type = "tabs", selectedTab, onChange }: ITabsProps) => {
             />
           </Stack>
         </StyledTabs>
-        {isDropDownOpen && (
+        {displayList && (
           <OptionList onClick={handleOptionClick}>
             {dropDownOptions.map((optionItem) => (
               <OptionItem
