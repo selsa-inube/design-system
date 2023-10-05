@@ -2,26 +2,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 import { inube } from "@shared/tokens";
-import { colors } from "@shared/colors/colors";
 import { INavLinkProps } from ".";
-
-const getGrid = (props: INavLinkProps) => {
-  const { icon } = props;
-  if (icon) {
-    return "auto 1fr auto";
-  }
-
-  return "1fr auto";
-};
-
-const getBorderLeft = (props: INavLinkProps) => {
-  const { disabled, selected } = props;
-  if (selected && !disabled) {
-    return `5px solid ${colors.ref.palette.neutral.n900}`;
-  }
-
-  return `0px`;
-};
 
 const StyledNavList = styled.li`
   list-style-type: none;
@@ -29,7 +10,13 @@ const StyledNavList = styled.li`
 
 const StyledNavLink = styled.div`
   display: grid;
-  grid-template-columns: ${(props: INavLinkProps) => getGrid(props)};
+  grid-template-columns: ${({ icon }: INavLinkProps) => {
+    if (icon) {
+      return "auto 1fr auto";
+    }
+
+    return "1fr auto";
+  }};
   width: 100%;
   height: 40px;
   min-width: 180px;
@@ -38,7 +25,13 @@ const StyledNavLink = styled.div`
   background-size: cover;
   gap: ${inube?.spacing?.s300};
   padding: ${inube?.spacing?.s0} ${inube?.spacing?.s200};
-  border-left: ${(props: INavLinkProps) => getBorderLeft(props)};
+  border-left: ${({ disabled, selected }: INavLinkProps) => {
+    if (selected && !disabled) {
+      return `5px solid ${inube?.color?.stroke?.dark.regular}`;
+    }
+
+    return `0px`;
+  }};
   background-color: ${({ selected, disabled }: INavLinkProps) => {
     if (disabled) {
       return inube?.color?.surface?.navLink?.regular;

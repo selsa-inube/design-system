@@ -45,7 +45,7 @@ const NavLink = (props: INavLinkProps) => {
           <Text type="label" disabled={disabled}>
             {label}
           </Text>
-          {selected && (
+          {!disabled && selected && (
             <Icon
               icon={<MdKeyboardArrowRight />}
               appearance="dark"
