@@ -14,7 +14,7 @@ const props = {
       defaultValue: { summary: false },
     },
   },
-  isSelected: {
+  selected: {
     description:
       "It is designed to ascertain whether the tab has been clicked or not (by Default is false) and is not required.",
     table: {
@@ -28,7 +28,7 @@ const props = {
   id: {
     description: "shall be the id for the MenuLink and is required.",
   },
-  handleClick: {
+  onClick: {
     description:
       "(function): shall be determine the behavior of the click event and is not required.",
   },

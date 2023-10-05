@@ -10,7 +10,6 @@ export interface IHeaderProps {
   logoURL: JSX.Element;
   userName: string;
   client: string;
-  isClient: boolean;
 }
 
 const SMALL_SCREEN = "(min-width: 320px)";
@@ -18,18 +17,10 @@ const MEDIUM_SCREEN = "(min-width: 744px)";
 const LARGE_SCREEN = "(min-width: 1440px)";
 
 const Header = (props: IHeaderProps) => {
-  const {
-    portalId,
-    navigation,
-    logoURL,
-    userName,
-    client,
-    isClient = false,
-  } = props;
+  const { portalId, navigation, logoURL, userName, client } = props;
 
   const matches = useMediaQueries([SMALL_SCREEN, MEDIUM_SCREEN, LARGE_SCREEN]);
 
-  const transformedClient = isClient ? client : "";
   return (
     <StyledHeader alignItems="center" justifyContent="space-between">
       <Stack justifyContent="space-between" gap="23px">
@@ -45,7 +36,7 @@ const Header = (props: IHeaderProps) => {
       </Stack>
       <User
         userName={userName}
-        client={transformedClient}
+        client={client}
         size={matches[SMALL_SCREEN] ? "small" : "large"}
       />
     </StyledHeader>

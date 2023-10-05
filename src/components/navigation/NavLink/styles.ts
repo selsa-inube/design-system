@@ -1,9 +1,8 @@
-import { INavLinkProps } from ".";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 import { colors } from "@shared/colors/colors";
-import { typography } from "@shared/typography/typography";
+import { INavLinkProps } from ".";
 
 const getGrid = (props: INavLinkProps) => {
   const { icon } = props;
@@ -14,17 +13,9 @@ const getGrid = (props: INavLinkProps) => {
   return "1fr auto";
 };
 
-const getColorLabel = (props: INavLinkProps) => {
-  const { disabled } = props;
-  if (disabled) {
-    return colors.sys.text.disabled;
-  }
-  return colors.sys.text.dark;
-};
-
 const getBorderLeft = (props: INavLinkProps) => {
-  const { disabled, isSelected } = props;
-  if (isSelected && !disabled) {
+  const { disabled, selected } = props;
+  if (selected && !disabled) {
     return `5px solid ${colors.ref.palette.neutral.n900}`;
   }
 
@@ -32,36 +23,18 @@ const getBorderLeft = (props: INavLinkProps) => {
 };
 
 const getBackgroundColor = (props: INavLinkProps) => {
-  const { disabled, isSelected } = props;
+  const { disabled, selected } = props;
   let color = "transparent";
   if (disabled) {
     return color;
   }
-  if (isSelected && !disabled) {
+  if (selected && !disabled) {
     color = colors.ref.palette.neutral.n30;
     return color;
   }
 
   return color;
 };
-
-const getColorIcon = (props: INavLinkProps) => {
-  const { disabled, isSelected } = props;
-  if (disabled) {
-    return colors.ref.palette.neutral.n70;
-  }
-
-  if (isSelected && !disabled) {
-    return colors.sys.actions.primary.filled;
-  }
-
-  return colors.ref.palette.neutral.n900;
-};
-
-const iconStyles = css`
-  width: 24px;
-  height: 24px;
-`;
 
 const StyledNavList = styled.li`
   list-style-type: none;
@@ -75,26 +48,12 @@ const StyledNavLink = styled.div`
   min-width: 180px;
   align-items: center;
   box-sizing: border-box;
-  background-size: cover;
   gap: 24px;
   padding: 0px 16px;
-
   border-left: ${(props: INavLinkProps) => getBorderLeft(props)};
   background-color: ${(props: INavLinkProps) => getBackgroundColor(props)};
   color: ${({ disabled }: INavLinkProps) =>
     disabled && colors.ref.palette.neutral.n70};
-
-  & > svg:last-child {
-    ${iconStyles};
-    color: ${colors.ref.palette.neutral.n900};
-    display: ${({ disabled, isSelected }: INavLinkProps) =>
-      (disabled || !isSelected) && "none"};
-  }
-
-  & > svg:first-child {
-    ${iconStyles};
-    color: ${(props: INavLinkProps) => getColorIcon(props)};
-  }
 
   ${({ disabled }: INavLinkProps) =>
     !disabled &&
@@ -114,17 +73,7 @@ const StyledNavLink = styled.div`
 
 const StyledLink = styled(Link)`
   box-sizing: border-box;
-
   text-decoration: none;
-
-  font-size: ${typography.sys.typescale.bodyMedium.size};
-  font-family: ${typography.sys.typescale.bodyMedium.font};
-  font-size: ${typography.sys.typescale.bodyMedium.size};
-  line-height: ${typography.sys.typescale.bodyMedium.lineHeight};
-  letter-spacing: ${typography.sys.typescale.bodyMedium.tracking};
-  font-weight: ${typography.sys.typescale.bodyMedium.weight};
-  color: ${(props: INavLinkProps) => getColorLabel(props)};
-
   cursor: not-allowed;
 `;
 
