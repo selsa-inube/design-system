@@ -40,15 +40,17 @@ const NavLink = (props: INavLinkProps) => {
             appearance={selected ? "primary" : "dark"}
             disabled={disabled}
             size="24px"
+            parentHover={!disabled && true}
           />
           <Text type="label" disabled={disabled}>
             {label}
           </Text>
-          {selected && (
+          {!disabled && selected && (
             <Icon
               icon={<MdKeyboardArrowRight />}
               appearance="dark"
               size="24px"
+              parentHover={!disabled && true}
             />
           )}
         </StyledNavLink>
