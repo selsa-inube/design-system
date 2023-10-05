@@ -23,23 +23,23 @@ const StyledNavLink = styled.div`
   align-items: center;
   box-sizing: border-box;
   background-size: cover;
-  gap: ${inube?.spacing?.s300};
-  padding: ${inube?.spacing?.s0} ${inube?.spacing?.s200};
+  gap: ${inube.spacing.s300};
+  padding: ${inube.spacing.s0} ${inube.spacing.s200};
   border-left: ${({ disabled, selected }: INavLinkProps) => {
     if (selected && !disabled) {
-      return `5px solid ${inube?.color?.stroke?.dark.regular}`;
+      return `5px solid ${inube.color.stroke.dark.regular}`;
     }
 
     return `0px`;
   }};
   background-color: ${({ selected, disabled }: INavLinkProps) => {
     if (disabled) {
-      return inube?.color?.surface?.navLink?.regular;
+      return inube.color?.surface.navLink.regular;
     }
     if (selected && !disabled) {
-      return inube?.color?.surface?.navLink?.selected;
+      return inube.color.surface.navLink.selected;
     }
-    return inube?.color?.surface?.navLink?.regular;
+    return inube.color?.surface?.navLink.regular;
   }};
 
   ${({ disabled }: INavLinkProps) =>
@@ -47,7 +47,7 @@ const StyledNavLink = styled.div`
     `
     cursor: pointer;
       &:hover {
-        background-color: ${inube?.color?.surface?.navLink?.hover};
+        background-color: ${inube.color.surface.navLink.hover};
         
       }
   `};
