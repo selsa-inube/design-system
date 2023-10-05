@@ -1,7 +1,8 @@
 import { Tabs, ITabsProps } from "..";
 import { TabsController } from "./TabsController";
-
+import { ThemeProvider } from "styled-components";
 import { props, parameters } from "../props";
+import { presente } from "@src/shared/themes/presente";
 
 const story = {
   title: "navigation/Tabs",
@@ -10,7 +11,7 @@ const story = {
   argTypes: props,
 };
 
-export const Default = (args: ITabsProps) => <TabsController {...args} />;
+const Default = (args: ITabsProps) => <TabsController {...args} />;
 Default.args = {
   tabs: [
     {
@@ -28,4 +29,16 @@ Default.args = {
   type: "tabs",
 };
 
+const theme = structuredClone(presente);
+
+const Themed = (args: ITabsProps) => (
+  <ThemeProvider theme={theme}>
+    <TabsController {...args} />
+  </ThemeProvider>
+);
+
+Themed.args = {
+  ...Default.args,
+};
 export default story;
+export { Default, Themed };
