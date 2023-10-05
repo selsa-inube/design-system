@@ -12,16 +12,11 @@ import { StyledTabs, StyledIconWrapper } from "./styles";
 export interface ITabsProps {
   tabs: ITabProps[];
   type?: Types;
-  onSelectTab: (id: string) => void;
+  onChange: (id: string) => void;
   selectedTab: string;
 }
 
-const Tabs = ({
-  tabs,
-  type = "tabs",
-  selectedTab,
-  onSelectTab,
-}: ITabsProps) => {
+const Tabs = ({ tabs, type = "tabs", selectedTab, onChange }: ITabsProps) => {
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
   const [selectedTabLabel, setSelectedTabLabel] = useState<string | null>(
     selectedTab
@@ -53,7 +48,7 @@ const Tabs = ({
               key={selectedTab}
               selected={true}
               id={selectedTab}
-              onClick={() => onSelectTab(selectedTab)}
+              onClick={() => onChange(selectedTab)}
               label={selectedTabLabel!}
             />
           </Stack>
@@ -82,7 +77,7 @@ const Tabs = ({
             disabled={tab.disabled}
             selected={tab.id === selectedTab}
             id={tab.id}
-            onClick={() => onSelectTab(tab.id)}
+            onClick={() => onChange(tab.id)}
             label={tab.label}
           />
         ))}
