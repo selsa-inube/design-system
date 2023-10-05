@@ -26,7 +26,7 @@ const props = {
       defaultValue: { summary: "idOfOneTab" },
     },
   },
-  onSelectTab: {
+  onChange: {
     options: ["logState"],
     control: { type: "func" },
     description:
