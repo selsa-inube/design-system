@@ -12,54 +12,37 @@ export interface IHeaderProps {
   client: string;
 }
 
-const SMALL_SCREEN = "(min-width: 320px)";
-const MEDIUM_SCREEN = "(min-width: 744px)";
-const LARGE_SCREEN = "(min-width: 1440px)";
-
-const getScreenSize = (matches: { [key: string]: boolean }) =>
-  matches[SMALL_SCREEN] && !matches[MEDIUM_SCREEN] ? "small" : "large";
-
-const shouldDisplayNav = (matches: { [key: string]: boolean }) =>
-  matches[SMALL_SCREEN] || matches[MEDIUM_SCREEN];
-
-const LogoAndNav = (
-  props: Pick<IHeaderProps, "portalId" | "navigation" | "logoURL"> & {
-    shouldDisplay?: boolean;
-  }
-) => {
-  const { portalId, navigation, logoURL, shouldDisplay } = props;
-  return (
-    <Stack justifyContent="space-between" gap="23px">
-      {shouldDisplay && (
-        <FullscreenNav
-          portalId={portalId}
-          navigation={navigation}
-          logoutPath="/logout"
-          logoutTitle="Logout"
-        />
-      )}
-      {logoURL}
-    </Stack>
-  );
-};
-
 const Header = (props: IHeaderProps) => {
   const { portalId, navigation, logoURL, userName, client } = props;
 
-  const matches = useMediaQueries([SMALL_SCREEN, MEDIUM_SCREEN, LARGE_SCREEN]);
-
-  const shouldDisplayLogoAndNav =
-    !matches[LARGE_SCREEN] && shouldDisplayNav(matches);
+  const [mobile, tablet, desktop] = Object.values(
+    useMediaQueries([
+      "(min-width: 320px)",
+      "(min-width: 744px)",
+      "(min-width: 1440px)",
+    ])
+  );
 
   return (
-    <StyledHeader alignItems="center" justifyContent="space-between">
-      <LogoAndNav
-        portalId={portalId}
-        navigation={navigation}
-        logoURL={logoURL}
-        shouldDisplay={shouldDisplayLogoAndNav}
-      />
-      <User userName={userName} client={client} size={getScreenSize(matches)} />
+    <StyledHeader>
+      <Stack alignItems="center" justifyContent="space-between">
+        <Stack justifyContent="space-between" gap="23px">
+          {!desktop && (
+            <FullscreenNav
+              portalId={portalId}
+              navigation={navigation}
+              logoutPath="/logout"
+              logoutTitle="Logout"
+            />
+          )}
+          {logoURL}
+        </Stack>
+        <User
+          userName={userName}
+          client={client}
+          size={mobile && !tablet ? "small" : "large"}
+        />
+      </Stack>
     </StyledHeader>
   );
 };

@@ -1,4 +1,6 @@
 import { MdKeyboardArrowRight } from "react-icons/md";
+import { Icon } from "@data/Icon";
+import { Text } from "@data/Text";
 
 import { StyledNavLink, StyledLink, StyledNavList } from "./styles";
 
@@ -33,9 +35,22 @@ const NavLink = (props: INavLinkProps) => {
           onClick={onClick}
           icon={icon}
         >
-          {icon}
-          {label}
-          <MdKeyboardArrowRight />
+          <Icon
+            icon={icon}
+            appearance={selected ? "primary" : "dark"}
+            disabled={disabled}
+            size="24px"
+          />
+          <Text type="label" disabled={disabled}>
+            {label}
+          </Text>
+          {selected && (
+            <Icon
+              icon={<MdKeyboardArrowRight />}
+              appearance="dark"
+              size="24px"
+            />
+          )}
         </StyledNavLink>
       </StyledLink>
     </StyledNavList>

@@ -12,17 +12,12 @@ import { StyledTabs, StyledIconWrapper } from "./styles";
 export interface ITabsProps {
   tabs: ITabProps[];
   type?: Types;
-  onSelectTab: (id: string) => void;
+  onChange: (id: string) => void;
   selectedTab: string;
 }
 
-const Tabs = ({
-  tabs,
-  type = "tabs",
-  selectedTab,
-  onSelectTab,
-}: ITabsProps) => {
-  const [isDropDownOpen, setIsDropDownOpen] = useState(false);
+const Tabs = ({ tabs, type = "tabs", selectedTab, onChange }: ITabsProps) => {
+  const [displayList, setDisplayList] = useState(false);
   const [selectedTabLabel, setSelectedTabLabel] = useState<string | null>(
     selectedTab
   );
@@ -37,28 +32,26 @@ const Tabs = ({
     const handleOptionClick = (e: React.ChangeEvent<HTMLInputElement>) => {
       if (e) {
         setSelectedTabLabel(e.target.textContent);
-        setIsDropDownOpen(false);
+        setDisplayList(false);
       }
     };
     return (
       <>
         <StyledTabs type={type}>
           <Stack gap="8px">
-            <StyledIconWrapper
-              onClick={() => setIsDropDownOpen(!isDropDownOpen)}
-            >
+            <StyledIconWrapper onClick={() => setDisplayList(!displayList)}>
               <MdKeyboardArrowDown />
             </StyledIconWrapper>
             <Tab
               key={selectedTab}
               selected={true}
               id={selectedTab}
-              onClick={() => onSelectTab(selectedTab)}
+              onClick={() => onChange(selectedTab)}
               label={selectedTabLabel!}
             />
           </Stack>
         </StyledTabs>
-        {isDropDownOpen && (
+        {displayList && (
           <OptionList onClick={handleOptionClick}>
             {dropDownOptions.map((optionItem) => (
               <OptionItem
@@ -82,7 +75,7 @@ const Tabs = ({
             disabled={tab.disabled}
             selected={tab.id === selectedTab}
             id={tab.id}
-            onClick={() => onSelectTab(tab.id)}
+            onClick={() => onChange(tab.id)}
             label={tab.label}
           />
         ))}
