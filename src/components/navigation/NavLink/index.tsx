@@ -1,4 +1,6 @@
 import { MdKeyboardArrowRight } from "react-icons/md";
+import { Icon } from "@data/Icon";
+import { Text } from "@data/Text";
 
 import { StyledNavLink, StyledLink, StyledNavList } from "./styles";
 
@@ -6,11 +8,10 @@ export interface INavLinkProps {
   id: string;
   label: string;
   path: string;
-  isDisabled?: boolean;
-  isSelected?: boolean;
+  disabled?: boolean;
+  selected?: boolean;
   icon?: React.ReactNode;
-  handleClick?: () => void;
-  handleBlur?: () => void;
+  onClick?: () => void;
 }
 
 const NavLink = (props: INavLinkProps) => {
@@ -18,27 +19,38 @@ const NavLink = (props: INavLinkProps) => {
     id,
     label,
     path,
-    isDisabled = false,
-    isSelected = false,
+    disabled = false,
+    selected = false,
     icon,
-    handleClick,
-    handleBlur,
+    onClick,
   } = props;
 
   return (
     <StyledNavList>
-      <StyledLink to={path} isdisabled={+isDisabled}>
+      <StyledLink to={path} isdisabled={+disabled}>
         <StyledNavLink
-          isDisabled={isDisabled}
-          isSelected={isSelected}
+          disabled={disabled}
+          selected={selected}
           id={id}
-          onClick={handleClick}
+          onClick={onClick}
           icon={icon}
-          onBlur={handleBlur}
         >
-          {icon}
-          {label}
-          <MdKeyboardArrowRight />
+          <Icon
+            icon={icon}
+            appearance={selected ? "primary" : "dark"}
+            disabled={disabled}
+            size="24px"
+          />
+          <Text type="label" disabled={disabled}>
+            {label}
+          </Text>
+          {selected && (
+            <Icon
+              icon={<MdKeyboardArrowRight />}
+              appearance="dark"
+              size="24px"
+            />
+          )}
         </StyledNavLink>
       </StyledLink>
     </StyledNavList>
