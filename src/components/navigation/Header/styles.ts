@@ -8,9 +8,6 @@ interface IStyledHeaderProps extends IHeaderProps {
 }
 
 const StyledHeader = styled.header`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   box-shadow: 0px 1px 3px 1px
       ${({ theme }: IStyledHeaderProps) =>
         theme?.color?.stroke?.divider?.regular ||
@@ -20,16 +17,16 @@ const StyledHeader = styled.header`
         theme?.color?.surface.light.disabled ||
         inube.color.surface.light.disabled};
 
-  & > div > div {
+  & > div > div > div {
     position: unset;
     display: flex;
     align-items: center;
   }
 
-  & > div:first-child {
+  & > div > div:first-child {
     padding-left: ${inube.spacing.s150};
   }
-  & > div:last-child {
+  & > div > div:last-child {
     padding: ${inube.spacing.s100} ${inube.spacing.s200};
     border-left: 1px solid
       ${({ theme }: IStyledHeaderProps) =>
