@@ -100,7 +100,7 @@ Default.args = {
   },
   logoURL: <Logo />,
   userName: "Leonardo Garzón",
-  client: "Sistemas Enlínea S.A",
+  client: "Sistemas Enlínea S.A.",
 };
 
 const theme = structuredClone(presente);
