@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { MdKeyboardArrowDown } from "react-icons/md";
 
 import { OptionItem } from "@inputs/Select/OptionItem";
@@ -18,9 +18,6 @@ export interface ITabsProps {
 
 const Tabs = ({ tabs, type = "tabs", selectedTab, onChange }: ITabsProps) => {
   const [displayList, setDisplayList] = useState(false);
-  const [selectedTabLabel, setSelectedTabLabel] = useState<string | null>(
-    selectedTab
-  );
 
   if (type === "select") {
     const dropDownOptions = tabs.map((tab) => ({
@@ -30,11 +27,13 @@ const Tabs = ({ tabs, type = "tabs", selectedTab, onChange }: ITabsProps) => {
     }));
 
     const handleOptionClick = (e: React.ChangeEvent<HTMLInputElement>) => {
-      if (e) {
-        setSelectedTabLabel(e.target.textContent);
+      const id = e.target.closest("li")?.getAttribute("id");
+      if (id) {
         setDisplayList(false);
+        onChange(id);
       }
     };
+
     return (
       <>
         <StyledTabs type={type}>
@@ -47,7 +46,7 @@ const Tabs = ({ tabs, type = "tabs", selectedTab, onChange }: ITabsProps) => {
               selected={true}
               id={selectedTab}
               onClick={() => onChange(selectedTab)}
-              label={selectedTabLabel!}
+              label={tabs.find((tab) => tab.id === selectedTab)?.label!}
             />
           </Stack>
         </StyledTabs>
