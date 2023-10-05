@@ -24,23 +24,25 @@ const Header = (props: IHeaderProps) => {
   );
 
   return (
-    <StyledHeader alignItems="center" justifyContent="space-between">
-      <Stack justifyContent="space-between" gap="23px">
-        {!desktop && (
-          <FullscreenNav
-            portalId={portalId}
-            navigation={navigation}
-            logoutPath="/logout"
-            logoutTitle="Logout"
-          />
-        )}
-        {logoURL}
+    <StyledHeader>
+      <Stack alignItems="center" justifyContent="space-between">
+        <Stack justifyContent="space-between" gap="23px">
+          {!desktop && (
+            <FullscreenNav
+              portalId={portalId}
+              navigation={navigation}
+              logoutPath="/logout"
+              logoutTitle="Logout"
+            />
+          )}
+          {logoURL}
+        </Stack>
+        <User
+          userName={userName}
+          client={client}
+          size={mobile && !tablet ? "small" : "large"}
+        />
       </Stack>
-      <User
-        userName={userName}
-        client={client}
-        size={mobile && !tablet ? "small" : "large"}
-      />
     </StyledHeader>
   );
 };
