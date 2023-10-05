@@ -20,7 +20,7 @@ const Header = (props: IHeaderProps) => {
   const { portalId, navigation, logoURL, userName, client } = props;
 
   const matches = useMediaQueries([SMALL_SCREEN, MEDIUM_SCREEN, LARGE_SCREEN]);
-
+  console.log("matches: ", matches);
   return (
     <StyledHeader alignItems="center" justifyContent="space-between">
       <Stack justifyContent="space-between" gap="23px">
@@ -37,7 +37,9 @@ const Header = (props: IHeaderProps) => {
       <User
         userName={userName}
         client={client}
-        size={matches[SMALL_SCREEN] ? "small" : "large"}
+        size={
+          matches[SMALL_SCREEN] && !matches[MEDIUM_SCREEN] ? "small" : "large"
+        }
       />
     </StyledHeader>
   );
