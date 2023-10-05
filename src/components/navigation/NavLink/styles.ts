@@ -41,11 +41,12 @@ const StyledNavLink = styled.div`
   border-left: ${(props: INavLinkProps) => getBorderLeft(props)};
   background-color: ${({ selected, disabled }: INavLinkProps) => {
     if (disabled) {
-      return "transparent";
+      return inube?.color?.surface?.navLink?.regular;
     }
     if (selected && !disabled) {
       return inube?.color?.surface?.navLink?.selected;
     }
+    return inube?.color?.surface?.navLink?.regular;
   }};
 
   ${({ disabled }: INavLinkProps) =>
@@ -53,13 +54,8 @@ const StyledNavLink = styled.div`
     `
     cursor: pointer;
       &:hover {
-        background-color: ${colors.ref.palette.neutral.n30};
+        background-color: ${inube?.color?.surface?.navLink?.hover};
         
-      }
-
-      &:hover  > svg:first-child {
-        color: ${colors.sys.actions.primary.filled};
-         
       }
   `};
 `;
