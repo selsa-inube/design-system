@@ -19,21 +19,15 @@ export interface ITabsProps {
 const Tabs = ({ tabs, type = "tabs", selectedTab, onChange }: ITabsProps) => {
   const [displayList, setDisplayList] = useState(false);
 
+  const handleOptionClick = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const id = e.target.closest("li")?.getAttribute("id");
+    if (id) {
+      setDisplayList(false);
+      onChange(id);
+    }
+  };
+
   if (type === "select") {
-    const dropDownOptions = tabs.map((tab) => ({
-      id: tab.id,
-      label: tab.label,
-      disabled: tab.disabled,
-    }));
-
-    const handleOptionClick = (e: React.ChangeEvent<HTMLInputElement>) => {
-      const id = e.target.closest("li")?.getAttribute("id");
-      if (id) {
-        setDisplayList(false);
-        onChange(id);
-      }
-    };
-
     return (
       <>
         <StyledTabs type={type}>
@@ -52,12 +46,8 @@ const Tabs = ({ tabs, type = "tabs", selectedTab, onChange }: ITabsProps) => {
         </StyledTabs>
         {displayList && (
           <OptionList onClick={handleOptionClick}>
-            {dropDownOptions.map((optionItem) => (
-              <OptionItem
-                key={optionItem.id}
-                id={optionItem.id}
-                label={optionItem.label}
-              />
+            {tabs.map((tab) => (
+              <OptionItem key={tab.id} id={tab.id} label={tab.label} />
             ))}
           </OptionList>
         )}
