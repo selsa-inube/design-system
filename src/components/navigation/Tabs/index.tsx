@@ -7,7 +7,8 @@ import { Stack } from "@layouts/Stack";
 import { Tab, ITabProps } from "@navigation/Tabs/Tab";
 
 import { Types } from "./props";
-import { StyledTabs, StyledIconWrapper } from "./styles";
+import { StyledTabs } from "./styles";
+import { Icon } from "@data/Icon";
 
 export interface ITabsProps {
   tabs: ITabProps[];
@@ -32,9 +33,12 @@ const Tabs = ({ tabs, type = "tabs", selectedTab, onChange }: ITabsProps) => {
       <>
         <StyledTabs type={type}>
           <Stack gap="8px">
-            <StyledIconWrapper onClick={() => setDisplayList(!displayList)}>
-              <MdKeyboardArrowDown />
-            </StyledIconWrapper>
+            <Icon
+              spacing="wide"
+              onClick={() => setDisplayList(!displayList)}
+              appearance="dark"
+              icon={<MdKeyboardArrowDown />}
+            />
             <Tab
               key={selectedTab}
               selected={true}
