@@ -1,11 +1,9 @@
 import { useState } from "react";
 import { MdKeyboardArrowDown } from "react-icons/md";
-
 import { OptionItem } from "@inputs/Select/OptionItem";
 import { OptionList } from "@inputs/Select/OptionList";
 import { Stack } from "@layouts/Stack";
 import { Tab, ITabProps } from "@navigation/Tabs/Tab";
-
 import { Types } from "./props";
 import { StyledTabs } from "./styles";
 import { Icon } from "@data/Icon";
@@ -28,6 +26,17 @@ const Tabs = ({ tabs, type = "tabs", selectedTab, onChange }: ITabsProps) => {
     }
   };
 
+  const handleTabClick = (e: React.MouseEvent) => {
+    const targetElement = e.target as Element;
+    const tabElement = targetElement.closest("[id]");
+    if (tabElement) {
+      const id = tabElement.getAttribute("id");
+      if (id && !tabElement.getAttribute("disabled")) {
+        onChange(id);
+      }
+    }
+  };
+
   if (type === "select") {
     return (
       <>
@@ -43,7 +52,6 @@ const Tabs = ({ tabs, type = "tabs", selectedTab, onChange }: ITabsProps) => {
               key={selectedTab}
               selected={true}
               id={selectedTab}
-              onClick={() => onChange(selectedTab)}
               label={tabs.find((tab) => tab.id === selectedTab)?.label!}
             />
           </Stack>
@@ -60,7 +68,7 @@ const Tabs = ({ tabs, type = "tabs", selectedTab, onChange }: ITabsProps) => {
   }
 
   return (
-    <StyledTabs>
+    <StyledTabs onClick={handleTabClick}>
       <Stack gap="24px">
         {tabs.map((tab) => (
           <Tab
@@ -68,7 +76,6 @@ const Tabs = ({ tabs, type = "tabs", selectedTab, onChange }: ITabsProps) => {
             disabled={tab.disabled}
             selected={tab.id === selectedTab}
             id={tab.id}
-            onClick={() => onChange(tab.id)}
             label={tab.label}
           />
         ))}
