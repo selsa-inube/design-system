@@ -1,5 +1,11 @@
 import styled from "styled-components";
-import { colors } from "@shared/colors/colors";
+import { inube } from "@shared/tokens";
+import { INavLinkProps } from ".";
+import { Themed } from "@shared/types/types";
+
+interface IStyledNavLinkProps extends INavLinkProps {
+  theme?: Themed;
+}
 
 const StyledNav = styled.div`
   box-sizing: border-box;
@@ -8,8 +14,12 @@ const StyledNav = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: ${colors.ref.palette.neutral.n10};
-  border-right: 1px solid ${colors.ref.palette.neutral.n40};
+  background-color: ${({ theme }: IStyledNavLinkProps) =>
+    theme?.color?.surface?.nav?.regular || inube.color.surface.nav.regular};
+  border-right: 1px solid
+    ${({ theme }: IStyledNavLinkProps) =>
+      theme?.color?.stroke?.divider?.regular ||
+      inube.color.stroke.divider.regular};
 `;
 
 const StyledFooter = styled.footer`
@@ -18,10 +28,12 @@ const StyledFooter = styled.footer`
 
 const SeparatorLine = styled.div`
   width: calc(100% - 32px);
-  margin: 8px 16px;
+  margin: ${inube.spacing.s100} ${inube.spacing.s200};
   height: 1px;
-  padding: 0.5px 0px;
-  background-color: ${colors.ref.palette.neutral.n40};
+  padding: ${inube.spacing.s0} ${inube.spacing.s0};
+  background-color: ${({ theme }: IStyledNavLinkProps) =>
+    theme?.color?.stroke?.divider?.regular ||
+    inube.color.stroke.divider.regular};
 `;
 
 export { StyledNav, StyledFooter, SeparatorLine };
