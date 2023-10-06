@@ -26,6 +26,7 @@ export { Textfield } from "@inputs/Textfield";
 
 // layouts
 export { Stack } from "@layouts/Stack";
+export { Grid } from "@layouts/Grid";
 
 // navigation
 export { Breadcrumbs } from "@navigation/Breadcrumbs";
