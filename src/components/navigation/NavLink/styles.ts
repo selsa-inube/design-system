@@ -1,40 +1,13 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-import { colors } from "@shared/colors/colors";
+import { Themed } from "@shared/types/types";
+import { inube } from "@shared/tokens";
 import { INavLinkProps } from ".";
 
-const getGrid = (props: INavLinkProps) => {
-  const { icon } = props;
-  if (icon) {
-    return "auto 1fr auto";
-  }
-
-  return "1fr auto";
-};
-
-const getBorderLeft = (props: INavLinkProps) => {
-  const { disabled, selected } = props;
-  if (selected && !disabled) {
-    return `5px solid ${colors.ref.palette.neutral.n900}`;
-  }
-
-  return `0px`;
-};
-
-const getBackgroundColor = (props: INavLinkProps) => {
-  const { disabled, selected } = props;
-  let color = "transparent";
-  if (disabled) {
-    return color;
-  }
-  if (selected && !disabled) {
-    color = colors.ref.palette.neutral.n30;
-    return color;
-  }
-
-  return color;
-};
+interface IStyledNavLinkProps extends INavLinkProps {
+  theme?: Themed;
+}
 
 const StyledNavList = styled.li`
   list-style-type: none;
@@ -42,31 +15,62 @@ const StyledNavList = styled.li`
 
 const StyledNavLink = styled.div`
   display: grid;
-  grid-template-columns: ${(props: INavLinkProps) => getGrid(props)};
+  grid-template-columns: ${({ icon }: IStyledNavLinkProps) => {
+    if (icon) {
+      return "auto 1fr auto";
+    }
+
+    return "1fr auto";
+  }};
   width: 100%;
   height: 40px;
   min-width: 180px;
   align-items: center;
   box-sizing: border-box;
-  gap: 24px;
-  padding: 0px 16px;
-  border-left: ${(props: INavLinkProps) => getBorderLeft(props)};
-  background-color: ${(props: INavLinkProps) => getBackgroundColor(props)};
-  color: ${({ disabled }: INavLinkProps) =>
-    disabled && colors.ref.palette.neutral.n70};
+  gap: ${({ theme }: IStyledNavLinkProps) =>
+    theme?.spacing?.s300 || inube.spacing.s300};
+  padding: ${({ theme }: IStyledNavLinkProps) =>
+    `${theme?.spacing?.s0 || inube.spacing.s0} ${
+      theme?.spacing?.s200 || inube.spacing.s200
+    }`};
+  border-left: ${({ disabled, selected, theme }: IStyledNavLinkProps) => {
+    if (selected && !disabled) {
+      return `5px solid ${
+        theme?.color?.stroke?.dark?.regular || inube.color.stroke.dark.regular
+      }`;
+    }
 
-  ${({ disabled }: INavLinkProps) =>
+    return `0px`;
+  }};
+  background-color: ${({ selected, disabled, theme }: IStyledNavLinkProps) => {
+    if (disabled) {
+      return (
+        theme?.color?.surface?.navLink?.regular ||
+        inube.color.surface.navLink.regular
+      );
+    }
+    if (selected && !disabled) {
+      return (
+        theme?.color?.surface?.navLink?.selected ||
+        inube.color.surface.navLink.selected
+      );
+    }
+    return (
+      theme?.color?.surface?.navLink?.regular ||
+      inube.color.surface.navLink.regular
+    );
+  }};
+
+  ${({ disabled, theme }: IStyledNavLinkProps) =>
     !disabled &&
     `
     cursor: pointer;
       &:hover {
-        background-color: ${colors.ref.palette.neutral.n30};
+        background-color: ${
+          theme?.color?.surface?.navLink?.hover ||
+          inube.color.surface.navLink.hover
+        };
         
-      }
-
-      &:hover  > svg:first-child {
-        color: ${colors.sys.actions.primary.filled};
-         
       }
   `};
 `;
