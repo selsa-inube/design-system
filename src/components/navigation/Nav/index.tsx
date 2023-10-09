@@ -1,21 +1,11 @@
 import { useLocation } from "react-router-dom";
 import { MdLogout } from "react-icons/md";
 
-import { NavLink } from "@navigation/NavLink";
-import { Stack } from "@layouts/Stack";
 import { Text } from "@data/Text";
+import { Stack } from "@layouts/Stack";
+import { NavLink } from "@navigation/NavLink";
 
 import { StyledNav, StyledFooter, SeparatorLine } from "./styles";
-
-export interface INavOneSectionProps {
-  navigation: INavigation;
-  firstSection: string;
-}
-
-export interface INavMultiSectionsProps {
-  navigation: INavigation;
-  sections: string[];
-}
 
 export interface INavLinkProps {
   section: ILink[];
@@ -63,7 +53,10 @@ const Links = (props: INavLinkProps) => {
   return <>{LinkElements} </>;
 };
 
-const MultiSections = ({ navigation, sections }: INavMultiSectionsProps) => {
+const MultiSections = ({
+  navigation,
+  sections,
+}: Pick<INavProps, "navigation"> & { sections: string[] }) => {
   return (
     <Stack direction="column" gap="26px">
       {sections.map((section) => (
@@ -92,7 +85,10 @@ const MultiSections = ({ navigation, sections }: INavMultiSectionsProps) => {
   );
 };
 
-const OneSection = ({ navigation, firstSection }: INavOneSectionProps) => {
+const OneSection = ({
+  navigation,
+  firstSection,
+}: Pick<INavProps, "navigation"> & { firstSection: string }) => {
   return (
     <Stack direction="column">
       <Stack key="links" direction="column" justifyContent="center">
