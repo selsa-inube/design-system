@@ -7,7 +7,7 @@ import { props } from "../props";
 import { presente } from "@shared/themes/presente";
 
 const story = {
-  title: "navigation/Tab",
+  title: "navigation/Tabs/Tab",
   components: [Tab],
   argTypes: props,
 };
