@@ -3,10 +3,11 @@ import { Tabs, ITabsProps } from "..";
 
 const TabsController = (props: ITabsProps) => {
   const { tabs, type, selectedTab } = props;
-  const [selectedTabController, setSelectedTab] = useState(selectedTab);
+  const [selectedTabController, setSelectedTabController] =
+    useState(selectedTab);
 
   const onChange = (tabId: string) => {
-    setSelectedTab(tabId);
+    setSelectedTabController(tabId);
   };
 
   return (
