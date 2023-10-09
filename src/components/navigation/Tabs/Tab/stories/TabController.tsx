@@ -13,11 +13,15 @@ const TabController = (props: ITabProps) => {
 
   const onClickTab = () => {
     if (!disabled) {
-      setTabSelected(true);
+      setTabSelected(!tabSelected);
     }
   };
 
-  return <Tab {...props} selected={tabSelected} onClick={onClickTab} />;
+  return (
+    <div onClick={onClickTab} tabIndex={0}>
+      <Tab {...props} selected={tabSelected} />
+    </div>
+  );
 };
 
 export { TabController };

@@ -1,13 +1,12 @@
 import { useState } from "react";
 import { MdKeyboardArrowDown } from "react-icons/md";
-
 import { OptionItem } from "@inputs/Select/OptionItem";
 import { OptionList } from "@inputs/Select/OptionList";
 import { Stack } from "@layouts/Stack";
 import { Tab, ITabProps } from "@navigation/Tabs/Tab";
-
 import { Types } from "./props";
-import { StyledTabs, StyledIconWrapper } from "./styles";
+import { StyledTabs } from "./styles";
+import { Icon } from "@data/Icon";
 
 export interface ITabsProps {
   tabs: ITabProps[];
@@ -18,47 +17,49 @@ export interface ITabsProps {
 
 const Tabs = ({ tabs, type = "tabs", selectedTab, onChange }: ITabsProps) => {
   const [displayList, setDisplayList] = useState(false);
-  const [selectedTabLabel, setSelectedTabLabel] = useState<string | null>(
-    selectedTab
-  );
+
+  const handleOptionClick = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const id = e.target.closest("li")?.getAttribute("id");
+    if (id) {
+      setDisplayList(false);
+      onChange(id);
+    }
+  };
+
+  const handleTabClick = (e: React.MouseEvent) => {
+    const targetElement = e.target as Element;
+    const tabElement = targetElement.closest("[id]");
+    if (tabElement) {
+      const id = tabElement.getAttribute("id");
+      if (id && !tabElement.getAttribute("disabled")) {
+        onChange(id);
+      }
+    }
+  };
 
   if (type === "select") {
-    const dropDownOptions = tabs.map((tab) => ({
-      id: tab.id,
-      label: tab.label,
-      disabled: tab.disabled,
-    }));
-
-    const handleOptionClick = (e: React.ChangeEvent<HTMLInputElement>) => {
-      if (e) {
-        setSelectedTabLabel(e.target.textContent);
-        setDisplayList(false);
-      }
-    };
     return (
       <>
         <StyledTabs type={type}>
           <Stack gap="8px">
-            <StyledIconWrapper onClick={() => setDisplayList(!displayList)}>
-              <MdKeyboardArrowDown />
-            </StyledIconWrapper>
+            <Icon
+              spacing="wide"
+              onClick={() => setDisplayList(!displayList)}
+              appearance="dark"
+              icon={<MdKeyboardArrowDown />}
+            />
             <Tab
               key={selectedTab}
               selected={true}
               id={selectedTab}
-              onClick={() => onChange(selectedTab)}
-              label={selectedTabLabel!}
+              label={tabs.find((tab) => tab.id === selectedTab)?.label!}
             />
           </Stack>
         </StyledTabs>
         {displayList && (
           <OptionList onClick={handleOptionClick}>
-            {dropDownOptions.map((optionItem) => (
-              <OptionItem
-                key={optionItem.id}
-                id={optionItem.id}
-                label={optionItem.label}
-              />
+            {tabs.map((tab) => (
+              <OptionItem key={tab.id} id={tab.id} label={tab.label} />
             ))}
           </OptionList>
         )}
@@ -67,7 +68,7 @@ const Tabs = ({ tabs, type = "tabs", selectedTab, onChange }: ITabsProps) => {
   }
 
   return (
-    <StyledTabs>
+    <StyledTabs onClick={handleTabClick}>
       <Stack gap="24px">
         {tabs.map((tab) => (
           <Tab
@@ -75,7 +76,6 @@ const Tabs = ({ tabs, type = "tabs", selectedTab, onChange }: ITabsProps) => {
             disabled={tab.disabled}
             selected={tab.id === selectedTab}
             id={tab.id}
-            onClick={() => onChange(tab.id)}
             label={tab.label}
           />
         ))}
