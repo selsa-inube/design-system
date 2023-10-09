@@ -3,7 +3,7 @@ import { Icon } from "@data/Icon";
 import { Text } from "@data/Text";
 import { Grid } from "@layouts/Grid";
 
-import { StyledNavLink, StyledLink, StyledNavList } from "./styles";
+import { StyledLink, StyledNavList } from "./styles";
 
 export interface INavLinkProps {
   id: string;
@@ -27,14 +27,18 @@ const NavLink = (props: INavLinkProps) => {
   } = props;
 
   return (
-    <StyledNavList>
-      <StyledLink to={path} isdisabled={+disabled}>
-        <StyledNavLink
-          disabled={disabled}
-          selected={selected}
-          id={id}
-          onClick={onClick}
-          icon={icon}
+    <StyledNavList
+      id={id}
+      disabled={disabled}
+      selected={selected}
+      onClick={onClick}
+    >
+      <StyledLink to={path} disabled={+disabled}>
+        <Grid
+          templateColumns={icon ? "auto 1fr auto" : "1fr auto"}
+          gap="s300"
+          padding="s0 s200"
+          alignItems="center"
         >
           <Icon
             icon={icon}
@@ -54,9 +58,8 @@ const NavLink = (props: INavLinkProps) => {
               parentHover={!disabled && true}
             />
           )}
-        </StyledNavLink>
+        </Grid>
       </StyledLink>
-      <Grid>prueba</Grid>
     </StyledNavList>
   );
 };
