@@ -2,12 +2,9 @@ import styled from "styled-components";
 import { colors } from "@shared/colors/colors";
 
 const StyledNav = styled.div`
-  box-sizing: border-box;
-  width: 248px;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  width: 248px;
+  box-sizing: border-box;
   background-color: ${colors.ref.palette.neutral.n10};
   border-right: 1px solid ${colors.ref.palette.neutral.n40};
 `;
