@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useEffect } from "react";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { OptionItem } from "@inputs/Select/OptionItem";
 import { OptionList } from "@inputs/Select/OptionList";
@@ -15,16 +15,34 @@ export interface ITabsProps {
   selectedTab: string;
 }
 
-const Tabs = ({ tabs, type = "tabs", selectedTab, onChange }: ITabsProps) => {
-  const [displayList, setDisplayList] = useState(false);
+const Tabs = (props: ITabsProps) => {
+  const { tabs, type = "tabs", selectedTab, onChange } = props;
+  const wrapperRef = useRef<HTMLDivElement | null>(null);
+  const displayList = selectedTab === "_openList_";
 
-  const handleOptionClick = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInsideClick = (e: React.ChangeEvent<HTMLInputElement>) => {
     const id = e.target.closest("li")?.getAttribute("id");
     if (id) {
-      setDisplayList(false);
       onChange(id);
     }
   };
+
+  const handleOutsideClick = (event: MouseEvent) => {
+    if (
+      wrapperRef.current &&
+      !wrapperRef.current.contains(event.target as Node) &&
+      displayList
+    ) {
+      onChange("");
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleOutsideClick);
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, [displayList]);
 
   const handleTabClick = (e: React.MouseEvent) => {
     const targetElement = e.target as Element;
@@ -37,14 +55,23 @@ const Tabs = ({ tabs, type = "tabs", selectedTab, onChange }: ITabsProps) => {
     }
   };
 
+  const toggleDropdown = () => {
+    if (displayList) {
+      onChange(selectedTab !== "_openList_" ? selectedTab : selectedTab);
+    } else {
+      onChange("_openList_");
+    }
+  };
+
+  console.log("selectedTab: ", selectedTab);
   if (type === "select") {
     return (
-      <>
+      <div ref={wrapperRef}>
         <StyledTabs type={type}>
           <Stack gap="8px">
             <Icon
               spacing="wide"
-              onClick={() => setDisplayList(!displayList)}
+              onClick={toggleDropdown}
               appearance="dark"
               icon={<MdKeyboardArrowDown />}
             />
@@ -57,13 +84,13 @@ const Tabs = ({ tabs, type = "tabs", selectedTab, onChange }: ITabsProps) => {
           </Stack>
         </StyledTabs>
         {displayList && (
-          <OptionList onClick={handleOptionClick}>
+          <OptionList onClick={handleInsideClick}>
             {tabs.map((tab) => (
               <OptionItem key={tab.id} id={tab.id} label={tab.label} />
             ))}
           </OptionList>
         )}
-      </>
+      </div>
     );
   }
 
