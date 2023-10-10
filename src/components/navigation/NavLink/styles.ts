@@ -10,36 +10,19 @@ interface IStyledNavLinkProps extends INavLinkProps {
 }
 
 const StyledNavList = styled.li`
-  list-style-type: none;
-`;
-
-const StyledNavLink = styled.div`
-  display: grid;
-  grid-template-columns: ${({ icon }: IStyledNavLinkProps) => {
-    if (icon) {
-      return "auto 1fr auto";
-    }
-
-    return "1fr auto";
-  }};
-  width: 100%;
-  height: 40px;
-  min-width: 180px;
+  display: flex;
   align-items: center;
+  list-style-type: none;
+  width: 100%;
+  min-width: 180px;
+  min-height: 40px;
   box-sizing: border-box;
-  gap: ${({ theme }: IStyledNavLinkProps) =>
-    theme?.spacing?.s300 || inube.spacing.s300};
-  padding: ${({ theme }: IStyledNavLinkProps) =>
-    `${theme?.spacing?.s0 || inube.spacing.s0} ${
-      theme?.spacing?.s200 || inube.spacing.s200
-    }`};
   border-left: ${({ disabled, selected, theme }: IStyledNavLinkProps) => {
     if (selected && !disabled) {
       return `5px solid ${
         theme?.color?.stroke?.dark?.regular || inube.color.stroke.dark.regular
       }`;
     }
-
     return `0px`;
   }};
   background-color: ${({ selected, disabled, theme }: IStyledNavLinkProps) => {
@@ -64,13 +47,11 @@ const StyledNavLink = styled.div`
   ${({ disabled, theme }: IStyledNavLinkProps) =>
     !disabled &&
     `
-    cursor: pointer;
       &:hover {
         background-color: ${
           theme?.color?.surface?.navLink?.hover ||
           inube.color.surface.navLink.hover
-        };
-        
+        };     
       }
   `};
 `;
@@ -78,7 +59,8 @@ const StyledNavLink = styled.div`
 const StyledLink = styled(Link)`
   box-sizing: border-box;
   text-decoration: none;
-  cursor: not-allowed;
+  width: 100%;
+  cursor: ${({ disabled }: IStyledNavLinkProps) => disabled && "not-allowed"};
 `;
 
-export { StyledNavLink, StyledLink, StyledNavList };
+export { StyledLink, StyledNavList };

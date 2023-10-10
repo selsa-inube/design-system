@@ -1,7 +1,7 @@
 import { BrowserRouter } from "react-router-dom";
-
+import { ThemeProvider } from "styled-components";
 import { BreadcrumbEllipsis, IBreadcrumbEllipsisProps } from "../index";
-
+import { presente } from "@shared/themes/presente";
 import { props } from "../props";
 
 const story = {
@@ -17,7 +17,7 @@ const story = {
   ],
 };
 
-export const Default = (args: IBreadcrumbEllipsisProps) => (
+const Default = (args: IBreadcrumbEllipsisProps) => (
   <BreadcrumbEllipsis {...args} />
 );
 Default.args = {
@@ -37,4 +37,18 @@ Default.args = {
   size: "large",
 };
 
+const theme = structuredClone(presente);
+
+const Themed = (args: IBreadcrumbEllipsisProps) => (
+  <ThemeProvider theme={theme}>
+    <Default {...args} />
+  </ThemeProvider>
+);
+
+Themed.args = {
+  ...Default.args,
+};
+
 export default story;
+
+export { Default, Themed };
