@@ -2,7 +2,7 @@ import { BrowserRouter } from "react-router-dom";
 import { BreadcrumbMenu, IBreadcrumbMenuProps } from "..";
 import { props } from "../props";
 import { ThemeProvider } from "styled-components";
-import { presente } from "@src/shared/themes/presente";
+import { presente } from "@shared/themes/presente";
 
 const story = {
   title: "navigation/Breadcrumbs/BreadcrumbMenu",
