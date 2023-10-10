@@ -1,5 +1,11 @@
 import styled from "styled-components";
-import { colors } from "@shared/colors/colors";
+import { Themed } from "@shared/types/types";
+import { IBreadcrumbEllipsisProps } from ".";
+import { inube } from "@shared/tokens";
+
+interface IStyledBreadcrumbEllipsisProps extends IBreadcrumbEllipsisProps {
+  theme?: Themed;
+}
 
 const StyledContainerEllipsis = styled.li`
   display: inline-block;
@@ -8,11 +14,13 @@ const StyledContainerEllipsis = styled.li`
 const StyledBreadcrumbEllipsis = styled.span`
   user-select: none;
   text-decoration: none;
-  color: ${colors.sys.text.secondary};
+  color: ${({ theme }: IStyledBreadcrumbEllipsisProps) =>
+    theme?.color?.stroke?.gray?.regular || inube.color.stroke.gray.regular};
   &:hover {
     cursor: pointer;
     text-decoration: underline;
-    text-decoration-color: ${colors.sys.actions.secondary.stroke};
+    text-decoration-color: ${({ theme }: IStyledBreadcrumbEllipsisProps) =>
+      theme?.color?.stroke?.gray?.regular || inube.color.stroke.gray.regular};
   }
 `;
 
