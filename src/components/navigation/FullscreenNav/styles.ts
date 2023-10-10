@@ -68,16 +68,20 @@ const StyledFooter = styled.footer`
 
 const StyledDetails = styled.details`
   width: 100%;
-  & ::-webkit-details-marker {
-    display: none;
+
+  / & ::-webkit-details-marker {
+    content: none;
   }
 
   & ::marker {
-    display: none;
+    content: none;
   }
 `;
 
 const StyledSummary = styled.summary`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   &:hover {
     cursor: pointer;
     background-color: ${inube.color.surface.navLink.hover};

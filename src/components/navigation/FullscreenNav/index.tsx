@@ -1,9 +1,14 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { createPortal } from "react-dom";
-import { MdMenu, MdClose, MdLogout } from "react-icons/md";
+import {
+  MdMenu,
+  MdClose,
+  MdLogout,
+  MdOutlineArrowDropDown,
+} from "react-icons/md";
 
 import { Stack } from "@layouts/Stack/index";
-//import { Icon } from "@data/Icon";
+import { Icon } from "@data/Icon";
 import { Text } from "@data/Text";
 import { NavLink } from "@navigation/NavLink";
 
@@ -57,13 +62,30 @@ const MultiSections = (
 ) => {
   const { navigation, totalSections } = props;
 
-  console.log(totalSections, navigation, "multi sections");
+  const links = useMemo(
+    () =>
+      Object.values(navigation.sections).map((section) =>
+        Object.values(section.links)
+      ),
+    [navigation]
+  );
+
+  console.log(links, "multi sections");
   return (
     <Stack direction="column">
       {totalSections.map((section) => (
         <Stack>
-          <StyledDetails key={section}>
-            <StyledSummary>{section}</StyledSummary>
+          <StyledDetails key={section} id={section}>
+            <StyledSummary>
+              {section}
+              <span>
+                <Icon
+                  appearance="dark"
+                  icon={<MdOutlineArrowDropDown />}
+                  size="24px"
+                />
+              </span>
+            </StyledSummary>
             <Stack direction="column">
               {Object.values(navigation.sections[section].links).map(
                 (linkValue) => (
@@ -141,8 +163,6 @@ const FullscreenMenu = (props: IFullscreenMenuProps) => {
     onClose();
   };
   const totalSections = Object.keys(navigation.sections);
-
-  console.log(Object.values(navigation.sections));
 
   return (
     <StyledFullscreenNav>
