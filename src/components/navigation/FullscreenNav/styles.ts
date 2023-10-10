@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { colors } from "@shared/colors/colors";
+import { inube } from "@src/shared/tokens";
 
 const StyledContDropMenu = styled.div`
   position: absolute;
@@ -65,10 +66,30 @@ const StyledFooter = styled.footer`
   gap: 24px;
 `;
 
+const StyledDetails = styled.details`
+  width: 100%;
+  & ::-webkit-details-marker {
+    display: none;
+  }
+
+  & ::marker {
+    display: none;
+  }
+`;
+
+const StyledSummary = styled.summary`
+  &:hover {
+    cursor: pointer;
+    background-color: ${inube.color.surface.navLink.hover};
+  }
+`;
+
 export {
   StyledContDropMenu,
   StyledFullscreenNav,
   StyledCloseMenu,
   StyledSeparatorLine,
+  StyledDetails,
+  StyledSummary,
   StyledFooter,
 };

@@ -3,6 +3,7 @@ import { createPortal } from "react-dom";
 import { MdMenu, MdClose, MdLogout } from "react-icons/md";
 
 import { Stack } from "@layouts/Stack/index";
+//import { Icon } from "@data/Icon";
 import { Text } from "@data/Text";
 import { NavLink } from "@navigation/NavLink";
 
@@ -11,6 +12,8 @@ import {
   StyledFullscreenNav,
   StyledCloseMenu,
   StyledSeparatorLine,
+  StyledDetails,
+  StyledSummary,
   StyledFooter,
 } from "./styles";
 
@@ -49,7 +52,39 @@ export interface IFullscreenNavProps {
   logoutTitle: string;
 }
 
-const MultiSections = ({ navigation }: IMenuSectionsProps) => {
+const MultiSections = (
+  props: Pick<IFullscreenNavProps, "navigation"> & { totalSections: string[] }
+) => {
+  const { navigation, totalSections } = props;
+
+  console.log(totalSections, navigation, "multi sections");
+  return (
+    <Stack direction="column">
+      {totalSections.map((section) => (
+        <Stack>
+          <StyledDetails key={section}>
+            <StyledSummary>{section}</StyledSummary>
+            <Stack direction="column">
+              {Object.values(navigation.sections[section].links).map(
+                (linkValue) => (
+                  <NavLink
+                    key={linkValue.id}
+                    id={linkValue.id}
+                    label={linkValue.label}
+                    icon={linkValue.icon}
+                    path={linkValue.path}
+                  />
+                )
+              )}
+            </Stack>
+          </StyledDetails>
+        </Stack>
+      ))}
+    </Stack>
+  );
+};
+
+const TwoSections = ({ navigation }: IMenuSectionsProps) => {
   const navigationSectionValues = Object.values(navigation.sections);
 
   return (
@@ -105,7 +140,9 @@ const FullscreenMenu = (props: IFullscreenMenuProps) => {
   const handleClick = () => {
     onClose();
   };
-  const totalSections = Object.keys(navigation.sections).length;
+  const totalSections = Object.keys(navigation.sections);
+
+  console.log(Object.values(navigation.sections));
 
   return (
     <StyledFullscreenNav>
@@ -115,10 +152,10 @@ const FullscreenMenu = (props: IFullscreenMenuProps) => {
         </Text>
         <MdClose onClick={handleClick} />
       </StyledCloseMenu>
-      {totalSections > 1 ? (
-        <MultiSections navigation={navigation} />
-      ) : (
-        <OneSection navigation={navigation} />
+      {totalSections.length === 1 && <OneSection navigation={navigation} />}
+      {totalSections.length === 2 && <TwoSections navigation={navigation} />}
+      {totalSections.length > 2 && (
+        <MultiSections navigation={navigation} totalSections={totalSections} />
       )}
       <StyledSeparatorLine />
       <NavLink
