@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import { IBreadcrumbMenuProps } from ".";
 import { Themed } from "@shared/types/types";
 import { inube } from "@shared/tokens";
+import { IBreadcrumbsRoutes } from "../props";
 
-interface IStyledBreadcrumbMenuProps extends IBreadcrumbMenuProps {
+interface IStyledBreadcrumbMenuProps extends IBreadcrumbsRoutes {
   theme?: Themed;
 }
 

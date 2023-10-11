@@ -37,7 +37,6 @@ const Breadcrumbs = (props: IBreadcrumbsProps) => {
           path={crumbs[0].path}
           id={crumbs[0].path}
           label={capitalizeString(crumbs[0].label)}
-          isActive={crumbs[0].isActive}
         />
         <BreadcrumbEllipsis
           key={`breadcrumb-ellipsis`}
@@ -49,7 +48,6 @@ const Breadcrumbs = (props: IBreadcrumbsProps) => {
           path={transformedLastElement.path}
           id={transformedLastElement.path}
           label={capitalizeString(transformedLastElement.label)}
-          isActive={transformedLastElement.isActive}
         />
       </StyledBreadcrumbs>
     );
@@ -63,7 +61,6 @@ const Breadcrumbs = (props: IBreadcrumbsProps) => {
           path={path}
           id={path}
           label={capitalizeString(label)}
-          isActive={isActive}
         />
       ))}
     </StyledBreadcrumbs>
