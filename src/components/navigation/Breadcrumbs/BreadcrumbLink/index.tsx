@@ -1,5 +1,5 @@
 import { Text } from "@data/Text";
-import { Typos, typos } from "./props";
+import { Typos } from "./props";
 import { StyledContainerLink, StyledBreadcrumbLink } from "./styles";
 
 export interface IBreadcrumbLinkProps {
@@ -11,27 +11,20 @@ export interface IBreadcrumbLinkProps {
   handleClick?: () => void;
 }
 
-const defaultTypo: Typos = "large";
-const defaultIsActive: boolean = false;
-
 const BreadcrumbLink = (props: IBreadcrumbLinkProps) => {
   const {
-    isActive = defaultIsActive,
+    isActive = false,
     label,
     path,
     id,
-    typo = defaultTypo,
+    typo = "large",
     handleClick,
   } = props;
 
-  const transformedTypos: Typos = typos.includes(typo) ? typo : defaultTypo;
-  const transformedIsActive: boolean =
-    typeof isActive === "boolean" ? isActive : defaultIsActive;
-
   return (
     <StyledContainerLink id={id} onClick={handleClick}>
-      <Text type="label" size={transformedTypos} appearance="gray">
-        <StyledBreadcrumbLink to={path} data-is-active={transformedIsActive}>
+      <Text type="label" size={typo} appearance="gray">
+        <StyledBreadcrumbLink to={path} data-is-active={isActive}>
           {label}
         </StyledBreadcrumbLink>
       </Text>
