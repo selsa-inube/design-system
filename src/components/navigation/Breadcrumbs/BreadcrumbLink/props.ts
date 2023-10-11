@@ -1,15 +1,15 @@
-export const typos = ["large", "medium", "small"] as const;
-export type Typos = typeof typos[number];
+export type Typos = "large" | "medium" | "small";
 
-const props = {
-  parameters: {
-    docs: {
-      description: {
-        component:
-          "Breadcrumbs are a navigation system used to show a user's location in a site or app.",
-      },
+const parameters = {
+  docs: {
+    description: {
+      component:
+        "Breadcrumbs are a navigation system used to show a user's location in a site or app.",
     },
   },
+};
+
+const props = {
   id: {
     control: { type: "text" },
     description: "shall be the id for the text",
@@ -33,7 +33,7 @@ const props = {
     description: "shall constitute the content to be displayed",
   },
   typo: {
-    options: typos,
+    options: ["large", "medium", "small"],
     control: { type: "select" },
     description: "indicates the font size used in the component",
   },
@@ -43,4 +43,4 @@ const props = {
   },
 };
 
-export { props };
+export { props, parameters };
