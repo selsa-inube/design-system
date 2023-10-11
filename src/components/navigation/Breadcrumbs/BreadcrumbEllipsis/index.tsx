@@ -9,11 +9,10 @@ import {
   StyledBreadcrumbEllipsis,
   StyledRelativeContainer,
 } from "./styles";
-import { IBreadcrumbItem } from "..";
+import { IBreadcrumbsRoutes } from "../props";
 
-export interface IBreadcrumbEllipsisProps {
+export interface IBreadcrumbEllipsisProps extends IBreadcrumbsRoutes {
   size?: Typos;
-  routes: IBreadcrumbItem[];
 }
 
 const defaultTypo = "large";
