@@ -1,5 +1,6 @@
 import { BrowserRouter } from "react-router-dom";
-
+import { presente } from "@shared/themes/presente";
+import { ThemeProvider } from "styled-components";
 import { BreadcrumbMenuLink, IBreadcrumbMenuLinkProps } from "..";
 import { props } from "../props";
 
@@ -16,7 +17,7 @@ const story = {
   ],
 };
 
-export const Default = (args: IBreadcrumbMenuLinkProps) => (
+const Default = (args: IBreadcrumbMenuLinkProps) => (
   <BreadcrumbMenuLink {...args} />
 );
 Default.args = {
@@ -26,4 +27,18 @@ Default.args = {
   typo: "large",
 };
 
+const theme = structuredClone(presente);
+
+const Themed = (args: IBreadcrumbMenuLinkProps) => (
+  <ThemeProvider theme={theme}>
+    <Default {...args} />
+  </ThemeProvider>
+);
+
+Themed.args = {
+  ...Default.args,
+};
+
 export default story;
+
+export { Default, Themed };

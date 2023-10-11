@@ -1,22 +1,33 @@
 import styled from "styled-components";
-import { colors } from "@shared/colors/colors";
 import { Link } from "react-router-dom";
+import { IBreadcrumbMenuLinkProps } from ".";
+import { Themed } from "@shared/types/types";
+import { inube } from "@shared/tokens";
+
+interface IStyledBreadcrumbMenuLink extends IBreadcrumbMenuLinkProps {
+  theme?: Themed;
+}
 
 const StyledContainerLink = styled.li`
   display: inline-block;
   > * {
     height: 32px;
     > label {
-      color: ${colors.sys.text.secondary};
+      color: ${({ theme }: IStyledBreadcrumbMenuLink) =>
+        theme?.color?.text?.gray?.regular || inube.color.text.gray.regular};
       cursor: pointer;
-      padding: 8px 12px 8px 12px;
+      padding: ${({ theme }: IStyledBreadcrumbMenuLink) =>
+        `${theme?.spacing?.s100 || inube.spacing.s100} ${
+          theme?.spacing?.s150 || inube.spacing.s150
+        }`};
     }
   }
 `;
 
 const StyledBreadcrumbMenuLink = styled(Link)`
   text-decoration: none;
-  color: ${colors.sys.text.secondary};
+  color: ${({ theme }: IStyledBreadcrumbMenuLink) =>
+    theme?.color?.text?.gray?.regular || inube.color.text.gray.regular};
 `;
 
 export { StyledContainerLink, StyledBreadcrumbMenuLink };

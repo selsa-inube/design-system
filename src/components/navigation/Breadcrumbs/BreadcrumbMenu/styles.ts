@@ -12,13 +12,18 @@ const StyledBreadcrumbMenu = styled.div`
   width: fit-content;
   max-width: 160px;
   min-width: 100px;
-  box-shadow: 0px 2px 4px
-    ${({ theme }: IStyledBreadcrumbMenuProps) =>
-      theme?.color?.stroke?.light?.disabled ||
-      inube.color.stroke.light.disabled};
+  box-shadow: ${({ theme }: IStyledBreadcrumbMenuProps) =>
+    `${theme?.spacing?.s0 || inube.spacing.s0} 
+     ${theme?.spacing?.s025 || inube.spacing.s025} 
+     ${theme?.spacing?.s050 || inube.spacing.s050} 
+     ${
+       theme?.color?.stroke?.light?.disabled ||
+       inube.color.stroke.light.disabled
+     }`};
   background-color: ${({ theme }: IStyledBreadcrumbMenuProps) =>
     theme?.color?.stroke?.light?.hover || inube.color.stroke.light.hover};
-  border-radius: 4px;
+  border-radius: ${({ theme }: IStyledBreadcrumbMenuProps) =>
+    `${theme?.spacing?.s050 || inube.spacing.s050}`};
   a {
     &:hover {
       cursor: pointer;
