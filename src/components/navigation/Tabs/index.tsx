@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { OptionItem } from "@inputs/Select/OptionItem";
 import { OptionList } from "@inputs/Select/OptionList";
@@ -15,34 +15,23 @@ export interface ITabsProps {
   selectedTab: string;
 }
 
-const Tabs = (props: ITabsProps) => {
-  const { tabs, type = "tabs", selectedTab, onChange } = props;
+const Tabs = ({ tabs, type = "tabs", selectedTab, onChange }: ITabsProps) => {
+  const [displayList, setDisplayList] = useState(false);
   const wrapperRef = useRef<HTMLDivElement | null>(null);
-  const displayList = selectedTab === "_openList_";
 
   const handleInsideClick = (e: React.ChangeEvent<HTMLInputElement>) => {
     const id = e.target.closest("li")?.getAttribute("id");
     if (id) {
       onChange(id);
+      setDisplayList(false);
     }
   };
 
-  const handleOutsideClick = (event: MouseEvent) => {
-    if (
-      wrapperRef.current &&
-      !wrapperRef.current.contains(event.target as Node) &&
-      displayList
-    ) {
-      onChange("");
+  const handleOutsideClick = (e: MouseEvent) => {
+    if (wrapperRef.current && !wrapperRef.current.contains(e.target as Node)) {
+      setDisplayList(false);
     }
   };
-
-  useEffect(() => {
-    document.addEventListener("mousedown", handleOutsideClick);
-    return () => {
-      document.removeEventListener("mousedown", handleOutsideClick);
-    };
-  }, [displayList]);
 
   const handleTabClick = (e: React.MouseEvent) => {
     const targetElement = e.target as Element;
@@ -55,15 +44,13 @@ const Tabs = (props: ITabsProps) => {
     }
   };
 
-  const toggleDropdown = () => {
-    if (displayList) {
-      onChange(selectedTab !== "_openList_" ? selectedTab : selectedTab);
-    } else {
-      onChange("_openList_");
-    }
-  };
+  useEffect(() => {
+    document.addEventListener("mousedown", handleOutsideClick);
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, []);
 
-  console.log("selectedTab: ", selectedTab);
   if (type === "select") {
     return (
       <div ref={wrapperRef}>
@@ -71,7 +58,7 @@ const Tabs = (props: ITabsProps) => {
           <Stack gap="8px">
             <Icon
               spacing="wide"
-              onClick={toggleDropdown}
+              onClick={() => setDisplayList(!displayList)}
               appearance="dark"
               icon={<MdKeyboardArrowDown />}
             />
