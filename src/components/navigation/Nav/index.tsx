@@ -53,10 +53,9 @@ const Links = (props: INavLinkProps) => {
   return <>{LinkElements} </>;
 };
 
-const MultiSections = ({
-  navigation,
-  sections,
-}: Pick<INavProps, "navigation"> & { sections: string[] }) => {
+const MultiSections = ({ navigation }: Pick<INavProps, "navigation">) => {
+  const sections = Object.keys(navigation.sections);
+
   return (
     <Stack direction="column" gap="26px">
       {sections.map((section) => (
@@ -85,19 +84,22 @@ const MultiSections = ({
   );
 };
 
-const OneSection = ({
-  navigation,
-  firstSection,
-}: Pick<INavProps, "navigation"> & { firstSection: string }) => {
+const OneSection = ({ navigation }: Pick<INavProps, "navigation">) => {
+  const section = Object.keys(navigation.sections)[0];
   return (
     <Stack direction="column">
       <Stack key="links" direction="column" justifyContent="center">
         <Stack direction="column">
-          {firstSection && (
-            <Links
-              section={Object.values(navigation.sections[firstSection].links)}
-            />
-          )}
+          <Text
+            padding="16px"
+            as="h2"
+            appearance="gray"
+            type="title"
+            size="small"
+          >
+            {navigation.sections[section].name}
+          </Text>
+          <Links section={Object.values(navigation.sections[section].links)} />
         </Stack>
       </Stack>
     </Stack>
@@ -106,10 +108,6 @@ const OneSection = ({
 
 const Nav = (props: INavProps) => {
   const { navigation, logoutTitle, logoutPath } = props;
-
-  const sections = Object.keys(navigation.sections);
-  const firstSection = sections[0];
-  const totalSections = Object.keys(navigation.sections).length;
 
   return (
     <StyledNav>
@@ -124,10 +122,10 @@ const Nav = (props: INavProps) => {
         >
           {navigation.title}
         </Text>
-        {totalSections > 1 ? (
-          <MultiSections navigation={navigation} sections={sections} />
+        {Object.keys(navigation.sections).length > 1 ? (
+          <MultiSections navigation={navigation} />
         ) : (
-          <OneSection navigation={navigation} firstSection={firstSection} />
+          <OneSection navigation={navigation} />
         )}
         <SeparatorLine />
         <NavLink
