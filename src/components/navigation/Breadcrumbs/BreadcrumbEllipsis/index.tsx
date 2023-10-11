@@ -16,10 +16,8 @@ export interface IBreadcrumbEllipsisProps {
   routes: IBreadcrumbItem[];
 }
 
-const defaultTypo = "large";
-
 const BreadcrumbEllipsis = (props: IBreadcrumbEllipsisProps) => {
-  const { size = defaultTypo, routes } = props;
+  const { size = "large", routes } = props;
   const [showMenu, setShowMenu] = useState(false);
 
   const containerRef = useRef<HTMLDivElement | null>(null);
