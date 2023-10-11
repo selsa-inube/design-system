@@ -1,15 +1,18 @@
+import { Typos } from "./BreadcrumbMenuLink/props";
+
 export const sizes = ["large", "small"] as const;
 export type Sizes = typeof sizes[number];
 
-export interface IBreadcrumbItem {
+export interface IRoute {
   path: string;
   label: string;
   id: string;
-  isActive: boolean;
+  isActive?: boolean;
+  typo?: Typos;
 }
 
 export interface IBreadcrumbsRoutes {
-  routes: IBreadcrumbItem[];
+  routes: IRoute[];
 }
 
 const props = {

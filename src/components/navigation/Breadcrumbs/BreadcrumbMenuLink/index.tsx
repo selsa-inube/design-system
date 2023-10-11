@@ -2,27 +2,19 @@ import { Stack } from "@layouts/Stack";
 import { Text } from "@data/Text";
 
 import { StyledContainerLink, StyledBreadcrumbMenuLink } from "./styles";
-import { Typos, typos } from "./props";
+import { typos } from "./props";
+import { IRoute } from "../props";
 
-export interface IBreadcrumbMenuLinkProps {
-  label: string;
-  path: string;
-  id: string;
-  typo?: Typos;
-}
+const BreadcrumbMenuLink = (props: IRoute) => {
+  const { label, path, id, typo = "large" } = props;
 
-const defaultTypo: Typos = "large";
-
-const BreadcrumbMenuLink = (props: IBreadcrumbMenuLinkProps) => {
-  const { label, path, id, typo = defaultTypo } = props;
-  const transformedTypos = typos.includes(typo) ? typo : defaultTypo;
   return (
     <StyledBreadcrumbMenuLink to={path}>
       <StyledContainerLink id={id}>
         <Stack alignItems="center">
           <Text
             type="label"
-            size={transformedTypos}
+            size={typos.includes(typo) ? typo : "large"}
             appearance="gray"
             padding="8px 12px"
           >
