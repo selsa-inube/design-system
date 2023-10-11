@@ -57,27 +57,37 @@ export interface IFullscreenNavProps {
   logoutTitle: string;
 }
 
-const MultiSections = (
-  props: Pick<IFullscreenNavProps, "navigation"> & { totalSections: string[] }
-) => {
-  const { navigation, totalSections } = props;
+const MultiSections = (props: Pick<IFullscreenNavProps, "navigation">) => {
+  const { navigation } = props;
 
-  const links = useMemo(
-    () =>
-      Object.values(navigation.sections).map((section) =>
-        Object.values(section.links)
-      ),
+  const sections = useMemo(
+    () => Object.keys(navigation.sections),
     [navigation]
   );
 
-  console.log(links, "multi sections");
+  /*  useEffect(() => {
+    sections.forEach((section) => {
+      const sectionElement = document.getElementById(section);
+      if (sectionElement !== null) {
+        sectionElement.addEventListener("toggle", (event) => {
+          const { open } = event.target as HTMLDetailsElement;
+          if (open) {
+            sectionElement.scrollIntoView({ behavior: "smooth" });
+          }
+        });
+      }
+    });
+  },[sections]); */
+
   return (
     <Stack direction="column">
-      {totalSections.map((section) => (
+      {sections.map((section) => (
         <Stack>
           <StyledDetails key={section} id={section}>
             <StyledSummary>
-              {section}
+              <Text margin="0px 16px" type="title" size="small">
+                {section}
+              </Text>
               <span>
                 <Icon
                   appearance="dark"
@@ -112,7 +122,11 @@ const TwoSections = ({ navigation }: IMenuSectionsProps) => {
   return (
     <Stack direction="column">
       {navigationSectionValues.map((sectionValue) => (
-        <Stack key={sectionValue.name} direction="column">
+        <Stack
+          key={sectionValue.name}
+          direction="column"
+          margin="s0 s0 s300 s0"
+        >
           <Text
             as="h2"
             type="title"
@@ -174,9 +188,7 @@ const FullscreenMenu = (props: IFullscreenMenuProps) => {
       </StyledCloseMenu>
       {totalSections.length === 1 && <OneSection navigation={navigation} />}
       {totalSections.length === 2 && <TwoSections navigation={navigation} />}
-      {totalSections.length > 2 && (
-        <MultiSections navigation={navigation} totalSections={totalSections} />
-      )}
+      {totalSections.length > 2 && <MultiSections navigation={navigation} />}
       <StyledSeparatorLine />
       <NavLink
         id="logoutPath"

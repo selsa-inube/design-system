@@ -29,12 +29,6 @@ const StyledFullscreenNav = styled.nav`
   overflow-y: auto;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
-
-  & > div:nth-child(2) {
-    & > div:nth-child(n + 2) {
-      margin-top: 28px;
-    }
-  }
 `;
 
 const StyledCloseMenu = styled.div`
@@ -68,8 +62,9 @@ const StyledFooter = styled.footer`
 
 const StyledDetails = styled.details`
   width: 100%;
+  margin: ${inube.spacing.s0} ${inube.spacing.s300};
 
-  / & ::-webkit-details-marker {
+  & ::-webkit-details-marker {
     content: none;
   }
 
@@ -80,6 +75,7 @@ const StyledDetails = styled.details`
 
 const StyledSummary = styled.summary`
   display: flex;
+  height: 48px;
   align-items: center;
   justify-content: space-between;
   &:hover {

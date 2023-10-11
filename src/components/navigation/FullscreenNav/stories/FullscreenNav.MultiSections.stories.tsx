@@ -26,7 +26,7 @@ const story = {
   ],
 };
 
-export const Multisections = (args: IFullscreenNavProps) => (
+const Multisections = (args: IFullscreenNavProps) => (
   <FullscreenNav {...args} />
 );
 
@@ -130,4 +130,4 @@ Multisections.args = {
 
 export default story;
 
-//export { Prueba  };
+export { Multisections };
