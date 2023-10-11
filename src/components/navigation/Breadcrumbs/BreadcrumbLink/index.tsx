@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Text } from "@data/Text";
 
-import { Sizes } from "./props";
 import { StyledContainerLink, StyledBreadcrumbLink } from "./styles";
+import { Sizes } from "./props";
 
 export interface IBreadcrumbLinkProps {
   label: string;
@@ -23,13 +23,11 @@ const BreadcrumbLink = (props: IBreadcrumbLinkProps) => {
 
   return (
     <StyledContainerLink id={id} onClick={onClick}>
-      <Text type="label" size={size} appearance="gray">
-        <StyledBreadcrumbLink to={path}>
-          <Text type="label" size="large" appearance={appearance}>
-            {label}
-          </Text>
-        </StyledBreadcrumbLink>
-      </Text>
+      <StyledBreadcrumbLink to={path}>
+        <Text type="label" size={size} appearance={appearance}>
+          {label}
+        </Text>
+      </StyledBreadcrumbLink>
     </StyledContainerLink>
   );
 };
