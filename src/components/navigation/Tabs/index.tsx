@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { OptionItem } from "@inputs/Select/OptionItem";
 import { OptionList } from "@inputs/Select/OptionList";
@@ -17,12 +17,19 @@ export interface ITabsProps {
 
 const Tabs = ({ tabs, type = "tabs", selectedTab, onChange }: ITabsProps) => {
   const [displayList, setDisplayList] = useState(false);
+  const wrapperRef = useRef<HTMLDivElement | null>(null);
 
-  const handleOptionClick = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInsideClick = (e: React.ChangeEvent<HTMLInputElement>) => {
     const id = e.target.closest("li")?.getAttribute("id");
     if (id) {
-      setDisplayList(false);
       onChange(id);
+      setDisplayList(false);
+    }
+  };
+
+  const handleOutsideClick = (e: MouseEvent) => {
+    if (wrapperRef.current && !wrapperRef.current.contains(e.target as Node)) {
+      setDisplayList(false);
     }
   };
 
@@ -37,9 +44,16 @@ const Tabs = ({ tabs, type = "tabs", selectedTab, onChange }: ITabsProps) => {
     }
   };
 
+  useEffect(() => {
+    document.addEventListener("mousedown", handleOutsideClick);
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, []);
+
   if (type === "select") {
     return (
-      <>
+      <div ref={wrapperRef}>
         <StyledTabs type={type}>
           <Stack gap="8px">
             <Icon
@@ -57,13 +71,13 @@ const Tabs = ({ tabs, type = "tabs", selectedTab, onChange }: ITabsProps) => {
           </Stack>
         </StyledTabs>
         {displayList && (
-          <OptionList onClick={handleOptionClick}>
+          <OptionList onClick={handleInsideClick}>
             {tabs.map((tab) => (
               <OptionItem key={tab.id} id={tab.id} label={tab.label} />
             ))}
           </OptionList>
         )}
-      </>
+      </div>
     );
   }
 
