@@ -22,7 +22,7 @@ Default.args = {
   label: "Privileges",
   path: "/privileges",
   id: "privileges",
-  typo: "large",
+  size: "large",
 };
 
 export default story;
