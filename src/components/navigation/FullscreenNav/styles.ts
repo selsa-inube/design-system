@@ -63,14 +63,7 @@ const StyledFooter = styled.footer`
 const StyledDetails = styled.details`
   width: 100%;
   margin: ${inube.spacing.s0} ${inube.spacing.s300};
-
-  & ::-webkit-details-marker {
-    content: none;
-  }
-
-  & ::marker {
-    content: none;
-  }
+  list-style: none;
 `;
 
 const StyledSummary = styled.summary`

@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { createPortal } from "react-dom";
 import {
   MdMenu,
@@ -60,31 +60,27 @@ export interface IFullscreenNavProps {
 const MultiSections = (props: Pick<IFullscreenNavProps, "navigation">) => {
   const { navigation } = props;
 
-  const sections = useMemo(
-    () => Object.keys(navigation.sections),
-    [navigation]
-  );
+  const [openSection, setOpenSection] = useState("");
 
-  /*  useEffect(() => {
-    sections.forEach((section) => {
-      const sectionElement = document.getElementById(section);
-      if (sectionElement !== null) {
-        sectionElement.addEventListener("toggle", (event) => {
-          const { open } = event.target as HTMLDetailsElement;
-          if (open) {
-            sectionElement.scrollIntoView({ behavior: "smooth" });
-          }
-        });
-      }
-    });
-  },[sections]); */
+  const sections = Object.keys(navigation.sections);
+
+  const toggleSection = (section: string) => {
+    if (section === openSection) {
+      setOpenSection("");
+    } else {
+      setOpenSection(section);
+    }
+  };
 
   return (
     <Stack direction="column">
       {sections.map((section) => (
-        <Stack>
-          <StyledDetails key={section} id={section}>
-            <StyledSummary>
+        <Stack key={section}>
+          <StyledDetails id={section}>
+            <StyledSummary
+              open={section === openSection}
+              onClick={() => toggleSection(section)}
+            >
               <Text margin="0px 16px" type="title" size="small">
                 {section}
               </Text>
