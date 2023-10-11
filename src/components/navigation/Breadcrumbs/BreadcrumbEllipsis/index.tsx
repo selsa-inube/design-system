@@ -9,22 +9,15 @@ import {
   StyledBreadcrumbEllipsis,
   StyledRelativeContainer,
 } from "./styles";
-
-export interface IRoute {
-  label: string;
-  path: string;
-  id: string;
-}
+import { IBreadcrumbItem } from "..";
 
 export interface IBreadcrumbEllipsisProps {
   size?: Typos;
-  routes: IRoute[];
+  routes: IBreadcrumbItem[];
 }
 
-const defaultTypo = "large";
-
 const BreadcrumbEllipsis = (props: IBreadcrumbEllipsisProps) => {
-  const { size = defaultTypo, routes } = props;
+  const { size = "large", routes } = props;
   const [showMenu, setShowMenu] = useState(false);
 
   const containerRef = useRef<HTMLDivElement | null>(null);
