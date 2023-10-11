@@ -3,7 +3,6 @@ import { Typos } from "./props";
 import { StyledContainerLink, StyledBreadcrumbLink } from "./styles";
 
 export interface IBreadcrumbLinkProps {
-  isActive?: boolean;
   label: string;
   path: string;
   id: string;
@@ -12,21 +11,12 @@ export interface IBreadcrumbLinkProps {
 }
 
 const BreadcrumbLink = (props: IBreadcrumbLinkProps) => {
-  const {
-    isActive = false,
-    label,
-    path,
-    id,
-    typo = "large",
-    handleClick,
-  } = props;
+  const { label, path, id, typo = "large", handleClick } = props;
 
   return (
     <StyledContainerLink id={id} onClick={handleClick}>
       <Text type="label" size={typo} appearance="gray">
-        <StyledBreadcrumbLink to={path} data-is-active={isActive}>
-          {label}
-        </StyledBreadcrumbLink>
+        <StyledBreadcrumbLink to={path}>{label}</StyledBreadcrumbLink>
       </Text>
     </StyledContainerLink>
   );
