@@ -2,18 +2,9 @@ import { Stack } from "@layouts/Stack";
 
 import { BreadcrumbMenuLink } from "../BreadcrumbMenuLink";
 import { StyledBreadcrumbMenu } from "./styles";
+import { IBreadcrumbsRoutes } from "../props";
 
-export interface IBreadcrumbRoute {
-  id: string;
-  path: string;
-  label: string;
-}
-
-export interface IBreadcrumbMenuProps {
-  routes: IBreadcrumbRoute[];
-}
-
-const BreadcrumbMenu = (props: IBreadcrumbMenuProps) => {
+const BreadcrumbMenu = (props: IBreadcrumbsRoutes) => {
   const { routes } = props;
 
   return (
