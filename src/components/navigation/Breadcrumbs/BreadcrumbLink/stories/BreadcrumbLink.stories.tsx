@@ -17,13 +17,14 @@ const story = {
 };
 
 export const Default = (args: IBreadcrumbLinkProps) => (
-  <BreadcrumbLink handleClick={action("onCLick")} {...args} />
+  <BreadcrumbLink {...args} />
 );
 Default.args = {
   label: "Privileges",
   path: "/privileges",
   id: "privileges",
   typo: "large",
+  handleClick: action("onClick"),
 };
 
 export default story;
