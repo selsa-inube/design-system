@@ -85,7 +85,8 @@ const MultiSections = ({ navigation }: Pick<INavProps, "navigation">) => {
 };
 
 const OneSection = ({ navigation }: Pick<INavProps, "navigation">) => {
-  const section = Object.keys(navigation.sections)[0];
+  const section = Object.keys(navigation.sections).join();
+
   return (
     <Stack direction="column">
       <Stack key="links" direction="column" justifyContent="center">
