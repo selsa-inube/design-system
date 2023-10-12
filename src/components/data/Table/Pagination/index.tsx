@@ -8,7 +8,6 @@ import {
 import { Text } from "@data/Text";
 import { Icon } from "@data/Icon";
 import { Stack } from "@layouts/Stack";
-import { StyledButton } from "./styles";
 
 export interface IPaginationProps {
   firstEntryInPage: number;
