@@ -15,7 +15,7 @@ import { props, parameters } from "../props";
 import { Header, IHeaderProps } from "..";
 
 import { Logo } from "./logo";
-import { presente } from "@src/shared/themes/presente";
+import { presente } from "@shared/themes/presente";
 
 const story = {
   title: "navigation/Header",

@@ -1,7 +1,6 @@
+import { action } from "@storybook/addon-actions";
 import { BrowserRouter } from "react-router-dom";
 import { BreadcrumbLink, IBreadcrumbLinkProps } from "..";
-import { BreadcrumbLinkController } from "./BreadcrumbLinkController";
-
 import { props } from "../props";
 
 const story = {
@@ -18,14 +17,14 @@ const story = {
 };
 
 export const Default = (args: IBreadcrumbLinkProps) => (
-  <BreadcrumbLinkController {...args} />
+  <BreadcrumbLink {...args} />
 );
 Default.args = {
   label: "Privileges",
   path: "/privileges",
   id: "privileges",
-  isActive: false,
   typo: "large",
+  handleClick: action("onClick"),
 };
 
 export default story;
