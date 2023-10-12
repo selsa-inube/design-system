@@ -39,6 +39,7 @@ const Breadcrumbs = (props: IBreadcrumbsProps) => {
           path={lastCrumb.path}
           id={lastCrumb.path}
           label={capitalizeString(lastCrumb.label)}
+          appearance="dark"
         />
       </StyledBreadcrumbs>
     );
