@@ -24,7 +24,7 @@ Default.args = {
   path: "/privileges",
   id: "privileges",
   size: "large",
-  onclick: action("onClick"),
+  onClick: action("onClick"),
 };
 
 export default story;

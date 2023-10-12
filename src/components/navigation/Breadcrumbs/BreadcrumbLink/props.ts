@@ -14,16 +14,8 @@ const props = {
     control: { type: "text" },
     description: "shall be the id for the text",
   },
-  isActive: {
-    options: [true, false],
-    control: { type: "boolean" },
-    description:
-      "if the switch is disabled or not. This prevents any interaction.",
-    table: {
-      defaultValue: { summary: "false" },
-    },
-  },
-  handleClick: {
+
+  onClick: {
     options: ["logState"],
     control: { type: "func" },
     description: "shall be determine the behavior of the click event",
