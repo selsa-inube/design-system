@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Pagination } from "../Pagination/index";
-import { ITableProps } from "..";
+import { Pagination } from "../index";
+import { ITableProps } from "../..";
 
 const PaginationController = (props: ITableProps) => {
   const { entries, pageLength = 10 } = props;
