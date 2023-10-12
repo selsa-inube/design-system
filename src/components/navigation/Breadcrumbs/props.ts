@@ -1,5 +1,3 @@
-import { Sizes as MenuLinkSizes } from "./BreadcrumbMenuLink/props";
-
 export const sizes = ["large", "small"] as const;
 export type Sizes = typeof sizes[number];
 
@@ -8,7 +6,7 @@ export interface IRoute {
   label: string;
   id: string;
   isActive?: boolean;
-  size?: MenuLinkSizes;
+  size?: Sizes;
 }
 
 export interface IBreadcrumbsRoutes {
