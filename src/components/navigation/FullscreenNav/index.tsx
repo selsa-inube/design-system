@@ -76,11 +76,12 @@ const MultiSections = (props: Pick<IFullscreenNavProps, "navigation">) => {
     <Stack direction="column">
       {sections.map((section) => (
         <Stack key={section}>
-          <StyledDetails id={section}>
-            <StyledSummary
-              open={section === openSection}
-              onClick={() => toggleSection(section)}
-            >
+          <StyledDetails
+            id={section}
+            open={section === openSection}
+            onClick={() => toggleSection(section)}
+          >
+            <StyledSummary>
               <Text margin="0px 16px" type="title" size="small">
                 {section}
               </Text>
