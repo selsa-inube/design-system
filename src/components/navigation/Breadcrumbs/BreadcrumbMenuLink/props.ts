@@ -1,6 +1,3 @@
-export const sizes = ["large", "medium", "small"] as const;
-export type Sizes = typeof sizes[number];
-
 const props = {
   parameters: {
     docs: {
@@ -18,8 +15,8 @@ const props = {
     control: { type: "text" },
     description: "shall constitute the content to be displayed",
   },
-  typo: {
-    options: sizes,
+  size: {
+    options: ["large", "medium", "small"],
     control: { type: "select" },
     description: "indicates the font size used in the component",
   },
