@@ -1,10 +1,11 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { IBreadcrumbMenuLinkProps } from ".";
+
 import { Themed } from "@shared/types/types";
 import { inube } from "@shared/tokens";
+import { IRoute } from "../props";
 
-interface IStyledBreadcrumbMenuLink extends IBreadcrumbMenuLinkProps {
+interface IStyledBreadcrumbMenuLink extends IRoute {
   theme?: Themed;
 }
 
