@@ -1,4 +1,4 @@
-export type Typos = "large" | "medium" | "small";
+export type Sizes = "large" | "medium" | "small";
 
 const parameters = {
   docs: {
@@ -32,7 +32,7 @@ const props = {
     control: { type: "text" },
     description: "shall constitute the content to be displayed",
   },
-  typo: {
+  size: {
     options: ["large", "medium", "small"],
     control: { type: "select" },
     description: "indicates the font size used in the component",
