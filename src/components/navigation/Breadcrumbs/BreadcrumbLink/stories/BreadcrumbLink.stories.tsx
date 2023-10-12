@@ -24,7 +24,7 @@ Default.args = {
   path: "/privileges",
   id: "privileges",
   size: "large",
-  handleClick: action("onClick"),
+  onClick: action("onClick"),
 };
 
 const theme = structuredClone(presente);

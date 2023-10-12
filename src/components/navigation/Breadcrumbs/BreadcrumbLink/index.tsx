@@ -9,20 +9,20 @@ export interface IBreadcrumbLinkProps {
   path: string;
   id: string;
   size?: Sizes;
-  handleClick?: () => void;
+  onClick?: () => void;
 }
 
 const BreadcrumbLink = (props: IBreadcrumbLinkProps) => {
-  const { label, path, id, size = "large", handleClick } = props;
+  const { label, path, id, size = "large", onClick } = props;
   const [appearance, setAppearance] = useState<"gray" | "dark">("gray");
 
-  const onClick = () => {
+  const handleClick = () => {
     setAppearance("dark");
-    handleClick && handleClick();
+    onClick && onClick();
   };
 
   return (
-    <StyledContainerLink id={id} onClick={onClick}>
+    <StyledContainerLink id={id} onClick={handleClick}>
       <StyledBreadcrumbLink to={path}>
         <Text type="label" size={size} appearance={appearance}>
           {label}
