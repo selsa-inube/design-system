@@ -1,8 +1,9 @@
 import { BrowserRouter } from "react-router-dom";
 import { presente } from "@shared/themes/presente";
 import { ThemeProvider } from "styled-components";
-import { BreadcrumbMenuLink, IBreadcrumbMenuLinkProps } from "..";
 import { props } from "../props";
+import { IRoute } from "../../props";
+import { BreadcrumbMenuLink } from "..";
 
 const story = {
   title: "navigation/Breadcrumbs/BreadcrumbMenuLink",
@@ -17,19 +18,17 @@ const story = {
   ],
 };
 
-const Default = (args: IBreadcrumbMenuLinkProps) => (
-  <BreadcrumbMenuLink {...args} />
-);
+const Default = (args: IRoute) => <BreadcrumbMenuLink {...args} />;
 Default.args = {
   label: "Privileges",
   path: "/privileges",
   id: "privileges",
-  typo: "large",
+  size: "large",
 };
 
 const theme = structuredClone(presente);
 
-const Themed = (args: IBreadcrumbMenuLinkProps) => (
+const Themed = (args: IRoute) => (
   <ThemeProvider theme={theme}>
     <Default {...args} />
   </ThemeProvider>
