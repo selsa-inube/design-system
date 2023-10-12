@@ -1,7 +1,9 @@
-import { action } from "@storybook/addon-actions";
 import { BrowserRouter } from "react-router-dom";
-import { BreadcrumbLink, IBreadcrumbLinkProps } from "..";
+import { action } from "@storybook/addon-actions";
+import { ThemeProvider } from "styled-components";
+import { presente } from "@shared/themes/presente";
 import { props } from "../props";
+import { BreadcrumbLink, IBreadcrumbLinkProps } from "..";
 
 const story = {
   title: "navigation/Breadcrumbs/BreadcrumbLink",
@@ -16,9 +18,7 @@ const story = {
   ],
 };
 
-export const Default = (args: IBreadcrumbLinkProps) => (
-  <BreadcrumbLink {...args} />
-);
+const Default = (args: IBreadcrumbLinkProps) => <BreadcrumbLink {...args} />;
 Default.args = {
   label: "Privileges",
   path: "/privileges",
@@ -27,4 +27,17 @@ Default.args = {
   onClick: action("onClick"),
 };
 
+const theme = structuredClone(presente);
+
+const Themed = (args: IBreadcrumbLinkProps) => (
+  <ThemeProvider theme={theme}>
+    <BreadcrumbLink {...args} />
+  </ThemeProvider>
+);
+Themed.args = {
+  ...Default.args,
+};
+
 export default story;
+
+export { Default, Themed };
