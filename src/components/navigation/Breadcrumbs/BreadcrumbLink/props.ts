@@ -11,7 +11,6 @@ const parameters = {
 
 const props = {
   id: {
-    control: { type: "text" },
     description: "shall be the id for the text",
   },
 
