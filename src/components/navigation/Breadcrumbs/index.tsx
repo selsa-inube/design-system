@@ -55,7 +55,7 @@ const Breadcrumbs = (props: IBreadcrumbsProps) => {
 
   return (
     <StyledBreadcrumbs>
-      {crumbs.map(({ path, label, isActive }) => (
+      {crumbs.map(({ path, label }) => (
         <BreadcrumbLink
           key={path}
           path={path}
