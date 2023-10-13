@@ -5,6 +5,7 @@ import {
   MdClose,
   MdLogout,
   MdOutlineArrowDropDown,
+  MdOutlineArrowDropUp,
 } from "react-icons/md";
 
 import { Stack } from "@layouts/Stack/index";
@@ -50,6 +51,10 @@ const MultiSections = (props: Pick<IFullscreenNavProps, "navigation">) => {
   const [openSection, setOpenSection] = useState<string | null>(null);
 
   const toggleSection = (section: string) => {
+    if (section === openSection) {
+      setOpenSection("");
+      return;
+    }
     setOpenSection(section);
   };
 
@@ -72,7 +77,13 @@ const MultiSections = (props: Pick<IFullscreenNavProps, "navigation">) => {
               <span>
                 <Icon
                   appearance="dark"
-                  icon={<MdOutlineArrowDropDown />}
+                  icon={
+                    section === openSection ? (
+                      <MdOutlineArrowDropUp />
+                    ) : (
+                      <MdOutlineArrowDropDown />
+                    )
+                  }
                   size="24px"
                 />
               </span>
