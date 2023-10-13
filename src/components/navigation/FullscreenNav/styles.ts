@@ -5,11 +5,6 @@ import { inube } from "@src/shared/tokens";
 const StyledContDropMenu = styled.div`
   position: absolute;
   width: fit-content;
-  & > svg {
-    width: 24px;
-    height: 24px;
-    cursor: pointer;
-  }
 `;
 
 const StyledFullscreenNav = styled.nav`
@@ -29,18 +24,6 @@ const StyledFullscreenNav = styled.nav`
   overflow-y: auto;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
-`;
-
-const StyledCloseMenu = styled.div`
-  display: grid;
-  grid-template-columns: 1fr auto;
-  padding: 32px 24px 16px 16px;
-
-  & > svg {
-    width: 24px;
-    height: 24px;
-    cursor: pointer;
-  }
 `;
 
 const StyledSeparatorLine = styled.div`
@@ -80,7 +63,6 @@ const StyledSummary = styled.summary`
 export {
   StyledContDropMenu,
   StyledFullscreenNav,
-  StyledCloseMenu,
   StyledSeparatorLine,
   StyledDetails,
   StyledSummary,

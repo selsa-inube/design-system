@@ -8,15 +8,15 @@ import {
   MdOutlineArrowDropUp,
 } from "react-icons/md";
 
-import { Stack } from "@layouts/Stack/index";
 import { Icon } from "@data/Icon";
 import { Text } from "@data/Text";
+import { Grid } from "@layouts/Grid";
+import { Stack } from "@layouts/Stack";
 import { INavLinkProps, NavLink } from "@navigation/NavLink";
 
 import {
   StyledContDropMenu,
   StyledFullscreenNav,
-  StyledCloseMenu,
   StyledSeparatorLine,
   StyledDetails,
   StyledSummary,
@@ -187,12 +187,18 @@ const FullscreenMenu = (
 
   return (
     <StyledFullscreenNav>
-      <StyledCloseMenu>
+      <Grid templateColumns="1fr auto" padding="s400 s300 s200 s200">
         <Text type="title" size="small" appearance="gray">
           {navigation.title}
         </Text>
-        <MdClose onClick={handleClick} />
-      </StyledCloseMenu>
+        <Icon
+          appearance="dark"
+          icon={<MdClose />}
+          onClick={handleClick}
+          size="24px"
+          cursorHover={true}
+        />
+      </Grid>
       <SectionComponent navigation={navigation} />
       <StyledSeparatorLine />
       <NavLink
@@ -229,7 +235,13 @@ const FullscreenNav = (props: IFullscreenNavProps) => {
   return (
     <>
       <StyledContDropMenu>
-        <MdMenu onClick={() => setIsMenuOpen(true)} />
+        <Icon
+          appearance="dark"
+          icon={<MdMenu />}
+          onClick={() => setIsMenuOpen(true)}
+          size="24px"
+          cursorHover={true}
+        />
       </StyledContDropMenu>
       {isMenuOpen &&
         createPortal(
