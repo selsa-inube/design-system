@@ -97,6 +97,7 @@ const MultiSections = (props: Pick<IFullscreenNavProps, "navigation">) => {
                     label={linkValue.label}
                     icon={linkValue.icon}
                     path={linkValue.path}
+                    onClick={(e: PointerEvent) => e.stopPropagation()}
                   />
                 )
               )}

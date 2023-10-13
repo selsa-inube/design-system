@@ -7,6 +7,10 @@ import {
   MdBadge,
   MdAccountBalanceWallet,
   MdAccountBalance,
+  MdAccountCircle,
+  MdAutorenew,
+  MdPriceChange,
+  MdSecurityUpdateGood,
 } from "react-icons/md";
 
 import { FullscreenNav, IFullscreenNavProps } from "..";
@@ -99,25 +103,25 @@ Multisections.args = {
           Profile: {
             id: "Profile",
             label: "Profile",
-            icon: <MdStarBorder />,
+            icon: <MdAccountCircle />,
             path: "/Profile",
           },
           Updates: {
             id: "Updates",
             label: "Updates",
-            icon: <MdStarBorder />,
+            icon: <MdAutorenew />,
             path: "/Updates",
           },
           Credit: {
             id: "Credit",
             label: "Credit",
-            icon: <MdStarBorder />,
+            icon: <MdPriceChange />,
             path: "/Credit",
           },
           Security: {
             id: "Security",
             label: "Security",
-            icon: <MdStarBorder />,
+            icon: <MdSecurityUpdateGood />,
             path: "/Security",
           },
         },

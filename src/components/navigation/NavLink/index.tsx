@@ -12,7 +12,7 @@ export interface INavLinkProps {
   disabled?: boolean;
   selected?: boolean;
   icon?: React.ReactNode;
-  onClick?: () => void;
+  onClick?: (e: PointerEvent) => void;
 }
 
 const NavLink = (props: INavLinkProps) => {
