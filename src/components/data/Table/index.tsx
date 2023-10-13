@@ -1,10 +1,30 @@
 import { useMemo, useState } from "react";
 
-import { Pagination } from "./Pagination";
-import { IAction, IBreakpoint, TableUI } from "./interface";
 import { Stack } from "@layouts/Stack";
-import { ITitle } from "./interface";
-import { IEntry } from "./DisplayEntry";
+import { Pagination } from "./Pagination";
+import { TableUI } from "./interface";
+
+export interface IEntry {
+  id: string;
+  [key: string]: string;
+}
+
+export interface ITitle {
+  id: string;
+  titleName: string;
+  priority: number;
+}
+
+export interface IAction {
+  id: string;
+  actionName: string;
+  content: (entry: IEntry) => JSX.Element;
+}
+
+export interface IBreakpoint {
+  breakpoint: string;
+  totalColumns: number;
+}
 
 export interface ITableProps {
   id: string;
@@ -15,7 +35,7 @@ export interface ITableProps {
   pageLength?: number;
   breakpoints?: IBreakpoint[];
   content?: React.ReactElement;
-  infoTitle?: string;
+
   actionsTitle?: string;
 }
 
@@ -29,7 +49,6 @@ const Table = (props: ITableProps) => {
     pageLength = 10,
     breakpoints,
     content,
-    infoTitle,
     actionsTitle,
   } = props;
 
@@ -93,9 +112,8 @@ const Table = (props: ITableProps) => {
           titles={titles}
           actions={actions}
           entries={getPageEntries()}
-          breakpoints={breakpoints!}
+          breakpoints={breakpoints}
           content={content}
-          infoTitle={infoTitle!}
           actionsTitle={actionsTitle!}
         />
         {filteredEntries.length > pageLength && (

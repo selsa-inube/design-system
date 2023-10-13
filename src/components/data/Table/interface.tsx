@@ -1,11 +1,12 @@
 import { useMemo } from "react";
-import { DisplayEntry } from "./DisplayEntry";
+import { MdOpenInNew } from "react-icons/md";
 
 import { useMediaQueries } from "@hooks/useMediaQueries";
 import { useMediaQuery } from "@hooks/useMediaQuery";
+import { Icon } from "@data/Icon";
 import { Text } from "@data/Text";
-import { IEntry } from "./DisplayEntry";
 
+import { IAction, IBreakpoint, IEntry, ITableProps, ITitle } from ".";
 import {
   StyledTable,
   StyledThead,
@@ -15,33 +16,6 @@ import {
   StyledThTitle,
   StyledTd,
 } from "./styles";
-
-export interface ITitle {
-  id: string;
-  titleName: string;
-  priority: number;
-}
-
-export interface IAction {
-  id: string;
-  actionName: string;
-  content: (entry: any) => JSX.Element;
-}
-
-export interface IBreakpoint {
-  breakpoint: string;
-  totalColumns: number;
-}
-
-export interface ITableUIProps {
-  titles: ITitle[];
-  actions: IAction[];
-  entries: IEntry[];
-  breakpoints: IBreakpoint[];
-  content?: React.ReactElement;
-  infoTitle: string;
-  actionsTitle: string;
-}
 
 function findCurrentMediaQuery(currentMediaQuery: Record<string, boolean>) {
   const lastIndexMedia = Object.values(currentMediaQuery).lastIndexOf(true);
@@ -56,7 +30,7 @@ function priorityColumns(titles: ITitle[], numColumns: number) {
 function totalTitleColumns(
   titles: ITitle[],
   breakpoints: IBreakpoint[],
-  media: Record<string, boolean>
+  media: { [key: string]: boolean }
 ) {
   const numColumns = breakpoints[findCurrentMediaQuery(media)].totalColumns;
 
@@ -86,8 +60,7 @@ function showActionTitle(actionTitle: IAction[], mediaQuery: boolean) {
 function ShowAction(
   actionContent: IAction[],
   entry: IEntry,
-  mediaQuery: boolean,
-  content: React.ReactElement
+  mediaQuery: boolean
 ) {
   return !mediaQuery ? (
     <>
@@ -99,18 +72,18 @@ function ShowAction(
     </>
   ) : (
     <StyledTd>
-      <DisplayEntry content={content} />
+      <Icon appearance="dark" icon={<MdOpenInNew />} />
     </StyledTd>
   );
 }
 
-const TableUI = (props: ITableUIProps) => {
-  const { titles, actions, entries, breakpoints, content } = props;
+const TableUI = (props: Omit<ITableProps, "id">) => {
+  const { titles, actions, entries, breakpoints = [] } = props;
 
   const mediaActionOpen = useMediaQuery("(max-width: 850px)");
 
-  const queriesArray = useMemo(
-    () => breakpoints.map((breakpoint) => breakpoint.breakpoint),
+  const queriesArray: string[] = useMemo(
+    () => breakpoints?.map((breakpoint) => breakpoint.breakpoint) ?? [],
     [breakpoints]
   );
 
@@ -151,7 +124,7 @@ const TableUI = (props: ITableUIProps) => {
                 </Text>
               </StyledTd>
             ))}
-            {ShowAction(actions, entry, mediaActionOpen, content!)}
+            {ShowAction(actions, entry, mediaActionOpen)}
           </StyledTr>
         ))}
       </StyledTbody>
