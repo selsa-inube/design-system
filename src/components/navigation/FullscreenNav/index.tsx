@@ -10,7 +10,7 @@ import {
 import { Stack } from "@layouts/Stack/index";
 import { Icon } from "@data/Icon";
 import { Text } from "@data/Text";
-import { NavLink } from "@navigation/NavLink";
+import { INavLinkProps, NavLink } from "@navigation/NavLink";
 
 import {
   StyledContDropMenu,
@@ -22,16 +22,9 @@ import {
   StyledFooter,
 } from "./styles";
 
-export interface ILink {
-  id: string;
-  label: string;
-  icon: React.ReactNode;
-  path: string;
-}
-
 export interface ISection {
   name: string;
-  links: { [key: string]: ILink };
+  links: { [key: string]: INavLinkProps };
 }
 
 export interface IMenuSectionsProps {
@@ -41,13 +34,6 @@ export interface IMenuSectionsProps {
 export interface INavigation {
   title: string;
   sections: { [key: string]: ISection };
-}
-
-export interface IFullscreenMenuProps {
-  navigation: INavigation;
-  logoutPath: string;
-  logoutTitle: string;
-  onClose: () => void;
 }
 
 export interface IFullscreenNavProps {
@@ -166,12 +152,26 @@ const OneSection = ({ navigation }: IMenuSectionsProps) => {
   );
 };
 
-const FullscreenMenu = (props: IFullscreenMenuProps) => {
+const sectionsComponents: {
+  [key: number]: ({ navigation }: IMenuSectionsProps) => JSX.Element;
+  default: (props: Pick<IFullscreenNavProps, "navigation">) => JSX.Element;
+} = {
+  1: OneSection,
+  2: TwoSections,
+  default: MultiSections,
+};
+
+const FullscreenMenu = (
+  props: Omit<IFullscreenNavProps, "portalId"> & { onClose: () => void }
+) => {
   const { navigation, logoutTitle, logoutPath, onClose } = props;
   const handleClick = () => {
     onClose();
   };
-  const totalSections = Object.keys(navigation.sections);
+  const sections = Object.keys(navigation.sections);
+
+  const SectionComponent =
+    sectionsComponents[sections.length] || sectionsComponents.default;
 
   return (
     <StyledFullscreenNav>
@@ -181,9 +181,7 @@ const FullscreenMenu = (props: IFullscreenMenuProps) => {
         </Text>
         <MdClose onClick={handleClick} />
       </StyledCloseMenu>
-      {totalSections.length === 1 && <OneSection navigation={navigation} />}
-      {totalSections.length === 2 && <TwoSections navigation={navigation} />}
-      {totalSections.length > 2 && <MultiSections navigation={navigation} />}
+      <SectionComponent navigation={navigation} />
       <StyledSeparatorLine />
       <NavLink
         id="logoutPath"
