@@ -15,7 +15,6 @@ export interface ITableProps {
   breakpoints?: IBreakpoint[];
   content?: React.ReactElement;
   infoTitle?: string;
-  actionsTitle?: string;
 }
 
 const Table = (props: ITableProps) => {
@@ -29,7 +28,6 @@ const Table = (props: ITableProps) => {
     breakpoints,
     content,
     infoTitle,
-    actionsTitle,
   } = props;
 
   const filteredEntries = useMemo(() => {
@@ -95,7 +93,6 @@ const Table = (props: ITableProps) => {
           breakpoints={breakpoints!}
           content={content}
           infoTitle={infoTitle!}
-          actionsTitle={actionsTitle!}
         />
         {filteredEntries.length > pageLength && (
           <Pagination

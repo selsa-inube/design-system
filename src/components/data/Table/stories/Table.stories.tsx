@@ -81,7 +81,6 @@ Default.args = {
   breakpoints: breakPointsMuck,
   modalTitle: "Form",
   infoTitle: "Information",
-  actionsTitle: "Actions",
   content: <LoremModal />,
 };
 
