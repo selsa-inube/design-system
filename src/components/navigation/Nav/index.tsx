@@ -1,21 +1,11 @@
 import { useLocation } from "react-router-dom";
 import { MdLogout } from "react-icons/md";
 
-import { NavLink } from "@navigation/NavLink";
-import { Stack } from "@layouts/Stack";
 import { Text } from "@data/Text";
+import { Stack } from "@layouts/Stack";
+import { NavLink } from "@navigation/NavLink";
 
 import { StyledNav, StyledFooter, SeparatorLine } from "./styles";
-
-export interface INavOneSectionProps {
-  navigation: INavigation;
-  firstSection: string;
-}
-
-export interface INavMultiSectionsProps {
-  navigation: INavigation;
-  sections: string[];
-}
 
 export interface INavLinkProps {
   section: ILink[];
@@ -63,7 +53,9 @@ const Links = (props: INavLinkProps) => {
   return <>{LinkElements} </>;
 };
 
-const MultiSections = ({ navigation, sections }: INavMultiSectionsProps) => {
+const MultiSections = ({ navigation }: Pick<INavProps, "navigation">) => {
+  const sections = Object.keys(navigation.sections);
+
   return (
     <Stack direction="column" gap="26px">
       {sections.map((section) => (
@@ -92,16 +84,23 @@ const MultiSections = ({ navigation, sections }: INavMultiSectionsProps) => {
   );
 };
 
-const OneSection = ({ navigation, firstSection }: INavOneSectionProps) => {
+const OneSection = ({ navigation }: Pick<INavProps, "navigation">) => {
+  const section = Object.keys(navigation.sections).join();
+
   return (
     <Stack direction="column">
       <Stack key="links" direction="column" justifyContent="center">
         <Stack direction="column">
-          {firstSection && (
-            <Links
-              section={Object.values(navigation.sections[firstSection].links)}
-            />
-          )}
+          <Text
+            padding="16px"
+            as="h2"
+            appearance="gray"
+            type="title"
+            size="small"
+          >
+            {navigation.sections[section].name}
+          </Text>
+          <Links section={Object.values(navigation.sections[section].links)} />
         </Stack>
       </Stack>
     </Stack>
@@ -111,45 +110,40 @@ const OneSection = ({ navigation, firstSection }: INavOneSectionProps) => {
 const Nav = (props: INavProps) => {
   const { navigation, logoutTitle, logoutPath } = props;
 
-  const sections = Object.keys(navigation.sections);
-  const firstSection = sections[0];
-  const totalSections = Object.keys(navigation.sections).length;
-
   return (
     <StyledNav>
-      <Stack direction="column" justifyContent="space-between" height="100%">
-        <Stack direction="column">
-          <Text
-            padding="0px"
-            margin="32px 16px 16px 16px"
-            as="h2"
-            appearance="gray"
-            type="title"
-            size="small"
-          >
-            {navigation.title}
-          </Text>
-          {totalSections > 1 ? (
-            <MultiSections navigation={navigation} sections={sections} />
-          ) : (
-            <OneSection navigation={navigation} firstSection={firstSection} />
-          )}
-          <SeparatorLine />
-          <NavLink
-            id="logout"
-            label={logoutTitle}
-            icon={<MdLogout />}
-            path={logoutPath}
-          />
-        </Stack>
-        <StyledFooter>
-          <Stack justifyContent="center">
-            <Text type="label" size="medium" appearance="gray" padding="24px">
-              ©2023 - Inube
-            </Text>
-          </Stack>
-        </StyledFooter>
+      <Stack direction="column">
+        <Text
+          padding="0px"
+          margin="32px 16px 16px 16px"
+          as="h2"
+          appearance="gray"
+          type="title"
+          size="small"
+        >
+          {navigation.title}
+        </Text>
+        {Object.keys(navigation.sections).length > 1 ? (
+          <MultiSections navigation={navigation} />
+        ) : (
+          <OneSection navigation={navigation} />
+        )}
+        <SeparatorLine />
+        <NavLink
+          id="logout"
+          label={logoutTitle}
+          icon={<MdLogout />}
+          path={logoutPath}
+        />
       </Stack>
+      <StyledFooter>
+        <Stack justifyContent="center">
+          <Text type="label" size="medium" appearance="gray" padding="24px">
+            ©2023 - Inube
+          </Text>
+          |
+        </Stack>
+      </StyledFooter>
     </StyledNav>
   );
 };

@@ -1,6 +1,18 @@
 export const sizes = ["large", "small"] as const;
 export type Sizes = typeof sizes[number];
 
+export interface IRoute {
+  path: string;
+  label: string;
+  id: string;
+  isActive?: boolean;
+  size?: Sizes;
+}
+
+export interface IBreadcrumbsRoutes {
+  routes: IRoute[];
+}
+
 const props = {
   parameters: {
     docs: {

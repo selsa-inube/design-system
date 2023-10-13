@@ -1,29 +1,23 @@
-export const typos = ["large", "medium", "small"] as const;
-export type Typos = typeof typos[number];
+import { inube } from "@shared/tokens";
+
+export type Sizes = "large" | "medium" | "small";
+export type Appearance = keyof typeof inube.color.text;
+
+const parameters = {
+  docs: {
+    description: {
+      component:
+        "Breadcrumbs are a navigation system used to show a user's location in a site or app.",
+    },
+  },
+};
 
 const props = {
-  parameters: {
-    docs: {
-      description: {
-        component:
-          "Breadcrumbs are a navigation system used to show a user's location in a site or app.",
-      },
-    },
-  },
   id: {
-    control: { type: "text" },
     description: "shall be the id for the text",
   },
-  isActive: {
-    options: [true, false],
-    control: { type: "boolean" },
-    description:
-      "if the switch is disabled or not. This prevents any interaction.",
-    table: {
-      defaultValue: { summary: "false" },
-    },
-  },
-  handleClick: {
+
+  onClick: {
     options: ["logState"],
     control: { type: "func" },
     description: "shall be determine the behavior of the click event",
@@ -32,8 +26,8 @@ const props = {
     control: { type: "text" },
     description: "shall constitute the content to be displayed",
   },
-  typo: {
-    options: typos,
+  size: {
+    options: ["large", "medium", "small"],
     control: { type: "select" },
     description: "indicates the font size used in the component",
   },
@@ -43,4 +37,4 @@ const props = {
   },
 };
 
-export { props };
+export { props, parameters };

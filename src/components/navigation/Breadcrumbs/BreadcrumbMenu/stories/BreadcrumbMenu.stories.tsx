@@ -1,6 +1,9 @@
 import { BrowserRouter } from "react-router-dom";
-import { BreadcrumbMenu, IBreadcrumbMenuProps } from "..";
+import { BreadcrumbMenu } from "..";
 import { props } from "../props";
+import { ThemeProvider } from "styled-components";
+import { presente } from "@shared/themes/presente";
+import { IBreadcrumbsRoutes } from "../../props";
 
 const story = {
   title: "navigation/Breadcrumbs/BreadcrumbMenu",
@@ -15,7 +18,7 @@ const story = {
   ],
 };
 
-export const Default = (args: IBreadcrumbMenuProps) => (
+const Default = (args: IBreadcrumbsRoutes) => (
   <div style={{ height: "100px", transform: "translateZ(0)" }}>
     <BreadcrumbMenu {...args} />
   </div>
@@ -36,4 +39,18 @@ Default.args = {
   ],
 };
 
+const theme = structuredClone(presente);
+
+const Themed = (args: IBreadcrumbsRoutes) => (
+  <ThemeProvider theme={theme}>
+    <Default {...args} />
+  </ThemeProvider>
+);
+
+Themed.args = {
+  ...Default.args,
+};
+
 export default story;
+
+export { Default, Themed };
