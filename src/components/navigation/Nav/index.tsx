@@ -141,7 +141,6 @@ const Nav = (props: INavProps) => {
           <Text type="label" size="medium" appearance="gray" padding="24px">
             ©2023 - Inube
           </Text>
-          |
         </Stack>
       </StyledFooter>
     </StyledNav>
