@@ -1,4 +1,7 @@
+import { inube } from "@shared/tokens";
+
 export type Sizes = "large" | "medium" | "small";
+export type Appearance = keyof typeof inube.color.text;
 
 const parameters = {
   docs: {
