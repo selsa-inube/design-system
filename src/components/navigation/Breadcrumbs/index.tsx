@@ -2,18 +2,11 @@ import { useMediaQuery } from "@hooks/useMediaQuery";
 
 import { BreadcrumbLink } from "./BreadcrumbLink";
 import { BreadcrumbEllipsis } from "./BreadcrumbEllipsis";
-import { Sizes } from "./props";
+import { IRoute } from "./props";
 import { StyledBreadcrumbs } from "./styles";
 
-export interface IBreadcrumbItem {
-  path: string;
-  label: string;
-  id: string;
-  isActive: boolean;
-}
-
 export interface IBreadcrumbsProps {
-  crumbs: IBreadcrumbItem[];
+  crumbs: IRoute[];
 }
 
 function capitalizeString(string: string) {
@@ -26,10 +19,8 @@ const Breadcrumbs = (props: IBreadcrumbsProps) => {
   const isDesktop = useMediaQuery("(min-width: 768px)");
   const maxCrumbs = isDesktop ? 5 : 3;
 
-  const transformedSize: Sizes = isDesktop ? "large" : "small";
-
   if (crumbs.length > maxCrumbs) {
-    const transformedLastElement = crumbs[crumbs.length - 1];
+    const lastCrumb = crumbs[crumbs.length - 1];
     return (
       <StyledBreadcrumbs>
         <BreadcrumbLink
@@ -40,14 +31,15 @@ const Breadcrumbs = (props: IBreadcrumbsProps) => {
         />
         <BreadcrumbEllipsis
           key={`breadcrumb-ellipsis`}
-          size={transformedSize}
+          size={isDesktop ? "large" : "small"}
           routes={crumbs.slice(1, -1)}
         />
         <BreadcrumbLink
-          key={transformedLastElement.path}
-          path={transformedLastElement.path}
-          id={transformedLastElement.path}
-          label={capitalizeString(transformedLastElement.label)}
+          key={lastCrumb.path}
+          path={lastCrumb.path}
+          id={lastCrumb.path}
+          label={capitalizeString(lastCrumb.label)}
+          appearance="dark"
         />
       </StyledBreadcrumbs>
     );

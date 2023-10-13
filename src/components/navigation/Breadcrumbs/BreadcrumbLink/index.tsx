@@ -1,25 +1,26 @@
-import { useState } from "react";
 import { Text } from "@data/Text";
 
 import { StyledContainerLink, StyledBreadcrumbLink } from "./styles";
-import { Sizes } from "./props";
+import { Appearance, Sizes } from "./props";
 
 export interface IBreadcrumbLinkProps {
   label: string;
   path: string;
   id: string;
   size?: Sizes;
-  handleClick?: () => void;
+  appearance?: Appearance;
+  onClick?: () => void;
 }
 
 const BreadcrumbLink = (props: IBreadcrumbLinkProps) => {
-  const { label, path, id, size = "large", handleClick } = props;
-  const [appearance, setAppearance] = useState<"gray" | "dark">("gray");
-
-  const onClick = () => {
-    setAppearance("dark");
-    handleClick && handleClick();
-  };
+  const {
+    label,
+    path,
+    id,
+    size = "large",
+    appearance = "gray",
+    onClick,
+  } = props;
 
   return (
     <StyledContainerLink id={id} onClick={onClick}>
