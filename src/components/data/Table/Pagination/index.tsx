@@ -31,11 +31,7 @@ const Pagination = (props: IPaginationProps) => {
   } = props;
 
   return (
-    <Stack
-      justifyContent="flex-end"
-      alignItems="center"
-      aria-label="Pagination"
-    >
+    <Stack justifyContent="flex-end" alignItems="center">
       <Text type="body" size="small" padding="16px 0px" appearance="dark">
         {firstEntryInPage + 1} - {lastEntryInPage} of {totalRecords}
       </Text>
