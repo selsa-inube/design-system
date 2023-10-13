@@ -177,9 +177,7 @@ const FullscreenMenu = (
   props: Omit<IFullscreenNavProps, "portalId"> & { onClose: () => void }
 ) => {
   const { navigation, logoutTitle, logoutPath, onClose } = props;
-  const handleClick = () => {
-    onClose();
-  };
+
   const sections = Object.keys(navigation.sections);
 
   const SectionComponent =
@@ -194,7 +192,7 @@ const FullscreenMenu = (
         <Icon
           appearance="dark"
           icon={<MdClose />}
-          onClick={handleClick}
+          onClick={() => onClose()}
           size="24px"
           cursorHover={true}
         />
@@ -228,10 +226,6 @@ const FullscreenNav = (props: IFullscreenNavProps) => {
     );
   }
 
-  const handleClose = () => {
-    setIsMenuOpen(false);
-  };
-
   return (
     <>
       <StyledContDropMenu>
@@ -249,7 +243,7 @@ const FullscreenNav = (props: IFullscreenNavProps) => {
             navigation={navigation}
             logoutPath={logoutPath}
             logoutTitle={logoutTitle}
-            onClose={handleClose}
+            onClose={() => setIsMenuOpen(false)}
           />,
           node
         )}
