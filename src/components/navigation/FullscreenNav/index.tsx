@@ -71,7 +71,12 @@ const MultiSections = (props: Pick<IFullscreenNavProps, "navigation">) => {
             }}
           >
             <StyledSummary>
-              <Text margin="0px 16px" type="title" size="small">
+              <Text
+                margin="0px 16px"
+                type="title"
+                size="small"
+                appearance={section === openSection ? "primary" : "gray"}
+              >
                 {section}
               </Text>
               <span>
