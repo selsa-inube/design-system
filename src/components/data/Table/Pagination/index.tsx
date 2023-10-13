@@ -6,8 +6,8 @@ import {
 } from "react-icons/md";
 
 import { Text } from "@data/Text";
+import { Icon } from "@data/Icon";
 import { Stack } from "@layouts/Stack";
-import { StyledButton } from "./styles";
 
 export interface IPaginationProps {
   firstEntryInPage: number;
@@ -31,11 +31,7 @@ const Pagination = (props: IPaginationProps) => {
   } = props;
 
   return (
-    <Stack
-      justifyContent="flex-end"
-      alignItems="center"
-      aria-label="Pagination"
-    >
+    <Stack justifyContent="flex-end" alignItems="center">
       <Text type="body" size="small" padding="16px 0px" appearance="dark">
         {firstEntryInPage + 1} - {lastEntryInPage} of {totalRecords}
       </Text>
@@ -46,21 +42,30 @@ const Pagination = (props: IPaginationProps) => {
         margin="s0 s0 s0 s200"
         gap="8px"
       >
-        <StyledButton
+        <Icon
+          cursorHover={true}
+          appearance={"dark"}
+          icon={<MdFirstPage />}
           onClick={handleStartPage}
-          aria-label="go to the first page"
-        >
-          <MdFirstPage />
-        </StyledButton>
-        <StyledButton onClick={handlePrevPage} aria-label="go to previous page">
-          <MdNavigateBefore />
-        </StyledButton>
-        <StyledButton onClick={handleNextPage} aria-label="go to next page">
-          <MdNavigateNext />
-        </StyledButton>
-        <StyledButton onClick={handleEndPage} aria-label="go to last page">
-          <MdLastPage />
-        </StyledButton>
+        />
+        <Icon
+          cursorHover={true}
+          appearance={"dark"}
+          icon={<MdNavigateBefore />}
+          onClick={handlePrevPage}
+        />
+        <Icon
+          cursorHover={true}
+          appearance={"dark"}
+          icon={<MdNavigateNext />}
+          onClick={handleNextPage}
+        />
+        <Icon
+          cursorHover={true}
+          appearance={"dark"}
+          icon={<MdLastPage />}
+          onClick={handleEndPage}
+        />
       </Stack>
     </Stack>
   );
