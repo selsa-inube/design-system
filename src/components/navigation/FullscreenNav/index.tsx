@@ -59,17 +59,12 @@ export interface IFullscreenNavProps {
 
 const MultiSections = (props: Pick<IFullscreenNavProps, "navigation">) => {
   const { navigation } = props;
-
-  const [openSection, setOpenSection] = useState("");
-
   const sections = Object.keys(navigation.sections);
 
+  const [openSection, setOpenSection] = useState<string | null>(null);
+
   const toggleSection = (section: string) => {
-    if (section === openSection) {
-      setOpenSection("");
-    } else {
-      setOpenSection(section);
-    }
+    setOpenSection(section);
   };
 
   return (
@@ -79,7 +74,10 @@ const MultiSections = (props: Pick<IFullscreenNavProps, "navigation">) => {
           <StyledDetails
             id={section}
             open={section === openSection}
-            onClick={() => toggleSection(section)}
+            onClick={(e: PointerEvent) => {
+              e.preventDefault();
+              toggleSection(section);
+            }}
           >
             <StyledSummary>
               <Text margin="0px 16px" type="title" size="small">
