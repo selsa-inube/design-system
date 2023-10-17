@@ -1,16 +1,8 @@
 import { useState } from "react";
 import { MdOpenInNew } from "react-icons/md";
+import { ITableProps } from "..";
 
-export interface IActions {
-  id: string;
-  [key: string]: string;
-}
-
-export interface IDisplayActionsProps {
-  content?: React.ReactElement;
-}
-
-const DisplayActions = ({ content }: IDisplayActionsProps) => {
+const DisplayActions = ({ content }: Pick<ITableProps, "content">) => {
   const [showModal, setShowModal] = useState(false);
 
   const handleToggleModal = () => {

@@ -4,8 +4,8 @@ import { Text } from "@data/Text";
 import { useMediaQuery } from "@hooks/useMediaQuery";
 import { useMediaQueries } from "@hooks/useMediaQueries";
 
-import { DisplayActions, IActions } from "./DisplayActions";
-import { IAction, IBreakpoint, ITableUIProps, ITitle } from ".";
+import { DisplayActions } from "./DisplayActions";
+import { IAction, IActions, IBreakpoint, ITableUIProps, ITitle } from ".";
 import {
   StyledTable,
   StyledThead,

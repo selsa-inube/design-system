@@ -4,8 +4,12 @@ import { Pagination } from "./Pagination";
 
 import { Stack } from "@layouts/Stack";
 
-import { IActions } from "./DisplayActions";
 import { TableUI } from "./interface";
+
+export interface IActions {
+  id: string;
+  [key: string]: string;
+}
 
 export interface ITitle {
   id: string;
