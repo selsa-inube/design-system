@@ -77,7 +77,7 @@ const MultiSections = (props: Pick<IFullscreenNavProps, "navigation">) => {
                 size="small"
                 appearance={section === openSection ? "primary" : "gray"}
               >
-                {section}
+                {section.toUpperCase()}
               </Text>
               <span>
                 <Icon
