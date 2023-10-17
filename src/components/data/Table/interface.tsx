@@ -16,7 +16,7 @@ import {
   StyledTd,
 } from "./styles";
 
-function findCurrentMediaQuery(currentMediaQuery: Record<string, boolean>) {
+function findCurrentMediaQuery(currentMediaQuery: { [key: string]: boolean }) {
   const lastIndexMedia = Object.values(currentMediaQuery).lastIndexOf(true);
   return lastIndexMedia !== -1 ? lastIndexMedia : 0;
 }
