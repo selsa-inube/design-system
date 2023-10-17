@@ -4,7 +4,7 @@ import { Text } from "@data/Text";
 import { useMediaQuery } from "@hooks/useMediaQuery";
 import { useMediaQueries } from "@hooks/useMediaQueries";
 
-import { DisplayActions, IEntry } from "./DisplayActions";
+import { DisplayActions, IActions } from "./DisplayActions";
 import { IAction, IBreakpoint, ITableUIProps, ITitle } from ".";
 import {
   StyledTable,
@@ -58,7 +58,7 @@ function showActionTitle(actionTitle: IAction[], mediaQuery: boolean) {
 
 function ShowAction(
   actionContent: IAction[],
-  entry: IEntry,
+  entry: IActions,
   mediaQuery: boolean,
   content: React.ReactElement
 ) {

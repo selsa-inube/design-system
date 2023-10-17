@@ -4,7 +4,7 @@ import { Pagination } from "./Pagination";
 
 import { Stack } from "@layouts/Stack";
 
-import { IEntry } from "./DisplayActions";
+import { IActions } from "./DisplayActions";
 import { TableUI } from "./interface";
 
 export interface ITitle {
@@ -16,7 +16,7 @@ export interface ITitle {
 export interface IAction {
   id: string;
   actionName: string;
-  content: (entry: IEntry) => JSX.Element;
+  content: (entry: IActions) => JSX.Element;
 }
 
 export interface IBreakpoint {
@@ -27,7 +27,7 @@ export interface IBreakpoint {
 export interface ITableUIProps {
   titles: ITitle[];
   actions: IAction[];
-  entries: IEntry[];
+  entries: IActions[];
   breakpoints: IBreakpoint[];
   content?: React.ReactElement;
   infoTitle: string;
@@ -38,7 +38,7 @@ export interface ITableProps {
   id: string;
   titles: ITitle[];
   actions: IAction[];
-  entries: IEntry[];
+  entries: IActions[];
   filter?: string;
   pageLength?: number;
   breakpoints?: IBreakpoint[];

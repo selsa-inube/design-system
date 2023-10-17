@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { MdOpenInNew } from "react-icons/md";
 
-export interface IEntry {
+export interface IActions {
   id: string;
   [key: string]: string;
 }
