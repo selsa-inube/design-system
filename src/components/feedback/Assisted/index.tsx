@@ -73,11 +73,17 @@ const Assisted = (props: IAssistedProps) => {
     titleButtonAfter,
   } = props;
 
-  const currentStep = steps.find((step) => step?.id === currentStepId);
+  let currentStep = null;
+  let currentStepIndex = -1;
 
-  const currentStepIndex = steps.findIndex(
-    (step) => step?.id === currentStepId
-  );
+  for (let i = 0; i < steps.length; i++) {
+    const step = steps[i];
+    if (step?.id === currentStepId) {
+      currentStep = step;
+      currentStepIndex = i;
+      break;
+    }
+  }
 
   return (
     <StyledAssistedContainer size={size}>
