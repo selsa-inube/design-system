@@ -1,10 +1,38 @@
 import { useMemo, useState } from "react";
 
 import { Pagination } from "./Pagination";
-import { IAction, IBreakpoint, TableUI } from "./interface";
+
 import { Stack } from "@layouts/Stack";
-import { ITitle } from "./interface";
-import { IEntry } from "./DisplayEntry";
+
+import { IEntry } from "./DisplayActions";
+import { TableUI } from "./interface";
+
+export interface ITitle {
+  id: string;
+  titleName: string;
+  priority: number;
+}
+
+export interface IAction {
+  id: string;
+  actionName: string;
+  content: (entry: IEntry) => JSX.Element;
+}
+
+export interface IBreakpoint {
+  breakpoint: string;
+  totalColumns: number;
+}
+
+export interface ITableUIProps {
+  titles: ITitle[];
+  actions: IAction[];
+  entries: IEntry[];
+  breakpoints: IBreakpoint[];
+  content?: React.ReactElement;
+  infoTitle: string;
+  actionsTitle: string;
+}
 
 export interface ITableProps {
   id: string;

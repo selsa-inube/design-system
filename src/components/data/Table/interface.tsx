@@ -1,11 +1,11 @@
 import { useMemo } from "react";
-import { DisplayEntry } from "./DisplayEntry";
 
-import { useMediaQueries } from "@hooks/useMediaQueries";
-import { useMediaQuery } from "@hooks/useMediaQuery";
 import { Text } from "@data/Text";
-import { IEntry } from "./DisplayEntry";
+import { useMediaQuery } from "@hooks/useMediaQuery";
+import { useMediaQueries } from "@hooks/useMediaQueries";
 
+import { DisplayActions, IEntry } from "./DisplayActions";
+import { IAction, IBreakpoint, ITableUIProps, ITitle } from ".";
 import {
   StyledTable,
   StyledThead,
@@ -15,33 +15,6 @@ import {
   StyledThTitle,
   StyledTd,
 } from "./styles";
-
-export interface ITitle {
-  id: string;
-  titleName: string;
-  priority: number;
-}
-
-export interface IAction {
-  id: string;
-  actionName: string;
-  content: (entry: any) => JSX.Element;
-}
-
-export interface IBreakpoint {
-  breakpoint: string;
-  totalColumns: number;
-}
-
-export interface ITableUIProps {
-  titles: ITitle[];
-  actions: IAction[];
-  entries: IEntry[];
-  breakpoints: IBreakpoint[];
-  content?: React.ReactElement;
-  infoTitle: string;
-  actionsTitle: string;
-}
 
 function findCurrentMediaQuery(currentMediaQuery: Record<string, boolean>) {
   const lastIndexMedia = Object.values(currentMediaQuery).lastIndexOf(true);
@@ -99,7 +72,7 @@ function ShowAction(
     </>
   ) : (
     <StyledTd>
-      <DisplayEntry content={content} />
+      <DisplayActions content={content} />
     </StyledTd>
   );
 }

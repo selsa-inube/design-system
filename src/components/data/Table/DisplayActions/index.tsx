@@ -6,11 +6,11 @@ export interface IEntry {
   [key: string]: string;
 }
 
-export interface IDisplayEntryProps {
+export interface IDisplayActionsProps {
   content?: React.ReactElement;
 }
 
-const DisplayEntry = ({ content }: IDisplayEntryProps) => {
+const DisplayActions = ({ content }: IDisplayActionsProps) => {
   const [showModal, setShowModal] = useState(false);
 
   const handleToggleModal = () => {
@@ -25,4 +25,4 @@ const DisplayEntry = ({ content }: IDisplayEntryProps) => {
   );
 };
 
-export { DisplayEntry };
+export { DisplayActions };
