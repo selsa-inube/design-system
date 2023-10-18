@@ -5,7 +5,6 @@ import {
   Height,
   JustifyContent,
   JustifyItems,
-  TemplateAreas,
   Width,
 } from "./props";
 import { StyledGrid } from "./styles";
@@ -13,7 +12,6 @@ import { StyledGrid } from "./styles";
 export interface IGridProps {
   templateColumns?: string;
   templateRows?: string;
-  templateAreas?: TemplateAreas;
   gap?: string;
   justifyItems?: JustifyItems;
   alignItems?: AlignItems;
@@ -33,14 +31,13 @@ const Grid = (props: IGridProps) => {
   const {
     templateColumns = "auto",
     templateRows = "auto",
-    templateAreas = "none",
     gap = "s0",
-    justifyItems = "start",
-    alignItems = "start",
+    justifyItems = "stretch",
+    alignItems = "stretch",
     justifyContent = "start",
     alignContent = "start",
-    autoColumns = "auto",
-    autoRows = "row",
+    autoColumns = "0px",
+    autoRows = "0px",
     autoFlow = "row",
     margin = "s0",
     padding = "s0",
@@ -53,7 +50,6 @@ const Grid = (props: IGridProps) => {
     <StyledGrid
       templateColumns={templateColumns}
       templateRows={templateRows}
-      templateAreas={templateAreas}
       gap={gap}
       justifyItems={justifyItems}
       alignItems={alignItems}
