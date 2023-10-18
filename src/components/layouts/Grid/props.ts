@@ -1,6 +1,3 @@
-export const templateAreasProperties = ["none", "header main footer"] as const;
-export type TemplateAreas = typeof templateAreasProperties[number];
-
 export const justifyItemsProperties = [
   "center",
   "start",
@@ -131,16 +128,6 @@ export const props = {
     description: "Defines the size and layout of the rows in the grid.",
     table: {
       defaultValue: { summary: "auto" },
-    },
-  },
-
-  templateAreas: {
-    options: templateAreasProperties,
-    control: { type: "select" },
-    description:
-      "Defines the overall layout of a grid in terms of named areas.",
-    table: {
-      defaultValue: { summary: "none" },
     },
   },
 
