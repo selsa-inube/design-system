@@ -29,7 +29,6 @@ export interface IAssistedProps {
   steps: IStep[];
   currentStepId: IStep["id"];
   onStepChange: (id: IStep["id"]) => void;
-  completedStepIds?: number[];
   titleButtonBefore?: string;
   titleButtonAfter?: string;
   size?: "medium" | "large";
