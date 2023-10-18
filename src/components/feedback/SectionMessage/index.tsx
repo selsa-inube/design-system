@@ -50,7 +50,12 @@ const SectionMessage = (props: ISectionMessageProps) => {
           gap="16px"
           alignItems={isMessageResponsive ? "center" : undefined}
         >
-          <Icon size="24px" appearance={appearance} icon={icon} />
+          <Icon
+            size="24px"
+            spacing="wide"
+            appearance={appearance}
+            icon={icon}
+          />
           <Stack direction="column" gap="6px">
             <Text size="large">{title}</Text>
             {!isMessageResponsive ? (
