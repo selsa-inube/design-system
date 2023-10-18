@@ -58,7 +58,9 @@ Default.args = {
   currentStepId: 3,
 };
 
-const theme = structuredClone(presente);
+const theme = {
+  ...presente,
+};
 
 const Themed = (args: IAssistedProps) => (
   <ThemeProvider theme={theme}>
