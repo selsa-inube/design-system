@@ -29,7 +29,7 @@ export interface IAssistedProps {
   steps: IStep[];
   currentStepId: IStep["id"];
   handlePrev: (id: IStep["id"]) => void;
-  handleNex: (id: IStep["id"]) => void;
+  handleNext: (id: IStep["id"]) => void;
   completedStepIds?: number[];
   titleButtonBefore?: string;
   titleButtonAfter?: string;
@@ -49,10 +49,10 @@ const onPrev = (
 const onNext = (
   currentStep: IStep["id"],
   steps: IAssistedProps["steps"],
-  handleNex: IAssistedProps["handleNex"]
+  handleNext: IAssistedProps["handleNext"]
 ) => {
   if (currentStep < steps.length - 1) {
-    handleNex(steps?.[currentStep + 1]?.id);
+    handleNext(steps?.[currentStep + 1]?.id);
   }
 };
 
@@ -74,7 +74,7 @@ const Assisted = (props: IAssistedProps) => {
     steps,
     currentStepId,
     handlePrev,
-    handleNex,
+    handleNext,
     size = "large",
     titleButtonBefore = "Prev",
     titleButtonAfter = "Next",
@@ -141,7 +141,7 @@ const Assisted = (props: IAssistedProps) => {
               appearance="primary"
               icon={<MdArrowForward style={{ padding: "0px 2px" }} />}
               size="20px"
-              onClick={() => onNext(currentStepIndex, steps, handleNex)}
+              onClick={() => onNext(currentStepIndex, steps, handleNext)}
             />
           )}
         </Stack>
@@ -172,7 +172,7 @@ const Assisted = (props: IAssistedProps) => {
             spacing="wide"
             variant="none"
             iconAfter={<MdArrowForward />}
-            onClick={() => onNext(currentStepIndex, steps, handleNex)}
+            onClick={() => onNext(currentStepIndex, steps, handleNext)}
           >
             {titleButtonAfter}
           </Button>
