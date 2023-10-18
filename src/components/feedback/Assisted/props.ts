@@ -10,7 +10,7 @@ const parameters = {
 const props = {
   steps: {
     description:
-      "(Array of Objects): An array to represent each step in the journey. Each object in the array represents a step and should have the following structure: id, label, description (Optional).",
+      "(Array of objects): An array to represent each step of the journey. Each object in the array represents one step and must have the following structure: id, label, description (Optional). The order of the steps depends on the order in the array,",
   },
   currentStepId: {
     description:
