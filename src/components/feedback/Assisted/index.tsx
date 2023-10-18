@@ -1,10 +1,12 @@
 import { MdArrowBack, MdArrowForward, MdCheckCircle } from "react-icons/md";
 
+import { useMediaQuery } from "@hooks/useMediaQuery";
+import { inube } from "@shared/tokens";
+
 import { Icon } from "@data/Icon";
 import { Text } from "@data/Text";
 import { Button } from "@inputs/Button";
 import { Stack } from "@layouts/Stack";
-import { inube } from "@shared/tokens";
 
 import {
   StyledAssistedContainer,
@@ -22,7 +24,6 @@ type IStep = {
 interface IProgressBarProps {
   currentStep: IStep["id"];
   arrayLength: number;
-  size?: IAssistedProps["size"];
 }
 
 export interface IAssistedProps {
@@ -30,10 +31,8 @@ export interface IAssistedProps {
   currentStepId: IStep["id"];
   handlePrev: (id: IStep["id"]) => void;
   handleNext: (id: IStep["id"]) => void;
-  completedStepIds?: number[];
   titleButtonBefore?: string;
   titleButtonAfter?: string;
-  size?: "medium" | "large";
 }
 
 const onPrev = (
@@ -57,11 +56,10 @@ const onNext = (
 };
 
 const ProgressBar = (props: IProgressBarProps) => {
-  const { currentStep, arrayLength, size } = props;
+  const { currentStep, arrayLength } = props;
   return (
-    <StyledProgressBar size={size}>
+    <StyledProgressBar>
       <StyledProgressIndicator
-        size={size}
         currentStep={currentStep}
         arrayLength={arrayLength}
       />
@@ -75,10 +73,11 @@ const Assisted = (props: IAssistedProps) => {
     currentStepId,
     handlePrev,
     handleNext,
-    size = "large",
     titleButtonBefore = "Prev",
     titleButtonAfter = "Next",
   } = props;
+
+  const measure = useMediaQuery("(min-width: 600px)");
 
   const currentStep = steps.find((step) => step?.id === currentStepId);
 
@@ -87,8 +86,8 @@ const Assisted = (props: IAssistedProps) => {
   );
 
   return (
-    <StyledAssistedContainer size={size}>
-      {size === "large" && (
+    <StyledAssistedContainer measure={measure}>
+      {measure && (
         <Stack alignItems="center">
           <Button
             spacing="wide"
@@ -107,11 +106,11 @@ const Assisted = (props: IAssistedProps) => {
       )}
       <Stack
         direction="column"
-        width={size === "medium" ? "288px" : "100%"}
+        width={!measure ? "288px" : "100%"}
         margin="s0 s0 s075 s0"
       >
         <Stack gap={inube.spacing.s100}>
-          {size === "medium" && (
+          {!measure && (
             <Icon
               appearance={!currentStepIndex ? "gray" : "primary"}
               icon={<MdArrowBack style={{ padding: "2px 0px" }} />}
@@ -133,10 +132,10 @@ const Assisted = (props: IAssistedProps) => {
               />
             )}
           </StyledStepIndicator>
-          <Text type="title" size={size === "large" ? "medium" : "small"}>
+          <Text type="title" size={measure ? "medium" : "small"}>
             {currentStep?.label}
           </Text>
-          {size === "medium" && (
+          {!measure && (
             <Icon
               appearance="primary"
               icon={<MdArrowForward style={{ padding: "0px 2px" }} />}
@@ -147,11 +146,10 @@ const Assisted = (props: IAssistedProps) => {
         </Stack>
         <Stack alignItems="center" gap={inube.spacing.s100}>
           <ProgressBar
-            size={size}
             currentStep={currentStepIndex + 1}
             arrayLength={steps.length}
           />
-          {size === "large" && (
+          {measure && (
             <Text type="label">
               {currentStepIndex + 1}/{steps.length}
             </Text>
@@ -166,7 +164,7 @@ const Assisted = (props: IAssistedProps) => {
           {currentStep?.description}
         </Text>
       </Stack>
-      {size === "large" && (
+      {measure && (
         <Stack alignItems="center">
           <Button
             spacing="wide"
