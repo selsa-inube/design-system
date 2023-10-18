@@ -28,7 +28,8 @@ interface IProgressBarProps {
 export interface IAssistedProps {
   steps: IStep[];
   currentStepId: IStep["id"];
-  onStepChange: (id: IStep["id"]) => void;
+  handlePrev: (id: IStep["id"]) => void;
+  handleNex: (id: IStep["id"]) => void;
   sequential?: boolean;
   completedStepIds?: number[];
   titleButtonBefore?: string;
@@ -36,16 +37,23 @@ export interface IAssistedProps {
   size?: "medium" | "large";
 }
 
-const handleStepChange = (
+const prevStepChanege = (
   currentStep: IStep["id"],
   steps: IAssistedProps["steps"],
-  onStepChange: IAssistedProps["onStepChange"],
-  direction: "previous" | "next"
+  handlePrev: IAssistedProps["handlePrev"]
 ) => {
-  if (direction === "previous" && currentStep > 0) {
-    onStepChange(steps?.[currentStep - 1]?.id);
-  } else if (direction === "next" && currentStep < steps.length - 1) {
-    onStepChange(steps?.[currentStep + 1]?.id);
+  if (currentStep > 0) {
+    handlePrev(steps?.[currentStep - 1]?.id);
+  }
+};
+
+const nextStepChanege = (
+  currentStep: IStep["id"],
+  steps: IAssistedProps["steps"],
+  handleNex: IAssistedProps["handleNex"]
+) => {
+  if (currentStep < steps.length - 1) {
+    handleNex(steps?.[currentStep + 1]?.id);
   }
 };
 
@@ -66,7 +74,8 @@ const Assisted = (props: IAssistedProps) => {
   const {
     steps,
     currentStepId,
-    onStepChange,
+    handlePrev,
+    handleNex,
     size = "large",
     sequential = false,
     titleButtonBefore,
@@ -90,13 +99,7 @@ const Assisted = (props: IAssistedProps) => {
             onClick={
               sequential || !currentStepIndex
                 ? undefined
-                : () =>
-                    handleStepChange(
-                      currentStepIndex,
-                      steps,
-                      onStepChange,
-                      "previous"
-                    )
+                : () => prevStepChanege(currentStepIndex, steps, handlePrev)
             }
             appearance={!currentStepIndex ? "gray" : "primary"}
           >
@@ -116,12 +119,7 @@ const Assisted = (props: IAssistedProps) => {
               icon={<MdArrowBack style={{ padding: "2px 0px" }} />}
               size="20px"
               onClick={() =>
-                handleStepChange(
-                  currentStepIndex,
-                  steps,
-                  onStepChange,
-                  "previous"
-                )
+                prevStepChanege(currentStepIndex, steps, handlePrev)
               }
             />
           )}
@@ -148,7 +146,7 @@ const Assisted = (props: IAssistedProps) => {
               icon={<MdArrowForward style={{ padding: "0px 2px" }} />}
               size="20px"
               onClick={() =>
-                handleStepChange(currentStepIndex, steps, onStepChange, "next")
+                nextStepChanege(currentStepIndex, steps, handleNex)
               }
             />
           )}
@@ -183,13 +181,7 @@ const Assisted = (props: IAssistedProps) => {
             onClick={
               sequential
                 ? undefined
-                : () =>
-                    handleStepChange(
-                      currentStepIndex,
-                      steps,
-                      onStepChange,
-                      "next"
-                    )
+                : () => nextStepChanege(currentStepIndex, steps, handleNex)
             }
           >
             {titleButtonAfter}
