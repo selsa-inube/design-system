@@ -1,3 +1,20 @@
+export interface ITitle {
+  id: string;
+  titleName: string;
+  priority: number;
+}
+
+export interface IAction {
+  id: string;
+  actionName: string;
+  content: (entry: any) => JSX.Element;
+}
+
+export interface IBreakpoint {
+  breakpoint: string;
+  totalColumns: number;
+}
+
 const parameters = {
   docs: {
     description: {

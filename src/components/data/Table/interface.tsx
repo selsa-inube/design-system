@@ -15,33 +15,8 @@ import {
   StyledThTitle,
   StyledTd,
 } from "./styles";
-
-export interface ITitle {
-  id: string;
-  titleName: string;
-  priority: number;
-}
-
-export interface IAction {
-  id: string;
-  actionName: string;
-  content: (entry: any) => JSX.Element;
-}
-
-export interface IBreakpoint {
-  breakpoint: string;
-  totalColumns: number;
-}
-
-export interface ITableUIProps {
-  titles: ITitle[];
-  actions: IAction[];
-  entries: IEntry[];
-  breakpoints: IBreakpoint[];
-  content?: React.ReactElement;
-  infoTitle: string;
-  actionsTitle: string;
-}
+import { ITableProps } from ".";
+import { IAction, IBreakpoint, ITitle } from "./props";
 
 function findCurrentMediaQuery(currentMediaQuery: Record<string, boolean>) {
   const lastIndexMedia = Object.values(currentMediaQuery).lastIndexOf(true);
@@ -104,20 +79,20 @@ function ShowAction(
   );
 }
 
-const TableUI = (props: ITableUIProps) => {
+const TableUI = (props: Omit<ITableProps, "id">) => {
   const { titles, actions, entries, breakpoints, content } = props;
 
   const mediaActionOpen = useMediaQuery("(max-width: 850px)");
 
   const queriesArray = useMemo(
-    () => breakpoints.map((breakpoint) => breakpoint.breakpoint),
+    () => breakpoints!.map((breakpoint) => breakpoint.breakpoint),
     [breakpoints]
   );
 
   const media = useMediaQueries(queriesArray);
 
   const TitleColumns = useMemo(
-    () => totalTitleColumns(titles, breakpoints, media),
+    () => totalTitleColumns(titles, breakpoints!, media),
     [titles, breakpoints, media]
   );
 
