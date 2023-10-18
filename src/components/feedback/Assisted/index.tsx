@@ -37,7 +37,7 @@ export interface IAssistedProps {
   size?: "medium" | "large";
 }
 
-const prevStepChanege = (
+const onPrev = (
   currentStep: IStep["id"],
   steps: IAssistedProps["steps"],
   handlePrev: IAssistedProps["handlePrev"]
@@ -47,7 +47,7 @@ const prevStepChanege = (
   }
 };
 
-const nextStepChanege = (
+const onNext = (
   currentStep: IStep["id"],
   steps: IAssistedProps["steps"],
   handleNex: IAssistedProps["handleNex"]
@@ -99,7 +99,7 @@ const Assisted = (props: IAssistedProps) => {
             onClick={
               sequential || !currentStepIndex
                 ? undefined
-                : () => prevStepChanege(currentStepIndex, steps, handlePrev)
+                : () => onPrev(currentStepIndex, steps, handlePrev)
             }
             appearance={!currentStepIndex ? "gray" : "primary"}
           >
@@ -118,9 +118,7 @@ const Assisted = (props: IAssistedProps) => {
               appearance={!currentStepIndex ? "gray" : "primary"}
               icon={<MdArrowBack style={{ padding: "2px 0px" }} />}
               size="20px"
-              onClick={() =>
-                prevStepChanege(currentStepIndex, steps, handlePrev)
-              }
+              onClick={() => onPrev(currentStepIndex, steps, handlePrev)}
             />
           )}
           <StyledStepIndicator>
@@ -145,9 +143,7 @@ const Assisted = (props: IAssistedProps) => {
               appearance="primary"
               icon={<MdArrowForward style={{ padding: "0px 2px" }} />}
               size="20px"
-              onClick={() =>
-                nextStepChanege(currentStepIndex, steps, handleNex)
-              }
+              onClick={() => onNext(currentStepIndex, steps, handleNex)}
             />
           )}
         </Stack>
@@ -181,7 +177,7 @@ const Assisted = (props: IAssistedProps) => {
             onClick={
               sequential
                 ? undefined
-                : () => nextStepChanege(currentStepIndex, steps, handleNex)
+                : () => onNext(currentStepIndex, steps, handleNex)
             }
           >
             {titleButtonAfter}
