@@ -3,7 +3,7 @@ import { User } from "@data/User";
 import { Stack } from "@layouts/Stack";
 import { FullscreenNav, INavigation } from "@navigation/FullscreenNav";
 import { StyledHeader } from "./styles";
-import { NavLink } from "../NavLink";
+import { BreadcrumbLink } from "../Breadcrumbs/BreadcrumbLink";
 
 export interface IHeaderProps {
   portalId: string;
@@ -11,11 +11,12 @@ export interface IHeaderProps {
   logoURL: JSX.Element;
   userName: string;
   client: string;
+  links: Record<string, { id: string; label: string; path: string }>;
 }
 
 const Header = (props: IHeaderProps) => {
-  const { portalId, navigation, logoURL, userName, client } = props;
-
+  const { portalId, navigation, logoURL, userName, client, links } = props;
+  const tranformedLink = Object.values(links);
   const [mobile, tablet, desktop] = Object.values(
     useMediaQueries([
       "(min-width: 320px)",
@@ -38,12 +39,21 @@ const Header = (props: IHeaderProps) => {
           )}
           {logoURL}
         </Stack>
-        <NavLink id={"link"} label={"link"} path={"link"} />
-        <User
-          userName={userName}
-          client={client}
-          size={mobile && !tablet ? "small" : "large"}
-        />
+        <Stack justifyContent="space-between" gap="23px">
+          {tranformedLink.map((link) => (
+            <BreadcrumbLink
+              key={link.id}
+              label={link.label}
+              path={link.path}
+              id={link.id}
+            />
+          ))}
+          <User
+            userName={userName}
+            client={client}
+            size={mobile && !tablet ? "small" : "large"}
+          />
+        </Stack>
       </Stack>
     </StyledHeader>
   );
