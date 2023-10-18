@@ -76,11 +76,10 @@ const Assisted = (props: IAssistedProps) => {
   let currentStep = null;
   let currentStepIndex = -1;
 
-  for (let i = 0; i < steps.length; i++) {
-    const step = steps[i];
-    if (step?.id === currentStepId) {
-      currentStep = step;
-      currentStepIndex = i;
+  for (let step = 0; step < steps.length; step++) {
+    if (steps[step].id === currentStepId) {
+      currentStep = steps[step];
+      currentStepIndex = step;
       break;
     }
   }
