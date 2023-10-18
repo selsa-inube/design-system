@@ -33,7 +33,7 @@ const props = {
     description: "The title text of the section message.",
   },
   description: {
-    control: { type: "text" },
+    control: { type: "text", maxLength: 240 },
     description:
       "The description text of the section message. If the description is too long, it will be truncated to the MAX_DESCRIPTION_LENGTH.",
   },
