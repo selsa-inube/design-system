@@ -31,7 +31,6 @@ export interface IAssistedProps {
   currentStepId: IStep["id"];
   handlePrev: (id: IStep["id"]) => void;
   handleNex: (id: IStep["id"]) => void;
-  completedStepIds?: number[];
   titleButtonBefore?: string;
   titleButtonAfter?: string;
 }
