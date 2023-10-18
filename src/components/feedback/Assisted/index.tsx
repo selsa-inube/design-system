@@ -30,7 +30,6 @@ export interface IAssistedProps {
   currentStepId: IStep["id"];
   handlePrev: (id: IStep["id"]) => void;
   handleNex: (id: IStep["id"]) => void;
-  sequential?: boolean;
   completedStepIds?: number[];
   titleButtonBefore?: string;
   titleButtonAfter?: string;
@@ -77,7 +76,6 @@ const Assisted = (props: IAssistedProps) => {
     handlePrev,
     handleNex,
     size = "large",
-    sequential = false,
     titleButtonBefore = "Prev",
     titleButtonAfter = "Next",
   } = props;
@@ -97,7 +95,7 @@ const Assisted = (props: IAssistedProps) => {
             variant="none"
             iconBefore={<MdArrowBack />}
             onClick={
-              sequential || !currentStepIndex
+              !currentStepIndex
                 ? undefined
                 : () => onPrev(currentStepIndex, steps, handlePrev)
             }
@@ -174,11 +172,7 @@ const Assisted = (props: IAssistedProps) => {
             spacing="wide"
             variant="none"
             iconAfter={<MdArrowForward />}
-            onClick={
-              sequential
-                ? undefined
-                : () => onNext(currentStepIndex, steps, handleNex)
-            }
+            onClick={() => onNext(currentStepIndex, steps, handleNex)}
           >
             {titleButtonAfter}
           </Button>
