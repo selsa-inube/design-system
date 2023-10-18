@@ -20,7 +20,6 @@ Default.args = {
   templateColumns: "repeat(3, 1fr)",
   gap: "s350",
   templateRows: "auto",
-  templateAreas: "none",
   justifyItems: "start",
   alignItems: "start",
   justifyContent: "flex-start",
