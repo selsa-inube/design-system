@@ -1,24 +1,31 @@
 import { useState } from "react";
-import { CountdownBar, Stack, Text, useMediaQuery } from "@inube/design-system";
-import { MdClear } from "react-icons/md";
-import { StyledIcon, StyledSectionMessage } from "./styles";
-import { EAppearance } from "@src/types/colors.types";
 
-interface SectionMessageProps {
+import { MdClear } from "react-icons/md";
+import { StyledSectionMessage } from "./styles";
+import { useMediaQuery } from "@hooks/useMediaQuery";
+import { Stack } from "@layouts/Stack";
+import { Text } from "@data/Text";
+import { CountdownBar } from "@feedback/CountdownBar";
+
+import { Icon } from "@data/Icon";
+import { Appearance } from "./props";
+
+export interface ISectionMessageProps {
   icon: JSX.Element;
   title: string;
   description: string;
-  appearance: EAppearance;
+  appearance: Appearance;
   duration: number;
   closeSectionMessage: () => void;
+  isMessageResponsive: boolean;
 }
 
-function SectionMessage(props: SectionMessageProps) {
+const SectionMessage = (props: ISectionMessageProps) => {
   const {
     icon,
     title,
     description,
-    appearance,
+    appearance = "primary",
     duration,
     closeSectionMessage,
   } = props;
@@ -43,31 +50,35 @@ function SectionMessage(props: SectionMessageProps) {
           gap="16px"
           alignItems={isMessageResponsive ? "center" : undefined}
         >
-          <StyledIcon appearance={appearance}>{icon}</StyledIcon>
+          <Icon size="24px" appearance={appearance} icon={icon} />
           <Stack direction="column" gap="6px">
-            <Text typo="labelLarge">{title}</Text>
+            <Text size="large">{title}</Text>
             {!isMessageResponsive ? (
-              <Text typo="bodySmall" appearance="secondary">
+              <Text size="small" appearance="gray">
                 {newDescription}
               </Text>
             ) : null}
           </Stack>
         </Stack>
         <Stack alignItems={isMessageResponsive ? "center" : undefined}>
-          <MdClear size={16} cursor="pointer" onClick={closeSectionMessage} />
+          <Icon
+            size="16px"
+            onClick={closeSectionMessage}
+            appearance={appearance}
+            icon={<MdClear />}
+          />
         </Stack>
       </Stack>
       {duration && (
         <CountdownBar
-          isPaused={isPaused}
+          paused={isPaused}
           appearance={appearance}
           duration={duration}
-          handleCountdown={closeSectionMessage}
+          onCountdown={closeSectionMessage}
         />
       )}
     </StyledSectionMessage>
   );
-}
+};
 
 export { SectionMessage };
-export type { SectionMessageProps };
