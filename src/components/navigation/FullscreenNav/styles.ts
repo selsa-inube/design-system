@@ -1,14 +1,10 @@
 import styled from "styled-components";
 import { colors } from "@shared/colors/colors";
+import { inube } from "@src/shared/tokens";
 
 const StyledContDropMenu = styled.div`
   position: absolute;
   width: fit-content;
-  & > svg {
-    width: 24px;
-    height: 24px;
-    cursor: pointer;
-  }
 `;
 
 const StyledFullscreenNav = styled.nav`
@@ -28,24 +24,6 @@ const StyledFullscreenNav = styled.nav`
   overflow-y: auto;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
-
-  & > div:nth-child(2) {
-    & > div:nth-child(n + 2) {
-      margin-top: 28px;
-    }
-  }
-`;
-
-const StyledCloseMenu = styled.div`
-  display: grid;
-  grid-template-columns: 1fr auto;
-  padding: 32px 24px 16px 16px;
-
-  & > svg {
-    width: 24px;
-    height: 24px;
-    cursor: pointer;
-  }
 `;
 
 const StyledSeparatorLine = styled.div`
@@ -65,10 +43,28 @@ const StyledFooter = styled.footer`
   gap: 24px;
 `;
 
+const StyledDetails = styled.details`
+  width: 100%;
+  margin: ${inube.spacing.s0} ${inube.spacing.s300};
+  list-style: none;
+`;
+
+const StyledSummary = styled.summary`
+  display: flex;
+  height: 48px;
+  align-items: center;
+  justify-content: space-between;
+  &:hover {
+    cursor: pointer;
+    background-color: ${inube.color.surface.navLink.hover};
+  }
+`;
+
 export {
   StyledContDropMenu,
   StyledFullscreenNav,
-  StyledCloseMenu,
   StyledSeparatorLine,
+  StyledDetails,
+  StyledSummary,
   StyledFooter,
 };
