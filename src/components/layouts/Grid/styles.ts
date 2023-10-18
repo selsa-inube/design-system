@@ -7,7 +7,6 @@ const StyledGrid = styled.div`
   grid-template-columns: ${({ templateColumns }: IGridProps) =>
     templateColumns};
   grid-template-rows: ${({ templateRows }: IGridProps) => templateRows};
-  grid-template-areas: ${({ templateAreas }: IGridProps) => templateAreas};
   gap: ${({ gap }: IGridProps) => {
     const gapValue = gap!.split(" ");
     return gapValue
