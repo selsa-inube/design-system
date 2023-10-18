@@ -56,7 +56,6 @@ Default.args = {
   titleButtonBefore: "Anterior",
   titleButtonAfter: "Próximo",
   currentStepId: 3,
-  size: "large",
 };
 
 const theme = structuredClone(presente);
