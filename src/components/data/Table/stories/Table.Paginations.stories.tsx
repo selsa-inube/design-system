@@ -232,7 +232,6 @@ Paginations.args = {
   breakpoints: breakPointsMuck,
   modalTitle: "Form",
   infoTitle: "Information",
-  actionsTitle: "Actions",
 };
 
 export default story;
