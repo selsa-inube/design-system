@@ -3,6 +3,7 @@ import { User } from "@data/User";
 import { Stack } from "@layouts/Stack";
 import { FullscreenNav, INavigation } from "@navigation/FullscreenNav";
 import { StyledHeader } from "./styles";
+import { NavLink } from "../NavLink";
 
 export interface IHeaderProps {
   portalId: string;
@@ -37,6 +38,7 @@ const Header = (props: IHeaderProps) => {
           )}
           {logoURL}
         </Stack>
+        <NavLink id={"link"} label={"link"} path={"link"} />
         <User
           userName={userName}
           client={client}
