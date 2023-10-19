@@ -1,5 +1,4 @@
 import { ThemeProvider } from "styled-components";
-import { MdAdb } from "react-icons/md";
 
 import { props, parameters } from "./props";
 import { presente } from "@shared/themes/presente";
