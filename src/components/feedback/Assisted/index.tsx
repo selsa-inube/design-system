@@ -3,11 +3,11 @@ import { MdArrowBack, MdArrowForward, MdCheckCircle } from "react-icons/md";
 import { Icon } from "@data/Icon";
 import { Text } from "@data/Text";
 import { Button } from "@inputs/Button";
+import { Grid } from "@layouts/Grid";
 import { Stack } from "@layouts/Stack";
 import { inube } from "@shared/tokens";
 
 import {
-  StyledAssistedContainer,
   StyledProgressBar,
   StyledProgressIndicator,
   StyledStepIndicator,
@@ -89,7 +89,7 @@ const Assisted = (props: IAssistedProps) => {
   );
 
   return (
-    <StyledAssistedContainer size={size}>
+    <Grid templateColumns="auto 1fr auto">
       {size === "large" && (
         <Stack alignItems="center">
           <Button
@@ -184,7 +184,7 @@ const Assisted = (props: IAssistedProps) => {
           </Button>
         </Stack>
       )}
-    </StyledAssistedContainer>
+    </Grid>
   );
 };
 
