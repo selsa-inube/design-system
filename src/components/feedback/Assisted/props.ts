@@ -16,13 +16,23 @@ const props = {
     description:
       "(string | number): An identifier that matches one of the id values within the steps array to indicate the current step.",
   },
-  onStepChange: {
-    desciption:
-      "(function): A callback function that gets triggered when a step is changed. It should accept a single argument, which is the id of the step to which the user navigates.",
-  },
-  completedStepIds: {
+
+  handlePrev: {
     description:
-      " (Array of string or number): (Optional) An array of step id values that have already been completed. Helps in visually indicating to the user which steps are already done.",
+      "(Function): (Optional) A function that will be called when the user clicks on the previous button. If not provided, the button will not be rendered.",
+  },
+
+  handleNex: {
+    descriptions:
+      "(Function): (Optional) A function that will be called when the user clicks on the next button.",
+  },
+  titleButtonBefore: {
+    description:
+      "(string): (Optional) A string to be displayed in the button before the label of the current step.",
+  },
+  titleButtonAfter: {
+    description:
+      "(string): (Optional) A string to be displayed in the button after the label of the current step.",
   },
 };
 
