@@ -7,6 +7,7 @@ interface IStyledAssistedProps extends IAssistedProps {
   theme?: Themed;
   arrayLength: number;
   currentStep: number;
+  measure: boolean;
 }
 
 const StyledProgressBar = styled.div`
@@ -22,8 +23,8 @@ const StyledProgressIndicator = styled.div`
   border-radius: 8px;
   transition: width 0.5s;
   height: 16px;
-  width: ${({ size, arrayLength, currentStep }: IStyledAssistedProps) => {
-    if (size === "medium" && currentStep === 1) {
+  width: ${({ arrayLength, currentStep }: IStyledAssistedProps) => {
+    if (currentStep === 1) {
       return "6%";
     }
     if (currentStep === 1) {

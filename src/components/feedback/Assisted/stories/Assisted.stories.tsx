@@ -56,10 +56,11 @@ Default.args = {
   titleButtonBefore: "Anterior",
   titleButtonAfter: "Próximo",
   currentStepId: 3,
-  size: "large",
 };
 
-const theme = structuredClone(presente);
+const theme = {
+  ...presente,
+};
 
 const Themed = (args: IAssistedProps) => (
   <ThemeProvider theme={theme}>
