@@ -16,22 +16,16 @@ const StyledSectionMessage = styled.div`
   }};
   width: ${(props: IStyledSectionMessageProps) =>
     props.isMessageResponsive ? "auto" : "400px"};
-  right: ${(props: IStyledSectionMessageProps) =>
-    props.isMessageResponsive ? "16px" : "64px"};
-  bottom: ${(props: IStyledSectionMessageProps) =>
-    props.isMessageResponsive ? "16px" : "32px"};
-  left: ${(props: IStyledSectionMessageProps) =>
-    props.isMessageResponsive ? "16px" : "auto"};
   height: auto;
   border-radius: 4px;
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3),
     0px 1px 3px 1px rgba(0, 0, 0, 0.15);
   overflow: hidden;
-  & > div > div > div > p:last-child {
-    max-width: 400px;
-    white-space: normal;
-    word-break: break-word;
-  }
 `;
 
-export { StyledSectionMessage };
+const StyledDescriptionContainer = styled.div`
+  white-space: normal;
+  word-break: break-word;
+`;
+
+export { StyledSectionMessage, StyledDescriptionContainer };
