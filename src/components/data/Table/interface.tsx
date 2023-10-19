@@ -1,11 +1,11 @@
 import { useMemo } from "react";
-import { DisplayEntry } from "./DisplayEntry";
 
-import { useMediaQueries } from "@hooks/useMediaQueries";
-import { useMediaQuery } from "@hooks/useMediaQuery";
 import { Text } from "@data/Text";
-import { IEntry } from "./DisplayEntry";
+import { useMediaQuery } from "@hooks/useMediaQuery";
+import { useMediaQueries } from "@hooks/useMediaQueries";
 
+import { DisplayActions } from "./DisplayActions";
+import { ITableProps, IAction, IActions, IBreakpoint, ITitle } from ".";
 import {
   StyledTable,
   StyledThead,
@@ -15,10 +15,8 @@ import {
   StyledThTitle,
   StyledTd,
 } from "./styles";
-import { ITableProps } from ".";
-import { IAction, IBreakpoint, ITitle } from "./props";
 
-function findCurrentMediaQuery(currentMediaQuery: Record<string, boolean>) {
+function findCurrentMediaQuery(currentMediaQuery: { [key: string]: boolean }) {
   const lastIndexMedia = Object.values(currentMediaQuery).lastIndexOf(true);
   return lastIndexMedia !== -1 ? lastIndexMedia : 0;
 }
@@ -60,7 +58,7 @@ function showActionTitle(actionTitle: IAction[], mediaQuery: boolean) {
 
 function ShowAction(
   actionContent: IAction[],
-  entry: IEntry,
+  entry: IActions,
   mediaQuery: boolean,
   content: React.ReactElement
 ) {
@@ -74,7 +72,7 @@ function ShowAction(
     </>
   ) : (
     <StyledTd>
-      <DisplayEntry content={content} />
+      <DisplayActions content={content} />
     </StyledTd>
   );
 }
