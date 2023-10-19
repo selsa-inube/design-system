@@ -1,29 +1,31 @@
 import { useState } from "react";
 import { createPortal } from "react-dom";
-import { MdMenu, MdClose, MdLogout } from "react-icons/md";
+import {
+  MdMenu,
+  MdClose,
+  MdLogout,
+  MdOutlineArrowDropDown,
+  MdOutlineArrowDropUp,
+} from "react-icons/md";
 
-import { Stack } from "@layouts/Stack/index";
+import { Icon } from "@data/Icon";
 import { Text } from "@data/Text";
-import { NavLink } from "@navigation/NavLink";
+import { Grid } from "@layouts/Grid";
+import { Stack } from "@layouts/Stack";
+import { INavLinkProps, NavLink } from "@navigation/NavLink";
 
 import {
   StyledContDropMenu,
   StyledFullscreenNav,
-  StyledCloseMenu,
   StyledSeparatorLine,
+  StyledDetails,
+  StyledSummary,
   StyledFooter,
 } from "./styles";
 
-export interface ILink {
-  id: string;
-  label: string;
-  icon: React.ReactNode;
-  path: string;
-}
-
 export interface ISection {
   name: string;
-  links: { [key: string]: ILink };
+  links: { [key: string]: INavLinkProps };
 }
 
 export interface IMenuSectionsProps {
@@ -35,13 +37,6 @@ export interface INavigation {
   sections: { [key: string]: ISection };
 }
 
-export interface IFullscreenMenuProps {
-  navigation: INavigation;
-  logoutPath: string;
-  logoutTitle: string;
-  onClose: () => void;
-}
-
 export interface IFullscreenNavProps {
   portalId: string;
   navigation: INavigation;
@@ -49,13 +44,87 @@ export interface IFullscreenNavProps {
   logoutTitle: string;
 }
 
-const MultiSections = ({ navigation }: IMenuSectionsProps) => {
+const MultiSections = (props: Pick<IFullscreenNavProps, "navigation">) => {
+  const { navigation } = props;
+  const sections = Object.keys(navigation.sections);
+
+  const [openSection, setOpenSection] = useState<string | null>(null);
+
+  const toggleSection = (section: string) => {
+    if (section === openSection) {
+      setOpenSection("");
+      return;
+    }
+    setOpenSection(section);
+  };
+
+  return (
+    <Stack direction="column">
+      {sections.map((section) => (
+        <Stack key={section}>
+          <StyledDetails
+            id={section}
+            open={section === openSection}
+            onClick={(e: PointerEvent) => {
+              e.preventDefault();
+              toggleSection(section);
+            }}
+          >
+            <StyledSummary>
+              <Text
+                margin="0px 16px"
+                type="title"
+                size="small"
+                appearance={section === openSection ? "primary" : "gray"}
+              >
+                {section.toUpperCase()}
+              </Text>
+              <span>
+                <Icon
+                  appearance="dark"
+                  icon={
+                    section === openSection ? (
+                      <MdOutlineArrowDropUp />
+                    ) : (
+                      <MdOutlineArrowDropDown />
+                    )
+                  }
+                  size="24px"
+                />
+              </span>
+            </StyledSummary>
+            <Stack direction="column">
+              {Object.values(navigation.sections[section].links).map(
+                (linkValue) => (
+                  <NavLink
+                    key={linkValue.id}
+                    id={linkValue.id}
+                    label={linkValue.label}
+                    icon={linkValue.icon}
+                    path={linkValue.path}
+                    onClick={(e: PointerEvent) => e.stopPropagation()}
+                  />
+                )
+              )}
+            </Stack>
+          </StyledDetails>
+        </Stack>
+      ))}
+    </Stack>
+  );
+};
+
+const TwoSections = ({ navigation }: IMenuSectionsProps) => {
   const navigationSectionValues = Object.values(navigation.sections);
 
   return (
     <Stack direction="column">
       {navigationSectionValues.map((sectionValue) => (
-        <Stack key={sectionValue.name} direction="column">
+        <Stack
+          key={sectionValue.name}
+          direction="column"
+          margin="s0 s0 s300 s0"
+        >
           <Text
             as="h2"
             type="title"
@@ -100,26 +169,40 @@ const OneSection = ({ navigation }: IMenuSectionsProps) => {
   );
 };
 
-const FullscreenMenu = (props: IFullscreenMenuProps) => {
+const sectionsComponents: {
+  [key: number]: ({ navigation }: IMenuSectionsProps) => JSX.Element;
+  default: (props: Pick<IFullscreenNavProps, "navigation">) => JSX.Element;
+} = {
+  1: OneSection,
+  2: TwoSections,
+  default: MultiSections,
+};
+
+const FullscreenMenu = (
+  props: Omit<IFullscreenNavProps, "portalId"> & { onClose: () => void }
+) => {
   const { navigation, logoutTitle, logoutPath, onClose } = props;
-  const handleClick = () => {
-    onClose();
-  };
-  const totalSections = Object.keys(navigation.sections).length;
+
+  const sections = Object.keys(navigation.sections);
+
+  const SectionComponent =
+    sectionsComponents[sections.length] || sectionsComponents.default;
 
   return (
     <StyledFullscreenNav>
-      <StyledCloseMenu>
+      <Grid templateColumns="1fr auto" padding="s400 s300 s200 s200">
         <Text type="title" size="small" appearance="gray">
           {navigation.title}
         </Text>
-        <MdClose onClick={handleClick} />
-      </StyledCloseMenu>
-      {totalSections > 1 ? (
-        <MultiSections navigation={navigation} />
-      ) : (
-        <OneSection navigation={navigation} />
-      )}
+        <Icon
+          appearance="dark"
+          icon={<MdClose />}
+          onClick={() => onClose()}
+          size="24px"
+          cursorHover={true}
+        />
+      </Grid>
+      <SectionComponent navigation={navigation} />
       <StyledSeparatorLine />
       <NavLink
         id="logoutPath"
@@ -148,14 +231,16 @@ const FullscreenNav = (props: IFullscreenNavProps) => {
     );
   }
 
-  const handleClose = () => {
-    setIsMenuOpen(false);
-  };
-
   return (
     <>
       <StyledContDropMenu>
-        <MdMenu onClick={() => setIsMenuOpen(true)} />
+        <Icon
+          appearance="dark"
+          icon={<MdMenu />}
+          onClick={() => setIsMenuOpen(true)}
+          size="24px"
+          cursorHover={true}
+        />
       </StyledContDropMenu>
       {isMenuOpen &&
         createPortal(
@@ -163,7 +248,7 @@ const FullscreenNav = (props: IFullscreenNavProps) => {
             navigation={navigation}
             logoutPath={logoutPath}
             logoutTitle={logoutTitle}
-            onClose={handleClose}
+            onClose={() => setIsMenuOpen(false)}
           />,
           node
         )}

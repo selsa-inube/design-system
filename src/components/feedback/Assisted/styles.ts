@@ -7,19 +7,19 @@ interface IStyledAssistedProps extends IAssistedProps {
   theme?: Themed;
   arrayLength: number;
   currentStep: number;
+  measure: boolean;
 }
 
 const StyledAssistedContainer = styled.div`
   display: flex;
   border-radius: 8px;
   padding: ${inube.spacing.s200};
-  width: ${({ size }: IStyledAssistedProps) =>
-    size === "medium" && "fit-content"};
+  width: ${({ measure }: IStyledAssistedProps) => !measure && "fit-content"};
   background-color: ${({ theme }: IStyledAssistedProps) =>
     theme?.color?.surface?.gray?.clear || inube.color.surface.gray?.clear};
 
-  ${({ size }: IStyledAssistedProps) =>
-    size === "medium" &&
+  ${({ measure }: IStyledAssistedProps) =>
+    !measure &&
     css`
       & > div > div > figure:last-child {
         margin-left: auto;
@@ -40,8 +40,8 @@ const StyledProgressIndicator = styled.div`
   border-radius: 8px;
   transition: width 0.5s;
   height: 16px;
-  width: ${({ size, arrayLength, currentStep }: IStyledAssistedProps) => {
-    if (size === "medium" && currentStep === 1) {
+  width: ${({ arrayLength, currentStep }: IStyledAssistedProps) => {
+    if (currentStep === 1) {
       return "6%";
     }
     if (currentStep === 1) {

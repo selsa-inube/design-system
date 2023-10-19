@@ -5,7 +5,7 @@ import { useMediaQuery } from "@hooks/useMediaQuery";
 import { useMediaQueries } from "@hooks/useMediaQueries";
 
 import { DisplayActions } from "./DisplayActions";
-import { IAction, IActions, IBreakpoint, ITableUIProps, ITitle } from ".";
+import { ITableProps, IAction, IActions, IBreakpoint, ITitle } from ".";
 import {
   StyledTable,
   StyledThead,
@@ -77,20 +77,20 @@ function ShowAction(
   );
 }
 
-const TableUI = (props: ITableUIProps) => {
+const TableUI = (props: Omit<ITableProps, "id">) => {
   const { titles, actions, entries, breakpoints, content } = props;
 
   const mediaActionOpen = useMediaQuery("(max-width: 850px)");
 
   const queriesArray = useMemo(
-    () => breakpoints.map((breakpoint) => breakpoint.breakpoint),
+    () => breakpoints!.map((breakpoint) => breakpoint.breakpoint),
     [breakpoints]
   );
 
   const media = useMediaQueries(queriesArray);
 
   const TitleColumns = useMemo(
-    () => totalTitleColumns(titles, breakpoints, media),
+    () => totalTitleColumns(titles, breakpoints!, media),
     [titles, breakpoints, media]
   );
 
