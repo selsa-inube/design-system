@@ -20,7 +20,7 @@ const AssistedController = (props: IAssistedProps) => {
       steps={steps}
       currentStepId={currentStep}
       handlePrev={handlePrev}
-      handleNex={handleNext}
+      handleNext={handleNext}
     />
   );
 };
