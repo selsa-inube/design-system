@@ -4,6 +4,7 @@ import { Stack } from "@layouts/Stack";
 import { FullscreenNav, INavigation } from "@navigation/FullscreenNav";
 import { StyledHeader } from "./styles";
 import { BreadcrumbLink } from "../Breadcrumbs/BreadcrumbLink";
+import { Links } from "./props";
 
 export interface IHeaderProps {
   portalId: string;
@@ -11,7 +12,7 @@ export interface IHeaderProps {
   logoURL: JSX.Element;
   userName: string;
   client: string;
-  links: Record<string, { id: string; label: string; path: string }>;
+  links: Links;
 }
 
 const Header = (props: IHeaderProps) => {
