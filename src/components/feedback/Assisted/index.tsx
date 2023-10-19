@@ -109,7 +109,7 @@ const Assisted = (props: IAssistedProps) => {
         width={!measure ? "288px" : "100%"}
         margin="s0 s0 s075 s0"
       >
-        <Stack gap={inube.spacing.s100}>
+        <Grid templateColumns="auto auto 1fr auto" gap="s100">
           {!measure && (
             <Icon
               appearance={!currentStepIndex ? "gray" : "primary"}
@@ -143,7 +143,7 @@ const Assisted = (props: IAssistedProps) => {
               onClick={() => onNext(currentStepIndex, steps, handleNex)}
             />
           )}
-        </Stack>
+        </Grid>
         <Stack alignItems="center" gap={inube.spacing.s100}>
           <ProgressBar
             currentStep={currentStepIndex + 1}
