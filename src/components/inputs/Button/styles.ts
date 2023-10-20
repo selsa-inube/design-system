@@ -73,6 +73,9 @@ const StyledButton = styled.button`
     parentHover,
   }: IStyledButtonProps) => {
     if (disabled) {
+      if (variant !== "outlined") {
+        return "transparent";
+      }
       return (
         theme?.color?.stroke?.[appearance!]?.disabled ||
         inube.color.stroke[appearance!].disabled
@@ -92,6 +95,23 @@ const StyledButton = styled.button`
       inube.color.stroke[appearance!].regular
     );
   }};
+
+  & > * > p,
+  figure {
+    color: ${({
+      theme,
+      appearance,
+      variant,
+      disabled,
+      parentHover,
+    }: IStyledButtonProps) => {
+      if (!disabled && parentHover && variant !== "filled")
+        return (
+          theme?.color?.stroke?.[appearance!]?.hover ||
+          inube.color.stroke[appearance!].hover
+        );
+    }};
+  }
 
   cursor: ${({ disabled, loading }: IStyledButtonProps) => {
     if (disabled) {
@@ -141,6 +161,32 @@ const StyledButton = styled.button`
         return "transparent";
       }
     }};
+
+    & > * > p,
+    figure {
+      color: ${({
+        theme,
+        appearance,
+        variant,
+        disabled,
+        cursorHover,
+        parentHover,
+      }: IStyledButtonProps) => {
+        if (!disabled && parentHover && variant !== "filled")
+          return (
+            theme?.color?.stroke?.[appearance!]?.hover ||
+            inube.color.stroke[appearance!].hover
+          );
+        if (!disabled && cursorHover) {
+          if (variant !== "filled") {
+            return (
+              theme?.color?.stroke?.[appearance!]?.hover ||
+              inube.color.stroke[appearance!].hover
+            );
+          }
+        }
+      }};
+    }
   }
 `;
 
