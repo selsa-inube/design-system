@@ -101,9 +101,18 @@ Default.args = {
   logoURL: <Logo />,
   userName: "Leonardo Garzón",
   client: "Sistemas Enlínea S.A",
+  links: {
+    documents: {
+      id: "dataUpdate",
+      label: "Data update",
+      path: "/dataUpdate",
+    },
+  },
 };
 
-const theme = structuredClone(presente);
+const theme = {
+  ...presente,
+};
 
 const Themed = (args: IHeaderProps) => (
   <ThemeProvider theme={theme}>
