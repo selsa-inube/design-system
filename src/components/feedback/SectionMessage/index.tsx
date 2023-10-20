@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import { MdClear } from "react-icons/md";
-import { StyledSectionMessage, StyledDescriptionContainer } from "./styles";
+import { StyledSectionMessage } from "./styles";
 import { useMediaQuery } from "@hooks/useMediaQuery";
 import { Stack } from "@layouts/Stack";
 import { Text } from "@data/Text";
@@ -57,11 +57,9 @@ const SectionMessage = (props: ISectionMessageProps) => {
             <Stack direction="column" gap="6px">
               <Text size="large">{title}</Text>
               {!isMessageResponsive && (
-                <StyledDescriptionContainer>
-                  <Text size="small" appearance="gray">
-                    {newDescription}
-                  </Text>
-                </StyledDescriptionContainer>
+                <Text size="small" appearance="gray">
+                  {newDescription}
+                </Text>
               )}
             </Stack>
           </Stack>

@@ -21,11 +21,7 @@ const StyledSectionMessage = styled.div`
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3),
     0px 1px 3px 1px rgba(0, 0, 0, 0.15);
   overflow: hidden;
+  overflow-wrap: break-word;
 `;
 
-const StyledDescriptionContainer = styled.div`
-  white-space: normal;
-  word-break: break-word;
-`;
-
-export { StyledSectionMessage, StyledDescriptionContainer };
+export { StyledSectionMessage };
