@@ -93,11 +93,7 @@ const Assisted = (props: IAssistedProps) => {
             spacing="wide"
             variant="none"
             iconBefore={<MdArrowBack />}
-            onClick={
-              !currentStepIndex
-                ? undefined
-                : () => onPrev(currentStepIndex, steps, handlePrev)
-            }
+            onClick={() => onPrev(currentStepIndex, steps, handlePrev)}
             appearance={!currentStepIndex ? "gray" : "primary"}
           >
             {titleButtonBefore}
