@@ -98,7 +98,8 @@ const Assisted = (props: IAssistedProps) => {
                 ? undefined
                 : () => onPrev(currentStepIndex, steps, handlePrev)
             }
-            appearance={!currentStepIndex ? "gray" : "primary"}
+            appearance={"primary"}
+            disabled={!currentStepIndex}
           >
             {titleButtonBefore}
           </Button>
