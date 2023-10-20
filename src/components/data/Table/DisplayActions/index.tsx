@@ -1,16 +1,8 @@
 import { useState } from "react";
 import { MdOpenInNew } from "react-icons/md";
+import { ITableProps } from "..";
 
-export interface IEntry {
-  id: string;
-  [key: string]: string;
-}
-
-export interface IDisplayEntryProps {
-  content?: React.ReactElement;
-}
-
-const DisplayEntry = ({ content }: IDisplayEntryProps) => {
+const DisplayActions = ({ content }: Pick<ITableProps, "content">) => {
   const [showModal, setShowModal] = useState(false);
 
   const handleToggleModal = () => {
@@ -25,4 +17,4 @@ const DisplayEntry = ({ content }: IDisplayEntryProps) => {
   );
 };
 
-export { DisplayEntry };
+export { DisplayActions };
