@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { inube } from "@src/shared/tokens";
 import { Themed } from "@shared/types/types";
 import { IAssistedProps } from ".";
@@ -9,23 +9,6 @@ interface IStyledAssistedProps extends IAssistedProps {
   currentStep: number;
   measure: boolean;
 }
-
-const StyledAssistedContainer = styled.div`
-  display: flex;
-  border-radius: 8px;
-  padding: ${inube.spacing.s200};
-  width: ${({ measure }: IStyledAssistedProps) => !measure && "fit-content"};
-  background-color: ${({ theme }: IStyledAssistedProps) =>
-    theme?.color?.surface?.gray?.clear || inube.color.surface.gray?.clear};
-
-  ${({ measure }: IStyledAssistedProps) =>
-    !measure &&
-    css`
-      & > div > div > figure:last-child {
-        margin-left: auto;
-      }
-    `}
-`;
 
 const StyledProgressBar = styled.div`
   border-radius: 10px;
@@ -40,15 +23,8 @@ const StyledProgressIndicator = styled.div`
   border-radius: 8px;
   transition: width 0.5s;
   height: 16px;
-  width: ${({ arrayLength, currentStep }: IStyledAssistedProps) => {
-    if (currentStep === 1) {
-      return "6%";
-    }
-    if (currentStep === 1) {
-      return "2%";
-    }
-    return `${(currentStep / arrayLength) * 100}%`;
-  }};
+  width: ${({ arrayLength, currentStep }: IStyledAssistedProps) =>
+    `${(currentStep / arrayLength) * 100}%`};
   background: ${({ theme }: IStyledAssistedProps) =>
     theme?.color?.surface?.primary?.regular ||
     inube.color.surface.primary?.regular};
@@ -69,9 +45,4 @@ const StyledStepIndicator = styled.div`
     inube.color.stroke.primary?.regular};
 `;
 
-export {
-  StyledAssistedContainer,
-  StyledProgressBar,
-  StyledProgressIndicator,
-  StyledStepIndicator,
-};
+export { StyledProgressBar, StyledProgressIndicator, StyledStepIndicator };

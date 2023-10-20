@@ -6,10 +6,10 @@ import { inube } from "@shared/tokens";
 import { Icon } from "@data/Icon";
 import { Text } from "@data/Text";
 import { Button } from "@inputs/Button";
+import { Grid } from "@layouts/Grid";
 import { Stack } from "@layouts/Stack";
 
 import {
-  StyledAssistedContainer,
   StyledProgressBar,
   StyledProgressIndicator,
   StyledStepIndicator,
@@ -86,20 +86,15 @@ const Assisted = (props: IAssistedProps) => {
   );
 
   return (
-    <StyledAssistedContainer measure={measure}>
+    <Grid templateColumns="auto 1fr auto">
       {measure && (
         <Stack alignItems="center">
           <Button
             spacing="wide"
             variant="none"
             iconBefore={<MdArrowBack />}
-            onClick={
-              !currentStepIndex
-                ? undefined
-                : () => onPrev(currentStepIndex, steps, handlePrev)
-            }
-            appearance={"primary"}
-            disabled={!currentStepIndex}
+            onClick={() => onPrev(currentStepIndex, steps, handlePrev)}
+            appearance={!currentStepIndex ? "gray" : "primary"}
           >
             {titleButtonBefore}
           </Button>
@@ -110,7 +105,7 @@ const Assisted = (props: IAssistedProps) => {
         width={!measure ? "288px" : "100%"}
         margin="s0 s0 s075 s0"
       >
-        <Stack gap={inube.spacing.s100}>
+        <Grid templateColumns="auto auto 1fr auto" gap="s100">
           {!measure && (
             <Icon
               appearance={!currentStepIndex ? "gray" : "primary"}
@@ -144,7 +139,7 @@ const Assisted = (props: IAssistedProps) => {
               onClick={() => onNext(currentStepIndex, steps, handleNext)}
             />
           )}
-        </Stack>
+        </Grid>
         <Stack alignItems="center" gap={inube.spacing.s100}>
           <ProgressBar
             currentStep={currentStepIndex + 1}
@@ -177,7 +172,7 @@ const Assisted = (props: IAssistedProps) => {
           </Button>
         </Stack>
       )}
-    </StyledAssistedContainer>
+    </Grid>
   );
 };
 
