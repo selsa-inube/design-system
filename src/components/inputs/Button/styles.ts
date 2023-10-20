@@ -73,6 +73,9 @@ const StyledButton = styled.button`
     parentHover,
   }: IStyledButtonProps) => {
     if (disabled) {
+      if (variant !== "outlined") {
+        return "transparent";
+      }
       return (
         theme?.color?.stroke?.[appearance!]?.disabled ||
         inube.color.stroke[appearance!].disabled
