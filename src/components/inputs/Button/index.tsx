@@ -86,6 +86,8 @@ const ButtonStructure = (props: IButtonProps) => {
               size="18px"
               appearance={childrenAppearence(variant, appearance)}
               disabled={disabled}
+              cursorHover={cursorHover}
+              parentHover={parentHover}
             />
           )}
           <Text
@@ -94,6 +96,8 @@ const ButtonStructure = (props: IButtonProps) => {
             appearance={childrenAppearence(variant, appearance)}
             disabled={disabled}
             ellipsis={true}
+            cursorHover={cursorHover}
+            parentHover={parentHover}
           >
             {children}
           </Text>
@@ -104,6 +108,8 @@ const ButtonStructure = (props: IButtonProps) => {
               size="18px"
               appearance={childrenAppearence(variant, appearance)}
               disabled={disabled}
+              cursorHover={cursorHover}
+              parentHover={parentHover}
             />
           )}
         </Stack>

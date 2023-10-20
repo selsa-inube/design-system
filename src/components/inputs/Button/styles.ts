@@ -96,23 +96,6 @@ const StyledButton = styled.button`
     );
   }};
 
-  & > * > p,
-  figure {
-    color: ${({
-      theme,
-      appearance,
-      variant,
-      disabled,
-      parentHover,
-    }: IStyledButtonProps) => {
-      if (!disabled && parentHover && variant !== "filled")
-        return (
-          theme?.color?.stroke?.[appearance!]?.hover ||
-          inube.color.stroke[appearance!].hover
-        );
-    }};
-  }
-
   cursor: ${({ disabled, loading }: IStyledButtonProps) => {
     if (disabled) {
       return "not-allowed";
@@ -161,32 +144,6 @@ const StyledButton = styled.button`
         return "transparent";
       }
     }};
-
-    & > * > p,
-    figure {
-      color: ${({
-        theme,
-        appearance,
-        variant,
-        disabled,
-        cursorHover,
-        parentHover,
-      }: IStyledButtonProps) => {
-        if (!disabled && parentHover && variant !== "filled")
-          return (
-            theme?.color?.stroke?.[appearance!]?.hover ||
-            inube.color.stroke[appearance!].hover
-          );
-        if (!disabled && cursorHover) {
-          if (variant !== "filled") {
-            return (
-              theme?.color?.stroke?.[appearance!]?.hover ||
-              inube.color.stroke[appearance!].hover
-            );
-          }
-        }
-      }};
-    }
   }
 `;
 
