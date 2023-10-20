@@ -29,7 +29,9 @@ Default.args = {
   type: "tabs",
 };
 
-const theme = structuredClone(presente);
+const theme = {
+  ...presente,
+};
 
 const Themed = (args: ITabsProps) => (
   <ThemeProvider theme={theme}>

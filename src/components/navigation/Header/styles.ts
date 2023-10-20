@@ -22,11 +22,15 @@ const StyledHeader = styled.header`
     display: flex;
     align-items: center;
   }
-
+  & li {
+    display: flex;
+    align-items: center;
+    padding: ${inube.spacing.s0} ${inube.spacing.s500};
+  }
   & > div > div:first-child {
     padding-left: ${inube.spacing.s150};
   }
-  & > div > div:last-child {
+  & > div > div > div:last-child {
     padding: ${inube.spacing.s100} ${inube.spacing.s200};
     border-left: 1px solid
       ${({ theme }: IStyledHeaderProps) =>
