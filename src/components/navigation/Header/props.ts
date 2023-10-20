@@ -1,3 +1,7 @@
+import { IBreadcrumbLinkProps } from "../Breadcrumbs/BreadcrumbLink";
+
+export type Links = IBreadcrumbLinkProps;
+
 const parameters = {
   docs: {
     description: {
