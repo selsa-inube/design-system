@@ -94,7 +94,8 @@ const Assisted = (props: IAssistedProps) => {
             variant="none"
             iconBefore={<MdArrowBack />}
             onClick={() => onPrev(currentStepIndex, steps, handlePrev)}
-            appearance={!currentStepIndex ? "gray" : "primary"}
+            appearance="primary"
+            disabled={currentStepIndex === 0}
           >
             {titleButtonBefore}
           </Button>
