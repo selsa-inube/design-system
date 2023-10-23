@@ -109,10 +109,11 @@ const Assisted = (props: IAssistedProps) => {
         <Grid templateColumns="auto auto 1fr auto" gap="s100">
           {!measure && (
             <Icon
-              appearance={!currentStepIndex ? "gray" : "primary"}
+              appearance="primary"
               icon={<MdArrowBack style={{ padding: "2px 0px" }} />}
               size="20px"
               onClick={() => onPrev(currentStepIndex, steps, handlePrev)}
+              disabled={currentStepIndex === 0}
             />
           )}
           <StyledStepIndicator>
