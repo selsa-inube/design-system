@@ -26,13 +26,18 @@ interface IProgressBarProps {
   arrayLength: number;
 }
 
+type ITitleButton = {
+  before?: string;
+  after?: string;
+  finish?: string;
+};
+
 export interface IAssistedProps {
   steps: IStep[];
   currentStepId: IStep["id"];
   handlePrev: (id: IStep["id"]) => void;
   handleNext: (id: IStep["id"]) => void;
-  titleButtonBefore?: string;
-  titleButtonAfter?: string;
+  titleButtonText?: ITitleButton;
 }
 
 const onPrev = (
@@ -73,8 +78,11 @@ const Assisted = (props: IAssistedProps) => {
     currentStepId,
     handlePrev,
     handleNext,
-    titleButtonBefore = "Prev",
-    titleButtonAfter = "Next",
+    titleButtonText: { before, after, finish } = {
+      before: "Prev",
+      after: "Next",
+      finish: "Send",
+    },
   } = props;
 
   const measure = useMediaQuery("(min-width: 600px)");
@@ -94,9 +102,10 @@ const Assisted = (props: IAssistedProps) => {
             variant="none"
             iconBefore={<MdArrowBack />}
             onClick={() => onPrev(currentStepIndex, steps, handlePrev)}
-            appearance={!currentStepIndex ? "gray" : "primary"}
+            appearance="primary"
+            disabled={currentStepIndex === 0}
           >
-            {titleButtonBefore}
+            {before}
           </Button>
         </Stack>
       )}
@@ -108,10 +117,11 @@ const Assisted = (props: IAssistedProps) => {
         <Grid templateColumns="auto auto 1fr auto" gap="s100">
           {!measure && (
             <Icon
-              appearance={!currentStepIndex ? "gray" : "primary"}
+              appearance="primary"
               icon={<MdArrowBack style={{ padding: "2px 0px" }} />}
               size="20px"
               onClick={() => onPrev(currentStepIndex, steps, handlePrev)}
+              disabled={currentStepIndex === 0}
             />
           )}
           <StyledStepIndicator>
@@ -168,7 +178,7 @@ const Assisted = (props: IAssistedProps) => {
             iconAfter={<MdArrowForward />}
             onClick={() => onNext(currentStepIndex, steps, handleNext)}
           >
-            {titleButtonAfter}
+            {currentStepIndex === steps.length - 1 ? finish : after}
           </Button>
         </Stack>
       )}

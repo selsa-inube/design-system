@@ -53,9 +53,12 @@ const Default = (args: IAssistedProps) => <AssistedController {...args} />;
 
 Default.args = {
   steps: stepsMock,
-  titleButtonBefore: "Anterior",
-  titleButtonAfter: "Próximo",
   currentStepId: 3,
+  titleButtonText: {
+    before: "Anterior",
+    after: "Siguiente",
+    finish: "Enviar",
+  },
 };
 
 const theme = {
