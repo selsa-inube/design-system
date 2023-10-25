@@ -15,7 +15,7 @@ const StyledText = styled.p`
   line-height: ${({ type, size }: IStyledTextProps) =>
     inube.typography[type!][size!].lineHeight};
   font-size: ${({ type, size, theme }: IStyledTextProps) =>
-    theme?.typography?.[type!]?.[size!].size ||
+    theme?.typography?.[type!]?.[size!]?.size ||
     inube.typography[type!][size!].size};
   letter-spacing: ${({ type, size, theme }: IStyledTextProps) =>
     theme?.typography?.[type!]?.[size!]?.tracking ||
