@@ -2,17 +2,17 @@
 export { Avatar } from "@data/Avatar";
 export { Icon } from "@data/Icon";
 export { Table } from "@data/Table";
+export { Tag } from "@data/Tag";
 export { Text } from "@data/Text";
 export { User } from "@data/User";
-export { Tag } from "@data/Tag";
 
 // feedback
 export { Assisted } from "@feedback/Assisted";
 export { CountdownBar } from "@feedback/CountdownBar";
+export { SectionMessage } from "@feedback/SectionMessage";
 export { SkeletonIcon } from "@feedback/SkeletonIcon";
 export { SkeletonLine } from "@feedback/SkeletonLine";
 export { Spinner } from "@feedback/Spinner";
-export { SectionMessage } from "@feedback/SectionMessage";
 
 //  hooks
 export { useMediaQueries } from "@hooks/useMediaQueries";
