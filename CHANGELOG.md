@@ -1,3 +1,20 @@
+# v5.8.1 (Wed Oct 25 2023)
+
+#### 🐛 Bug Fix
+
+- Fix: Resolve Resource Distribution Incidents in Library [#611](https://github.com/selsa-inube/design-system/pull/611) ([@cmarin001](https://github.com/cmarin001))
+
+#### 📝 Documentation
+
+- release desing system 5.8.0 [#610](https://github.com/selsa-inube/design-system/pull/610) ([@Andresbl123](https://github.com/Andresbl123))
+
+#### Authors: 2
+
+- Andres ([@Andresbl123](https://github.com/Andresbl123))
+- cmarin ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v5.8.0 (Mon Oct 23 2023)
 
 #### 🚀 Enhancement
