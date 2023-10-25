@@ -1,3 +1,20 @@
+# v5.9.0 (Wed Oct 25 2023)
+
+#### 🚀 Enhancement
+
+- Adjust the link props as this should be optional in `<Header />`. [#613](https://github.com/selsa-inube/design-system/pull/613) ([@Andresbl123](https://github.com/Andresbl123))
+
+#### 📝 Documentation
+
+- design-system new version 5.8.1 [#612](https://github.com/selsa-inube/design-system/pull/612) ([@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 2
+
+- Andres ([@Andresbl123](https://github.com/Andresbl123))
+- cmarin ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v5.8.1 (Wed Oct 25 2023)
 
 #### 🐛 Bug Fix
