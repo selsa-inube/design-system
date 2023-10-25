@@ -12,12 +12,12 @@ export interface IHeaderProps {
   logoURL: JSX.Element;
   userName: string;
   client: string;
-  links: Links;
+  links?: Links;
 }
 
 const Header = (props: IHeaderProps) => {
   const { portalId, navigation, logoURL, userName, client, links } = props;
-  const linksArray: Links[] = Object.values(links);
+
   const [mobile, tablet, desktop] = Object.values(
     useMediaQueries([
       "(min-width: 320px)",
@@ -41,14 +41,15 @@ const Header = (props: IHeaderProps) => {
           {logoURL}
         </Stack>
         <Stack justifyContent="space-between" gap="23px">
-          {linksArray.map((link) => (
-            <BreadcrumbLink
-              key={link.id}
-              label={link.label}
-              path={link.path}
-              id={link.id}
-            />
-          ))}
+          {links &&
+            Object.values(links).map((link) => (
+              <BreadcrumbLink
+                key={link.id}
+                label={link.label}
+                path={link.path}
+                id={link.id}
+              />
+            ))}
           <User
             userName={userName}
             client={client}
