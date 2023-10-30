@@ -13,12 +13,7 @@ import { Stack } from "@layouts/Stack";
 import { Size } from "./props";
 import { OptionList } from "./OptionList";
 import { ISelectProps } from ".";
-import {
-  StyledContainer,
-  StyledContainerLabel,
-  StyledInputContainer,
-  StyledInput,
-} from "./styles";
+import { StyledContainer, StyledInputContainer, StyledInput } from "./styles";
 import { OptionItem } from "./OptionItem";
 
 export interface ISelectInterfaceProps extends ISelectProps {
@@ -86,19 +81,20 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
 
   return (
     <StyledContainer fullwidth={fullwidth} disabled={disabled} ref={ref}>
-      <StyledContainerLabel
+      <Stack
         alignItems="center"
-        wrap="wrap"
-        size={size}
-        disabled={disabled}
+        margin="s0 s0 s050 s0"
+        padding="s0 s0 s0 s200"
+        gap="2px"
       >
         {label && (
           <Label
             htmlFor={id}
             disabled={disabled}
             focused={focused}
-            invalid={status === "invalid" ? true : false}
+            invalid={status === "invalid"}
             size={getTypo(size!)}
+            margin="0px 0px 0px 2px"
           >
             {label}
           </Label>
@@ -109,7 +105,7 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
             (Requerido)
           </Text>
         )}
-      </StyledContainerLabel>
+      </Stack>
 
       <StyledInputContainer
         disabled={disabled}

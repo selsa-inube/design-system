@@ -23,18 +23,10 @@ const StyledContainer = styled.div`
     disabled && "not-allowed"};
   width: ${({ fullwidth }: IStyledSelectInterfaceProps) =>
     fullwidth ? "100%" : "300px"};
-`;
 
-const StyledContainerLabel = styled.div`
-  display: flex;
-  align-items: center;
-  margin-bottom: 4px;
-  padding-left: 16px;
-  pointer-events: ${({ disabled }: IStyledSelectInterfaceProps) =>
-    disabled && "none"};
-
-  & label {
-    margin-right: 5px;
+  & > label {
+    cursor: ${({ disabled }: IStyledSelectInterfaceProps) =>
+      disabled && "not-allowed"};
   }
 `;
 
@@ -76,8 +68,7 @@ const StyledInputContainer = styled.div`
       inube.color.stroke.divider.regular
     );
   }};
-  pointer-events: ${({ disabled }: IStyledSelectInterfaceProps) =>
-    disabled ? "none" : "auto"};
+
   opacity: ${({ disabled }: IStyledSelectInterfaceProps) =>
     disabled ? "0.5" : "none"};
   cursor: ${({ disabled }: IStyledSelectInterfaceProps) =>
@@ -134,9 +125,4 @@ const StyledInput = styled.input`
   }
 `;
 
-export {
-  StyledContainer,
-  StyledContainerLabel,
-  StyledInputContainer,
-  StyledInput,
-};
+export { StyledContainer, StyledInputContainer, StyledInput };
