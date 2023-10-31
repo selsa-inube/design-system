@@ -1,27 +1,23 @@
 import { inube } from "@shared/tokens";
 
-export const textAlignOptions = ["start", "center", "end", "justify"];
-export type AlignOptions = typeof textAlignOptions[number];
+export type AlignOptions = "start" | "center" | "end" | "justify";
 
 export type Appearance = keyof typeof inube.color.text;
 
-export const htmlElements = [
-  "h1",
-  "h2",
-  "h3",
-  "h4",
-  "h5",
-  "h6",
-  "p",
-  "span",
-  "legend",
-  "figcaption",
-  "blockquote",
-] as const;
-export type HtmlElements = typeof htmlElements[number];
+export type HtmlElements =
+  | "h1"
+  | "h2"
+  | "h3"
+  | "h4"
+  | "h5"
+  | "h6"
+  | "p"
+  | "span"
+  | "legend"
+  | "figcaption"
+  | "blockquote";
 
-export const sizes = ["large", "medium", "small"] as const;
-export type SizeOptions = typeof sizes[number];
+export type SizeOptions = "large" | "medium" | "small";
 
 export type TypeOptions = keyof typeof inube.typography;
 
@@ -38,7 +34,7 @@ const parameters = {
 
 const props = {
   textAlign: {
-    options: textAlignOptions,
+    options: ["start", "center", "end", "justify"],
     control: { type: "select" },
     description: "This prop controls the text-align style property.",
     table: {
@@ -60,7 +56,19 @@ const props = {
     },
   },
   as: {
-    options: htmlElements,
+    options: [
+      "h1",
+      "h2",
+      "h3",
+      "h4",
+      "h5",
+      "h6",
+      "p",
+      "span",
+      "legend",
+      "figcaption",
+      "blockquote",
+    ],
     control: { type: "select" },
     description:
       "This prop allows us to control the tag that we will inject in the DOM.",
@@ -115,7 +123,7 @@ const props = {
     },
   },
   size: {
-    options: sizes,
+    options: ["large", "medium", "small"],
     control: { type: "select" },
     description:
       "This prop is used to select one of the typography roles defined in the Foundations.",
