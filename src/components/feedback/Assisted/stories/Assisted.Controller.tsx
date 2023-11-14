@@ -7,7 +7,7 @@ const AssistedController = (props: IAssistedProps) => {
   const [currentStep, setCurrentStep] = useState(currentStepId);
 
   const handlePrev = (id: number) => {
-    setCurrentStep(id);
+    setCurrentStep(id - 1);
   };
 
   const handleNext = (id: number) => {

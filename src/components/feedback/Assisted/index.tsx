@@ -41,12 +41,12 @@ export interface IAssistedProps {
 }
 
 const onPrev = (
-  currentStep: IStep["id"],
+  currentStep: number,
   steps: IAssistedProps["steps"],
   handlePrev: IAssistedProps["handlePrev"]
 ) => {
   if (currentStep > 0) {
-    handlePrev(steps?.[currentStep - 1]?.id);
+    handlePrev(steps?.[currentStep]?.id);
   }
 };
 
@@ -55,8 +55,8 @@ const onNext = (
   steps: IAssistedProps["steps"],
   handleNext: IAssistedProps["handleNext"]
 ) => {
-  if (currentStep < steps.length - 1) {
-    handleNext(steps?.[currentStep + 1]?.id);
+  if (currentStep < steps.length) {
+    handleNext(steps?.[currentStep]?.id);
   }
 };
 
@@ -88,6 +88,7 @@ const Assisted = (props: IAssistedProps) => {
   const measure = useMediaQuery("(min-width: 600px)");
 
   const currentStep = steps.find((step) => step?.id === currentStepId);
+  console.log("currentStep", currentStep);
 
   const currentStepIndex = steps.findIndex(
     (step) => step?.id === currentStepId
@@ -146,7 +147,7 @@ const Assisted = (props: IAssistedProps) => {
               appearance="primary"
               icon={<MdArrowForward style={{ padding: "0px 2px" }} />}
               size="20px"
-              onClick={() => onNext(currentStepIndex, steps, handleNext)}
+              onClick={() => onNext(currentStep?.id!, steps, handleNext)}
             />
           )}
         </Grid>
@@ -176,7 +177,7 @@ const Assisted = (props: IAssistedProps) => {
             spacing="wide"
             variant="none"
             iconAfter={<MdArrowForward />}
-            onClick={() => onNext(currentStepIndex, steps, handleNext)}
+            onClick={() => onNext(currentStep?.id!, steps, handleNext)}
           >
             {currentStepIndex === steps.length - 1 ? finish : after}
           </Button>
