@@ -11,7 +11,10 @@ const AssistedController = (props: IAssistedProps) => {
   };
 
   const handleNext = (id: number) => {
-    setCurrentStep(id);
+    console.log("entra function", steps.length, id);
+    if (steps.length > id) {
+      setCurrentStep(id + 1);
+    }
   };
 
   return (

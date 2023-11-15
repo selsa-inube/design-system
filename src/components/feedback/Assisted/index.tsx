@@ -37,12 +37,11 @@ export interface IAssistedProps {
   currentStepId: IStep["id"];
   handlePrev: (id: IStep["id"]) => void;
   handleNext: (id: IStep["id"]) => void;
-
   titleButtonText?: ITitleButton;
 }
 
 const onPrev = (
-  currentStep: number,
+  currentStep: IStep["id"],
   steps: IAssistedProps["steps"],
   handlePrev: IAssistedProps["handlePrev"]
 ) => {
@@ -177,9 +176,9 @@ const Assisted = (props: IAssistedProps) => {
             spacing="wide"
             variant="none"
             iconAfter={<MdArrowForward />}
-            onClick={() => onNext(currentStep?.id!, steps, handleNext)}
+            onClick={() => onNext(currentStepIndex, steps, handleNext)}
           >
-            {currentStepIndex === steps.length - 1 ? finish : after}
+            {currentStep?.id === steps.length ? finish : after}
           </Button>
         </Stack>
       )}
