@@ -56,7 +56,7 @@ const onNext = (
   steps: IAssistedProps["steps"],
   handleNext: IAssistedProps["handleNext"]
 ) => {
-  if (currentStep < steps.length) {
+  if (currentStep <= steps.length) {
     handleNext(steps?.[currentStep]?.id);
   }
 };
@@ -90,7 +90,6 @@ const Assisted = (props: IAssistedProps) => {
   const measure = useMediaQuery("(min-width: 600px)");
 
   const currentStep = steps.find((step) => step?.id === currentStepId);
-  console.log("currentStep", currentStep);
 
   const currentStepIndex = steps.findIndex(
     (step) => step?.id === currentStepId
