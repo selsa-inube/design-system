@@ -56,8 +56,7 @@ const onNext = (
   steps: IAssistedProps["steps"],
   handleNext: IAssistedProps["handleNext"]
 ) => {
-  console.log(currentStep);
-  if (currentStep <= steps.length - 1) {
+  if (currentStep <= steps.length) {
     handleNext(steps?.[currentStep]?.id);
   }
 };
