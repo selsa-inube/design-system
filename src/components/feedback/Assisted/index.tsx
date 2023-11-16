@@ -46,7 +46,7 @@ const onPrev = (
   handlePrev: IAssistedProps["handlePrev"]
 ) => {
   if (currentStep > 0) {
-    handlePrev(steps?.[currentStep - 1]?.id);
+    handlePrev(steps?.[currentStep]?.id);
   }
 };
 
@@ -55,8 +55,8 @@ const onNext = (
   steps: IAssistedProps["steps"],
   handleNext: IAssistedProps["handleNext"]
 ) => {
-  if (currentStep < steps.length - 1) {
-    handleNext(steps?.[currentStep + 1]?.id);
+  if (currentStep <= steps.length) {
+    handleNext(steps?.[currentStep]?.id);
   }
 };
 
@@ -146,7 +146,7 @@ const Assisted = (props: IAssistedProps) => {
               appearance="primary"
               icon={<MdArrowForward style={{ padding: "0px 2px" }} />}
               size="20px"
-              onClick={() => onNext(currentStepIndex, steps, handleNext)}
+              onClick={() => onNext(currentStep?.id!, steps, handleNext)}
             />
           )}
         </Grid>
@@ -178,7 +178,7 @@ const Assisted = (props: IAssistedProps) => {
             iconAfter={<MdArrowForward />}
             onClick={() => onNext(currentStepIndex, steps, handleNext)}
           >
-            {currentStepIndex === steps.length - 1 ? finish : after}
+            {currentStep?.id === steps.length ? finish : after}
           </Button>
         </Stack>
       )}
