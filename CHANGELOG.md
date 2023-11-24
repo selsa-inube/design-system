@@ -1,3 +1,23 @@
+# v5.9.1 (Fri Nov 24 2023)
+
+#### 🐛 Bug Fix
+
+- Component Position to Enable 'Submit' Button Accessibility in "<Assisted />" [#623](https://github.com/selsa-inube/design-system/pull/623) ([@Andresbl123](https://github.com/Andresbl123))
+- update the colour palette of Presente [#619](https://github.com/selsa-inube/design-system/pull/619) ([@cmarin001](https://github.com/cmarin001))
+- `Enhancement:` Improve `textAlign` Prop Typing in `<Text />` Component [#618](https://github.com/selsa-inube/design-system/pull/618) ([@cmarin001](https://github.com/cmarin001))
+- Replace `<StyledContainerLabel />` by `<Stack />` into `<Select />` [#617](https://github.com/selsa-inube/design-system/pull/617) ([@Andresbl123](https://github.com/Andresbl123))
+
+#### 📝 Documentation
+
+- Release: design-system new version 5.9.0 [#614](https://github.com/selsa-inube/design-system/pull/614) ([@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 2
+
+- Andres ([@Andresbl123](https://github.com/Andresbl123))
+- Cesar Marin Alfonso ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v5.9.0 (Wed Oct 25 2023)
 
 #### 🚀 Enhancement
