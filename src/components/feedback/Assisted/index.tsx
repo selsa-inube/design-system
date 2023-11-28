@@ -40,26 +40,6 @@ export interface IAssistedProps {
   titleButtonText?: ITitleButton;
 }
 
-const onPrev = (
-  currentStep: IStep["id"],
-  steps: IAssistedProps["steps"],
-  handlePrev: IAssistedProps["handlePrev"]
-) => {
-  if (currentStep > 0) {
-    handlePrev(steps?.[currentStep]?.id);
-  }
-};
-
-const onNext = (
-  currentStep: IStep["id"],
-  steps: IAssistedProps["steps"],
-  handleNext: IAssistedProps["handleNext"]
-) => {
-  if (currentStep <= steps.length) {
-    handleNext(steps?.[currentStep]?.id);
-  }
-};
-
 const ProgressBar = (props: IProgressBarProps) => {
   const { currentStep, arrayLength } = props;
   return (
@@ -101,7 +81,7 @@ const Assisted = (props: IAssistedProps) => {
             spacing="wide"
             variant="none"
             iconBefore={<MdArrowBack />}
-            onClick={() => onPrev(currentStepIndex, steps, handlePrev)}
+            onClick={() => handlePrev(currentStep?.id!)}
             appearance="primary"
             disabled={currentStepIndex === 0}
           >
@@ -109,6 +89,7 @@ const Assisted = (props: IAssistedProps) => {
           </Button>
         </Stack>
       )}
+
       <Stack
         direction="column"
         width={!measure ? "288px" : "100%"}
@@ -120,7 +101,7 @@ const Assisted = (props: IAssistedProps) => {
               appearance="primary"
               icon={<MdArrowBack style={{ padding: "2px 0px" }} />}
               size="20px"
-              onClick={() => onPrev(currentStepIndex, steps, handlePrev)}
+              onClick={() => handlePrev(currentStep?.id!)}
               disabled={currentStepIndex === 0}
             />
           )}
@@ -146,7 +127,7 @@ const Assisted = (props: IAssistedProps) => {
               appearance="primary"
               icon={<MdArrowForward style={{ padding: "0px 2px" }} />}
               size="20px"
-              onClick={() => onNext(currentStep?.id!, steps, handleNext)}
+              onClick={() => handleNext(currentStep?.id!)}
             />
           )}
         </Grid>
@@ -176,7 +157,7 @@ const Assisted = (props: IAssistedProps) => {
             spacing="wide"
             variant="none"
             iconAfter={<MdArrowForward />}
-            onClick={() => onNext(currentStepIndex, steps, handleNext)}
+            onClick={() => handleNext(currentStep?.id!)}
           >
             {currentStep?.id === steps.length ? finish : after}
           </Button>
