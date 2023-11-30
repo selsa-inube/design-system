@@ -11,7 +11,7 @@ const StyledOptionList = styled.ul`
   flex-direction: column;
   width: inherit;
   padding: 4px 0px;
-  position: absolute;
+  position: relative;
   z-index: 1;
   background: ${({ theme }: IStyledOptionListProps) => {
     return (
