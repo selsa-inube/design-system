@@ -43,12 +43,7 @@ const Message = (props: Omit<ITextfieldProps, "id"> & { message?: string }) => {
 
   return status !== "pending" ? (
     <StyledMessageContainer disabled={disabled} status={status}>
-      <Stack
-        //height="16px"
-        alignItems="center"
-        gap="4px"
-        margin="s050 s0 s0 s200"
-      >
+      <Stack alignItems="center" gap="4px" margin="s050 s0 s0 s200">
         <Icon
           appearance={status === "invalid" ? "error" : "success"}
           disabled={disabled}
