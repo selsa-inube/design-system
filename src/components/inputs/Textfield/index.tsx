@@ -1,11 +1,13 @@
 import { useState } from "react";
-import { MdCheckCircle, MdOutlineError } from "react-icons/md";
+import { MdCheckCircle, MdOutlineWarning } from "react-icons/md";
 
 import { Text } from "@data/Text";
 import { Label } from "@inputs/Label";
 
-import { InputType, Size, Status } from "./props";
+import { Icon } from "@data/Icon";
+import { Stack } from "@src/components/layouts/Stack";
 
+import { InputType, Size, Status } from "./props";
 import {
   StyledContainer,
   StyledContainerLabel,
@@ -13,7 +15,6 @@ import {
   StyledInput,
   StyledMessageContainer,
 } from "./styles";
-import { Icon } from "@data/Icon";
 
 export interface ITextfieldProps {
   label?: string;
@@ -42,20 +43,27 @@ const Message = (props: Omit<ITextfieldProps, "id"> & { message?: string }) => {
 
   return status !== "pending" ? (
     <StyledMessageContainer disabled={disabled} status={status}>
-      <Icon
-        appearance={status === "invalid" ? "error" : "success"}
-        disabled={disabled}
-        icon={status === "invalid" ? <MdOutlineError /> : <MdCheckCircle />}
-      />
-      <Text
-        type="body"
-        size="small"
-        margin="8px 0px 0px 4px"
-        appearance={status === "invalid" ? "error" : "success"}
-        disabled={disabled}
+      <Stack
+        height="16px"
+        alignItems="center"
+        gap="4px"
+        margin="s050 s0 s0 s200"
       >
-        {message && `${message}`}
-      </Text>
+        <Icon
+          appearance={status === "invalid" ? "error" : "success"}
+          disabled={disabled}
+          icon={status === "invalid" ? <MdOutlineWarning /> : <MdCheckCircle />}
+          size="14px"
+        />
+        <Text
+          type="body"
+          size="small"
+          appearance={status === "invalid" ? "error" : "success"}
+          disabled={disabled}
+        >
+          {message && `${message}`}
+        </Text>
+      </Stack>
     </StyledMessageContainer>
   ) : (
     <></>

@@ -29,6 +29,9 @@ const StyledInputContainer = styled.div`
   box-sizing: border-box;
   border-radius: 8px;
   user-select: none;
+  pointer-events: ${({ disabled }: IStyledTextfieldProps) =>
+    disabled && "none"};
+  opacity: ${({ disabled }: IStyledTextfieldProps) => disabled && "0.5"};
   grid-template-columns: ${({
     iconBefore,
     iconAfter,
@@ -74,9 +77,6 @@ const StyledInputContainer = styled.div`
         inube.color.stroke.divider.regular
       );
     }};
-  pointer-events: ${({ disabled }: IStyledTextfieldProps) =>
-    disabled && "none"};
-  opacity: ${({ disabled }: IStyledTextfieldProps) => disabled && "0.5"};
 `;
 
 const StyledInput = styled.input`
@@ -87,6 +87,8 @@ const StyledInput = styled.input`
   font-weight: ${inube.typography.body.large.weight};
   line-height: ${inube.typography.body.large.lineHeight};
   letter-spacing: ${inube.typography.body.large.tracking};
+  background-color: ${({ readOnly }: IStyledTextfieldProps) =>
+    readOnly && inube.color.surface.gray.clear};
   color: ${({ disabled, theme }: IStyledTextfieldProps) =>
     disabled
       ? theme?.color?.text?.gray?.disabled || inube.color.text.gray.disabled
@@ -125,9 +127,6 @@ const StyledInput = styled.input`
 `;
 
 const StyledMessageContainer = styled.div`
-  display: flex;
-  align-items: center;
-  margin-left: ${inube.spacing.s200};
   pointer-events: none;
   color: ${({ disabled, status, theme }: IStyledTextfieldProps) => {
     if (disabled) {
@@ -148,12 +147,6 @@ const StyledMessageContainer = styled.div`
       );
     }
   }};
-
-  & svg {
-    width: 14px;
-    height: 14px;
-    margin-top: ${inube.spacing.s100};
-  }
 `;
 
 export {
