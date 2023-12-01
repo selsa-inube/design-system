@@ -12,7 +12,9 @@ interface IStyledTextfieldProps extends ITextfieldProps {
 const StyledContainer = styled.div`
   cursor: ${({ disabled }: IStyledTextfieldProps) => disabled && "not-allowed"};
   width: ${({ fullwidth }: IStyledTextfieldProps) =>
-    fullwidth ? "100%" : "fit-content"};
+    fullwidth ? "100%" : "280px"};
+  height: ${({ size }: IStyledTextfieldProps) =>
+    size === "compact" ? "80px" : "92px"};
 `;
 
 const StyledContainerLabel = styled.div`
@@ -29,6 +31,8 @@ const StyledInputContainer = styled.div`
   box-sizing: border-box;
   border-radius: 8px;
   user-select: none;
+  padding-left: ${inube.spacing.s200};
+  padding-right: ${inube.spacing.s200};
   pointer-events: ${({ disabled }: IStyledTextfieldProps) =>
     disabled && "none"};
   opacity: ${({ disabled }: IStyledTextfieldProps) => disabled && "0.5"};
@@ -93,14 +97,11 @@ const StyledInput = styled.input`
     disabled
       ? theme?.color?.text?.gray?.disabled || inube.color.text.gray.disabled
       : theme?.color?.text?.dark?.regular || inube.color.text.dark.regular};
-  padding-right: ${({ iconAfter }: IStyledTextfieldProps) =>
-    iconAfter ? "2px" : "16px"};
-  padding-left: ${({ iconBefore }: IStyledTextfieldProps) =>
-    iconBefore ? "2px" : "16px"};
-  width: ${({ fullwidth }: IStyledTextfieldProps) =>
-    fullwidth ? "calc(100% - 32px)" : "252px"};
+
+  width: ${({ fullwidth }: IStyledTextfieldProps) => fullwidth && "100%"};
   height: ${({ size }: IStyledTextfieldProps) =>
     size === "compact" ? "40px" : "48px"};
+
   border: none;
 
   ::placeholder {

@@ -44,7 +44,7 @@ const Message = (props: Omit<ITextfieldProps, "id"> & { message?: string }) => {
   return status !== "pending" ? (
     <StyledMessageContainer disabled={disabled} status={status}>
       <Stack
-        height="16px"
+        //height="16px"
         alignItems="center"
         gap="4px"
         margin="s050 s0 s0 s200"
@@ -111,7 +111,7 @@ const Textfield = (props: ITextfieldProps) => {
   };
 
   return (
-    <StyledContainer fullwidth={fullwidth} disabled={disabled}>
+    <StyledContainer fullwidth={fullwidth} disabled={disabled} size={size}>
       <StyledContainerLabel
         alignItems="center"
         wrap="wrap"
@@ -155,8 +155,8 @@ const Textfield = (props: ITextfieldProps) => {
             appearance="gray"
             disabled={disabled}
             icon={iconBefore}
-            size="24px"
-            spacing="wide"
+            size={size === "compact" ? "18px" : "24px"}
+            spacing="none"
           />
         )}
 
@@ -186,8 +186,8 @@ const Textfield = (props: ITextfieldProps) => {
             appearance="gray"
             disabled={disabled}
             icon={iconAfter}
-            size="24px"
-            spacing="wide"
+            size={size === "compact" ? "18px" : "24px"}
+            spacing="none"
           />
         )}
       </StyledInputContainer>
