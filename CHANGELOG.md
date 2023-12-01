@@ -1,3 +1,15 @@
+# v5.11.0 (Fri Dec 01 2023)
+
+#### 🚀 Enhancement
+
+- Update the component `<Textfield />` according to new designs [#632](https://github.com/selsa-inube/design-system/pull/632) ([@Andresbl123](https://github.com/Andresbl123))
+
+#### Authors: 1
+
+- Andres ([@Andresbl123](https://github.com/Andresbl123))
+
+---
+
 # v5.10.0 (Thu Nov 30 2023)
 
 #### 🚀 Enhancement
