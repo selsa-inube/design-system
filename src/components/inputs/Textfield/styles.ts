@@ -12,7 +12,9 @@ interface IStyledTextfieldProps extends ITextfieldProps {
 const StyledContainer = styled.div`
   cursor: ${({ disabled }: IStyledTextfieldProps) => disabled && "not-allowed"};
   width: ${({ fullwidth }: IStyledTextfieldProps) =>
-    fullwidth ? "100%" : "fit-content"};
+    fullwidth ? "100%" : "280px"};
+  height: ${({ size }: IStyledTextfieldProps) =>
+    size === "compact" ? "80px" : "92px"};
 `;
 
 const StyledContainerLabel = styled.div`
@@ -29,6 +31,11 @@ const StyledInputContainer = styled.div`
   box-sizing: border-box;
   border-radius: 8px;
   user-select: none;
+  padding-left: ${inube.spacing.s200};
+  padding-right: ${inube.spacing.s200};
+  pointer-events: ${({ disabled }: IStyledTextfieldProps) =>
+    disabled && "none"};
+  opacity: ${({ disabled }: IStyledTextfieldProps) => disabled && "0.5"};
   grid-template-columns: ${({
     iconBefore,
     iconAfter,
@@ -74,9 +81,6 @@ const StyledInputContainer = styled.div`
         inube.color.stroke.divider.regular
       );
     }};
-  pointer-events: ${({ disabled }: IStyledTextfieldProps) =>
-    disabled && "none"};
-  opacity: ${({ disabled }: IStyledTextfieldProps) => disabled && "0.5"};
 `;
 
 const StyledInput = styled.input`
@@ -87,18 +91,17 @@ const StyledInput = styled.input`
   font-weight: ${inube.typography.body.large.weight};
   line-height: ${inube.typography.body.large.lineHeight};
   letter-spacing: ${inube.typography.body.large.tracking};
+  background-color: ${({ readOnly }: IStyledTextfieldProps) =>
+    readOnly && inube.color.surface.gray.clear};
   color: ${({ disabled, theme }: IStyledTextfieldProps) =>
     disabled
       ? theme?.color?.text?.gray?.disabled || inube.color.text.gray.disabled
       : theme?.color?.text?.dark?.regular || inube.color.text.dark.regular};
-  padding-right: ${({ iconAfter }: IStyledTextfieldProps) =>
-    iconAfter ? "2px" : "16px"};
-  padding-left: ${({ iconBefore }: IStyledTextfieldProps) =>
-    iconBefore ? "2px" : "16px"};
-  width: ${({ fullwidth }: IStyledTextfieldProps) =>
-    fullwidth ? "calc(100% - 32px)" : "252px"};
+
+  width: ${({ fullwidth }: IStyledTextfieldProps) => fullwidth && "100%"};
   height: ${({ size }: IStyledTextfieldProps) =>
     size === "compact" ? "40px" : "48px"};
+
   border: none;
 
   ::placeholder {
@@ -125,9 +128,6 @@ const StyledInput = styled.input`
 `;
 
 const StyledMessageContainer = styled.div`
-  display: flex;
-  align-items: center;
-  margin-left: ${inube.spacing.s200};
   pointer-events: none;
   color: ${({ disabled, status, theme }: IStyledTextfieldProps) => {
     if (disabled) {
@@ -148,12 +148,6 @@ const StyledMessageContainer = styled.div`
       );
     }
   }};
-
-  & svg {
-    width: 14px;
-    height: 14px;
-    margin-top: ${inube.spacing.s100};
-  }
 `;
 
 export {

@@ -29,7 +29,7 @@ const TextfieldController = (props: ITextfieldProps) => {
   const message =
     form.status === "valid"
       ? "The field has been successfully validated"
-      : "Please enter only letters in this field";
+      : "(Please enter only letters in this field)";
 
   return (
     <Textfield
