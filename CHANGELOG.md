@@ -1,3 +1,22 @@
+# v5.10.0 (Thu Nov 30 2023)
+
+#### 🚀 Enhancement
+
+- `Adjustment:` Reposition `<OptionList/>` for Enhanced Design Consistency [#628](https://github.com/selsa-inube/design-system/pull/628) ([@cmarin001](https://github.com/cmarin001))
+- Correct errors in the backward and forward steps in `<Assisted />` [#625](https://github.com/selsa-inube/design-system/pull/625) ([@Andresbl123](https://github.com/Andresbl123) [@cmarin001](https://github.com/cmarin001))
+- `Fix`: Correct `<Nav/>` Marker Positioning to Align with Figma Standards [#626](https://github.com/selsa-inube/design-system/pull/626) ([@cmarin001](https://github.com/cmarin001))
+
+#### 🐛 Bug Fix
+
+- Add `Presente` theme to shared tokensen in `index.ts` [#630](https://github.com/selsa-inube/design-system/pull/630) ([@Andresbl123](https://github.com/Andresbl123))
+
+#### Authors: 2
+
+- Andres ([@Andresbl123](https://github.com/Andresbl123))
+- Cesar Marin Alfonso ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v5.9.1 (Fri Nov 24 2023)
 
 #### 🐛 Bug Fix
