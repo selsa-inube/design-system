@@ -11,8 +11,6 @@ const StyledNav = styled.div`
   height: 100%;
   width: 248px;
   box-sizing: border-box;
-  background-color: ${({ theme }: IStyledNavLinkProps) =>
-    theme?.color?.surface?.nav?.regular || inube.color.surface.nav.regular};
   border-right: 1px solid
     ${({ theme }: IStyledNavLinkProps) =>
       theme?.color?.stroke?.divider?.regular ||
