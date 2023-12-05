@@ -1,3 +1,17 @@
+# v5.12.0 (Tue Dec 05 2023)
+
+#### 🚀 Enhancement
+
+- Adjust container height in `<Textfield>` [#635](https://github.com/selsa-inube/design-system/pull/635) ([@Andresbl123](https://github.com/Andresbl123) [@cmarin001](https://github.com/cmarin001))
+- Remove background colorin `<Nav />` [#634](https://github.com/selsa-inube/design-system/pull/634) ([@Andresbl123](https://github.com/Andresbl123))
+
+#### Authors: 2
+
+- Andres ([@Andresbl123](https://github.com/Andresbl123))
+- Cesar Marin Alfonso ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v5.11.0 (Fri Dec 01 2023)
 
 #### 🚀 Enhancement
