@@ -33,8 +33,6 @@ const StyledButton = styled.button`
   }};
   max-width: ${({ fullwidth }: IStyledButtonProps) =>
     fullwidth ? "none" : "300px"};
-  border-style: ${(props: IStyledButtonProps) =>
-    props.type !== "link" ? "solid" : "none"};
   ${(props: IStyledButtonProps) => spacing[props.spacing!]};
 
   background-color: ${({
