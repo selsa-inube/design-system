@@ -13,8 +13,6 @@ const StyledContainer = styled.div`
   cursor: ${({ disabled }: IStyledTextfieldProps) => disabled && "not-allowed"};
   width: ${({ fullwidth }: IStyledTextfieldProps) =>
     fullwidth ? "100%" : "280px"};
-  height: ${({ size }: IStyledTextfieldProps) =>
-    size === "compact" ? "80px" : "92px"};
 `;
 
 const StyledContainerLabel = styled.div`
