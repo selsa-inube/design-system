@@ -1,10 +1,10 @@
-import { useMediaQueries } from "@hooks/useMediaQueries";
 import { User } from "@data/User";
+import { useMediaQueries } from "@hooks/useMediaQueries";
 import { Stack } from "@layouts/Stack";
 import { FullscreenNav, INavigation } from "@navigation/FullscreenNav";
-import { StyledHeader } from "./styles";
 import { BreadcrumbLink } from "../Breadcrumbs/BreadcrumbLink";
 import { Links } from "./props";
+import { StyledHeader } from "./styles";
 
 export interface IHeaderProps {
   portalId: string;
@@ -18,19 +18,15 @@ export interface IHeaderProps {
 const Header = (props: IHeaderProps) => {
   const { portalId, navigation, logoURL, userName, client, links } = props;
 
-  const [mobile, tablet, desktop] = Object.values(
-    useMediaQueries([
-      "(min-width: 320px)",
-      "(min-width: 744px)",
-      "(min-width: 1440px)",
-    ])
+  const [mobile, tablet] = Object.values(
+    useMediaQueries(["(max-width: 420px)", "(max-width: 944px) "])
   );
-
+  console.log("tablet", tablet, "mobile", mobile);
   return (
     <StyledHeader>
       <Stack alignItems="center" justifyContent="space-between">
         <Stack justifyContent="space-between" gap="23px">
-          {!desktop && (
+          {tablet && (
             <FullscreenNav
               portalId={portalId}
               navigation={navigation}
@@ -42,6 +38,7 @@ const Header = (props: IHeaderProps) => {
         </Stack>
         <Stack justifyContent="space-between" gap="23px">
           {links &&
+            !tablet &&
             Object.values(links).map((link) => (
               <BreadcrumbLink
                 key={link.id}
@@ -53,7 +50,7 @@ const Header = (props: IHeaderProps) => {
           <User
             userName={userName}
             client={client}
-            size={mobile && !tablet ? "small" : "large"}
+            size={mobile ? "small" : "large"}
           />
         </Stack>
       </Stack>
