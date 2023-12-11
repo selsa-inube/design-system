@@ -21,7 +21,7 @@ const Header = (props: IHeaderProps) => {
   const [mobile, tablet] = Object.values(
     useMediaQueries(["(max-width: 420px)", "(max-width: 944px) "])
   );
-  console.log("tablet", tablet, "mobile", mobile);
+
   return (
     <StyledHeader>
       <Stack alignItems="center" justifyContent="space-between">
