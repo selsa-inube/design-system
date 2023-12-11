@@ -144,6 +144,7 @@ const Textfield = (props: ITextfieldProps) => {
         status={status}
         iconBefore={iconBefore}
         iconAfter={iconAfter}
+        readOnly={readOnly}
       >
         {iconBefore && (
           <Icon
