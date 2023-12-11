@@ -104,7 +104,10 @@ const StyledInput = styled.input`
     size === "compact" ? "40px" : "48px"};
 
   border: none;
-
+  &[type="number"] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+  }
   ::placeholder {
     color: ${({ theme }: IStyledTextfieldProps) =>
       theme?.color?.text?.gray?.regular || inube.color.text.gray.regular};
@@ -125,6 +128,12 @@ const StyledInput = styled.input`
 
   &:-webkit-autofill {
     -webkit-background-clip: text;
+  }
+
+  &::-webkit-outer-spin-button,
+  ::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
   }
 `;
 
