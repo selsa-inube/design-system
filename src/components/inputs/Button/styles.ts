@@ -34,6 +34,8 @@ const StyledButton = styled.button`
   max-width: ${({ fullwidth }: IStyledButtonProps) =>
     fullwidth ? "none" : "300px"};
   ${(props: IStyledButtonProps) => spacing[props.spacing!]};
+  border-style: ${(props: IStyledButtonProps) =>
+    props.variant === "outlined" ? "solid" : "none"};
 
   background-color: ${({
     theme,
@@ -147,6 +149,7 @@ const StyledButton = styled.button`
 
 const StyledLink = styled(Link)`
   text-decoration: none;
+  border-style: none;
 `;
 
 export { StyledButton, StyledLink };
