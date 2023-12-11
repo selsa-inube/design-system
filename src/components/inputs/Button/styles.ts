@@ -149,7 +149,6 @@ const StyledButton = styled.button`
 
 const StyledLink = styled(Link)`
   text-decoration: none;
-  border-style: none;
 `;
 
 export { StyledButton, StyledLink };
