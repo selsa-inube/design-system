@@ -34,12 +34,14 @@ const Tabs = ({ tabs, type = "tabs", selectedTab, onChange }: ITabsProps) => {
   };
 
   const handleTabClick = (e: React.MouseEvent) => {
-    const targetElement = e.target as Element;
-    const tabElement = targetElement.closest("[id]");
-    if (tabElement) {
-      const id = tabElement.getAttribute("id");
-      if (id && !tabElement.getAttribute("disabled")) {
-        onChange(id);
+    const targetElement = e.target;
+    if (targetElement instanceof HTMLElement) {
+      const tabElement = targetElement.closest("[id]");
+      if (tabElement && tabElement.tagName.toLowerCase() === "li") {
+        const id = tabElement.getAttribute("id");
+        if (id && !tabElement.getAttribute("disabled")) {
+          onChange(id);
+        }
       }
     }
   };
