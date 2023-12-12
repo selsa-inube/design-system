@@ -9,6 +9,9 @@ interface IStyledTextfieldProps extends ITextfieldProps {
   theme?: Themed;
 }
 
+const setBackgroundColor = ({ readOnly }: IStyledTextfieldProps) =>
+  readOnly && inube.color.surface.gray.clear;
+
 const StyledContainer = styled.div`
   cursor: ${({ disabled }: IStyledTextfieldProps) => disabled && "not-allowed"};
   width: ${({ fullwidth }: IStyledTextfieldProps) =>
@@ -34,6 +37,7 @@ const StyledInputContainer = styled.div`
   pointer-events: ${({ disabled }: IStyledTextfieldProps) =>
     disabled && "none"};
   opacity: ${({ disabled }: IStyledTextfieldProps) => disabled && "0.5"};
+  background-color: ${setBackgroundColor};
   grid-template-columns: ${({
     iconBefore,
     iconAfter,
@@ -89,8 +93,7 @@ const StyledInput = styled.input`
   font-weight: ${inube.typography.body.large.weight};
   line-height: ${inube.typography.body.large.lineHeight};
   letter-spacing: ${inube.typography.body.large.tracking};
-  background-color: ${({ readOnly }: IStyledTextfieldProps) =>
-    readOnly && inube.color.surface.gray.clear};
+  background-color: ${setBackgroundColor};
   color: ${({ disabled, theme }: IStyledTextfieldProps) =>
     disabled
       ? theme?.color?.text?.gray?.disabled || inube.color.text.gray.disabled
@@ -101,7 +104,10 @@ const StyledInput = styled.input`
     size === "compact" ? "40px" : "48px"};
 
   border: none;
-
+  &[type="number"] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+  }
   ::placeholder {
     color: ${({ theme }: IStyledTextfieldProps) =>
       theme?.color?.text?.gray?.regular || inube.color.text.gray.regular};
@@ -122,6 +128,12 @@ const StyledInput = styled.input`
 
   &:-webkit-autofill {
     -webkit-background-clip: text;
+  }
+
+  &::-webkit-outer-spin-button,
+  ::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
   }
 `;
 
