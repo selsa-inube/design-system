@@ -1,3 +1,20 @@
+# v5.13.0 (Tue Dec 12 2023)
+
+#### 🚀 Enhancement
+
+- adjust the borders according to the `<Button />` variant [#637](https://github.com/selsa-inube/design-system/pull/637) ([@Andresbl123](https://github.com/Andresbl123) [@cmarin001](https://github.com/cmarin001))
+- `Fix:` Remove `Incremental Buttons` Added by Browser to Number Input [#642](https://github.com/selsa-inube/design-system/pull/642) ([@cmarin001](https://github.com/cmarin001))
+- `Fix:` Correct `<Textfield/>` Input Background Color in Read-Only Mode [#638](https://github.com/selsa-inube/design-system/pull/638) ([@cmarin001](https://github.com/cmarin001))
+- Adjust the over-positioning `<OptionList />` [#639](https://github.com/selsa-inube/design-system/pull/639) ([@Andresbl123](https://github.com/Andresbl123) [@cmarin001](https://github.com/cmarin001))
+- adjust `<FullscreenNav />` rendering according to the screen in `<Header />` [#640](https://github.com/selsa-inube/design-system/pull/640) ([@Andresbl123](https://github.com/Andresbl123))
+
+#### Authors: 2
+
+- Andres ([@Andresbl123](https://github.com/Andresbl123))
+- Cesar Marin Alfonso ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v5.12.0 (Tue Dec 05 2023)
 
 #### 🚀 Enhancement
@@ -362,7 +379,7 @@
 - `<Text />`: Refactor type definitions [#331](https://github.com/selsa-inube/design-system/pull/331) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
 - should use the cursorHover true for the `<Icon />` inside of `<Avatar/>` [#330](https://github.com/selsa-inube/design-system/pull/330) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
 - delete transformedMeasure && validateBoxModelMeasure [#326](https://github.com/selsa-inube/design-system/pull/326) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
-- Rename props `isDisabled a `` disabled` of `<Text />` [#328](https://github.com/selsa-inube/design-system/pull/328) ([@Andresbl123](https://github.com/Andresbl123) cmarin@sistemasenlinea.com.co)
+- Rename props ` isDisabled a `` disabled ` of `<Text />` [#328](https://github.com/selsa-inube/design-system/pull/328) ([@Andresbl123](https://github.com/Andresbl123) cmarin@sistemasenlinea.com.co)
 - Stop extending the interface of `<Text />` [#327](https://github.com/selsa-inube/design-system/pull/327) ([@Andresbl123](https://github.com/Andresbl123) cmarin@sistemasenlinea.com.co)
 - replace all imports for `@shared` [#325](https://github.com/selsa-inube/design-system/pull/325) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
 - replace all imports for `@utils` [#324](https://github.com/selsa-inube/design-system/pull/324) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
