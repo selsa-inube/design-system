@@ -39,7 +39,6 @@ const Tabs = ({ tabs, type = "tabs", selectedTab, onChange }: ITabsProps) => {
       const tabElement = targetElement.closest("[id]");
       if (tabElement && tabElement.tagName.toLowerCase() === "li") {
         const id = tabElement.getAttribute("id");
-        console.log(tabElement.getAttribute("disabled"), "disabled");
         if (id && tabElement.getAttribute("disabled") === null) {
           onChange(id);
         }
