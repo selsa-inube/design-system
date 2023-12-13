@@ -379,7 +379,7 @@
 - `<Text />`: Refactor type definitions [#331](https://github.com/selsa-inube/design-system/pull/331) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
 - should use the cursorHover true for the `<Icon />` inside of `<Avatar/>` [#330](https://github.com/selsa-inube/design-system/pull/330) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
 - delete transformedMeasure && validateBoxModelMeasure [#326](https://github.com/selsa-inube/design-system/pull/326) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
-- Rename props `isDisabled a `` disabled` of `<Text />` [#328](https://github.com/selsa-inube/design-system/pull/328) ([@Andresbl123](https://github.com/Andresbl123) cmarin@sistemasenlinea.com.co)
+- Rename props ` isDisabled a `` disabled ` of `<Text />` [#328](https://github.com/selsa-inube/design-system/pull/328) ([@Andresbl123](https://github.com/Andresbl123) cmarin@sistemasenlinea.com.co)
 - Stop extending the interface of `<Text />` [#327](https://github.com/selsa-inube/design-system/pull/327) ([@Andresbl123](https://github.com/Andresbl123) cmarin@sistemasenlinea.com.co)
 - replace all imports for `@shared` [#325](https://github.com/selsa-inube/design-system/pull/325) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
 - replace all imports for `@utils` [#324](https://github.com/selsa-inube/design-system/pull/324) (cmarin@sistemasenlinea.com.co [@cmarin001](https://github.com/cmarin001))
