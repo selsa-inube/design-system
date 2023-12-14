@@ -93,7 +93,7 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
             htmlFor={id}
             disabled={disabled}
             focused={!readonly && focused}
-            invalid={status === "invalid"}
+            invalid={status === "invalid" && !readonly}
             size={getTypo(size!)}
             margin="0px 0px 0px 2px"
           >
@@ -145,7 +145,7 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
         )}
       </StyledInputContainer>
 
-      {status && (
+      {status && !readonly && (
         <Message disabled={disabled} status={status} message={message} />
       )}
       {displayList && !disabled && (

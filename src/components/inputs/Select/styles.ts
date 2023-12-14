@@ -60,7 +60,7 @@ const StyledInputContainer = styled.div`
         theme?.color?.text?.primary?.hover || inube.color.text.primary.hover
       );
     }
-    if (status === "invalid") {
+    if (status === "invalid" && !readonly) {
       return (
         theme?.color?.text?.error?.regular || inube.color.text.error.regular
       );
