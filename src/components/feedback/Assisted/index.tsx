@@ -74,7 +74,7 @@ const Assisted = (props: IAssistedProps) => {
   );
 
   return (
-    <Grid templateColumns="auto 1fr auto">
+    <Grid templateColumns={!measure ? "1fr" : "auto 1fr auto"}>
       {measure && (
         <Stack alignItems="center">
           <Button
@@ -90,11 +90,7 @@ const Assisted = (props: IAssistedProps) => {
         </Stack>
       )}
 
-      <Stack
-        direction="column"
-        width={!measure ? "288px" : "100%"}
-        margin="s0 s0 s075 s0"
-      >
+      <Stack direction="column" width="100%" margin="s0 s0 s075 s0">
         <Grid templateColumns="auto auto 1fr auto" gap="s100">
           {!measure && (
             <Icon
