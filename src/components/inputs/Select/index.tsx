@@ -10,6 +10,7 @@ export interface ISelectProps {
   id: string;
   placeholder?: string;
   disabled?: boolean;
+  readonly?: boolean;
   value: string | number;
   required?: boolean;
   status?: Status;
@@ -30,16 +31,17 @@ const Select = (props: ISelectProps) => {
     id,
     placeholder,
     disabled = false,
+    readonly = false,
     value,
-    onChange,
     required = false,
     status = "pending",
     message,
     size = "wide",
     fullwidth = false,
-    onFocus,
-    onBlur,
     options,
+    onBlur,
+    onFocus,
+    onChange,
     onClick,
   } = props;
 
@@ -79,32 +81,34 @@ const Select = (props: ISelectProps) => {
   };
 
   const handleClick = (e: React.ChangeEvent<HTMLInputElement>) => {
-    onClick && onClick(e);
+    if (readonly) return;
     setDisplayList(!displayList);
+    onClick && onClick(e);
   };
 
   return (
     <SelectUI
+      ref={selectRef}
       label={label}
       name={name}
       id={id}
       placeholder={placeholder}
       disabled={disabled}
+      readonly={readonly}
       value={value}
-      onChange={onChange}
       required={required}
       size={size}
       status={status}
       message={message}
       fullwidth={fullwidth}
       focused={focused}
+      options={options}
       onFocus={handleFocus}
       onBlur={handleBlur}
-      options={options}
-      displayList={displayList}
+      onChange={onChange}
       onClick={handleClick}
+      displayList={displayList}
       onOptionClick={onInsideClick}
-      ref={selectRef}
     />
   );
 };
