@@ -90,7 +90,7 @@ const Assisted = (props: IAssistedProps) => {
         </Stack>
       )}
 
-      <Stack direction="column" width="100%" margin="s0 s0 s075 s0">
+      <Stack direction="column" margin="s0 s0 s075 s0">
         <Grid templateColumns="auto auto 1fr auto" gap="s100">
           {!measure && (
             <Icon
