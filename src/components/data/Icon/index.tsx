@@ -38,7 +38,7 @@ const Icon = (props: IIconProps) => {
       variant={variant}
       shape={shape}
       size={size}
-      onClick={onClick}
+      onClick={disabled ? null : onClick}
     >
       {icon}
     </StyledIcon>
