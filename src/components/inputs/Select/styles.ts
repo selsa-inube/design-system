@@ -19,6 +19,7 @@ const sizeOptions = {
 };
 
 const StyledContainer = styled.div`
+  position: relative;
   cursor: ${({ disabled }: IStyledSelectInterfaceProps) =>
     disabled && "not-allowed"};
   width: ${({ fullwidth }: IStyledSelectInterfaceProps) =>
@@ -29,21 +30,22 @@ const StyledContainer = styled.div`
       disabled && "not-allowed"};
   }
 `;
-
 const StyledInputContainer = styled.div`
   display: grid;
+  grid-template-columns: 1fr auto;
   align-items: center;
   box-sizing: border-box;
   border-radius: 8px;
   user-select: none;
-  background-color: ${({ theme }: IStyledSelectInterfaceProps) =>
-    theme?.color?.surface?.light?.clear || inube.color.surface.light.clear};
-  grid-template-columns: 1fr auto;
   border-width: 1px;
   border-style: solid;
+  background-color: ${({ theme, readonly }: IStyledSelectInterfaceProps) =>
+    readonly &&
+    (theme?.color?.surface?.light?.clear || inube.color.surface.light.clear)};
   border-color: ${({
     theme,
     disabled,
+    readonly,
     status,
     focused,
   }: IStyledSelectInterfaceProps) => {
@@ -53,12 +55,12 @@ const StyledInputContainer = styled.div`
         "; pointer-events: none; opacity: 0.5;"
       );
     }
-    if (focused) {
+    if (focused && !readonly) {
       return (
         theme?.color?.text?.primary?.hover || inube.color.text.primary.hover
       );
     }
-    if (status === "invalid") {
+    if (status === "invalid" && !readonly) {
       return (
         theme?.color?.text?.error?.regular || inube.color.text.error.regular
       );
@@ -124,5 +126,4 @@ const StyledInput = styled.input`
     -webkit-background-clip: text;
   }
 `;
-
 export { StyledContainer, StyledInputContainer, StyledInput };

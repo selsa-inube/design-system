@@ -63,20 +63,21 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
     id,
     placeholder,
     disabled,
-    onChange,
+    readonly,
     required,
     status,
     message,
     size,
+    value,
     fullwidth,
+    options,
     focused,
     onFocus,
     onBlur,
-    options,
-    displayList,
-    value,
     onClick,
+    onChange,
     onOptionClick,
+    displayList,
   } = props;
 
   return (
@@ -91,8 +92,8 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
           <Label
             htmlFor={id}
             disabled={disabled}
-            focused={focused}
-            invalid={status === "invalid"}
+            focused={!readonly && focused}
+            invalid={status === "invalid" && !readonly}
             size={getTypo(size!)}
             margin="0px 0px 0px 2px"
           >
@@ -112,10 +113,11 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
         focused={focused}
         status={status}
         onClick={onClick}
+        readonly={readonly}
       >
         <StyledInput
           autoComplete="off"
-          readOnly={true}
+          readOnly
           value={value}
           name={name}
           id={id}
@@ -126,22 +128,24 @@ const SelectUI = forwardRef((props: ISelectInterfaceProps, ref) => {
           status={status}
           fullwidth={fullwidth}
           focused={focused}
-          onChange={onChange}
           onFocus={onFocus}
           onBlur={onBlur}
+          onChange={onChange}
           onClick={onClick}
         />
 
-        <Icon
-          appearance="dark"
-          icon={<MdOutlineArrowDropDown />}
-          size="24px"
-          spacing="none"
-          disabled={disabled}
-        />
+        {!readonly && (
+          <Icon
+            appearance="dark"
+            icon={<MdOutlineArrowDropDown />}
+            size="24px"
+            spacing="none"
+            disabled={disabled}
+          />
+        )}
       </StyledInputContainer>
 
-      {status && (
+      {status && !readonly && (
         <Message disabled={disabled} status={status} message={message} />
       )}
       {displayList && !disabled && (
