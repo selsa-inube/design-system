@@ -15,7 +15,7 @@ Run the following command using **npm**:
 
 ## Storybook
 
-This is the link to the Storybook of the main branch: [Open Storybook](https://6393f17c075e4b182ae41bc5-oywceqdcob.chromatic.com/?path=/story/data-avatar-default--default)
+This is the link to the Storybook of the main branch: [Open Storybook](https://6393f17c075e4b182ae41bc5-osqknpmnay.chromatic.com/?path=/story/data-avatar--default)
 
 ## Issues
 
