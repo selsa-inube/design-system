@@ -115,7 +115,7 @@ const Assisted = (props: IAssistedProps) => {
               />
             )}
           </StyledStepIndicator>
-          <Text type="title" size={measure ? "medium" : "small"}>
+          <Text type="title" size={measure ? "medium" : "small"} ellipsis>
             {currentStep?.label}
           </Text>
           {!measure && (
