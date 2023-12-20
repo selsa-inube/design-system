@@ -8,7 +8,6 @@ interface IStyledNavLinkProps extends INavLinkProps {
 }
 
 const StyledNav = styled.div`
-  height: 100%;
   width: 248px;
   box-sizing: border-box;
   border-right: 1px solid
