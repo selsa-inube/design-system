@@ -19,11 +19,9 @@ const story = {
   argTypes: props,
   decorators: [
     (Story: React.ElementType) => (
-      <div style={{ height: "971px" }}>
-        <BrowserRouter>
-          <Story />
-        </BrowserRouter>
-      </div>
+      <BrowserRouter>
+        <Story />
+      </BrowserRouter>
     ),
   ],
 };

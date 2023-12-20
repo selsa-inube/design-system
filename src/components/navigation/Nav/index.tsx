@@ -57,7 +57,7 @@ const MultiSections = ({ navigation }: Pick<INavProps, "navigation">) => {
   const sections = Object.keys(navigation.sections);
 
   return (
-    <Stack direction="column" gap="26px">
+    <Stack direction="column">
       {sections.map((section) => (
         <Stack
           key={navigation.sections[section].name}
@@ -89,19 +89,8 @@ const OneSection = ({ navigation }: Pick<INavProps, "navigation">) => {
 
   return (
     <Stack direction="column">
-      <Stack key="links" direction="column" justifyContent="center">
-        <Stack direction="column">
-          <Text
-            padding="16px"
-            as="h2"
-            appearance="gray"
-            type="title"
-            size="small"
-          >
-            {navigation.sections[section].name}
-          </Text>
-          <Links section={Object.values(navigation.sections[section].links)} />
-        </Stack>
+      <Stack direction="column" justifyContent="center">
+        <Links section={Object.values(navigation.sections[section].links)} />
       </Stack>
     </Stack>
   );
@@ -112,11 +101,10 @@ const Nav = (props: INavProps) => {
 
   return (
     <StyledNav>
-      <Stack direction="column" justifyContent="space-between" height="100%">
+      <Stack direction="column" justifyContent="space-between" height="100dvh">
         <Stack direction="column">
           <Text
-            padding="0px"
-            margin="32px 16px 16px 16px"
+            padding="32px 16px 16px 16px"
             as="h2"
             appearance="gray"
             type="title"
