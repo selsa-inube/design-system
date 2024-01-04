@@ -1,3 +1,25 @@
+# v5.14.0 (Thu Jan 04 2024)
+
+#### 🚀 Enhancement
+
+- Fix: Correct `<Tabs/>` fix Tab behavior [#644](https://github.com/selsa-inube/design-system/pull/644) ([@Andresbl123](https://github.com/Andresbl123) [@cmarin001](https://github.com/cmarin001))
+
+#### 🐛 Bug Fix
+
+- adjust the layout of the `<Nav />` component [#654](https://github.com/selsa-inube/design-system/pull/654) ([@Andresbl123](https://github.com/Andresbl123))
+- avoid `Onclick` event in disabled in `<Icon />` [#652](https://github.com/selsa-inube/design-system/pull/652) ([@Andresbl123](https://github.com/Andresbl123))
+- update to add ellipsis to title text in `<Assisted />` [#651](https://github.com/selsa-inube/design-system/pull/651) ([@Andresbl123](https://github.com/Andresbl123))
+- set the `readOnly` status to `<Select />`. [#649](https://github.com/selsa-inube/design-system/pull/649) ([@Andresbl123](https://github.com/Andresbl123))
+- Mobile Responsiveness Issue with `<Assisted/>` Component Display [#648](https://github.com/selsa-inube/design-system/pull/648) ([@Andresbl123](https://github.com/Andresbl123))
+- feat(README): update Storybook link in README [#650](https://github.com/selsa-inube/design-system/pull/650) ([@Andresbl123](https://github.com/Andresbl123))
+
+#### Authors: 2
+
+- Andres ([@Andresbl123](https://github.com/Andresbl123))
+- Cesar Marin Alfonso ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v5.13.0 (Tue Dec 12 2023)
 
 #### 🚀 Enhancement
