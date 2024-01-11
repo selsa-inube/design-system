@@ -1,3 +1,19 @@
+# v5.14.1 (Thu Jan 11 2024)
+
+#### 🐛 Bug Fix
+
+- Implement an identifier for `<Select/>` in your event [#660](https://github.com/selsa-inube/design-system/pull/660) ([@Andresbl123](https://github.com/Andresbl123))
+
+#### 📝 Documentation
+
+- Release new version  5.14.0 design system [#658](https://github.com/selsa-inube/design-system/pull/658) ([@Andresbl123](https://github.com/Andresbl123))
+
+#### Authors: 1
+
+- Andres ([@Andresbl123](https://github.com/Andresbl123))
+
+---
+
 # v5.14.0 (Thu Jan 04 2024)
 
 #### 🚀 Enhancement
