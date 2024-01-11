@@ -6,7 +6,7 @@ import { SelectUI } from "./interface";
 
 export interface ISelectProps {
   label?: string;
-  name?: string;
+  name: string;
   id: string;
   placeholder?: string;
   disabled?: boolean;
@@ -18,7 +18,7 @@ export interface ISelectProps {
   size?: Size;
   fullwidth?: boolean;
   options: IOptionItemProps[];
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>, name: string) => void;
   onFocus?: (event: FocusEvent) => void;
   onBlur?: (event: FocusEvent) => void;
   onClick?: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -57,7 +57,6 @@ const Select = (props: ISelectProps) => {
 
   const handleBlur = (e: FocusEvent) => {
     setFocused(false);
-
     onBlur && onBlur(e);
   };
 
@@ -76,14 +75,14 @@ const Select = (props: ISelectProps) => {
   }, [selectRef]);
 
   const onInsideClick = (e: React.ChangeEvent<HTMLInputElement>) => {
-    onChange(e);
+    onChange(e, name);
     setDisplayList(false);
   };
 
   const handleClick = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (readonly) return;
-    setDisplayList(!displayList);
     onClick && onClick(e);
+    setDisplayList(!displayList);
   };
 
   return (
