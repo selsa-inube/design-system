@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { colors } from "@shared/colors/colors";
 import { inube } from "@src/shared/tokens";
 
 const StyledContDropMenu = styled.div`
@@ -18,7 +17,7 @@ const StyledFullscreenNav = styled.nav`
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: ${colors.ref.palette.neutral.n10};
+  background-color: ${inube.color.surface.nav.regular};
   padding: 0px 16px;
   z-index: 2;
   overflow-y: auto;
@@ -30,7 +29,7 @@ const StyledSeparatorLine = styled.div`
   width: calc(100% - 32px);
   margin: 16px 16px 16px;
   height: 1px;
-  background-color: ${colors.ref.palette.neutral.n40};
+  background-color: ${inube.color.stroke.divider.regular};
 `;
 
 const StyledFooter = styled.footer`
