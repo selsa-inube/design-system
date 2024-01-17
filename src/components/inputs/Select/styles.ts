@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import { inube } from "@shared/tokens";
 import { Themed } from "@shared/types/types";
-import { typography } from "@shared/typography/typography";
+//import { typography } from "@shared/typography/typography";
 import { ISelectInterfaceProps } from "./interface";
 
 interface IStyledSelectInterfaceProps extends ISelectInterfaceProps {
@@ -84,11 +84,18 @@ const StyledInput = styled.input`
   border-width: none;
   border-style: none;
   border-color: none;
-  font-family: ${typography.sys.typescale.bodyLarge.font};
-  font-size: ${typography.sys.typescale.bodyLarge.size};
-  font-weight: ${typography.sys.typescale.bodyLarge.weight};
-  line-height: ${typography.sys.typescale.bodyLarge.lineHeight};
-  letter-spacing: ${typography.sys.typescale.bodyLarge.tracking};
+  font-family: ${({ theme }: IStyledSelectInterfaceProps) =>
+    theme?.typography?.body?.large?.font || inube.typography.body.large.font};
+  font-size: ${({ theme }: IStyledSelectInterfaceProps) =>
+    theme?.typography?.body?.large?.font || inube.typography.body.large.size};
+  font-weight: ${({ theme }: IStyledSelectInterfaceProps) =>
+    theme?.typography?.body?.large?.font || inube.typography.body.large.weight};
+  line-height: ${({ theme }: IStyledSelectInterfaceProps) =>
+    theme?.typography?.body?.large?.font ||
+    inube.typography.body.large.lineHeight};
+  letter-spacing: ${({ theme }: IStyledSelectInterfaceProps) =>
+    theme?.typography?.body?.large?.font ||
+    inube.typography.body.large.tracking};
   color: ${({ theme, disabled }: IStyledSelectInterfaceProps) => {
     if (disabled) {
       return (
