@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 import { inube } from "@shared/tokens";
 import { Themed } from "@shared/types/types";
-//import { typography } from "@shared/typography/typography";
 import { ISelectInterfaceProps } from "./interface";
 
 interface IStyledSelectInterfaceProps extends ISelectInterfaceProps {
