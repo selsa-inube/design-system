@@ -1,5 +1,11 @@
+import { inube } from "@src/shared/tokens";
 import styled from "styled-components";
-import { colors } from "@shared/colors/colors";
+
+import { Themed } from "@shared/types/types";
+
+interface IStiledTableProps {
+  theme?: Themed;
+}
 
 const StyledTable = styled.table`
   box-sizing: border-box;
@@ -9,31 +15,46 @@ const StyledTable = styled.table`
 `;
 
 const StyledThead = styled.thead`
-  border-bottom: solid 1px ${colors.ref.palette.neutral.n40};
-  background-color: ${colors.ref.palette.neutral.n0};
+  border-bottom: solid 1px
+    ${({ theme }: IStiledTableProps) =>
+      theme?.color?.stroke?.divider?.regular ||
+      inube.color.stroke.divider.regular};
+  background-color: ${({ theme }: IStiledTableProps) =>
+    theme?.color?.surface?.light?.clear || inube.color.surface.light.clear};
 `;
 
 const StyledTbody = styled.tbody`
-  background-color: ${colors.ref.palette.neutral.n0};
+  background-color: ${({ theme }: IStiledTableProps) =>
+    theme?.color?.surface?.light?.clear || inube.color.surface.light.clear};
 `;
 
 const StyledTr = styled.tr`
-  border-bottom: solid 1px ${colors.ref.palette.neutral.n40};
+  border-bottom: solid 1px
+    ${({ theme }: IStiledTableProps) =>
+      theme?.color?.stroke?.divider?.regular ||
+      inube.color.stroke.divider.regular};
   height: 40px;
 `;
 
 const StyledThTitle = styled.th`
-  padding: 12px 16px;
+  padding: ${({ theme }: IStiledTableProps) =>
+    `${theme?.spacing?.s150} ${theme?.spacing?.s200}` ||
+    `${inube.spacing?.s150} ${inube.spacing.s200}`}; ;
 `;
 
 const StyledThAction = styled.th`
-  background-color: ${colors.ref.palette.neutral.n30};
+  background-color: ${({ theme }: IStiledTableProps) =>
+    theme?.color?.surface?.dark?.clear || inube.color.surface.dark.clear};
   width: 80px;
-  padding: 12px 0px;
+  padding: ${({ theme }: IStiledTableProps) =>
+    `${theme?.spacing?.s150} ${theme?.spacing?.s0}` ||
+    `${inube.spacing.s150} ${inube.spacing.s0}`};
 `;
 
 const StyledTd = styled.td`
-  padding: 0px 16px;
+  padding: ${({ theme }: IStiledTableProps) =>
+    `${theme?.spacing?.s0} ${theme?.spacing?.s200}` ||
+    `${inube.spacing.s0} ${inube.spacing.s200}`};
   text-align: center;
 `;
 
