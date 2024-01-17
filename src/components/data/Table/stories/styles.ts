@@ -1,5 +1,5 @@
+import { inube } from "@src/shared/tokens";
 import styled from "styled-components";
-import { colors } from "@shared/colors/colors";
 
 const StyledContainerActions = styled.div`
   > svg {
@@ -9,7 +9,7 @@ const StyledContainerActions = styled.div`
   }
 
   & :hover {
-    color: ${colors.sys.actions.secondary.filled};
+    color: ${inube.color.stroke.gray.hover};
   }
 `;
 
