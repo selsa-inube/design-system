@@ -1,3 +1,21 @@
+# v5.14.2 (Tue Jan 23 2024)
+
+#### 🐛 Bug Fix
+
+- Ensuring Export of the `<NavLink/>` Component from Design System for Linpar Layout [#667](https://github.com/selsa-inube/design-system/pull/667) ([@Andresbl123](https://github.com/Andresbl123))
+- Add linting script to pre-commit hook and package.json [#665](https://github.com/selsa-inube/design-system/pull/665) ([@Andresbl123](https://github.com/Andresbl123))
+- Delete deprecated typography tokens [#664](https://github.com/selsa-inube/design-system/pull/664) ([@Andresbl123](https://github.com/Andresbl123))
+- Delete color reference and system files [#663](https://github.com/selsa-inube/design-system/pull/663) ([@Andresbl123](https://github.com/Andresbl123))
+- refactor: setting in the justify Content property of the stack has be… [#662](https://github.com/selsa-inube/design-system/pull/662) ([@JanuarAsprilla](https://github.com/JanuarAsprilla))
+- new version 5.14.1 of the design system [#661](https://github.com/selsa-inube/design-system/pull/661) ([@Andresbl123](https://github.com/Andresbl123))
+
+#### Authors: 2
+
+- Andres ([@Andresbl123](https://github.com/Andresbl123))
+- Januar Asprilla  ([@JanuarAsprilla](https://github.com/JanuarAsprilla))
+
+---
+
 # v5.14.1 (Thu Jan 11 2024)
 
 #### 🐛 Bug Fix
