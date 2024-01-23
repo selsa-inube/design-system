@@ -34,6 +34,7 @@ export { Grid } from "@layouts/Grid";
 export { Breadcrumbs } from "@navigation/Breadcrumbs";
 export { Header } from "@navigation/Header";
 export { Nav } from "@navigation/Nav";
+export { NavLink } from "@navigation/NavLink";
 export { Tabs } from "@navigation/Tabs";
 
 // utils
