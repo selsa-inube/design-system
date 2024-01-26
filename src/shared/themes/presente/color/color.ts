@@ -5,9 +5,9 @@ import { palette } from "./palette/palette";
 
 const color = {
   palette,
+  text,
   stroke,
   surface,
-  text,
 };
 
 export { color };

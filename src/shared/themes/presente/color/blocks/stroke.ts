@@ -2,14 +2,14 @@ import { palette } from "../palette/palette";
 
 const stroke = {
   primary: {
-    regular: palette.yellow.Y400,
-    hover: palette.yellow.Y300,
-    focus: palette.yellow.Y300,
+    regular: palette.blue.B400,
+    hover: palette.blue.B300,
+    focus: palette.blue.B300,
     disabled: palette.neutral.N70,
   },
   error: {
     regular: palette.red.R400,
-    hover: palette.red.R300,
+    hover: palette.blue.B300,
     disabled: palette.neutral.N70,
   },
   warning: {
@@ -32,7 +32,7 @@ const stroke = {
     hover: palette.purple.P300,
     disabled: palette.neutral.N70,
   },
-  table: {
+  divider: {
     regular: palette.neutral.N40,
   },
   spinner: {
@@ -52,7 +52,7 @@ const stroke = {
   light: {
     regular: palette.neutral.N10,
     hover: palette.neutral.N0,
-    disabled: palette.neutral.N60,
+    disabled: palette.neutral.N70,
   },
   link: {
     regular: palette.blue.B400,
