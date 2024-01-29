@@ -2,8 +2,8 @@ import { palette } from "../palette/palette";
 
 const text = {
   primary: {
-    regular: palette.blue.B400,
-    hover: palette.blue.B300,
+    regular: palette.yellow.Y400,
+    hover: palette.yellow.Y300,
     disabled: palette.neutral.N70,
   },
   error: {

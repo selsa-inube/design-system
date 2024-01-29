@@ -2,9 +2,9 @@ import { palette } from "../palette/palette";
 
 const surface = {
   primary: {
-    regular: palette.blue.B400,
-    hover: palette.blue.B300,
-    clear: palette.blue.B50,
+    regular: palette.yellow.Y400,
+    hover: palette.yellow.Y300,
+    clear: palette.yellow.Y50,
     disabled: palette.neutral.N20,
   },
   error: {
