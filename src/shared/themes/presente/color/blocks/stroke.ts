@@ -9,7 +9,7 @@ const stroke = {
   },
   error: {
     regular: palette.red.R400,
-    hover: palette.blue.B300,
+    hover: palette.red.R300,
     disabled: palette.neutral.N70,
   },
   warning: {
@@ -32,7 +32,7 @@ const stroke = {
     hover: palette.purple.P300,
     disabled: palette.neutral.N70,
   },
-  table: {
+  divider: {
     regular: palette.neutral.N40,
   },
   spinner: {
