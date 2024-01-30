@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes, css } from "styled-components";
 import { ISkeletonLineProps } from "./index";
 import { inube } from "@shared/tokens";
 import { Themed } from "@shared/types/types";
@@ -18,37 +18,39 @@ const shimmer = keyframes`
 
 const StyledSkeletonLine = styled.div`
   position: relative;
-  background: ${({ theme }: IStyledSkeletonLineProps) => {
-    return theme?.color?.surface?.gray?.clear || inube.color.surface.gray.clear;
-  }};
-  height: 16px;
-  width: ${({ width }: IStyledSkeletonLineProps) => width};
   border-radius: 6px;
   overflow: hidden;
+  height: 16px;
+  width: ${({ width }: IStyledSkeletonLineProps) => width};
+  background: ${({ theme }: IStyledSkeletonLineProps) => {
+    return theme?.color?.surface?.dark?.clear || inube.color.surface.dark.clear;
+  }};
 
-  &::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background: linear-gradient(
+  ${({ animated }: IStyledSkeletonLineProps) =>
+    animated &&
+    css`
+      &::after {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: ${({ theme }: IStyledSkeletonLineProps) => `linear-gradient(
       100deg,
-      ${({ theme }: IStyledSkeletonLineProps) =>
-          theme?.color?.surface?.gray?.clear || inube.color.surface.gray.clear}
-        20%,
-      ${({ theme }: IStyledSkeletonLineProps) =>
-          theme?.color?.surface?.dark?.clear || inube.color.surface.dark.clear}
-        50%,
-      ${({ theme }: IStyledSkeletonLineProps) =>
-          theme?.color?.surface?.gray?.clear || inube.color.surface.gray.clear}
-        80%
-    );
-    animation: ${({ animated }: IStyledSkeletonLineProps) =>
-        animated && shimmer}
-      2s linear infinite;
-  }
+      ${
+        theme?.color?.surface?.dark?.clear || inube.color.surface.dark.clear
+      } 20%,
+      ${
+        theme?.color?.surface?.gray?.clear || inube.color.surface.gray.clear
+      } 50%,
+      ${
+        theme?.color?.surface?.dark?.clear || inube.color.surface.dark.clear
+      } 80%
+    );`};
+        animation: ${({ animated }: IStyledSkeletonLineProps) =>
+            animated && shimmer}
+          2s linear infinite;
+      }
+    `}
 `;
 
 export { StyledSkeletonLine };
