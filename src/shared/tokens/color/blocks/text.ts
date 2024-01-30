@@ -38,7 +38,7 @@ const text = {
   },
   gray: {
     regular: palette.neutral.N300,
-    hover: palette.neutral.N200,
+    hover: palette.neutral.N100,
     disabled: palette.neutral.N70,
   },
   light: {

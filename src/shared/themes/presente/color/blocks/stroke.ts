@@ -32,7 +32,7 @@ const stroke = {
     hover: palette.purple.P300,
     disabled: palette.neutral.N70,
   },
-  table: {
+  divider: {
     regular: palette.neutral.N40,
   },
   spinner: {
@@ -52,7 +52,7 @@ const stroke = {
   light: {
     regular: palette.neutral.N10,
     hover: palette.neutral.N0,
-    disabled: palette.neutral.N60,
+    disabled: palette.neutral.N70,
   },
   link: {
     regular: palette.blue.B400,
