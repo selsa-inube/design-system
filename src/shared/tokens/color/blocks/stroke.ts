@@ -7,6 +7,7 @@ const stroke = {
     focus: palette.blue.B300,
     disabled: palette.neutral.N70,
   },
+
   error: {
     regular: palette.red.R400,
     hover: palette.red.R300,
