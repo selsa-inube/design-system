@@ -1,9 +1,8 @@
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes, css } from "styled-components";
 
 import { ISkeletonIconProps } from "./index";
 import { inube } from "@shared/tokens";
 import { Themed } from "@shared/types/types";
-import { css } from "styled-components";
 
 interface IStyledSkeletonIconProps extends ISkeletonIconProps {
   theme?: Themed;
