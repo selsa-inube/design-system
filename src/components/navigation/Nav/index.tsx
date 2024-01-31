@@ -34,6 +34,8 @@ export interface INavProps {
   logoutTitle: string;
 }
 
+const year = new Date().getFullYear();
+
 const Links = (props: INavLinkProps) => {
   const { section } = props;
 
@@ -128,7 +130,7 @@ const Nav = (props: INavProps) => {
         <StyledFooter>
           <Stack justifyContent="center">
             <Text type="label" size="medium" appearance="gray" padding="24px">
-              ©2023 - Inube
+              {year} - Inube
             </Text>
           </Stack>
         </StyledFooter>
