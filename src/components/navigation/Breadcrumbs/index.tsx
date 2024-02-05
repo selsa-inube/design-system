@@ -47,12 +47,13 @@ const Breadcrumbs = (props: IBreadcrumbsProps) => {
 
   return (
     <StyledBreadcrumbs>
-      {crumbs.map(({ path, label }) => (
+      {crumbs.map(({ path, label }, index) => (
         <BreadcrumbLink
           key={path}
           path={path}
           id={path}
           label={capitalizeString(label)}
+          appearance={index === crumbs.length - 1 ? "dark" : "gray"}
         />
       ))}
     </StyledBreadcrumbs>
