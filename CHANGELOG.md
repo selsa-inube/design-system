@@ -1,3 +1,21 @@
+# v5.14.3 (Mon Feb 05 2024)
+
+#### 🐛 Bug Fix
+
+- Enhancement of `<Nav/>` Component for Background Color Compatibility [#675](https://github.com/selsa-inube/design-system/pull/675) ([@Andresbl123](https://github.com/Andresbl123))
+- Inconsistent `<BreadcrumbLink/>` Appearance Based on Condition Fulfillment [#674](https://github.com/selsa-inube/design-system/pull/674) ([@Andresbl123](https://github.com/Andresbl123))
+- Update copyright year in `<Nav />` component [#673](https://github.com/selsa-inube/design-system/pull/673) ([@Andresbl123](https://github.com/Andresbl123))
+- Consistency Check: Aligning Palette Token Values with Figma Design Specifications" [#672](https://github.com/selsa-inube/design-system/pull/672) ([@JanuarAsprilla](https://github.com/JanuarAsprilla))
+- `<SkeletonLine>` & `<SkeletonIcon>` components do not paint all color when not animated [#671](https://github.com/selsa-inube/design-system/pull/671) ([@Andresbl123](https://github.com/Andresbl123))
+- Publish new version `v5.14.2` of design system [#668](https://github.com/selsa-inube/design-system/pull/668) ([@Andresbl123](https://github.com/Andresbl123))
+
+#### Authors: 2
+
+- Andres ([@Andresbl123](https://github.com/Andresbl123))
+- Januar Asprilla  ([@JanuarAsprilla](https://github.com/JanuarAsprilla))
+
+---
+
 # v5.14.2 (Tue Jan 23 2024)
 
 #### 🐛 Bug Fix
